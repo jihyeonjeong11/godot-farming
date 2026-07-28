@@ -1,0 +1,62 @@
+[gd_resource type="TileSet" format=3 uid="uid://bfjfke80cfmmc"]
+
+[ext_resource type="Texture2D" uid="uid://uol45vvi30h6" path="res://assets/post_apocalypse/Tiles/Buildings/Buildings_beige_TileSet.png" id="1_tdm17"]
+[ext_resource type="Texture2D" uid="uid://c7pdmwuof4t0l" path="res://assets/post_apocalypse/Objects/Refrigerator.png" id="2_ara4b"]
+[ext_resource type="Texture2D" uid="uid://d2fge5rwshx15" path="res://assets/post_apocalypse/Objects/Bench_1_down.png" id="3_eacdb"]
+[ext_resource type="Texture2D" uid="uid://pop5qsdnkg6l" path="res://assets/post_apocalypse/Objects/Container/Container_1_Gray_Vertical.png" id="4_xecul"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k42tw"]
+texture = ExtResource("1_tdm17")
+1:1/0 = 0
+1:2/0 = 0
+1:3/0 = 0
+1:4/0 = 0
+2:1/0 = 0
+2:2/0 = 0
+2:3/0 = 0
+2:4/0 = 0
+6:1/0 = 0
+7:4/0 = 0
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -2.5, -8, -2.5, 8, -8, 8)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, -2.5, 8, -2, 0.5, 8, 0, 8, -8)
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 1, 8, 1, 8, -8)
+8:0/0 = 0
+8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0, -8, -8, 8, -8, 8, 8, 2.5, 8, 2.5, 0.5, -8, 0)
+8:1/0 = 0
+8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(2.5, -8, 2.5, 8, 8, 8, 8, -8)
+8:2/0 = 0
+8:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -1.5, -8, 8, 8, 8, 8, -8, 2.5, -8, 2.5, 0, -8, -1)
+7:2/0 = 0
+7:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 5, -8, 8, 8, 8, 8, -0.5, -8, -0.5)
+5:2/0 = 0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -0.5, -2.5, -0.5, -2.5, -8, -8, -8, -8, 4.5, -8, 8)
+6:2/0 = 0
+6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -0.5, -8, 8, 8, 8, 8, -0.5)
+7:0/0 = 0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 1, 8, 1, 8, -8, -8, -8)
+3:3/0 = 0
+4:2/0 = 0
+4:1/0 = 0
+7:5/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pclcf"]
+texture = ExtResource("2_ara4b")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8m71b"]
+texture = ExtResource("3_eacdb")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pjkri"]
+texture = ExtResource("4_xecul")
+0:0/0 = 0
+0:1/0 = 0
+
+[resource]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_k42tw")
+sources/1 = SubResource("TileSetAtlasSource_pclcf")
+sources/2 = SubResource("TileSetAtlasSource_8m71b")
+sources/3 = SubResource("TileSetAtlasSource_pjkri")

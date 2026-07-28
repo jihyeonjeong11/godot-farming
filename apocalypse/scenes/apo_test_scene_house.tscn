@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dch3hle4jx0fx"]
+
+[ext_resource type="PackedScene" uid="uid://ddjy2t406tana" path="res://apocalypse/scenes/houses/ApoMainHouse.tscn" id="1_1isea"]
+[ext_resource type="PackedScene" uid="uid://cv3s4ie450sup" path="res://apocalypse/scenes/characters/player/player.tscn" id="2_sbhme"]
+
+[node name="ApoTestHouse" type="Node2D" unique_id=1411923013]
+position = Vector2(97, 255)
+
+[node name="ApoMainHouse" parent="." unique_id=322624363 instance=ExtResource("1_1isea")]
+
+[node name="Player" parent="." unique_id=940443478 instance=ExtResource("2_sbhme")]
+position = Vector2(191, -47)

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c7pdmwuof4t0l" path="res://assets/post_apocalypse/Objects/Refrigerator.png" id="2_ara4b"]
 [ext_resource type="Texture2D" uid="uid://d2fge5rwshx15" path="res://assets/post_apocalypse/Objects/Bench_1_down.png" id="3_eacdb"]
 [ext_resource type="Texture2D" uid="uid://pop5qsdnkg6l" path="res://assets/post_apocalypse/Objects/Container/Container_1_Gray_Vertical.png" id="4_xecul"]
+[ext_resource type="Texture2D" uid="uid://cyvecn8rkybne" path="res://assets/post_apocalypse/Tiles/Buildings/Buildings_gray_TileSet.png" id="5_eacdb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k42tw"]
 texture = ExtResource("1_tdm17")
@@ -54,9 +55,52 @@ texture = ExtResource("4_xecul")
 0:0/0 = 0
 0:1/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xecul"]
+texture = ExtResource("5_eacdb")
+6:0/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+8:1/0 = 0
+8:0/0 = 0
+7:0/0 = 0
+6:2/0 = 0
+5:2/0 = 0
+5:1/0 = 0
+5:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+10:1/0 = 0
+9:1/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+4:2/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+5:4/0 = 0
+4:4/0 = 0
+6:3/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+9:3/0 = 0
+8:3/0 = 0
+7:3/0 = 0
+9:5/0 = 0
+8:5/0 = 0
+7:5/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+12:0/0 = 0
+11:0/0 = 0
+
 [resource]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_k42tw")
 sources/1 = SubResource("TileSetAtlasSource_pclcf")
 sources/2 = SubResource("TileSetAtlasSource_8m71b")
 sources/3 = SubResource("TileSetAtlasSource_pjkri")
+sources/4 = SubResource("TileSetAtlasSource_xecul")

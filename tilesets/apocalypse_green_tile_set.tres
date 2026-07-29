@@ -1,14 +1,9 @@
-[gd_resource type="TileSet" format=3 uid="uid://dcq54frn85y6v"]
+[gd_resource type="TileSet" format=3 uid="uid://bg7n2qxwlk4ay"]
 
-[ext_resource type="Texture2D" uid="uid://dpoh4b3phcc72" path="res://assets/post_apocalypse/Tiles/Background_Bleak-Yellow_TileSet.png" id="1_jfd57"]
-[ext_resource type="Texture2D" uid="uid://q3lj38dps36l" path="res://assets/post_apocalypse/Objects/Garbage-Bin_2.png" id="2_ugfrm"]
-[ext_resource type="Texture2D" uid="uid://bb3db23ssl81y" path="res://assets/post_apocalypse/Objects/Street-Light_1_Side.png" id="3_k4vir"]
-[ext_resource type="Texture2D" uid="uid://ddpvefpnuo760" path="res://assets/post_apocalypse/Objects/Nature/Green/Tree_1_Spruce_Green.png" id="4_rgab8"]
-[ext_resource type="Texture2D" uid="uid://wacspr67cr3n" path="res://assets/post_apocalypse/Objects/Nature/Green/Tree-trunk_2_grass_Green.png" id="5_6n3bw"]
-[ext_resource type="Texture2D" uid="uid://brg4dadf3kj8j" path="res://assets/post_apocalypse/Objects/Nature/Green/Grass_5_Green.png" id="6_tlb4r"]
-[ext_resource type="Texture2D" uid="uid://cj03g78c283cx" path="res://assets/post_apocalypse/Objects/Nature/Bleak-Yellow/Grass_5_Bleak-Yellow.png" id="7_tlb4r"]
+[ext_resource type="Texture2D" uid="uid://b2dlc2rproibi" path="res://assets/post_apocalypse/Tiles/Background_Green_TileSet.png" id="1_jfd57"]
+[ext_resource type="Texture2D" uid="uid://feu5lr0yrlh3" path="res://assets/post_apocalypse/Objects/Traffic-cone.png" id="2_0yjrh"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ugfrm"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_grn01"]
 texture = ExtResource("1_jfd57")
 1:1/0 = 0
 1:1/0/terrain_set = 0
@@ -749,57 +744,19 @@ texture = ExtResource("1_jfd57")
 17:11/0 = 0
 16:11/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k4vir"]
-texture = ExtResource("2_ugfrm")
-texture_region_size = Vector2i(27, 20)
-0:0/next_alternative_id = 2
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-13.5, -9.5, -13.5, 10, 13, 9, 12.5, 10.5, 13, -9.5)
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rgab8"]
-texture = ExtResource("3_k4vir")
-texture_region_size = Vector2i(23, 19)
-0:0/size_in_atlas = Vector2i(1, 2)
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-11.5, 7.5, -6, 8, -6, 17, -11, 17)
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kwnpj"]
-texture = ExtResource("4_rgab8")
-texture_region_size = Vector2i(16, 29)
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-7.5, 14.5, -8, 8, 8, 8, 7.5, 14.5)
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3pqg7"]
-texture = ExtResource("5_6n3bw")
-texture_region_size = Vector2i(32, 12)
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16.5, -6, -16.5, 6, 16, 6, 16, -6)
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4gtdd"]
-texture = ExtResource("6_tlb4r")
-texture_region_size = Vector2i(16, 14)
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p75wl"]
-texture = ExtResource("7_tlb4r")
-texture_region_size = Vector2i(16, 14)
-0:0/0 = 0
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y6bie"]
+texture = ExtResource("2_0yjrh")
 
 [resource]
 physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
-terrain_set_0/terrain_0/name = "Dirt"
-terrain_set_0/terrain_0/color = Color(0.72, 0.5, 0.28, 1)
-terrain_set_0/terrain_1/name = "Grass"
-terrain_set_0/terrain_1/color = Color(0.35, 0.75, 0.35, 1)
-terrain_set_0/terrain_2/name = "Dark Dirt"
-terrain_set_0/terrain_2/color = Color(0.5, 0.22, 0.22, 1)
+terrain_set_0/terrain_0/name = "Grass"
+terrain_set_0/terrain_0/color = Color(0.35, 0.75, 0.35, 1)
+terrain_set_0/terrain_1/name = "Dirt Path"
+terrain_set_0/terrain_1/color = Color(0.72, 0.5, 0.28, 1)
+terrain_set_0/terrain_2/name = "Dark Grass"
+terrain_set_0/terrain_2/color = Color(0.16, 0.45, 0.2, 1)
 terrain_set_0/terrain_3/name = "Road"
 terrain_set_0/terrain_3/color = Color(0.35, 0.5, 0.85, 1)
-sources/0 = SubResource("TileSetAtlasSource_ugfrm")
-sources/1 = SubResource("TileSetAtlasSource_k4vir")
-sources/2 = SubResource("TileSetAtlasSource_rgab8")
-sources/3 = SubResource("TileSetAtlasSource_kwnpj")
-sources/6 = SubResource("TileSetAtlasSource_3pqg7")
-sources/7 = SubResource("TileSetAtlasSource_4gtdd")
-sources/9 = SubResource("TileSetAtlasSource_p75wl")
+sources/0 = SubResource("TileSetAtlasSource_grn01")
+sources/1 = SubResource("TileSetAtlasSource_y6bie")

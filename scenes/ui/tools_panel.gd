@@ -8,18 +8,23 @@ extends PanelContainer
 
 func _on_tool_axe_pressed() -> void:
 	ToolManager.select_tool(DataTypes.Tools.AxeWood)
+	tool_axe.grab_focus()
 
 func _on_tool_hoe_pressed() -> void:
 	ToolManager.select_tool(DataTypes.Tools.TillGround)
+	tool_hoe.grab_focus()
 
 func _on_tool_watering_can_pressed() -> void:
 	ToolManager.select_tool(DataTypes.Tools.WaterCrops)
+	tool_watering_can.grab_focus()
 
 func _on_tool_corn_pressed() -> void:
 	ToolManager.select_tool(DataTypes.Tools.PlantCorn)
+	tool_corn.grab_focus()
 
 func _on_tool_tomato_pressed() -> void:
 	ToolManager.select_tool(DataTypes.Tools.PlantParsnip)
+	tool_tomato.grab_focus()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:

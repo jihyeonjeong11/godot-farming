@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://d384q4vj3r24y"]
+
+[ext_resource type="Theme" uid="uid://bkny51ahdetw" path="res://apocalypse/scenes/ui/apo_game_theme.tres" id="1_yr267"]
+
+[node name="PanelContainer" type="PanelContainer" unique_id=1835850560]
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("1_yr267")
+theme_type_variation = &"ApoTheme"
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1545478950]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=374332161]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer" unique_id=1974561780]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2

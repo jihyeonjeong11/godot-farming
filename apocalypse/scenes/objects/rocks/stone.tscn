@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://d0gimcauu1toq"]
+
+[ext_resource type="PackedScene" uid="uid://ctp4naj2hxw80" path="res://apocalypse/scenes/components/collectable_component.tscn" id="1_8orss"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_64ktg"]
+radius = 8.0
+
+[node name="Stone" type="Sprite2D" unique_id=841055070]
+
+[node name="CollectableComponent" parent="." unique_id=1149376405 instance=ExtResource("1_8orss")]
+collectable_name = "stone"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent" unique_id=2138219417]
+shape = SubResource("CircleShape2D_64ktg")
+debug_color = Color(0.35016045, 0.61620694, 0.1935752, 0.41960785)

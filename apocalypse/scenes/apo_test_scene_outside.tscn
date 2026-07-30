@@ -4,10 +4,13 @@
 [ext_resource type="TileSet" uid="uid://dcq54frn85y6v" path="res://tilesets/apocalypse_tile_set.tres" id="2_1n7w3"]
 [ext_resource type="PackedScene" uid="uid://cv3s4ie450sup" path="res://apocalypse/scenes/characters/player/player.tscn" id="2_2ispr"]
 [ext_resource type="TileSet" uid="uid://bfjfke80cfmmc" path="res://apocalypse/tilesets/house_tile_set.tres" id="3_ioctm"]
+[ext_resource type="PackedScene" uid="uid://bws7j5ufw4eeg" path="res://apocalypse/scenes/characters/enemy/small_zombie.tscn" id="5_l6opd"]
 
 [node name="ApoTestSceneOutside" type="Node2D" unique_id=695838568]
+y_sort_enabled = true
 
 [node name="GameTileMap" type="TileMapLayer" parent="." unique_id=1111176685]
+y_sort_enabled = true
 tile_set = ExtResource("1_824jl")
 
 [node name="Floors" type="TileMapLayer" parent="GameTileMap" unique_id=1409186220]
@@ -16,11 +19,13 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAFAAAAAAAAAAEAAAAFAAAAAAAAAAIAAAAFAAA
 tile_set = ExtResource("1_824jl")
 
 [node name="Objects" type="TileMapLayer" parent="GameTileMap" unique_id=2057734294]
+y_sort_enabled = true
 position = Vector2(8, 8)
-tile_map_data = PackedByteArray("AAABAAoAAQAAAAAAAAAlAAoAAQAAAAAAAAAlABEAAQAAAAAAAAABABEAAQAAAAAAAAAQAAEAAgAAAAAAAAAQAAYAAgAAAAAAAAAHAAkAAgAAAAAAAAAMAAkAAgAAAAAAAAAcAAcAAwAAAAAAAAAHABIAAwAAAAAAAAAdABMAAwAAAAAAAAABAAUABwAAAAAAAAADAAkABwAAAAAAAAAGAAYACQAAAAAAAAACAAIACQAAAAAAAAACAAcABgAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAABAAoAAQAAAAAAAAAlAAoAAQAAAAAAAAAlABEAAQAAAAAAAAABABEAAQAAAAAAAAAQAAEAAgAAAAAAAAAQAAYAAgAAAAAAAAAHAAkAAgAAAAAAAAAMAAkAAgAAAAAAAAAcAAcAAwAAAAAAAAAHABIAAwAAAAAAAAAdABMAAwAAAAAAAAABAAUABwAAAAAAAAADAAkABwAAAAAAAAAGAAYACQAAAAAAAAACAAIACQAAAAAAAAACAAcABgAAAAAAAAAMABMABAAAAAAAAQAXABIABAAAAAAAAgAXABQABAAAAAAAAgAbABEABAAAAAAAAgA=")
 tile_set = ExtResource("2_1n7w3")
 
 [node name="Buildings" type="TileMapLayer" parent="GameTileMap" unique_id=1074521632]
+y_sort_enabled = true
 tile_map_data = PackedByteArray("AAAJAAMABAAJAAAAAAAJAAQABAAJAAEAAAAKAAMABAAKAAAAAAAKAAQABAAKAAEAAAALAAMABAALAAAAAAALAAQABAALAAEAAAAMAAMABAAMAAAAAAAMAAQABAAMAAEAAAAJAAIABAAEAAMAAAAKAAIABAAHAAMAAAALAAIABAAIAAMAAAAMAAIABAAJAAMAAAAJAP//BAAFAAAAAAAJAAAABAAFAAEAAAAJAAEABAAFAAIAAAAKAP//BAAGAAAAAAAKAAAABAAGAAEAAAAKAAEABAAGAAIAAAALAP//BAAHAAAAAAALAAAABAAGAAEAAAALAAEABAAHAAIAAAAMAP//BAAIAAAAAAAMAAAABAAIAAEAAAAMAAEABAAIAAIAAAA=")
 tile_set = ExtResource("3_ioctm")
 
@@ -28,3 +33,6 @@ tile_set = ExtResource("3_ioctm")
 position = Vector2(148, 191)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1050224738]
+
+[node name="SmallZombie" parent="." unique_id=1619301887 instance=ExtResource("5_l6opd")]
+position = Vector2(377, 165)

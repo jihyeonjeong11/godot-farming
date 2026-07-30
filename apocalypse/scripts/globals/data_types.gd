@@ -2,9 +2,5 @@ class_name ApoDataTypes
 
 enum Tools {
 	None,
-	AxeWood,
-	TillGround,
-	WaterCrops,
-	PlantCorn,
-	PlantParsnip
+	Bat_Melee
 }

@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://bws7j5ufw4eeg"]
+
+[ext_resource type="Texture2D" uid="uid://oj8rjjfen4pm" path="res://assets/post_apocalypse/Enemies/Zombie_Small/Zombie_Small_Down_First-Attack-Sheet4.png" id="1_heqe7"]
+[ext_resource type="Script" uid="uid://bbav2mkxq7ted" path="res://apocalypse/scenes/characters/enemy/small_zombie.gd" id="2_szmb1"]
+[ext_resource type="PackedScene" uid="uid://bwn5t2ejgp0hr" path="res://apocalypse/scenes/components/hurt_component.tscn" id="3_hrt01"]
+[ext_resource type="PackedScene" uid="uid://dk3jgaxq07bts" path="res://apocalypse/scenes/components/damage_component.tscn" id="4_dmg01"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahmum"]
+atlas = ExtResource("1_heqe7")
+region = Rect2(0, 0, 13, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f24t3"]
+atlas = ExtResource("1_heqe7")
+region = Rect2(13, 0, 13, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pd4qx"]
+atlas = ExtResource("1_heqe7")
+region = Rect2(26, 0, 13, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sfo24"]
+atlas = ExtResource("1_heqe7")
+region = Rect2(39, 0, 13, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4kxuq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ahmum")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f24t3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pd4qx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sfo24")
+}],
+"loop": 1,
+"name": &"idle_down",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mti6b"]
+radius = 5.0990195
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4kxuq"]
+radius = 5.0
+
+[node name="SmallZombie" type="CharacterBody2D" unique_id=1619301887]
+collision_layer = 64
+collision_mask = 3
+script = ExtResource("2_szmb1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=258911250]
+sprite_frames = SubResource("SpriteFrames_4kxuq")
+animation = &"idle_down"
+autoplay = "idle_down"
+frame_progress = 0.0018953691
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=642710402]
+shape = SubResource("CircleShape2D_mti6b")
+
+[node name="HurtComponent" parent="." unique_id=1766220183 instance=ExtResource("3_hrt01")]
+tool = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent" unique_id=566285358]
+shape = SubResource("CircleShape2D_4kxuq")
+debug_color = Color(0.65893734, 0.5122168, 0.1647709, 0.41960785)
+
+[node name="DamageComponent" parent="." unique_id=367003998 instance=ExtResource("4_dmg01")]
+max_damage = 3

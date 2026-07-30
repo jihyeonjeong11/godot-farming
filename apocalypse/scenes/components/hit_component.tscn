@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://0pe6fvow1o6b"]
+
+[ext_resource type="Script" uid="uid://bgmhio0plijlc" path="res://apocalypse/scenes/components/hit_component.gd" id="1_vxmma"]
+
+[node name="HitComponent" type="Area2D" unique_id=1946219791]
+collision_layer = 8
+collision_mask = 16
+script = ExtResource("1_vxmma")

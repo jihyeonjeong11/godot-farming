@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bssiydf5x86ti"]
+
+[ext_resource type="Texture2D" uid="uid://g8f7w30c77by" path="res://assets/post_apocalypse/Objects/Nature/Flowers_Mashrooms_Other-nature-stuff/Stick.png" id="1_log01"]
+[ext_resource type="PackedScene" uid="uid://ctp4naj2hxw80" path="res://apocalypse/scenes/components/collectable_component.tscn" id="2_col01"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_log01"]
+atlas = ExtResource("1_log01")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_log01"]
+radius = 8.0
+
+[node name="Log" type="Sprite2D" unique_id=374303238]
+texture = SubResource("AtlasTexture_log01")
+
+[node name="CollectableComponent" parent="." unique_id=1149376405 instance=ExtResource("2_col01")]
+collectable_name = "log"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent" unique_id=1282273975]
+shape = SubResource("CircleShape2D_log01")
+debug_color = Color(0.35016045, 0.61620694, 0.1935752, 0.41960785)

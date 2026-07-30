@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://c4xghignasnpy"]
+
+[ext_resource type="Texture2D" uid="uid://ddkd6i8mtwy5y" path="res://assets/post_apocalypse/Objects/Nature/Green/Tree_3_Normal_Green.png" id="1_74yud"]
+[ext_resource type="Shader" uid="uid://dn6q4tvxb8jke" path="res://apocalypse/scenes/objects/trees/tree_shake.gdshader" id="1_shk01"]
+[ext_resource type="Script" uid="uid://c6bb7potuk6ff" path="res://apocalypse/scenes/objects/trees/small_tree.gd" id="2_ulr35"]
+[ext_resource type="PackedScene" uid="uid://bwn5t2ejgp0hr" path="res://apocalypse/scenes/components/hurt_component.tscn" id="3_hrt01"]
+[ext_resource type="PackedScene" uid="uid://dk3jgaxq07bts" path="res://apocalypse/scenes/components/damage_component.tscn" id="4_dmg01"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_shk01"]
+resource_local_to_scene = true
+shader = ExtResource("1_shk01")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xv1n"]
+atlas = ExtResource("1_74yud")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4kxuq"]
+radius = 4.1231055
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hrt01"]
+size = Vector2(16, 26)
+
+[node name="SmallTree" type="Sprite2D" unique_id=495184973]
+material = SubResource("ShaderMaterial_shk01")
+texture = SubResource("AtlasTexture_2xv1n")
+script = ExtResource("2_ulr35")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=372018802]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1511329243]
+position = Vector2(0, 11)
+shape = SubResource("CircleShape2D_4kxuq")
+
+[node name="HurtComponent" parent="." unique_id=1533014795 instance=ExtResource("3_hrt01")]
+tool = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent" unique_id=1793199480]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_hrt01")
+debug_color = Color(0.8463241, 0.34185705, 0.42788085, 0.41960785)
+
+[node name="DamageComponent" parent="." unique_id=367003997 instance=ExtResource("4_dmg01")]
+max_damage = 3

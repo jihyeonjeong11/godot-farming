@@ -15,10 +15,11 @@
 [ext_resource type="Script" uid="uid://bn4tsq7hjm2xd" path="res://apocalypse/scripts/idle_state.gd" id="10_w3tc7"]
 [ext_resource type="Texture2D" uid="uid://dmx4mglnnruu5" path="res://assets/post_apocalypse/character/Bat/Bat_up_idle-and-run-Sheet6.png" id="10_wapu2"]
 [ext_resource type="Script" uid="uid://cx8mprj5vt3ka" path="res://apocalypse/scripts/walk_state.gd" id="11_kyjea"]
-[ext_resource type="Script" uid="uid://bysnlxsrfjc0b" path="res://apocalypse/scripts/bat_state.gd" id="13_batst"]
 [ext_resource type="Texture2D" uid="uid://cgiv2ddcug2o1" path="res://assets/post_apocalypse/character/Bat/Bat_down_attack-Sheet4.png" id="11_vh6n7"]
 [ext_resource type="Texture2D" uid="uid://c8xjhj7m4ndek" path="res://assets/post_apocalypse/character/Bat/Bat_side_attack-Sheet4.png" id="12_dvd03"]
 [ext_resource type="Texture2D" uid="uid://cd2slytsv65a4" path="res://assets/post_apocalypse/character/Bat/Bat_side_idle-and-run-Sheet6.png" id="12_w3tc7"]
+[ext_resource type="Script" uid="uid://bysnlxsrfjc0b" path="res://apocalypse/scripts/bat_state.gd" id="13_batst"]
+[ext_resource type="PackedScene" uid="uid://0pe6fvow1o6b" path="res://apocalypse/scenes/components/hit_component.tscn" id="20_65hax"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lklrt"]
 atlas = ExtResource("1_atd1v")
@@ -725,9 +726,14 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
 radius = 6.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_mti6b"]
+radius = 2.0
+
 [node name="Player" type="CharacterBody2D" unique_id=940443478]
+y_sort_enabled = true
+collision_layer = 2
+collision_mask = 65
 script = ExtResource("1_bsy1i")
-current_tool = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=215644664]
 sprite_frames = SubResource("SpriteFrames_g4v7s")
@@ -752,14 +758,24 @@ player = NodePath("../..")
 animated_sprite_2d = NodePath("../../AnimatedSprite2D")
 equipment_sprite_2d = NodePath("../../Equipments")
 
-[node name="Walk" type="Node" parent="StateMachine" unique_id=301162134 node_paths=PackedStringArray("player", "animated_sprite_2d", "equipment_sprite_2d")]
+[node name="Walk" type="Node" parent="StateMachine" unique_id=301162134 node_paths=PackedStringArray("player", "animated_sprite_2d", "equipment_sprite_2d", "hit_component_collision_shape")]
 script = ExtResource("11_kyjea")
 player = NodePath("../..")
 animated_sprite_2d = NodePath("../../AnimatedSprite2D")
 equipment_sprite_2d = NodePath("../../Equipments")
+hit_component_collision_shape = NodePath("../../HitComponent/HitComponentShape2D")
 
-[node name="Attack" type="Node" parent="StateMachine" unique_id=1877420513 node_paths=PackedStringArray("player", "animated_sprite_2d", "equipment_sprite_2d")]
+[node name="Attack" type="Node" parent="StateMachine" unique_id=1877420513 node_paths=PackedStringArray("player", "animated_sprite_2d", "equipment_sprite_2d", "hit_component_collision_shape")]
 script = ExtResource("13_batst")
 player = NodePath("../..")
 animated_sprite_2d = NodePath("../../AnimatedSprite2D")
 equipment_sprite_2d = NodePath("../../Equipments")
+hit_component_collision_shape = NodePath("../../HitComponent/HitComponentShape2D")
+
+[node name="HitComponent" parent="." unique_id=1946219791 instance=ExtResource("20_65hax")]
+current_tool = 1
+
+[node name="HitComponentShape2D" type="CollisionShape2D" parent="HitComponent" unique_id=1213836974]
+position = Vector2(0, 10)
+shape = SubResource("CircleShape2D_mti6b")
+debug_color = Color(0.576923, 0.42626208, 0.90635985, 0.41960785)

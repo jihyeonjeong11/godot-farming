@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bwn5t2ejgp0hr"]
+
+[ext_resource type="Script" uid="uid://dq7v3n1ka8myx" path="res://apocalypse/scenes/components/hurt_component.gd" id="1_hrt01"]
+
+[node name="HurtComponent" type="Area2D" unique_id=1533014795]
+collision_layer = 16
+collision_mask = 8
+script = ExtResource("1_hrt01")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

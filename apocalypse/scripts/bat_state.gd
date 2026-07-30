@@ -3,6 +3,11 @@ extends ApoNodeState
 @export var player: ApoPlayer
 @export var animated_sprite_2d: AnimatedSprite2D
 @export var equipment_sprite_2d: AnimatedSprite2D
+@export var hit_component_collision_shape: CollisionShape2D
+
+func _ready() -> void:
+	hit_component_collision_shape.disabled = true
+
 
 func _on_process(_delta : float) -> void:
 	pass
@@ -34,6 +39,9 @@ func _on_enter() -> void:
 		animated_sprite_2d.play("idle_front")
 		equipment_sprite_2d.play("bat_attack_front")
 
+	hit_component_collision_shape.disabled = false
+
 
 func _on_exit() -> void:
 	equipment_sprite_2d.play("bat_idle_front")
+	hit_component_collision_shape.disabled = true

@@ -4,7 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://q3lj38dps36l" path="res://assets/post_apocalypse/Objects/Garbage-Bin_2.png" id="2_ugfrm"]
 [ext_resource type="Texture2D" uid="uid://bb3db23ssl81y" path="res://assets/post_apocalypse/Objects/Street-Light_1_Side.png" id="3_k4vir"]
 [ext_resource type="Texture2D" uid="uid://ddpvefpnuo760" path="res://assets/post_apocalypse/Objects/Nature/Green/Tree_1_Spruce_Green.png" id="4_rgab8"]
+[ext_resource type="PackedScene" uid="uid://c4xghignasnpy" path="res://apocalypse/scenes/objects/trees/SmallTree.tscn" id="5_3pqg7"]
 [ext_resource type="Texture2D" uid="uid://wacspr67cr3n" path="res://assets/post_apocalypse/Objects/Nature/Green/Tree-trunk_2_grass_Green.png" id="5_6n3bw"]
+[ext_resource type="PackedScene" uid="uid://bbeiswymb5pbp" path="res://apocalypse/scenes/objects/rocks/Rock.tscn" id="6_4gtdd"]
 [ext_resource type="Texture2D" uid="uid://brg4dadf3kj8j" path="res://assets/post_apocalypse/Objects/Nature/Green/Grass_5_Green.png" id="6_tlb4r"]
 [ext_resource type="Texture2D" uid="uid://cj03g78c283cx" path="res://assets/post_apocalypse/Objects/Nature/Bleak-Yellow/Grass_5_Bleak-Yellow.png" id="7_tlb4r"]
 
@@ -769,6 +771,10 @@ texture_region_size = Vector2i(16, 29)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-7.5, 14.5, -8, 8, 8, 8, 7.5, 14.5)
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_4gtdd"]
+scenes/1/scene = ExtResource("5_3pqg7")
+scenes/2/scene = ExtResource("6_4gtdd")
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3pqg7"]
 texture = ExtResource("5_6n3bw")
 texture_region_size = Vector2i(32, 12)
@@ -803,3 +809,4 @@ sources/3 = SubResource("TileSetAtlasSource_kwnpj")
 sources/6 = SubResource("TileSetAtlasSource_3pqg7")
 sources/7 = SubResource("TileSetAtlasSource_4gtdd")
 sources/9 = SubResource("TileSetAtlasSource_p75wl")
+sources/4 = SubResource("TileSetScenesCollectionSource_4gtdd")

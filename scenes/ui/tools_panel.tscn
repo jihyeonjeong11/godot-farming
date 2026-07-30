@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://bk3qfxe1y8ieq"]
+
+[ext_resource type="Theme" uid="uid://cxirl53vgyhtq" path="res://scenes/ui/game_ui_theme.tres" id="1_2yiqu"]
+[ext_resource type="Script" uid="uid://en1wcy60tmhg" path="res://scenes/ui/tools_panel.gd" id="2_0jxvs"]
+[ext_resource type="Texture2D" uid="uid://chkpr4myhjn4f" path="res://assets/objects/basic_tools_and_meterials.png" id="2_xkgdf"]
+[ext_resource type="Texture2D" uid="uid://c0l7ko1cjihmo" path="res://assets/objects/basic_plants.png" id="3_a7ivs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yiqu"]
+atlas = ExtResource("2_xkgdf")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xkgdf"]
+load_path = "res://.godot/imported/basic_tools_and_meterials.png-2f6b5f2aa48ae7bae2c454c7806216e6.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7ivs"]
+atlas = SubResource("CompressedTexture2D_xkgdf")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0jxvs"]
+load_path = "res://.godot/imported/basic_tools_and_meterials.png-2f6b5f2aa48ae7bae2c454c7806216e6.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbtgy"]
+atlas = SubResource("CompressedTexture2D_0jxvs")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkgdf"]
+atlas = ExtResource("3_a7ivs")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_a7ivs"]
+load_path = "res://.godot/imported/basic_plants.png-e17f13c232bdc5bdaf3cbdad5cff4d17.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jxvs"]
+atlas = SubResource("CompressedTexture2D_a7ivs")
+region = Rect2(0, 16, 16, 16)
+
+[node name="ToolsPanel" type="PanelContainer" unique_id=567558385]
+offset_right = 39.0
+offset_bottom = 40.026794
+theme = ExtResource("1_2yiqu")
+theme_type_variation = &"DarkWoodPanel"
+script = ExtResource("2_0jxvs")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=389390615]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=241088384]
+layout_mode = 2
+
+[node name="ToolAxe" type="Button" parent="MarginContainer/HBoxContainer" unique_id=791363701]
+custom_minimum_size = Vector2(26, 26)
+layout_mode = 2
+theme_type_variation = &"ToolButton"
+icon = SubResource("AtlasTexture_2yiqu")
+icon_alignment = 1
+
+[node name="ToolHoe" type="Button" parent="MarginContainer/HBoxContainer" unique_id=1977488648]
+custom_minimum_size = Vector2(26, 26)
+layout_mode = 2
+theme_type_variation = &"ToolButton"
+icon = SubResource("AtlasTexture_a7ivs")
+icon_alignment = 1
+
+[node name="ToolWateringCan" type="Button" parent="MarginContainer/HBoxContainer" unique_id=1061339668]
+custom_minimum_size = Vector2(26, 26)
+layout_mode = 2
+theme_type_variation = &"ToolButton"
+icon = SubResource("AtlasTexture_gbtgy")
+icon_alignment = 1
+
+[node name="ToolCorn" type="Button" parent="MarginContainer/HBoxContainer" unique_id=2051160319]
+custom_minimum_size = Vector2(26, 26)
+layout_mode = 2
+theme_type_variation = &"ToolButton"
+icon = SubResource("AtlasTexture_xkgdf")
+icon_alignment = 1
+
+[node name="ToolTomato" type="Button" parent="MarginContainer/HBoxContainer" unique_id=806408418]
+custom_minimum_size = Vector2(26, 26)
+layout_mode = 2
+theme_type_variation = &"ToolButton"
+icon = SubResource("AtlasTexture_0jxvs")
+icon_alignment = 1
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/ToolAxe" to="." method="_on_tool_axe_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/ToolHoe" to="." method="_on_tool_hoe_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/ToolWateringCan" to="." method="_on_tool_watering_can_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/ToolCorn" to="." method="_on_tool_corn_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/ToolTomato" to="." method="_on_tool_tomato_pressed"]

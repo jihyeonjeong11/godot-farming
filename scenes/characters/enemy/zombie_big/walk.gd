@@ -16,6 +16,7 @@ func _ready() -> void:
 	navigation_agent_2d.velocity_computed.connect(on_safe_velocity_computed)
 
 
+## 네비게이션 맵 위의 임의 지점을 다음 목적지로 잡는다.
 func set_movement_target() -> void:
 	var target_position: Vector2 = NavigationServer2D.map_get_random_point(
 		navigation_agent_2d.get_navigation_map(),
@@ -42,16 +43,16 @@ func _on_physics_process(_delta: float) -> void:
 
 	if zombie.npc_direction == Vector2.UP:
 		animated_sprite_2d.play("walk_back")
-		hit_component_collision_shape.position = Vector2(0, -8)
+		hit_component_collision_shape.position = Vector2(0, -12)
 	elif zombie.npc_direction == Vector2.RIGHT:
 		animated_sprite_2d.play("walk_right")
-		hit_component_collision_shape.position = Vector2(8, 0)
+		hit_component_collision_shape.position = Vector2(12, 0)
 	elif zombie.npc_direction == Vector2.DOWN:
 		animated_sprite_2d.play("walk_front")
-		hit_component_collision_shape.position = Vector2(0, 8)
+		hit_component_collision_shape.position = Vector2(0, 12)
 	elif zombie.npc_direction == Vector2.LEFT:
 		animated_sprite_2d.play("walk_left")
-		hit_component_collision_shape.position = Vector2(-8, 0)
+		hit_component_collision_shape.position = Vector2(-12, 0)
 
 	var new_velocity: Vector2 = target_direction * speed
 

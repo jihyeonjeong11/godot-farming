@@ -4,6 +4,7 @@ extends ApoNodeState
 @onready var detection_component: DetectionComponent = $"../../DetectionComponent"
 @onready var animated_sprite_2d: AnimatedSprite2D = $"../../AnimatedSprite2D"
 
+## 넉백이 초당 이만큼씩 줄어든다. 값이 클수록 짧고 딱딱한 피격 반응.
 @export var friction: float = 500.0
 
 

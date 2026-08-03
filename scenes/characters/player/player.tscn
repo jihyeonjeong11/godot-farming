@@ -583,7 +583,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"bat_attack_back",
-"speed": 10.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -600,7 +600,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"bat_attack_front",
-"speed": 10.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -617,7 +617,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"bat_attack_left",
-"speed": 10.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -634,7 +634,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"bat_attack_right",
-"speed": 10.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -732,8 +732,8 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
 radius = 6.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_mti6b"]
-radius = 6.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gtdd"]
+size = Vector2(19, 6)
 
 [node name="Player" type="CharacterBody2D" unique_id=940443478 groups=["player"]]
 y_sort_enabled = true
@@ -751,12 +751,12 @@ debug_color = Color(0.478818, 0.5871309, 0.093211435, 0.41960785)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=215644664]
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"walk_front"
+animation = &"walk_back"
 autoplay = "idle_front"
 
 [node name="Equipments" type="AnimatedSprite2D" parent="." unique_id=1249774071]
 sprite_frames = SubResource("SpriteFrames_4kxuq")
-animation = &"bat_attack_right"
+animation = &"bat_idle_left"
 autoplay = "bat_idle_front"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2050112337]
@@ -790,6 +790,6 @@ hit_component_collision_shape = NodePath("../../HitComponent/HitComponentShape2D
 current_tool = 1
 
 [node name="HitComponentShape2D" type="CollisionShape2D" parent="HitComponent" unique_id=1213836974]
-position = Vector2(0, 18)
-shape = SubResource("CircleShape2D_mti6b")
+position = Vector2(0, 14)
+shape = SubResource("RectangleShape2D_4gtdd")
 debug_color = Color(0.576923, 0.42626208, 0.90635985, 0.41960785)

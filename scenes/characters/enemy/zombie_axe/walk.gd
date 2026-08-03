@@ -16,6 +16,7 @@ func _ready() -> void:
 	navigation_agent_2d.velocity_computed.connect(on_safe_velocity_computed)
 
 
+## 네비게이션 맵 위의 임의 지점을 다음 목적지로 잡는다.
 func set_movement_target() -> void:
 	var target_position: Vector2 = NavigationServer2D.map_get_random_point(
 		navigation_agent_2d.get_navigation_map(),

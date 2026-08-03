@@ -661,7 +661,6 @@ hit_component_collision_shape = NodePath("../../HitComponent/ZombieHitComponent"
 
 [node name="Chase" type="Node" parent="StateMachine" unique_id=2081555087]
 script = ExtResource("12_7fee6")
-chase_speed = null
 
 [node name="Hit" type="Node" parent="StateMachine" unique_id=858954922]
 script = ExtResource("25_vf4ak")

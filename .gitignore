@@ -1,0 +1,44 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Godot editor temp/backup files
+*.tmp
+*.tscn.bak
+*.tres.bak
+*.translation
+
+# Export output / presets (presets can contain keystore paths & passwords)
+export_presets.cfg
+/build/
+/builds/
+/export/
+/exports/
+*.pck
+*.zip
+*.exe
+*.x86_64
+*.apk
+*.aab
+*.dmg
+*.app
+*.wasm
+
+# Android keystores / signing
+*.keystore
+*.jks
+
+# Editors / IDEs
+.vscode/
+.idea/
+*.swp
+*~
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+logs/

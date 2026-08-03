@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cwpugakipo362"]
+
+[ext_resource type="Theme" uid="uid://bkny51ahdetw" path="res://scenes/ui/apo_game_theme.tres" id="1_2svuy"]
+[ext_resource type="Texture2D" uid="uid://bugilwsyfji15" path="res://assets/UI/HP/HP-Bar.png" id="2_kyjv1"]
+[ext_resource type="Script" uid="uid://dw2u1vri2siyj" path="res://scenes/ui/player_stats.gd" id="2_sasn1"]
+[ext_resource type="Resource" uid="uid://eg46i4iqjh3q" path="res://scenes/characters/player/player_stats.tres" id="3_ou2ck"]
+[ext_resource type="Texture2D" uid="uid://vih0anwqirkt" path="res://assets/UI/HP/HP.png" id="5_s567w"]
+
+[node name="PlayerStats" type="PanelContainer" unique_id=870378732]
+offset_right = 150.0
+offset_bottom = 12.0
+theme = ExtResource("1_2svuy")
+theme_type_variation = &"ApoPanelContainer"
+script = ExtResource("2_sasn1")
+player_stats = ExtResource("3_ou2ck")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=842182854]
+layout_mode = 2
+theme_type_variation = &"ApoMarginContainer"
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer" unique_id=2040160274]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+value = 50.0
+texture_over = ExtResource("2_kyjv1")
+texture_progress = ExtResource("5_s567w")
+texture_progress_offset = Vector2(10, 4)

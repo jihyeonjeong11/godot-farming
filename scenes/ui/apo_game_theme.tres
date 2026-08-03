@@ -1,0 +1,45 @@
+[gd_resource type="Theme" format=3 uid="uid://bkny51ahdetw"]
+
+[ext_resource type="Texture2D" uid="uid://bhrym0jiq6krx" path="res://assets/UI/Inventory/Inventory-Cell.png" id="1_37ax8"]
+[ext_resource type="Texture2D" uid="uid://bu353in2lh0n0" path="res://assets/UI/Inventory/Inventory-Chosen.png" id="1_gchcn"]
+[ext_resource type="Texture2D" uid="uid://bvjsmuv3qy7r1" path="res://assets/UI/panel/ui-pda.png" id="3_komek"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2pgpr"]
+texture = ExtResource("1_gchcn")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4kxuq"]
+texture = ExtResource("1_gchcn")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nhbk8"]
+texture = ExtResource("1_37ax8")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gchcn"]
+load_path = "res://.godot/imported/Inventory-Chosen.png-54c04db39553cd245825cd80e2020184.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_komek"]
+texture = SubResource("CompressedTexture2D_gchcn")
+modulate_color = Color(0.7490196, 0.7490196, 0.7490196, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lo5r4"]
+texture = ExtResource("3_komek")
+region_rect = Rect2(0, 0, 114, 64)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4vu20"]
+
+[resource]
+ApoButton/base_type = &"Button"
+ApoButton/styles/focus = SubResource("StyleBoxTexture_2pgpr")
+ApoButton/styles/hover = SubResource("StyleBoxTexture_4kxuq")
+ApoButton/styles/hover_pressed = SubResource("StyleBoxTexture_4kxuq")
+ApoButton/styles/normal = SubResource("StyleBoxTexture_nhbk8")
+ApoButton/styles/pressed = SubResource("StyleBoxTexture_komek")
+ApoIngamePanel/base_type = &"PanelContainer"
+ApoIngamePanel/styles/panel = SubResource("StyleBoxTexture_lo5r4")
+ApoMarginContainer/base_type = &"MarginContainer"
+ApoMarginContainer/constants/margin_bottom = 10
+ApoMarginContainer/constants/margin_left = 10
+ApoMarginContainer/constants/margin_right = 10
+ApoMarginContainer/constants/margin_top = 10
+ApoPanelContainer/base_type = &"PanelContainer"
+ApoPanelContainer/styles/panel = SubResource("StyleBoxTexture_4vu20")
+MenuContainer/base_type = &"PanelContainer"

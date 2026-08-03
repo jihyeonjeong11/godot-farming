@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://bwn5t2ejgp0hr"]
+
+[ext_resource type="Script" uid="uid://dq7v3n1ka8myx" path="res://scenes/components/hurt_component.gd" id="1_hrt01"]
+[ext_resource type="Texture2D" uid="uid://pgf5jv0epfju" path="res://assets/effects/hit_effect.png" id="2_14mft"]
+[ext_resource type="AudioStream" uid="uid://y160pherkmhe" path="res://assets/sounds/hit.wav" id="3_hitsn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3dicn"]
+atlas = ExtResource("2_14mft")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yrh61"]
+atlas = ExtResource("2_14mft")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mti6b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3dicn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yrh61")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="HurtComponent" type="Area2D" unique_id=1533014795]
+collision_layer = 16
+collision_mask = 8
+script = ExtResource("1_hrt01")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1239055793]
+z_index = 10
+sprite_frames = SubResource("SpriteFrames_mti6b")
+
+[node name="HitAudioStreamPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1239055794]
+stream = ExtResource("3_hitsn")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

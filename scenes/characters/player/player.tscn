@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://cd2slytsv65a4" path="res://assets/character/Bat/Bat_side_idle-and-run-Sheet6.png" id="12_w3tc7"]
 [ext_resource type="Script" uid="uid://bysnlxsrfjc0b" path="res://scripts/bat_state.gd" id="13_batst"]
 [ext_resource type="Texture2D" uid="uid://b1b75xx5vkrkd" path="res://assets/character/Bat/Bat_side-left_attack-Sheet4.png" id="13_tebod"]
+[ext_resource type="Texture2D" uid="uid://co3v3755hm1lm" path="res://assets/character/Guns/Pistol/Pistol_down_idle-and-run-Sheet6.png" id="19_d73qs"]
 [ext_resource type="PackedScene" uid="uid://0pe6fvow1o6b" path="res://scenes/components/hit_component.tscn" id="20_65hax"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4kxuq"]
@@ -566,6 +567,30 @@ region = Rect2(64, 0, 16, 14)
 atlas = ExtResource("10_wapu2")
 region = Rect2(80, 0, 16, 14)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_es5sa"]
+atlas = ExtResource("19_d73qs")
+region = Rect2(0, 0, 5, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxlma"]
+atlas = ExtResource("19_d73qs")
+region = Rect2(5, 0, 5, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ieypo"]
+atlas = ExtResource("19_d73qs")
+region = Rect2(10, 0, 5, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sulyr"]
+atlas = ExtResource("19_d73qs")
+region = Rect2(15, 0, 5, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71adu"]
+atlas = ExtResource("19_d73qs")
+region = Rect2(20, 0, 5, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xm30n"]
+atlas = ExtResource("19_d73qs")
+region = Rect2(25, 0, 5, 11)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_4kxuq"]
 animations = [{
 "frames": [{
@@ -727,13 +752,35 @@ animations = [{
 "loop": 0,
 "name": &"bat_idle_right",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_es5sa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kxlma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ieypo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sulyr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71adu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xm30n")
+}],
+"loop": 1,
+"name": &"pistol_idle_front",
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
 radius = 6.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gtdd"]
-size = Vector2(19, 6)
+[sub_resource type="CircleShape2D" id="CircleShape2D_dhai2"]
 
 [node name="Player" type="CharacterBody2D" unique_id=940443478 groups=["player"]]
 y_sort_enabled = true
@@ -756,7 +803,7 @@ autoplay = "idle_front"
 
 [node name="Equipments" type="AnimatedSprite2D" parent="." unique_id=1249774071]
 sprite_frames = SubResource("SpriteFrames_4kxuq")
-animation = &"bat_idle_left"
+animation = &"pistol_idle_front"
 autoplay = "bat_idle_front"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2050112337]
@@ -791,5 +838,5 @@ current_tool = 1
 
 [node name="HitComponentShape2D" type="CollisionShape2D" parent="HitComponent" unique_id=1213836974]
 position = Vector2(0, 14)
-shape = SubResource("RectangleShape2D_4gtdd")
+shape = SubResource("CircleShape2D_dhai2")
 debug_color = Color(0.576923, 0.42626208, 0.90635985, 0.41960785)

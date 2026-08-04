@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ApoItem" load_steps=3 format=3]
+
+[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/items.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://c0psonmqhkafp" path="res://assets/UI/Inventory/Objects/Icon_Axe_Right.png" id="2_icon"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"axe"
+item_name = "Axe"
+description = "나무를 벨 수 있다."
+category = 0
+icon = ExtResource("2_icon")
+max_stack = 1
+equip_anim = "axe"
+item_effect = ""

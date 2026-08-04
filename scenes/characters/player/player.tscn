@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://dmx4mglnnruu5" path="res://assets/character/Bat/Bat_up_idle-and-run-Sheet6.png" id="10_wapu2"]
 [ext_resource type="Script" uid="uid://cx8mprj5vt3ka" path="res://scripts/walk_state.gd" id="11_kyjea"]
 [ext_resource type="Texture2D" uid="uid://cgiv2ddcug2o1" path="res://assets/character/Bat/Bat_down_attack-Sheet4.png" id="11_vh6n7"]
+[ext_resource type="Texture2D" uid="uid://bt7vdyjsk4p8f" path="res://assets/character/tools/axe/axe_idle_right.png" id="12_bxwvg"]
 [ext_resource type="Texture2D" uid="uid://c8xjhj7m4ndek" path="res://assets/character/Bat/Bat_side_attack-Sheet4.png" id="12_dvd03"]
 [ext_resource type="Texture2D" uid="uid://cd2slytsv65a4" path="res://assets/character/Bat/Bat_side_idle-and-run-Sheet6.png" id="12_w3tc7"]
 [ext_resource type="Script" uid="uid://bysnlxsrfjc0b" path="res://scripts/bat_state.gd" id="13_batst"]
@@ -25,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://cwb05b5qjkby2" path="res://assets/character/Bat/Bat_side-left_idle-and-run-Sheet6.png" id="14_batsl"]
 [ext_resource type="Texture2D" uid="uid://co3v3755hm1lm" path="res://assets/character/Guns/Pistol/Pistol_down_idle-and-run-Sheet6.png" id="19_d73qs"]
 [ext_resource type="PackedScene" uid="uid://0pe6fvow1o6b" path="res://scenes/components/hit_component.tscn" id="20_65hax"]
+[ext_resource type="Script" uid="uid://jficmsi00feo" path="res://scenes/characters/player/equipments.gd" id="22_2v4cy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4kxuq"]
 radius = 6.0
@@ -408,6 +410,30 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_2v4cy"]
+atlas = ExtResource("12_bxwvg")
+region = Rect2(0, 0, 16, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8rto"]
+atlas = ExtResource("12_bxwvg")
+region = Rect2(16, 0, 16, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4gk5"]
+atlas = ExtResource("12_bxwvg")
+region = Rect2(32, 0, 16, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0hd7"]
+atlas = ExtResource("12_bxwvg")
+region = Rect2(48, 0, 16, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpigg"]
+atlas = ExtResource("12_bxwvg")
+region = Rect2(64, 0, 16, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qe74o"]
+atlas = ExtResource("12_bxwvg")
+region = Rect2(80, 0, 16, 13)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_8ixlv"]
 atlas = ExtResource("10_gslpp")
 region = Rect2(0, 0, 20, 25)
@@ -520,30 +546,6 @@ region = Rect2(68, 0, 17, 11)
 atlas = ExtResource("10_av7rv")
 region = Rect2(85, 0, 17, 11)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wuxws"]
-atlas = ExtResource("12_w3tc7")
-region = Rect2(0, 0, 16, 13)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lnyrn"]
-atlas = ExtResource("12_w3tc7")
-region = Rect2(16, 0, 16, 13)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nfb1h"]
-atlas = ExtResource("12_w3tc7")
-region = Rect2(32, 0, 16, 13)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nytus"]
-atlas = ExtResource("12_w3tc7")
-region = Rect2(48, 0, 16, 13)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ikew3"]
-atlas = ExtResource("12_w3tc7")
-region = Rect2(64, 0, 16, 13)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o08dk"]
-atlas = ExtResource("12_w3tc7")
-region = Rect2(80, 0, 16, 13)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_bsl00"]
 atlas = ExtResource("14_batsl")
 region = Rect2(0, 0, 16, 13)
@@ -566,6 +568,30 @@ region = Rect2(64, 0, 16, 13)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bsl05"]
 atlas = ExtResource("14_batsl")
+region = Rect2(80, 0, 16, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wuxws"]
+atlas = ExtResource("12_w3tc7")
+region = Rect2(0, 0, 16, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lnyrn"]
+atlas = ExtResource("12_w3tc7")
+region = Rect2(16, 0, 16, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfb1h"]
+atlas = ExtResource("12_w3tc7")
+region = Rect2(32, 0, 16, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nytus"]
+atlas = ExtResource("12_w3tc7")
+region = Rect2(48, 0, 16, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ikew3"]
+atlas = ExtResource("12_w3tc7")
+region = Rect2(64, 0, 16, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o08dk"]
+atlas = ExtResource("12_w3tc7")
 region = Rect2(80, 0, 16, 13)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_es5sa"]
@@ -594,6 +620,29 @@ region = Rect2(25, 0, 5, 11)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4kxuq"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2v4cy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j8rto")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4gk5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r0hd7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpigg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qe74o")
+}],
+"loop": 1,
+"name": &"axe_idle_right",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8ixlv")
@@ -805,7 +854,7 @@ autoplay = "idle_front"
 [node name="Equipments" type="AnimatedSprite2D" parent="." unique_id=1249774071]
 sprite_frames = SubResource("SpriteFrames_4kxuq")
 animation = &"pistol_idle_front"
-autoplay = "bat_idle_front"
+script = ExtResource("22_2v4cy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2050112337]
 shape = SubResource("CircleShape2D_g4v7s")

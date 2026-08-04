@@ -21,6 +21,7 @@ SignalBus="*uid://c5yk62a6w1nji"
 GameManager="*res://scripts/globals/game_manager.gd"
 DayAndNightCycle="*uid://db650q1a0xbln"
 MobSpawner="*uid://bjhhfev0ke1p2"
+Inventory="*uid://vycgnw0v4akr"
 
 [display]
 

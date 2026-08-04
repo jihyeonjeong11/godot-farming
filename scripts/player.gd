@@ -9,6 +9,7 @@ extends CharacterBody2D
 var player_direction: Vector2
 
 func _ready() -> void:
+	Inventory.set_player_reference(self)
 	hurt_component.hurt.connect(on_hurt)
 	stats.no_health.connect(die)
 

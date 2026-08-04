@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bt7vdyjsk4p8f"
-path="res://.godot/imported/Axe_side_idle-and-run-Sheet6.png-9497343a6c5f28b0347c521188abd5b9.ctex"
+path="res://.godot/imported/axe_idle_right.png-8bb8210db79678a9cdd2055fb5ac6015.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/character/tools/axe/Axe_side_idle-and-run-Sheet6.png"
-dest_files=["res://.godot/imported/Axe_side_idle-and-run-Sheet6.png-9497343a6c5f28b0347c521188abd5b9.ctex"]
+source_file="res://assets/character/tools/axe/axe_idle_right.png"
+dest_files=["res://.godot/imported/axe_idle_right.png-8bb8210db79678a9cdd2055fb5ac6015.ctex"]
 
 [params]
 

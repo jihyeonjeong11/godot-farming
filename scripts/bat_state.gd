@@ -43,5 +43,6 @@ func _on_enter() -> void:
 
 
 func _on_exit() -> void:
-	equipment_sprite_2d.play("bat_idle_front")
+	# 장비 스프라이트 소유권을 Equipments 쪽에 반납한다. 실제 방향은 다음 프레임에 보정된다.
+	equipment_sprite_2d.animation = &"axe_idle_front"
 	hit_component_collision_shape.disabled = true

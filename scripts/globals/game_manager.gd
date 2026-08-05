@@ -8,16 +8,21 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
 
+func _input(event: InputEvent) -> void:
+
+	if event.is_action_pressed("ingame_pause"):
+		var paused = not get_tree().paused
+		toggle_pause(paused)
+		get_viewport().set_input_as_handled()
+		SignalBus.ingame_paused.emit(paused)
+
+
 func _unhandled_input(event: InputEvent) -> void:
-	var paused = not get_tree().paused
 	if event.is_action_pressed("pause"):
+		var paused = not get_tree().paused
 		toggle_pause(paused)
 		get_viewport().set_input_as_handled()
 		SignalBus.game_paused.emit(paused)
-
-	if event.is_action_pressed("ingame_pause"):
-		toggle_pause(paused)
-		SignalBus.ingame_paused.emit(paused)
 
 
 func toggle_pause(prev: bool) -> void:

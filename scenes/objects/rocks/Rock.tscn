@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://cwemhxr1bouj8" path="res://scenes/objects/rocks/rock.gd" id="3_s5byj"]
 [ext_resource type="PackedScene" uid="uid://bwn5t2ejgp0hr" path="res://scenes/components/hurt_component.tscn" id="4_02xw0"]
 [ext_resource type="PackedScene" uid="uid://dk3jgaxq07bts" path="res://scenes/components/damage_component.tscn" id="5_jur6h"]
+[ext_resource type="Texture2D" uid="uid://xaiewcxiuhdc" path="res://assets/effects/dust_effect.png" id="6_s3mqe"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_shk01"]
 resource_local_to_scene = true
@@ -20,6 +21,42 @@ radius = 4.1231055
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hrt01"]
 size = Vector2(8, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w72ds"]
+atlas = ExtResource("6_s3mqe")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ef2e"]
+atlas = ExtResource("6_s3mqe")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1j6qm"]
+atlas = ExtResource("6_s3mqe")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m01bf"]
+atlas = ExtResource("6_s3mqe")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4kxuq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w72ds")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ef2e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1j6qm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m01bf")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Rock" type="Sprite2D" unique_id=495184973]
 material = SubResource("ShaderMaterial_shk01")
@@ -43,3 +80,6 @@ debug_color = Color(0.8463241, 0.34185705, 0.42788085, 0.41960785)
 
 [node name="DamageComponent" parent="." unique_id=367003997 instance=ExtResource("5_jur6h")]
 max_damage = 3
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=848430213]
+sprite_frames = SubResource("SpriteFrames_4kxuq")

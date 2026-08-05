@@ -18,19 +18,15 @@ func _on_physics_process(_delta : float) -> void:
 
 	if player.player_direction == Vector2.UP:
 		animated_sprite_2d.play("walk_back")
-		equipment_sprite_2d.play("bat_idle_back")
 		hit_component_collision_shape.position = Vector2(0, -20)
 	elif player.player_direction == Vector2.RIGHT:
 		animated_sprite_2d.play("walk_right")
-		equipment_sprite_2d.play("bat_idle_right")
 		hit_component_collision_shape.position = Vector2(18, 0)
 	elif player.player_direction == Vector2.DOWN:
 		animated_sprite_2d.play("walk_front")
-		equipment_sprite_2d.play("bat_idle_front")
 		hit_component_collision_shape.position = Vector2(0, 20)
 	elif player.player_direction == Vector2.LEFT:
 		animated_sprite_2d.play("walk_left")
-		equipment_sprite_2d.play("bat_idle_left")
 		hit_component_collision_shape.position = Vector2(-18, 0)
 
 	player.velocity = direction * speed
@@ -50,4 +46,3 @@ func _on_enter() -> void:
 
 func _on_exit() -> void:
 	animated_sprite_2d.stop()
-	equipment_sprite_2d.stop()

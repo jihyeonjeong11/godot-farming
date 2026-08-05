@@ -6,7 +6,7 @@ extends CharacterBody2D
 
 @export var stats: Stats
 
-var player_direction: Vector2
+var player_direction: Vector2 = Vector2.DOWN
 
 func _ready() -> void:
 	Inventory.set_player_reference(self)

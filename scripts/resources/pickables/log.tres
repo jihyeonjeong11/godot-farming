@@ -10,4 +10,5 @@ item_name = "Log"
 item_texture = ExtResource("1_da7e6")
 description = "Chopped from trees."
 max_stack = 100
+world_scene_path = "uid://bssiydf5x86ti"
 metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

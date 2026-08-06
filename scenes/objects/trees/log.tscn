@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://g8f7w30c77by" path="res://assets/Objects/Nature/Flowers_Mashrooms_Other-nature-stuff/Stick.png" id="1_log01"]
 [ext_resource type="PackedScene" uid="uid://ctp4naj2hxw80" path="res://scenes/components/collectable_component.tscn" id="2_col01"]
 [ext_resource type="Resource" uid="uid://f56b1jph4cua" path="res://scripts/resources/pickables/log.tres" id="3_s5rqd"]
-[ext_resource type="Script" path="res://scenes/components/drop_pop_component.gd" id="4_pop01"]
+[ext_resource type="Script" uid="uid://ce7wvcm7jv2xv" path="res://scenes/components/drop_pop_component.gd" id="4_pop01"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_log01"]
 atlas = ExtResource("1_log01")

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bqt7p2ndk4xm1"]
+
+[ext_resource type="Texture2D" uid="uid://dx3d24o7ecsiv" path="res://assets/UI/Inventory/Objects/Icon_potato_seeds.png" id="1_01bk7"]
+[ext_resource type="Script" uid="uid://ce7wvcm7jv2xv" path="res://scenes/components/drop_pop_component.gd" id="2_h8ra3"]
+[ext_resource type="PackedScene" uid="uid://ctp4naj2hxw80" path="res://scenes/components/collectable_component.tscn" id="3_6qnmh"]
+[ext_resource type="Resource" uid="uid://cn8vrpxa2yl4e" path="res://scripts/resources/seeds/potato_seeds.tres" id="4_01bk7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pot01"]
+radius = 40.0
+
+[node name="PotatoSeeds" type="Sprite2D" unique_id=374303238]
+texture = ExtResource("1_01bk7")
+
+[node name="DropPopComponent" type="Node" parent="." unique_id=1833846236]
+script = ExtResource("2_h8ra3")
+
+[node name="CollectableComponent" parent="." unique_id=1149376405 instance=ExtResource("3_6qnmh")]
+item = ExtResource("4_01bk7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent" unique_id=1282273975]
+shape = SubResource("CircleShape2D_pot01")
+debug_color = Color(0.35016045, 0.61620694, 0.1935752, 0.41960785)

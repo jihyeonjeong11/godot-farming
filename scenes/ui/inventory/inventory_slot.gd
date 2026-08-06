@@ -1,7 +1,13 @@
 class_name ApoInventorySlot
 extends Button
 
+## 이 칸을 우클릭했을 때. Button.pressed는 좌클릭만 잡아서 따로 둔다.
+signal right_pressed
+
 @export var selected_item: Items
+
+## Inventory.inventory에서 이 칸이 가리키는 위치. 부모가 생성할 때 넣어준다.
+var slot_index: int = -1
 
 @onready var amount_label: Label = $AmountLabel
 
@@ -10,20 +16,56 @@ func _ready() -> void:
 	clear()
 
 
+func _gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton \
+			and event.button_index == MOUSE_BUTTON_RIGHT \
+			and event.pressed:
+		accept_event()
+		right_pressed.emit()
+
+
+## 좌클릭 드래그가 시작되면 Godot이 부른다. null을 반환하면 드래그하지 않는다.
+func _get_drag_data(_at_position: Vector2) -> Variant:
+	if selected_item == null or slot_index < 0:
+		return null
+
+	# 드래그하는 동안 마우스를 따라다닐 미리보기.
+	var preview := TextureRect.new()
+	preview.texture = selected_item.item_texture
+	preview.custom_minimum_size = size
+	preview.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	preview.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	preview.modulate.a = 0.8
+	set_drag_preview(preview)
+
+	return {"from_index": slot_index}
+
+
+## 이 칸 위에 드롭할 수 있는지. false면 커서가 금지 표시로 바뀐다.
+func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
+	return slot_index >= 0 and data is Dictionary and data.has("from_index")
+
+
+func _drop_data(_at_position: Vector2, data: Variant) -> void:
+	Inventory.swap_items(data["from_index"], slot_index)
+
+
 func set_slot(slot: Dictionary) -> void:
 	var item: Items = slot["item"]
 	if item == null:
 		clear()
 		return
 
+	selected_item = item
 	icon = item.item_texture
 	tooltip_text = "%s\n%s" % [item.item_name, item.description]
-	
+
 	amount_label.text = str(slot["amount"])
 	amount_label.visible = slot["amount"] > 1
 
 
 func clear() -> void:
+	selected_item = null
 	icon = null
 	tooltip_text = ""
 	amount_label.hide()

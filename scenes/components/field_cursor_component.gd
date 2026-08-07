@@ -22,6 +22,11 @@ func _on_tool_used(item: Items, _user_position: Vector2, _target_position: Vecto
 	# and selected tool is tool
 	if item.tool_type != null && item.tool_type == ApoDataTypes.Tools.TillGround:
 		get_cell_under_mouse()
+		add_tilled_soil_cell()
+	elif item.tool_type != null && item.tool_type == ApoDataTypes.Tools.MineRock:
+		get_cell_under_mouse()
+		remove_tilled_soil_cell()
+	
 
 func get_cell_under_mouse() -> void:
 	mouse_position = grass_tilemap_layer.get_local_mouse_position()
@@ -29,16 +34,16 @@ func get_cell_under_mouse() -> void:
 	cell_source_id = grass_tilemap_layer.get_cell_source_id(cell_position)
 	local_cell_position = grass_tilemap_layer.map_to_local(cell_position)
 	distance = player.global_position.distance_to(local_cell_position)
-
-	print('mousepos ', mouse_position, " cell_position", cell_position, " cell_source_id", cell_source_id)
-	print("distance ", distance)
 	
-	add_tilled_soil_cell()
 
 func add_tilled_soil_cell() -> void:
 	if distance < 20.0 && cell_source_id != -1:
 		tilled_soil_tilemap_layer.set_cells_terrain_connect([cell_position], terrain_set, terrain, true)
-		
+
+func remove_tilled_soil_cell() -> void:
+	if distance < 20.0 && cell_source_id != -1:
+		tilled_soil_tilemap_layer.set_cells_terrain_connect([cell_position], 0, -1, true)
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

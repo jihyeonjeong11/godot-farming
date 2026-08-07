@@ -19,6 +19,10 @@ class_name Items extends Resource
 
 @export var max_stack: int
 
+## 씨앗일 때 심으면 자라날 작물 씬. 씨앗 종류마다 작물이 다르므로
+## 커서 쪽에 if문을 늘리지 않고 아이템 리소스가 직접 들고 있는다.
+@export_file("*.tscn") var crop_scene_path: String = ""
+
 ## 손에 들었을 때 재생할 장비 스프라이트 애니메이션 접두사.
 ## "axe" → axe_idle_front / axe_attack_front. 비어 있으면 손에 아무것도 안 그린다.
 @export var anim_prefix: StringName = &""

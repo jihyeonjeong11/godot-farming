@@ -6,8 +6,10 @@
 [resource]
 script = ExtResource("1_e3wir")
 item_type = "seeds"
+tool_type = 8
 item_name = "Carrot Seeds"
 item_texture = ExtResource("1_ivuok")
 description = "Canned carrot seeds"
 max_stack = 100
+crop_scene_path = "res://scenes/objects/crops/wheat/wheat.tscn"
 metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

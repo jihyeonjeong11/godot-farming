@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bkq2wvn8chr7d"]
+
+[ext_resource type="Texture2D" uid="uid://j1o8v4xqk4ef" path="res://assets/Objects/crops/crops.png" id="1_whtat"]
+[ext_resource type="PackedScene" uid="uid://ctp4naj2hxw80" path="res://scenes/components/collectable_component.tscn" id="2_whcol"]
+[ext_resource type="Resource" uid="uid://cw3ahtn6vyqk8" path="res://scripts/resources/pickables/wheat.tres" id="3_whtit"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wheat"]
+atlas = ExtResource("1_whtat")
+region = Rect2(838, 32, 20, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wheat"]
+radius = 26.305893
+
+[node name="WheatHarvest" type="Sprite2D" unique_id=2023724971]
+texture = SubResource("AtlasTexture_wheat")
+
+[node name="CollectableComponent" parent="." unique_id=1725630145 instance=ExtResource("2_whcol")]
+item = ExtResource("3_whtit")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent" unique_id=1651119405]
+shape = SubResource("CircleShape2D_wheat")

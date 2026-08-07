@@ -2,20 +2,7 @@ class_name ApoGameInputEvents
 
 static var direction: Vector2
 static var selected: ApoDataTypes.Tools
-const QUICK_SLOT_ACTIONS: Array[StringName] = [
-		&"select_inventory_0",
-		&"select_inventory_1",
-		&"select_inventory_2",
-		&"select_inventory_3",
-		&"select_inventory_4",
-  ]
 
-static func number_input() -> int:
-	for i in QUICK_SLOT_ACTIONS.size():
-		if Input.is_action_just_pressed(QUICK_SLOT_ACTIONS[i]):
-			print(i, "pressed")
-		return i
-	return -1
 
 static func pause_input() -> bool:
 	if Input.is_action_pressed("pause"):

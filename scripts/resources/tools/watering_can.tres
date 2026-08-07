@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Items" format=3 uid="uid://c0lbpg1cpf40p"]
+
+[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/items.gd" id="1_items"]
+[ext_resource type="Texture2D" uid="uid://cwy4j68js4w0a" path="res://assets/UI/Inventory/Objects/Icon_Watering_can.png" id="2_icon"]
+
+[resource]
+script = ExtResource("1_items")
+item_type = "tool"
+tool_type = 5
+item_name = "watering can"
+item_texture = ExtResource("2_icon")
+description = "Waters planted crops."
+melee_damage = 1
+melee_knockback = 1
+max_stack = -1
+anim_prefix = &"watering_can"
+world_scene_path = "uid://bjhypadfrbhvk"
+metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dn08baylvwldn"]
+
+[ext_resource type="Script" uid="uid://cwbw1n20dg07" path="res://scenes/components/farming_hurt_component.gd" id="1_a8o4y"]
+
+[node name="FarmingHurtComponent" type="Area2D" unique_id=309631884]
+collision_layer = 16
+collision_mask = 8
+script = ExtResource("1_a8o4y")
+tool = 3
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1874132339]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

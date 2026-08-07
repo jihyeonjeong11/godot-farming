@@ -50,18 +50,18 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	Inventory.swap_items(data["from_index"], slot_index)
 
 
-func set_slot(slot: Dictionary) -> void:
-	var item: Items = slot["item"]
-	if item == null:
+func set_slot(stack: ItemStack) -> void:
+	if stack == null or stack.item == null:
 		clear()
 		return
 
+	var item := stack.item
 	selected_item = item
 	icon = item.item_texture
 	tooltip_text = "%s\n%s" % [item.item_name, item.description]
 
-	amount_label.text = str(slot["amount"])
-	amount_label.visible = slot["amount"] > 1
+	amount_label.text = str(stack.amount)
+	amount_label.visible = stack.amount > 1
 
 
 func clear() -> void:

@@ -1,0 +1,455 @@
+- generic [ref=f4e61]:
+  - generic [ref=f4e70]:
+    - banner [ref=f4e72]:
+      - generic [ref=f4e74]:
+        - generic [ref=f4e75]:
+          - button "가이드" [ref=f4e77] [cursor=pointer]
+          - generic [ref=f4e81]:
+            - link "YouTube 홈" [ref=f4e82] [cursor=pointer]:
+              - /url: /
+            - generic [ref=f4e88]: KR
+          - button "탐색 건너뛰기" [ref=f4e92] [cursor=pointer]
+        - generic [ref=f4e96]:
+          - search [ref=f4e97]:
+            - generic [ref=f4e99]:
+              - generic [ref=f4e100]:
+                - combobox "검색" [expanded] [ref=f4e102]
+                - button [ref=f4e105] [cursor=pointer]
+              - button "Search" [ref=f4e106] [cursor=pointer]
+          - generic [ref=f4e111]:
+            - button "음성으로 검색" [ref=f4e113] [cursor=pointer]
+            - tooltip "tooltip"
+        - generic [ref=f4e118]:
+          - button "설정" [ref=f4e123] [cursor=pointer]
+          - link "로그인" [ref=f4e129] [cursor=pointer]:
+            - /url: https://accounts.google.com/ServiceLogin?service=youtube&uilel=3&passive=true&continue=https%3A%2F%2Fwww.youtube.com%2Fsignin%3Faction_handle_signin%3Dtrue%26app%3Ddesktop%26hl%3Dko%26next%3Dhttps%253A%252F%252Fwww.youtube.com%252Fwatch%253Fv%253D875z4ZVITEY&hl=ko&ec=65620
+    - main [ref=f4e134]:
+      - generic [ref=f4e136]:
+        - generic [ref=f4e139] [cursor=pointer]
+        - complementary [ref=f4e140]:
+          - generic "YouTube 동영상 플레이어" [ref=f4e5]:
+            - generic [ref=f4e912]:
+              - generic:
+                - generic [ref=f4e913]:
+                  - generic "스폰서" [ref=f4e915]
+                  - button "내 광고 센터" [ref=f4e917] [cursor=pointer]
+                - generic:
+                  - generic [ref=f4e919] [cursor=pointer]
+                  - generic "유일한 가족 AI 요금제" [ref=f4e922] [cursor=pointer]
+                  - generic "one.google.com" [ref=f4e925] [cursor=pointer]
+                  - link "가입 This link opens in new tab" [ref=f4e926] [cursor=pointer]:
+                    - generic [ref=f4e927]: 가입
+              - button "건너뛰기" [ref=f4e929] [cursor=pointer]
+      - generic [ref=f4e173]:
+        - generic [ref=f4e936]:
+          - generic [ref=f4e938]:
+            - generic [ref=f4e939]:
+              - heading "동영상 정보" [active] [level=2] [ref=f4e941]
+              - button "추가 작업" [ref=f4e946] [cursor=pointer]
+              - button "닫기" [ref=f4e953] [cursor=pointer]
+            - tablist [ref=f4e959]:
+              - tab "챕터" [ref=f4e962] [cursor=pointer]
+              - tab "스크립트" [selected] [ref=f4e970] [cursor=pointer]
+          - generic "loading" [ref=f4e978]
+        - generic [ref=f4e174]:
+          - generic [ref=f4e176]:
+            - heading "Grow Crops for your Farming Game using Day and Night Cycles - Godot Tutorial - Pt 17" [level=1] [ref=f4e179]
+            - generic [ref=f4e180]:
+              - generic [ref=f4e181]:
+                - generic [ref=f4e182]:
+                  - link [ref=f4e183] [cursor=pointer]:
+                    - /url: /@rapidvectors
+                    - img "Rapid Vectors" [ref=f4e185]
+                  - generic [ref=f4e186]:
+                    - generic "Rapid Vectors" [ref=f4e190]:
+                      - link "Rapid Vectors" [ref=f4e191] [cursor=pointer]:
+                        - /url: /@rapidvectors
+                    - generic "구독자 1.81만명" [ref=f4e192]
+                - button "Rapid Vectors을(를) 구독합니다." [ref=f4e204] [cursor=pointer]:
+                  - generic: 구독
+              - generic [ref=f4e211]:
+                - generic [ref=f4e212]:
+                  - generic [ref=f4e216]:
+                    - button "다른 사용자 134명과 함께 이 동영상에 좋아요 표시" [ref=f4e220] [cursor=pointer]:
+                      - generic: "134"
+                    - button "동영상에 싫어요 표시" [ref=f4e227] [cursor=pointer]
+                  - button "공유" [ref=f4e233] [cursor=pointer]
+                - button "재생목록에 저장" [ref=f4e240] [cursor=pointer]:
+                  - generic: 저장
+                - button "추가 작업" [ref=f4e245] [cursor=pointer]
+            - generic [ref=f4e251]:
+              - generic [ref=f4e254]:
+                - text: 조회수 6,350회 2025. 1. 10.
+                - link "Farming Game - Godot - Tutorials Series - Croptails - 2D Top Down Game" [ref=f4e255] [cursor=pointer]:
+                  - /url: /playlist?list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9
+              - generic [ref=f4e256]:
+                - generic [ref=f4e259]:
+                  - text: Part 17 - In this tutorial you will learn how to plant crops and then allow them to grow using the game Day and Night cycle. How to Build a Complete 2D Farming Game an 8-Hour Tutorial Series - All 25 Episodes - Godot 🎮
+                  - 'link "YouTube Channel Link: How to Build a Complete 2D Farming Game an 8-Hour Tutorial Series - Godot 4.3 - All 25 Episodes" [ref=f4e262] [cursor=pointer]':
+                    - /url: /watch?v=it0lsREGdmc&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=1
+                    - text: • How to Build a Complete 2D Farming Game an...
+                  - text: Download the following Game Assets from itch.io Created by cupnooble 💡
+                  - link "https://cupnooble.itch.io/sprout-land..." [ref=f4e265] [cursor=pointer]:
+                    - /url: https://www.youtube.com/redirect?event=video_description&redir_token=QUM4Zm9rVFdRLXRDT2VtV3E0ekY0NVJ4Ql9IdHxBR3JiS2FrNmVlaEVBMDdvR19ONzlOTmQ0S1VObnpXOU1QQlpMYkh6bHpQc2VXV09ZQWNiTE0xRmRaclh3ZWxKaHJkelFrOXhYWEI3bFRFM1BRY2h6LXdqSFI3S3lhVTg3TkFo&q=https%3A%2F%2Fcupnooble.itch.io%2Fsprout-lands-asset-pack&v=875z4ZVITEY
+                  - text: UI Pack 💡
+                  - link "https://cupnooble.itch.io/sprout-land..." [ref=f4e267] [cursor=pointer]:
+                    - /url: https://www.youtube.com/redirect?event=video_description&redir_token=QUM4Zm9rUTJWdTRjVlgtTTdHV0JGcmFBNnBZWnxBR3JiS2FrY3Z4WmJnMjNZeDZpbUJ2a2tQV2tuZURwcWR3TjhVNnl5Sm9ETUtvb18zcTFwYW9LX2FidUNYNVkyYzNKRjFaUFp0c2huZ2hyb2RuOGxHbU5nNWlBLUxhR2xWUUNO&q=https%3A%2F%2Fcupnooble.itch.io%2Fsprout-lands-ui-pack&v=875z4ZVITEY
+                  - text: ZX Palm Font Pack 💡
+                  - link "https://damieng.com/typography/zx-ori..." [ref=f4e269] [cursor=pointer]:
+                    - /url: https://www.youtube.com/redirect?event=video_description&redir_token=QUM4Zm9rUmJrcTNvRTZ2VkJKdndvTWpnOWdPZ3xBR3JiS2FsYVhielBHb1lsa19kdDh1MHRCanM1Y1hXS3NuY1VHQlg2WE81RjZLLWlOTXRHa3RDMVZVazZSTUlFZXJCQ1JIX2tKUE5qVnpTaFJPVDRNWmVxOEtBaFBVSnE1YnJH&q=https%3A%2F%2Fdamieng.com%2Ftypography%2Fzx-origins%2Fzx-palm%2F&v=875z4ZVITEY
+                  - text: Subscribe to my channel for more tutorial updates 🔔
+                  - 'link "YouTube Channel Link: @rapidvectors" [ref=f4e272] [cursor=pointer]':
+                    - /url: /channel/UCz1dh2ZozdfCL8_PBqP3dZQ
+                    - text: / @rapidvectors
+                  - text: Do you like my content and would you like to help support my channel further? ☕
+                  - link "https://www.buymeacoffee.com/rapidvec..." [ref=f4e275] [cursor=pointer]:
+                    - /url: https://www.youtube.com/redirect?event=video_description&redir_token=QUM4Zm9rU3BlQzZRVTJmOHFNdVNMU1YtZVB5TnxBR3JiS2FrcDhuQ0xKWUNFc0pmVVVjZkxHaFRmNGplVEN3ekstLTVKR0dQLUNMNzZxQU9WMjI0V25EWS10anB1WFl2TWJkc1FqYWNpOGVhYjdPQlItN3dnYnRXOFE1eTQ0REQ2&q=https%3A%2F%2Fwww.buymeacoffee.com%2Frapidvectors&v=875z4ZVITEY
+                  - text: 🎬 Video Chapters
+                  - link "0초" [ref=f4e277] [cursor=pointer]:
+                    - /url: /watch?v=875z4ZVITEY
+                    - text: 0:00
+                  - text: "- Introduction"
+                  - link "15초" [ref=f4e279] [cursor=pointer]:
+                    - /url: /watch?v=875z4ZVITEY&t=15s
+                    - text: 0:15
+                  - text: "- Create the Corn crop"
+                  - link "56초" [ref=f4e281] [cursor=pointer]:
+                    - /url: /watch?v=875z4ZVITEY&t=56s
+                    - text: 0:56
+                  - text: "- Add the Hurt Component"
+                  - link "1분 33초" [ref=f4e283] [cursor=pointer]:
+                    - /url: /watch?v=875z4ZVITEY&t=93s
+                    - text: 1:33
+                  - text: "- Add watering GPU particles"
+                  - link "3분 42초" [ref=f4e285] [cursor=pointer]:
+                    - /url: /watch?v=875z4ZVITEY&t=222s
+                    - text: 3:42
+                  - text: "- Add flowring GPU particles"
+                  - link "6분 18초" [ref=f4e287] [cursor=pointer]:
+                    - /url: /watch?v=875z4ZVITEY&t=378s
+                    - text: 6:18
+                  - text: "- Growth Cycle component and script"
+                  - link "12분 46초" [ref=f4e289] [cursor=pointer]:
+                    - /url: /watch?v=875z4ZVITEY&t=766s
+                    - text: 12:46
+                  - text: "- Corn script"
+                  - link "17분 52초" [ref=f4e291] [cursor=pointer]:
+                    - /url: /watch?v=875z4ZVITEY&t=1072s
+                    - text: 17:52
+                  - text: "- Configure the watering can collision shape"
+                  - link "20분 15초" [ref=f4e293] [cursor=pointer]:
+                    - /url: /watch?v=875z4ZVITEY&t=1215s
+                    - text: 20:15
+                  - text: "- Create the Tomato Crop"
+                  - link "21분 54초" [ref=f4e295] [cursor=pointer]:
+                    - /url: /watch?v=875z4ZVITEY&t=1314s
+                    - text: 21:54
+                  - text: "- Tomato script"
+                  - link "24분 5초" [ref=f4e297] [cursor=pointer]:
+                    - /url: /watch?v=875z4ZVITEY&t=1445s
+                    - text: 24:05
+                  - text: "- Configure Y-Sorting for crops"
+                  - link "#godot" [ref=f4e299] [cursor=pointer]:
+                    - /url: /hashtag/godot
+                  - link "#godot4" [ref=f4e301] [cursor=pointer]:
+                    - /url: /hashtag/godot4
+                  - link "#godotengine" [ref=f4e303] [cursor=pointer]:
+                    - /url: /hashtag/godotengine
+                  - link "#indiegame" [ref=f4e305] [cursor=pointer]:
+                    - /url: /hashtag/indiegame
+                  - link "#indiedev" [ref=f4e307] [cursor=pointer]:
+                    - /url: /hashtag/indiedev
+                  - link "#indiegamedev" [ref=f4e309] [cursor=pointer]:
+                    - /url: /hashtag/indiegamedev
+                  - link "#tutorialyoutube" [ref=f4e311] [cursor=pointer]:
+                    - /url: /hashtag/tutorialyoutube
+                  - link "#gamedev" [ref=f4e313] [cursor=pointer]:
+                    - /url: /hashtag/gamedev
+                  - link "#gamedevelopment" [ref=f4e315] [cursor=pointer]:
+                    - /url: /hashtag/gamedevelopment
+                  - link "#gamedevelopmenttutorial" [ref=f4e317] [cursor=pointer]:
+                    - /url: /hashtag/gamedevelopmenttutorial
+                  - link "#godottutorial" [ref=f4e319] [cursor=pointer]:
+                    - /url: /hashtag/godottutorial
+                  - link "#gdscript" [ref=f4e321] [cursor=pointer]:
+                    - /url: /hashtag/gdscript
+                  - link "#farminggame" [ref=f4e323] [cursor=pointer]:
+                    - /url: /hashtag/farminggame
+                - generic [ref=f4e326]:
+                  - generic [ref=f4e328]:
+                    - heading "챕터 모두 보기" [level=2] [ref=f4e330]:
+                      - generic [ref=f4e332]:
+                        - generic [ref=f4e333]: 챕터
+                        - button "모두 보기" [ref=f4e338] [cursor=pointer]
+                    - generic [ref=f4e342]:
+                      - generic [ref=f4e344]:
+                        - link "Introduction 0:00" [ref=f4e346] [cursor=pointer]:
+                          - /url: /watch?v=875z4ZVITEY
+                          - generic [ref=f4e349]:
+                            - heading "Introduction" [level=3] [ref=f4e350]
+                            - generic [ref=f4e351]: 0:00
+                        - link "Create the Corn crop 0:15" [ref=f4e353] [cursor=pointer]:
+                          - /url: /watch?v=875z4ZVITEY&t=15s
+                          - generic [ref=f4e356]:
+                            - heading "Create the Corn crop" [level=3] [ref=f4e357]
+                            - generic [ref=f4e358]: 0:15
+                        - link "Add the Hurt Component 0:56" [ref=f4e360] [cursor=pointer]:
+                          - /url: /watch?v=875z4ZVITEY&t=56s
+                          - generic [ref=f4e363]:
+                            - heading "Add the Hurt Component" [level=3] [ref=f4e364]
+                            - generic [ref=f4e365]: 0:56
+                        - link "Add watering GPU particles 1:33" [ref=f4e367] [cursor=pointer]:
+                          - /url: /watch?v=875z4ZVITEY&t=93s
+                          - generic [ref=f4e370]:
+                            - heading "Add watering GPU particles" [level=3] [ref=f4e371]
+                            - generic [ref=f4e372]: 1:33
+                        - link "Add flowring GPU particles 3:42" [ref=f4e374] [cursor=pointer]:
+                          - /url: /watch?v=875z4ZVITEY&t=222s
+                          - generic [ref=f4e377]:
+                            - heading "Add flowring GPU particles" [level=3] [ref=f4e378]
+                            - generic [ref=f4e379]: 3:42
+                        - link "Growth Cycle component and script 6:18" [ref=f4e381] [cursor=pointer]:
+                          - /url: /watch?v=875z4ZVITEY&t=378s
+                          - generic [ref=f4e384]:
+                            - heading "Growth Cycle component and script" [level=3] [ref=f4e385]
+                            - generic [ref=f4e386]: 6:18
+                        - link "Corn script 12:46" [ref=f4e388] [cursor=pointer]:
+                          - /url: /watch?v=875z4ZVITEY&t=766s
+                          - generic [ref=f4e391]:
+                            - heading "Corn script" [level=3] [ref=f4e392]
+                            - generic [ref=f4e393]: 12:46
+                        - link "Configure the watering can collision shape 17:52" [ref=f4e395] [cursor=pointer]:
+                          - /url: /watch?v=875z4ZVITEY&t=1072s
+                          - generic [ref=f4e398]:
+                            - heading "Configure the watering can collision shape" [level=3] [ref=f4e399]
+                            - generic [ref=f4e400]: 17:52
+                      - generic [ref=f4e401] [cursor=pointer]
+                  - generic [ref=f4e405]:
+                    - generic [ref=f4e406]: 이 학습 프로그램 살펴보기
+                    - generic [ref=f4e409]:
+                      - link "Farming Game - Godot - Tutorials Series - Croptails - 2D Top Down Game" [ref=f4e410] [cursor=pointer]:
+                        - /url: /playlist?list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9
+                        - generic [ref=f4e412]:
+                          - img "Farming Game - Godot - Tutorials Series - Croptails - 2D Top Down Game" [ref=f4e1001]
+                          - generic: 강의 26개
+                      - generic [ref=f4e418]:
+                        - generic [ref=f4e419]: Farming Game - Godot - Tutorials Series - Croptails - 2D Top Down Game
+                        - generic [ref=f4e420]: Rapid Vectors
+                  - generic [ref=f4e421]:
+                    - heading "과정 진행 상황" [level=3] [ref=f4e422]
+                    - paragraph [ref=f4e424]:
+                      - generic [ref=f4e425]: 0/26개 강의를 완료했습니다.
+                  - generic [ref=f4e427]:
+                    - generic [ref=f4e428]: 스크립트
+                    - paragraph [ref=f4e431]: 스크립트를 보면서 시청하세요.
+                    - button "스크립트 표시" [ref=f4e436] [cursor=pointer]
+                  - generic [ref=f4e440]:
+                    - link "Rapid Vectors 구독자 1.81만명" [ref=f4e441] [cursor=pointer]:
+                      - /url: /@rapidvectors
+                      - generic [ref=f4e442]:
+                        - heading "Rapid Vectors" [level=3] [ref=f4e443]
+                        - generic [ref=f4e444]: 구독자 1.81만명
+                    - generic [ref=f4e447]:
+                      - link "동영상" [ref=f4e450] [cursor=pointer]:
+                        - /url: /channel/UCz1dh2ZozdfCL8_PBqP3dZQ/videos
+                      - link "정보" [ref=f4e456] [cursor=pointer]:
+                        - /url: /channel/UCz1dh2ZozdfCL8_PBqP3dZQ/about
+                      - link "Twitter" [ref=f4e462] [cursor=pointer]:
+                        - /url: https://www.youtube.com/redirect?event=Watch_SD_EP&redir_token=QUM4Zm9rU0NSNk55LTN2Z1BCNnpLYzlLeU8yNXxBR3JiS2FuQktsalRIazJ2eWlhRUtZcUVUNjVNRnkzT3F2MTlBdTFYZGtzOE1fY215aDNEUkFMRFYtMHFiVnFRd3E5ZzJaX3ZiS0ZoUE5vcERYWExidWt3R0QwdmVwcENzNURF&q=https%3A%2F%2Ftwitter.com%2Frapidvectors
+                - button "간략히" [ref=f4e466] [cursor=pointer]
+          - text: •
+        - generic [ref=f4e467]:
+          - generic [ref=f4e468]:
+            - generic: ·
+            - generic [ref=f4e505]:
+              - generic [ref=f4e508]:
+                - generic [ref=f4e510] [cursor=pointer]:
+                  - link [ref=f4e511]:
+                    - /url: /watch?v=0MIQ35Ms_9M&pp=ugUEEgJlbg%3D%3D
+                    - generic [ref=f4e512]: 20:47
+                  - generic [ref=f4e520]:
+                    - generic [ref=f4e521]:
+                      - heading "농장 게임에서 도구를 사용하여 작물을 심는 방법 - Godot 튜토리얼 - 18부" [level=3] [ref=f4e522]:
+                        - link "농장 게임에서 도구를 사용하여 작물을 심는 방법 - Godot 튜토리얼 - 18부 20분" [ref=f4e523]:
+                          - /url: /watch?v=0MIQ35Ms_9M&pp=ugUEEgJlbg%3D%3D
+                          - text: 농장 게임에서 도구를 사용하여 작물을 심는 방법 - Godot 튜토리얼 - 18부
+                      - generic [ref=f4e525]:
+                        - group [ref=f4e526]:
+                          - generic [ref=f4e527]: Rapid Vectors
+                        - group [ref=f4e528]:
+                          - generic [ref=f4e529]: 조회수 5.1천회
+                          - generic [ref=f4e530]: •
+                          - generic "1년 전" [ref=f4e531]
+                    - button "추가 작업" [ref=f4e534]
+                - generic [ref=f4e539] [cursor=pointer]:
+                  - link [ref=f4e540]:
+                    - /url: /watch?v=1apD-OYltOo
+                    - generic [ref=f4e541]: 2:11:08
+                  - generic [ref=f4e549]:
+                    - generic [ref=f4e550]:
+                      - heading "[타로] 🚨지금 이 영상이 뜬 이유❗️ 이 영상이 나타났다면 제발 그냥 넘기지 마세요⚠️ (feat.이 메시지 무시하지 마세요🧿절대 우연이 아닙니다🚫금전•일•학업•관계까지 몽땅💥)" [level=3] [ref=f4e551]:
+                        - link "[타로] 🚨지금 이 영상이 뜬 이유❗️ 이 영상이 나타났다면 제발 그냥 넘기지 마세요⚠️ (feat.이 메시지 무시하지 마세요🧿절대 우연이 아닙니다🚫금전•일•학업•관계까지 몽땅💥) 2시간 11분" [ref=f4e552]:
+                          - /url: /watch?v=1apD-OYltOo
+                          - text: "[타로] 🚨지금 이 영상이 뜬 이유❗️ 이 영상이 나타났다면 제발 그냥 넘기지 마세요⚠️ (feat.이 메시지 무시하지 마세요🧿절대 우연이 아닙니다🚫금전•일•학업•관계까지 몽땅💥)"
+                      - generic [ref=f4e554]:
+                        - group [ref=f4e555]:
+                          - generic [ref=f4e556]: 타로혜윰
+                        - group [ref=f4e557]:
+                          - generic [ref=f4e558]: 조회수 10만회
+                          - generic [ref=f4e559]: •
+                          - generic "2일 전" [ref=f4e560]
+                        - group [ref=f4e561]:
+                          - generic [ref=f4e562]: 새 동영상
+                    - button "추가 작업" [ref=f4e568]
+                - generic [ref=f4e573] [cursor=pointer]:
+                  - link [ref=f4e574]:
+                    - /url: /watch?v=93yePYC8B9Y
+                    - generic [ref=f4e575]: 1:35:22
+                  - generic [ref=f4e583]:
+                    - generic [ref=f4e584]:
+                      - heading "ASMR 고양이와 함께하는 영적 에너지 정화 🐾 숙면을 위한 레이키" [level=3] [ref=f4e585]:
+                        - link "ASMR 고양이와 함께하는 영적 에너지 정화 🐾 숙면을 위한 레이키 1시간 35분" [ref=f4e586]:
+                          - /url: /watch?v=93yePYC8B9Y
+                          - text: ASMR 고양이와 함께하는 영적 에너지 정화 🐾 숙면을 위한 레이키
+                      - generic [ref=f4e588]:
+                        - group [ref=f4e589]:
+                          - generic [ref=f4e590]: Tabuhan ASMR
+                        - group [ref=f4e596]:
+                          - generic [ref=f4e597]: 조회수 3.7만회
+                          - generic [ref=f4e598]: •
+                          - generic "2일 전" [ref=f4e599]
+                        - group [ref=f4e600]:
+                          - generic [ref=f4e601]: 새 동영상
+                    - button "추가 작업" [ref=f4e607]
+                - generic [ref=f4e612] [cursor=pointer]:
+                  - link [ref=f4e613]:
+                    - /url: /watch?v=vvCfDNzkIcI&pp=ugUHEgVwdC1CUg%3D%3D
+                    - generic [ref=f4e614]: 1:07:58
+                  - generic [ref=f4e622]:
+                    - generic [ref=f4e623]:
+                      - heading "ORAÇÃO DA MANHÃ | COLOQUE TUDO NAS MÃOS DE DEUS E DESCANSE" [level=3] [ref=f4e624]:
+                        - link "ORAÇÃO DA MANHÃ | COLOQUE TUDO NAS MÃOS DE DEUS E DESCANSE 1시간 7분" [ref=f4e625]:
+                          - /url: /watch?v=vvCfDNzkIcI&pp=ugUHEgVwdC1CUg%3D%3D
+                          - text: ORAÇÃO DA MANHÃ | COLOQUE TUDO NAS MÃOS DE DEUS E DESCANSE
+                      - generic [ref=f4e627]:
+                        - group [ref=f4e628]:
+                          - generic [ref=f4e629]: Propósito De Deus
+                        - group [ref=f4e630]:
+                          - generic [ref=f4e631]: 조회수 5.3만회
+                          - generic [ref=f4e632]: •
+                          - generic "2일 전" [ref=f4e633]
+                        - group [ref=f4e634]:
+                          - generic [ref=f4e635]: 새 동영상
+                    - button "추가 작업" [ref=f4e641]
+                - generic [ref=f4e646] [cursor=pointer]:
+                  - link [ref=f4e647]:
+                    - /url: /watch?v=Td6LBN4yfmg
+                    - generic [ref=f4e648]: 36:26
+                  - generic [ref=f4e656]:
+                    - generic [ref=f4e657]:
+                      - 'heading "COMO CRIAR UM JOGO DE CORRIDA NA GODOT | CANVASLAYER, VBOXCONTAINER,TEXTURERECT,COLORRECT,BUTTONS #9" [level=3] [ref=f4e658]':
+                        - 'link "COMO CRIAR UM JOGO DE CORRIDA NA GODOT | CANVASLAYER, VBOXCONTAINER,TEXTURERECT,COLORRECT,BUTTONS #9 36분" [ref=f4e659]':
+                          - /url: /watch?v=Td6LBN4yfmg
+                          - text: "COMO CRIAR UM JOGO DE CORRIDA NA GODOT | CANVASLAYER, VBOXCONTAINER,TEXTURERECT,COLORRECT,BUTTONS #9"
+                      - generic [ref=f4e661]:
+                        - group [ref=f4e662]:
+                          - generic [ref=f4e663]: Ferpa Games
+                        - group [ref=f4e664]:
+                          - generic [ref=f4e665]: 조회수 36회
+                          - generic [ref=f4e666]: •
+                          - generic "2주 전" [ref=f4e667]
+                    - button "추가 작업" [ref=f4e670]
+                - generic [ref=f4e675] [cursor=pointer]:
+                  - link [ref=f4e676]:
+                    - /url: /watch?v=aIaLWjEQt-M&pp=ugUEEgJrbw%3D%3D
+                    - generic [ref=f4e677]: 1:44:13
+                  - generic [ref=f4e685]:
+                    - generic [ref=f4e686]:
+                      - heading "빨래방 오리 리필 헬리콥터 비행" [level=3] [ref=f4e687]:
+                        - link "빨래방 오리 리필 헬리콥터 비행 1시간 44분" [ref=f4e688]:
+                          - /url: /watch?v=aIaLWjEQt-M&pp=ugUEEgJrbw%3D%3D
+                          - text: 빨래방 오리 리필 헬리콥터 비행
+                      - generic [ref=f4e690]:
+                        - group [ref=f4e691]:
+                          - generic [ref=f4e692]: Roman Atwood
+                        - group [ref=f4e698]:
+                          - generic [ref=f4e699]: 조회수 72만회
+                          - generic [ref=f4e700]: •
+                          - generic "2일 전" [ref=f4e701]
+                        - group [ref=f4e702]:
+                          - generic [ref=f4e703]: 새 동영상
+                          - generic [ref=f4e707]: 자동 더빙
+                    - button "추가 작업" [ref=f4e716]
+                - generic [ref=f4e721] [cursor=pointer]:
+                  - link [ref=f4e722]:
+                    - /url: /watch?v=-HD0AmtdqD8
+                    - generic [ref=f4e723]: 50:41
+                  - generic [ref=f4e731]:
+                    - generic [ref=f4e732]:
+                      - heading "READING VLOG | the coziest week, magical reads, baking, journal updates🏹" [level=3] [ref=f4e733]:
+                        - link "READING VLOG | the coziest week, magical reads, baking, journal updates🏹 50분" [ref=f4e734]:
+                          - /url: /watch?v=-HD0AmtdqD8
+                          - text: READING VLOG | the coziest week, magical reads, baking, journal updates🏹
+                      - generic [ref=f4e736]:
+                        - group [ref=f4e737]:
+                          - generic [ref=f4e738]: katie is reading
+                        - group [ref=f4e739]:
+                          - generic [ref=f4e740]: 조회수 2.5만회
+                          - generic [ref=f4e741]: •
+                          - generic "2일 전" [ref=f4e742]
+                        - group [ref=f4e743]:
+                          - generic [ref=f4e744]: 새 동영상
+                    - button "추가 작업" [ref=f4e750]
+                - generic [ref=f4e755] [cursor=pointer]:
+                  - link [ref=f4e756]:
+                    - /url: /watch?v=OzFDYPpKVzo&pp=ugUEEgJrb9IHCQnECwGHKiGM7w%3D%3D
+                    - generic [ref=f4e757]: 16:32
+                  - generic [ref=f4e765]:
+                    - generic [ref=f4e766]:
+                      - heading "\"한국이 엔비디아를 넘을 수 있습니다\" AI·반도체 10년 승부 | 경읽남과 토론합시다 | 김정호 교수님 [3편]" [level=3] [ref=f4e767]:
+                        - link "\"한국이 엔비디아를 넘을 수 있습니다\" AI·반도체 10년 승부 | 경읽남과 토론합시다 | 김정호 교수님 [3편] 16분" [ref=f4e768]:
+                          - /url: /watch?v=OzFDYPpKVzo&pp=ugUEEgJrb9IHCQnECwGHKiGM7w%3D%3D
+                          - text: "\"한국이 엔비디아를 넘을 수 있습니다\" AI·반도체 10년 승부 | 경읽남과 토론합시다 | 김정호 교수님 [3편]"
+                      - generic [ref=f4e770]:
+                        - group [ref=f4e771]:
+                          - generic [ref=f4e772]: 경제 읽어주는 남자(김광석TV)
+                        - group [ref=f4e778]:
+                          - generic [ref=f4e779]: 조회수 3.7만회
+                          - generic [ref=f4e780]: •
+                          - generic "1일 전" [ref=f4e781]
+                        - group [ref=f4e782]:
+                          - generic [ref=f4e783]: 새 동영상
+                    - button "추가 작업" [ref=f4e789]
+                - generic [ref=f4e794] [cursor=pointer]:
+                  - link [ref=f4e795]:
+                    - /url: /watch?v=YqgTs_K5C-g
+                    - generic [ref=f4e796]: 2:05:42
+                  - generic [ref=f4e804]:
+                    - generic [ref=f4e805]:
+                      - heading "Mang theo 4 \"ông trời con\" bỏ trốn, nào ngờ bị tổng tài ngàn tỷ đến tận cửa bắt về chịu trách nhiệm👑" [level=3] [ref=f4e806]:
+                        - link "Mang theo 4 \"ông trời con\" bỏ trốn, nào ngờ bị tổng tài ngàn tỷ đến tận cửa bắt về chịu trách nhiệm👑 2시간 5분" [ref=f4e807]:
+                          - /url: /watch?v=YqgTs_K5C-g
+                          - text: Mang theo 4 "ông trời con" bỏ trốn, nào ngờ bị tổng tài ngàn tỷ đến tận cửa bắt về chịu trách nhiệm👑
+                      - generic [ref=f4e809]:
+                        - group [ref=f4e810]:
+                          - generic [ref=f4e811]: DaisyTV
+                        - group [ref=f4e812]:
+                          - generic [ref=f4e813]: 조회수 20만회
+                          - generic [ref=f4e814]: •
+                          - generic "2일 전" [ref=f4e815]
+                        - group [ref=f4e816]:
+                          - generic [ref=f4e817]: 새 동영상
+                    - button "추가 작업" [ref=f4e823]
+              - button "더보기" [ref=f4e830] [cursor=pointer]
+          - heading "댓글" [level=2] [ref=f4e839]
+  - dialog [ref=f4e1003]:
+    - generic [ref=f4e1005]:
+      - generic [ref=f4e1007]:
+        - heading "YouTube Premium" [level=2] [ref=f4e1008]
+        - generic [ref=f4e1009]: 광⁠고 없⁠는 YouTube⁠와 YouTube Music⁠을 즐⁠겨⁠보⁠세⁠요
+        - generic [ref=f4e1010]: 약관이 적용되며 언제든지 취소 가능합니다.
+      - generic [ref=f4e1012]:
+        - button "닫기" [ref=f4e1015] [cursor=pointer]
+        - link "1⁠개⁠월 무⁠료⁠체⁠험" [ref=f4e1021] [cursor=pointer]:
+          - /url: /premium?ybp=Eg9GRXdoYXRfdG9fd2F0Y2gqEmRtZWEtYWNxLWMtZWdzb0tSZToaCAYYASoUChJkbWVhLWFjcS1jLWVnc29LUmU%253D
+  - generic [ref=f4e1025]: YouTube Premium. Shift + Enter 키를 눌러 자세히 알아보세요.

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Items" format=3 uid="uid://cukembyxyfglu"]
+
+[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/items.gd" id="1_items"]
+[ext_resource type="Texture2D" uid="uid://6luscfvdcnld" path="res://assets/UI/Inventory/Objects/Icon_Pickaxe.png" id="2_icon"]
+
+[resource]
+script = ExtResource("1_items")
+item_type = "tool"
+tool_type = 3
+item_name = "pickaxe"
+item_texture = ExtResource("2_icon")
+description = "Breaks rocks apart."
+melee_damage = 1
+melee_knockback = 1
+max_stack = -1
+anim_prefix = &"pickaxe"
+world_scene_path = "uid://cyd3ld0r7fmsh"
+metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

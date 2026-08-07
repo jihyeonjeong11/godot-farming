@@ -1,0 +1,798 @@
+- generic [ref=e73]:
+  - banner [ref=e75]:
+    - generic [ref=e77]:
+      - generic [ref=e78]:
+        - button "가이드" [ref=e80] [cursor=pointer]
+        - generic [ref=e84]:
+          - link "YouTube 홈" [ref=e85] [cursor=pointer]:
+            - /url: /
+          - generic [ref=e91]: KR
+        - button "탐색 건너뛰기" [ref=e95] [cursor=pointer]
+      - generic [ref=e99]:
+        - search [ref=e100]:
+          - generic [ref=e102]:
+            - generic [ref=e103]:
+              - combobox "검색" [expanded] [ref=e105]
+              - button [ref=e108] [cursor=pointer]
+            - button "Search" [ref=e109] [cursor=pointer]
+        - generic [ref=e114]:
+          - button "음성으로 검색" [ref=e116] [cursor=pointer]
+          - tooltip "tooltip"
+      - generic [ref=e121]:
+        - button "설정" [ref=e126] [cursor=pointer]
+        - link "로그인" [ref=e132] [cursor=pointer]:
+          - /url: https://accounts.google.com/ServiceLogin?service=youtube&uilel=3&passive=true&continue=https%3A%2F%2Fwww.youtube.com%2Fsignin%3Faction_handle_signin%3Dtrue%26app%3Ddesktop%26hl%3Dko%26next%3Dhttps%253A%252F%252Fwww.youtube.com%252Fwatch%253Fv%253DaMfV41jb-5E%2526list%253DPLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9%2526index%253D17&hl=ko&ec=65620
+  - main [ref=e137]:
+    - generic [ref=e139]:
+      - generic [ref=e142] [cursor=pointer]
+      - complementary [ref=e143]:
+        - generic "YouTube 동영상 플레이어" [ref=e5]:
+          - button [ref=e12] [cursor=pointer]:
+            - img "채널 워터마크" [ref=e13]
+          - generic [ref=e149]:
+            - generic [ref=e1321]: new scene and then choose the user
+            - generic [ref=e1323]: interface option and then just press f2
+            - generic [ref=e1325]: to
+          - generic [ref=e14]:
+            - generic [ref=e15] [cursor=pointer]:
+              - slider "탐색 슬라이더" [ref=e16]
+              - generic:
+                - generic:
+                  - generic:
+                    - slider "세밀한 탐색을 하려면 패널을 클릭하거나 스크롤하세요."
+            - generic [ref=e25]:
+              - generic [ref=e26]:
+                - button "일시중지(k)" [ref=e27] [cursor=pointer]
+                - button "이전(SHIFT+p)" [ref=e190] [cursor=pointer]
+                - button "다음(SHIFT+n)" [ref=e191] [cursor=pointer]
+                - generic [ref=e28]:
+                  - button "음소거(m)" [ref=e30] [cursor=pointer]
+                  - slider "볼륨":
+                    - generic [ref=e31] [cursor=pointer]
+                - button "0 분 3 초/31 분 16 초" [ref=e192] [cursor=pointer]: 0:03 / 31:16
+                - button "주간 패널 만들기" [ref=e1327] [cursor=pointer]
+              - generic [ref=e35]:
+                - generic [ref=e36]:
+                  - button "자막 사용 불가" [pressed] [ref=e37] [cursor=pointer]
+                  - button "설정" [ref=e39] [cursor=pointer]
+                - generic [ref=e40]:
+                  - button "영화관 모드(t)" [ref=e41] [cursor=pointer]
+                  - button "전체 화면(f)" [ref=e42] [cursor=pointer]
+    - generic [ref=e200]:
+      - generic [ref=e202]:
+        - generic [ref=e205]:
+          - generic [ref=e206]:
+            - heading [level=3] [ref=e207]:
+              - link "Farming Game - Godot - Tutorials Series - Croptails - 2D Top Down Game" [ref=e210] [cursor=pointer]:
+                - /url: /playlist?list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9
+            - generic [ref=e211]:
+              - generic "Rapid Vectors" [ref=e212]:
+                - link "Rapid Vectors" [ref=e213] [cursor=pointer]:
+                  - /url: /@rapidvectors
+              - generic [ref=e214]:
+                - text: "-"
+                - generic [ref=e215]: 17 / 26
+          - button "작업 메뉴" [ref=e220] [cursor=pointer]
+          - button "접기" [ref=e225] [cursor=pointer]
+        - generic [ref=e229]:
+          - generic [ref=e230]:
+            - link "1 How to Build a Complete 2D Farming Game an 8-Hour Tutorial Series - Godot 4.3 - All 25 Episodes 8시간 28분 Rapid Vectors" [ref=e231] [cursor=pointer]:
+              - /url: /watch?v=it0lsREGdmc&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=1&pp=iAQB
+              - generic [ref=e232]:
+                - generic [ref=e233]: "1"
+                - link [ref=e237]:
+                  - /url: /watch?v=it0lsREGdmc&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=1&pp=iAQB
+                  - img [ref=e242]:
+                    - generic [ref=e243]: 8:28:21
+                - generic [ref=e244]:
+                  - heading "How to Build a Complete 2D Farming Game an 8-Hour Tutorial Series - Godot 4.3 - All 25 Episodes 8시간 28분" [level=4] [ref=e245]:
+                    - generic "How to Build a Complete 2D Farming Game an 8-Hour Tutorial Series - Godot 4.3 - All 25 Episodes 8시간 28분" [ref=e246]: How to Build a Complete 2D Farming Game an 8-Hour Tutorial Series - Godot 4.3 - All 25 Episodes
+                  - generic "Rapid Vectors" [ref=e248]
+            - button "작업 메뉴" [ref=e252] [cursor=pointer]
+          - generic [ref=e256]:
+            - link "2 Farming Game Project Setup and Assets - Godot Tutorial - 2D Top Down Game - Pt 1 4분 27초 Rapid Vectors" [ref=e257] [cursor=pointer]:
+              - /url: /watch?v=h2QxOU2a2zM&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=2&pp=iAQB
+              - generic [ref=e258]:
+                - generic [ref=e259]: "2"
+                - link [ref=e263]:
+                  - /url: /watch?v=h2QxOU2a2zM&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=2&pp=iAQB
+                  - img [ref=e268]:
+                    - generic [ref=e269]: 4:27
+                - generic [ref=e270]:
+                  - heading "Farming Game Project Setup and Assets - Godot Tutorial - 2D Top Down Game - Pt 1 4분 27초" [level=4] [ref=e271]:
+                    - generic "Farming Game Project Setup and Assets - Godot Tutorial - 2D Top Down Game - Pt 1 4분 27초" [ref=e272]: Farming Game Project Setup and Assets - Godot Tutorial - 2D Top Down Game - Pt 1
+                  - generic "Rapid Vectors" [ref=e274]
+            - button "작업 메뉴" [ref=e278] [cursor=pointer]
+          - generic [ref=e282]:
+            - link "3 애니메이션 타일과 지형이 있는 타일맵 레이어 - Godot 튜토리얼 - 2D 탑다운 게임 - 2부 15분 Rapid Vectors" [ref=e283] [cursor=pointer]:
+              - /url: /watch?v=AdN27y_-UHA&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=3&pp=iAQB
+              - generic [ref=e284]:
+                - generic [ref=e285]: "3"
+                - link [ref=e289]:
+                  - /url: /watch?v=AdN27y_-UHA&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=3&pp=iAQB
+                  - img [ref=e294]:
+                    - generic [ref=e295]: 15:45
+                - generic [ref=e296]:
+                  - heading "애니메이션 타일과 지형이 있는 타일맵 레이어 - Godot 튜토리얼 - 2D 탑다운 게임 - 2부 15분" [level=4] [ref=e297]:
+                    - generic "애니메이션 타일과 지형이 있는 타일맵 레이어 - Godot 튜토리얼 - 2D 탑다운 게임 - 2부 15분" [ref=e298]: 애니메이션 타일과 지형이 있는 타일맵 레이어 - Godot 튜토리얼 - 2D 탑다운 게임 - 2부
+                  - generic "Rapid Vectors" [ref=e300]
+            - button "작업 메뉴" [ref=e304] [cursor=pointer]
+          - generic [ref=e308]:
+            - link "4 Player Animations and State Machine Transitions- Godot Tutorial - 2D Top Down Game - Pt 3 32분 Rapid Vectors" [ref=e309] [cursor=pointer]:
+              - /url: /watch?v=8mE6QZCwTPQ&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=4&pp=iAQB
+              - generic [ref=e310]:
+                - generic [ref=e311]: "4"
+                - link [ref=e315]:
+                  - /url: /watch?v=8mE6QZCwTPQ&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=4&pp=iAQB
+                  - img [ref=e320]:
+                    - generic [ref=e321]: 32:42
+                - generic [ref=e322]:
+                  - heading "Player Animations and State Machine Transitions- Godot Tutorial - 2D Top Down Game - Pt 3 32분" [level=4] [ref=e323]:
+                    - generic "Player Animations and State Machine Transitions- Godot Tutorial - 2D Top Down Game - Pt 3 32분" [ref=e324]: Player Animations and State Machine Transitions- Godot Tutorial - 2D Top Down Game - Pt 3
+                  - generic "Rapid Vectors" [ref=e326]
+            - button "작업 메뉴" [ref=e330] [cursor=pointer]
+          - generic [ref=e334]:
+            - link "5 Player State Machine Chopping, Tilling and Watering Tool States - Godot Tutorial - Pt 4 12분 46초 Rapid Vectors" [ref=e335] [cursor=pointer]:
+              - /url: /watch?v=sg0NyOCAHRg&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=5&pp=iAQB
+              - generic [ref=e336]:
+                - generic [ref=e337]: "5"
+                - link [ref=e341]:
+                  - /url: /watch?v=sg0NyOCAHRg&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=5&pp=iAQB
+                  - img [ref=e346]:
+                    - generic [ref=e347]: 12:46
+                - generic [ref=e348]:
+                  - heading "Player State Machine Chopping, Tilling and Watering Tool States - Godot Tutorial - Pt 4 12분 46초" [level=4] [ref=e349]:
+                    - generic "Player State Machine Chopping, Tilling and Watering Tool States - Godot Tutorial - Pt 4 12분 46초" [ref=e350]: Player State Machine Chopping, Tilling and Watering Tool States - Godot Tutorial - Pt 4
+                  - generic "Rapid Vectors" [ref=e352]
+            - button "작업 메뉴" [ref=e356] [cursor=pointer]
+          - generic [ref=e360]:
+            - link "6 Create Houses with Tilemaps and Scene Collections - Godot Tutorial - Pt 5 25분 Rapid Vectors" [ref=e361] [cursor=pointer]:
+              - /url: /watch?v=Ssclr1CAhrQ&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=6&pp=iAQB
+              - generic [ref=e362]:
+                - generic [ref=e363]: "6"
+                - link [ref=e367]:
+                  - /url: /watch?v=Ssclr1CAhrQ&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=6&pp=iAQB
+                - generic [ref=e369]:
+                  - heading "Create Houses with Tilemaps and Scene Collections - Godot Tutorial - Pt 5 25분" [level=4] [ref=e370]:
+                    - generic "Create Houses with Tilemaps and Scene Collections - Godot Tutorial - Pt 5 25분" [ref=e371]: Create Houses with Tilemaps and Scene Collections - Godot Tutorial - Pt 5
+                  - generic "Rapid Vectors" [ref=e373]
+            - button "작업 메뉴" [ref=e377] [cursor=pointer]
+          - generic [ref=e381]:
+            - link "7 Create Chop-able Trees with Damage and Log Collectables - Godot Tutorial - Pt 6 25분 Rapid Vectors" [ref=e382] [cursor=pointer]:
+              - /url: /watch?v=fBfzOptX4Fw&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=7&pp=iAQB
+              - generic [ref=e383]:
+                - generic [ref=e384]: "7"
+                - link [ref=e388]:
+                  - /url: /watch?v=fBfzOptX4Fw&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=7&pp=iAQB
+                - generic [ref=e390]:
+                  - heading "Create Chop-able Trees with Damage and Log Collectables - Godot Tutorial - Pt 6 25분" [level=4] [ref=e391]:
+                    - generic "Create Chop-able Trees with Damage and Log Collectables - Godot Tutorial - Pt 6 25분" [ref=e392]: Create Chop-able Trees with Damage and Log Collectables - Godot Tutorial - Pt 6
+                  - generic "Rapid Vectors" [ref=e394]
+            - button "작업 메뉴" [ref=e398] [cursor=pointer]
+          - generic [ref=e402]:
+            - link "8 정점 셰이더 효과를 활용한 2D 나무 흔들기 만들기 - Godot 튜토리얼 - 2D 탑다운 게임 - 7부 8분 Rapid Vectors" [ref=e403] [cursor=pointer]:
+              - /url: /watch?v=J8eBowaHMgY&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=8&pp=iAQB
+              - generic [ref=e404]:
+                - generic [ref=e405]: "8"
+                - link [ref=e409]:
+                  - /url: /watch?v=J8eBowaHMgY&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=8&pp=iAQB
+                - generic [ref=e411]:
+                  - heading "정점 셰이더 효과를 활용한 2D 나무 흔들기 만들기 - Godot 튜토리얼 - 2D 탑다운 게임 - 7부 8분" [level=4] [ref=e412]:
+                    - generic "정점 셰이더 효과를 활용한 2D 나무 흔들기 만들기 - Godot 튜토리얼 - 2D 탑다운 게임 - 7부 8분" [ref=e413]: 정점 셰이더 효과를 활용한 2D 나무 흔들기 만들기 - Godot 튜토리얼 - 2D 탑다운 게임 - 7부
+                  - generic "Rapid Vectors" [ref=e415]
+            - button "작업 메뉴" [ref=e419] [cursor=pointer]
+          - generic [ref=e423]:
+            - link "9 재사용 가능한 타격, 상처, 손상 및 수집 가능한 구성 요소를 사용한 암석 채굴 - Godot 튜토리얼 - 8부 12분 11초 Rapid Vectors" [ref=e424] [cursor=pointer]:
+              - /url: /watch?v=-RAErpAoXpY&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=9&pp=iAQB
+              - generic [ref=e425]:
+                - generic [ref=e426]: "9"
+                - link [ref=e430]:
+                  - /url: /watch?v=-RAErpAoXpY&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=9&pp=iAQB
+                - generic [ref=e432]:
+                  - heading "재사용 가능한 타격, 상처, 손상 및 수집 가능한 구성 요소를 사용한 암석 채굴 - Godot 튜토리얼 - 8부 12분 11초" [level=4] [ref=e433]:
+                    - generic "재사용 가능한 타격, 상처, 손상 및 수집 가능한 구성 요소를 사용한 암석 채굴 - Godot 튜토리얼 - 8부 12분 11초" [ref=e434]: 재사용 가능한 타격, 상처, 손상 및 수집 가능한 구성 요소를 사용한 암석 채굴 - Godot 튜토리얼 - 8부
+                  - generic "Rapid Vectors" [ref=e436]
+            - button "작업 메뉴" [ref=e440] [cursor=pointer]
+          - generic [ref=e444]:
+            - link "10 씬과 타일맵 레이어에 Y 정렬(Y Sort) 사용하는 방법 - Godot 튜토리얼 - 2D 탑다운 게임 - 9부 10분 33초 Rapid Vectors" [ref=e445] [cursor=pointer]:
+              - /url: /watch?v=9UoIZ5yUMnc&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=10&pp=iAQB
+              - generic [ref=e446]:
+                - generic [ref=e447]: "10"
+                - link [ref=e451]:
+                  - /url: /watch?v=9UoIZ5yUMnc&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=10&pp=iAQB
+                - generic [ref=e453]:
+                  - heading "씬과 타일맵 레이어에 Y 정렬(Y Sort) 사용하는 방법 - Godot 튜토리얼 - 2D 탑다운 게임 - 9부 10분 33초" [level=4] [ref=e454]:
+                    - generic "씬과 타일맵 레이어에 Y 정렬(Y Sort) 사용하는 방법 - Godot 튜토리얼 - 2D 탑다운 게임 - 9부 10분 33초" [ref=e455]: 씬과 타일맵 레이어에 Y 정렬(Y Sort) 사용하는 방법 - Godot 튜토리얼 - 2D 탑다운 게임 - 9부
+                  - generic "Rapid Vectors" [ref=e457]
+            - button "작업 메뉴" [ref=e461] [cursor=pointer]
+          - generic [ref=e465]:
+            - link "11 Chicken NPC Animations, State Machine with Navigation and Avoidance - Godot Tutorial - Pt 10 35분 Rapid Vectors" [ref=e466] [cursor=pointer]:
+              - /url: /watch?v=1EkJUdfnVzk&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=11&pp=iAQB
+              - generic [ref=e467]:
+                - generic [ref=e468]: "11"
+                - link [ref=e472]:
+                  - /url: /watch?v=1EkJUdfnVzk&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=11&pp=iAQB
+                - generic [ref=e474]:
+                  - heading "Chicken NPC Animations, State Machine with Navigation and Avoidance - Godot Tutorial - Pt 10 35분" [level=4] [ref=e475]:
+                    - generic "Chicken NPC Animations, State Machine with Navigation and Avoidance - Godot Tutorial - Pt 10 35분" [ref=e476]: Chicken NPC Animations, State Machine with Navigation and Avoidance - Godot Tutorial - Pt 10
+                  - generic "Rapid Vectors" [ref=e478]
+            - button "작업 메뉴" [ref=e482] [cursor=pointer]
+          - generic [ref=e486]:
+            - link "12 소 NPC 상태 머신, 재사용 가능한 상태, 탐색 영역 및 에이전트 - Godot 튜토리얼 - 11부 7분 22초 Rapid Vectors" [ref=e487] [cursor=pointer]:
+              - /url: /watch?v=fiP9qgc0GbA&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=12&pp=iAQB
+              - generic [ref=e488]:
+                - generic [ref=e489]: "12"
+                - link [ref=e493]:
+                  - /url: /watch?v=fiP9qgc0GbA&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=12&pp=iAQB
+                - generic [ref=e495]:
+                  - heading "소 NPC 상태 머신, 재사용 가능한 상태, 탐색 영역 및 에이전트 - Godot 튜토리얼 - 11부 7분 22초" [level=4] [ref=e496]:
+                    - generic "소 NPC 상태 머신, 재사용 가능한 상태, 탐색 영역 및 에이전트 - Godot 튜토리얼 - 11부 7분 22초" [ref=e497]: 소 NPC 상태 머신, 재사용 가능한 상태, 탐색 영역 및 에이전트 - Godot 튜토리얼 - 11부
+                  - generic "Rapid Vectors" [ref=e499]
+            - button "작업 메뉴" [ref=e503] [cursor=pointer]
+          - generic [ref=e507]:
+            - link "13 Multiple Navigation Regions using Collision Subtraction and Agents - Godot Tutorial - Pt 12 10분 19초 Rapid Vectors" [ref=e508] [cursor=pointer]:
+              - /url: /watch?v=qstT1OIlqP8&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=13&pp=iAQB
+              - generic [ref=e509]:
+                - generic [ref=e510]: "13"
+                - link [ref=e514]:
+                  - /url: /watch?v=qstT1OIlqP8&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=13&pp=iAQB
+                - generic [ref=e516]:
+                  - heading "Multiple Navigation Regions using Collision Subtraction and Agents - Godot Tutorial - Pt 12 10분 19초" [level=4] [ref=e517]:
+                    - generic "Multiple Navigation Regions using Collision Subtraction and Agents - Godot Tutorial - Pt 12 10분 19초" [ref=e518]: Multiple Navigation Regions using Collision Subtraction and Agents - Godot Tutorial - Pt 12
+                  - generic "Rapid Vectors" [ref=e520]
+            - button "작업 메뉴" [ref=e524] [cursor=pointer]
+          - generic [ref=e528]:
+            - link "14 Godot 튜토리얼 - 도구 패널 UI 구성 및 테마 리소스 스타일링 방법 (13부) 25분 Rapid Vectors" [ref=e529] [cursor=pointer]:
+              - /url: /watch?v=oLi1o1TQTCA&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=14&pp=iAQB
+              - generic [ref=e530]:
+                - generic [ref=e531]: "14"
+                - link [ref=e535]:
+                  - /url: /watch?v=oLi1o1TQTCA&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=14&pp=iAQB
+                  - img [ref=e540]:
+                    - generic [ref=e541]: 25:52
+                - generic [ref=e542]:
+                  - heading "Godot 튜토리얼 - 도구 패널 UI 구성 및 테마 리소스 스타일링 방법 (13부) 25분" [level=4] [ref=e543]:
+                    - generic "Godot 튜토리얼 - 도구 패널 UI 구성 및 테마 리소스 스타일링 방법 (13부) 25분" [ref=e544]: Godot 튜토리얼 - 도구 패널 UI 구성 및 테마 리소스 스타일링 방법 (13부)
+                  - generic "Rapid Vectors" [ref=e546]
+            - button "작업 메뉴" [ref=e550] [cursor=pointer]
+          - generic [ref=e554]:
+            - link "15 How to Create Reusable Collectable Components - Godot Tutorial - 2D Top Down Game - Pt 14 10분 35초 Rapid Vectors" [ref=e555] [cursor=pointer]:
+              - /url: /watch?v=SWpCYVMmx7s&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=15&pp=iAQB0gcJCcQLAYcqIYzv
+              - generic [ref=e556]:
+                - generic [ref=e557]: "15"
+                - link [ref=e561]:
+                  - /url: /watch?v=SWpCYVMmx7s&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=15&pp=iAQB0gcJCcQLAYcqIYzv
+                  - img [ref=e566]:
+                    - generic [ref=e567]: 10:35
+                - generic [ref=e568]:
+                  - heading "How to Create Reusable Collectable Components - Godot Tutorial - 2D Top Down Game - Pt 14 10분 35초" [level=4] [ref=e569]:
+                    - generic "How to Create Reusable Collectable Components - Godot Tutorial - 2D Top Down Game - Pt 14 10분 35초" [ref=e570]: How to Create Reusable Collectable Components - Godot Tutorial - 2D Top Down Game - Pt 14
+                  - generic "Rapid Vectors" [ref=e572]
+            - button "작업 메뉴" [ref=e576] [cursor=pointer]
+          - generic [ref=e580]:
+            - link "16 How to Create an Inventory UI for collectables with Theming and Styling - Godot Tutorial - Pt 15 19분 Rapid Vectors" [ref=e581] [cursor=pointer]:
+              - /url: /watch?v=Eo-3pXUhfNk&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=16&pp=iAQB
+              - generic [ref=e582]:
+                - generic [ref=e583]: "16"
+                - link [ref=e587]:
+                  - /url: /watch?v=Eo-3pXUhfNk&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=16&pp=iAQB
+                  - img [ref=e592]:
+                    - generic [ref=e593]: 19:25
+                - generic [ref=e594]:
+                  - heading "How to Create an Inventory UI for collectables with Theming and Styling - Godot Tutorial - Pt 15 19분" [level=4] [ref=e595]:
+                    - generic "How to Create an Inventory UI for collectables with Theming and Styling - Godot Tutorial - Pt 15 19분" [ref=e596]: How to Create an Inventory UI for collectables with Theming and Styling - Godot Tutorial - Pt 15
+                  - generic "Rapid Vectors" [ref=e598]
+            - button "작업 메뉴" [ref=e602] [cursor=pointer]
+          - generic [ref=e606]:
+            - link "시간과 속도를 적용한 낮과 밤 주기 UI 구성 요소 - Godot 튜토리얼 - 16부 31분 Rapid Vectors" [ref=e607] [cursor=pointer]:
+              - /url: /watch?v=aMfV41jb-5E&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=17&pp=iAQB
+              - generic [ref=e608]:
+                - link [ref=e616]:
+                  - /url: /watch?v=aMfV41jb-5E&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=17&pp=iAQB
+                  - img [ref=e621]:
+                    - generic [ref=e622]: 31:17
+                - generic [ref=e623]:
+                  - heading "시간과 속도를 적용한 낮과 밤 주기 UI 구성 요소 - Godot 튜토리얼 - 16부 31분" [level=4] [ref=e624]:
+                    - generic "시간과 속도를 적용한 낮과 밤 주기 UI 구성 요소 - Godot 튜토리얼 - 16부 31분" [ref=e625]: 시간과 속도를 적용한 낮과 밤 주기 UI 구성 요소 - Godot 튜토리얼 - 16부
+                  - generic "Rapid Vectors" [ref=e627]
+            - button "작업 메뉴" [ref=e631] [cursor=pointer]
+          - generic [ref=e635]:
+            - link "18 Grow Crops for your Farming Game using Day and Night Cycles - Godot Tutorial - Pt 17 30분 Rapid Vectors" [ref=e636] [cursor=pointer]:
+              - /url: /watch?v=875z4ZVITEY&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=18&pp=iAQB
+              - generic [ref=e637]:
+                - generic [ref=e638]: "18"
+                - link [ref=e642]:
+                  - /url: /watch?v=875z4ZVITEY&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=18&pp=iAQB
+                  - img [ref=e647]:
+                    - generic [ref=e648]: 30:04
+                - generic [ref=e649]:
+                  - heading "Grow Crops for your Farming Game using Day and Night Cycles - Godot Tutorial - Pt 17 30분" [level=4] [ref=e650]:
+                    - generic "Grow Crops for your Farming Game using Day and Night Cycles - Godot Tutorial - Pt 17 30분" [ref=e651]: Grow Crops for your Farming Game using Day and Night Cycles - Godot Tutorial - Pt 17
+                  - generic "Rapid Vectors" [ref=e653]
+            - button "작업 메뉴" [ref=e657] [cursor=pointer]
+          - generic [ref=e661]:
+            - link "19 농장 게임에서 도구를 사용하여 작물을 심는 방법 - Godot 튜토리얼 - 18부 20분 Rapid Vectors" [ref=e662] [cursor=pointer]:
+              - /url: /watch?v=0MIQ35Ms_9M&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=19&pp=iAQB
+              - generic [ref=e663]:
+                - generic [ref=e664]: "19"
+                - link [ref=e668]:
+                  - /url: /watch?v=0MIQ35Ms_9M&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=19&pp=iAQB
+                  - img [ref=e1332]:
+                    - generic [ref=e1333]: 20:47
+                - generic [ref=e670]:
+                  - heading "농장 게임에서 도구를 사용하여 작물을 심는 방법 - Godot 튜토리얼 - 18부 20분" [level=4] [ref=e671]:
+                    - generic "농장 게임에서 도구를 사용하여 작물을 심는 방법 - Godot 튜토리얼 - 18부 20분" [ref=e672]: 농장 게임에서 도구를 사용하여 작물을 심는 방법 - Godot 튜토리얼 - 18부
+                  - generic "Rapid Vectors" [ref=e674]
+            - button "작업 메뉴" [ref=e678] [cursor=pointer]
+          - generic [ref=e682]:
+            - link "20 Save and Load Game Data with Resources and Components - Godot Tutorial - Pt 19 30분 Rapid Vectors" [ref=e683] [cursor=pointer]:
+              - /url: /watch?v=-X7S1k_cvwA&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=20&pp=iAQB
+              - generic [ref=e684]:
+                - generic [ref=e685]: "20"
+                - link [ref=e689]:
+                  - /url: /watch?v=-X7S1k_cvwA&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=20&pp=iAQB
+                  - img [ref=e1337]:
+                    - generic [ref=e1338]: 30:50
+                - generic [ref=e691]:
+                  - heading "Save and Load Game Data with Resources and Components - Godot Tutorial - Pt 19 30분" [level=4] [ref=e692]:
+                    - generic "Save and Load Game Data with Resources and Components - Godot Tutorial - Pt 19 30분" [ref=e693]: Save and Load Game Data with Resources and Components - Godot Tutorial - Pt 19
+                  - generic "Rapid Vectors" [ref=e695]
+            - button "작업 메뉴" [ref=e699] [cursor=pointer]
+          - generic [ref=e703]:
+            - link "21 How to Create Character Interaction in Your Game - Godot Tutorial - Pt 20 12분 Rapid Vectors" [ref=e704] [cursor=pointer]:
+              - /url: /watch?v=DXi-f_vfsKs&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=21&pp=iAQB
+              - generic [ref=e705]:
+                - generic [ref=e706]: "21"
+                - link [ref=e710]:
+                  - /url: /watch?v=DXi-f_vfsKs&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=21&pp=iAQB
+                - generic [ref=e712]:
+                  - heading "How to Create Character Interaction in Your Game - Godot Tutorial - Pt 20 12분" [level=4] [ref=e713]:
+                    - generic "How to Create Character Interaction in Your Game - Godot Tutorial - Pt 20 12분" [ref=e714]: How to Create Character Interaction in Your Game - Godot Tutorial - Pt 20
+                  - generic "Rapid Vectors" [ref=e716]
+            - button "작업 메뉴" [ref=e720] [cursor=pointer]
+          - generic [ref=e724]:
+            - link "22 Create Custom Dialog Balloons with Scripts for your Characters - Godot Tutorial - Pt 21 33분 Rapid Vectors" [ref=e725] [cursor=pointer]:
+              - /url: /watch?v=UcpU9qKDg9Q&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=22&pp=iAQB
+              - generic [ref=e726]:
+                - generic [ref=e727]: "22"
+                - link [ref=e731]:
+                  - /url: /watch?v=UcpU9qKDg9Q&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=22&pp=iAQB
+                - generic [ref=e733]:
+                  - heading "Create Custom Dialog Balloons with Scripts for your Characters - Godot Tutorial - Pt 21 33분" [level=4] [ref=e734]:
+                    - generic "Create Custom Dialog Balloons with Scripts for your Characters - Godot Tutorial - Pt 21 33분" [ref=e735]: Create Custom Dialog Balloons with Scripts for your Characters - Godot Tutorial - Pt 21
+                  - generic "Rapid Vectors" [ref=e737]
+            - button "작업 메뉴" [ref=e741] [cursor=pointer]
+          - generic [ref=e745]:
+            - link "23 Use Collectables and Chests for Rewards in Your Game - Godot Tutorial - Pt 22 30분 Rapid Vectors" [ref=e746] [cursor=pointer]:
+              - /url: /watch?v=jwmCZtUzNd4&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=23&pp=iAQB
+              - generic [ref=e747]:
+                - generic [ref=e748]: "23"
+                - link [ref=e752]:
+                  - /url: /watch?v=jwmCZtUzNd4&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=23&pp=iAQB
+                - generic [ref=e754]:
+                  - heading "Use Collectables and Chests for Rewards in Your Game - Godot Tutorial - Pt 22 30분" [level=4] [ref=e755]:
+                    - generic "Use Collectables and Chests for Rewards in Your Game - Godot Tutorial - Pt 22 30분" [ref=e756]: Use Collectables and Chests for Rewards in Your Game - Godot Tutorial - Pt 22
+                  - generic "Rapid Vectors" [ref=e758]
+            - button "작업 메뉴" [ref=e762] [cursor=pointer]
+          - generic [ref=e766]:
+            - link "24 구성 요소와 장면을 사용하여 게임 레벨 만들기 - Godot 튜토리얼 - 23부 20분 Rapid Vectors" [ref=e767] [cursor=pointer]:
+              - /url: /watch?v=Ht7pO6gGhwk&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=24&pp=iAQB
+              - generic [ref=e768]:
+                - generic [ref=e769]: "24"
+                - link [ref=e773]:
+                  - /url: /watch?v=Ht7pO6gGhwk&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=24&pp=iAQB
+                - generic [ref=e775]:
+                  - heading "구성 요소와 장면을 사용하여 게임 레벨 만들기 - Godot 튜토리얼 - 23부 20분" [level=4] [ref=e776]:
+                    - generic "구성 요소와 장면을 사용하여 게임 레벨 만들기 - Godot 튜토리얼 - 23부 20분" [ref=e777]: 구성 요소와 장면을 사용하여 게임 레벨 만들기 - Godot 튜토리얼 - 23부
+                  - generic "Rapid Vectors" [ref=e779]
+            - button "작업 메뉴" [ref=e783] [cursor=pointer]
+          - generic [ref=e787]:
+            - link "25 Create and Style a Game Main Menu using UI and Theme Components - Godot Tutorial - Pt 24 31분 Rapid Vectors" [ref=e788] [cursor=pointer]:
+              - /url: /watch?v=NqQdx69lDeA&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=25&pp=iAQB
+              - generic [ref=e789]:
+                - generic [ref=e790]: "25"
+                - link [ref=e794]:
+                  - /url: /watch?v=NqQdx69lDeA&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=25&pp=iAQB
+                - generic [ref=e796]:
+                  - heading "Create and Style a Game Main Menu using UI and Theme Components - Godot Tutorial - Pt 24 31분" [level=4] [ref=e797]:
+                    - generic "Create and Style a Game Main Menu using UI and Theme Components - Godot Tutorial - Pt 24 31분" [ref=e798]: Create and Style a Game Main Menu using UI and Theme Components - Godot Tutorial - Pt 24
+                  - generic "Rapid Vectors" [ref=e800]
+            - button "작업 메뉴" [ref=e804] [cursor=pointer]
+          - generic [ref=e808]:
+            - link "26 음악 및 사운드 효과를 위한 오디오 버스 레이아웃 사용 - Godot 튜토리얼 - 25부 12분 46초 Rapid Vectors" [ref=e809] [cursor=pointer]:
+              - /url: /watch?v=7o50oCrSwNg&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=26&pp=iAQB0gcJCcQLAYcqIYzv
+              - generic [ref=e810]:
+                - generic [ref=e811]: "26"
+                - link [ref=e815]:
+                  - /url: /watch?v=7o50oCrSwNg&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=26&pp=iAQB0gcJCcQLAYcqIYzv
+                - generic [ref=e817]:
+                  - heading "음악 및 사운드 효과를 위한 오디오 버스 레이아웃 사용 - Godot 튜토리얼 - 25부 12분 46초" [level=4] [ref=e818]:
+                    - generic "음악 및 사운드 효과를 위한 오디오 버스 레이아웃 사용 - Godot 튜토리얼 - 25부 12분 46초" [ref=e819]: 음악 및 사운드 효과를 위한 오디오 버스 레이아웃 사용 - Godot 튜토리얼 - 25부
+                  - generic "Rapid Vectors" [ref=e821]
+            - button "작업 메뉴" [ref=e825] [cursor=pointer]
+      - generic [ref=e829]:
+        - generic [ref=e831]:
+          - heading "시간과 속도를 적용한 낮과 밤 주기 UI 구성 요소 - Godot 튜토리얼 - 16부" [level=1] [ref=e834]
+          - generic [ref=e835]:
+            - generic [ref=e836]:
+              - generic [ref=e837]:
+                - link [ref=e838] [cursor=pointer]:
+                  - /url: /@rapidvectors
+                  - img "Rapid Vectors" [ref=e840]
+                - generic [ref=e841]:
+                  - generic "Rapid Vectors" [ref=e845]:
+                    - link "Rapid Vectors" [ref=e846] [cursor=pointer]:
+                      - /url: /@rapidvectors
+                  - generic "구독자 1.81만명" [ref=e847]
+              - button "Rapid Vectors을(를) 구독합니다." [ref=e859] [cursor=pointer]:
+                - generic: 구독
+            - generic [ref=e866]:
+              - generic [ref=e867]:
+                - generic [ref=e871]:
+                  - button "다른 사용자 176명과 함께 이 동영상에 좋아요 표시" [ref=e875] [cursor=pointer]:
+                    - generic: "176"
+                  - button "동영상에 싫어요 표시" [ref=e882] [cursor=pointer]
+                - button "공유" [ref=e888] [cursor=pointer]
+              - button "재생목록에 저장" [ref=e895] [cursor=pointer]:
+                - generic: 저장
+              - button "추가 작업" [ref=e900] [cursor=pointer]
+          - generic [ref=e906]:
+            - generic [ref=e909]:
+              - text: 조회수 5,838회 2024. 12. 27.
+              - link "Farming Game - Godot - Tutorials Series - Croptails - 2D Top Down Game" [ref=e910] [cursor=pointer]:
+                - /url: /playlist?list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9
+            - generic [ref=e911]:
+              - generic [ref=e1341]:
+                - text: 16부 - 낮과 밤의 전환을 위한 UI 컴포넌트를 만드는 방법을 배웁니다. 게임에서 색상을 전환하여 낮에서 밤으로 전환되는 듯한 느낌을 주는 효과를 만들어 보겠습니다. UI 컴포넌트는 시간을 표시하고, 사용자는 속도 조절 버튼을 사용하여 낮과 밤의 전환을 조절할 수 있습니다. 완벽한 2D 농장 게임 제작 방법 (8시간 튜토리얼 시리즈) - 총 25개 에피소드 - Godot 🎮
+                - 'link "YouTube Channel Link: How to Build a Complete 2D Farming Game an 8-Hour Tutorial Series - Godot 4.3 - All 25 Episodes" [ref=e1344] [cursor=pointer]':
+                  - /url: /watch?v=it0lsREGdmc&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=1
+                  - text: • How to Build a Complete 2D Farming Game an...
+                - text: "itch.io에서 다음 게임 에셋을 다운로드하세요. 제작: cupnooble 💡"
+                - link "https://cupnooble.itch.io/sprout-land..." [ref=e1347] [cursor=pointer]:
+                  - /url: https://www.youtube.com/redirect?event=video_description&redir_token=QUM4Zm9rVG8yQmZ6QXVwZXhPZ1daYWt6eUdwUnxBR3JiS2FsRlVQbEZtci12aUJIVnJrM1ZSYjllWXFVOE8zclM4dXI1Wm81MDhXd3hKN2F5Yy1XWHJJVTBYS1dZMlBlWVhhd0pTWWtmQkN3WWluTVJVT2lDR1pmWU95TVBCUjdq&q=https%3A%2F%2Fcupnooble.itch.io%2Fsprout-lands-asset-pack&v=aMfV41jb-5E
+                - text: UI 팩 💡
+                - link "https://cupnooble.itch.io/sprout-land..." [ref=e1349] [cursor=pointer]:
+                  - /url: https://www.youtube.com/redirect?event=video_description&redir_token=QUM4Zm9rUXhFc2ZOZUdkM1lDS2NkcVJMRFp3enxBR3JiS2Fsd3VtTEo5TF9obWhXRkpaVW45R3dpSHBJU0t4bTI2YnF6dUJUVWxZS3gzVHNPeUM1ZGpRQ2h0dVBtVlVaam9PdUluSXE3MldQWGlVSWgzMXJUcWVabHJDaWdpWjBo&q=https%3A%2F%2Fcupnooble.itch.io%2Fsprout-lands-ui-pack&v=aMfV41jb-5E
+                - text: ZX Palm 폰트 팩 💡
+                - link "https://damieng.com/typography/zx-ori..." [ref=e1351] [cursor=pointer]:
+                  - /url: https://www.youtube.com/redirect?event=video_description&redir_token=QUM4Zm9rUTZDeDN1NXVXMlRRM2FMM3dtSjlmdXxBR3JiS2FuVHpJbEowbUh0Y0JZVTlTa0k3cjhwUUhzU2dsdkk1QUpRYlJ1cEhYSENmeGllT25MZjl5TTMwLUdndlVEeXFMVXJHMWx4V0FNakxUQ3M2Y19aY1djckpPNlZzN0F1&q=https%3A%2F%2Fdamieng.com%2Ftypography%2Fzx-origins%2Fzx-palm%2F&v=aMfV41jb-5E
+                - text: 더 많은 튜토리얼 업데이트를 보려면 제 채널을 구독하세요. 🔔
+                - 'link "YouTube Channel Link: @rapidvectors" [ref=e1354] [cursor=pointer]':
+                  - /url: /channel/UCz1dh2ZozdfCL8_PBqP3dZQ
+                  - text: / @rapidvectors
+                - text: 제 콘텐츠가 마음에 드셨나요? 제 채널을 더욱 후원해 주시겠어요? ☕
+                - link "https://www.buymeacoffee.com/rapidvec..." [ref=e1357] [cursor=pointer]:
+                  - /url: https://www.youtube.com/redirect?event=video_description&redir_token=QUM4Zm9rUTB4SFNwamdXUGk0bldWbkx6bGVYUHxBR3JiS2FsX245REtMb09fNER1MzNtb1FhQ015a0Uycld6SHJGSzBmc3hlSUs0MDFLQmdPeW5DQ3RhRk1pUldlTmtEd1kyMDBjWEFQa1QtWXhabEpPWkUxVUlac0ViV2xUYjdl&q=https%3A%2F%2Fwww.buymeacoffee.com%2Frapidvectors&v=aMfV41jb-5E
+                - text: 🎬 비디오 챕터
+                - link "0초" [ref=e1359] [cursor=pointer]:
+                  - /url: /watch?v=aMfV41jb-5E&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=17
+                  - text: 0:00
+                - text: "- 소개"
+                - link "20초" [ref=e1361] [cursor=pointer]:
+                  - /url: /watch?v=aMfV41jb-5E&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=17&t=20s
+                  - text: 0:20
+                - text: "- 주간 패널 만들기"
+                - link "5분 37초" [ref=e1363] [cursor=pointer]:
+                  - /url: /watch?v=aMfV41jb-5E&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=17&t=337s
+                  - text: 5:37
+                - text: "- 시간 패널 만들기"
+                - link "6분 40초" [ref=e1365] [cursor=pointer]:
+                  - /url: /watch?v=aMfV41jb-5E&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=17&t=400s
+                  - text: 6:40
+                - text: "- 시간 가속 버튼 추가"
+                - link "15분 15초" [ref=e1367] [cursor=pointer]:
+                  - /url: /watch?v=aMfV41jb-5E&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=17&t=915s
+                  - text: 15:15
+                - text: "- 테스트 장면 주간/야간 사이클 만들기"
+                - link "15분 38초" [ref=e1369] [cursor=pointer]:
+                  - /url: /watch?v=aMfV41jb-5E&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=17&t=938s
+                  - text: 15:38
+                - text: "- 주간/야간 패널 UI 추가"
+                - link "17분 20초" [ref=e1371] [cursor=pointer]:
+                  - /url: /watch?v=aMfV41jb-5E&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=17&t=1040s
+                  - text: 17:20
+                - text: "- 주간/야간 사이클 관리자 스크립트"
+                - link "21분 22초" [ref=e1373] [cursor=pointer]:
+                  - /url: /watch?v=aMfV41jb-5E&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=17&t=1282s
+                  - text: 21:22
+                - text: "- 주간/야간 패널 스크립트"
+                - link "24분 37초" [ref=e1375] [cursor=pointer]:
+                  - /url: /watch?v=aMfV41jb-5E&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=17&t=1477s
+                  - text: 24:37
+                - text: "- 캔버스 변조를 사용한 주간/야간 효과"
+                - link "#godot" [ref=e1377] [cursor=pointer]:
+                  - /url: /hashtag/godot
+                - link "#godot4" [ref=e1379] [cursor=pointer]:
+                  - /url: /hashtag/godot4
+                - link "#godotengine" [ref=e1381] [cursor=pointer]:
+                  - /url: /hashtag/godotengine
+                - link "#indiegame" [ref=e1383] [cursor=pointer]:
+                  - /url: /hashtag/indiegame
+                - link "#indiedev" [ref=e1385] [cursor=pointer]:
+                  - /url: /hashtag/indiedev
+                - link "#indiegamedev" [ref=e1387] [cursor=pointer]:
+                  - /url: /hashtag/indiegamedev
+                - link "#tutorialyoutube" [ref=e1389] [cursor=pointer]:
+                  - /url: /hashtag/tutorialyoutube
+                - link "#gamedev" [ref=e1391] [cursor=pointer]:
+                  - /url: /hashtag/gamedev
+                - link "#gamedevelopment" [ref=e1393] [cursor=pointer]:
+                  - /url: /hashtag/gamedevelopment
+                - link "#gamedevelopmenttutorial" [ref=e1395] [cursor=pointer]:
+                  - /url: /hashtag/gamedevelopmenttutorial
+                - link "#godottutorial" [ref=e1397] [cursor=pointer]:
+                  - /url: /hashtag/godottutorial
+                - link "#gdscript" [ref=e1399] [cursor=pointer]:
+                  - /url: /hashtag/gdscript
+                - link "#farminggame" [ref=e1401] [cursor=pointer]:
+                  - /url: /hashtag/farminggame
+              - generic [ref=e1404]:
+                - generic [ref=e1405]:
+                  - generic [ref=e1406]: 콘텐츠 생성 방식
+                  - generic [ref=e1407]: 자동 더빙
+                  - generic [ref=e1409]:
+                    - text: 일부 언어의 오디오 트랙이 자동으로 생성되었습니다.
+                    - link "자세히 알아보기" [ref=e1411] [cursor=pointer]:
+                      - /url: //support.google.com/youtube/answer/15569972?hl=ko
+                - generic [ref=e1413]:
+                  - heading "챕터 모두 보기" [level=2] [ref=e1415]:
+                    - generic [ref=e1417]:
+                      - generic [ref=e1418]: 챕터
+                      - button "모두 보기" [ref=e1423] [cursor=pointer]
+                  - generic [ref=e1427]:
+                    - generic [ref=e1429]:
+                      - link "소개 0:00" [ref=e1431] [cursor=pointer]:
+                        - /url: /watch?v=aMfV41jb-5E&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=17
+                        - generic [ref=e1434]:
+                          - heading "소개" [level=3] [ref=e1435]
+                          - generic [ref=e1436]: 0:00
+                      - link "주간 패널 만들기 0:20" [ref=e1438] [cursor=pointer]:
+                        - /url: /watch?v=aMfV41jb-5E&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=17&t=20s&pp=0gcJCSADDuyUWbzu
+                        - generic [ref=e1441]:
+                          - heading "주간 패널 만들기" [level=3] [ref=e1442]
+                          - generic [ref=e1443]: 0:20
+                      - link "시간 패널 만들기 5:37" [ref=e1445] [cursor=pointer]:
+                        - /url: /watch?v=aMfV41jb-5E&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=17&t=337s&pp=0gcJCSADDuyUWbzu
+                        - generic [ref=e1448]:
+                          - heading "시간 패널 만들기" [level=3] [ref=e1449]
+                          - generic [ref=e1450]: 5:37
+                      - link "시간 가속 버튼 추가 6:40" [ref=e1452] [cursor=pointer]:
+                        - /url: /watch?v=aMfV41jb-5E&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=17&t=400s
+                        - generic [ref=e1455]:
+                          - heading "시간 가속 버튼 추가" [level=3] [ref=e1456]
+                          - generic [ref=e1457]: 6:40
+                      - link "테스트 장면 주간/야간 사이클 만들기 15:15" [ref=e1459] [cursor=pointer]:
+                        - /url: /watch?v=aMfV41jb-5E&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=17&t=915s
+                        - generic [ref=e1462]:
+                          - heading "테스트 장면 주간/야간 사이클 만들기" [level=3] [ref=e1463]
+                          - generic [ref=e1464]: 15:15
+                      - link "주간/야간 패널 UI 추가 15:38" [ref=e1466] [cursor=pointer]:
+                        - /url: /watch?v=aMfV41jb-5E&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=17&t=938s
+                        - generic [ref=e1469]:
+                          - heading "주간/야간 패널 UI 추가" [level=3] [ref=e1470]
+                          - generic [ref=e1471]: 15:38
+                      - link "주간/야간 사이클 관리자 스크립트 17:20" [ref=e1473] [cursor=pointer]:
+                        - /url: /watch?v=aMfV41jb-5E&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=17&t=1040s
+                        - generic [ref=e1476]:
+                          - heading "주간/야간 사이클 관리자 스크립트" [level=3] [ref=e1477]
+                          - generic [ref=e1478]: 17:20
+                      - link "주간/야간 패널 스크립트 21:22" [ref=e1480] [cursor=pointer]:
+                        - /url: /watch?v=aMfV41jb-5E&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=17&t=1282s
+                        - generic [ref=e1483]:
+                          - heading "주간/야간 패널 스크립트" [level=3] [ref=e1484]
+                          - generic [ref=e1485]: 21:22
+                    - generic [ref=e1486] [cursor=pointer]
+                - generic [ref=e1490]:
+                  - generic [ref=e1491]: 이 학습 프로그램 살펴보기
+                  - generic [ref=e1494]:
+                    - link "Farming Game - Godot - Tutorials Series - Croptails - 2D Top Down Game" [ref=e1495] [cursor=pointer]:
+                      - /url: /playlist?list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9
+                      - generic [ref=e1497]: 강의 26개
+                    - generic [ref=e1503]:
+                      - generic [ref=e1504]: Farming Game - Godot - Tutorials Series - Croptails - 2D Top Down Game
+                      - generic [ref=e1505]: Rapid Vectors
+                - generic [ref=e1506]:
+                  - heading "과정 진행 상황" [level=3] [ref=e1507]
+                  - paragraph [ref=e1509]:
+                    - generic [ref=e1510]: 0/26개 강의를 완료했습니다.
+                - generic [ref=e1512]:
+                  - generic [ref=e1513]: 스크립트
+                  - paragraph [ref=e1516]: 스크립트를 보면서 시청하세요.
+                  - button "스크립트 표시" [ref=e1521] [cursor=pointer]
+                - generic [ref=e1525]:
+                  - link "Rapid Vectors 구독자 1.81만명" [ref=e1526] [cursor=pointer]:
+                    - /url: /@rapidvectors
+                    - generic [ref=e1527]:
+                      - heading "Rapid Vectors" [level=3] [ref=e1528]
+                      - generic [ref=e1529]: 구독자 1.81만명
+                  - generic [ref=e1532]:
+                    - link "동영상" [ref=e1535] [cursor=pointer]:
+                      - /url: /channel/UCz1dh2ZozdfCL8_PBqP3dZQ/videos
+                    - link "정보" [ref=e1541] [cursor=pointer]:
+                      - /url: /channel/UCz1dh2ZozdfCL8_PBqP3dZQ/about
+                    - link "Twitter" [ref=e1547] [cursor=pointer]:
+                      - /url: https://www.youtube.com/redirect?event=Watch_SD_EP&redir_token=QUM4Zm9rVEgyWXhBckFGY0hYNjFtd3JQRkhjUHxBR3JiS2Fuc1BIME1hTTcxUF9KNFdZTXlYQ21NLWtBcW1GS3lWQ0NPNHp2ck5WRHVJNGtYTnRmWGVBQWI1bUtQRkxQMlRjMFZobHNwU0xIYndxQVpEUS12d0d0d0w2c1Z6SGt6&q=https%3A%2F%2Ftwitter.com%2Frapidvectors
+              - button "간략히" [ref=e1551] [cursor=pointer]
+        - text: •
+      - generic [ref=e917]:
+        - generic [ref=e919]:
+          - generic [ref=e922]:
+            - generic [ref=e924] [cursor=pointer]:
+              - link [ref=e925]:
+                - /url: /watch?v=875z4ZVITEY&pp=0gcJCcQLAYcqIYzv
+                - generic [ref=e926]: 30:04
+              - generic [ref=e934]:
+                - generic [ref=e935]:
+                  - heading "Grow Crops for your Farming Game using Day and Night Cycles - Godot Tutorial - Pt 17" [level=3] [ref=e936]:
+                    - link "Grow Crops for your Farming Game using Day and Night Cycles - Godot Tutorial - Pt 17 30분" [ref=e937]:
+                      - /url: /watch?v=875z4ZVITEY&pp=0gcJCcQLAYcqIYzv
+                      - text: Grow Crops for your Farming Game using Day and Night Cycles - Godot Tutorial - Pt 17
+                  - generic [ref=e939]:
+                    - group [ref=e940]:
+                      - generic [ref=e941]: Rapid Vectors
+                    - group [ref=e942]:
+                      - generic [ref=e943]: 조회수 6.3천회
+                      - generic [ref=e944]: •
+                      - generic "1년 전" [ref=e945]
+                - button "추가 작업" [ref=e948]
+            - generic [ref=e953] [cursor=pointer]:
+              - link [ref=e954]:
+                - /url: /watch?v=1apD-OYltOo
+                - generic [ref=e955]: 2:11:08
+              - generic [ref=e963]:
+                - generic [ref=e964]:
+                  - heading "[타로] 🚨지금 이 영상이 뜬 이유❗️ 이 영상이 나타났다면 제발 그냥 넘기지 마세요⚠️ (feat.이 메시지 무시하지 마세요🧿절대 우연이 아닙니다🚫금전•일•학업•관계까지 몽땅💥)" [level=3] [ref=e965]:
+                    - link "[타로] 🚨지금 이 영상이 뜬 이유❗️ 이 영상이 나타났다면 제발 그냥 넘기지 마세요⚠️ (feat.이 메시지 무시하지 마세요🧿절대 우연이 아닙니다🚫금전•일•학업•관계까지 몽땅💥) 2시간 11분" [ref=e966]:
+                      - /url: /watch?v=1apD-OYltOo
+                      - text: "[타로] 🚨지금 이 영상이 뜬 이유❗️ 이 영상이 나타났다면 제발 그냥 넘기지 마세요⚠️ (feat.이 메시지 무시하지 마세요🧿절대 우연이 아닙니다🚫금전•일•학업•관계까지 몽땅💥)"
+                  - generic [ref=e968]:
+                    - group [ref=e969]:
+                      - generic [ref=e970]: 타로혜윰
+                    - group [ref=e971]:
+                      - generic [ref=e972]: 조회수 10만회
+                      - generic [ref=e973]: •
+                      - generic "2일 전" [ref=e974]
+                    - group [ref=e975]:
+                      - generic [ref=e976]: 새 동영상
+                - button "추가 작업" [ref=e982]
+            - generic [ref=e987] [cursor=pointer]:
+              - link [ref=e988]:
+                - /url: /watch?v=YqgTs_K5C-g
+                - generic [ref=e989]: 2:05:42
+              - generic [ref=e997]:
+                - generic [ref=e998]:
+                  - heading "Mang theo 4 \"ông trời con\" bỏ trốn, nào ngờ bị tổng tài ngàn tỷ đến tận cửa bắt về chịu trách nhiệm👑" [level=3] [ref=e999]:
+                    - link "Mang theo 4 \"ông trời con\" bỏ trốn, nào ngờ bị tổng tài ngàn tỷ đến tận cửa bắt về chịu trách nhiệm👑 2시간 5분" [ref=e1000]:
+                      - /url: /watch?v=YqgTs_K5C-g
+                      - text: Mang theo 4 "ông trời con" bỏ trốn, nào ngờ bị tổng tài ngàn tỷ đến tận cửa bắt về chịu trách nhiệm👑
+                  - generic [ref=e1002]:
+                    - group [ref=e1003]:
+                      - generic [ref=e1004]: DaisyTV
+                    - group [ref=e1005]:
+                      - generic [ref=e1006]: 조회수 20만회
+                      - generic [ref=e1007]: •
+                      - generic "2일 전" [ref=e1008]
+                    - group [ref=e1009]:
+                      - generic [ref=e1010]: 새 동영상
+                - button "추가 작업" [ref=e1016]
+            - generic [ref=e1021] [cursor=pointer]:
+              - link [ref=e1022]:
+                - /url: /watch?v=q8xYvyYYpf0
+                - generic [ref=e1023]: 58:39
+              - generic [ref=e1031]:
+                - generic [ref=e1032]:
+                  - 'heading "3 SCARY GAMES #112" [level=3] [ref=e1033]':
+                    - 'link "3 SCARY GAMES #112 58분" [ref=e1034]':
+                      - /url: /watch?v=q8xYvyYYpf0
+                      - text: "3 SCARY GAMES #112"
+                  - generic [ref=e1036]:
+                    - group [ref=e1037]:
+                      - generic [ref=e1038]: Markiplier
+                    - group [ref=e1044]:
+                      - generic [ref=e1045]: 조회수 126만회
+                      - generic [ref=e1046]: •
+                      - generic "1일 전" [ref=e1047]
+                    - group [ref=e1048]:
+                      - generic [ref=e1049]: 새 동영상
+                - button "추가 작업" [ref=e1055]
+            - generic [ref=e1060] [cursor=pointer]:
+              - link [ref=e1061]:
+                - /url: /watch?v=Td6LBN4yfmg&pp=0gcJCcQLAYcqIYzv
+                - generic [ref=e1062]: 36:26
+              - generic [ref=e1070]:
+                - generic [ref=e1071]:
+                  - 'heading "COMO CRIAR UM JOGO DE CORRIDA NA GODOT | CANVASLAYER, VBOXCONTAINER,TEXTURERECT,COLORRECT,BUTTONS #9" [level=3] [ref=e1072]':
+                    - 'link "COMO CRIAR UM JOGO DE CORRIDA NA GODOT | CANVASLAYER, VBOXCONTAINER,TEXTURERECT,COLORRECT,BUTTONS #9 36분" [ref=e1073]':
+                      - /url: /watch?v=Td6LBN4yfmg&pp=0gcJCcQLAYcqIYzv
+                      - text: "COMO CRIAR UM JOGO DE CORRIDA NA GODOT | CANVASLAYER, VBOXCONTAINER,TEXTURERECT,COLORRECT,BUTTONS #9"
+                  - generic [ref=e1075]:
+                    - group [ref=e1076]:
+                      - generic [ref=e1077]: Ferpa Games
+                    - group [ref=e1078]:
+                      - generic [ref=e1079]: 조회수 36회
+                      - generic [ref=e1080]: •
+                      - generic "2주 전" [ref=e1081]
+                - button "추가 작업" [ref=e1084]
+            - generic [ref=e1089] [cursor=pointer]:
+              - link [ref=e1090]:
+                - /url: /watch?v=aIaLWjEQt-M&pp=ugUEEgJrbw%3D%3D
+                - generic [ref=e1091]: 1:44:13
+              - generic [ref=e1099]:
+                - generic [ref=e1100]:
+                  - heading "빨래방 오리 리필 헬리콥터 비행" [level=3] [ref=e1101]:
+                    - link "빨래방 오리 리필 헬리콥터 비행 1시간 44분" [ref=e1102]:
+                      - /url: /watch?v=aIaLWjEQt-M&pp=ugUEEgJrbw%3D%3D
+                      - text: 빨래방 오리 리필 헬리콥터 비행
+                  - generic [ref=e1104]:
+                    - group [ref=e1105]:
+                      - generic [ref=e1106]: Roman Atwood
+                    - group [ref=e1112]:
+                      - generic [ref=e1113]: 조회수 72만회
+                      - generic [ref=e1114]: •
+                      - generic "2일 전" [ref=e1115]
+                    - group [ref=e1116]:
+                      - generic [ref=e1117]: 새 동영상
+                      - generic [ref=e1121]: 자동 더빙
+                - button "추가 작업" [ref=e1130]
+            - generic [ref=e1135] [cursor=pointer]:
+              - link [ref=e1136]:
+                - /url: /watch?v=-HD0AmtdqD8
+                - generic [ref=e1137]: 50:41
+              - generic [ref=e1145]:
+                - generic [ref=e1146]:
+                  - heading "READING VLOG | the coziest week, magical reads, baking, journal updates🏹" [level=3] [ref=e1147]:
+                    - link "READING VLOG | the coziest week, magical reads, baking, journal updates🏹 50분" [ref=e1148]:
+                      - /url: /watch?v=-HD0AmtdqD8
+                      - text: READING VLOG | the coziest week, magical reads, baking, journal updates🏹
+                  - generic [ref=e1150]:
+                    - group [ref=e1151]:
+                      - generic [ref=e1152]: katie is reading
+                    - group [ref=e1153]:
+                      - generic [ref=e1154]: 조회수 2.5만회
+                      - generic [ref=e1155]: •
+                      - generic "2일 전" [ref=e1156]
+                    - group [ref=e1157]:
+                      - generic [ref=e1158]: 새 동영상
+                - button "추가 작업" [ref=e1164]
+            - generic [ref=e1169] [cursor=pointer]:
+              - link [ref=e1170]:
+                - /url: /watch?v=vvCfDNzkIcI&pp=ugUHEgVwdC1CUg%3D%3D
+                - generic [ref=e1171]: 1:07:58
+              - generic [ref=e1179]:
+                - generic [ref=e1180]:
+                  - heading "ORAÇÃO DA MANHÃ | COLOQUE TUDO NAS MÃOS DE DEUS E DESCANSE" [level=3] [ref=e1181]:
+                    - link "ORAÇÃO DA MANHÃ | COLOQUE TUDO NAS MÃOS DE DEUS E DESCANSE 1시간 7분" [ref=e1182]:
+                      - /url: /watch?v=vvCfDNzkIcI&pp=ugUHEgVwdC1CUg%3D%3D
+                      - text: ORAÇÃO DA MANHÃ | COLOQUE TUDO NAS MÃOS DE DEUS E DESCANSE
+                  - generic [ref=e1184]:
+                    - group [ref=e1185]:
+                      - generic [ref=e1186]: Propósito De Deus
+                    - group [ref=e1187]:
+                      - generic [ref=e1188]: 조회수 5.3만회
+                      - generic [ref=e1189]: •
+                      - generic "2일 전" [ref=e1190]
+                    - group [ref=e1191]:
+                      - generic [ref=e1192]: 새 동영상
+                - button "추가 작업" [ref=e1198]
+            - generic [ref=e1203] [cursor=pointer]:
+              - link [ref=e1204]:
+                - /url: /watch?v=ISuhrkq88Lo
+                - generic [ref=e1205]: 1:31:32
+              - generic [ref=e1213]:
+                - generic [ref=e1214]:
+                  - heading "David Jeremiah 2026 🌸🔴 Could The Rapture Occur During Unexpected 🌸🔴 David Jeremiah Full Sermons 2026" [level=3] [ref=e1215]:
+                    - link "David Jeremiah 2026 🌸🔴 Could The Rapture Occur During Unexpected 🌸🔴 David Jeremiah Full Sermons 2026 1시간 31분" [ref=e1216]:
+                      - /url: /watch?v=ISuhrkq88Lo
+                      - text: David Jeremiah 2026 🌸🔴 Could The Rapture Occur During Unexpected 🌸🔴 David Jeremiah Full Sermons 2026
+                  - generic [ref=e1218]:
+                    - group [ref=e1219]:
+                      - generic [ref=e1220]: Tin Nên Xem TV
+                    - group [ref=e1221]:
+                      - generic [ref=e1222]: 조회수 1.2만회
+                      - generic [ref=e1223]: •
+                      - generic "2일 전" [ref=e1224]
+                    - group [ref=e1225]:
+                      - generic [ref=e1226]: 새 동영상
+                - button "추가 작업" [ref=e1232]
+          - button "더보기" [ref=e1239] [cursor=pointer]
+        - heading "댓글" [level=2] [ref=e1248]

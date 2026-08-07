@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Items" format=3 uid="uid://cw3ahtn6vyqk8"]
+
+[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/items.gd" id="1_whtit"]
+[ext_resource type="Texture2D" uid="uid://j1o8v4xqk4ef" path="res://assets/Objects/crops/crops.png" id="2_whtat"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wheat"]
+atlas = ExtResource("2_whtat")
+region = Rect2(838, 32, 20, 32)
+
+[resource]
+script = ExtResource("1_whtit")
+item_type = "material"
+item_name = "Wheat"
+item_texture = SubResource("AtlasTexture_wheat")
+description = "Harvested from a mature wheat plant."
+max_stack = 100
+world_scene_path = "uid://bkq2wvn8chr7d"
+metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

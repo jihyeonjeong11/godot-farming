@@ -23,10 +23,8 @@ func _on_physics_process(_delta : float) -> void:
 
 func _on_next_transitions() -> void:
 	ApoGameInputEvents.movement_input()
-	
-	if ApoGameInputEvents.use_tool():
-		transition.emit("attack")
-	elif ApoGameInputEvents.is_movement_input():
+
+	if ApoGameInputEvents.is_movement_input():
 		transition.emit("Walk")
 
 

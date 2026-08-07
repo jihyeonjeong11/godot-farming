@@ -51,18 +51,18 @@ func on_slot_right_pressed(index: int) -> void:
 
 func refresh() -> void:
 	for i in slots.size():
-		var slot = Inventory.inventory[i]
-		if slot == null:
+		var stack := Inventory.inventory[i]
+		if stack == null:
 			slots[i].clear()
 		else:
-			slots[i].set_slot(slot)
+			slots[i].set_slot(stack)
 
-	var selected = Inventory.get_item(focused_slot_index)
+	var selected := Inventory.get_item(focused_slot_index)
 	if selected == null:
 		focused_slot_index = -1
 		inventory_description.clear()
 	else:
-		inventory_description.show_item(selected["item"], selected["amount"])
+		inventory_description.show_item(selected.item, selected.amount)
 
 
 func on_game_paused(is_paused: bool) -> void:

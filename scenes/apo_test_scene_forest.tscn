@@ -16,32 +16,62 @@
 [ext_resource type="PackedScene" uid="uid://b0a3am51xwndg" path="res://scenes/components/day_night_cycle_component.tscn" id="9_dg6co"]
 [ext_resource type="PackedScene" uid="uid://bqt7p2ndk4xm1" path="res://scenes/objects/seeds/potato_seed.tscn" id="11_6iqtb"]
 [ext_resource type="PackedScene" uid="uid://fta66ic867g8" path="res://scenes/objects/tools/axe.tscn" id="13_dj6pg"]
+[ext_resource type="PackedScene" uid="uid://bi7ka3smrh104" path="res://scenes/objects/tools/bat.tscn" id="17_w6y5m"]
+[ext_resource type="PackedScene" uid="uid://cebbmage0v73g" path="res://scenes/objects/tools/hoe.tscn" id="18_dg6co"]
+[ext_resource type="PackedScene" uid="uid://cyd3ld0r7fmsh" path="res://scenes/objects/tools/pickaxe.tscn" id="19_1mvg2"]
+[ext_resource type="PackedScene" uid="uid://bjhypadfrbhvk" path="res://scenes/objects/tools/watering_can.tscn" id="20_cckqj"]
+[ext_resource type="PackedScene" uid="uid://dhm45haroiu84" path="res://scenes/objects/crops/potato/potato.tscn" id="21_dg6co"]
+[ext_resource type="PackedScene" uid="uid://dpw8u7j2bijii" path="res://scenes/objects/crops/wheat/wheat.tscn" id="22_1mvg2"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1npfb"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1mvg2"]
 resource_local_to_scene = true
 shader = ExtResource("6_kj2hl")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 20.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_6iqtb"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cckqj"]
 resource_local_to_scene = true
 shader = ExtResource("6_dj6pg")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 20.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_tomno"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4ar2j"]
 resource_local_to_scene = true
 shader = ExtResource("6_dj6pg")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 20.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_i0cr0"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_in03s"]
 resource_local_to_scene = true
 shader = ExtResource("6_kj2hl")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 20.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2rgf1"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_71tkb"]
+resource_local_to_scene = true
+shader = ExtResource("6_kj2hl")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_anbpf"]
+resource_local_to_scene = true
+shader = ExtResource("6_kj2hl")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v0cbt"]
+resource_local_to_scene = true
+shader = ExtResource("6_kj2hl")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2kfrp"]
+resource_local_to_scene = true
+shader = ExtResource("6_kj2hl")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l4n81"]
 resource_local_to_scene = true
 shader = ExtResource("6_kj2hl")
 shader_parameter/shake_intensity = 0.0
@@ -79,26 +109,26 @@ tile_set = ExtResource("2_oidve")
 position = Vector2(178, 124)
 
 [node name="axe" parent="GameTileMap/Object" unique_id=321914691 instance=ExtResource("13_dj6pg")]
-material = SubResource("ShaderMaterial_1npfb")
+material = SubResource("ShaderMaterial_1mvg2")
 position = Vector2(296, 255)
 
 [node name="CarrotSeeds" parent="GameTileMap/Object" unique_id=349377866 instance=ExtResource("5_oidve")]
 position = Vector2(418, 153)
 
 [node name="Rock2" parent="GameTileMap/Object" unique_id=495184973 instance=ExtResource("5_vrx76")]
-material = SubResource("ShaderMaterial_6iqtb")
+material = SubResource("ShaderMaterial_cckqj")
 position = Vector2(173, 276)
 
 [node name="Rock" parent="GameTileMap/Object" unique_id=14796969 instance=ExtResource("5_vrx76")]
-material = SubResource("ShaderMaterial_tomno")
+material = SubResource("ShaderMaterial_4ar2j")
 position = Vector2(162, 193)
 
 [node name="SmallTree" parent="GameTileMap/Object" unique_id=803029800 instance=ExtResource("5_3cinn")]
-material = SubResource("ShaderMaterial_i0cr0")
+material = SubResource("ShaderMaterial_in03s")
 position = Vector2(250, 214)
 
 [node name="SmallTree2" parent="GameTileMap/Object" unique_id=282829857 instance=ExtResource("5_3cinn")]
-material = SubResource("ShaderMaterial_2rgf1")
+material = SubResource("ShaderMaterial_71tkb")
 position = Vector2(410, 224)
 
 [node name="PotatoSeeds" parent="GameTileMap/Object" unique_id=696727447 instance=ExtResource("11_6iqtb")]
@@ -117,3 +147,25 @@ visible = false
 visible = false
 
 [node name="DayNightCycleComponent" parent="." unique_id=1908140115 instance=ExtResource("9_dg6co")]
+
+[node name="bat" parent="." unique_id=495184977 instance=ExtResource("17_w6y5m")]
+material = SubResource("ShaderMaterial_anbpf")
+position = Vector2(47, 265)
+
+[node name="hoe" parent="." unique_id=495184974 instance=ExtResource("18_dg6co")]
+material = SubResource("ShaderMaterial_v0cbt")
+position = Vector2(26, 151)
+
+[node name="pickaxe" parent="." unique_id=495184975 instance=ExtResource("19_1mvg2")]
+material = SubResource("ShaderMaterial_2kfrp")
+position = Vector2(286, 64)
+
+[node name="watering_can" parent="." unique_id=495184976 instance=ExtResource("20_cckqj")]
+material = SubResource("ShaderMaterial_l4n81")
+position = Vector2(478, 82)
+
+[node name="Potato" parent="." unique_id=1198681918 instance=ExtResource("21_dg6co")]
+position = Vector2(86, 67)
+
+[node name="Wheat" parent="." unique_id=787356333 instance=ExtResource("22_1mvg2")]
+position = Vector2(121, 52)

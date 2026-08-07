@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://dhm45haroiu84"]
+
+[ext_resource type="Script" uid="uid://c2oolug7aep5i" path="res://scenes/objects/crops/potato/potato.gd" id="1_gq18s"]
+[ext_resource type="PackedScene" uid="uid://icexu1c4ffpk" path="res://scenes/components/growth_cycle_component.tscn" id="2_jrkiq"]
+[ext_resource type="Texture2D" uid="uid://j1o8v4xqk4ef" path="res://assets/Objects/crops/crops.png" id="2_vcnot"]
+[ext_resource type="PackedScene" uid="uid://bu66glbfsvp45" path="res://scenes/objects/crops/flowering_particles.tscn" id="3_jrkiq"]
+[ext_resource type="PackedScene" uid="uid://cehk8b7braiq8" path="res://scenes/objects/crops/watering_particles.tscn" id="4_g57q6"]
+[ext_resource type="PackedScene" uid="uid://dn08baylvwldn" path="res://scenes/components/farming_hurt_component.tscn" id="5_2lte8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st0"]
+atlas = ExtResource("2_vcnot")
+region = Rect2(744, 76, 16, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st1"]
+atlas = ExtResource("2_vcnot")
+region = Rect2(714, 104, 12, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st2"]
+atlas = ExtResource("2_vcnot")
+region = Rect2(742, 100, 22, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st3"]
+atlas = ExtResource("2_vcnot")
+region = Rect2(774, 92, 22, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st4"]
+atlas = ExtResource("2_vcnot")
+region = Rect2(806, 84, 22, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kxuq"]
+size = Vector2(8.5, 8.5)
+
+[node name="Potato" type="Node2D" unique_id=1198681918]
+scale = Vector2(0.8, 0.8)
+script = ExtResource("1_gq18s")
+growth_textures = Array[Texture2D]([SubResource("AtlasTexture_st0"), SubResource("AtlasTexture_st1"), SubResource("AtlasTexture_st2"), SubResource("AtlasTexture_st3"), SubResource("AtlasTexture_st4")])
+
+[node name="GrowthCycleComponent" parent="." unique_id=1205384333 instance=ExtResource("2_jrkiq")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=766036066]
+texture = SubResource("AtlasTexture_st0")
+centered = false
+offset = Vector2(-8, -10)
+
+[node name="FloweringParticles" parent="." unique_id=1941758750 instance=ExtResource("3_jrkiq")]
+
+[node name="WateringParticles" parent="." unique_id=462339412 instance=ExtResource("4_g57q6")]
+
+[node name="FarmingHurtComponent" parent="." unique_id=309631884 instance=ExtResource("5_2lte8")]
+tool = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FarmingHurtComponent" unique_id=1605737799]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_4kxuq")

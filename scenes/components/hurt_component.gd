@@ -8,15 +8,18 @@ extends Area2D
 
 signal hurt(hit_damage: int)
 
-## 마지막으로 맞은 방향. 넉백이 필요한 쪽만 hurt를 받은 뒤 읽어간다.
 var last_knockback_direction: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
 	animated_sprite_2d.visible = false
 	animated_sprite_2d.animation_finished.connect(on_hit_effect_finished)
 
+
 func _on_area_entered(area: Area2D) -> void:
 	var hit_component = area as ApoHitComponent
+	
+	if hit_component.owner == owner:
+		return
 
 	if hit_component == null:
 		return
@@ -26,7 +29,6 @@ func _on_area_entered(area: Area2D) -> void:
 		last_knockback_direction = get_knockback_direction(hit_component)
 		hurt.emit(hit_component.hit_damage)
 
-## 공격자가 knockback_vector를 지정했으면 그대로 쓰고, 아니면 공격자 -> 피격자 방향으로 민다.
 func get_knockback_direction(hit_component: ApoHitComponent) -> Vector2:
 	if hit_component.knockback_vector != Vector2.ZERO:
 		return hit_component.knockback_vector.normalized()

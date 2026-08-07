@@ -2,6 +2,7 @@
 
 [ext_resource type="Shader" uid="uid://dn6q4tvxb8jke" path="res://scenes/objects/trees/tree_shake.gdshader" id="1_1qseg"]
 [ext_resource type="Texture2D" uid="uid://588k133pjqfk" path="res://assets/UI/Inventory/Objects/Icon_Axe.png" id="2_km0d2"]
+[ext_resource type="Script" uid="uid://dbfcanm7mjb03" path="res://scenes/objects/tools/axe.gd" id="3_km0d2"]
 [ext_resource type="Script" uid="uid://ce7wvcm7jv2xv" path="res://scenes/components/drop_pop_component.gd" id="4_km0d2"]
 [ext_resource type="PackedScene" uid="uid://ctp4naj2hxw80" path="res://scenes/components/collectable_component.tscn" id="5_i7mkh"]
 [ext_resource type="Resource" uid="uid://iadbnqiiwu53" path="res://scripts/resources/tools/axe.tres" id="5_s3gb3"]
@@ -18,6 +19,7 @@ radius = 40.0
 [node name="axe" type="Sprite2D" unique_id=495184973]
 material = SubResource("ShaderMaterial_shk01")
 texture = ExtResource("2_km0d2")
+script = ExtResource("3_km0d2")
 
 [node name="DropPopComponent" type="Node" parent="." unique_id=1267238452]
 script = ExtResource("4_km0d2")

@@ -1,0 +1,26 @@
+- generic "YouTube 동영상 플레이어" [ref=e5]:
+  - button "재생" [ref=e9] [cursor=pointer]
+  - button [ref=e12] [cursor=pointer]:
+    - img "채널 워터마크" [ref=e13]
+  - generic [ref=e14]:
+    - generic [ref=e15] [cursor=pointer]:
+      - slider "탐색 슬라이더" [ref=e16]
+      - generic:
+        - generic:
+          - generic:
+            - slider "세밀한 탐색을 하려면 패널을 클릭하거나 스크롤하세요."
+    - generic [ref=e25]:
+      - generic [ref=e26]:
+        - button "일시중지(k)" [ref=e27] [cursor=pointer]
+        - generic [ref=e28]:
+          - button "음소거(m)" [ref=e30] [cursor=pointer]
+          - slider "볼륨":
+            - generic [ref=e31] [cursor=pointer]
+        - button "0 분 0 초/31 분 16 초" [ref=e34] [cursor=pointer]: 0:00 / 31:16
+      - generic [ref=e35]:
+        - generic [ref=e36]:
+          - button "자막 사용 불가" [ref=e37] [cursor=pointer]
+          - button "설정" [ref=e39] [cursor=pointer]
+        - generic [ref=e40]:
+          - button "영화관 모드(t)" [ref=e41] [cursor=pointer]
+          - button "전체 화면(f)" [ref=e42] [cursor=pointer]

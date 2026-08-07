@@ -1,0 +1,468 @@
+- generic [ref=e2]:
+  - banner [ref=e4]:
+    - generic [ref=e6]:
+      - generic [ref=e7]:
+        - button "가이드" [ref=e9] [cursor=pointer]
+        - generic [ref=e13]:
+          - link "YouTube 홈" [ref=e14] [cursor=pointer]:
+            - /url: /
+          - generic [ref=e20]: KR
+        - button "탐색 건너뛰기" [ref=e24] [cursor=pointer]
+      - generic [ref=e28]:
+        - search [ref=e29]:
+          - generic [ref=e31]:
+            - generic [ref=e32]:
+              - combobox "검색" [expanded] [ref=e34]
+              - button [ref=e37] [cursor=pointer]
+            - button "Search" [ref=e38] [cursor=pointer]
+        - generic [ref=e43]:
+          - button "음성으로 검색" [ref=e45] [cursor=pointer]
+          - tooltip "tooltip"
+      - generic [ref=e50]:
+        - button "설정" [ref=e55] [cursor=pointer]
+        - link "로그인" [ref=e59] [cursor=pointer]:
+          - /url: https://accounts.google.com/ServiceLogin?service=youtube&uilel=3&passive=true&continue=https%3A%2F%2Fwww.youtube.com%2Fsignin%3Faction_handle_signin%3Dtrue%26app%3Ddesktop%26hl%3Dko%26next%3Dhttps%253A%252F%252Fwww.youtube.com%252Fplaylist%253Flist%253DPLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&hl=ko&ec=65620
+  - navigation [ref=e63]:
+    - generic [ref=e64]:
+      - link "홈" [ref=e66] [cursor=pointer]:
+        - /url: /
+      - link "Shorts" [ref=e70] [cursor=pointer]:
+        - /url: /shorts/
+      - link "구독" [ref=e74] [cursor=pointer]:
+        - /url: /feed/subscriptions
+      - link "내 페이지" [ref=e78] [cursor=pointer]:
+        - /url: /feed/you
+  - generic [ref=e81]:
+    - main [ref=e82]:
+      - text: ••
+      - generic [ref=e84]:
+        - img "hidden" [ref=e87]
+        - generic [ref=e89]:
+          - generic [ref=e90]:
+            - link "hidden 모두 재생" [ref=e91] [cursor=pointer]:
+              - /url: /watch?v=aMfV41jb-5E&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&pp=iAQB
+              - generic [ref=e95]:
+                - img "hidden" [ref=e97]
+                - generic: 모두 재생
+            - generic [ref=e101]:
+              - heading "Farming Game - Godot - Tutorials Series - Croptails - 2D Top Down Game" [level=1] [ref=e102]
+              - generic [ref=e104]:
+                - generic [ref=e105]:
+                  - generic [ref=e106]:
+                    - link "Rapid Vectors" [ref=e108] [cursor=pointer]:
+                      - /url: /@rapidvectors
+                    - generic [ref=e109]:
+                      - text: ·
+                      - img "과정" [ref=e114]
+                  - generic [ref=e117]:
+                    - generic [ref=e118]: 동영상 26개
+                    - generic [ref=e119]: "최종 업데이트: 2025. 3. 3."
+                - generic [ref=e120]:
+                  - generic [ref=e121]:
+                    - button "과정 저장" [ref=e123] [cursor=pointer]
+                    - tooltip "tooltip"
+                  - generic [ref=e127]:
+                    - button "공유" [ref=e129] [cursor=pointer]
+                    - tooltip "tooltip"
+              - generic [ref=e134]:
+                - generic [ref=e135]:
+                  - generic [ref=e136]: Learn to create a 2D top-down farming game in Godot with this comprehensive step-by-step series! Mas
+                  - generic: …
+                - button "...더보기" [ref=e137] [cursor=pointer]
+          - generic [ref=e138]:
+            - link "재개" [ref=e141] [cursor=pointer]:
+              - /url: /watch?v=aMfV41jb-5E&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&pp=iAQB
+            - button "댓글" [ref=e147] [cursor=pointer]
+        - tooltip "tooltip"
+      - generic [ref=e156]:
+        - generic [ref=e159] [cursor=pointer]:
+          - link [ref=e160]:
+            - /url: /watch?v=it0lsREGdmc&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=1&pp=iAQB
+            - generic [ref=e161]: 8:28:21
+          - generic [ref=e169]:
+            - generic [ref=e170]:
+              - heading "How to Build a Complete 2D Farming Game an 8-Hour Tutorial Series - Godot 4.3 - All 25 Episodes" [level=3] [ref=e171]:
+                - link "How to Build a Complete 2D Farming Game an 8-Hour Tutorial Series - Godot 4.3 - All 25 Episodes 8시간 28분" [ref=e172]:
+                  - /url: /watch?v=it0lsREGdmc&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=1&pp=iAQB
+                  - text: How to Build a Complete 2D Farming Game an 8-Hour Tutorial Series - Godot 4.3 - All 25 Episodes
+              - group [ref=e175]:
+                - generic [ref=e176]: 조회수 65만회
+                - generic [ref=e177]: •
+                - generic "1년 전" [ref=e178]
+            - button "추가 작업" [ref=e181]
+        - generic [ref=e187] [cursor=pointer]:
+          - link [ref=e188]:
+            - /url: /watch?v=h2QxOU2a2zM&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=2&pp=iAQB
+            - generic [ref=e189]: 4:27
+          - generic [ref=e197]:
+            - generic [ref=e198]:
+              - heading "Farming Game Project Setup and Assets - Godot Tutorial - 2D Top Down Game - Pt 1" [level=3] [ref=e199]:
+                - link "Farming Game Project Setup and Assets - Godot Tutorial - 2D Top Down Game - Pt 1 4분 27초" [ref=e200]:
+                  - /url: /watch?v=h2QxOU2a2zM&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=2&pp=iAQB
+                  - text: Farming Game Project Setup and Assets - Godot Tutorial - 2D Top Down Game - Pt 1
+              - group [ref=e203]:
+                - generic [ref=e204]: 조회수 4.2만회
+                - generic [ref=e205]: •
+                - generic "1년 전" [ref=e206]
+            - button "추가 작업" [ref=e209]
+        - generic [ref=e215] [cursor=pointer]:
+          - link [ref=e216]:
+            - /url: /watch?v=AdN27y_-UHA&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=3&pp=iAQB
+            - generic [ref=e217]: 15:45
+          - generic [ref=e225]:
+            - generic [ref=e226]:
+              - heading "애니메이션 타일과 지형이 있는 타일맵 레이어 - Godot 튜토리얼 - 2D 탑다운 게임 - 2부" [level=3] [ref=e227]:
+                - link "애니메이션 타일과 지형이 있는 타일맵 레이어 - Godot 튜토리얼 - 2D 탑다운 게임 - 2부 15분" [ref=e228]:
+                  - /url: /watch?v=AdN27y_-UHA&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=3&pp=iAQB
+                  - text: 애니메이션 타일과 지형이 있는 타일맵 레이어 - Godot 튜토리얼 - 2D 탑다운 게임 - 2부
+              - group [ref=e231]:
+                - generic [ref=e232]: 조회수 3.4만회
+                - generic [ref=e233]: •
+                - generic "1년 전" [ref=e234]
+            - button "추가 작업" [ref=e237]
+        - generic [ref=e243] [cursor=pointer]:
+          - link [ref=e244]:
+            - /url: /watch?v=8mE6QZCwTPQ&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=4&pp=iAQB
+            - generic [ref=e245]: 32:42
+          - generic [ref=e253]:
+            - generic [ref=e254]:
+              - heading "Player Animations and State Machine Transitions- Godot Tutorial - 2D Top Down Game - Pt 3" [level=3] [ref=e255]:
+                - link "Player Animations and State Machine Transitions- Godot Tutorial - 2D Top Down Game - Pt 3 32분" [ref=e256]:
+                  - /url: /watch?v=8mE6QZCwTPQ&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=4&pp=iAQB
+                  - text: Player Animations and State Machine Transitions- Godot Tutorial - 2D Top Down Game - Pt 3
+              - group [ref=e259]:
+                - generic [ref=e260]: 조회수 2.9만회
+                - generic [ref=e261]: •
+                - generic "1년 전" [ref=e262]
+            - button "추가 작업" [ref=e265]
+        - generic [ref=e271] [cursor=pointer]:
+          - link [ref=e272]:
+            - /url: /watch?v=sg0NyOCAHRg&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=5&pp=iAQB
+            - generic [ref=e273]: 12:46
+          - generic [ref=e281]:
+            - generic [ref=e282]:
+              - heading "Player State Machine Chopping, Tilling and Watering Tool States - Godot Tutorial - Pt 4" [level=3] [ref=e283]:
+                - link "Player State Machine Chopping, Tilling and Watering Tool States - Godot Tutorial - Pt 4 12분 46초" [ref=e284]:
+                  - /url: /watch?v=sg0NyOCAHRg&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=5&pp=iAQB
+                  - text: Player State Machine Chopping, Tilling and Watering Tool States - Godot Tutorial - Pt 4
+              - group [ref=e287]:
+                - generic [ref=e288]: 조회수 1.3만회
+                - generic [ref=e289]: •
+                - generic "1년 전" [ref=e290]
+            - button "추가 작업" [ref=e293]
+        - generic [ref=e299] [cursor=pointer]:
+          - link [ref=e300]:
+            - /url: /watch?v=Ssclr1CAhrQ&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=6&pp=iAQB
+            - generic [ref=e301]: 25:12
+          - generic [ref=e309]:
+            - generic [ref=e310]:
+              - heading "Create Houses with Tilemaps and Scene Collections - Godot Tutorial - Pt 5" [level=3] [ref=e311]:
+                - link "Create Houses with Tilemaps and Scene Collections - Godot Tutorial - Pt 5 25분" [ref=e312]:
+                  - /url: /watch?v=Ssclr1CAhrQ&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=6&pp=iAQB
+                  - text: Create Houses with Tilemaps and Scene Collections - Godot Tutorial - Pt 5
+              - group [ref=e315]:
+                - generic [ref=e316]: 조회수 1.4만회
+                - generic [ref=e317]: •
+                - generic "1년 전" [ref=e318]
+            - button "추가 작업" [ref=e321]
+        - generic [ref=e327] [cursor=pointer]:
+          - link [ref=e328]:
+            - /url: /watch?v=fBfzOptX4Fw&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=7&pp=iAQB
+            - generic [ref=e329]: 25:01
+          - generic [ref=e337]:
+            - generic [ref=e338]:
+              - heading "Create Chop-able Trees with Damage and Log Collectables - Godot Tutorial - Pt 6" [level=3] [ref=e339]:
+                - link "Create Chop-able Trees with Damage and Log Collectables - Godot Tutorial - Pt 6 25분" [ref=e340]:
+                  - /url: /watch?v=fBfzOptX4Fw&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=7&pp=iAQB
+                  - text: Create Chop-able Trees with Damage and Log Collectables - Godot Tutorial - Pt 6
+              - group [ref=e343]:
+                - generic [ref=e344]: 조회수 1.4만회
+                - generic [ref=e345]: •
+                - generic "1년 전" [ref=e346]
+            - button "추가 작업" [ref=e349]
+        - generic [ref=e355] [cursor=pointer]:
+          - link [ref=e356]:
+            - /url: /watch?v=J8eBowaHMgY&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=8&pp=iAQB
+            - generic [ref=e357]: 8:00
+          - generic [ref=e365]:
+            - generic [ref=e366]:
+              - heading "정점 셰이더 효과를 활용한 2D 나무 흔들기 만들기 - Godot 튜토리얼 - 2D 탑다운 게임 - 7부" [level=3] [ref=e367]:
+                - link "정점 셰이더 효과를 활용한 2D 나무 흔들기 만들기 - Godot 튜토리얼 - 2D 탑다운 게임 - 7부 8분" [ref=e368]:
+                  - /url: /watch?v=J8eBowaHMgY&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=8&pp=iAQB
+                  - text: 정점 셰이더 효과를 활용한 2D 나무 흔들기 만들기 - Godot 튜토리얼 - 2D 탑다운 게임 - 7부
+              - group [ref=e371]:
+                - generic [ref=e372]: 조회수 7.4천회
+                - generic [ref=e373]: •
+                - generic "1년 전" [ref=e374]
+            - button "추가 작업" [ref=e377]
+        - generic [ref=e383] [cursor=pointer]:
+          - link [ref=e384]:
+            - /url: /watch?v=-RAErpAoXpY&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=9&pp=iAQB
+            - generic [ref=e385]: 12:11
+          - generic [ref=e393]:
+            - generic [ref=e394]:
+              - heading "재사용 가능한 타격, 상처, 손상 및 수집 가능한 구성 요소를 사용한 암석 채굴 - Godot 튜토리얼 - 8부" [level=3] [ref=e395]:
+                - link "재사용 가능한 타격, 상처, 손상 및 수집 가능한 구성 요소를 사용한 암석 채굴 - Godot 튜토리얼 - 8부 12분 11초" [ref=e396]:
+                  - /url: /watch?v=-RAErpAoXpY&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=9&pp=iAQB
+                  - text: 재사용 가능한 타격, 상처, 손상 및 수집 가능한 구성 요소를 사용한 암석 채굴 - Godot 튜토리얼 - 8부
+              - group [ref=e399]:
+                - generic [ref=e400]: 조회수 7.9천회
+                - generic [ref=e401]: •
+                - generic "1년 전" [ref=e402]
+            - button "추가 작업" [ref=e405]
+        - generic [ref=e411] [cursor=pointer]:
+          - link [ref=e412]:
+            - /url: /watch?v=9UoIZ5yUMnc&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=10&pp=iAQB
+            - generic [ref=e413]: 10:33
+          - generic [ref=e421]:
+            - generic [ref=e422]:
+              - heading "씬과 타일맵 레이어에 Y 정렬(Y Sort) 사용하는 방법 - Godot 튜토리얼 - 2D 탑다운 게임 - 9부" [level=3] [ref=e423]:
+                - link "씬과 타일맵 레이어에 Y 정렬(Y Sort) 사용하는 방법 - Godot 튜토리얼 - 2D 탑다운 게임 - 9부 10분 33초" [ref=e424]:
+                  - /url: /watch?v=9UoIZ5yUMnc&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=10&pp=iAQB
+                  - text: 씬과 타일맵 레이어에 Y 정렬(Y Sort) 사용하는 방법 - Godot 튜토리얼 - 2D 탑다운 게임 - 9부
+              - group [ref=e427]:
+                - generic [ref=e428]: 조회수 1.2만회
+                - generic [ref=e429]: •
+                - generic "1년 전" [ref=e430]
+            - button "추가 작업" [ref=e433]
+        - generic [ref=e439] [cursor=pointer]:
+          - link [ref=e440]:
+            - /url: /watch?v=1EkJUdfnVzk&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=11&pp=iAQB
+            - generic [ref=e441]: 35:21
+          - generic [ref=e449]:
+            - generic [ref=e450]:
+              - heading "Chicken NPC Animations, State Machine with Navigation and Avoidance - Godot Tutorial - Pt 10" [level=3] [ref=e451]:
+                - link "Chicken NPC Animations, State Machine with Navigation and Avoidance - Godot Tutorial - Pt 10 35분" [ref=e452]:
+                  - /url: /watch?v=1EkJUdfnVzk&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=11&pp=iAQB
+                  - text: Chicken NPC Animations, State Machine with Navigation and Avoidance - Godot Tutorial - Pt 10
+              - group [ref=e455]:
+                - generic [ref=e456]: 조회수 9.8천회
+                - generic [ref=e457]: •
+                - generic "1년 전" [ref=e458]
+            - button "추가 작업" [ref=e461]
+        - generic [ref=e467] [cursor=pointer]:
+          - link [ref=e468]:
+            - /url: /watch?v=fiP9qgc0GbA&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=12&pp=iAQB
+            - generic [ref=e469]: 7:22
+          - generic [ref=e477]:
+            - generic [ref=e478]:
+              - heading "소 NPC 상태 머신, 재사용 가능한 상태, 탐색 영역 및 에이전트 - Godot 튜토리얼 - 11부" [level=3] [ref=e479]:
+                - link "소 NPC 상태 머신, 재사용 가능한 상태, 탐색 영역 및 에이전트 - Godot 튜토리얼 - 11부 7분 22초" [ref=e480]:
+                  - /url: /watch?v=fiP9qgc0GbA&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=12&pp=iAQB
+                  - text: 소 NPC 상태 머신, 재사용 가능한 상태, 탐색 영역 및 에이전트 - Godot 튜토리얼 - 11부
+              - group [ref=e483]:
+                - generic [ref=e484]: 조회수 4.8천회
+                - generic [ref=e485]: •
+                - generic "1년 전" [ref=e486]
+            - button "추가 작업" [ref=e489]
+        - generic [ref=e495] [cursor=pointer]:
+          - link [ref=e496]:
+            - /url: /watch?v=qstT1OIlqP8&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=13&pp=iAQB
+            - generic [ref=e497]: 10:19
+          - generic [ref=e505]:
+            - generic [ref=e506]:
+              - heading "Multiple Navigation Regions using Collision Subtraction and Agents - Godot Tutorial - Pt 12" [level=3] [ref=e507]:
+                - link "Multiple Navigation Regions using Collision Subtraction and Agents - Godot Tutorial - Pt 12 10분 19초" [ref=e508]:
+                  - /url: /watch?v=qstT1OIlqP8&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=13&pp=iAQB
+                  - text: Multiple Navigation Regions using Collision Subtraction and Agents - Godot Tutorial - Pt 12
+              - group [ref=e511]:
+                - generic [ref=e512]: 조회수 5.6천회
+                - generic [ref=e513]: •
+                - generic "1년 전" [ref=e514]
+            - button "추가 작업" [ref=e517]
+        - generic [ref=e523] [cursor=pointer]:
+          - link [ref=e524]:
+            - /url: /watch?v=oLi1o1TQTCA&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=14&pp=iAQB
+            - generic [ref=e525]: 25:52
+          - generic [ref=e533]:
+            - generic [ref=e534]:
+              - heading "Godot 튜토리얼 - 도구 패널 UI 구성 및 테마 리소스 스타일링 방법 (13부)" [level=3] [ref=e535]:
+                - link "Godot 튜토리얼 - 도구 패널 UI 구성 및 테마 리소스 스타일링 방법 (13부) 25분" [ref=e536]:
+                  - /url: /watch?v=oLi1o1TQTCA&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=14&pp=iAQB
+                  - text: Godot 튜토리얼 - 도구 패널 UI 구성 및 테마 리소스 스타일링 방법 (13부)
+              - group [ref=e539]:
+                - generic [ref=e540]: 조회수 7.8천회
+                - generic [ref=e541]: •
+                - generic "1년 전" [ref=e542]
+            - button "추가 작업" [ref=e545]
+        - generic [ref=e551] [cursor=pointer]:
+          - link [ref=e552]:
+            - /url: /watch?v=SWpCYVMmx7s&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=15&pp=iAQB
+            - generic [ref=e553]: 10:35
+          - generic [ref=e561]:
+            - generic [ref=e562]:
+              - heading "How to Create Reusable Collectable Components - Godot Tutorial - 2D Top Down Game - Pt 14" [level=3] [ref=e563]:
+                - link "How to Create Reusable Collectable Components - Godot Tutorial - 2D Top Down Game - Pt 14 10분 35초" [ref=e564]:
+                  - /url: /watch?v=SWpCYVMmx7s&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=15&pp=iAQB
+                  - text: How to Create Reusable Collectable Components - Godot Tutorial - 2D Top Down Game - Pt 14
+              - group [ref=e567]:
+                - generic [ref=e568]: 조회수 4.8천회
+                - generic [ref=e569]: •
+                - generic "1년 전" [ref=e570]
+            - button "추가 작업" [ref=e573]
+        - generic [ref=e579] [cursor=pointer]:
+          - link [ref=e580]:
+            - /url: /watch?v=Eo-3pXUhfNk&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=16&pp=iAQB
+            - generic [ref=e581]: 19:25
+          - generic [ref=e589]:
+            - generic [ref=e590]:
+              - heading "How to Create an Inventory UI for collectables with Theming and Styling - Godot Tutorial - Pt 15" [level=3] [ref=e591]:
+                - link "How to Create an Inventory UI for collectables with Theming and Styling - Godot Tutorial - Pt 15 19분" [ref=e592]:
+                  - /url: /watch?v=Eo-3pXUhfNk&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=16&pp=iAQB
+                  - text: How to Create an Inventory UI for collectables with Theming and Styling - Godot Tutorial - Pt 15
+              - group [ref=e595]:
+                - generic [ref=e596]: 조회수 5.4천회
+                - generic [ref=e597]: •
+                - generic "1년 전" [ref=e598]
+            - button "추가 작업" [ref=e601]
+        - generic [ref=e607] [cursor=pointer]:
+          - link [ref=e608]:
+            - /url: /watch?v=aMfV41jb-5E&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=17&pp=iAQB
+            - generic [ref=e609]: 31:17
+          - generic [ref=e617]:
+            - generic [ref=e618]:
+              - heading "시간과 속도를 적용한 낮과 밤 주기 UI 구성 요소 - Godot 튜토리얼 - 16부" [level=3] [ref=e619]:
+                - link "시간과 속도를 적용한 낮과 밤 주기 UI 구성 요소 - Godot 튜토리얼 - 16부 31분" [ref=e620]:
+                  - /url: /watch?v=aMfV41jb-5E&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=17&pp=iAQB
+                  - text: 시간과 속도를 적용한 낮과 밤 주기 UI 구성 요소 - Godot 튜토리얼 - 16부
+              - group [ref=e623]:
+                - generic [ref=e624]: 조회수 5.8천회
+                - generic [ref=e625]: •
+                - generic "1년 전" [ref=e626]
+            - button "추가 작업" [ref=e629]
+        - generic [ref=e635] [cursor=pointer]:
+          - link [ref=e636]:
+            - /url: /watch?v=875z4ZVITEY&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=18&pp=iAQB
+            - generic [ref=e637]: 30:04
+          - generic [ref=e645]:
+            - generic [ref=e646]:
+              - heading "Grow Crops for your Farming Game using Day and Night Cycles - Godot Tutorial - Pt 17" [level=3] [ref=e647]:
+                - link "Grow Crops for your Farming Game using Day and Night Cycles - Godot Tutorial - Pt 17 30분" [ref=e648]:
+                  - /url: /watch?v=875z4ZVITEY&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=18&pp=iAQB
+                  - text: Grow Crops for your Farming Game using Day and Night Cycles - Godot Tutorial - Pt 17
+              - group [ref=e651]:
+                - generic [ref=e652]: 조회수 6.3천회
+                - generic [ref=e653]: •
+                - generic "1년 전" [ref=e654]
+            - button "추가 작업" [ref=e657]
+        - generic [ref=e663] [cursor=pointer]:
+          - link [ref=e664]:
+            - /url: /watch?v=0MIQ35Ms_9M&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=19&pp=iAQB
+            - generic [ref=e665]: 20:47
+          - generic [ref=e673]:
+            - generic [ref=e674]:
+              - heading "농장 게임에서 도구를 사용하여 작물을 심는 방법 - Godot 튜토리얼 - 18부" [level=3] [ref=e675]:
+                - link "농장 게임에서 도구를 사용하여 작물을 심는 방법 - Godot 튜토리얼 - 18부 20분" [ref=e676]:
+                  - /url: /watch?v=0MIQ35Ms_9M&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=19&pp=iAQB
+                  - text: 농장 게임에서 도구를 사용하여 작물을 심는 방법 - Godot 튜토리얼 - 18부
+              - group [ref=e679]:
+                - generic [ref=e680]: 조회수 5.1천회
+                - generic [ref=e681]: •
+                - generic "1년 전" [ref=e682]
+            - button "추가 작업" [ref=e685]
+        - generic [ref=e691] [cursor=pointer]:
+          - link [ref=e692]:
+            - /url: /watch?v=-X7S1k_cvwA&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=20&pp=iAQB
+            - generic [ref=e693]: 30:50
+          - generic [ref=e701]:
+            - generic [ref=e702]:
+              - heading "Save and Load Game Data with Resources and Components - Godot Tutorial - Pt 19" [level=3] [ref=e703]:
+                - link "Save and Load Game Data with Resources and Components - Godot Tutorial - Pt 19 30분" [ref=e704]:
+                  - /url: /watch?v=-X7S1k_cvwA&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=20&pp=iAQB
+                  - text: Save and Load Game Data with Resources and Components - Godot Tutorial - Pt 19
+              - group [ref=e707]:
+                - generic [ref=e708]: 조회수 5.2천회
+                - generic [ref=e709]: •
+                - generic "1년 전" [ref=e710]
+            - button "추가 작업" [ref=e713]
+        - generic [ref=e719] [cursor=pointer]:
+          - link [ref=e720]:
+            - /url: /watch?v=DXi-f_vfsKs&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=21&pp=iAQB
+            - generic [ref=e721]: 12:00
+          - generic [ref=e729]:
+            - generic [ref=e730]:
+              - heading "How to Create Character Interaction in Your Game - Godot Tutorial - Pt 20" [level=3] [ref=e731]:
+                - link "How to Create Character Interaction in Your Game - Godot Tutorial - Pt 20 12분" [ref=e732]:
+                  - /url: /watch?v=DXi-f_vfsKs&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=21&pp=iAQB
+                  - text: How to Create Character Interaction in Your Game - Godot Tutorial - Pt 20
+              - group [ref=e735]:
+                - generic [ref=e736]: 조회수 3.7천회
+                - generic [ref=e737]: •
+                - generic "1년 전" [ref=e738]
+            - button "추가 작업" [ref=e741]
+        - generic [ref=e747] [cursor=pointer]:
+          - link [ref=e748]:
+            - /url: /watch?v=UcpU9qKDg9Q&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=22&pp=iAQB
+            - generic [ref=e749]: 33:38
+          - generic [ref=e757]:
+            - generic [ref=e758]:
+              - heading "Create Custom Dialog Balloons with Scripts for your Characters - Godot Tutorial - Pt 21" [level=3] [ref=e759]:
+                - link "Create Custom Dialog Balloons with Scripts for your Characters - Godot Tutorial - Pt 21 33분" [ref=e760]:
+                  - /url: /watch?v=UcpU9qKDg9Q&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=22&pp=iAQB
+                  - text: Create Custom Dialog Balloons with Scripts for your Characters - Godot Tutorial - Pt 21
+              - group [ref=e763]:
+                - generic [ref=e764]: 조회수 5.3천회
+                - generic [ref=e765]: •
+                - generic "1년 전" [ref=e766]
+            - button "추가 작업" [ref=e769]
+        - generic [ref=e775] [cursor=pointer]:
+          - link [ref=e776]:
+            - /url: /watch?v=jwmCZtUzNd4&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=23&pp=iAQB
+            - generic [ref=e777]: 30:26
+          - generic [ref=e785]:
+            - generic [ref=e786]:
+              - heading "Use Collectables and Chests for Rewards in Your Game - Godot Tutorial - Pt 22" [level=3] [ref=e787]:
+                - link "Use Collectables and Chests for Rewards in Your Game - Godot Tutorial - Pt 22 30분" [ref=e788]:
+                  - /url: /watch?v=jwmCZtUzNd4&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=23&pp=iAQB
+                  - text: Use Collectables and Chests for Rewards in Your Game - Godot Tutorial - Pt 22
+              - group [ref=e791]:
+                - generic [ref=e792]: 조회수 3.1천회
+                - generic [ref=e793]: •
+                - generic "1년 전" [ref=e794]
+            - button "추가 작업" [ref=e797]
+        - generic [ref=e803] [cursor=pointer]:
+          - link [ref=e804]:
+            - /url: /watch?v=Ht7pO6gGhwk&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=24&pp=iAQB0gcJCb4LAYcqIYzv
+            - generic [ref=e805]: 20:29
+          - generic [ref=e813]:
+            - generic [ref=e814]:
+              - heading "구성 요소와 장면을 사용하여 게임 레벨 만들기 - Godot 튜토리얼 - 23부" [level=3] [ref=e815]:
+                - link "구성 요소와 장면을 사용하여 게임 레벨 만들기 - Godot 튜토리얼 - 23부 20분" [ref=e816]:
+                  - /url: /watch?v=Ht7pO6gGhwk&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=24&pp=iAQB0gcJCb4LAYcqIYzv
+                  - text: 구성 요소와 장면을 사용하여 게임 레벨 만들기 - Godot 튜토리얼 - 23부
+              - group [ref=e819]:
+                - generic [ref=e820]: 조회수 4천회
+                - generic [ref=e821]: •
+                - generic "1년 전" [ref=e822]
+            - button "추가 작업" [ref=e825]
+        - generic [ref=e831] [cursor=pointer]:
+          - link [ref=e832]:
+            - /url: /watch?v=NqQdx69lDeA&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=25&pp=iAQB
+            - generic [ref=e833]: 31:20
+          - generic [ref=e841]:
+            - generic [ref=e842]:
+              - heading "Create and Style a Game Main Menu using UI and Theme Components - Godot Tutorial - Pt 24" [level=3] [ref=e843]:
+                - link "Create and Style a Game Main Menu using UI and Theme Components - Godot Tutorial - Pt 24 31분" [ref=e844]:
+                  - /url: /watch?v=NqQdx69lDeA&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=25&pp=iAQB
+                  - text: Create and Style a Game Main Menu using UI and Theme Components - Godot Tutorial - Pt 24
+              - group [ref=e847]:
+                - generic [ref=e848]: 조회수 4.7천회
+                - generic [ref=e849]: •
+                - generic "1년 전" [ref=e850]
+            - button "추가 작업" [ref=e853]
+        - generic [ref=e859] [cursor=pointer]:
+          - link [ref=e860]:
+            - /url: /watch?v=7o50oCrSwNg&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=26&pp=iAQB
+            - generic [ref=e861]: 12:46
+          - generic [ref=e869]:
+            - generic [ref=e870]:
+              - heading "음악 및 사운드 효과를 위한 오디오 버스 레이아웃 사용 - Godot 튜토리얼 - 25부" [level=3] [ref=e871]:
+                - link "음악 및 사운드 효과를 위한 오디오 버스 레이아웃 사용 - Godot 튜토리얼 - 25부 12분 46초" [ref=e872]:
+                  - /url: /watch?v=7o50oCrSwNg&list=PLWTXKdBN8RZe3ytf6qdR4g1JRy0j-93v9&index=26&pp=iAQB
+                  - text: 음악 및 사운드 효과를 위한 오디오 버스 레이아웃 사용 - Godot 튜토리얼 - 25부
+              - group [ref=e875]:
+                - generic [ref=e876]: 조회수 8.3천회
+                - generic [ref=e877]: •
+                - generic "1년 전" [ref=e878]
+            - button "추가 작업" [ref=e881]
+    - text: •

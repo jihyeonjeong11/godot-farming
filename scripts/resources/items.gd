@@ -4,6 +4,7 @@ class_name Items extends Resource
 
 ## melee, range, tool, consumable, material, artifact, ammo, seed, buildable, misc
 @export var item_type = ""
+@export var tool_type: ApoDataTypes.Tools = ApoDataTypes.Tools.None
 @export var item_name = ""
 @export var item_texture: Texture
 ## Execlusive for artifacts
@@ -17,5 +18,9 @@ class_name Items extends Resource
 @export var melee_knockback: int
 
 @export var max_stack: int
+
+## 손에 들었을 때 재생할 장비 스프라이트 애니메이션 접두사.
+## "axe" → axe_idle_front / axe_attack_front. 비어 있으면 손에 아무것도 안 그린다.
+@export var anim_prefix: StringName = &""
 ## droppable
 @export_file("*.tscn") var world_scene_path: String = ""

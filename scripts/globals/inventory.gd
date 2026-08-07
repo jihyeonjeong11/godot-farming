@@ -1,61 +1,70 @@
 extends Node
 
 signal inventory_updated
+signal selected_slot_changed(index: int)
 
 const BASE_INVENTORY_LIMIT = 30
 const QUICKBAR_LIMIT = 10
 
-var inventory = []
+## 각 칸은 ItemStack, 빈 칸은 null.
+var inventory: Array[ItemStack] = []
+var selected_slot: int = 0
 var player_node: ApoPlayer
 var world_scene_cache: Dictionary = {}
 
-# initial inventory limit size
 func _ready():
 	inventory.resize(BASE_INVENTORY_LIMIT)
 
-func get_item(i: int):
+func get_item(i: int) -> ItemStack:
 	if i < 0 or i >= inventory.size():
 		return null
 	return inventory[i]
-	
+
+func select_slot(index: int) -> void:
+	if index < 0 or index >= QUICKBAR_LIMIT:
+		return
+	if index == selected_slot:
+		return
+	selected_slot = index
+	selected_slot_changed.emit(index)
+
+func get_selected_item() -> Items:
+	var stack := get_item(selected_slot)
+	if stack == null:
+		return null
+	return stack.item
+
 func add_item(item: Items) -> bool:
 	if item == null:
 		return false
 
-	if item.max_stack > 0:
-		for i in inventory.size():
-			var slot = inventory[i]
-			if slot == null:
-				continue
-			if slot["item"] != item:
-				continue
-			if slot["amount"] >= item.max_stack:
-				continue
-			slot["amount"] += 1
+	for i in inventory.size():
+		var stack := inventory[i]
+		if stack != null and stack.can_stack(item):
+			stack.amount += 1
 			inventory_updated.emit()
 			return true
 
 	for i in inventory.size():
 		if inventory[i] == null:
-			inventory[i] = {"item": item, "amount": 1}
+			inventory[i] = ItemStack.new(item, 1)
 			inventory_updated.emit()
 			return true
 
 	return false
 
 func remove_item(i: int, amount: int = 1) -> bool:
-	var slot = get_item(i)
-	if slot == null or amount <= 0:
+	var stack := get_item(i)
+	if stack == null or amount <= 0:
 		return false
 
-	slot["amount"] -= amount
-	if slot["amount"] <= 0:
+	stack.amount -= amount
+	if stack.amount <= 0:
 		inventory[i] = null
 
 	inventory_updated.emit()
 	return true
 
-## from 칸과 to 칸을 통째로 맞바꾼다. 같은 아이템이어도 스택을 합치지 않는다.
 func swap_items(from: int, to: int) -> bool:
 	if from == to:
 		return false
@@ -64,7 +73,7 @@ func swap_items(from: int, to: int) -> bool:
 	if to < 0 or to >= inventory.size():
 		return false
 
-	var moved = inventory[from]
+	var moved := inventory[from]
 	inventory[from] = inventory[to]
 	inventory[to] = moved
 
@@ -72,11 +81,11 @@ func swap_items(from: int, to: int) -> bool:
 	return true
 
 func drop_item(i: int) -> bool:
-	var slot = get_item(i)
-	if slot == null:
+	var stack := get_item(i)
+	if stack == null:
 		return false
 
-	var scene := get_world_scene(slot["item"])
+	var scene := get_world_scene(stack.item)
 	if scene == null:
 		return false
 
@@ -88,7 +97,7 @@ func drop_item(i: int) -> bool:
 	if host == null:
 		return false
 
-	var amount: int = slot["amount"]
+	var amount := stack.amount
 	for _n in amount:
 		var drop := scene.instantiate() as Node2D
 		if drop == null:

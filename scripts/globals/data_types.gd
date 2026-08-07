@@ -1,12 +1,14 @@
 class_name ApoDataTypes
 
-
 enum Tools {
-	None,
-	AxeWood,
-	TillGround,
-	WaterCrops,
-	PlantPotato
+	None,        # 0
+	AxeWood,     # 1
+	MineRock,    # 2 
+	TillGround,  # 3
+	WaterCrops,  # 4
+	PlantPotato, # 5
+	Melee,       # 6
+	Ranged,      # 7
 }
 
 enum GrowthStates {

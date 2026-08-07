@@ -9,7 +9,7 @@ atlas = ExtResource("1_o7r4i")
 [resource]
 script = ExtResource("1_8qw6j")
 item_type = "tool"
-tool_type = 2
+tool_type = 1
 item_name = "axe"
 item_texture = SubResource("AtlasTexture_e2a05")
 melee_damage = 1

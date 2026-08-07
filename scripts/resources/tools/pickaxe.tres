@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_items")
 item_type = "tool"
-tool_type = 3
+tool_type = 2
 item_name = "pickaxe"
 item_texture = ExtResource("2_icon")
 description = "Breaks rocks apart."

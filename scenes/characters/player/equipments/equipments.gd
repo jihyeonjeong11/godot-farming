@@ -47,16 +47,14 @@ func _physics_process(_delta: float) -> void:
 
 	var item := Inventory.get_selected_item()
 	if item == null:
-		print("빈손")
 		return
 
 	match item.item_type:
-		"tool":
-				swing()
-		"melee":
-			print("melee 휘두름: %s" % item.item_name)
-		_:
-			print("액션 없음: %s (item_type=%s)" % [item.item_name, item.item_type])
+		"tool", "melee":
+			swing()
+
+	## 여기서는 "썼다"만 알린다. 밭갈이·물주기 같은 월드 조작은 레벨 쪽 리스너 담당.
+	SignalBus.tool_used.emit(item, global_position, get_global_mouse_position())
 
 func swing() -> void:
 	hit_shape.set_deferred("disabled", false)

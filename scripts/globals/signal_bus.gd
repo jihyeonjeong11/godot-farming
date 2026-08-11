@@ -13,6 +13,12 @@ signal time_tick_day(day: int)
 ## 플레이어 씬이 레벨의 타일맵을 몰라도 되게 하는 통로.
 signal tool_used(item: Items, user_position: Vector2, target_position: Vector2)
 
+## 메인 메뉴에서 새 게임을 누른 순간. 어느 씬으로 갈지는 game.gd가 정한다.
+signal new_game_requested()
+
+## 메인 메뉴에서 불러오기를 누른 순간. 씬을 띄운 뒤 세이브를 얹는 건 game.gd가 한다.
+signal load_game_requested()
+
 
 
 

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://berlymv1kobmo"]
+
+[ext_resource type="Script" uid="uid://123k15c3oq0r" path="res://scenes/components/persistent/level_nature.gd" id="1_sca4w"]
+
+[node name="LevelNature" type="Node2D" unique_id=2071107744]
+y_sort_enabled = true
+script = ExtResource("1_sca4w")

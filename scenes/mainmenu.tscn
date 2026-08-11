@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://brefvirbtelnj"]
+
+[ext_resource type="Texture2D" uid="uid://bd4dpqu4de6yk" path="res://assets/bg/gemini-pixelart.jpg" id="1_5mbse"]
+[ext_resource type="Script" uid="uid://bpw8u24y2i7gr" path="res://scenes/mainmenu.gd" id="1_mnscr"]
+[ext_resource type="Texture2D" uid="uid://be4ii84vse6eh" path="res://assets/UI/Menu/Main Menu/Play_Not-Pressed.png" id="2_r3g3c"]
+[ext_resource type="Texture2D" uid="uid://d2dt4x7c6hh0c" path="res://assets/UI/Menu/Main Menu/Load_Not-Pressed.png" id="3_3vvtq"]
+[ext_resource type="Texture2D" uid="uid://yrf8j8wet4t3" path="res://assets/UI/Menu/Main Menu/Settings_Not-Pressed.png" id="4_s5g8n"]
+[ext_resource type="Texture2D" uid="uid://bfcxasobxoe2x" path="res://assets/UI/Menu/Main Menu/Quit_Not-Pressed.png" id="5_7yvfd"]
+
+[node name="Mainmenu" type="Control" unique_id=1899142544]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mnscr")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=670319669]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_5mbse")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Container" type="PanelContainer" parent="." unique_id=162122364]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Container" unique_id=963650057]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="HBoxContainer" parent="Container/MarginContainer" unique_id=433254241]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Play" type="Button" parent="Container/MarginContainer/VBoxContainer" unique_id=1295660906]
+custom_minimum_size = Vector2(26, 26)
+layout_mode = 2
+icon = ExtResource("2_r3g3c")
+
+[node name="Load" type="Button" parent="Container/MarginContainer/VBoxContainer" unique_id=1923774799]
+custom_minimum_size = Vector2(26, 26)
+layout_mode = 2
+icon = ExtResource("3_3vvtq")
+
+[node name="Settings" type="Button" parent="Container/MarginContainer/VBoxContainer" unique_id=1385617788]
+custom_minimum_size = Vector2(26, 26)
+layout_mode = 2
+icon = ExtResource("4_s5g8n")
+
+[node name="Quit" type="Button" parent="Container/MarginContainer/VBoxContainer" unique_id=462943521]
+custom_minimum_size = Vector2(26, 26)
+layout_mode = 2
+icon = ExtResource("5_7yvfd")

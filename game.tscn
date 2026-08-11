@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cg7oc43p0u2co"]
+
+[ext_resource type="Script" path="res://game.gd" id="1_80nbo"]
+[ext_resource type="Texture2D" path="res://assets/splash/splash.png" id="2_splash"]
+
+[node name="Game" type="Node2D" unique_id=1847824133]
+script = ExtResource("1_80nbo")
+
+[node name="CurrentScene" type="Node" parent="." unique_id=1847824134]
+
+[node name="SplashLayer" type="CanvasLayer" parent="." unique_id=1847824135]
+layer = 128
+visible = false
+
+[node name="Backdrop" type="ColorRect" parent="SplashLayer" unique_id=1847824136]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Logo" type="TextureRect" parent="SplashLayer/Backdrop" unique_id=1847824137]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_splash")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="." unique_id=1752531756]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0

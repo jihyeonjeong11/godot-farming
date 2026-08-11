@@ -3,6 +3,8 @@ extends Node
 
 
 @export var tilled_soil_tilemap_layer: TileMapLayer
+## 심은 작물이 들어갈 레이어. 여기 자식으로 붙어야 세이브에 같이 딸려 나간다.
+@export var crops_layer: Node2D
 
 @onready var player: ApoPlayer = get_tree().get_first_node_in_group("player")
 
@@ -42,11 +44,11 @@ func add_crop() -> void:
 	if distance < 20.0 && cell_source_id != -1:
 		var potato_instance = potato_plant_scene.instantiate() as Node2D
 		potato_instance.global_position = local_cell_position
-		get_parent().find_child("CropFields").add_child(potato_instance)
-	
+		crops_layer.add_child(potato_instance)
+
 func remove_crop() -> void:
 	if distance < 20.0:
-		var crop_nodes = get_parent().find_child("CropFields").get_children()
+		var crop_nodes = crops_layer.get_children()
 		for node: Node2D in crop_nodes:
 			if node.global_position == local_cell_position:
 				node.queue_free()

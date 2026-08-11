@@ -1,5 +1,11 @@
 class_name ApoDataTypes
 
+enum Levels {
+	MainMenu,
+	Farm,
+	RuinCity
+}
+
 enum Tools {
 	None,        # 0
 	AxeWood,     # 1

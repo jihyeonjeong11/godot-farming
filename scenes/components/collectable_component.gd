@@ -64,11 +64,11 @@ func _physics_process(delta: float) -> void:
 
 
 func _collect() -> void:
-	# 넣기 실패하면 queue_free 하지 않는다. 아이템이 조용히 사라지는 게 최악.
 	if Inventory.add_item(item) == true:
 		_collected = true
 		set_physics_process(false)
 		get_parent().queue_free()
+		
 		return
 
 	if not _warned:

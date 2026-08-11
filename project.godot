@@ -11,8 +11,10 @@ config_version=5
 [application]
 
 config/name="apo-farming"
-run/main_scene="uid://cisnfhhd77c24"
+run/main_scene="uid://cg7oc43p0u2co"
 config/features=PackedStringArray("4.7", "Forward Plus")
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="uid://cmc3tqcugvvas"
 config/icon="res://icon.svg"
 
 [autoload]
@@ -20,8 +22,10 @@ config/icon="res://icon.svg"
 SignalBus="*uid://c5yk62a6w1nji"
 GameManager="*res://scripts/globals/game_manager.gd"
 DayAndNightCycle="*uid://db650q1a0xbln"
-MobSpawner="*uid://bjhhfev0ke1p2"
 Inventory="*uid://vycgnw0v4akr"
+SaveGameManager="*uid://cv1prwkrmrj7m"
+SaveAndLoad="*uid://d0y42xiiply8f"
+MobSpawner="*uid://bjhhfev0ke1p2"
 
 [display]
 

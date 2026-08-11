@@ -1,5 +1,7 @@
 extends Node
 
+# This is Temp File! 
+
 ## 메뉴에서 "불러오기"로 들어왔는가. "새 게임"이면 false라서 세이브가 있어도 무시한다.
 ## 레벨이 뜨는 시점엔 이미 메뉴가 사라진 뒤라, 그 의도를 여기에 남겨 전달한다.
 var load_requested := false

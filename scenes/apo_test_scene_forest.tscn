@@ -1,57 +1,19 @@
 [gd_scene format=4 uid="uid://dtcrlpg0qcw8"]
 
+[ext_resource type="Script" uid="uid://dq3m8sf1nybr7" path="res://scenes/components/persistent/level_crops.gd" id="1_crops"]
 [ext_resource type="PackedScene" uid="uid://cgv3nwfyr3n17" path="res://scenes/ui/apo_scene_overay.tscn" id="1_dj6pg"]
 [ext_resource type="Script" uid="uid://bjqk2jiorau6t" path="res://scenes/components/persistent/level_objects.gd" id="1_in03s"]
 [ext_resource type="Script" uid="uid://123k15c3oq0r" path="res://scenes/components/persistent/level_nature.gd" id="1_nature"]
-[ext_resource type="Script" uid="uid://dq3m8sf1nybr7" path="res://scenes/components/persistent/level_crops.gd" id="1_crops"]
 [ext_resource type="Script" uid="uid://c6wj2phe45tvn" path="res://scenes/components/persistent/level_tilled_soils.gd" id="1_soils"]
 [ext_resource type="TileSet" uid="uid://bg7n2qxwlk4ay" path="res://tilesets/apocalypse_green_tile_set.tres" id="2_oidve"]
 [ext_resource type="TileSet" uid="uid://dcq54frn85y6v" path="res://tilesets/apocalypse_tile_set.tres" id="3_6iqtb"]
 [ext_resource type="TileSet" uid="uid://bfjfke80cfmmc" path="res://tilesets/house_tile_set.tres" id="4_tomno"]
-[ext_resource type="PackedScene" uid="uid://c4xghignasnpy" path="res://scenes/objects/trees/SmallTree.tscn" id="5_3cinn"]
 [ext_resource type="PackedScene" uid="uid://cv3s4ie450sup" path="res://scenes/characters/player/player.tscn" id="5_i0cr0"]
-[ext_resource type="PackedScene" uid="uid://bpbex88c2cd33" path="res://scenes/objects/seeds/carrot_seed.tscn" id="5_oidve"]
-[ext_resource type="PackedScene" uid="uid://dlawsn3ephy6r" path="res://scenes/objects/seeds/corn_seed.tscn" id="5_tomno"]
-[ext_resource type="PackedScene" uid="uid://bbeiswymb5pbp" path="res://scenes/objects/rocks/Rock.tscn" id="5_vrx76"]
-[ext_resource type="Shader" uid="uid://bcp8mmn7pipyu" path="res://scenes/objects/rocks/rock_shake.gdshader" id="6_dj6pg"]
-[ext_resource type="Shader" uid="uid://dn6q4tvxb8jke" path="res://scenes/objects/trees/tree_shake.gdshader" id="6_kj2hl"]
 [ext_resource type="PackedScene" uid="uid://6jsgfc4dh1hr" path="res://scenes/ui/apo_scene_overlay_menu.tscn" id="7_1npfb"]
 [ext_resource type="PackedScene" uid="uid://dncd82n2y0aas" path="res://scenes/ui/apo_scene_ingame_overlay_menu.tscn" id="8_w6y5m"]
 [ext_resource type="PackedScene" uid="uid://b0a3am51xwndg" path="res://scenes/components/day_night_cycle_component.tscn" id="9_dg6co"]
-[ext_resource type="PackedScene" uid="uid://bqt7p2ndk4xm1" path="res://scenes/objects/seeds/potato_seed.tscn" id="11_6iqtb"]
-[ext_resource type="PackedScene" uid="uid://fta66ic867g8" path="res://scenes/objects/tools/axe.tscn" id="13_dj6pg"]
 [ext_resource type="PackedScene" uid="uid://ts47olgc55kh" path="res://scenes/components/crops_cursor_component.tscn" id="14_in03s"]
 [ext_resource type="PackedScene" uid="uid://c5e10kwwdcap1" path="res://scenes/components/field_cursor_component.tscn" id="23_cckqj"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_71tkb"]
-resource_local_to_scene = true
-shader = ExtResource("6_kj2hl")
-shader_parameter/shake_intensity = 0.0
-shader_parameter/shake_speed = 20.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_anbpf"]
-resource_local_to_scene = true
-shader = ExtResource("6_dj6pg")
-shader_parameter/shake_intensity = 0.0
-shader_parameter/shake_speed = 20.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_v0cbt"]
-resource_local_to_scene = true
-shader = ExtResource("6_dj6pg")
-shader_parameter/shake_intensity = 0.0
-shader_parameter/shake_speed = 20.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2kfrp"]
-resource_local_to_scene = true
-shader = ExtResource("6_kj2hl")
-shader_parameter/shake_intensity = 0.0
-shader_parameter/shake_speed = 20.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_l4n81"]
-resource_local_to_scene = true
-shader = ExtResource("6_kj2hl")
-shader_parameter/shake_intensity = 0.0
-shader_parameter/shake_speed = 20.0
 
 [node name="ApoTestSceneForest" type="Node2D" unique_id=695838568]
 y_sort_enabled = true

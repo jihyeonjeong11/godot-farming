@@ -1,0 +1,278 @@
+[gd_resource type="SpriteFrames" load_steps=34 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/character/lpc_tools/whip/tool_whip_bg.png" id="1_tool_whip"]
+
+[sub_resource type="AtlasTexture" id="AT_tool_whip_back_0"]
+atlas = ExtResource("1_tool_whip")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AT_tool_whip_back_1"]
+atlas = ExtResource("1_tool_whip")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AT_tool_whip_back_2"]
+atlas = ExtResource("1_tool_whip")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AT_tool_whip_back_3"]
+atlas = ExtResource("1_tool_whip")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AT_tool_whip_back_4"]
+atlas = ExtResource("1_tool_whip")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AT_tool_whip_back_5"]
+atlas = ExtResource("1_tool_whip")
+region = Rect2(960, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AT_tool_whip_back_6"]
+atlas = ExtResource("1_tool_whip")
+region = Rect2(1152, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AT_tool_whip_back_7"]
+atlas = ExtResource("1_tool_whip")
+region = Rect2(1344, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AT_tool_whip_left_0"]
+atlas = ExtResource("1_tool_whip")
+region = Rect2(0, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AT_tool_whip_left_1"]
+atlas = ExtResource("1_tool_whip")
+region = Rect2(192, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AT_tool_whip_left_2"]
+atlas = ExtResource("1_tool_whip")
+region = Rect2(384, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AT_tool_whip_left_3"]
+atlas = ExtResource("1_tool_whip")
+region = Rect2(576, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AT_tool_whip_left_4"]
+atlas = ExtResource("1_tool_whip")
+region = Rect2(768, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AT_tool_whip_left_5"]
+atlas = ExtResource("1_tool_whip")
+region = Rect2(960, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AT_tool_whip_left_6"]
+atlas = ExtResource("1_tool_whip")
+region = Rect2(1152, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AT_tool_whip_left_7"]
+atlas = ExtResource("1_tool_whip")
+region = Rect2(1344, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AT_tool_whip_front_0"]
+atlas = ExtResource("1_tool_whip")
+region = Rect2(0, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AT_tool_whip_front_1"]
+atlas = ExtResource("1_tool_whip")
+region = Rect2(192, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AT_tool_whip_front_2"]
+atlas = ExtResource("1_tool_whip")
+region = Rect2(384, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AT_tool_whip_front_3"]
+atlas = ExtResource("1_tool_whip")
+region = Rect2(576, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AT_tool_whip_front_4"]
+atlas = ExtResource("1_tool_whip")
+region = Rect2(768, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AT_tool_whip_front_5"]
+atlas = ExtResource("1_tool_whip")
+region = Rect2(960, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AT_tool_whip_front_6"]
+atlas = ExtResource("1_tool_whip")
+region = Rect2(1152, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AT_tool_whip_front_7"]
+atlas = ExtResource("1_tool_whip")
+region = Rect2(1344, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AT_tool_whip_right_0"]
+atlas = ExtResource("1_tool_whip")
+region = Rect2(0, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AT_tool_whip_right_1"]
+atlas = ExtResource("1_tool_whip")
+region = Rect2(192, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AT_tool_whip_right_2"]
+atlas = ExtResource("1_tool_whip")
+region = Rect2(384, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AT_tool_whip_right_3"]
+atlas = ExtResource("1_tool_whip")
+region = Rect2(576, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AT_tool_whip_right_4"]
+atlas = ExtResource("1_tool_whip")
+region = Rect2(768, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AT_tool_whip_right_5"]
+atlas = ExtResource("1_tool_whip")
+region = Rect2(960, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AT_tool_whip_right_6"]
+atlas = ExtResource("1_tool_whip")
+region = Rect2(1152, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AT_tool_whip_right_7"]
+atlas = ExtResource("1_tool_whip")
+region = Rect2(1344, 576, 192, 192)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AT_tool_whip_back_0")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_whip_back_1")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_whip_back_2")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_whip_back_3")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_whip_back_4")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_whip_back_5")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_whip_back_6")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_whip_back_7")
+}],
+"loop": false,
+"name": &"tool_whip_back",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AT_tool_whip_front_0")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_whip_front_1")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_whip_front_2")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_whip_front_3")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_whip_front_4")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_whip_front_5")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_whip_front_6")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_whip_front_7")
+}],
+"loop": false,
+"name": &"tool_whip_front",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AT_tool_whip_left_0")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_whip_left_1")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_whip_left_2")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_whip_left_3")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_whip_left_4")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_whip_left_5")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_whip_left_6")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_whip_left_7")
+}],
+"loop": false,
+"name": &"tool_whip_left",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AT_tool_whip_right_0")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_whip_right_1")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_whip_right_2")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_whip_right_3")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_whip_right_4")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_whip_right_5")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_whip_right_6")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_whip_right_7")
+}],
+"loop": false,
+"name": &"tool_whip_right",
+"speed": 12.0
+}]

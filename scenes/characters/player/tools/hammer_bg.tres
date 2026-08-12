@@ -1,0 +1,310 @@
+[gd_resource type="SpriteFrames" load_steps=38 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/character/lpc_tools/hammer/tool_hammer_bg.png" id="1_tool_hammer"]
+
+[sub_resource type="AtlasTexture" id="AT_tool_hammer_back_0"]
+atlas = ExtResource("1_tool_hammer")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AT_tool_hammer_back_1"]
+atlas = ExtResource("1_tool_hammer")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AT_tool_hammer_back_2"]
+atlas = ExtResource("1_tool_hammer")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AT_tool_hammer_back_3"]
+atlas = ExtResource("1_tool_hammer")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AT_tool_hammer_back_4"]
+atlas = ExtResource("1_tool_hammer")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AT_tool_hammer_back_5"]
+atlas = ExtResource("1_tool_hammer")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AT_tool_hammer_back_6"]
+atlas = ExtResource("1_tool_hammer")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AT_tool_hammer_back_7"]
+atlas = ExtResource("1_tool_hammer")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AT_tool_hammer_back_8"]
+atlas = ExtResource("1_tool_hammer")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AT_tool_hammer_left_0"]
+atlas = ExtResource("1_tool_hammer")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AT_tool_hammer_left_1"]
+atlas = ExtResource("1_tool_hammer")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AT_tool_hammer_left_2"]
+atlas = ExtResource("1_tool_hammer")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AT_tool_hammer_left_3"]
+atlas = ExtResource("1_tool_hammer")
+region = Rect2(384, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AT_tool_hammer_left_4"]
+atlas = ExtResource("1_tool_hammer")
+region = Rect2(512, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AT_tool_hammer_left_5"]
+atlas = ExtResource("1_tool_hammer")
+region = Rect2(640, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AT_tool_hammer_left_6"]
+atlas = ExtResource("1_tool_hammer")
+region = Rect2(768, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AT_tool_hammer_left_7"]
+atlas = ExtResource("1_tool_hammer")
+region = Rect2(896, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AT_tool_hammer_left_8"]
+atlas = ExtResource("1_tool_hammer")
+region = Rect2(1024, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AT_tool_hammer_front_0"]
+atlas = ExtResource("1_tool_hammer")
+region = Rect2(0, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AT_tool_hammer_front_1"]
+atlas = ExtResource("1_tool_hammer")
+region = Rect2(128, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AT_tool_hammer_front_2"]
+atlas = ExtResource("1_tool_hammer")
+region = Rect2(256, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AT_tool_hammer_front_3"]
+atlas = ExtResource("1_tool_hammer")
+region = Rect2(384, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AT_tool_hammer_front_4"]
+atlas = ExtResource("1_tool_hammer")
+region = Rect2(512, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AT_tool_hammer_front_5"]
+atlas = ExtResource("1_tool_hammer")
+region = Rect2(640, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AT_tool_hammer_front_6"]
+atlas = ExtResource("1_tool_hammer")
+region = Rect2(768, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AT_tool_hammer_front_7"]
+atlas = ExtResource("1_tool_hammer")
+region = Rect2(896, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AT_tool_hammer_front_8"]
+atlas = ExtResource("1_tool_hammer")
+region = Rect2(1024, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AT_tool_hammer_right_0"]
+atlas = ExtResource("1_tool_hammer")
+region = Rect2(0, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AT_tool_hammer_right_1"]
+atlas = ExtResource("1_tool_hammer")
+region = Rect2(128, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AT_tool_hammer_right_2"]
+atlas = ExtResource("1_tool_hammer")
+region = Rect2(256, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AT_tool_hammer_right_3"]
+atlas = ExtResource("1_tool_hammer")
+region = Rect2(384, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AT_tool_hammer_right_4"]
+atlas = ExtResource("1_tool_hammer")
+region = Rect2(512, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AT_tool_hammer_right_5"]
+atlas = ExtResource("1_tool_hammer")
+region = Rect2(640, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AT_tool_hammer_right_6"]
+atlas = ExtResource("1_tool_hammer")
+region = Rect2(768, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AT_tool_hammer_right_7"]
+atlas = ExtResource("1_tool_hammer")
+region = Rect2(896, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AT_tool_hammer_right_8"]
+atlas = ExtResource("1_tool_hammer")
+region = Rect2(1024, 384, 128, 128)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AT_tool_hammer_back_0")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_hammer_back_1")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_hammer_back_2")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_hammer_back_3")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_hammer_back_4")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_hammer_back_5")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_hammer_back_6")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_hammer_back_7")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_hammer_back_8")
+}],
+"loop": false,
+"name": &"tool_hammer_back",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AT_tool_hammer_front_0")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_hammer_front_1")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_hammer_front_2")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_hammer_front_3")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_hammer_front_4")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_hammer_front_5")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_hammer_front_6")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_hammer_front_7")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_hammer_front_8")
+}],
+"loop": false,
+"name": &"tool_hammer_front",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AT_tool_hammer_left_0")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_hammer_left_1")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_hammer_left_2")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_hammer_left_3")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_hammer_left_4")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_hammer_left_5")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_hammer_left_6")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_hammer_left_7")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_hammer_left_8")
+}],
+"loop": false,
+"name": &"tool_hammer_left",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AT_tool_hammer_right_0")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_hammer_right_1")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_hammer_right_2")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_hammer_right_3")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_hammer_right_4")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_hammer_right_5")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_hammer_right_6")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_hammer_right_7")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AT_tool_hammer_right_8")
+}],
+"loop": false,
+"name": &"tool_hammer_right",
+"speed": 12.0
+}]

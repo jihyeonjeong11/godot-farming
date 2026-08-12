@@ -1,8 +1,67 @@
-[gd_scene format=3 uid="uid://bmp8j4fwdkl82"]
+[gd_scene load_steps=10 format=3 uid="uid://bmp8j4fwdkl82"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_4kxuq"]
+[ext_resource type="SpriteFrames" path="res://scenes/characters/player/player_new_frames.tres" id="1_frames"]
+[ext_resource type="Script" path="res://scenes/characters/player/player_new.gd" id="2_player"]
+[ext_resource type="Script" uid="uid://bk7xvms3qnp8t" path="res://scripts/state_machine/node_state_machine.gd" id="3_machine"]
+[ext_resource type="Script" path="res://scenes/characters/player/states/idle_state.gd" id="4_idle"]
+[ext_resource type="Script" path="res://scenes/characters/player/states/walk_state.gd" id="5_walk"]
+[ext_resource type="Script" path="res://scenes/characters/player/states/oneshot_state.gd" id="6_oneshot"]
+[ext_resource type="Script" path="res://scenes/characters/player/states/sit_state.gd" id="7_sit"]
+[ext_resource type="Script" path="res://scenes/characters/player/states/climb_state.gd" id="8_climb"]
 
-[node name="PlayerNew" type="Node2D" unique_id=678564246]
+[sub_resource type="CircleShape2D" id="CircleShape2D_body"]
+radius = 8.0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=737738808]
-sprite_frames = SubResource("SpriteFrames_4kxuq")
+[node name="PlayerNew" type="CharacterBody2D" node_paths=PackedStringArray("sprite_layers", "state_machine")]
+collision_layer = 2
+collision_mask = 65
+script = ExtResource("2_player")
+sprite_layers = [NodePath("AnimatedSprite2D")]
+state_machine = NodePath("StateMachine")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_frames")
+animation = &"idle_front"
+offset = Vector2(0, -30)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_body")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_node_state")]
+script = ExtResource("3_machine")
+initial_node_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("4_idle")
+player = NodePath("../..")
+
+[node name="Walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("5_walk")
+player = NodePath("../..")
+
+[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("6_oneshot")
+player = NodePath("../..")
+
+[node name="Hurt" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("6_oneshot")
+player = NodePath("../..")
+action = "hurt"
+
+[node name="Jump" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("6_oneshot")
+player = NodePath("../..")
+action = "jump"
+
+[node name="Emote" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("6_oneshot")
+player = NodePath("../..")
+action = "emote"
+
+[node name="Sit" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("7_sit")
+player = NodePath("../..")
+
+[node name="Climb" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("8_climb")
+player = NodePath("../..")

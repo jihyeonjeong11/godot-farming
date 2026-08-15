@@ -1,0 +1,133 @@
+[gd_scene format=3 uid="uid://co1flbsq0iwon"]
+
+[sub_resource type="GDScript" id="GDScript_qdjb0"]
+script/source = "extends Node
+## 우클릭한 칸에 있는 물건을 만진다. FieldCursorComponent와 같은 구조다.
+## 씬에 박힌 스크립트라 class_name은 못 쓴다. 필요해지면 .gd로 빼면 된다.
+## 입력은 읽지 않는다. 플레이어가 흘린 interact_used를 받아 칸만 푼다.
+
+@export var grass_tilemap_layer: TileMapLayer
+## 만질 것들이 들어 있는 레이어.
+@export var buildables_layer: Node2D
+@export var interact_distance: float = 48.0
+## TODO: 되면 끈다. 우클릭할 때마다 어디서 막히는지 찍는다.
+@export var debug_log: bool = true
+
+## 씬마다 플레이어 스크립트가 다르다(ApoPlayer / ApoPlayerNew). 좁게 타입을 박으면
+## 다른 쪽 씬에서 캐스팅이 깨지므로 Node2D로만 받는다. 여기선 위치만 쓴다.
+@onready var player: Node2D = get_tree().get_first_node_in_group(\"player\")
+
+var mouse_position: Vector2
+var cell_position: Vector2i
+var local_cell_position: Vector2
+var distance: float
+
+
+func _ready() -> void:
+	SignalBus.tool_used.connect(_on_tool_used)
+	SignalBus.interact_used.connect(_on_interact_used)
+
+
+## 좌클릭. 손에 든 것이 buildable이면 그 칸에 세운다.
+## 무엇이 세워질지는 아이템이 직접 들고 있으므로 여기에 종류별 if가 늘지 않는다.
+func _on_tool_used(item: Items, _user_position: Vector2, _target_position: Vector2) -> void:
+	if item == null or item.item_type != \"buildable\":
+		return
+	if item.buildable_scene_path.is_empty():
+		return
+	if not _ready_to_use():
+		return
+
+	get_cell_under_mouse()
+
+	if distance > interact_distance:
+		return
+
+	# 한 칸에 하나만. 이미 서 있으면 겹쳐 놓지 않는다.
+	if get_buildable_at_cell() != null:
+		return
+
+	var packed := load(item.buildable_scene_path) as PackedScene
+	if packed == null:
+		push_error(\"세울 씬을 불러오지 못했다: %s\" % item.buildable_scene_path)
+		return
+
+	var placed := packed.instantiate() as Node2D
+	if placed == null:
+		return
+
+	# 칸 한가운데에 놓는다. 그래야 나중에 셀로 다시 찾을 수 있다.
+	placed.position = local_cell_position
+	buildables_layer.add_child(placed)
+
+	Inventory.remove_item(Inventory.selected_slot, 1)
+
+
+func _ready_to_use() -> bool:
+	if grass_tilemap_layer == null or buildables_layer == null:
+		return false
+	return player != null and is_instance_valid(player)
+
+
+func _on_interact_used(_user_position: Vector2, _target_position: Vector2) -> void:
+	if not _ready_to_use():
+		push_warning(\"BuildableCursor: 배선이 비었다. grass/buildables/player 확인\")
+		return
+
+	get_cell_under_mouse()
+
+	# 거리는 칸이 아니라 물건까지 잰다. 스프라이트가 한 칸보다 크면
+	# 칸 중심까지의 거리가 실제로 붙어 있는 것보다 훨씬 멀게 나온다.
+	var target := get_buildable_at_cell()
+
+	if debug_log:
+		print(\"[Buildable] 우클릭 셀=\", cell_position,
+				\"  마우스=\", mouse_position,
+				\"  찾음=\", target,
+				\"  자식수=\", buildables_layer.get_child_count())
+
+	if target == null:
+		return
+
+	var to_target := player.global_position.distance_to(target.global_position)
+	if to_target > interact_distance:
+		if debug_log:
+			print(\"[Buildable] 너무 멂 \", to_target, \"/\", interact_distance)
+		return
+
+	target.call(&\"interact\")
+	# 여기서 처리했으니 플레이어가 손에 든 것까지 먹지 않게 표시한다.
+	SignalBus.interact_handled = true
+
+
+func get_cell_under_mouse() -> void:
+	mouse_position = grass_tilemap_layer.get_local_mouse_position()
+	cell_position = grass_tilemap_layer.local_to_map(mouse_position)
+	local_cell_position = grass_tilemap_layer.map_to_local(cell_position)
+	distance = player.global_position.distance_to(local_cell_position)
+
+
+## 칸으로 비교한다. 위치를 그대로 견주면 1px만 어긋나도 놓친다.
+func get_buildable_at_cell() -> Node2D:
+	for child in buildables_layer.get_children():
+		var node := child as Node2D
+		if node == null or not node.has_method(&\"interact\"):
+			continue
+
+		if grass_tilemap_layer.local_to_map(node.position) == cell_position:
+			return node
+
+		# 상자 그림은 24x43이라 한 칸(16x16)보다 크다. 몸통을 눌러도 칸이 안 맞으므로
+		# 그림 범위로 한 번 더 봐준다. 발밑 한 칸만 인정하면 대부분 헛클릭이 된다.
+		var sprite := node as Sprite2D
+		if sprite != null and sprite.texture != null:
+			var tex_size := sprite.texture.get_size()
+			var rect := Rect2(node.position - tex_size * 0.5, tex_size)
+			if rect.has_point(mouse_position):
+				return node
+
+	return null
+"
+
+[node name="BuildableCursorComponent" type="Node" unique_id=1217772296]
+script = SubResource("GDScript_qdjb0")

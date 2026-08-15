@@ -1,7 +1,9 @@
 # Persistent root. Shows the splash, then swaps the actual scene in under CurrentScene.
 extends Node2D
 
-@export_file("*.tscn") var scene_farm := "res://scenes/apo_test_scene_forest.tscn"
+## 지금은 테스트 씬으로 들어간다. 숲으로 되돌리려면 아래 경로만 바꾸면 된다.
+## res://scenes/apo_test_scene_forest.tscn
+@export_file("*.tscn") var scene_farm := "res://scenes/test_scenes/player_test.tscn"
 @export_file("*.tscn") var scene_city := "res://scenes/apo_test_scene_outside.tscn"
 @export_file("*.tscn") var scene_mainmenu := "res://scenes/mainmenu.tscn"
 

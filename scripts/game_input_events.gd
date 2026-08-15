@@ -40,3 +40,7 @@ static func use_tool() -> bool:
 	var use_tool_value: bool = Input.is_action_just_pressed("hit")
 
 	return use_tool_value
+
+## 우클릭. 도구와 무관한 만지기.
+static func interact() -> bool:
+	return Input.is_action_just_pressed("interact")

@@ -3,8 +3,37 @@
 [ext_resource type="TileSet" uid="uid://bg7n2qxwlk4ay" path="res://tilesets/apocalypse_green_tile_set.tres" id="2_8fa0t"]
 [ext_resource type="TileSet" uid="uid://dcq54frn85y6v" path="res://tilesets/apocalypse_tile_set.tres" id="3_f6mep"]
 [ext_resource type="TileSet" uid="uid://bfjfke80cfmmc" path="res://tilesets/house_tile_set.tres" id="4_n36ir"]
+[ext_resource type="PackedScene" uid="uid://dile8iqj8hrux" path="res://scenes/objects/containers/container.tscn" id="6_2dh05"]
 [ext_resource type="Script" uid="uid://c6wj2phe45tvn" path="res://scenes/components/persistent/level_tilled_soils.gd" id="8_fsc66"]
 [ext_resource type="PackedScene" uid="uid://bmp8j4fwdkl82" path="res://scenes/characters/player/player_new.tscn" id="8_k3y2l"]
+[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/items.gd" id="8_q27ys"]
+[ext_resource type="PackedScene" uid="uid://co1flbsq0iwon" path="res://scenes/components/buildable_cursor_component.tscn" id="9_bldcr"]
+[ext_resource type="PackedScene" uid="uid://b7xqk2mcnv0ug" path="res://scenes/ui/inventory/container_inventory_ui.tscn" id="10_ctnui"]
+[ext_resource type="Script" uid="uid://bjqk2jiorau6t" path="res://scenes/components/persistent/level_objects.gd" id="11_objs"]
+[ext_resource type="Script" uid="uid://123k15c3oq0r" path="res://scenes/components/persistent/level_nature.gd" id="24_nature"]
+[ext_resource type="Script" uid="uid://dq3m8sf1nybr7" path="res://scenes/components/persistent/level_crops.gd" id="25_crops"]
+[ext_resource type="PackedScene" uid="uid://c5e10kwwdcap1" path="res://scenes/components/field_cursor_component.tscn" id="26_field"]
+[ext_resource type="PackedScene" uid="uid://ts47olgc55kh" path="res://scenes/components/crops_cursor_component.tscn" id="27_crops"]
+[ext_resource type="Resource" uid="uid://iadbnqiiwu53" path="res://scripts/resources/tools/axe.tres" id="12_axe"]
+[ext_resource type="Resource" uid="uid://h1l1g07oam5a" path="res://scripts/resources/tools/hoe.tres" id="13_hoe"]
+[ext_resource type="Resource" uid="uid://cukembyxyfglu" path="res://scripts/resources/tools/pickaxe.tres" id="14_pick"]
+[ext_resource type="Resource" uid="uid://c0lbpg1cpf40p" path="res://scripts/resources/tools/watering_can.tres" id="15_can"]
+[ext_resource type="Resource" uid="uid://bu1ltn3qpwpqc" path="res://scripts/resources/tools/bat.tres" id="16_bat"]
+[ext_resource type="Resource" uid="uid://b7ncxvq4td2ma" path="res://scripts/resources/seeds/corn_seeds.tres" id="17_corn"]
+[ext_resource type="Resource" uid="uid://s3ye070bqhv3" path="res://scripts/resources/seeds/carrot_seeds.tres" id="18_carrot"]
+[ext_resource type="Resource" uid="uid://cn8vrpxa2yl4e" path="res://scripts/resources/seeds/potato_seeds.tres" id="19_potato"]
+[ext_resource type="PackedScene" uid="uid://cgv3nwfyr3n17" path="res://scenes/ui/apo_scene_overay.tscn" id="20_overlay"]
+[ext_resource type="Script" uid="uid://vdfoocwoprvh" path="res://scenes/components/persistent/level_buildables.gd" id="21_bldbl"]
+[ext_resource type="PackedScene" uid="uid://6jsgfc4dh1hr" path="res://scenes/ui/apo_scene_overlay_menu.tscn" id="22_menu"]
+[ext_resource type="PackedScene" uid="uid://c4xghignasnpy" path="res://scenes/objects/trees/SmallTree.tscn" id="23_gtkuk"]
+[ext_resource type="PackedScene" uid="uid://dncd82n2y0aas" path="res://scenes/ui/apo_scene_ingame_overlay_menu.tscn" id="23_invmenu"]
+[ext_resource type="Shader" uid="uid://dn6q4tvxb8jke" path="res://scenes/objects/trees/tree_shake.gdshader" id="24_cc1dy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rwta1"]
+resource_local_to_scene = true
+shader = ExtResource("24_cc1dy")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
 
 [node name="PlayerTestScene" type="Node2D" unique_id=695838568]
 y_sort_enabled = true
@@ -35,5 +64,52 @@ tile_map_data = PackedByteArray("AAAWABAAAAAPAAcAAAAWABEAAAARAAoAAAAWABIAAAARAAo
 tile_set = ExtResource("2_8fa0t")
 script = ExtResource("8_fsc66")
 
+[node name="LevelCrops" type="Node2D" parent="GameTileMap" unique_id=79467847]
+y_sort_enabled = true
+script = ExtResource("25_crops")
+
+[node name="LevelNature" type="Node2D" parent="GameTileMap" unique_id=79467846]
+y_sort_enabled = true
+script = ExtResource("24_nature")
+
+[node name="LevelObjects" type="Node2D" parent="GameTileMap" unique_id=79467845]
+y_sort_enabled = true
+script = ExtResource("11_objs")
+
+[node name="Buildables" type="Node2D" parent="GameTileMap" unique_id=79467844]
+y_sort_enabled = true
+script = ExtResource("21_bldbl")
+
+[node name="Container" parent="GameTileMap/Buildables" unique_id=401607489 instance=ExtResource("6_2dh05")]
+position = Vector2(407, 297)
+initial_items = Array[ExtResource("8_q27ys")]([ExtResource("12_axe"), ExtResource("13_hoe"), ExtResource("14_pick"), ExtResource("15_can"), ExtResource("16_bat"), ExtResource("19_potato"), ExtResource("17_corn"), ExtResource("18_carrot")])
+initial_amounts = Array[int]([1, 1, 1, 1, 1, 5, 5, 5])
+
 [node name="PlayerNew" parent="." unique_id=1444377080 instance=ExtResource("8_k3y2l")]
 position = Vector2(276, 192)
+
+[node name="FieldCursorComponent" parent="." unique_id=1217772299 node_paths=PackedStringArray("grass_tilemap_layer", "tilled_soil_tilemap_layer") instance=ExtResource("26_field")]
+grass_tilemap_layer = NodePath("../GameTileMap/Floors")
+tilled_soil_tilemap_layer = NodePath("../GameTileMap/TilledSoil")
+terrain = 4
+
+[node name="CropsCursorComponent" parent="." unique_id=1655129502 node_paths=PackedStringArray("tilled_soil_tilemap_layer", "crops_layer") instance=ExtResource("27_crops")]
+tilled_soil_tilemap_layer = NodePath("../GameTileMap/TilledSoil")
+crops_layer = NodePath("../GameTileMap/LevelCrops")
+
+[node name="BuildableCursorComponent" parent="." unique_id=1217772298 node_paths=PackedStringArray("grass_tilemap_layer", "buildables_layer") instance=ExtResource("9_bldcr")]
+grass_tilemap_layer = NodePath("../GameTileMap/Floors")
+buildables_layer = NodePath("../GameTileMap/Buildables")
+
+[node name="ApoSceneOveray" parent="." unique_id=476376830 instance=ExtResource("20_overlay")]
+
+[node name="MenuOverlay" parent="." unique_id=2106013000 instance=ExtResource("22_menu")]
+
+[node name="ApoSceneIngameOverlayMenu" parent="." unique_id=1484538287 instance=ExtResource("23_invmenu")]
+visible = false
+
+[node name="ContainerInventoryUI" parent="." unique_id=1908140118 instance=ExtResource("10_ctnui")]
+
+[node name="SmallTree" parent="." unique_id=495184973 instance=ExtResource("23_gtkuk")]
+material = SubResource("ShaderMaterial_rwta1")
+position = Vector2(145, 242)

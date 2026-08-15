@@ -31,6 +31,7 @@ func _ready() -> void:
 		var slot: ApoInventorySlot = INVENTORY_SLOT.instantiate()
 		slot.name = "Slot%d" % i
 		slot.slot_index = i
+		slot.source = Inventory.inventory
 		slot.pressed.connect(on_slot_pressed.bind(i))
 		slot.right_pressed.connect(on_slot_right_pressed.bind(i))
 		inventory_grid.add_child(slot)

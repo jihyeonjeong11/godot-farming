@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bmp8j4fwdkl82"]
+[gd_scene load_steps=12 format=3 uid="uid://bmp8j4fwdkl82"]
 
 [ext_resource type="SpriteFrames" path="res://scenes/characters/player/player_new_frames.tres" id="1_frames"]
 [ext_resource type="Script" path="res://scenes/characters/player/player_new.gd" id="2_player"]
@@ -8,24 +8,45 @@
 [ext_resource type="Script" path="res://scenes/characters/player/states/oneshot_state.gd" id="6_oneshot"]
 [ext_resource type="Script" path="res://scenes/characters/player/states/sit_state.gd" id="7_sit"]
 [ext_resource type="Script" path="res://scenes/characters/player/states/climb_state.gd" id="8_climb"]
+[ext_resource type="PackedScene" uid="uid://0pe6fvow1o6b" path="res://scenes/components/hit_component.tscn" id="9_hit"]
+[ext_resource type="Resource" uid="uid://eg46i4iqjh3q" path="res://scenes/characters/player/player_stats.tres" id="10_stats"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_body"]
 radius = 8.0
 
-[node name="PlayerNew" type="CharacterBody2D" node_paths=PackedStringArray("sprite_layers", "state_machine")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_hit"]
+radius = 14.0
+
+[node name="PlayerNew" type="CharacterBody2D" node_paths=PackedStringArray("sprite_layers", "tool_back_sprite", "tool_front_sprite", "state_machine") groups=["player"]]
 collision_layer = 2
 collision_mask = 65
 script = ExtResource("2_player")
-sprite_layers = [NodePath("AnimatedSprite2D")]
+sprite_layers = [NodePath("AnimatedSprite2D"), NodePath("ToolBack"), NodePath("ToolFront")]
+tool_back_sprite = NodePath("ToolBack")
+tool_front_sprite = NodePath("ToolFront")
 state_machine = NodePath("StateMachine")
+stats = ExtResource("10_stats")
+
+[node name="ToolBack" type="AnimatedSprite2D" parent="."]
+offset = Vector2(0, -30)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("1_frames")
 animation = &"idle_front"
 offset = Vector2(0, -30)
 
+[node name="ToolFront" type="AnimatedSprite2D" parent="."]
+offset = Vector2(0, -30)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_body")
+
+[node name="HitComponent" parent="." instance=ExtResource("9_hit")]
+
+[node name="HitComponentShape2D" type="CollisionShape2D" parent="HitComponent"]
+position = Vector2(0, 18)
+shape = SubResource("CircleShape2D_hit")
+disabled = true
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_node_state")]
 script = ExtResource("3_machine")
@@ -42,6 +63,8 @@ player = NodePath("../..")
 [node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
 script = ExtResource("6_oneshot")
 player = NodePath("../..")
+use_tool_on_finish = true
+duration = 0.3
 
 [node name="Hurt" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
 script = ExtResource("6_oneshot")

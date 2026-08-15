@@ -17,6 +17,10 @@ func _init() -> void:
 			"scene": "res://scenes/objects/seeds/potato_seed.tscn",
 			"position": Vector2(486, 223),
 		},
+		"ContainerItem": {
+			"scene": "res://scenes/objects/buildables/container_item.tscn",
+			"position": Vector2(340, 120),
+		},
 		"axe": {
 			"scene": "res://scenes/objects/tools/axe.tscn",
 			"position": Vector2(296, 255),

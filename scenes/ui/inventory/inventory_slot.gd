@@ -6,8 +6,16 @@ signal right_pressed
 
 @export var selected_item: Items
 
-## Inventory.inventory에서 이 칸이 가리키는 위치. 부모가 생성할 때 넣어준다.
+## 배열에서 이 칸이 가리키는 위치. 부모가 생성할 때 넣어준다.
 var slot_index: int = -1
+
+## 이 칸이 보고 있는 배열. 부모가 만들 때 넣어준다.
+## 퀵바·인벤토리 창은 Inventory.inventory를, 상자 격자는 상자의 칸을 넣는다.
+## 이 한 줄 덕분에 같은 칸 씬이 세 군데에 그대로 쓰인다.
+##
+## 게터로 Inventory를 기본값 삼지 않는다. 클래스 본문에서 오토로드를 건드리면
+## 타입 해석이 꼬여 스크립트 전체가 컴파일에 실패한다.
+var source: Array = []
 
 @onready var amount_label: Label = $AmountLabel
 
@@ -38,16 +46,36 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 	preview.modulate.a = 0.8
 	set_drag_preview(preview)
 
-	return {"from_index": slot_index}
+	# 어느 배열에서 왔는지 같이 보낸다. 이게 없으면 받는 쪽이 상자에서 온 것인지
+	# 가방에서 온 것인지 구분하지 못한다.
+	return {"from_index": slot_index, "from_source": source}
 
 
 ## 이 칸 위에 드롭할 수 있는지. false면 커서가 금지 표시로 바뀐다.
 func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
-	return slot_index >= 0 and data is Dictionary and data.has("from_index")
+	return slot_index >= 0 and data is Dictionary and data.has("from_source")
 
 
+## 두 칸을 통째로 맞바꾼다. 상자와 가방 사이도 같은 방식이다.
+## 스택 합치기는 아직 안 한다. 칸 하나를 통으로 주고받을 뿐이다.
 func _drop_data(_at_position: Vector2, data: Variant) -> void:
-	Inventory.swap_items(data["from_index"], slot_index)
+	var from_source: Array = data["from_source"]
+	var from_index: int = data["from_index"]
+	var to_source: Array = source
+
+	if from_index < 0 or from_index >= from_source.size():
+		return
+	if slot_index < 0 or slot_index >= to_source.size():
+		return
+	if is_same(from_source, to_source) and from_index == slot_index:
+		return
+
+	var moved: ItemStack = from_source[from_index]
+	from_source[from_index] = to_source[slot_index]
+	to_source[slot_index] = moved
+
+	# 양쪽 격자를 한 신호로 다시 그린다. 상자 UI도 이걸 듣는다.
+	Inventory.inventory_updated.emit()
 
 
 func set_slot(stack: ItemStack) -> void:

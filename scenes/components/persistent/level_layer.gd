@@ -46,16 +46,29 @@ func capture() -> Variant:
 			push_warning("scene_file_path가 없어 저장할 수 없다: %s" % object.name)
 			continue
 
-		entries[String(object.name)] = {
+		var entry := {
 			"scene": object.scene_file_path,
 			"position": object.position,
 		}
+
+		# 노드가 제 속사정을 따로 챙기면 그것도 같이 떠낸다. 상자에 든 것처럼
+		# 씬 경로와 위치만으로는 복원되지 않는 것들이다.
+		# has_method로 물어보므로 기존 노드는 손댈 필요가 없다.
+		if object.has_method(&"capture_state"):
+			entry["state"] = object.call(&"capture_state")
+
+		entries[String(object.name)] = entry
 
 	return entries
 
 
 ## 세이브가 있으면 그걸로, 없으면(null) 초기 배치로 레이어를 채운다.
 func apply(state: Variant) -> void:
+	# 세이브도 없고 깔아둘 목록도 없으면 씬에 놓인 것이 곧 초기 상태다.
+	# 그대로 두지 않으면 씬에서 정해둔 값(상자 내용물 같은 것)이 첫 프레임에 날아간다.
+	if state is not Dictionary and initial_objects.is_empty():
+		return
+
 	var entries: Dictionary = state if state is Dictionary else initial_objects
 
 	# 다시 깔기 전에 비운다. queue_free만 하면 프레임 끝까지 남아 새것과 겹친다.
@@ -75,3 +88,8 @@ func apply(state: Variant) -> void:
 		object.name = String(object_name)
 		object.position = entry["position"]
 		add_child(object)
+
+		# add_child 다음이라야 한다. 그 전에는 자식 컴포넌트의 _ready가 아직 안 돌아
+		# 받아둘 그릇이 없다.
+		if entry.has("state") and object.has_method(&"apply_state"):
+			object.call(&"apply_state", entry["state"])

@@ -21,4 +21,32 @@ func _init() -> void:
 			"scene": "res://scenes/objects/trees/SmallTree.tscn",
 			"position": Vector2(410, 224),
 		},
+		"Rock3": {
+			"scene": "res://scenes/objects/rocks/Rock.tscn",
+			"position": Vector2(108, 96),
+		},
+		"Rock4": {
+			"scene": "res://scenes/objects/rocks/Rock.tscn",
+			"position": Vector2(452, 312),
+		},
+		"Rock5": {
+			"scene": "res://scenes/objects/rocks/Rock.tscn",
+			"position": Vector2(360, 132),
+		},
+		"SmallTree3": {
+			"scene": "res://scenes/objects/trees/SmallTree.tscn",
+			"position": Vector2(88, 204),
+		},
+		"SmallTree4": {
+			"scene": "res://scenes/objects/trees/SmallTree.tscn",
+			"position": Vector2(324, 72),
+		},
+		"SmallTree5": {
+			"scene": "res://scenes/objects/trees/SmallTree.tscn",
+			"position": Vector2(212, 312),
+		},
+		"SmallTree6": {
+			"scene": "res://scenes/objects/trees/SmallTree.tscn",
+			"position": Vector2(468, 156),
+		},
 	}

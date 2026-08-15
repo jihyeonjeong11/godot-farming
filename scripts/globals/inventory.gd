@@ -9,7 +9,8 @@ const QUICKBAR_LIMIT = 10
 ## 각 칸은 ItemStack, 빈 칸은 null.
 var inventory: Array[ItemStack] = []
 var selected_slot: int = 0
-var player_node: ApoPlayer
+## 플레이어 씬이 둘이라 타입을 좁게 박지 않는다. 떨군 자리를 잡는 데만 쓴다.
+var player_node: Node2D
 var world_scene_cache: Dictionary = {}
 
 func _ready():
@@ -127,7 +128,7 @@ func get_world_scene(item: Items) -> PackedScene:
 func increase_iventory_size():
 	inventory_updated.emit()
 
-func set_player_reference(player: ApoPlayer) -> void:
+func set_player_reference(player: Node2D) -> void:
 	player_node = player
 	
 	

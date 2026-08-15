@@ -9,10 +9,11 @@ region = Rect2(836, 100, 23, 23)
 
 [resource]
 script = ExtResource("1_potit")
-item_type = "material"
+item_type = "consumable"
 item_name = "Potato"
 item_texture = SubResource("AtlasTexture_potato")
-description = "Harvested from a mature potato plant."
+description = "Harvested from a mature potato plant. 우클릭으로 먹는다."
+edible = 2
 max_stack = 100
 world_scene_path = "uid://dl6yaiengqgkk"
 metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

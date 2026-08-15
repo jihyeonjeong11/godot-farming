@@ -13,6 +13,18 @@ signal time_tick_day(day: int)
 ## 플레이어 씬이 레벨의 타일맵을 몰라도 되게 하는 통로.
 signal tool_used(item: Items, user_position: Vector2, target_position: Vector2)
 
+## 우클릭한 순간. tool_used와 같은 통로인데 도구를 싣지 않는다.
+## 빈손이어도 상자는 열려야 하기 때문이다.
+signal interact_used(user_position: Vector2, target_position: Vector2)
+
+## interact_used를 받은 쪽이 "내가 처리했다"고 남기는 자리.
+## 시그널은 값을 돌려주지 못해서 이 깃발로 대신한다. 쏘는 쪽이 직전에 false로 두고
+## 끝난 뒤 확인한다. 상자를 열었으면 손에 든 감자까지 먹히지 않게 하기 위함이다.
+var interact_handled := false
+
+## 상자 같은 것을 열었다. 어디에 그릴지는 UI가 정한다.
+signal container_opened(slots: Array)
+
 ## 메인 메뉴에서 새 게임을 누른 순간. 어느 씬으로 갈지는 game.gd가 정한다.
 signal new_game_requested()
 

@@ -40,7 +40,9 @@ func _ready() -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if _collected or not (body is ApoPlayer):
+	# 클래스가 아니라 그룹으로 본다. 플레이어 씬이 둘(ApoPlayer / ApoPlayerNew)이라
+	# 한쪽 타입으로 박으면 다른 쪽 씬에서 아무것도 주울 수 없다.
+	if _collected or not body.is_in_group("player"):
 		return
 	if item == null:
 		push_warning("item 미지정: %s" % get_parent().name)

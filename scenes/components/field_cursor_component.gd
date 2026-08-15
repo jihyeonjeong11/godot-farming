@@ -1,4 +1,4 @@
-class_name FieldCursorComponent
+class_name BuidableCursorComponent
 extends Node
 
 @export var grass_tilemap_layer: TileMapLayer
@@ -6,7 +6,9 @@ extends Node
 @export var terrain_set: int = 0
 @export var terrain: int = 1
 
-@onready var player: ApoPlayer = get_tree().get_first_node_in_group("player")
+## 씬마다 플레이어 스크립트가 다르다(ApoPlayer / ApoPlayerNew). 좁게 박으면 다른 쪽
+## 씬에서 캐스팅이 깨진다. 여기선 위치만 쓰므로 Node2D면 충분하다.
+@onready var player: Node2D = get_tree().get_first_node_in_group("player")
 
 var mouse_position: Vector2
 var cell_position: Vector2i

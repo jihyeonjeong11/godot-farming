@@ -23,6 +23,10 @@ class_name Items extends Resource
 ## 커서 쪽에 if문을 늘리지 않고 아이템 리소스가 직접 들고 있는다.
 @export_file("*.tscn") var crop_scene_path: String = ""
 
+## buildable일 때 땅에 놓으면 세워질 씬. crop_scene_path와 같은 이유로 여기 둔다.
+## 커서에 if문을 늘리지 않고 아이템이 자기가 무엇이 되는지 직접 들고 있는다.
+@export_file("*.tscn") var buildable_scene_path: String = ""
+
 ## 손에 들었을 때 재생할 장비 스프라이트 애니메이션 접두사.
 ## "axe" → axe_idle_front / axe_attack_front. 비어 있으면 손에 아무것도 안 그린다.
 @export var anim_prefix: StringName = &""

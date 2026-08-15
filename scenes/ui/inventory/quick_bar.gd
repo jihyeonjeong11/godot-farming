@@ -15,6 +15,7 @@ func _ready() -> void:
 		var slot: ApoInventorySlot = INVENTORY_SLOT.instantiate()
 		slot.name = "Quickbar%d" % i
 		slot.slot_index = i
+		slot.source = Inventory.inventory
 		h_box_container.add_child(slot)
 		slots.append(slot)
 

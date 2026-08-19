@@ -4,7 +4,7 @@ class_name Items extends Resource
 
 ## melee, range, tool, consumable, material, artifact, ammo, seed, buildable, misc
 @export var item_type = ""
-@export var tool_type: ApoDataTypes.Tools = ApoDataTypes.Tools.None
+@export var tool_type: DataTypes.Tools = DataTypes.Tools.None
 @export var item_name = ""
 @export var item_texture: Texture
 ## Execlusive for artifacts
@@ -16,6 +16,20 @@ class_name Items extends Resource
 
 @export var melee_damage: int
 @export var melee_knockback: int
+
+## 근접 판정을 몸에서 얼마나 밀어낼지(px). 리치가 긴 무기일수록 크다.
+@export var melee_reach: float = 18.0
+## 근접 판정 원의 반지름(px). melee_shape가 비어 있을 때만 쓴다.
+@export var melee_radius: float = 14.0
+
+## 근접 판정 모양. 비워두면 melee_radius짜리 원을 코드가 만들어 붙인다.
+## 도끼처럼 "앞 칸"을 찍는 툴은 여기에 RectangleShape2D를 넣는다.
+## 원이 아닌 모양은 바라보는 방향에 따라 회전한다 — x축이 앞쪽이다.
+@export var melee_shape: Shape2D
+
+## 대상 칸까지 닿는 거리(px). 밭갈기·심기 같은 타일 조작을 이걸로 자른다.
+## 근접 판정과는 별개 축이다. 괭이는 때리는 범위가 아니라 닿는 칸이 중요하다.
+@export var use_range: float = 20.0
 
 @export var max_stack: int
 

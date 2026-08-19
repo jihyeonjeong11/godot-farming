@@ -1,4 +1,4 @@
-class_name ApoDamageComponent
+class_name DamageComponent
 extends Node2D
 
 @export var max_damage = 1

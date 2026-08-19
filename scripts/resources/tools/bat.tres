@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/items.gd" id="1_xn2c3"]
 [ext_resource type="Texture2D" uid="uid://br4ovd1q60cgo" path="res://assets/UI/Inventory/Objects/Icon_Bat.png" id="2_icon"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bat"]
+size = Vector2(24, 44)
+
 [resource]
 script = ExtResource("1_xn2c3")
 item_type = "melee"
@@ -12,6 +15,8 @@ item_texture = ExtResource("2_icon")
 description = "A blunt persuader."
 melee_damage = 2
 melee_knockback = 2
+melee_radius = 17.0
+melee_shape = SubResource("RectangleShape2D_bat")
 max_stack = -1
 anim_prefix = &"bat"
 world_scene_path = "uid://bi7ka3smrh104"

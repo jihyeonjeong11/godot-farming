@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://p7t7asu1gdgy"]
 
-[ext_resource type="Theme" uid="uid://bkny51ahdetw" path="res://scenes/ui/apo_game_theme.tres" id="1_60r20"]
+[ext_resource type="Theme" uid="uid://bkny51ahdetw" path="res://scenes/ui/game_theme.tres" id="1_60r20"]
 [ext_resource type="Script" uid="uid://dx8qq1k0q3scp" path="res://scenes/ui/time.gd" id="2_2xnna"]
 [ext_resource type="FontFile" uid="uid://croxjd7q24c1o" path="res://assets/fonts/DS-DIGI.TTF" id="3_dsdig"]
 
@@ -12,14 +12,14 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 8
 theme = ExtResource("1_60r20")
-theme_type_variation = &"ApoPanelContainer"
+theme_type_variation = &"GamePanelContainer"
 script = ExtResource("2_2xnna")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=842182854]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
-theme_type_variation = &"ApoMarginContainer"
+theme_type_variation = &"GameMarginContainer"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1379261660]
 layout_mode = 2

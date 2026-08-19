@@ -1,4 +1,4 @@
-class_name ApoInventoryDescription
+class_name InventoryDescription
 extends Panel
 ## 선택한 슬롯의 아이템 정보를 보여주는 패널.
 ##

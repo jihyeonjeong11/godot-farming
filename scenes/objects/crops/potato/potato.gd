@@ -8,7 +8,7 @@ var potato_harvest_scene = preload("res://scenes/objects/crops/potato/potato_har
 @onready var farming_hurt_component: FarmingHurtComponent = $FarmingHurtComponent
 @export var growth_textures: Array[Texture2D] = []
 
-var growth_state: ApoDataTypes.GrowthStates = ApoDataTypes.GrowthStates.Seed
+var growth_state: DataTypes.GrowthStates = DataTypes.GrowthStates.Seed
 
 var _shown_state: int = -1
 
@@ -30,7 +30,7 @@ func _process(delta: float) -> void:
 	if growth_state != _shown_state:
 		apply_growth_texture(growth_state)
 
-	if growth_state == ApoDataTypes.GrowthStates.Maturity:
+	if growth_state == DataTypes.GrowthStates.Maturity:
 		flowering_particles.emitting = true
 
 func apply_growth_texture(state: int) -> void:
@@ -45,7 +45,7 @@ func apply_growth_texture(state: int) -> void:
 
 func on_hurt(hit_damage: int) -> void:
 	# 다 자랐으면 물주기가 아니라 수확이다.
-	if growth_state == ApoDataTypes.GrowthStates.Maturity:
+	if growth_state == DataTypes.GrowthStates.Maturity:
 		harvest()
 		return
 

@@ -1,7 +1,7 @@
-extends ApoNodeState
+extends NodeState
 
 @onready var detection_component: DetectionComponent = $"../../DetectionComponent"
-@onready var hurt_component: ApoHurtComponent = $"../../HurtComponent"
+@onready var hurt_component: HurtComponent = $"../../HurtComponent"
 
 @export var zombie: CharacterBody2D
 @export var animated_sprite_2d: AnimatedSprite2D

@@ -31,15 +31,7 @@ signal new_game_requested()
 ## 메인 메뉴에서 불러오기를 누른 순간. 씬을 띄운 뒤 세이브를 얹는 건 game.gd가 한다.
 signal load_game_requested()
 
-
-
-
-	   #8  func _ready() -> void:
-	   #9 +  SignalBus.test_global_event.connect(on_test_global_event)
-
-	  #12 +func _unhandled_input(event: InputEvent) -> void:
-	  #13 +  if event.is_action_pressed("hit"):
-	  #14 +    SignalBus.test_global_event.emit()
-
-	  #17 +func on_test_global_event() -> void:
-	  #18 +  print("player: test_global_event 수신")
+## 포탈을 밟았다. 실제 씬 교체는 game.gd가 한다.
+## 밟은 쪽이 직접 get_tree().change_scene을 부르면 루트(Game)와 오토로드 연결이
+## 끊긴 채로 갈아끼워지므로, 통로를 여기 하나로 묶는다.
+signal scene_change_requested(scene_path: String)

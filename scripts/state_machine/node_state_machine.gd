@@ -1,15 +1,15 @@
-class_name ApoNodeStateMachine
+class_name NodeStateMachine
 extends Node
 
-@export var initial_node_state : ApoNodeState
+@export var initial_node_state : NodeState
 
 var node_states : Dictionary = {}
-var current_node_state : ApoNodeState
+var current_node_state : NodeState
 var current_node_state_name : String
 
 func _ready() -> void:
 	for child in get_children():
-		if child is ApoNodeState:
+		if child is NodeState:
 			node_states[child.name.to_lower()] = child
 			child.transition.connect(transition_to)
 

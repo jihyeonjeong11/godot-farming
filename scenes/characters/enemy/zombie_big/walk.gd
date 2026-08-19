@@ -1,4 +1,4 @@
-extends ApoNodeState
+extends NodeState
 
 @onready var detection_component: DetectionComponent = $"../../DetectionComponent"
 

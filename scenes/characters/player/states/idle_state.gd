@@ -1,7 +1,7 @@
-extends ApoNodeState
+extends NodeState
 ## 가만히 서 있는 상태. 나머지 상태로 들어가는 관문 역할을 한다.
 
-@export var player: ApoPlayerNew
+@export var player: Player
 
 
 func _on_enter() -> void:
@@ -14,9 +14,9 @@ func _on_physics_process(_delta: float) -> void:
 
 
 func _on_next_transitions() -> void:
-	ApoGameInputEvents.movement_input()
+	GameInputEvents.movement_input()
 
-	if ApoGameInputEvents.use_tool():
+	if GameInputEvents.use_tool() and player.can_attack():
 		transition.emit("Attack")
 	elif player.key_just_pressed("jump"):
 		transition.emit("Jump")
@@ -26,5 +26,5 @@ func _on_next_transitions() -> void:
 		transition.emit("Sit")
 	elif player.key_just_pressed("climb"):
 		transition.emit("Climb")
-	elif ApoGameInputEvents.is_movement_input():
+	elif GameInputEvents.is_movement_input():
 		transition.emit("Walk")

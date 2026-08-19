@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d384q4vj3r24y"]
 
-[ext_resource type="Theme" uid="uid://bkny51ahdetw" path="res://scenes/ui/apo_game_theme.tres" id="1_rb10q"]
+[ext_resource type="Theme" uid="uid://bkny51ahdetw" path="res://scenes/ui/game_theme.tres" id="1_rb10q"]
 [ext_resource type="Script" uid="uid://bt8xy3xf1fpyo" path="res://scenes/ui/inventory/quick_bar.gd" id="2_6dy1f"]
 
 [node name="Quickbar" type="Control" unique_id=868247231]
@@ -13,7 +13,7 @@ grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 theme = ExtResource("1_rb10q")
-theme_type_variation = &"ApoPanelContainer"
+theme_type_variation = &"GamePanelContainer"
 script = ExtResource("2_6dy1f")
 
 [node name="QuickbarContainer" type="PanelContainer" parent="." unique_id=582830328]
@@ -31,7 +31,7 @@ grow_vertical = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="QuickbarContainer" unique_id=1117198499]
 layout_mode = 2
-theme_type_variation = &"ApoMarginContainer"
+theme_type_variation = &"GameMarginContainer"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="QuickbarContainer/MarginContainer" unique_id=966117975]
 layout_mode = 2

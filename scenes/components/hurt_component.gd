@@ -1,9 +1,9 @@
-class_name ApoHurtComponent
+class_name HurtComponent
 extends Area2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var hit_audio_stream_player: AudioStreamPlayer2D = $HitAudioStreamPlayer
-@export var tool: ApoDataTypes.Tools = ApoDataTypes.Tools.None
+@export var tool: DataTypes.Tools = DataTypes.Tools.None
 @export var stats: Stats
 
 signal hurt(hit_damage: int)
@@ -16,7 +16,7 @@ func _ready() -> void:
 
 
 func _on_area_entered(area: Area2D) -> void:
-	var hit_component = area as ApoHitComponent
+	var hit_component = area as HitComponent
 	
 	if hit_component.owner == owner:
 		return
@@ -29,7 +29,7 @@ func _on_area_entered(area: Area2D) -> void:
 		last_knockback_direction = get_knockback_direction(hit_component)
 		hurt.emit(hit_component.hit_damage)
 
-func get_knockback_direction(hit_component: ApoHitComponent) -> Vector2:
+func get_knockback_direction(hit_component: HitComponent) -> Vector2:
 	if hit_component.knockback_vector != Vector2.ZERO:
 		return hit_component.knockback_vector.normalized()
 

@@ -2,9 +2,9 @@
 extends Node2D
 
 ## 지금은 테스트 씬으로 들어간다. 숲으로 되돌리려면 아래 경로만 바꾸면 된다.
-## res://scenes/apo_test_scene_forest.tscn
+## res://scenes/test_scene_forest.tscn
 @export_file("*.tscn") var scene_farm := "res://scenes/test_scenes/player_test.tscn"
-@export_file("*.tscn") var scene_city := "res://scenes/apo_test_scene_outside.tscn"
+@export_file("*.tscn") var scene_city := "res://scenes/test_scene_outside.tscn"
 @export_file("*.tscn") var scene_mainmenu := "res://scenes/mainmenu.tscn"
 
 @onready var current_scene: Node = $CurrentScene
@@ -16,6 +16,7 @@ var _swapping := false
 func _ready() -> void:
 	SignalBus.new_game_requested.connect(on_new_game_requested)
 	SignalBus.load_game_requested.connect(on_load_game_requested)
+	SignalBus.scene_change_requested.connect(on_scene_change_requested)
 	swap_scene(scene_mainmenu)
 
 
@@ -33,6 +34,12 @@ func on_load_game_requested() -> void:
 	SaveAndLoad.load_inventory()
 	SaveAndLoad.load_time()
 	swap_scene.call_deferred(scene_farm)
+
+
+## 포탈을 밟았을 때. 신호는 플레이어의 물리 처리 도중에 날아오므로
+## 그 프레임에 씬을 들어내면 충돌 처리 중인 노드가 발밑에서 사라진다. 프레임 끝으로 미룬다.
+func on_scene_change_requested(scene_path: String) -> void:
+	swap_scene.call_deferred(scene_path)
 
 
 ## CurrentScene 밑의 내용만 교체한다. 루트(Game)와 시그널 연결은 그대로 살아남는다.

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b7xqk2mcnv0ug"]
 
-[ext_resource type="Theme" uid="uid://bkny51ahdetw" path="res://scenes/ui/apo_game_theme.tres" id="1_theme"]
+[ext_resource type="Theme" uid="uid://bkny51ahdetw" path="res://scenes/ui/game_theme.tres" id="1_theme"]
 [ext_resource type="Script" path="res://scenes/ui/inventory/container_inventory_ui.gd" id="2_ctnui"]
 
 [node name="ContainerInventoryUI" type="CanvasLayer"]
@@ -17,7 +17,7 @@ mouse_filter = 2
 [node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
 layout_mode = 2
 theme = ExtResource("1_theme")
-theme_type_variation = &"ApoIngamePanel"
+theme_type_variation = &"IngamePanel"
 
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer"]
 layout_mode = 2

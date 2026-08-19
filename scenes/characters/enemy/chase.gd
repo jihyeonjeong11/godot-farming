@@ -1,4 +1,4 @@
-extends ApoNodeState
+extends NodeState
 
 @export var chase_speed: float = 24.0
 
@@ -9,7 +9,7 @@ extends ApoNodeState
 @onready var hit_component_collision_shape: CollisionShape2D = $"../../HitComponent/ZombieHitComponent"
 
 
-var player: ApoPlayer
+var player: Player
 
 
 func _on_enter() -> void:

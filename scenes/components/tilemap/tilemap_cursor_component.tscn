@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://wqougbtenxlr"]
+
+[ext_resource type="Script" uid="uid://cpu0bsr8ove21" path="res://scenes/components/tilemap/tilemap_cursor_component.gd" id="1_5hj5o"]
+
+[node name="TilemapCursorComponent" type="Node" unique_id=1734376409]
+script = ExtResource("1_5hj5o")

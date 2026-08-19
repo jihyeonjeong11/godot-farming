@@ -1,8 +1,8 @@
-class_name ApoMobSpawnerComponent
+class_name MobSpawnerComponent
 extends Node2D
 
 ## 스폰 후보. 항목마다 가중치를 줘서 한 마리씩 뽑는다.
-@export var mob_entries: Array[ApoMobSpawnEntry] = []
+@export var mob_entries: Array[MobSpawnEntry] = []
 
 ## 게임 내 1시간이 바뀔 때마다 이만큼 스폰한다.
 @export var mobs_per_hour: int = 3
@@ -44,7 +44,7 @@ func on_time_tick(day: int, hour: int, _minute: int) -> void:
 func spawn_wave() -> void:
 	prune_dead_mobs()
 
-	var player: ApoPlayer = get_tree().get_first_node_in_group("player")
+	var player: Player = get_tree().get_first_node_in_group("player")
 	if player == null:
 		return
 
@@ -87,12 +87,12 @@ func pick_mob_scene() -> PackedScene:
 	return null
 
 
-func is_usable_entry(entry: ApoMobSpawnEntry) -> bool:
+func is_usable_entry(entry: MobSpawnEntry) -> bool:
 	return entry != null and entry.mob_scene != null and entry.weight > 0.0
 
 
 ## 네비게이션 맵에서 플레이어와 적당히 떨어진 지점을 찾는다. 못 찾으면 null.
-func find_spawn_position(player: ApoPlayer) -> Variant:
+func find_spawn_position(player: Player) -> Variant:
 	var navigation_map: RID = get_world_2d().navigation_map
 
 	for _attempt in max_spawn_attempts:

@@ -1,7 +1,7 @@
 extends Sprite2D
 
-@onready var hurt_component: ApoHurtComponent = $HurtComponent
-@onready var damage_component: ApoDamageComponent = $DamageComponent
+@onready var hurt_component: HurtComponent = $HurtComponent
+@onready var damage_component: DamageComponent = $DamageComponent
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 var log_scene = preload("res://scenes/objects/trees/log.tscn")

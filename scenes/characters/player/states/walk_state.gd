@@ -1,7 +1,7 @@
-extends ApoNodeState
+extends NodeState
 ## 걷기와 달리기. run 입력에 따라 클립과 속도를 같이 바꾼다.
 
-@export var player: ApoPlayerNew
+@export var player: Player
 
 var _running: bool = false
 
@@ -12,13 +12,13 @@ func _on_enter() -> void:
 
 
 func _on_physics_process(_delta: float) -> void:
-	var direction := ApoGameInputEvents.movement_input()
+	var direction := GameInputEvents.movement_input()
 	var running := player.key_held("run")
 
 	if direction != Vector2.ZERO:
 		# 재생할 클립이 실제로 바뀔 때만 play()를 부른다.
-		var turned := direction != player.facing
-		player.face(direction)
+		var turned := direction != player.direction_component.get_facing()
+		player.direction_component.set_facing(direction)
 		if turned or running != _running:
 			_running = running
 			_play()
@@ -28,9 +28,9 @@ func _on_physics_process(_delta: float) -> void:
 
 
 func _on_next_transitions() -> void:
-	if ApoGameInputEvents.use_tool():
+	if GameInputEvents.use_tool() and player.can_attack():
 		transition.emit("Attack")
-	elif not ApoGameInputEvents.is_movement_input():
+	elif not GameInputEvents.is_movement_input():
 		transition.emit("Idle")
 
 

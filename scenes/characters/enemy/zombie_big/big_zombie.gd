@@ -1,11 +1,11 @@
 extends CharacterBody2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var hurt_component: ApoHurtComponent = $HurtComponent
-@onready var damage_component: ApoDamageComponent = $DamageComponent
+@onready var hurt_component: HurtComponent = $HurtComponent
+@onready var damage_component: DamageComponent = $DamageComponent
 @onready var die_audio_stream_player: AudioStreamPlayer2D = $DieAudioStreamPlayer
-@onready var hit_component: ApoHitComponent = $HitComponent
-@onready var state_machine: ApoNodeStateMachine = $StateMachine
+@onready var hit_component: HitComponent = $HitComponent
+@onready var state_machine: NodeStateMachine = $StateMachine
 
 @export var stats: Stats
 

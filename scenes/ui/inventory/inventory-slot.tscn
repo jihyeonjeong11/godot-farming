@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://byt1lfm4vsyc4"]
 
-[ext_resource type="Theme" uid="uid://bkny51ahdetw" path="res://scenes/ui/apo_game_theme.tres" id="1_5rt7j"]
+[ext_resource type="Theme" uid="uid://bkny51ahdetw" path="res://scenes/ui/game_theme.tres" id="1_5rt7j"]
 [ext_resource type="Script" uid="uid://2f6sxub6wvrn" path="res://scenes/ui/inventory/inventory_slot.gd" id="2_slot1"]
 
 [node name="InventorySlot" type="Button" unique_id=1656223806]
@@ -8,7 +8,7 @@ custom_minimum_size = Vector2(26, 26)
 offset_right = 8.0
 offset_bottom = 8.0
 theme = ExtResource("1_5rt7j")
-theme_type_variation = &"ApoButton"
+theme_type_variation = &"GameButton"
 icon_alignment = 1
 script = ExtResource("2_slot1")
 

@@ -1,10 +1,10 @@
 extends SceneTree
 ## Real path only: press a number key, left-click, see which body clip plays.
 
-var _p: ApoPlayerNew
+var _p: Player
 
 func _init() -> void:
-	_p = (load("res://scenes/characters/player/player_new.tscn") as PackedScene).instantiate() as ApoPlayerNew
+	_p = (load("res://scenes/characters/player/player.tscn") as PackedScene).instantiate() as Player
 	root.add_child(_p)
 	await physics_frame
 	var sm := _p.state_machine
@@ -16,15 +16,18 @@ func _init() -> void:
 		body.sprite_frames.get_animation_names().size()])
 	print("\nkey  tool           body clip           frames  seconds")
 
-	for i in ApoPlayerNew.TOOLS.size():
+	# 슬롯에 무엇이 들었는지는 씬의 initial_items가 정한다. 여기서 목록을 따로
+	# 들고 있으면 씬을 고칠 때마다 어긋나므로, 고른 뒤 인벤토리에 직접 물어본다.
+	for i in Inventory.inventory.size():
 		sm.transition_to("Idle")
 		await physics_frame
-		await _tap_key(KEY_0 + i)
+		await _tap_key(KEY_1 + i)
 		await _click()
 		await physics_frame
 
 		var clip := str(body.animation)
-		var want: String = ApoPlayerNew.TOOLS[i]
+		var held: Items = Inventory.get_selected_item()
+		var want: String = String(held.anim_prefix) if held != null else ""
 		var expect: String = _p.attack_action() + "_front"
 		var frames: SpriteFrames = body.sprite_frames
 		var ticks := 0

@@ -50,3 +50,10 @@ original by bluecarrot16, color reduced by JaidynReiman
 - Licenses: OGA-BY 3.0+, GPL 3.0, CC-BY 4.0
 - https://opengameart.org/content/lpc-more-weapons
 
+
+## Longsword
+attack_slash 레이어(fg/bg)만 가져다 씁니다. 192x192 오버사이즈 규격.
+- Authors: Johannes Sjölund (wulax), bluecarrot16
+- Licenses: OGA-BY 3.0, CC-BY-SA 3.0
+- https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+- https://opengameart.org/content/lpc-extended-weapon-animations

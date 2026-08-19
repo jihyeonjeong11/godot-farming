@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://6mh7q3nopkay"]
+
+[ext_resource type="Script" uid="uid://4idxtqgyckv6" path="res://scenes/components/characters/character_direction_component.gd" id="1_dir"]
+
+[node name="CharacterDirectionComponent" type="Node" unique_id=36855666]
+script = ExtResource("1_dir")

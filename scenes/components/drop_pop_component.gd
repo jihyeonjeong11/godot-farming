@@ -1,4 +1,4 @@
-class_name ApoDropPopComponent
+class_name DropPopComponent
 extends Node
 
 @export var hop_height := 10.0

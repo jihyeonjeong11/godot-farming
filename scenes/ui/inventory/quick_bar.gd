@@ -4,7 +4,7 @@ const INVENTORY_SLOT = preload("uid://byt1lfm4vsyc4")
 
 @onready var h_box_container: HBoxContainer = $QuickbarContainer/MarginContainer/HBoxContainer
 
-var slots: Array[ApoInventorySlot] = []
+var slots: Array[InventorySlot] = []
 
 func _ready() -> void:
 	for child in h_box_container.get_children():
@@ -12,7 +12,7 @@ func _ready() -> void:
 		child.queue_free()
 
 	for i in Inventory.QUICKBAR_LIMIT:
-		var slot: ApoInventorySlot = INVENTORY_SLOT.instantiate()
+		var slot: InventorySlot = INVENTORY_SLOT.instantiate()
 		slot.name = "Quickbar%d" % i
 		slot.slot_index = i
 		slot.source = Inventory.inventory

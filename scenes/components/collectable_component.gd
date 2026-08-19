@@ -1,4 +1,4 @@
-class_name ApoCollectableComponent
+class_name CollectableComponent
 extends Area2D
 ## 월드에 떨어진 아이템을 플레이어에게 빨려들어가게 만드는 컴포넌트.
 ##
@@ -40,8 +40,8 @@ func _ready() -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	# 클래스가 아니라 그룹으로 본다. 플레이어 씬이 둘(ApoPlayer / ApoPlayerNew)이라
-	# 한쪽 타입으로 박으면 다른 쪽 씬에서 아무것도 주울 수 없다.
+	# 클래스가 아니라 그룹으로 본다. 줍는 주체가 플레이어여야 할 이유는 없고,
+	# 그룹만 맞으면 동료 NPC든 애완동물이든 그대로 줍는다.
 	if _collected or not body.is_in_group("player"):
 		return
 	if item == null:

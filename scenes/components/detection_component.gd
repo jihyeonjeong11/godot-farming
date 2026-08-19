@@ -13,13 +13,13 @@ func _process(delta: float) -> void:
 	pass
 
 
-func get_player() -> ApoPlayer:
+func get_player() -> Player:
 	return get_tree().get_first_node_in_group("player")
 
 func is_player_in_range() -> bool:
 	var result = false
 	var player: = get_player()
-	if player is ApoPlayer:
+	if player is Player:
 		var distance_to_player = global_position.distance_to(player.global_position)
 		if distance_to_player < max_detection_range and distance_to_player > min_detection_range:
 			result = true

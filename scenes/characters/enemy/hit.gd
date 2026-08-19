@@ -1,4 +1,4 @@
-extends ApoNodeState
+extends NodeState
 
 @onready var zombie: CharacterBody2D = $"../.."
 @onready var detection_component: DetectionComponent = $"../../DetectionComponent"

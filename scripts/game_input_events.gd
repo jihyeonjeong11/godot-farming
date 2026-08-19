@@ -1,7 +1,14 @@
-class_name ApoGameInputEvents
+class_name GameInputEvents
+
+const QUICK_SLOT_ACTIONS: Array[StringName] = [
+	&"select_inventory_1", &"select_inventory_2", &"select_inventory_3",
+	&"select_inventory_4", &"select_inventory_5", &"select_inventory_6",
+	&"select_inventory_7", &"select_inventory_8", &"select_inventory_9",
+	&"select_inventory_10",
+]
 
 static var direction: Vector2
-static var selected: ApoDataTypes.Tools
+static var selected: DataTypes.Tools
 
 
 static func pause_input() -> bool:
@@ -41,6 +48,11 @@ static func use_tool() -> bool:
 
 	return use_tool_value
 
-## 우클릭. 도구와 무관한 만지기.
 static func interact() -> bool:
 	return Input.is_action_just_pressed("interact")
+
+static func number_key_input(event: InputEvent) -> int:
+	for i in QUICK_SLOT_ACTIONS.size():
+		if event.is_action_pressed(QUICK_SLOT_ACTIONS[i]):
+			return i
+	return -1

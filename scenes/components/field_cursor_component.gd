@@ -4,10 +4,10 @@ extends Node
 @export var grass_tilemap_layer: TileMapLayer
 @export var tilled_soil_tilemap_layer: TileMapLayer
 @export var terrain_set: int = 0
-@export var terrain: int = 1
+@export var terrain: int = 4
 
-## 씬마다 플레이어 스크립트가 다르다(ApoPlayer / ApoPlayerNew). 좁게 박으면 다른 쪽
-## 씬에서 캐스팅이 깨진다. 여기선 위치만 쓰므로 Node2D면 충분하다.
+@export var watered_terrain: int = 5
+
 @onready var player: Node2D = get_tree().get_first_node_in_group("player")
 
 var mouse_position: Vector2
@@ -21,14 +21,20 @@ func _ready() -> void:
 	SignalBus.tool_used.connect(_on_tool_used)
 
 func _on_tool_used(item: Items, _user_position: Vector2, _target_position: Vector2) -> void:
-	# and selected tool is tool
-	if item.tool_type != null && item.tool_type == ApoDataTypes.Tools.TillGround:
+	if item.tool_type != null && item.tool_type == DataTypes.Tools.TillGround:
 		get_cell_under_mouse()
-		add_tilled_soil_cell()
-	elif item.tool_type != null && item.tool_type == ApoDataTypes.Tools.MineRock:
+		add_tilled_soil_cell(item)
+	elif item.tool_type != null && item.tool_type == DataTypes.Tools.WaterCrops:
+		# 타일에 isWatered 추가
 		get_cell_under_mouse()
-		remove_tilled_soil_cell()
-	
+		add_watered_soil_cell(item)
+	elif item.tool_type != null && item.tool_type == DataTypes.Tools.MineRock:
+		get_cell_under_mouse()
+		remove_tilled_soil_cell(item)
+
+func add_watered_soil_cell(item: Items) -> void:
+	if distance < item.use_range && cell_source_id != -1:
+		tilled_soil_tilemap_layer.set_cells_terrain_connect([cell_position], terrain_set, watered_terrain, true)
 
 func get_cell_under_mouse() -> void:
 	mouse_position = grass_tilemap_layer.get_local_mouse_position()
@@ -38,14 +44,10 @@ func get_cell_under_mouse() -> void:
 	distance = player.global_position.distance_to(local_cell_position)
 	
 
-func add_tilled_soil_cell() -> void:
-	if distance < 20.0 && cell_source_id != -1:
+func add_tilled_soil_cell(item: Items) -> void:
+	if distance < item.use_range && cell_source_id != -1:
 		tilled_soil_tilemap_layer.set_cells_terrain_connect([cell_position], terrain_set, terrain, true)
 
-func remove_tilled_soil_cell() -> void:
-	if distance < 20.0 && cell_source_id != -1:
+func remove_tilled_soil_cell(item: Items) -> void:
+	if distance < item.use_range && cell_source_id != -1:
 		tilled_soil_tilemap_layer.set_cells_terrain_connect([cell_position], 0, -1, true)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

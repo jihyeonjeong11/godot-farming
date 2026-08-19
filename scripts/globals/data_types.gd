@@ -1,4 +1,4 @@
-class_name ApoDataTypes
+class_name DataTypes
 
 enum Levels {
 	MainMenu,

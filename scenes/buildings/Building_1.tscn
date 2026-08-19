@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://chrnuh28t0bfb"]
+
+[ext_resource type="TileSet" uid="uid://bfjfke80cfmmc" path="res://tilesets/house_tile_set.tres" id="1_a1vff"]
+
+[node name="Building1" type="Node2D" unique_id=2008763867]
+
+[node name="Buildings" type="TileMapLayer" parent="." unique_id=2069566072]
+tile_set = ExtResource("1_a1vff")

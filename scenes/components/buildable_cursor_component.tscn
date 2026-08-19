@@ -13,8 +13,8 @@ script/source = "extends Node
 ## TODO: 되면 끈다. 우클릭할 때마다 어디서 막히는지 찍는다.
 @export var debug_log: bool = true
 
-## 씬마다 플레이어 스크립트가 다르다(ApoPlayer / ApoPlayerNew). 좁게 타입을 박으면
-## 다른 쪽 씬에서 캐스팅이 깨지므로 Node2D로만 받는다. 여기선 위치만 쓴다.
+## 여기선 위치만 쓰므로 Node2D면 충분하다. Player로 박으면 이 컴포넌트가
+## 플레이어 스크립트에 묶여 다른 것을 커서로 못 따라다닌다.
 @onready var player: Node2D = get_tree().get_first_node_in_group(\"player\")
 
 var mouse_position: Vector2

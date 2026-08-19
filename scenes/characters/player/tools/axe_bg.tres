@@ -1,6 +1,6 @@
-[gd_resource type="SpriteFrames" load_steps=42 format=3]
+[gd_resource type="SpriteFrames" format=3 uid="uid://ditwvcehmcvs0"]
 
-[ext_resource type="Texture2D" path="res://assets/character/lpc_tools/axe/tool_axe_bg.png" id="1_tool_axe"]
+[ext_resource type="Texture2D" uid="uid://dppq5ym8yck00" path="res://assets/character/lpc_tools/axe/tool_axe_bg.png" id="1_tool_axe"]
 
 [sub_resource type="AtlasTexture" id="AT_tool_axe_back_0"]
 atlas = ExtResource("1_tool_axe")
@@ -42,46 +42,6 @@ region = Rect2(1024, 0, 128, 128)
 atlas = ExtResource("1_tool_axe")
 region = Rect2(1152, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AT_tool_axe_left_0"]
-atlas = ExtResource("1_tool_axe")
-region = Rect2(0, 128, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AT_tool_axe_left_1"]
-atlas = ExtResource("1_tool_axe")
-region = Rect2(128, 128, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AT_tool_axe_left_2"]
-atlas = ExtResource("1_tool_axe")
-region = Rect2(256, 128, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AT_tool_axe_left_3"]
-atlas = ExtResource("1_tool_axe")
-region = Rect2(384, 128, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AT_tool_axe_left_4"]
-atlas = ExtResource("1_tool_axe")
-region = Rect2(512, 128, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AT_tool_axe_left_5"]
-atlas = ExtResource("1_tool_axe")
-region = Rect2(640, 128, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AT_tool_axe_left_6"]
-atlas = ExtResource("1_tool_axe")
-region = Rect2(768, 128, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AT_tool_axe_left_7"]
-atlas = ExtResource("1_tool_axe")
-region = Rect2(896, 128, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AT_tool_axe_left_8"]
-atlas = ExtResource("1_tool_axe")
-region = Rect2(1024, 128, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AT_tool_axe_left_9"]
-atlas = ExtResource("1_tool_axe")
-region = Rect2(1152, 128, 128, 128)
-
 [sub_resource type="AtlasTexture" id="AT_tool_axe_front_0"]
 atlas = ExtResource("1_tool_axe")
 region = Rect2(0, 256, 128, 128)
@@ -121,6 +81,46 @@ region = Rect2(1024, 256, 128, 128)
 [sub_resource type="AtlasTexture" id="AT_tool_axe_front_9"]
 atlas = ExtResource("1_tool_axe")
 region = Rect2(1152, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AT_tool_axe_left_0"]
+atlas = ExtResource("1_tool_axe")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AT_tool_axe_left_1"]
+atlas = ExtResource("1_tool_axe")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AT_tool_axe_left_2"]
+atlas = ExtResource("1_tool_axe")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AT_tool_axe_left_3"]
+atlas = ExtResource("1_tool_axe")
+region = Rect2(384, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AT_tool_axe_left_4"]
+atlas = ExtResource("1_tool_axe")
+region = Rect2(512, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AT_tool_axe_left_5"]
+atlas = ExtResource("1_tool_axe")
+region = Rect2(640, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AT_tool_axe_left_6"]
+atlas = ExtResource("1_tool_axe")
+region = Rect2(768, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AT_tool_axe_left_7"]
+atlas = ExtResource("1_tool_axe")
+region = Rect2(896, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AT_tool_axe_left_8"]
+atlas = ExtResource("1_tool_axe")
+region = Rect2(1024, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AT_tool_axe_left_9"]
+atlas = ExtResource("1_tool_axe")
+region = Rect2(1152, 128, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AT_tool_axe_right_0"]
 atlas = ExtResource("1_tool_axe")
@@ -167,176 +167,140 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AT_tool_axe_back_0")
-},
-{
+}, {
 "duration": 1.0,
 "texture": SubResource("AT_tool_axe_back_1")
-},
-{
+}, {
 "duration": 1.0,
 "texture": SubResource("AT_tool_axe_back_2")
-},
-{
+}, {
 "duration": 1.0,
 "texture": SubResource("AT_tool_axe_back_3")
-},
-{
+}, {
 "duration": 1.0,
 "texture": SubResource("AT_tool_axe_back_4")
-},
-{
+}, {
 "duration": 1.0,
 "texture": SubResource("AT_tool_axe_back_5")
-},
-{
+}, {
 "duration": 1.0,
 "texture": SubResource("AT_tool_axe_back_6")
-},
-{
+}, {
 "duration": 1.0,
 "texture": SubResource("AT_tool_axe_back_7")
-},
-{
+}, {
 "duration": 1.0,
 "texture": SubResource("AT_tool_axe_back_8")
-},
-{
+}, {
 "duration": 1.0,
 "texture": SubResource("AT_tool_axe_back_9")
 }],
-"loop": false,
+"loop": 0,
 "name": &"tool_axe_back",
 "speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AT_tool_axe_front_0")
-},
-{
+}, {
 "duration": 1.0,
 "texture": SubResource("AT_tool_axe_front_1")
-},
-{
+}, {
 "duration": 1.0,
 "texture": SubResource("AT_tool_axe_front_2")
-},
-{
+}, {
 "duration": 1.0,
 "texture": SubResource("AT_tool_axe_front_3")
-},
-{
+}, {
 "duration": 1.0,
 "texture": SubResource("AT_tool_axe_front_4")
-},
-{
+}, {
 "duration": 1.0,
 "texture": SubResource("AT_tool_axe_front_5")
-},
-{
+}, {
 "duration": 1.0,
 "texture": SubResource("AT_tool_axe_front_6")
-},
-{
+}, {
 "duration": 1.0,
 "texture": SubResource("AT_tool_axe_front_7")
-},
-{
+}, {
 "duration": 1.0,
 "texture": SubResource("AT_tool_axe_front_8")
-},
-{
+}, {
 "duration": 1.0,
 "texture": SubResource("AT_tool_axe_front_9")
 }],
-"loop": false,
+"loop": 0,
 "name": &"tool_axe_front",
 "speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AT_tool_axe_left_0")
-},
-{
+}, {
 "duration": 1.0,
 "texture": SubResource("AT_tool_axe_left_1")
-},
-{
+}, {
 "duration": 1.0,
 "texture": SubResource("AT_tool_axe_left_2")
-},
-{
+}, {
 "duration": 1.0,
 "texture": SubResource("AT_tool_axe_left_3")
-},
-{
+}, {
 "duration": 1.0,
 "texture": SubResource("AT_tool_axe_left_4")
-},
-{
+}, {
 "duration": 1.0,
 "texture": SubResource("AT_tool_axe_left_5")
-},
-{
+}, {
 "duration": 1.0,
 "texture": SubResource("AT_tool_axe_left_6")
-},
-{
+}, {
 "duration": 1.0,
 "texture": SubResource("AT_tool_axe_left_7")
-},
-{
+}, {
 "duration": 1.0,
 "texture": SubResource("AT_tool_axe_left_8")
-},
-{
+}, {
 "duration": 1.0,
 "texture": SubResource("AT_tool_axe_left_9")
 }],
-"loop": false,
+"loop": 0,
 "name": &"tool_axe_left",
 "speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AT_tool_axe_right_0")
-},
-{
+}, {
 "duration": 1.0,
 "texture": SubResource("AT_tool_axe_right_1")
-},
-{
+}, {
 "duration": 1.0,
 "texture": SubResource("AT_tool_axe_right_2")
-},
-{
+}, {
 "duration": 1.0,
 "texture": SubResource("AT_tool_axe_right_3")
-},
-{
+}, {
 "duration": 1.0,
 "texture": SubResource("AT_tool_axe_right_4")
-},
-{
+}, {
 "duration": 1.0,
 "texture": SubResource("AT_tool_axe_right_5")
-},
-{
+}, {
 "duration": 1.0,
 "texture": SubResource("AT_tool_axe_right_6")
-},
-{
+}, {
 "duration": 1.0,
 "texture": SubResource("AT_tool_axe_right_7")
-},
-{
+}, {
 "duration": 1.0,
 "texture": SubResource("AT_tool_axe_right_8")
-},
-{
+}, {
 "duration": 1.0,
 "texture": SubResource("AT_tool_axe_right_9")
 }],
-"loop": false,
+"loop": 0,
 "name": &"tool_axe_right",
 "speed": 12.0
 }]

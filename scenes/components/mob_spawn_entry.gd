@@ -1,4 +1,4 @@
-class_name ApoMobSpawnEntry
+class_name MobSpawnEntry
 extends Resource
 
 @export var mob_scene: PackedScene

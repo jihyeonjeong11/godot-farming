@@ -6,8 +6,8 @@ extends Node
 ## 심은 작물이 들어갈 레이어. 여기 자식으로 붙어야 세이브에 같이 딸려 나간다.
 @export var crops_layer: Node2D
 
-## 씬마다 플레이어 스크립트가 다르다(ApoPlayer / ApoPlayerNew). 좁게 박으면 다른 쪽
-## 씬에서 캐스팅이 깨진다. 여기선 위치만 쓰므로 Node2D면 충분하다.
+## 여기선 위치만 쓰므로 Node2D면 충분하다. Player로 박아도 되지만,
+## 그러면 이 컴포넌트가 플레이어 스크립트에 묶여 다른 것을 커서로 못 따라다닌다.
 @onready var player: Node2D = get_tree().get_first_node_in_group("player")
 
 var mouse_position: Vector2
@@ -24,14 +24,12 @@ func _on_tool_used(item: Items, _user_position: Vector2, _target_position: Vecto
 	if item == null:
 		return
 
-	# 씨앗 종류를 tool_type으로 가리지 않는다. 종류가 늘 때마다 여기에 if가 붙는다.
-	# 무엇이 자랄지는 씨앗이 crop_scene_path로 직접 들고 있다.
 	if item.item_type == "seeds":
 		get_cell_under_mouse()
 		add_crop(item)
-	elif item.tool_type == ApoDataTypes.Tools.MineRock:
+	elif item.tool_type == DataTypes.Tools.MineRock:
 		get_cell_under_mouse()
-		remove_crop()
+		remove_crop(item)
 	
 
 func get_cell_under_mouse() -> void:
@@ -44,7 +42,7 @@ func get_cell_under_mouse() -> void:
 
 func add_crop(item: Items) -> void:
 	# TilledSoil 레이어에 타일이 없으면(-1) 안 갈린 맨땅이라 심을 수 없다.
-	if distance >= 20.0 or cell_source_id == -1:
+	if distance >= item.use_range or cell_source_id == -1:
 		return
 
 	if item.crop_scene_path.is_empty():
@@ -68,8 +66,8 @@ func add_crop(item: Items) -> void:
 	Inventory.remove_item(Inventory.selected_slot, 1)
 
 
-func remove_crop() -> void:
-	if distance >= 20.0:
+func remove_crop(item: Items) -> void:
+	if distance >= item.use_range:
 		return
 
 	var target := get_crop_at_cell()

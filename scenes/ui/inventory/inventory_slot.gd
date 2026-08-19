@@ -1,4 +1,4 @@
-class_name ApoInventorySlot
+class_name InventorySlot
 extends Button
 
 ## 이 칸을 우클릭했을 때. Button.pressed는 좌클릭만 잡아서 따로 둔다.

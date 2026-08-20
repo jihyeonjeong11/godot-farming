@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scenes/objects/containers/container.gd" id="2_cntnr"]
 [ext_resource type="PackedScene" uid="uid://b17pqg2t34n5v" path="res://scenes/components/container_inventory_component.tscn" id="3_invcm"]
 
-[node name="Container" type="Sprite2D" unique_id=401607489]
+[node name="Container" type="Sprite2D" unique_id=401607489 groups=["interactables"]]
 texture = ExtResource("1_6nf8g")
 script = ExtResource("2_cntnr")
 

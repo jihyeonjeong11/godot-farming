@@ -10,7 +10,6 @@ const QUICK_SLOT_ACTIONS: Array[StringName] = [
 static var direction: Vector2
 static var selected: DataTypes.Tools
 
-
 static func pause_input() -> bool:
 	if Input.is_action_pressed("pause"):
 		return true

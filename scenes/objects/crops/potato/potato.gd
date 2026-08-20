@@ -44,16 +44,30 @@ func apply_growth_texture(state: int) -> void:
 	sprite_2d.offset = Vector2(-tex.get_size().x * 0.5, -tex.get_size().y)
 
 func on_hurt(hit_damage: int) -> void:
-	# 다 자랐으면 물주기가 아니라 수확이다.
 	if growth_state == DataTypes.GrowthStates.Maturity:
 		harvest()
 		return
 
-	if !growth_cycle_component.is_watered:
-		watering_particles.emitting = true
-		await get_tree().create_timer(5.0).timeout
-		watering_particles.emitting = false
-		growth_cycle_component.is_watered = true
+	# 물 준 상태는 FieldCursorComponent 가 타일에 칠한다. 여기선 연출만 한다.
+	# 타일 상태로 막지 않는 건, 물뿌리개를 쓰면 tool_used 로 타일이 먼저 칠해지고
+	# area_entered 는 다음 물리 프레임에 와서 이미 물 준 칸으로 보이기 때문이다.
+	if watering_particles.emitting:
+		return
+
+	watering_particles.emitting = true
+	await get_tree().create_timer(5.0).timeout
+	watering_particles.emitting = false
+
+## 우클릭으로 만져졌다. ObjectCursorComponent가 이 이름으로 부른다.
+## 다 자랐을 때만 수확된다. 덜 자란 것을 눌러도 아무 일도 일어나지 않는다.
+##
+## 좌클릭(on_hurt) 경로는 그대로 둔다. 밀처럼 낫으로 베는 작물이 그쪽을 쓴다.
+func interact() -> void:
+	if growth_state != DataTypes.GrowthStates.Maturity:
+		return
+
+	harvest()
+
 
 ## 작물을 제거하고 같은 자리에 획득 가능한 아이템을 떨군다.
 func harvest() -> void:

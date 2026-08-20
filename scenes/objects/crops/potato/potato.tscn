@@ -30,7 +30,7 @@ region = Rect2(806, 84, 22, 34)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4kxuq"]
 size = Vector2(8.5, 8.5)
 
-[node name="Potato" type="Node2D" unique_id=1198681918]
+[node name="Potato" type="Node2D" unique_id=1198681918 groups=["crops", "interactables"]]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_gq18s")
 growth_textures = Array[Texture2D]([SubResource("AtlasTexture_st0"), SubResource("AtlasTexture_st1"), SubResource("AtlasTexture_st2"), SubResource("AtlasTexture_st3"), SubResource("AtlasTexture_st4")])

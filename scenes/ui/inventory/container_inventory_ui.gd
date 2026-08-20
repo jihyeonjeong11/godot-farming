@@ -1,28 +1,28 @@
 extends CanvasLayer
-## 상자를 열었을 때 뜨는 격자.
-##
-## 칸은 플레이어 인벤토리(SceneIngameOverlayMenu)와 같은 InventorySlot을
-## 그대로 쓴다. 어느 상자인지는 SignalBus로 받으므로 상자가 어디 있는지 몰라도 된다.
 
 const INVENTORY_SLOT = preload("uid://byt1lfm4vsyc4")
 
 @onready var grid: GridContainer = %ContainerGrid
+## 상자 아래에 같이 띄우는 가방. 칸 씬은 상자와 같은 것을 쓴다.
+@onready var inventory_grid: GridContainer = %InventoryGrid
 
-## 상자의 배열을 그대로 붙든다. 복사하면 넣고 뺀 것이 상자에 안 남는다.
 var slots: Array = []
 
 var _cells: Array[InventorySlot] = []
+var _inventory_cells: Array[InventorySlot] = []
 
 
 func _ready() -> void:
 	visible = false
 	SignalBus.container_opened.connect(open)
-	# 칸을 끌어 옮기면 이 신호가 온다. 가방 쪽 변화도 상자 격자에 바로 비친다.
 	Inventory.inventory_updated.connect(refresh)
+
+	# 가방 칸수는 변하지 않으므로 한 번만 만든다. 상자 격자는 상자마다 칸수가
+	# 달라서 열 때마다 다시 짓지만(_rebuild), 이쪽은 그럴 일이 없다.
+	_build_inventory_cells()
 
 
 func open(target_slots: Array) -> void:
-	# 열어둔 상자를 또 우클릭하면 닫는다.
 	if visible and is_same(slots, target_slots):
 		close()
 		return
@@ -47,6 +47,29 @@ func refresh() -> void:
 			_cells[i].clear()
 		else:
 			_cells[i].set_slot(stack)
+
+	for i in _inventory_cells.size():
+		var bag: ItemStack = Inventory.inventory[i] if i < Inventory.inventory.size() else null
+		if bag == null:
+			_inventory_cells[i].clear()
+		else:
+			_inventory_cells[i].set_slot(bag)
+
+
+func _build_inventory_cells() -> void:
+	for child in inventory_grid.get_children():
+		inventory_grid.remove_child(child)
+		child.queue_free()
+
+	_inventory_cells.clear()
+
+	for i in Inventory.BASE_INVENTORY_LIMIT:
+		var cell: InventorySlot = INVENTORY_SLOT.instantiate()
+		cell.name = "InventorySlot%d" % i
+		cell.slot_index = i
+		cell.source = Inventory.inventory
+		inventory_grid.add_child(cell)
+		_inventory_cells.append(cell)
 
 
 func _rebuild() -> void:

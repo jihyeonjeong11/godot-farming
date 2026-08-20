@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ccnxtlq1ru1pv"]
+
+[ext_resource type="Script" uid="uid://c3yec753wg2bn" path="res://scenes/components/cursors/object_cursor_component.gd" id="1_3un0j"]
+
+[node name="ObjectCursorComponent" type="Node" unique_id=396383454]
+script = ExtResource("1_3un0j")

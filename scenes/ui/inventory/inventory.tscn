@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://d1i3p45tindyx"]
+
+[ext_resource type="Script" uid="uid://dsa30maka7f6r" path="res://scenes/ui/scene_ingame_overlay_menu.gd" id="1_vj5ws"]
+[ext_resource type="Theme" uid="uid://bkny51ahdetw" path="res://scenes/ui/game_theme.tres" id="2_i8fht"]
+[ext_resource type="Texture2D" uid="uid://yrf8j8wet4t3" path="res://assets/UI/Menu/Main Menu/Settings_Not-Pressed.png" id="3_5suo7"]
+[ext_resource type="Texture2D" uid="uid://c06fxkjvqnwvc" path="res://assets/UI/Menu/Main Menu/Save_Not-Pressed.png" id="4_u3v1c"]
+[ext_resource type="Texture2D" uid="uid://d2dt4x7c6hh0c" path="res://assets/UI/Menu/Main Menu/Load_Not-Pressed.png" id="5_hjfas"]
+[ext_resource type="Texture2D" uid="uid://bfcxasobxoe2x" path="res://assets/UI/Menu/Main Menu/Quit_Not-Pressed.png" id="6_q8qhs"]
+[ext_resource type="PackedScene" uid="uid://b8v85sm37h1qw" path="res://scenes/ui/inventory/inventory-description.tscn" id="7_map31"]
+[ext_resource type="PackedScene" uid="uid://dr4x4rp0j1rci" path="res://scenes/ui/scene_overlay_menu_settings.tscn" id="8_8poyu"]
+
+[node name="SceneIngameOverlayMenu" type="CanvasLayer" unique_id=1484538286]
+script = ExtResource("1_vj5ws")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2052040661]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=664867975]
+layout_mode = 2
+theme = ExtResource("2_i8fht")
+theme_type_variation = &"IngamePanel"
+
+[node name="InventoryGridContainer" type="MarginContainer" parent="MarginContainer/PanelContainer" unique_id=1891135908]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="InventoryGrid" type="GridContainer" parent="MarginContainer/PanelContainer/InventoryGridContainer" unique_id=306884077]
+custom_minimum_size = Vector2(26, 26)
+layout_mode = 2
+columns = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer" unique_id=795282492]
+visible = false
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer" unique_id=1483550623]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="SettingsButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=2044309720]
+unique_name_in_owner = true
+layout_mode = 2
+icon = ExtResource("3_5suo7")
+
+[node name="SaveButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=246802844]
+unique_name_in_owner = true
+layout_mode = 2
+icon = ExtResource("4_u3v1c")
+
+[node name="LoadButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1240416927]
+unique_name_in_owner = true
+layout_mode = 2
+icon = ExtResource("5_hjfas")
+
+[node name="QuitButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=83515425]
+unique_name_in_owner = true
+layout_mode = 2
+icon = ExtResource("6_q8qhs")
+
+[node name="DescContainer" type="MarginContainer" parent="MarginContainer/PanelContainer" unique_id=1048452658]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_type_variation = &"GameMarginContainer"
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="InventoryDescription" parent="MarginContainer/PanelContainer/DescContainer" unique_id=863861226 instance=ExtResource("7_map31")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+
+[node name="Settings" parent="." unique_id=1484538287 instance=ExtResource("8_8poyu")]
+visible = false
+layout_mode = 3

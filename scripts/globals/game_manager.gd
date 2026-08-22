@@ -9,9 +9,13 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
-
+	
+	var paused = not get_tree().paused
+	# Maybe some edge cases
+	if paused == false:
+		return
+		
 	if event.is_action_pressed("ingame_pause"):
-		var paused = not get_tree().paused
 		toggle_pause(paused)
 		get_viewport().set_input_as_handled()
 		SignalBus.ingame_paused.emit(paused)

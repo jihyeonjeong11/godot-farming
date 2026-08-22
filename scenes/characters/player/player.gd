@@ -105,10 +105,6 @@ func _physics_process(_delta: float) -> void:
 		take_hit()
 
 	if GameInputEvents.interact():
-		print('좌표', global_position, get_global_mouse_position())
-		# 타일과 인터렉트 할 케이스가 있을까? 확인 필요.
-		# 오브젝트 레이어와 인터렉트 침대, 작물 수확, 상자 같은건 오브젝트 레이어로 소통.
-		# 먼저 objectCursorComponent를 만들고 생각하자.
 		
 		SignalBus.interact_handled = false
 		SignalBus.interact_used.emit(global_position, get_global_mouse_position())

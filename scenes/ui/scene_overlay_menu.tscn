@@ -52,3 +52,4 @@ text = "Exit Game
 
 [node name="Settings" parent="." unique_id=2106012998 instance=ExtResource("3_stgs0")]
 visible = false
+layout_mode = 3

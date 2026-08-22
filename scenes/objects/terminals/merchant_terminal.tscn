@@ -5,7 +5,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4kxuq"]
 
-[node name="MerchantTerminal" type="Sprite2D" unique_id=720967649]
+[node name="MerchantTerminal" type="Sprite2D" unique_id=720967649 groups=["interactables"]]
 texture = ExtResource("1_2pqm7")
 script = ExtResource("2_1dn1k")
 

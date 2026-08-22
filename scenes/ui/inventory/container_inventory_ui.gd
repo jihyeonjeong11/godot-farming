@@ -25,7 +25,10 @@ func _ready() -> void:
 func open(target_slots: Array) -> void:
 	if visible and is_same(slots, target_slots):
 		close()
+		get_tree().paused = false
 		return
+	get_tree().paused = true
+
 
 	slots = target_slots
 

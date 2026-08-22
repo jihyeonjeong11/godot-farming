@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var die_audio_stream_player: AudioStreamPlayer2D = $DieAudioStreamPlayer
 @onready var hit_component: HitComponent = $HitComponent
 @onready var state_machine: NodeStateMachine = $StateMachine
+@onready var root_table: Node = $RootTable
 
 @export var stats: Stats
 
@@ -62,5 +63,7 @@ func die() -> void:
 	await animated_sprite_2d.animation_finished
 	if die_audio_stream_player.playing:
 		await die_audio_stream_player.finished
-
+		
+	var loot = root_table.get_root()
+	print(loot)
 	queue_free()

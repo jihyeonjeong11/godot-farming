@@ -4,25 +4,25 @@ const MINUTES_PER_DAY: int = 24 * 60
 const MINUTES_PER_HOUR: int = 60
 const GAME_MINUTE_DURARTION: float = TAU / MINUTES_PER_DAY
 
-var game_speed: float = 5.0
+var game_speed: float = 1.0
 
 var time: float = 0.0
 var current_minute: int = -1
+var current_hour: int = 0
 var current_day: int = 0
 
 var initial_day: int = 1
-var initial_hour: int = 12
-var initial_minute: int = 30
+var initial_hour: int = 6
+var initial_minute: int = 0
 
 func set_initial_time() -> void:
 	var initial_total_minutes = initial_day * MINUTES_PER_DAY + (initial_hour * MINUTES_PER_HOUR) + initial_minute
 	time = initial_total_minutes * GAME_MINUTE_DURARTION
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
 	set_initial_time()
 	
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	time += delta * game_speed * GAME_MINUTE_DURARTION
 	SignalBus.game_time.emit(time)

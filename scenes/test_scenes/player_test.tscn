@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://crq6tr62gpjr7"]
 
 [ext_resource type="PackedScene" uid="uid://ccnxtlq1ru1pv" path="res://scenes/components/cursors/object_cursor_component.tscn" id="1_2l28n"]
+[ext_resource type="PackedScene" uid="uid://bx810a2sxe5aa" path="res://scenes/components/characters/needs_decay_component.tscn" id="1_llh38"]
 [ext_resource type="TileSet" uid="uid://bg7n2qxwlk4ay" path="res://tilesets/apocalypse_green_tile_set.tres" id="2_8fa0t"]
 [ext_resource type="TileSet" uid="uid://dcq54frn85y6v" path="res://tilesets/apocalypse_tile_set.tres" id="3_f6mep"]
 [ext_resource type="TileSet" uid="uid://bfjfke80cfmmc" path="res://tilesets/house_tile_set.tres" id="4_n36ir"]
@@ -9,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bmp8j4fwdkl82" path="res://scenes/characters/player/player.tscn" id="8_k3y2l"]
 [ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/items.gd" id="8_q27ys"]
 [ext_resource type="PackedScene" uid="uid://b7xqk2mcnv0ug" path="res://scenes/ui/inventory/container_inventory_ui.tscn" id="10_ctnui"]
+[ext_resource type="PackedScene" uid="uid://m70mkxtn3dt5" path="res://scenes/objects/terminals/merchant_terminal.tscn" id="11_eywrv"]
 [ext_resource type="Script" uid="uid://bjqk2jiorau6t" path="res://scenes/components/persistent/level_objects.gd" id="11_objs"]
 [ext_resource type="Resource" uid="uid://iadbnqiiwu53" path="res://scripts/resources/tools/axe.tres" id="12_axe"]
 [ext_resource type="Resource" uid="uid://h1l1g07oam5a" path="res://scripts/resources/tools/hoe.tres" id="13_hoe"]
@@ -31,6 +33,8 @@
 
 [node name="PlayerTestScene" type="Node2D" unique_id=695838568]
 y_sort_enabled = true
+
+[node name="NeedsDecayComponent" parent="." unique_id=1939453797 instance=ExtResource("1_llh38")]
 
 [node name="ObjectCursorComponent" parent="." unique_id=396383454 instance=ExtResource("1_2l28n")]
 
@@ -79,6 +83,9 @@ script = ExtResource("11_objs")
 [node name="Buildables" type="Node2D" parent="GameTileMap" unique_id=79467844]
 y_sort_enabled = true
 script = ExtResource("21_bldbl")
+
+[node name="MerchantTerminal" parent="GameTileMap/Buildables" unique_id=720967649 instance=ExtResource("11_eywrv")]
+position = Vector2(111, 139)
 
 [node name="Container" parent="GameTileMap/Buildables" unique_id=401607489 instance=ExtResource("6_2dh05")]
 position = Vector2(407, 297)

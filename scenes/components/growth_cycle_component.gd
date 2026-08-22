@@ -9,7 +9,7 @@ const TILLED_SOIL_GROUP: StringName = &"tilled_dirt"
 signal crop_maturity
 signal crop_harvesting
 
-var starting_day: int
+var watered_days: int = 0
 
 @onready var crop: Node2D = get_parent() as Node2D
 
@@ -47,24 +47,24 @@ func get_watered_soil() -> WateredSoilLayer:
 	if is_instance_valid(_watered_soil):
 		return _watered_soil
 
-	_watered_soil = get_tree().get_first_node_in_group(WateredSoilLayer.GROUP) as WateredSoilLayer
+	_watered_soil = get_tree().get_first_node_in_group(WateredSoilLayer.layer_id) as WateredSoilLayer
 	return _watered_soil
 
-func on_time_tick_day(day: int) -> void:
-	if is_tile_watered():
-		if starting_day == 0:
-			starting_day = day
-			
-		growth_states(starting_day, day)
+## 물 안 준 날은 아예 진행이 없다. 그래서 날짜를 받지 않는다.
+func on_time_tick_day(_day: int) -> void:
+	if not is_tile_watered():
+		return
 
-func growth_states(starting_day: int, current_day: int) -> void:
+	watered_days += 1
+	growth_states()
+
+func growth_states() -> void:
 	if current_growth_state == DataTypes.GrowthStates.Maturity:
 		return
 
-	var days_passed: int = current_day - starting_day
 	var final_state: int = DataTypes.GrowthStates.Maturity
 
-	var state_index: int = roundi(float(days_passed) * final_state / days_until_harvest)
+	var state_index: int = roundi(float(watered_days) * final_state / days_until_harvest)
 	current_growth_state = clampi(state_index, DataTypes.GrowthStates.Germination, final_state)
 
 	if current_growth_state == DataTypes.GrowthStates.Maturity:
@@ -82,7 +82,21 @@ func harvest_state(starting_day: int, current_day: int):
 	
 func get_current_growth_state() -> DataTypes.GrowthStates:
 	return current_growth_state
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+
+
+## 씬 경로와 위치만으로는 복원되지 않는 것. 지금 단계와, 물을 며칠 줬는지다.
+## days_until_harvest는 씬에 적어둔 설정값이라 저장하지 않는다. 저장하면 나중에
+## 작물 밸런스를 고쳐도 옛 세이브가 옛 값을 붙든다.
+func capture() -> Dictionary:
+	return {
+		"growth_state": int(current_growth_state),
+		"watered_days": watered_days,
+	}
+
+
+func apply(state: Variant) -> void:
+	if state is not Dictionary:
+		return
+
+	current_growth_state = int(state.get("growth_state", current_growth_state))
+	watered_days = int(state.get("watered_days", watered_days))

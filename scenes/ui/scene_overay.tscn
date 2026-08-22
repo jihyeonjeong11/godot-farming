@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://bkny51ahdetw" path="res://scenes/ui/game_theme.tres" id="1_2xpo1"]
 [ext_resource type="PackedScene" uid="uid://d384q4vj3r24y" path="res://scenes/ui/inventory/quick_bar.tscn" id="2_uj2p4"]
-[ext_resource type="PackedScene" uid="uid://cwpugakipo362" path="res://scenes/ui/player_stats.tscn" id="3_xqf54"]
+[ext_resource type="PackedScene" uid="uid://cwpugakipo362" path="res://scenes/ui/player_stats_menu.tscn" id="3_xqf54"]
 [ext_resource type="PackedScene" uid="uid://p7t7asu1gdgy" path="res://scenes/ui/time.tscn" id="4_7adw0"]
 
 [node name="SceneOveray" type="CanvasLayer" unique_id=476376829]

@@ -4,6 +4,12 @@
 
 [resource]
 script = ExtResource("1_ckpgc")
-health = 5
-max_health = 5
+health = 100
+max_health = 100
+stamina = 100
+max_stamina = 100
+hunger = 100
+max_hunger = 100
+thirst = 100
+max_thirst = 100
 metadata/_custom_type_script = "uid://dmtqevof4ebrt"

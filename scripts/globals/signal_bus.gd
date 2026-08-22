@@ -22,6 +22,15 @@ signal interact_used(user_position: Vector2, target_position: Vector2)
 ## 끝난 뒤 확인한다. 상자를 열었으면 손에 든 감자까지 먹히지 않게 하기 위함이다.
 var interact_handled := false
 
+## 플레이어가 _ready에서 만든 Stats 사본. 공유 .tres가 아니라 이 사본이 실제로 변한다.
+## UI나 컴포넌트가 @export로 .tres를 직접 물면 아무도 안 건드리는 원본을 보게 된다.
+var player_stats: Stats
+
+## 위 사본이 준비된 순간. 노드 _ready 순서는 보장되지 않으므로, 늦게 붙는 쪽은
+## 시그널을 놓치는 대신 player_stats를 직접 읽어 가면 된다.
+signal player_stats_ready(stats: Stats)
+
+
 ## 상자 같은 것을 열었다. 어디에 그릴지는 UI가 정한다.
 signal container_opened(slots: Array)
 

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://m70mkxtn3dt5"]
+
+[ext_resource type="Texture2D" uid="uid://bx55koac0cigb" path="res://assets/Objects/Vending-machine_Red_Overgrown_Green.png" id="1_2pqm7"]
+[ext_resource type="Script" uid="uid://7mcjkarrr3ls" path="res://scenes/objects/terminals/merchant_terminal.gd" id="2_1dn1k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kxuq"]
+
+[node name="MerchantTerminal" type="Sprite2D" unique_id=720967649]
+texture = ExtResource("1_2pqm7")
+script = ExtResource("2_1dn1k")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=564171742]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=525508054]
+shape = SubResource("RectangleShape2D_4kxuq")

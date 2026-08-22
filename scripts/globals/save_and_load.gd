@@ -8,6 +8,7 @@ var load_requested := false
 
 const INVENTORY_SAVE_PATH := "user://inventory.sav"
 const TIME_SAVE_PATH := "user://time.sav"
+const STATS_SAVE_PATH := "user://stats.sav"
 
 ## 이번 실행에서 이미 읽은 레벨 세이브. 레이어 넷이 각자 파일을 열지 않게 한다.
 ## 저장할 때 여기도 같이 갱신하므로 세이브 직후 값이 어긋나지 않는다.
@@ -135,6 +136,30 @@ func load_inventory() -> void:
 	Inventory.inventory_updated.emit()
 
 
+## 현재값만 적는다. 기준값은 player_stats.tres에 있으니 저장할 이유가 없고,
+## 적어두면 나중에 밸런스를 고쳤을 때 옛 세이브가 옛 값을 붙들게 된다.
+func save_stats(stats: Stats) -> void:
+	if stats == null:
+		return
+
+	_write(STATS_SAVE_PATH, {
+		"health": stats.health,
+		"stamina": stats.stamina,
+		"hunger": stats.hunger,
+		"thirst": stats.thirst,
+	})
+
+
+## 세이브가 없거나 "새 게임"으로 들어왔으면 null. 그때 무엇으로 시작할지는
+## 부른 쪽이 정한다(load_layer와 같은 계약).
+func load_stats() -> Variant:
+	if not load_requested:
+		return null
+
+	var parsed: Variant = _read(STATS_SAVE_PATH)
+	return parsed if parsed is Dictionary else null
+
+
 ## 날짜/시각은 전부 time 하나에서 파생된다(recalculate_time).
 ## 그래서 day/hour/minute을 따로 적을 필요가 없고, 적으면 오히려 어긋날 여지만 생긴다.
 func save_time() -> void:
@@ -152,6 +177,13 @@ func load_time() -> void:
 	# 엣지 검출용 캐시라 그대로 두면 다음 틱까지 시계 UI가 옛 값을 붙들고 있다.
 	# -1로 밀어 두면 첫 recalculate_time에서 반드시 한 번 쏜다.
 	DayAndNightCycle.current_minute = -1
+
+	# 날짜는 반대로, 불러온 시각에 맞춰 미리 맞춰둔다. 메뉴에 머무는 동안에도
+	# 오토로드는 계속 돌아서 current_day가 이미 딴 날에 가 있고, 그대로 두면 첫
+	# recalculate_time이 하루가 넘어간 줄 알고 time_tick_day를 쏜다. 그러면 방금
+	# 복원한 물기가 바로 마르고 작물은 하루치를 공짜로 먹는다.
+	var total_minutes := int(DayAndNightCycle.time / DayAndNightCycle.GAME_MINUTE_DURARTION)
+	DayAndNightCycle.current_day = total_minutes / DayAndNightCycle.MINUTES_PER_DAY
 
 
 ## 임시 파일에 먼저 쓰고 성공했을 때만 바꾼다.

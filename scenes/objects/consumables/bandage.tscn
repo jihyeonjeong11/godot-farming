@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dfo7t4ju1851j"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_wswfj"]
+
+[node name="Bandage" type="Sprite2D" unique_id=304834413]
+texture = SubResource("ImageTexture_wswfj")

@@ -85,3 +85,17 @@ func harvest() -> void:
 
 func on_crop_maturity() -> void:
 	flowering_particles.emitting = true
+
+
+## 레이어가 씬과 위치만 떠내므로, 자란 정도는 여기서 따로 넘긴다.
+func capture_state() -> Variant:
+	return growth_cycle_component.capture()
+
+
+## 레이어가 add_child 다음에 부른다(_ready는 이미 끝났다).
+## _process가 그림을 맞출 때까지 기다리면 한 프레임 동안 씨앗이 보이므로
+## 여기서 스프라이트까지 바로 맞춘다.
+func apply_state(state: Variant) -> void:
+	growth_cycle_component.apply(state)
+	growth_state = growth_cycle_component.get_current_growth_state()
+	apply_growth_texture(growth_state)

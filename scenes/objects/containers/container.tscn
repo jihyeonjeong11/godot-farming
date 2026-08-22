@@ -1,12 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://dile8iqj8hrux"]
+[gd_scene format=3 uid="uid://dile8iqj8hrux"]
 
 [ext_resource type="Texture2D" uid="uid://dnrv20csqyqnv" path="res://assets/Objects/Container/Container_5_Red_Vertical.png" id="1_6nf8g"]
-[ext_resource type="Script" path="res://scenes/objects/containers/container.gd" id="2_cntnr"]
+[ext_resource type="Script" uid="uid://dixnsccl8a3kg" path="res://scenes/objects/containers/container.gd" id="2_cntnr"]
 [ext_resource type="PackedScene" uid="uid://b17pqg2t34n5v" path="res://scenes/components/container_inventory_component.tscn" id="3_invcm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kxuq"]
+size = Vector2(20, 38)
 
 [node name="Container" type="Sprite2D" unique_id=401607489 groups=["interactables"]]
 texture = ExtResource("1_6nf8g")
 script = ExtResource("2_cntnr")
 
 [node name="ContainerInventoryComponent" parent="." unique_id=1057856798 instance=ExtResource("3_invcm")]
-slot_count = 12
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=162178401]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2109676807]
+shape = SubResource("RectangleShape2D_4kxuq")

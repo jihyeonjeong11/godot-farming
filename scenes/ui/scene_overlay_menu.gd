@@ -46,6 +46,7 @@ func on_save_pressed() -> void:
 	SaveAndLoad.save_level(get_parent())
 	SaveAndLoad.save_inventory()
 	SaveAndLoad.save_time()
+	SaveAndLoad.save_stats(SignalBus.player_stats)
 
 
 func on_resume_pressed() -> void:

@@ -9,7 +9,7 @@ extends Node
 @onready var player: Node2D = get_tree().get_first_node_in_group("player")
 ## 물 준 칸을 그리는 레이어. 씬에 없으면 물주기만 조용히 넘어간다.
 @onready var watered_soil_layer: WateredSoilLayer = (
-	get_tree().get_first_node_in_group(WateredSoilLayer.GROUP) as WateredSoilLayer
+	get_tree().get_first_node_in_group(WateredSoilLayer.layer_id) as WateredSoilLayer
 )
 
 var mouse_position: Vector2

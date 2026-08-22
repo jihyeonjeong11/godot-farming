@@ -69,8 +69,25 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _ready() -> void:
+	setup_stats()
 	Inventory.set_player_reference(self)
 	apply_hitbox(null)
+
+func setup_stats() -> void:
+	if stats == null:
+		return
+
+	stats = stats.duplicate()
+
+	var saved: Variant = SaveAndLoad.load_stats()
+	if saved is Dictionary:
+		stats.health = saved.get("health", stats.health)
+		stats.stamina = saved.get("stamina", stats.stamina)
+		stats.hunger = saved.get("hunger", stats.hunger)
+		stats.thirst = saved.get("thirst", stats.thirst)
+
+	SignalBus.player_stats = stats
+	SignalBus.player_stats_ready.emit(stats)
 
 func apply_hitbox(item: Items) -> void:
 	if hit_shape == null:

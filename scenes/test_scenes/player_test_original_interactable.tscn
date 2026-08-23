@@ -24,10 +24,6 @@
 [ext_resource type="PackedScene" uid="uid://c5e10kwwdcap1" path="res://scenes/components/field_cursor_component.tscn" id="22_rq7xq"]
 [ext_resource type="PackedScene" uid="uid://ts47olgc55kh" path="res://scenes/components/crops_cursor_component.tscn" id="23_7w4rg"]
 [ext_resource type="PackedScene" uid="uid://co1flbsq0iwon" path="res://scenes/components/buildable_cursor_component.tscn" id="24_jdr7e"]
-[ext_resource type="PackedScene" uid="uid://cgv3nwfyr3n17" path="res://scenes/ui/scene_overay.tscn" id="25_kxte5"]
-[ext_resource type="PackedScene" uid="uid://6jsgfc4dh1hr" path="res://scenes/ui/scene_overlay_menu.tscn" id="26_hu7tk"]
-[ext_resource type="PackedScene" uid="uid://dncd82n2y0aas" path="res://scenes/ui/scene_ingame_overlay_menu.tscn" id="27_j6qvm"]
-[ext_resource type="PackedScene" uid="uid://b7xqk2mcnv0ug" path="res://scenes/ui/inventory/container_inventory_ui.tscn" id="28_hwume"]
 
 [node name="PlayerTestScene" type="Node2D" unique_id=695838568]
 y_sort_enabled = true
@@ -98,11 +94,6 @@ crops_layer = NodePath("../GameTileMap/LevelCrops")
 grass_tilemap_layer = NodePath("../GameTileMap/Floors")
 buildables_layer = NodePath("../GameTileMap/Buildables")
 
-[node name="SceneOveray" parent="." unique_id=476376830 instance=ExtResource("25_kxte5")]
 
-[node name="MenuOverlay" parent="." unique_id=2106013000 instance=ExtResource("26_hu7tk")]
 
-[node name="SceneIngameOverlayMenu" parent="." unique_id=1484538287 instance=ExtResource("27_j6qvm")]
-visible = false
 
-[node name="ContainerInventoryUI" parent="." unique_id=1908140118 instance=ExtResource("28_hwume")]

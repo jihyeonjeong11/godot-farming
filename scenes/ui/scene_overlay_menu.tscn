@@ -44,6 +44,12 @@ layout_mode = 2
 text = "Save
 "
 
+[node name="MainMenu" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1117167926]
+custom_minimum_size = Vector2(30, 50)
+layout_mode = 2
+text = "Main Menu
+"
+
 [node name="Exit" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1117167924]
 custom_minimum_size = Vector2(30, 50)
 layout_mode = 2

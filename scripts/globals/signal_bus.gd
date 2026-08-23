@@ -2,11 +2,17 @@
 # TODO: add some events
 extends Node
 
+signal game_state_changed(game_state: DataTypes.GameState)
+
 signal game_paused(is_paused: bool)
 signal ingame_paused(is_paused: bool)
 
-## PauseManager.Layer 하나를 닫아달라는 요청. 실제 상태는 PauseManager가 정한다.
+## UIManager.Layer 하나를 닫아달라는 요청. 실제로 닫을지는 UIManager가 정한다.
 signal ui_close_requested(layer: int)
+
+## UI 스택이 바뀐 순간. UIManager는 "무엇이 열려 있나"만 알리고,
+## 그게 게임을 멈추는지는 GameStateManager가 판단한다.
+signal ui_stack_changed(pause_requested: bool)
 
 signal game_time(time: float)
 signal time_tick(day: int, hour: int, minute: int)
@@ -39,6 +45,9 @@ signal container_opened(slots: Array)
 
 ## 메인 메뉴에서 새 게임을 누른 순간. 어느 씬으로 갈지는 game.gd가 정한다.
 signal new_game_requested()
+
+## 일시정지 메뉴에서 메인 메뉴로 나가겠다고 누른 순간. 어느 씬인지는 game.gd가 안다.
+signal main_menu_requested()
 
 ## 메인 메뉴에서 불러오기를 누른 순간. 씬을 띄운 뒤 세이브를 얹는 건 game.gd가 한다.
 signal load_game_requested()

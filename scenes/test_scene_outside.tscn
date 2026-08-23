@@ -1,12 +1,9 @@
 [gd_scene format=4 uid="uid://cisnfhhd77c24"]
 
 [ext_resource type="TileSet" uid="uid://bg7n2qxwlk4ay" path="res://tilesets/apocalypse_green_tile_set.tres" id="1_824jl"]
-[ext_resource type="PackedScene" uid="uid://cgv3nwfyr3n17" path="res://scenes/ui/scene_overay.tscn" id="1_u6qu0"]
 [ext_resource type="TileSet" uid="uid://dcq54frn85y6v" path="res://tilesets/apocalypse_tile_set.tres" id="2_1n7w3"]
 [ext_resource type="TileSet" uid="uid://bfjfke80cfmmc" path="res://tilesets/house_tile_set.tres" id="3_ioctm"]
 [ext_resource type="PackedScene" uid="uid://bws7j5ufw4eeg" path="res://scenes/characters/enemy/small_zombie.tscn" id="5_l6opd"]
-[ext_resource type="PackedScene" uid="uid://6jsgfc4dh1hr" path="res://scenes/ui/scene_overlay_menu.tscn" id="8_rrkdy"]
-[ext_resource type="PackedScene" uid="uid://dncd82n2y0aas" path="res://scenes/ui/scene_ingame_overlay_menu.tscn" id="9_ods6x"]
 [ext_resource type="PackedScene" uid="uid://b0a3am51xwndg" path="res://scenes/components/day_night_cycle_component.tscn" id="9_osfbq"]
 [ext_resource type="Script" uid="uid://nkqqyjrlonco" path="res://scenes/components/mob_spawner_component.gd" id="10_mspwn"]
 [ext_resource type="Script" uid="uid://dmi5dc4ufdbhw" path="res://scenes/components/mob_spawn_entry.gd" id="11_mentr"]
@@ -36,8 +33,6 @@ mob_scene = ExtResource("12_bgzom")
 [node name="TestSceneOutside" type="Node2D" unique_id=695838568]
 y_sort_enabled = true
 
-[node name="SceneOveray" parent="." unique_id=476376829 instance=ExtResource("1_u6qu0")]
-
 [node name="GameTileMap" type="TileMapLayer" parent="." unique_id=1111176685]
 y_sort_enabled = true
 tile_set = ExtResource("1_824jl")
@@ -60,11 +55,7 @@ tile_set = ExtResource("3_ioctm")
 [node name="SmallZombie" parent="." unique_id=1619301887 instance=ExtResource("5_l6opd")]
 position = Vector2(377, 165)
 
-[node name="MenuOverlay" parent="." unique_id=2106012999 instance=ExtResource("8_rrkdy")]
-visible = false
 
-[node name="SceneIngameOverlayMenu" parent="." unique_id=1484538286 instance=ExtResource("9_ods6x")]
-visible = false
 
 [node name="DayNightCycleComponent" parent="." unique_id=1908140115 instance=ExtResource("9_osfbq")]
 

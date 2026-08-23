@@ -10,7 +10,6 @@
 [ext_resource type="Script" uid="uid://c6wj2phe45tvn" path="res://scenes/components/persistent/level_tilled_soils.gd" id="8_fsc66"]
 [ext_resource type="PackedScene" uid="uid://bmp8j4fwdkl82" path="res://scenes/characters/player/player.tscn" id="8_k3y2l"]
 [ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/items.gd" id="8_q27ys"]
-[ext_resource type="PackedScene" uid="uid://b7xqk2mcnv0ug" path="res://scenes/ui/inventory/container_inventory_ui.tscn" id="10_ctnui"]
 [ext_resource type="PackedScene" uid="uid://m70mkxtn3dt5" path="res://scenes/objects/terminals/merchant_terminal.tscn" id="11_eywrv"]
 [ext_resource type="Script" uid="uid://bjqk2jiorau6t" path="res://scenes/components/persistent/level_objects.gd" id="11_objs"]
 [ext_resource type="Resource" uid="uid://iadbnqiiwu53" path="res://scripts/resources/tools/axe.tres" id="12_axe"]
@@ -22,10 +21,7 @@
 [ext_resource type="Resource" uid="uid://b7ncxvq4td2ma" path="res://scripts/resources/seeds/corn_seeds.tres" id="17_corn"]
 [ext_resource type="Resource" uid="uid://s3ye070bqhv3" path="res://scripts/resources/seeds/carrot_seeds.tres" id="18_carrot"]
 [ext_resource type="Resource" uid="uid://cn8vrpxa2yl4e" path="res://scripts/resources/seeds/potato_seeds.tres" id="19_potato"]
-[ext_resource type="PackedScene" uid="uid://cgv3nwfyr3n17" path="res://scenes/ui/scene_overay.tscn" id="20_overlay"]
 [ext_resource type="Script" uid="uid://vdfoocwoprvh" path="res://scenes/components/persistent/level_buildables.gd" id="21_bldbl"]
-[ext_resource type="PackedScene" uid="uid://6jsgfc4dh1hr" path="res://scenes/ui/scene_overlay_menu.tscn" id="22_menu"]
-[ext_resource type="PackedScene" uid="uid://dncd82n2y0aas" path="res://scenes/ui/scene_ingame_overlay_menu.tscn" id="23_invmenu"]
 [ext_resource type="PackedScene" path="res://scenes/components/portal_component.tscn" id="24_luow7"]
 [ext_resource type="Script" uid="uid://123k15c3oq0r" path="res://scenes/components/persistent/level_nature.gd" id="24_nature"]
 [ext_resource type="Script" uid="uid://dq3m8sf1nybr7" path="res://scenes/components/persistent/level_crops.gd" id="25_crops"]
@@ -117,13 +113,4 @@ tilled_soil_tilemap_layer = NodePath("../GameTileMap/TilledSoil")
 tilled_soil_tilemap_layer = NodePath("../GameTileMap/TilledSoil")
 crops_layer = NodePath("../GameTileMap/LevelCrops")
 
-[node name="SceneOveray" parent="." unique_id=476376830 instance=ExtResource("20_overlay")]
 
-[node name="MenuOverlay" parent="." unique_id=2106013000 instance=ExtResource("22_menu")]
-visible = false
-
-[node name="SceneIngameOverlayMenu" parent="." unique_id=1484538287 instance=ExtResource("23_invmenu")]
-visible = false
-
-[node name="ContainerInventoryUI" parent="." unique_id=1908140118 instance=ExtResource("10_ctnui")]
-visible = false

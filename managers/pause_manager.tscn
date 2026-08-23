@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://tp870g51e2ww"]
-
-[ext_resource type="Script" uid="uid://cx85tas2tyj5b" path="res://managers/pause_manager.gd" id="1_5n6j6"]
-
-[node name="PauseManager" type="Node" unique_id=723736324]
-script = ExtResource("1_5n6j6")

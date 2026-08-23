@@ -13,8 +13,6 @@ var _inventory_cells: Array[InventorySlot] = []
 
 
 func _ready() -> void:
-	visible = false
-	SignalBus.container_opened.connect(open)
 	Inventory.inventory_updated.connect(refresh)
 
 	# 가방 칸수는 변하지 않으므로 한 번만 만든다. 상자 격자는 상자마다 칸수가
@@ -22,25 +20,15 @@ func _ready() -> void:
 	_build_inventory_cells()
 
 
-func open(target_slots: Array) -> void:
-	if visible and is_same(slots, target_slots):
-		close()
-		get_tree().paused = false
-		return
-	get_tree().paused = true
-
-
+## UIManager가 만든 직후에 부른다. 여닫기와 정지는 스택이 정하므로
+## 여기서는 무엇을 그릴지만 받는다.
+func setup(target_slots: Array) -> void:
 	slots = target_slots
 
 	if _cells.size() != slots.size():
 		_rebuild()
 
-	visible = true
 	refresh()
-
-
-func close() -> void:
-	visible = false
 
 
 func refresh() -> void:
@@ -57,6 +45,7 @@ func refresh() -> void:
 			_inventory_cells[i].clear()
 		else:
 			_inventory_cells[i].set_slot(bag)
+
 
 
 func _build_inventory_cells() -> void:
@@ -90,11 +79,3 @@ func _rebuild() -> void:
 		cell.source = slots
 		grid.add_child(cell)
 		_cells.append(cell)
-
-
-func _unhandled_input(event: InputEvent) -> void:
-	# 키보드만 여기로 온다. Quickbar가 화면 전체를 덮는 Control이라
-	# 마우스 이벤트는 GUI 단계에서 먼저 소비된다.
-	if visible and event.is_action_pressed(&"ui_cancel"):
-		get_viewport().set_input_as_handled()
-		close()

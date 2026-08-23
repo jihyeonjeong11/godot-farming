@@ -36,7 +36,6 @@ text = "상자"
 
 [node name="ContainerGrid" type="GridContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=450373927]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(26, 26)
 layout_mode = 2
 columns = 6
 
@@ -44,12 +43,7 @@ columns = 6
 layout_mode = 2
 text = "가방"
 
-[node name="InventoryGridContainer" type="MarginContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=226577788]
-layout_mode = 2
-size_flags_vertical = 0
-
-[node name="InventoryGrid" type="GridContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/InventoryGridContainer" unique_id=1602221246]
+[node name="InventoryGrid" type="GridContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1602221246]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(26, 26)
 layout_mode = 2
 columns = 10

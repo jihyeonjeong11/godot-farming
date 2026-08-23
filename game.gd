@@ -1,33 +1,33 @@
-# Persistent root. Shows the splash, then swaps the actual scene in under CurrentScene.
 extends Node2D
 
-## 지금은 테스트 씬으로 들어간다. 숲으로 되돌리려면 아래 경로만 바꾸면 된다.
-## res://scenes/test_scene_forest.tscn
 @export_file("*.tscn") var scene_farm := "res://scenes/test_scenes/player_test.tscn"
 @export_file("*.tscn") var scene_city := "res://scenes/test_scene_outside.tscn"
 @export_file("*.tscn") var scene_mainmenu := "res://scenes/mainmenu.tscn"
 
 @onready var current_scene: Node = $CurrentScene
-@onready var pause_manager: PauseManager = $PauseManager
+@onready var game_state_manager: GameStateManager = $GameStateManager
 
-# 전환 중 두 번째 요청이 끼어들어 씬이 두 개 붙는 걸 막는다.
 var _swapping := false
 
 
 func _ready() -> void:
+	_free_tab_key()
 	SignalBus.new_game_requested.connect(on_new_game_requested)
 	SignalBus.load_game_requested.connect(on_load_game_requested)
 	SignalBus.scene_change_requested.connect(on_scene_change_requested)
+	SignalBus.main_menu_requested.connect(on_main_menu_requested)
 	swap_scene(scene_mainmenu)
+
+func _free_tab_key() -> void:
+	for action in [&"ui_focus_next", &"ui_focus_prev"]:
+		for event in InputMap.action_get_events(action):
+			if event is InputEventKey and (event.keycode == KEY_TAB or event.physical_keycode == KEY_TAB):
+				InputMap.action_erase_event(action, event)
 
 
 func on_new_game_requested() -> void:
-	# 새 게임은 세이브를 무시한다. 각 레이어가 initial_objects로 시작하게 한다.
 	SaveAndLoad.load_requested = false
-	# 버튼 콜백이 실행 중인 그 프레임에 메뉴 자신을 트리에서 떼어내면
-	# 눌린 버튼이 발밑을 잃는다. 물리/입력 처리가 끝난 뒤로 미룬다.
 	swap_scene.call_deferred(scene_farm)
-
 
 func on_load_game_requested() -> void:
 	SaveAndLoad.load_requested = true
@@ -37,13 +37,15 @@ func on_load_game_requested() -> void:
 	swap_scene.call_deferred(scene_farm)
 
 
-## 포탈을 밟았을 때. 신호는 플레이어의 물리 처리 도중에 날아오므로
-## 그 프레임에 씬을 들어내면 충돌 처리 중인 노드가 발밑에서 사라진다. 프레임 끝으로 미룬다.
+func on_main_menu_requested() -> void:
+	# 누른 버튼이 붙은 메뉴를 UiManager가 이 흐름에서 해제한다.
+	# 콜백이 도는 중에 발밑을 들어내지 않도록 프레임 끝으로 미룬다.
+	swap_scene.call_deferred(scene_mainmenu)
+
+
 func on_scene_change_requested(scene_path: String) -> void:
 	swap_scene.call_deferred(scene_path)
 
-
-## CurrentScene 밑의 내용만 교체한다. 루트(Game)와 시그널 연결은 그대로 살아남는다.
 func swap_scene(path: String) -> void:
 	if _swapping:
 		return
@@ -55,8 +57,6 @@ func swap_scene(path: String) -> void:
 
 	_swapping = true
 
-	# queue_free만 하면 프레임 끝까지 옛 씬이 남아 새 씬과 겹친다.
-	# 트리에서 먼저 떼어낸 뒤 해제한다.
 	for child in current_scene.get_children():
 		current_scene.remove_child(child)
 		child.queue_free()
@@ -64,8 +64,8 @@ func swap_scene(path: String) -> void:
 	current_scene.add_child(packed.instantiate())
 
 	if path == scene_mainmenu:
-		pause_manager.enter_main_menu()
+		game_state_manager.enter_main_menu()
 	else:
-		pause_manager.enter_gameplay()
+		game_state_manager.enter_gameplay()
 
 	_swapping = false

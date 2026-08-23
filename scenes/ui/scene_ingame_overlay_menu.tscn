@@ -39,6 +39,8 @@ theme_override_constants/margin_bottom = 50
 [node name="InventoryGrid" type="GridContainer" parent="MarginContainer/PanelContainer/InventoryGridContainer" unique_id=306884077]
 custom_minimum_size = Vector2(26, 26)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 columns = 10
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer" unique_id=795282492]

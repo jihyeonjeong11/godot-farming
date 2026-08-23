@@ -1,5 +1,10 @@
 class_name DataTypes
 
+enum GameState {
+	MainMenu,
+	Game
+}
+
 enum Levels {
 	MainMenu,
 	Farm,

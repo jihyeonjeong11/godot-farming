@@ -4,6 +4,7 @@ extends CanvasLayer
 @onready var setting_button: Button = %Setting
 @onready var resume_button: Button = $PanelContainer/MarginContainer/VBoxContainer/Resume
 @onready var save_button: Button = $PanelContainer/MarginContainer/VBoxContainer/Save
+@onready var main_menu_button: Button = $PanelContainer/MarginContainer/VBoxContainer/MainMenu
 @onready var exit_button: Button = $PanelContainer/MarginContainer/VBoxContainer/Exit
 @onready var settings_panel: Control = $Settings
 
@@ -17,6 +18,7 @@ func _ready() -> void:
 	setting_button.pressed.connect(on_setting_pressed)
 	resume_button.pressed.connect(on_resume_pressed)
 	save_button.pressed.connect(on_save_pressed)
+	main_menu_button.pressed.connect(on_main_menu_pressed)
 	exit_button.pressed.connect(on_exit_pressed)
 	settings_panel.closed.connect(on_settings_closed)
 
@@ -50,7 +52,11 @@ func on_save_pressed() -> void:
 
 
 func on_resume_pressed() -> void:
-	SignalBus.ui_close_requested.emit(PauseManager.Layer.PAUSE_MENU)
+	SignalBus.ui_close_requested.emit(UIManager.Layer.PAUSE_MENU)
+
+
+func on_main_menu_pressed() -> void:
+	SignalBus.main_menu_requested.emit()
 
 
 func on_exit_pressed() -> void:

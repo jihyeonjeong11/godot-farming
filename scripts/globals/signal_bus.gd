@@ -5,6 +5,9 @@ extends Node
 signal game_paused(is_paused: bool)
 signal ingame_paused(is_paused: bool)
 
+## PauseManager.Layer 하나를 닫아달라는 요청. 실제 상태는 PauseManager가 정한다.
+signal ui_close_requested(layer: int)
+
 signal game_time(time: float)
 signal time_tick(day: int, hour: int, minute: int)
 signal time_tick_day(day: int)

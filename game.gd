@@ -8,6 +8,7 @@ extends Node2D
 @export_file("*.tscn") var scene_mainmenu := "res://scenes/mainmenu.tscn"
 
 @onready var current_scene: Node = $CurrentScene
+@onready var pause_manager: PauseManager = $PauseManager
 
 # 전환 중 두 번째 요청이 끼어들어 씬이 두 개 붙는 걸 막는다.
 var _swapping := false
@@ -61,4 +62,10 @@ func swap_scene(path: String) -> void:
 		child.queue_free()
 
 	current_scene.add_child(packed.instantiate())
+
+	if path == scene_mainmenu:
+		pause_manager.enter_main_menu()
+	else:
+		pause_manager.enter_gameplay()
+
 	_swapping = false

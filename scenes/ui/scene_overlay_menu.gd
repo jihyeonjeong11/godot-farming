@@ -50,8 +50,7 @@ func on_save_pressed() -> void:
 
 
 func on_resume_pressed() -> void:
-	visible = false
-	GameManager.set_paused(false)
+	SignalBus.ui_close_requested.emit(PauseManager.Layer.PAUSE_MENU)
 
 
 func on_exit_pressed() -> void:

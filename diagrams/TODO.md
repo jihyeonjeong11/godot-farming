@@ -4,6 +4,10 @@
 
 데모에 걸맞은 남은 일들
 
+## 상점 ui 전
+
+- menu 표시 시 pause 통일하기 - uimanager
+
 ## 농사 루프
 - [x] 플레이어 클리닝
 - [x] 작물 watered 타일

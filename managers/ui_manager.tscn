@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://glmtsyet4mll"]
+
+[ext_resource type="Script" uid="uid://d1ayc2piwu1ae" path="res://managers/ui_manager.gd" id="1_qbimv"]
+
+[node name="UiManager" type="Node" unique_id=913842581]
+script = ExtResource("1_qbimv")

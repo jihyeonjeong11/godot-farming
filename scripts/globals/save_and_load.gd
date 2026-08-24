@@ -147,6 +147,7 @@ func save_stats(stats: Stats) -> void:
 		"stamina": stats.stamina,
 		"hunger": stats.hunger,
 		"thirst": stats.thirst,
+		"gold": stats.gold,
 	})
 
 

@@ -11,64 +11,52 @@ signal closed
 @onready var master_value: Label = %MasterVolumeValue
 @onready var back_button: Button = %BackButton
 
-const MASTER_BUS := "Master"
-
 
 func _ready() -> void:
 	back_button.pressed.connect(close)
 	windowed_button.pressed.connect(on_windowed_pressed)
 	fullscreen_button.pressed.connect(on_fullscreen_pressed)
 
-	# 현재 버스 볼륨을 슬라이더에 먼저 반영한 뒤 연결한다.
+	# 저장된 값을 슬라이더에 먼저 얹은 뒤 연결한다.
 	# 순서를 뒤집으면 초기화 자체가 value_changed를 쏴서 볼륨을 덮어쓴다.
-	master_slider.set_value_no_signal(get_master_volume())
+	master_slider.set_value_no_signal(Settings.master_volume)
 	master_value.text = "%d" % master_slider.value
 	master_slider.value_changed.connect(on_master_volume_changed)
 
 
 func open() -> void:
 	visible = true
-	refresh_window_buttons()
+	refresh()
 	visual_button.grab_focus()
 
 
-## 버스 볼륨(dB)을 0~100 스케일로 되돌린다.
-func get_master_volume() -> float:
-	var bus := AudioServer.get_bus_index(MASTER_BUS)
-	if AudioServer.is_bus_mute(bus):
-		return 0.0
-	return db_to_linear(AudioServer.get_bus_volume_db(bus)) * 100.0
-
-
+## 실제 반영과 저장은 Settings가 한다. 이 화면은 값을 넘기고 표시만 맞춘다.
 func on_master_volume_changed(value: float) -> void:
-	var bus := AudioServer.get_bus_index(MASTER_BUS)
-
-	# linear_to_db(0)은 -inf라 그대로 넣지 않고 음소거로 처리한다.
-	if value <= 0.0:
-		AudioServer.set_bus_mute(bus, true)
-	else:
-		AudioServer.set_bus_mute(bus, false)
-		AudioServer.set_bus_volume_db(bus, linear_to_db(value / 100.0))
-
+	Settings.set_master_volume(value)
 	master_value.text = "%d" % value
 
 
 func on_windowed_pressed() -> void:
-	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	Settings.set_window_mode("windowed")
 	refresh_window_buttons()
 
 
 func on_fullscreen_pressed() -> void:
-	# 독점(EXCLUSIVE) 대신 보더리스. 알트탭이 빠르고 멀티모니터에서 안전하다.
-	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	Settings.set_window_mode("fullscreen")
+	refresh_window_buttons()
+
+
+## 다시 열 때마다 저장된 값으로 화면을 맞춘다. 슬라이더를 건드리다 ESC로 나갔다
+## 들어와도 표시와 실제 값이 어긋나지 않는다.
+func refresh() -> void:
+	master_slider.set_value_no_signal(Settings.master_volume)
+	master_value.text = "%d" % master_slider.value
 	refresh_window_buttons()
 
 
 ## 지금 모드인 쪽 버튼을 눌러도 의미가 없으므로 비활성화해 현재 상태를 드러낸다.
 func refresh_window_buttons() -> void:
-	var mode := DisplayServer.window_get_mode()
-	var is_fullscreen := mode == DisplayServer.WINDOW_MODE_FULLSCREEN \
-		or mode == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN
+	var is_fullscreen := Settings.current_window_mode() == "fullscreen"
 
 	windowed_button.disabled = not is_fullscreen
 	fullscreen_button.disabled = is_fullscreen

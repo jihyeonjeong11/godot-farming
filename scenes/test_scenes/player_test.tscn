@@ -1,6 +1,5 @@
 [gd_scene format=4 uid="uid://crq6tr62gpjr7"]
 
-[ext_resource type="PackedScene" uid="uid://pip21txswroy" path="res://scenes/ui/shop/shop_ui.tscn" id="1_2hghe"]
 [ext_resource type="PackedScene" uid="uid://ccnxtlq1ru1pv" path="res://scenes/components/cursors/object_cursor_component.tscn" id="1_2l28n"]
 [ext_resource type="PackedScene" uid="uid://bx810a2sxe5aa" path="res://scenes/components/characters/needs_decay_component.tscn" id="1_llh38"]
 [ext_resource type="TileSet" uid="uid://bg7n2qxwlk4ay" path="res://tilesets/apocalypse_green_tile_set.tres" id="2_8fa0t"]
@@ -31,8 +30,6 @@
 
 [node name="PlayerTestScene" type="Node2D" unique_id=695838568]
 y_sort_enabled = true
-
-[node name="ShopUI" parent="." unique_id=100231432 instance=ExtResource("1_2hghe")]
 
 [node name="NeedsDecayComponent" parent="." unique_id=1939453797 instance=ExtResource("1_llh38")]
 

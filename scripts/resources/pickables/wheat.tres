@@ -13,6 +13,7 @@ item_type = "material"
 item_name = "Wheat"
 item_texture = SubResource("AtlasTexture_wheat")
 description = "Harvested from a mature wheat plant."
+value = 50
 max_stack = 100
 world_scene_path = "uid://bkq2wvn8chr7d"
 metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

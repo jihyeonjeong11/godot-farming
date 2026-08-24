@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://oefnqb6itinp"
+path="res://.godot/imported/Big Iron.mp3-ed3d93208e85ce29d5b3279164aa12f4.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/musics/Big Iron.mp3"
+dest_files=["res://.godot/imported/Big Iron.mp3-ed3d93208e85ce29d5b3279164aa12f4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

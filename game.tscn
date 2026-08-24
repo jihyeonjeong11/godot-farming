@@ -4,11 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://glmtsyet4mll" path="res://managers/ui_manager.tscn" id="2_fc0e3"]
 [ext_resource type="Texture2D" uid="uid://cmc3tqcugvvas" path="res://assets/splash/splash.png" id="2_splash"]
 [ext_resource type="PackedScene" uid="uid://tp870g51e2ww" path="res://managers/game_state_manager.tscn" id="3_7jktm"]
+[ext_resource type="PackedScene" uid="uid://b68mls6gpmwtq" path="res://managers/audio_manager.tscn" id="4_audio"]
 
 [node name="Game" type="Node2D" unique_id=1847824133]
 script = ExtResource("1_80nbo")
 
 [node name="GameStateManager" parent="." unique_id=723736324 instance=ExtResource("3_7jktm")]
+
+[node name="AudioManager" parent="." unique_id=1618537928 instance=ExtResource("4_audio")]
 
 [node name="UiManager" parent="." unique_id=913842581 instance=ExtResource("2_fc0e3")]
 

@@ -9,6 +9,7 @@ item_type = "material"
 item_name = "Stone"
 item_texture = ExtResource("2_stn01")
 description = "Mined from rocks."
+value = 1
 max_stack = 100
 world_scene_path = "uid://d0gimcauu1toq"
 metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

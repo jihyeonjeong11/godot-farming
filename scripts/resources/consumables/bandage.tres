@@ -1,14 +1,16 @@
 [gd_resource type="Resource" script_class="Items" format=3 uid="uid://djnwaopxvypu3"]
 
-[ext_resource type="Texture2D" uid="uid://g8f7w30c77by" path="res://assets/Objects/Nature/Flowers_Mashrooms_Other-nature-stuff/Stick.png" id="1_wls62"]
+[ext_resource type="Texture2D" uid="uid://rek03og87el7" path="res://assets/Objects/Pickable/Bandage.png" id="1_pqwlm"]
 [ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/items.gd" id="2_wycep"]
 
 [resource]
 script = ExtResource("2_wycep")
 item_type = "material"
-item_name = "Log"
-item_texture = ExtResource("1_wls62")
-description = "Chopped from trees."
+item_name = "Bandage"
+item_texture = ExtResource("1_pqwlm")
+edible = 30
+description = "For cure your wounds."
+value = 100
 max_stack = 100
 world_scene_path = "uid://bssiydf5x86ti"
 metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

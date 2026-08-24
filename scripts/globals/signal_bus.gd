@@ -40,7 +40,6 @@ var player_stats: Stats
 signal player_stats_ready(stats: Stats)
 
 
-## 상자 같은 것을 열었다. 어디에 그릴지는 UI가 정한다.
 signal container_opened(slots: Array)
 
 ## 메인 메뉴에서 새 게임을 누른 순간. 어느 씬으로 갈지는 game.gd가 정한다.
@@ -52,7 +51,7 @@ signal main_menu_requested()
 ## 메인 메뉴에서 불러오기를 누른 순간. 씬을 띄운 뒤 세이브를 얹는 건 game.gd가 한다.
 signal load_game_requested()
 
-signal barter_opened()
+signal barter_opened(slots: Array)
 
 ## 포탈을 밟았다. 실제 씬 교체는 game.gd가 한다.
 ## 밟은 쪽이 직접 get_tree().change_scene을 부르면 루트(Game)와 오토로드 연결이

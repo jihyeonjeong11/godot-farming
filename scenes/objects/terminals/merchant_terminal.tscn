@@ -2,14 +2,20 @@
 
 [ext_resource type="Texture2D" uid="uid://bx55koac0cigb" path="res://assets/Objects/Vending-machine_Red_Overgrown_Green.png" id="1_2pqm7"]
 [ext_resource type="Script" uid="uid://7mcjkarrr3ls" path="res://scenes/objects/terminals/merchant_terminal.gd" id="2_1dn1k"]
+[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/items.gd" id="3_g7ipn"]
+[ext_resource type="PackedScene" uid="uid://b17pqg2t34n5v" path="res://scenes/components/container_inventory_component.tscn" id="3_rmklh"]
+[ext_resource type="Resource" uid="uid://djnwaopxvypu3" path="res://scripts/resources/consumables/bandage.tres" id="4_hwage"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4kxuq"]
 
 [node name="MerchantTerminal" type="Sprite2D" unique_id=720967649 groups=["interactables"]]
 texture = ExtResource("1_2pqm7")
 script = ExtResource("2_1dn1k")
+initial_items = Array[ExtResource("3_g7ipn")]([ExtResource("4_hwage")])
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=564171742]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=525508054]
 shape = SubResource("RectangleShape2D_4kxuq")
+
+[node name="ContainerInventoryComponent" parent="." unique_id=1057856798 instance=ExtResource("3_rmklh")]

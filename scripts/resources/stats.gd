@@ -35,8 +35,15 @@ class_name Stats extends Resource
 
 @export var base_damage: = 1
 
+@export var gold = 1 :
+	set(value):
+		var previous_gold = gold
+		gold = value
+		if gold != previous_gold: gold_changed.emit(gold)
+
 signal health_changed(new_health)
 signal no_health()
 signal stamina_changed(new_stamina)
 signal hunger_changed(new_hunger)
 signal thirst_changed(new_thirst)
+signal gold_changed(new_gold)

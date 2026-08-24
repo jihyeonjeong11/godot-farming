@@ -85,6 +85,7 @@ func setup_stats() -> void:
 		stats.stamina = saved.get("stamina", stats.stamina)
 		stats.hunger = saved.get("hunger", stats.hunger)
 		stats.thirst = saved.get("thirst", stats.thirst)
+		stats.gold = saved.get("gold", stats.gold)
 
 	SignalBus.player_stats = stats
 	SignalBus.player_stats_ready.emit(stats)

@@ -27,7 +27,6 @@ theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer" unique_id=911998636]
-visible = false
 layout_mode = 2
 theme_override_constants/separation = 8
 
@@ -38,7 +37,7 @@ horizontal_alignment = 1
 
 [node name="Columns" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=977202895]
 layout_mode = 2
-theme_override_constants/separation = 8
+theme_override_constants/separation = 0
 
 [node name="BagPanel" type="PanelContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Columns" unique_id=659004652]
 layout_mode = 2
@@ -66,93 +65,6 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(26, 26)
 layout_mode = 2
 columns = 6
-
-[node name="TradePanel" type="PanelContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Columns" unique_id=775511593]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 1.2
-theme_type_variation = &"IngamePanel"
-
-[node name="Margin" type="MarginContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Columns/TradePanel" unique_id=1920794909]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="VBox" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Columns/TradePanel/Margin" unique_id=1104912197]
-layout_mode = 2
-theme_override_constants/separation = 4
-
-[node name="SellLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Columns/TradePanel/Margin/VBox" unique_id=1750427804]
-layout_mode = 2
-text = "팔 물건"
-
-[node name="SellGrid" type="GridContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Columns/TradePanel/Margin/VBox" unique_id=2079759821]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(26, 26)
-layout_mode = 2
-columns = 4
-
-[node name="BuyLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Columns/TradePanel/Margin/VBox" unique_id=1803866293]
-layout_mode = 2
-text = "살 물건"
-
-[node name="BuyGrid" type="GridContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Columns/TradePanel/Margin/VBox" unique_id=1277107004]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(26, 26)
-layout_mode = 2
-columns = 4
-
-[node name="Separator" type="HSeparator" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Columns/TradePanel/Margin/VBox" unique_id=1612727527]
-layout_mode = 2
-
-[node name="GoldRow" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Columns/TradePanel/Margin/VBox" unique_id=43773662]
-layout_mode = 2
-
-[node name="Key" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Columns/TradePanel/Margin/VBox/GoldRow" unique_id=1335856584]
-layout_mode = 2
-text = "소지금"
-
-[node name="GoldLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Columns/TradePanel/Margin/VBox/GoldRow" unique_id=25336716]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-text = "0"
-horizontal_alignment = 2
-
-[node name="TotalRow" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Columns/TradePanel/Margin/VBox" unique_id=1496109411]
-layout_mode = 2
-
-[node name="Key" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Columns/TradePanel/Margin/VBox/TotalRow" unique_id=1169082067]
-layout_mode = 2
-text = "합계"
-
-[node name="TotalLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Columns/TradePanel/Margin/VBox/TotalRow" unique_id=1413935622]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-text = "+0"
-horizontal_alignment = 2
-
-[node name="ButtonRow" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Columns/TradePanel/Margin/VBox" unique_id=1740479192]
-layout_mode = 2
-theme_override_constants/separation = 4
-
-[node name="ConfirmButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Columns/TradePanel/Margin/VBox/ButtonRow" unique_id=2144370000]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-theme_type_variation = &"GameButton"
-disabled = true
-text = "거래"
-
-[node name="CancelButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Columns/TradePanel/Margin/VBox/ButtonRow" unique_id=831832750]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-theme_type_variation = &"GameButton"
-text = "취소"
 
 [node name="MerchantPanel" type="PanelContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Columns" unique_id=1034781809]
 layout_mode = 2

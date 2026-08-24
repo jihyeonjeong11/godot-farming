@@ -17,6 +17,14 @@ var slot_index: int = -1
 ## 타입 해석이 꼬여 스크립트 전체가 컴파일에 실패한다.
 var source: Array = []
 
+## 이 칸에서 끌어내거나 이 칸에 떨굴 수 있는지.
+## 상점처럼 값을 치르고 오가야 하는 격자는 꺼둔다. 안 끄면
+## 끌어 옮기기로 돈을 안 내고 물건을 가져갈 수 있다.
+var draggable: bool = true
+
+## 툴팁에서 value를 무엇으로 부를지. 상점은 "구매가"/"판매가"로 바꿔 단다.
+var price_label: String = "가치"
+
 @onready var amount_label: Label = $AmountLabel
 
 
@@ -34,7 +42,7 @@ func _gui_input(event: InputEvent) -> void:
 
 ## 좌클릭 드래그가 시작되면 Godot이 부른다. null을 반환하면 드래그하지 않는다.
 func _get_drag_data(_at_position: Vector2) -> Variant:
-	if selected_item == null or slot_index < 0:
+	if not draggable or selected_item == null or slot_index < 0:
 		return null
 
 	# 드래그하는 동안 마우스를 따라다닐 미리보기.
@@ -53,7 +61,7 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 
 ## 이 칸 위에 드롭할 수 있는지. false면 커서가 금지 표시로 바뀐다.
 func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
-	return slot_index >= 0 and data is Dictionary and data.has("from_source")
+	return draggable and slot_index >= 0 and data is Dictionary and data.has("from_source")
 
 
 ## 두 칸을 통째로 맞바꾼다. 상자와 가방 사이도 같은 방식이다.
@@ -86,7 +94,7 @@ func set_slot(stack: ItemStack) -> void:
 	var item := stack.item
 	selected_item = item
 	icon = item.item_texture
-	tooltip_text = "%s\n%s" % [item.item_name, item.description]
+	tooltip_text = item.describe(price_label)
 
 	amount_label.text = str(stack.amount)
 	amount_label.visible = stack.amount > 1

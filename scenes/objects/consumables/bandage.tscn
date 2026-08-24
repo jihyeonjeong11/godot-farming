@@ -1,6 +1,19 @@
 [gd_scene format=3 uid="uid://dfo7t4ju1851j"]
 
+[ext_resource type="PackedScene" uid="uid://ctp4naj2hxw80" path="res://scenes/components/collectable_component.tscn" id="1_osh45"]
+[ext_resource type="Resource" uid="uid://djnwaopxvypu3" path="res://scripts/resources/consumables/bandage.tres" id="2_miikf"]
+
 [sub_resource type="ImageTexture" id="ImageTexture_wswfj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fwmd7"]
+radius = 40.0
 
 [node name="Bandage" type="Sprite2D" unique_id=304834413]
 texture = SubResource("ImageTexture_wswfj")
+
+[node name="CollectableComponent" parent="." unique_id=1149376405 instance=ExtResource("1_osh45")]
+item = ExtResource("2_miikf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent" unique_id=1372886911]
+shape = SubResource("CircleShape2D_fwmd7")
+debug_color = Color(0.35016045, 0.61620694, 0.1935752, 0.41960785)

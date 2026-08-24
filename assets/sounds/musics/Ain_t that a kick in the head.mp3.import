@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dnguc31xgki31"
+path="res://.godot/imported/Ain_t that a kick in the head.mp3-325f8d2cdf2155e08c5d97baf9de5a65.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/musics/Ain_t that a kick in the head.mp3"
+dest_files=["res://.godot/imported/Ain_t that a kick in the head.mp3-325f8d2cdf2155e08c5d97baf9de5a65.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

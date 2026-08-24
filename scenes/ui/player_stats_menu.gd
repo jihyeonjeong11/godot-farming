@@ -5,6 +5,8 @@ extends PanelContainer
 @onready var hunger_bar: TextureProgressBar = $MarginContainer/VBoxContainer/HungerBar
 @onready var thirst_bar: TextureProgressBar = $MarginContainer/VBoxContainer/ThirstBar
 
+@onready var gold_label: Label = $MarginContainer/VBoxContainer/HBoxContainer/GoldLabel
+
 var player_stats: Stats
 
 
@@ -27,11 +29,14 @@ func bind_stats(stats: Stats) -> void:
 	setup_bar(stamina_bar, stats.stamina, stats.max_stamina)
 	setup_bar(hunger_bar, stats.hunger, stats.max_hunger)
 	setup_bar(thirst_bar, stats.thirst, stats.max_thirst)
+	
+	gold_label.text = str(stats.gold)
 
 	stats.health_changed.connect(on_health_changed)
 	stats.stamina_changed.connect(on_stamina_changed)
 	stats.hunger_changed.connect(on_hunger_changed)
 	stats.thirst_changed.connect(on_thirst_changed)
+	stats.gold_changed.connect(on_gold_changed)
 
 
 func setup_bar(bar: TextureProgressBar, value: int, max_value: int) -> void:
@@ -53,3 +58,7 @@ func on_hunger_changed(new_hunger: int) -> void:
 
 func on_thirst_changed(new_thirst: int) -> void:
 	thirst_bar.value = new_thirst
+
+
+func on_gold_changed(new_gold: int) -> void:
+	gold_label.text = str(new_gold)

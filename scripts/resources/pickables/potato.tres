@@ -14,6 +14,7 @@ item_name = "Potato"
 item_texture = SubResource("AtlasTexture_potato")
 edible = 2
 description = "Harvested from a mature potato plant. 우클릭으로 먹는다."
+value = 40
 max_stack = 100
 world_scene_path = "uid://dl6yaiengqgkk"
 metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

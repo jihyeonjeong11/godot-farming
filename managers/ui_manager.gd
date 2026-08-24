@@ -5,8 +5,9 @@ const SCENE_OVERAY = preload("uid://cgv3nwfyr3n17")
 const SCENE_OVERLAY_MENU = preload("uid://6jsgfc4dh1hr")
 const SCENE_INGAME_OVERLAY_MENU = preload("uid://dncd82n2y0aas")
 const SCENE_CONTAINER_INVENTORY_UI = preload("uid://b7xqk2mcnv0ug")
+const SHOP_UI = preload("uid://pip21txswroy")
 
-enum Layer { PAUSE_MENU, INGAME_MENU, CONTAINER }
+enum Layer { PAUSE_MENU, INGAME_MENU, CONTAINER, SHOP }
 
 var stack: Array[int] = []
 
@@ -14,7 +15,6 @@ var ingame_overlay: CanvasLayer = null
 
 var _layer_nodes: Dictionary = {}
 
-## 화면을 만들 때 건네줄 값. Layer -> Variant
 var _layer_payloads: Dictionary = {}
 
 var _game_state: DataTypes.GameState = DataTypes.GameState.MainMenu
@@ -26,6 +26,7 @@ func _ready() -> void:
 	SignalBus.game_state_changed.connect(on_change_game_state)
 	SignalBus.ui_close_requested.connect(close)
 	SignalBus.container_opened.connect(on_container_opened)
+	SignalBus.barter_opened.connect(on_barter_opened)
 
 
 func _shortcut_input(event: InputEvent) -> void:
@@ -61,9 +62,7 @@ func on_change_game_state(game_state: DataTypes.GameState) -> void:
 			close_ingame_overlay()
 
 
-## 상자를 만졌다. 입력이 아니라 상호작용으로 들어오는 길.
 func on_container_opened(slots: Array) -> void:
-	# 같은 상자를 다시 만지면 닫는다. 다른 상자면 내용만 갈아끼운다.
 	if is_open(Layer.CONTAINER):
 		if is_same(_layer_payloads.get(Layer.CONTAINER), slots):
 			close(Layer.CONTAINER)
@@ -73,6 +72,17 @@ func on_container_opened(slots: Array) -> void:
 		return
 
 	open(Layer.CONTAINER, slots)
+	
+func on_barter_opened(slots: Array) -> void:
+	if is_open(Layer.SHOP):
+		if is_same(_layer_payloads.get(Layer.SHOP), slots):
+			close(Layer.SHOP)
+		else:
+			_layer_payloads[Layer.SHOP] = slots
+			_apply_payload(Layer.SHOP)
+		return
+
+	open(Layer.SHOP, slots)
 
 
 func open(layer: Layer, payload: Variant = null) -> void:
@@ -153,12 +163,13 @@ func _open_layer_node(layer: Layer) -> void:
 			node = SCENE_INGAME_OVERLAY_MENU.instantiate()
 		Layer.CONTAINER:
 			node = SCENE_CONTAINER_INVENTORY_UI.instantiate()
+		Layer.SHOP:
+			node = SHOP_UI.instantiate()
 
 	if node == null:
 		return
 
 	_layer_nodes[layer] = node
-	# add_child가 _ready를 먼저 돌린다. payload는 그다음이라 항상 초기화 이후다.
 	add_child(node)
 	_apply_payload(layer)
 
@@ -189,8 +200,7 @@ func _close_layer_node(layer: Layer) -> void:
 
 
 func _sync() -> void:
-	# 정지 여부를 먼저 확정한 뒤 각 화면에 알린다. 화면이 켜질 때는
-	# 이미 트리가 멈춰 있어야 뒤에서 플레이어가 한 프레임 더 움직이지 않는다.
+
 	SignalBus.ui_stack_changed.emit(not stack.is_empty())
 
 	for layer in Layer.values():

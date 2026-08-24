@@ -7,17 +7,9 @@ extends Sprite2D
 
 
 func _ready() -> void:
-	pass
+	if not initial_items.is_empty():
+		inventory_component.fill(initial_items, initial_amounts)
 
 
 func interact() -> void:
-	SignalBus.barter_opened.emit()
-
-
-#func capture_state() -> Variant:
-	#return inventory_component.capture()
-#
-#
-#func apply_state(state: Variant) -> void:
-	#if state is Array:
-		#inventory_component.apply(state)
+	SignalBus.barter_opened.emit(inventory_component.slots)

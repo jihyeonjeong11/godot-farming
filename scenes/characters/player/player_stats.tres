@@ -12,4 +12,5 @@ hunger = 100
 max_hunger = 100
 thirst = 100
 max_thirst = 100
+gold = 500
 metadata/_custom_type_script = "uid://dmtqevof4ebrt"

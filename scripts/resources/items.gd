@@ -17,6 +17,8 @@ class_name Items extends Resource
 @export var melee_damage: int
 @export var melee_knockback: int
 
+@export var value: int
+
 ## 근접 판정을 몸에서 얼마나 밀어낼지(px). 리치가 긴 무기일수록 크다.
 @export var melee_reach: float = 18.0
 ## 근접 판정 원의 반지름(px). melee_shape가 비어 있을 때만 쓴다.
@@ -46,3 +48,32 @@ class_name Items extends Resource
 @export var anim_prefix: StringName = &""
 ## droppable
 @export_file("*.tscn") var world_scene_path: String = ""
+
+
+## 툴팁 한 덩어리. 의미 있는 줄만 골라 넣는다 — 빈 설명이나 0짜리
+## 수치까지 다 찍으면 읽을 것보다 건너뛸 것이 많아진다.
+##
+## 문자열을 부르는 쪽이 짜지 않고 아이템이 직접 만든다. 필드가 늘 때
+## 칸·퀵바·상자·상점을 일일이 고치지 않기 위해서다.
+##
+## price_label은 value를 무엇으로 부를지. 가방에서는 "가치"지만
+## 상점에서는 같은 숫자가 "구매가"나 "판매가"가 된다.
+func describe(price_label: String = "가치") -> String:
+	var lines: PackedStringArray = [item_name]
+
+	if not item_type.is_empty():
+		lines.append("[%s]" % item_type)
+
+	if not description.is_empty():
+		lines.append(description)
+
+	if melee_damage > 0:
+		lines.append("공격력 %d" % melee_damage)
+
+	if edible > 0:
+		lines.append("회복량 %d" % edible)
+
+	if value > 0:
+		lines.append("%s %d" % [price_label, value])
+
+	return "\n".join(lines)

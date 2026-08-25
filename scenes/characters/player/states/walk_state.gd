@@ -23,7 +23,7 @@ func _on_physics_process(_delta: float) -> void:
 			_running = running
 			_play()
 
-	player.velocity = direction * (player.run_speed if _running else player.walk_speed)
+	player.velocity = direction * player.get_move_speed(_running)
 	player.move_and_slide()
 
 

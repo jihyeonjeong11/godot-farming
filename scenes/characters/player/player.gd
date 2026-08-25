@@ -30,6 +30,8 @@ const TOOL_VISIBLE_ACTIONS: Array[String] = [
 	"slash",
 ]
 
+const RUN_MULTIPLIER := 2
+
 const BARE_REACH := 18.0
 const BARE_RADIUS := 14.0
 const TOOL_FRAMES_DIR := "res://scenes/characters/player/tools/"
@@ -40,8 +42,9 @@ const TOOL_FRAMES_DIR := "res://scenes/characters/player/tools/"
 @export var tool_front_sprite: AnimatedSprite2D
 @export var state_machine: NodeStateMachine
 @export var direction_component: CharacterDirectionComponent
+## 걷기 기본 속도. 달리기는 이 값의 두 배이고,
+## 실제 이동에는 stats.current_speed 배율이 곱해진다.
 @export var walk_speed: int = 90
-@export var run_speed: int = 150
 
 @export var stats: BaseCharacterStats
 
@@ -96,6 +99,19 @@ func setup_stats() -> void:
 		stats.hunger = saved.get("hunger", stats.hunger)
 		stats.thirst = saved.get("thirst", stats.thirst)
 		stats.gold = saved.get("gold", stats.gold)
+
+## base_speed 대비 current_speed의 비율. 버프가 없으면 1.0.
+func speed_multiplier() -> float:
+	if stats == null or stats.base_speed <= 0:
+		return 1.0
+	return float(stats.current_speed) / float(stats.base_speed)
+
+
+## 이동에 실제로 쓰이는 속도. 스탯 버프까지 반영한 값.
+func get_move_speed(running: bool) -> float:
+	var base_move: int = walk_speed * RUN_MULTIPLIER if running else walk_speed
+	return base_move * speed_multiplier()
+
 
 func apply_hitbox(item: Items) -> void:
 	if hit_shape == null:

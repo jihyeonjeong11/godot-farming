@@ -89,7 +89,7 @@ position = Vector2(407, 297)
 initial_items = Array[ExtResource("8_q27ys")]([ExtResource("12_axe"), ExtResource("13_hoe"), ExtResource("14_pick"), ExtResource("15_can"), ExtResource("16_bat"), ExtResource("16_sword"), ExtResource("19_potato"), ExtResource("17_corn"), ExtResource("18_carrot")])
 initial_amounts = Array[int]([1, 1, 1, 1, 1, 5, 5, 5])
 
-[node name="PortalComponent" parent="GameTileMap/Buildables" unique_id=1930517001 instance=ExtResource("24_luow7")]
+[node name="PortalComponent" parent="GameTileMap" unique_id=1930517001 instance=ExtResource("24_luow7")]
 position = Vector2(70, 364)
 target_scene = "uid://cisnfhhd77c24"
 
@@ -109,5 +109,3 @@ tilled_soil_tilemap_layer = NodePath("../GameTileMap/TilledSoil")
 [node name="CropsCursorComponent" parent="." unique_id=1655129502 node_paths=PackedStringArray("tilled_soil_tilemap_layer", "crops_layer") instance=ExtResource("27_crops")]
 tilled_soil_tilemap_layer = NodePath("../GameTileMap/TilledSoil")
 crops_layer = NodePath("../GameTileMap/LevelCrops")
-
-

@@ -2,6 +2,7 @@
 
 [ext_resource type="SpriteFrames" uid="uid://buuwy7arc0uti" path="res://scenes/characters/player/player_frames.tres" id="1_frames"]
 [ext_resource type="Script" uid="uid://cvk24wrv5ldmc" path="res://scenes/characters/player/player.gd" id="2_player"]
+[ext_resource type="PackedScene" uid="uid://crv3m1mc5xef2" path="res://scenes/components/characters/player_buff_component.tscn" id="3_blysn"]
 [ext_resource type="PackedScene" uid="uid://6mh7q3nopkay" path="res://scenes/components/characters/character_direction_component.tscn" id="3_hsjh2"]
 [ext_resource type="Script" uid="uid://bk7xvms3qnp8t" path="res://scripts/state_machine/node_state_machine.gd" id="3_machine"]
 [ext_resource type="Script" uid="uid://dx7t8f4bajt0t" path="res://scenes/characters/player/states/idle_state.gd" id="4_idle"]
@@ -26,6 +27,8 @@ tool_front_sprite = NodePath("ToolFront")
 state_machine = NodePath("StateMachine")
 direction_component = NodePath("CharacterDirectionComponent")
 stats = ExtResource("10_stats")
+
+[node name="PlayerBuffComponent" parent="." unique_id=1924369797 instance=ExtResource("3_blysn")]
 
 [node name="CharacterDirectionComponent" parent="." unique_id=36855666 instance=ExtResource("3_hsjh2")]
 

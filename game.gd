@@ -38,8 +38,6 @@ func on_load_game_requested() -> void:
 
 
 func on_main_menu_requested() -> void:
-	# 누른 버튼이 붙은 메뉴를 UiManager가 이 흐름에서 해제한다.
-	# 콜백이 도는 중에 발밑을 들어내지 않도록 프레임 끝으로 미룬다.
 	swap_scene.call_deferred(scene_mainmenu)
 
 

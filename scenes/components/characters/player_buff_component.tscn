@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://crv3m1mc5xef2"]
+
+[ext_resource type="Script" uid="uid://cnm7wb5dairgc" path="res://scenes/components/characters/player_buff_component.gd" id="1_ouaje"]
+
+[node name="PlayerBuffComponent" type="Node" unique_id=1924369797]
+script = ExtResource("1_ouaje")

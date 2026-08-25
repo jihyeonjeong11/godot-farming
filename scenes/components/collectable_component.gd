@@ -33,15 +33,12 @@ func _ready() -> void:
 	set_physics_process(false)
 	if arm_delay <= 0.0:
 		return
-	# monitoring을 껐다 켜면 이미 겹쳐 있던 body에 대해서도 body_entered가 다시 발동한다.
 	monitoring = false
 	await get_tree().create_timer(arm_delay).timeout
 	monitoring = true
 
 
 func _on_body_entered(body: Node2D) -> void:
-	# 클래스가 아니라 그룹으로 본다. 줍는 주체가 플레이어여야 할 이유는 없고,
-	# 그룹만 맞으면 동료 NPC든 애완동물이든 그대로 줍는다.
 	if _collected or not body.is_in_group("player"):
 		return
 	if item == null:

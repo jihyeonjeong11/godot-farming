@@ -64,6 +64,19 @@ func die() -> void:
 	if die_audio_stream_player.playing:
 		await die_audio_stream_player.finished
 		
-	var loot = root_table.get_root()
-	print(loot)
+	drop_loot.call_deferred()
 	queue_free()
+
+
+func drop_loot() -> void:
+	var loot_scene: PackedScene = root_table.get_root()
+	if loot_scene == null:
+		return
+
+	var host := get_parent()
+	if host == null:
+		return
+
+	var loot := loot_scene.instantiate() as Node2D
+	host.add_child(loot)
+	loot.global_position = global_position

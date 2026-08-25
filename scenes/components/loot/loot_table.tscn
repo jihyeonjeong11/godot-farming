@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://b146rj5ge4pas"]
-
-[ext_resource type="Script" uid="uid://rddjojxt21pn" path="res://scenes/components/loot/loot_table.gd" id="1_iyhbu"]
-
-[node name="RootTable" type="Node" unique_id=1120760073]
-script = ExtResource("1_iyhbu")

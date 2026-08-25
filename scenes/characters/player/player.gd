@@ -151,8 +151,6 @@ func has_melee_shape() -> bool:
 
 func can_attack() -> bool:
 	var item: Items = Inventory.get_selected_item()
-	# 씨앗도 통과시킨다. 심기는 히트박스가 아니라 타일 통로(crops_cursor_component)로 가므로
-	# melee_shape가 없는 게 정상이고, 여기서 막으면 tool_used 자체가 안 나간다.
 	if item != null and (item.item_type == "tool" or item.item_type == "seeds"):
 		return true
 	return item != null and item.melee_shape != null

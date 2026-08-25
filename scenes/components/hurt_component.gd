@@ -4,7 +4,7 @@ extends Area2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var hit_audio_stream_player: AudioStreamPlayer2D = $HitAudioStreamPlayer
 @export var tool: DataTypes.Tools = DataTypes.Tools.None
-@export var stats: Stats
+@export var stats: BaseCharacterStats
 
 signal hurt(hit_damage: int)
 

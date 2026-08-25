@@ -7,7 +7,7 @@ extends CharacterBody2D
 @onready var hit_component: HitComponent = $HitComponent
 @onready var state_machine: NodeStateMachine = $StateMachine
 
-@export var stats: Stats
+@export var stats: BaseCharacterStats
 
 @export var min_walk_cycle: int = 2
 @export var max_walk_cycle: int = 6
@@ -27,10 +27,14 @@ var knockback: Vector2 = Vector2.ZERO
 
 
 func _ready() -> void:
+	# 여러 마리가 같은 .tres를 공유하므로 각자 사본을 들어야 한다.
+	# duplicate()는 base_* 만 옮기므로 파생값은 setup_stats()가 채운다.
 	stats = stats.duplicate()
-	hit_component.hit_damage = stats.base_damage
+	stats.setup_stats()
+
+	hit_component.hit_damage = stats.current_attack
 	hurt_component.hurt.connect(on_hurt)
-	stats.no_health.connect(die)
+	stats.health_depleted.connect(die)
 
 	walk_cycles = randi_range(min_walk_cycle, max_walk_cycle)
 

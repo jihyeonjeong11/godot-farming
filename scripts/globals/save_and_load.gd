@@ -6,6 +6,17 @@ extends Node
 ## 레벨이 뜨는 시점엔 이미 메뉴가 사라진 뒤라, 그 의도를 여기에 남겨 전달한다.
 var load_requested := false
 
+## 메뉴에서 새 판으로 들어온 순간에만 true. 포탈로 씬만 옮길 때는 false다.
+## 플레이어가 스탯을 다시 채울지 말지를 이걸로 가른다.
+var fresh_start := false
+
+
+## 한 번만 답한다. 읽는 순간 내려가므로 씬을 옮겨도 다시 true가 되지 않는다.
+func consume_fresh_start() -> bool:
+	var value := fresh_start
+	fresh_start = false
+	return value
+
 const INVENTORY_SAVE_PATH := "user://inventory.sav"
 const TIME_SAVE_PATH := "user://time.sav"
 const STATS_SAVE_PATH := "user://stats.sav"
@@ -138,7 +149,7 @@ func load_inventory() -> void:
 
 ## 현재값만 적는다. 기준값은 player_stats.tres에 있으니 저장할 이유가 없고,
 ## 적어두면 나중에 밸런스를 고쳤을 때 옛 세이브가 옛 값을 붙들게 된다.
-func save_stats(stats: Stats) -> void:
+func save_stats(stats: BaseCharacterStats) -> void:
 	if stats == null:
 		return
 

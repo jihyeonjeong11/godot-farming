@@ -48,7 +48,9 @@ func on_save_pressed() -> void:
 	SaveAndLoad.save_level(get_parent())
 	SaveAndLoad.save_inventory()
 	SaveAndLoad.save_time()
-	SaveAndLoad.save_stats(SignalBus.player_stats)
+	var player: Player = get_tree().get_first_node_in_group("player") as Player
+	if player != null:
+		SaveAndLoad.save_stats(player.stats)
 
 
 func on_resume_pressed() -> void:

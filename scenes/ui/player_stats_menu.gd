@@ -7,28 +7,19 @@ extends PanelContainer
 
 @onready var gold_label: Label = $MarginContainer/VBoxContainer/HBoxContainer/GoldLabel
 
-var player_stats: Stats
+@export var player_stats: BaseCharacterStats
 
-
-## 플레이어가 사본을 만든 뒤에야 볼 값이 정해진다. 어느 쪽 _ready가 먼저 돌지
-## 모르므로, 아직이면 시그널을 기다리고 이미 끝났으면 그 자리에서 붙는다.
 func _ready() -> void:
-	SignalBus.player_stats_ready.connect(bind_stats)
+	bind_stats(player_stats)
 
-	if SignalBus.player_stats != null:
-		bind_stats(SignalBus.player_stats)
-
-
-func bind_stats(stats: Stats) -> void:
-	if stats == null or stats == player_stats:
+func bind_stats(stats: BaseCharacterStats) -> void:
+	if stats == null:
 		return
 
-	player_stats = stats
-
-	setup_bar(health_bar, stats.health, stats.max_health)
-	setup_bar(stamina_bar, stats.stamina, stats.max_stamina)
-	setup_bar(hunger_bar, stats.hunger, stats.max_hunger)
-	setup_bar(thirst_bar, stats.thirst, stats.max_thirst)
+	setup_bar(health_bar, stats.health, stats.current_max_health)
+	setup_bar(stamina_bar, stats.stamina, stats.current_max_stamina)
+	setup_bar(hunger_bar, stats.hunger, stats.current_max_hunger)
+	setup_bar(thirst_bar, stats.thirst, stats.current_max_thirst)
 	
 	gold_label.text = str(stats.gold)
 
@@ -44,19 +35,23 @@ func setup_bar(bar: TextureProgressBar, value: int, max_value: int) -> void:
 	bar.value = value
 
 
-func on_health_changed(new_health: int) -> void:
+func on_health_changed(new_health: int, max_health: int) -> void:
+	health_bar.max_value = max_health
 	health_bar.value = new_health
 
 
-func on_stamina_changed(new_stamina: int) -> void:
+func on_stamina_changed(new_stamina: int, max_stamina: int) -> void:
+	stamina_bar.max_value = max_stamina
 	stamina_bar.value = new_stamina
 
 
-func on_hunger_changed(new_hunger: int) -> void:
+func on_hunger_changed(new_hunger: int, max_hunger: int) -> void:
+	hunger_bar.max_value = max_hunger
 	hunger_bar.value = new_hunger
 
 
-func on_thirst_changed(new_thirst: int) -> void:
+func on_thirst_changed(new_thirst: int, max_thirst: int) -> void:
+	thirst_bar.max_value = max_thirst
 	thirst_bar.value = new_thirst
 
 

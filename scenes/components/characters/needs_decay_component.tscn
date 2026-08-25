@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://bx810a2sxe5aa"]
 
 [ext_resource type="Script" uid="uid://bh1hamkpf3uif" path="res://scenes/components/characters/needs_decay_component.gd" id="1_8hyvg"]
+[ext_resource type="Resource" uid="uid://dv4stqyl5a6tf" path="res://scenes/characters/player/player_stat.tres" id="2_uddy8"]
 
 [node name="NeedsDecayComponent" type="Node" unique_id=1939453797]
 script = ExtResource("1_8hyvg")
+stats = ExtResource("2_uddy8")

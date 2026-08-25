@@ -44,13 +44,20 @@ func refresh() -> void:
 	_refresh_cells(_bag_cells, Inventory.inventory)
 
 
+## 상점은 버튼을 누른 순간에만 스탯이 필요하다. 그때는 플레이어가 이미 트리에
+## 있으므로 미리 붙잡아둘 이유가 없다.
+func _get_player_stats() -> BaseCharacterStats:
+	var player: Player = get_tree().get_first_node_in_group("player") as Player
+	return player.stats if player != null else null
+
+
 ## 가방 칸을 눌렀을 때. 한 개를 상인에게 넘기고 값을 받는다.
 func sell(index: int) -> void:
 	var stack: ItemStack = Inventory.get_item(index)
 	if stack == null or stack.item == null:
 		return
 
-	var stats: Stats = SignalBus.player_stats
+	var stats: BaseCharacterStats = _get_player_stats()
 	if stats == null:
 		return
 
@@ -71,7 +78,7 @@ func buy(index: int) -> void:
 	if stack == null or stack.item == null:
 		return
 
-	var stats: Stats = SignalBus.player_stats
+	var stats: BaseCharacterStats = _get_player_stats()
 	if stats == null:
 		return
 

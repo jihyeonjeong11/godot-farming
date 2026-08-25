@@ -1,21 +1,25 @@
 [gd_scene format=3 uid="uid://bmp8j4fwdkl82"]
 
 [ext_resource type="SpriteFrames" uid="uid://buuwy7arc0uti" path="res://scenes/characters/player/player_frames.tres" id="1_frames"]
+[ext_resource type="Resource" uid="uid://dv4stqyl5a6tf" path="res://scenes/characters/player/player_stat.tres" id="2_blysn"]
 [ext_resource type="Script" uid="uid://cvk24wrv5ldmc" path="res://scenes/characters/player/player.gd" id="2_player"]
 [ext_resource type="PackedScene" uid="uid://crv3m1mc5xef2" path="res://scenes/components/characters/player_buff_component.tscn" id="3_blysn"]
 [ext_resource type="PackedScene" uid="uid://6mh7q3nopkay" path="res://scenes/components/characters/character_direction_component.tscn" id="3_hsjh2"]
 [ext_resource type="Script" uid="uid://bk7xvms3qnp8t" path="res://scripts/state_machine/node_state_machine.gd" id="3_machine"]
 [ext_resource type="Script" uid="uid://dx7t8f4bajt0t" path="res://scenes/characters/player/states/idle_state.gd" id="4_idle"]
+[ext_resource type="PackedScene" uid="uid://bx810a2sxe5aa" path="res://scenes/components/characters/needs_decay_component.tscn" id="5_hv5x3"]
 [ext_resource type="Script" uid="uid://cecb6ifm0d78m" path="res://scenes/characters/player/states/walk_state.gd" id="5_walk"]
 [ext_resource type="Script" uid="uid://d3bd3pr8oo7ru" path="res://scenes/characters/player/states/oneshot_state.gd" id="6_oneshot"]
 [ext_resource type="Script" uid="uid://cxb6otj6gy0oy" path="res://scenes/characters/player/states/sit_state.gd" id="7_sit"]
 [ext_resource type="Script" uid="uid://bn70gpst8eiuy" path="res://scenes/characters/player/states/climb_state.gd" id="8_climb"]
+[ext_resource type="PackedScene" uid="uid://bwn5t2ejgp0hr" path="res://scenes/components/hurt_component.tscn" id="8_ykrpk"]
 [ext_resource type="PackedScene" uid="uid://0pe6fvow1o6b" path="res://scenes/components/hit_component.tscn" id="9_hit"]
-[ext_resource type="Resource" uid="uid://eg46i4iqjh3q" path="res://scenes/characters/player/player_stats.tres" id="10_stats"]
 [ext_resource type="Script" uid="uid://xscrrqrdk8os" path="res://scenes/characters/player/states/attack_state.gd" id="11_attack"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_body"]
 radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4kxuq"]
 
 [node name="Player" type="CharacterBody2D" unique_id=523926272 node_paths=PackedStringArray("sprite_layers", "tool_back_sprite", "tool_front_sprite", "state_machine", "direction_component") groups=["player"]]
 collision_layer = 2
@@ -26,11 +30,13 @@ tool_back_sprite = NodePath("ToolBack")
 tool_front_sprite = NodePath("ToolFront")
 state_machine = NodePath("StateMachine")
 direction_component = NodePath("CharacterDirectionComponent")
-stats = ExtResource("10_stats")
+stats = ExtResource("2_blysn")
 
 [node name="PlayerBuffComponent" parent="." unique_id=1924369797 instance=ExtResource("3_blysn")]
 
 [node name="CharacterDirectionComponent" parent="." unique_id=36855666 instance=ExtResource("3_hsjh2")]
+
+[node name="NeedsDecayComponent" parent="." unique_id=1939453797 instance=ExtResource("5_hv5x3")]
 
 [node name="ToolBack" type="AnimatedSprite2D" parent="." unique_id=1538955266]
 offset = Vector2(0, -30)
@@ -51,6 +57,11 @@ shape = SubResource("CircleShape2D_body")
 [node name="HitComponentShape2D" type="CollisionShape2D" parent="HitComponent" unique_id=1573941828]
 position = Vector2(0, 18)
 disabled = true
+
+[node name="HurtComponent" parent="." unique_id=1533014795 instance=ExtResource("8_ykrpk")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent" unique_id=296981148]
+shape = SubResource("CircleShape2D_4kxuq")
 
 [node name="StateMachine" type="Node" parent="." unique_id=1106017001 node_paths=PackedStringArray("initial_node_state")]
 script = ExtResource("3_machine")

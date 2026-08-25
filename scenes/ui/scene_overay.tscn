@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cgv3nwfyr3n17"]
 
+[ext_resource type="Resource" uid="uid://dv4stqyl5a6tf" path="res://scenes/characters/player/player_stat.tres" id="2_3tyhe"]
 [ext_resource type="PackedScene" uid="uid://d384q4vj3r24y" path="res://scenes/ui/inventory/quick_bar.tscn" id="2_uj2p4"]
 [ext_resource type="PackedScene" uid="uid://cwpugakipo362" path="res://scenes/ui/player_stats_menu.tscn" id="3_xqf54"]
 [ext_resource type="PackedScene" uid="uid://p7t7asu1gdgy" path="res://scenes/ui/time.tscn" id="4_7adw0"]
@@ -7,6 +8,7 @@
 [node name="SceneOveray" type="CanvasLayer" unique_id=476376829]
 
 [node name="PlayerStats" parent="." unique_id=870378732 instance=ExtResource("3_xqf54")]
+player_stats = ExtResource("2_3tyhe")
 
 [node name="Quickbar" parent="." unique_id=684302791 instance=ExtResource("2_uj2p4")]
 

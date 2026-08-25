@@ -27,10 +27,12 @@ func _free_tab_key() -> void:
 
 func on_new_game_requested() -> void:
 	SaveAndLoad.load_requested = false
+	SaveAndLoad.fresh_start = true
 	swap_scene.call_deferred(scene_farm)
 
 func on_load_game_requested() -> void:
 	SaveAndLoad.load_requested = true
+	SaveAndLoad.fresh_start = true
 	# 인벤토리와 시간은 오토로드라 씬 교체와 무관하다. 여기서 바로 얹어도 된다.
 	SaveAndLoad.load_inventory()
 	SaveAndLoad.load_time()

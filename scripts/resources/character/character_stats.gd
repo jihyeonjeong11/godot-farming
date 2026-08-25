@@ -22,12 +22,12 @@ const STAT_CURVES: Dictionary[Buffables, Curve] = {
 	Buffables.SPEED: preload("uid://de15cyxl57l1i"),
 }
 
-# 1. 여기서 level based 스탯
-# 2. character_buff 컴포넌트에서 각종 상황에 따라 변동 ex) 배고픔 - speed 감소
-# 3. 마지막으로 실제로 player.gd 내부 컴포넌트에서 사용
-
 signal health_depleted
 signal health_changed(cur_health: int, max_health: int)
+signal stamina_changed(cur_stamina: int, max_stamina: int)
+signal hunger_changed(cur_hunger: int, max_hunger: int)
+signal thirst_changed(cur_thirst: int, max_thirst: int)
+signal gold_changed(cur_gold: int)
 
 @export var base_level = 1
 @export var experience = 0: set = _on_experience_set
@@ -55,18 +55,20 @@ var current_attack: int = base_attack
 var current_speed: int = base_speed
 
 var health: int = 0: set = _on_health_set
-var stamina: int = 0
-var hunger: int = 0
-var thirst: int = 0
-var gold: int = 0
+var stamina: int = 0: set = _on_stamina_set
+var hunger: int = 0: set = _on_hunger_set
+var thirst: int = 0: set = _on_thirst_set
+var gold: int = 0: set = _on_gold_set
 
 
 var stat_buffs: Array[StatBuff]
 
-func _init() -> void:
-	setup_stats.call_deferred()
-	
+## 한 번이라도 채워졌는가. 씬을 옮겨도 이 리소스는 캐시에 남으므로,
+## 새 Player가 또 채워서 값을 날리지 않도록 부르는 쪽이 이 값을 본다.
+var is_initialized := false
+
 func setup_stats() -> void:
+	is_initialized = true
 	recalculate_stats()
 	health = current_max_health
 	hunger = current_max_hunger
@@ -106,12 +108,15 @@ func recalculate_stats() -> void:
 					stat_addends[stat_name] = 0.0
 				stat_addends[stat_name] -= buff.buff_amount
 
-	var stat_sample_pos: float = (float(level) / 100.0) - 0.01
-	current_max_health = base_max_health * STAT_CURVES[Buffables.MAX_HEALTH].sample(stat_sample_pos)
-	current_max_stamina = base_max_stamina * STAT_CURVES[Buffables.MAX_HEALTH].sample(stat_sample_pos)
-	current_defense = base_defense * STAT_CURVES[Buffables.MAX_HEALTH].sample(stat_sample_pos)
-	current_attack = base_attack * STAT_CURVES[Buffables.MAX_HEALTH].sample(stat_sample_pos)
+	var level_bonus: int = level - 1
+	current_max_health = base_max_health + level_bonus
+	current_max_stamina = base_max_stamina + level_bonus
+	current_defense = base_defense + level_bonus
+	current_attack = base_attack + level_bonus
 	current_speed = base_speed
+
+	current_max_hunger = base_max_hunger
+	current_max_thirst = base_max_thirst
 	
 	for stat_name in stat_multipliers:
 		var cur_property_name: String = str("current_" + stat_name)
@@ -128,6 +133,26 @@ func _on_health_set(new_value: int) -> void:
 	if health <= 0:
 		health_depleted.emit()
 		
+func _on_stamina_set(new_value: int) -> void:
+	stamina = clampi(new_value, 0, current_max_stamina)
+	stamina_changed.emit(stamina, current_max_stamina)
+
+
+func _on_hunger_set(new_value: int) -> void:
+	hunger = clampi(new_value, 0, current_max_hunger)
+	hunger_changed.emit(hunger, current_max_hunger)
+
+
+func _on_thirst_set(new_value: int) -> void:
+	thirst = clampi(new_value, 0, current_max_thirst)
+	thirst_changed.emit(thirst, current_max_thirst)
+
+
+func _on_gold_set(new_value: int) -> void:
+	gold = maxi(new_value, 0)
+	gold_changed.emit(gold)
+
+
 func _on_experience_set(new_value: int) -> void:
 	var old_level: int = level
 	experience = new_value

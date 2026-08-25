@@ -43,10 +43,11 @@ const TOOL_FRAMES_DIR := "res://scenes/characters/player/tools/"
 @export var walk_speed: int = 90
 @export var run_speed: int = 150
 
-@export var stats: Stats
+@export var stats: BaseCharacterStats
 
 @onready var hit_component: HitComponent = $HitComponent
 @onready var hit_shape: CollisionShape2D = $HitComponent/HitComponentShape2D
+@onready var hurt_component: HurtComponent = $HurtComponent
 
 var _equipped_item: Items
 var equipped_tool: String = ""
@@ -72,13 +73,22 @@ func _ready() -> void:
 	setup_stats()
 	Inventory.set_player_reference(self)
 	apply_hitbox(null)
+	hurt_component.hurt.connect(take_hit)
 
 func setup_stats() -> void:
 	if stats == null:
 		return
 
-	stats = stats.duplicate()
+	# 포탈로 씬만 옮긴 경우엔 손대지 않는다. .tres는 캐시에 남아 값이 이어진다.
+	# is_initialized 검사는 F6로 이 씬만 단독 실행해 Game을 안 거친 경우를 위한 것.
+	var is_fresh_start: bool = SaveAndLoad.consume_fresh_start()
+	if not is_fresh_start and stats.is_initialized:
+		return
 
+	stats.setup_stats()
+
+	# setup_stats()가 base 값으로 가득 채운 뒤라, 세이브가 있으면 그 위에 덮는다.
+	# "새 게임"이면 load_stats()가 null을 주므로 가득 찬 상태로 남는다.
 	var saved: Variant = SaveAndLoad.load_stats()
 	if saved is Dictionary:
 		stats.health = saved.get("health", stats.health)
@@ -86,9 +96,6 @@ func setup_stats() -> void:
 		stats.hunger = saved.get("hunger", stats.hunger)
 		stats.thirst = saved.get("thirst", stats.thirst)
 		stats.gold = saved.get("gold", stats.gold)
-
-	SignalBus.player_stats = stats
-	SignalBus.player_stats_ready.emit(stats)
 
 func apply_hitbox(item: Items) -> void:
 	if hit_shape == null:
@@ -161,7 +168,7 @@ func consume_selected() -> bool:
 		return false
 
 	if item.edible > 0 and stats != null:
-		stats.health = mini(stats.health + item.edible, stats.max_health)
+		stats.health = mini(stats.health + item.edible, stats.current_max_health)
 
 	Inventory.remove_item(Inventory.selected_slot, 1)
 	return true
@@ -267,6 +274,7 @@ func load_tool_frames(suffix: String) -> SpriteFrames:
 func is_action_playing() -> bool:
 	return not sprite_layers.is_empty() and sprite_layers[0].is_playing()
 
-func take_hit(_hit_damage: int = 0) -> void:
+func take_hit(hit_damage: int = 0) -> void:
+	stats.health -= hit_damage
 	if state_machine:
 		state_machine.transition_to("Hurt")

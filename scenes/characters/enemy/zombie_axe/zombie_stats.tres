@@ -1,10 +1,9 @@
-[gd_resource type="Resource" script_class="Stats" format=3]
+[gd_resource type="Resource" script_class="BaseCharacterStats" format=3]
 
-[ext_resource type="Script" uid="uid://dmtqevof4ebrt" path="res://scripts/resources/stats.gd" id="1_axest"]
+[ext_resource type="Script" uid="uid://b22i1gh4wbolw" path="res://scripts/resources/character/character_stats.gd" id="1_axest"]
 
 [resource]
 script = ExtResource("1_axest")
-health = 6
-max_health = 6
-base_damage = 2
-metadata/_custom_type_script = "uid://dmtqevof4ebrt"
+base_max_health = 6
+base_attack = 2
+metadata/_custom_type_script = "uid://b22i1gh4wbolw"

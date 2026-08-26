@@ -28,24 +28,20 @@ signal interact_used(user_position: Vector2, target_position: Vector2)
 
 ## interact_used를 받은 쪽이 "내가 처리했다"고 남기는 자리.
 ## 시그널은 값을 돌려주지 못해서 이 깃발로 대신한다. 쏘는 쪽이 직전에 false로 두고
-## 끝난 뒤 확인한다. 상자를 열었으면 손에 든 감자까지 먹히지 않게 하기 위함이다.
 var interact_handled := false
 
 
 signal container_opened(slots: Array)
 
-## 메인 메뉴에서 새 게임을 누른 순간. 어느 씬으로 갈지는 game.gd가 정한다.
 signal new_game_requested()
 
-## 일시정지 메뉴에서 메인 메뉴로 나가겠다고 누른 순간. 어느 씬인지는 game.gd가 안다.
 signal main_menu_requested()
 
-## 메인 메뉴에서 불러오기를 누른 순간. 씬을 띄운 뒤 세이브를 얹는 건 game.gd가 한다.
 signal load_game_requested()
 
 signal barter_opened(slots: Array)
 
-## 포탈을 밟았다. 실제 씬 교체는 game.gd가 한다.
-## 밟은 쪽이 직접 get_tree().change_scene을 부르면 루트(Game)와 오토로드 연결이
-## 끊긴 채로 갈아끼워지므로, 통로를 여기 하나로 묶는다.
 signal scene_change_requested(scene_path: String)
+
+# TODO: this is temp signal, need a system
+signal sound_requested(soundKey: String)

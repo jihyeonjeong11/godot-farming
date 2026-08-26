@@ -4,3 +4,4 @@
 
 [node name="GrowthCycleComponent" type="Node" unique_id=1205384333]
 script = ExtResource("1_8e5wo")
+days_until_harvest = 7

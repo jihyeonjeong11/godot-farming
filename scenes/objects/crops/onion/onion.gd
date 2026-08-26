@@ -1,6 +1,6 @@
 extends Node2D
 
-var potato_harvest_scene = preload("res://scenes/objects/crops/potato/potato_harvest.tscn")
+var harvest_scene = preload("res://scenes/objects/crops/onion/onion_harvest.tscn")
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var flowering_particles: GPUParticles2D = $FloweringParticles
 @onready var watering_particles: GPUParticles2D = $WateringParticles
@@ -12,6 +12,8 @@ var growth_state: DataTypes.GrowthStates = DataTypes.GrowthStates.Seed
 
 var _shown_state: int = -1
 
+## 수확은 한 번뿐. HitComponent가 계속 monitoring 상태라 area_entered가 연달아
+## 들어올 수 있는데, 막지 않으면 드롭이 여러 개 생긴다.
 var _harvested: bool = false
 
 func _ready() -> void:
@@ -46,9 +48,6 @@ func on_hurt(hit_damage: int) -> void:
 		harvest()
 		return
 
-	# 물 준 상태는 FieldCursorComponent 가 타일에 칠한다. 여기선 연출만 한다.
-	# 타일 상태로 막지 않는 건, 물뿌리개를 쓰면 tool_used 로 타일이 먼저 칠해지고
-	# area_entered 는 다음 물리 프레임에 와서 이미 물 준 칸으로 보이기 때문이다.
 	if watering_particles.emitting:
 		return
 
@@ -56,10 +55,6 @@ func on_hurt(hit_damage: int) -> void:
 	await get_tree().create_timer(5.0).timeout
 	watering_particles.emitting = false
 
-## 우클릭으로 만져졌다. ObjectCursorComponent가 이 이름으로 부른다.
-## 다 자랐을 때만 수확된다. 덜 자란 것을 눌러도 아무 일도 일어나지 않는다.
-##
-## 좌클릭(on_hurt) 경로는 그대로 둔다. 밀처럼 낫으로 베는 작물이 그쪽을 쓴다.
 func interact() -> void:
 	if growth_state != DataTypes.GrowthStates.Maturity:
 		return
@@ -67,16 +62,13 @@ func interact() -> void:
 	harvest()
 
 
-## 작물을 제거하고 같은 자리에 획득 가능한 아이템을 떨군다.
 func harvest() -> void:
 	if _harvested:
 		return
 	_harvested = true
 
-	var drop: Node2D = potato_harvest_scene.instantiate()
-	# 같은 부모에 붙이므로 로컬 좌표를 그대로 물려주면 위치가 맞는다.
+	var drop: Node2D = harvest_scene.instantiate()
 	drop.position = position
-	# area_entered(물리 콜백) 안에서 호출되므로 add_child는 지연시켜야 한다.
 	get_parent().add_child.call_deferred(drop)
 	queue_free()
 
@@ -85,14 +77,10 @@ func on_crop_maturity() -> void:
 	flowering_particles.emitting = true
 
 
-## 레이어가 씬과 위치만 떠내므로, 자란 정도는 여기서 따로 넘긴다.
 func capture_state() -> Variant:
 	return growth_cycle_component.capture()
 
 
-## 레이어가 add_child 다음에 부른다(_ready는 이미 끝났다).
-## _process가 그림을 맞출 때까지 기다리면 한 프레임 동안 씨앗이 보이므로
-## 여기서 스프라이트까지 바로 맞춘다.
 func apply_state(state: Variant) -> void:
 	growth_cycle_component.apply(state)
 	growth_state = growth_cycle_component.get_current_growth_state()

@@ -28,6 +28,7 @@ SaveGameManager="*uid://cv1prwkrmrj7m"
 SaveAndLoad="*uid://d0y42xiiply8f"
 MobSpawner="*uid://bjhhfev0ke1p2"
 Settings="*res://scripts/globals/settings.gd"
+WeatherManager="*uid://c1luewiv23rn7"
 
 [display]
 

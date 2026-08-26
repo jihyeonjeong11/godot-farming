@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://d2dyppm7c3x2f"]
+
+[ext_resource type="Script" uid="uid://c3splwj0mxg0x" path="res://scenes/objects/crops/onion/onion.gd" id="1_jmc85"]
+[ext_resource type="PackedScene" uid="uid://icexu1c4ffpk" path="res://scenes/components/growth_cycle_component.tscn" id="3_875ke"]
+[ext_resource type="Texture2D" uid="uid://dog4l2sx7u7cn" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png" id="3_oqt3h"]
+[ext_resource type="PackedScene" uid="uid://bu66glbfsvp45" path="res://scenes/objects/crops/flowering_particles.tscn" id="4_f2mx2"]
+[ext_resource type="PackedScene" uid="uid://cehk8b7braiq8" path="res://scenes/objects/crops/watering_particles.tscn" id="5_eye6f"]
+[ext_resource type="PackedScene" uid="uid://dn08baylvwldn" path="res://scenes/components/farming_hurt_component.tscn" id="6_0g7nr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l106e"]
+atlas = ExtResource("3_oqt3h")
+region = Rect2(744, 202, 16, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3gqp4"]
+atlas = ExtResource("3_oqt3h")
+region = Rect2(748, 224, 14, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txaa0"]
+atlas = ExtResource("3_oqt3h")
+region = Rect2(776, 218, 18, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxcwk"]
+atlas = ExtResource("3_oqt3h")
+region = Rect2(806, 212, 20, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kxuq"]
+size = Vector2(8.5, 8.5)
+
+[node name="Onion" type="Node2D" unique_id=1198681918 groups=["crops", "interactables"]]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_jmc85")
+growth_textures = Array[Texture2D]([SubResource("AtlasTexture_l106e"), SubResource("AtlasTexture_3gqp4"), SubResource("AtlasTexture_txaa0"), SubResource("AtlasTexture_hxcwk")])
+
+[node name="GrowthCycleComponent" parent="." unique_id=1205384333 instance=ExtResource("3_875ke")]
+days_until_harvest = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=766036066]
+texture = SubResource("AtlasTexture_l106e")
+centered = false
+offset = Vector2(-8, -10)
+
+[node name="FloweringParticles" parent="." unique_id=1941758750 instance=ExtResource("4_f2mx2")]
+
+[node name="WateringParticles" parent="." unique_id=462339412 instance=ExtResource("5_eye6f")]
+
+[node name="FarmingHurtComponent" parent="." unique_id=309631884 instance=ExtResource("6_0g7nr")]
+tool = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FarmingHurtComponent" unique_id=1605737799]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_4kxuq")

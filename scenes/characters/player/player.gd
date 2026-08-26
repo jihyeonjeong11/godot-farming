@@ -183,9 +183,18 @@ func consume_selected() -> bool:
 	if item == null or item.item_type != "consumable":
 		return false
 
-	if item.edible > 0 and stats != null:
-		stats.health = mini(stats.health + item.edible, stats.current_max_health)
+	if stats != null:
+		if item.edible > 0:
+			stats.health = mini(stats.health + item.edible, stats.current_max_health)
 
+		# hunger/thirst는 setter가 알아서 최대치로 자른다.
+		if item.hunger > 0:
+			stats.hunger += item.hunger
+
+		if item.thirst > 0:
+			stats.thirst += item.thirst
+
+	SignalBus.sound_requested.emit(AudioManager.SFX_EATING)
 	Inventory.remove_item(Inventory.selected_slot, 1)
 	return true
 

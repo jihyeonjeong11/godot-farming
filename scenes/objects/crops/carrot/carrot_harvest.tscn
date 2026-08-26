@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bl0lklid7te08"]
+
+[ext_resource type="Texture2D" uid="uid://dog4l2sx7u7cn" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png" id="1_j3eq6"]
+[ext_resource type="PackedScene" uid="uid://ctp4naj2hxw80" path="res://scenes/components/collectable_component.tscn" id="2_173ak"]
+[ext_resource type="Resource" uid="uid://c5iqtmnq4272e" path="res://scripts/resources/pickables/carrot.tres" id="3_3d7lx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cv8d"]
+atlas = ExtResource("1_j3eq6")
+region = Rect2(834, 351, 30, 31)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4kxuq"]
+radius = 17.029387
+
+[node name="CarrotHarvest" type="Sprite2D" unique_id=1796732878]
+texture = SubResource("AtlasTexture_6cv8d")
+
+[node name="CollectableComponent" parent="." unique_id=1149376405 instance=ExtResource("2_173ak")]
+item = ExtResource("3_3d7lx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent" unique_id=70983027]
+shape = SubResource("CircleShape2D_4kxuq")

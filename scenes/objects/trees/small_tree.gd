@@ -12,6 +12,7 @@ func _ready() -> void:
 	animated_sprite_2d.hide()
 
 func on_hurt(hit_damage: int) -> void:
+	SignalBus.sound_requested.emit(AudioManager.SFX_TREE_HITTING)
 	damage_component.apply_damage(hit_damage)
 	material.set_shader_parameter("shake_intensity", 1.0)
 	await get_tree().create_timer(0.3).timeout

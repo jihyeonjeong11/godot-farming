@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://8ap3slt07136"]
+
+[ext_resource type="TileSet" uid="uid://cwaqnx3wjt35y" path="res://tilesets/craft.tres" id="1_djnf4"]
+
+[node name="TestSceneSzadiFarm" type="Node2D" unique_id=1096413266]
+
+[node name="TileMap" type="TileMap" parent="." unique_id=2114889408]
+tile_set = ExtResource("1_djnf4")
+format = 2

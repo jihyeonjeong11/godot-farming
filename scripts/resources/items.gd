@@ -11,6 +11,10 @@ class_name Items extends Resource
 @export var item_effect = ""
 ## 먹을 수 있다면 회복량. 아니면 -1
 @export var edible = -1
+## 먹었을 때 채워주는 허기. 0이면 허기에는 영향이 없다.
+@export var hunger = 0
+## 먹었을 때 채워주는 갈증. 0이면 갈증에는 영향이 없다.
+@export var thirst = 0
 ## todo: i18n
 @export var description = ""
 
@@ -72,6 +76,12 @@ func describe(price_label: String = "가치") -> String:
 
 	if edible > 0:
 		lines.append("회복량 %d" % edible)
+
+	if hunger > 0:
+		lines.append("허기 +%d" % hunger)
+
+	if thirst > 0:
+		lines.append("갈증 +%d" % thirst)
 
 	if value > 0:
 		lines.append("%s %d" % [price_label, value])

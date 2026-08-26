@@ -18,7 +18,7 @@ func _ready() -> void:
 func on_interact(user_position: Vector2, cursor_position: Vector2) -> void:
 	var candidates := get_tree().get_nodes_in_group(interactable_group)
 
-	var closest: Node2D = null
+	var closest_handler: Object = null
 	var closest_distance := INF
 
 	for candidate in candidates:
@@ -33,12 +33,30 @@ func on_interact(user_position: Vector2, cursor_position: Vector2) -> void:
 		if candidate_distance >= closest_distance:
 			continue
 
-		closest = object
+		# 받을 사람이 없는 대상은 후보에서 빼야 한다. 그냥 골라놓고 아무것도
+		# 안 하면 interact_handled만 남겨서 손에 든 아이템 사용까지 막아버린다.
+		var handler := resolve_handler(object)
+		if handler == null:
+			continue
+
+		closest_handler = handler
 		closest_distance = candidate_distance
 
-	if closest == null:
+	if closest_handler == null:
 		return
 
-	closest.call(&"interact")
+	closest_handler.call(&"interact")
 
 	SignalBus.interact_handled = true
+
+
+## InteractableComponent가 있으면 그쪽으로, 없으면 예전처럼 노드가 직접 받는다.
+func resolve_handler(object: Node2D) -> Object:
+	for child in object.get_children():
+		var component := child as InteractableComponent
+		if component == null:
+			continue
+
+		return component if component.enabled else null
+
+	return object if object.has_method(&"interact") else null

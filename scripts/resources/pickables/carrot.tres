@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Items" format=3 uid="uid://c5iqtmnq4272e"]
+
+[ext_resource type="Texture2D" uid="uid://j1o8v4xqk4ef" path="res://assets/Objects/crops/crops.png" id="1_38tgp"]
+[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/items.gd" id="2_62xar"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_potato"]
+atlas = ExtResource("1_38tgp")
+region = Rect2(838, 355, 23, 23)
+
+[resource]
+script = ExtResource("2_62xar")
+item_type = "consumable"
+item_name = "Carrot"
+item_texture = SubResource("AtlasTexture_potato")
+edible = 2
+hunger = 10
+thirst = 5
+description = "Harvested from a mature potato plant. 우클릭으로 먹는다."
+value = 40
+max_stack = 100
+world_scene_path = "uid://bl0lklid7te08"
+metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

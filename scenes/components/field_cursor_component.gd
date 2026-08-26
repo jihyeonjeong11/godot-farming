@@ -40,6 +40,7 @@ func add_watered_soil_cell(item: Items) -> void:
 		return
 
 	watered_soil_layer.water_cell(cell_position, tilled_soil_tilemap_layer)
+	SignalBus.sound_requested.emit(AudioManager.SFX_WATERING_CROPS)
 
 func get_cell_under_mouse() -> void:
 	mouse_position = grass_tilemap_layer.get_local_mouse_position()
@@ -52,6 +53,7 @@ func get_cell_under_mouse() -> void:
 func add_tilled_soil_cell(item: Items) -> void:
 	if distance < item.use_range && cell_source_id != -1:
 		tilled_soil_tilemap_layer.set_cells_terrain_connect([cell_position], terrain_set, terrain, true)
+		SignalBus.sound_requested.emit(AudioManager.SFX_TILLING_GROUND)
 
 func remove_tilled_soil_cell(item: Items) -> void:
 	if distance >= item.use_range or cell_source_id == -1:

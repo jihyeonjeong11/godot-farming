@@ -4,7 +4,7 @@ extends Node
 const TILLED_SOIL_GROUP: StringName = &"tilled_dirt"
 
 @export var current_growth_state: DataTypes.GrowthStates = DataTypes.GrowthStates.Seed
-@export_range(5, 365) var days_until_harvest: int = 5
+@export_range(1, 365) var days_until_harvest: int
 
 signal crop_maturity
 signal crop_harvesting

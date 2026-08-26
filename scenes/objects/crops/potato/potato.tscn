@@ -36,6 +36,7 @@ script = ExtResource("1_gq18s")
 growth_textures = Array[Texture2D]([SubResource("AtlasTexture_st0"), SubResource("AtlasTexture_st1"), SubResource("AtlasTexture_st2"), SubResource("AtlasTexture_st3"), SubResource("AtlasTexture_st4")])
 
 [node name="GrowthCycleComponent" parent="." unique_id=1205384333 instance=ExtResource("2_jrkiq")]
+days_until_harvest = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=766036066]
 texture = SubResource("AtlasTexture_st0")

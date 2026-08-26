@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://crq6tr62gpjr7"]
 
 [ext_resource type="PackedScene" uid="uid://ccnxtlq1ru1pv" path="res://scenes/components/cursors/object_cursor_component.tscn" id="1_2l28n"]
+[ext_resource type="PackedScene" uid="uid://bnjt4x85c5afn" path="res://scripts/globals/weather/weathers.tscn" id="30_weath"]
 [ext_resource type="PackedScene" uid="uid://bx810a2sxe5aa" path="res://scenes/components/characters/needs_decay_component.tscn" id="1_llh38"]
 [ext_resource type="TileSet" uid="uid://bg7n2qxwlk4ay" path="res://tilesets/apocalypse_green_tile_set.tres" id="2_8fa0t"]
 [ext_resource type="TileSet" uid="uid://dcq54frn85y6v" path="res://tilesets/apocalypse_tile_set.tres" id="3_f6mep"]
@@ -26,7 +27,19 @@
 [ext_resource type="Script" uid="uid://dq3m8sf1nybr7" path="res://scenes/components/persistent/level_crops.gd" id="25_crops"]
 [ext_resource type="PackedScene" uid="uid://c5e10kwwdcap1" path="res://scenes/components/field_cursor_component.tscn" id="26_field"]
 [ext_resource type="PackedScene" uid="uid://ts47olgc55kh" path="res://scenes/components/crops_cursor_component.tscn" id="27_crops"]
+[ext_resource type="PackedScene" uid="uid://dnj6pdjn0gx20" path="res://scenes/objects/fruit_trees/apple_tree/apple_tree.tscn" id="28_2l28n"]
 [ext_resource type="Script" uid="uid://rpepg711y8sv" path="res://scenes/components/tilemap/watered_soil_layer.gd" id="28_watrd"]
+[ext_resource type="Shader" uid="uid://bxq7f2mnvta3l" path="res://scenes/objects/fruit_trees/fruit_tree_shake.gdshader" id="29_eywrv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_llh38"]
+resource_local_to_scene = true
+shader = ExtResource("29_eywrv")
+shader_parameter/base_y = 0.0
+shader_parameter/bend_height = 128.0
+shader_parameter/sway_amount = 0.6
+shader_parameter/sway_speed = 1.3
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 26.0
 
 [node name="PlayerTestScene" type="Node2D" unique_id=695838568]
 y_sort_enabled = true
@@ -102,6 +115,8 @@ limit_top = 0
 limit_right = 688
 limit_bottom = 416
 
+[node name="Weathers" parent="Player/Camera2D" instance=ExtResource("30_weath")]
+
 [node name="FieldCursorComponent" parent="." unique_id=1217772299 node_paths=PackedStringArray("grass_tilemap_layer", "tilled_soil_tilemap_layer") instance=ExtResource("26_field")]
 grass_tilemap_layer = NodePath("../GameTileMap/Floors")
 tilled_soil_tilemap_layer = NodePath("../GameTileMap/TilledSoil")
@@ -109,3 +124,7 @@ tilled_soil_tilemap_layer = NodePath("../GameTileMap/TilledSoil")
 [node name="CropsCursorComponent" parent="." unique_id=1655129502 node_paths=PackedStringArray("tilled_soil_tilemap_layer", "crops_layer") instance=ExtResource("27_crops")]
 tilled_soil_tilemap_layer = NodePath("../GameTileMap/TilledSoil")
 crops_layer = NodePath("../GameTileMap/LevelCrops")
+
+[node name="AppleTree" parent="." unique_id=144522866 instance=ExtResource("28_2l28n")]
+material = SubResource("ShaderMaterial_llh38")
+position = Vector2(507, 157)

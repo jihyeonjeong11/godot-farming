@@ -6,6 +6,8 @@ extends Area2D
 ## 루트(Game)와 오토로드 연결이 끊긴 채로 바뀌므로 SignalBus를 통로로 쓴다.
 
 @export_file("*.tscn") var target_scene: String = ""
+## 도착한 씬의 SpawnPoint 이름. 비우면 그 씬에 박힌 자리에 그대로 선다.
+@export var target_spawn: StringName = &""
 
 
 func _ready() -> void:
@@ -30,4 +32,4 @@ func on_body_entered(body: Node2D) -> void:
 		get_tree().change_scene_to_file.call_deferred(target_scene)
 		return
 
-	SignalBus.scene_change_requested.emit(target_scene)
+	SignalBus.scene_change_requested.emit(target_scene, target_spawn)

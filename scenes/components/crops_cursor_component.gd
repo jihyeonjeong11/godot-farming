@@ -21,7 +21,7 @@ func _ready() -> void:
 
 	# 연결 자체가 안 됐을 때 아무 에러도 안 난다. 그 경우를 여기서 잡는다.
 	if debug_log:
-		print("[ObjectCursor] 0) 연결됨 ", get_path(),
+		print("[CropsCursor] 0) 연결됨 ", get_path(),
 				"  밭=", tilled_soil_tilemap_layer,
 				"  작물레이어=", crops_layer)
 
@@ -32,15 +32,15 @@ func _on_tool_used(item: Items, _user_position: Vector2, _target_position: Vecto
 	if item.item_type == "seeds":
 		get_cell_under_mouse()
 		if debug_log:
-			print("[ObjectCursor] 2) 액션=심기  아이템=", item.item_name)
+			print("[CropsCursor] 2) 액션=심기  아이템=", item.item_name)
 		add_crop(item)
 	elif item.tool_type == DataTypes.Tools.MineRock:
 		get_cell_under_mouse()
 		if debug_log:
-			print("[ObjectCursor] 2) 액션=제거  아이템=", item.item_name)
+			print("[CropsCursor] 2) 액션=제거  아이템=", item.item_name)
 		remove_crop(item)
 	elif debug_log:
-		print("[ObjectCursor] 2) 액션 없음  아이템=", item.item_name,
+		print("[CropsCursor] 2) 액션 없음  아이템=", item.item_name,
 				"  종류=", item.item_type, "  도구=", item.tool_type)
 	
 
@@ -53,7 +53,7 @@ func get_cell_under_mouse() -> void:
 
 	# source_id가 -1이면 그 칸은 아직 안 갈린 맨땅이다.
 	if debug_log:
-		print("[ObjectCursor] 1) 셀=", cell_position,
+		print("[CropsCursor] 1) 셀=", cell_position,
 				"  마우스=", mouse_position,
 				"  타일source=", cell_source_id,
 				"  거리=", snappedf(distance, 0.1))
@@ -63,7 +63,7 @@ func add_crop(item: Items) -> void:
 	# TilledSoil 레이어에 타일이 없으면(-1) 안 갈린 맨땅이라 심을 수 없다.
 	if distance >= item.use_range or cell_source_id == -1:
 		if debug_log:
-			print("[ObjectCursor] 4) 심기 취소 — ",
+			print("[CropsCursor] 4) 심기 취소 — ",
 					"사거리 밖" if distance >= item.use_range else "안 갈린 땅")
 		return
 
@@ -74,7 +74,7 @@ func add_crop(item: Items) -> void:
 	# 한 칸에 하나만. 겹쳐 심으면 눈에도 안 띄고 수확도 꼬인다.
 	if get_crop_at_cell() != null:
 		if debug_log:
-			print("[ObjectCursor] 4) 심기 취소 — 이미 그 칸에 있음")
+			print("[CropsCursor] 4) 심기 취소 — 이미 그 칸에 있음")
 		return
 
 	var packed := load(item.crop_scene_path) as PackedScene
@@ -87,7 +87,7 @@ func add_crop(item: Items) -> void:
 	crops_layer.add_child(crop)
 
 	if debug_log:
-		print("[ObjectCursor] 4) 심었다 ", crop.name, " @", local_cell_position)
+		print("[CropsCursor] 4) 심었다 ", crop.name, " @", local_cell_position)
 
 	# 씨앗은 심으면 하나 없어진다. 씬을 못 만든 경우엔 여기까지 오지 않는다.
 	Inventory.remove_item(Inventory.selected_slot, 1)
@@ -96,14 +96,14 @@ func add_crop(item: Items) -> void:
 func remove_crop(item: Items) -> void:
 	if distance >= item.use_range:
 		if debug_log:
-			print("[ObjectCursor] 4) 제거 취소 — 사거리 밖 ",
+			print("[CropsCursor] 4) 제거 취소 — 사거리 밖 ",
 					snappedf(distance, 0.1), "/", item.use_range)
 		return
 
 	var target := get_crop_at_cell()
 	if target != null:
 		if debug_log:
-			print("[ObjectCursor] 4) 제거 ", target.name)
+			print("[CropsCursor] 4) 제거 ", target.name)
 		target.queue_free()
 
 
@@ -116,12 +116,12 @@ func get_crop_at_cell() -> Node2D:
 
 		if tilled_soil_tilemap_layer.local_to_map(node.position) == cell_position:
 			if debug_log:
-				print("[ObjectCursor] 3) 셀 위 오브젝트=", node.name,
+				print("[CropsCursor] 3) 셀 위 오브젝트=", node.name,
 						" @", node.position)
 			return node
 
 	if debug_log:
-		print("[ObjectCursor] 3) 셀 위 오브젝트 없음  레이어 자식수=",
+		print("[CropsCursor] 3) 셀 위 오브젝트 없음  레이어 자식수=",
 				crops_layer.get_child_count())
 
 	return null

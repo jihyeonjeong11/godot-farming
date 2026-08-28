@@ -33,8 +33,6 @@ func _on_tool_used(item: Items, _user_position: Vector2, _target_position: Vecto
 		get_cell_under_mouse()
 		remove_tilled_soil_cell(item)
 
-## TilledSoil 은 건드리지 않는다. 젖은 칸을 거기에 다른 terrain 으로 칠하면
-## 오토타일이 남남으로 보고 이어 붙이질 않아 밭이 동그란 섬으로 쪼개진다.
 func add_watered_soil_cell(item: Items) -> void:
 	if distance >= item.use_range or watered_soil_layer == null:
 		return

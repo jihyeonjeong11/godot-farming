@@ -1,0 +1,45 @@
+[gd_scene format=4 uid="uid://cd31oy17nwpe5"]
+
+[ext_resource type="TileSet" uid="uid://8jdyac0p5kww" path="res://tilesets/buildings.tres" id="1_s2ciu"]
+[ext_resource type="Script" uid="uid://cyg8x8ganehgt" path="res://scenes/components/spawn_point.gd" id="2_spawn"]
+[ext_resource type="PackedScene" uid="uid://bmp8j4fwdkl82" path="res://scenes/characters/player/player.tscn" id="3_playr"]
+[ext_resource type="PackedScene" uid="uid://hw03yyvlo6vg" path="res://scenes/objects/buildables/door.tscn" id="3_v16bj"]
+[ext_resource type="PackedScene" uid="uid://ccnxtlq1ru1pv" path="res://scenes/components/cursors/object_cursor_component.tscn" id="4_cursr"]
+[ext_resource type="PackedScene" uid="uid://b1r1piv7rhuop" path="res://scenes/objects/buildables/bed.tscn" id="5_bed"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4kxuq"]
+
+[node name="House" type="Node2D" unique_id=2135102818]
+
+[node name="ObjectCursorComponent" parent="." unique_id=396383454 instance=ExtResource("4_cursr")]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1588106319]
+
+[node name="Land" type="TileMapLayer" parent="TileMapLayer" unique_id=19459810]
+tile_map_data = PackedByteArray("AAAQABUAAAAIABEAAAASABUAAAAIABEAAAAIAAsAAAAIABIAAAAJAAsAAAAIABIAAAAIAAYAAAAIABIAAAAIAAcAAAAIABIAAAAIAAgAAAAIABIAAAAIAAkAAAAIABIAAAAIAAoAAAAIABIAAAAJAAYAAAAIABIAAAAJAAcAAAAIABIAAAAJAAgAAAAIABIAAAAJAAkAAAAIABIAAAAJAAoAAAAIABIAAAAGAAMAAAAIABIAAAAGAAQAAAAIABIAAAAGAAUAAAAIABIAAAAHAAUAAAAIABIAAAAIAAUAAAAIABIAAAAJAAUAAAAIABIAAAAKAAUAAAAIABIAAAALAAUAAAAIABIAAAAGAAEAAAAIABIAAAAHAAEAAAAIABIAAAAIAAEAAAAIABIAAAAJAAEAAAAIABIAAAAKAAEAAAAIABIAAAALAAEAAAAIABIAAAALAAIAAAAIABIAAAALAAMAAAAIABIAAAALAAQAAAAIABIAAAAGAAIAAAAIABIAAAAHAAIAAAAIABIAAAAHAAMAAAAIABIAAAAHAAQAAAAIABIAAAAIAAIAAAAIABIAAAAIAAMAAAAIABIAAAAIAAQAAAAIABIAAAAJAAIAAAAIABIAAAAJAAMAAAAIABIAAAAJAAQAAAAIABIAAAAKAAIAAAAIABIAAAAKAAMAAAAIABIAAAAKAAQAAAAIABIAAAA=")
+tile_set = ExtResource("1_s2ciu")
+
+[node name="Buildable" type="TileMapLayer" parent="TileMapLayer" unique_id=225154568]
+tile_map_data = PackedByteArray("AAAHAAIAAAAIAB8AAAAHAAMAAAAIACAAAAAHAAQAAAAIACEAAAAIAAIAAAAJAB8AAAAIAAMAAAAJACAAAAAIAAQAAAAJACEAAAA=")
+tile_set = ExtResource("1_s2ciu")
+
+[node name="SpawnPoint" type="Area2D" parent="TileMapLayer" unique_id=1358031759]
+position = Vector2(291, 352)
+script = ExtResource("2_spawn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/SpawnPoint" unique_id=2070976295]
+shape = SubResource("CircleShape2D_4kxuq")
+
+[node name="Player" parent="." unique_id=523926272 instance=ExtResource("3_playr")]
+position = Vector2(291, 259)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1878920121]
+position = Vector2(-2, 4)
+
+[node name="Bed" parent="." unique_id=1824249774 instance=ExtResource("5_bed")]
+position = Vector2(256, 160)
+
+[node name="Door" parent="." unique_id=561351757 instance=ExtResource("3_v16bj")]
+position = Vector2(290, 375)
+target_scene = "uid://b0kcgeo77475t"
+target_spawn = &"house_door"

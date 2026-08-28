@@ -21,6 +21,13 @@ func set_initial_time() -> void:
 
 func _ready() -> void:
 	set_initial_time()
+
+
+## 잠자기처럼 시간을 한 번에 건너뛸 때 쓴다. 다음 _process 의 recalculate_time 이
+## time_tick / time_tick_day 를 알아서 울려준다.
+func skip_to(day: int, hour: int, minute: int = 0) -> void:
+	var total_minutes: int = day * MINUTES_PER_DAY + hour * MINUTES_PER_HOUR + minute
+	time = total_minutes * GAME_MINUTE_DURARTION
 	
 
 func _process(delta: float) -> void:

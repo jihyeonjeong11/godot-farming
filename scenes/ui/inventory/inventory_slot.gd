@@ -17,15 +17,12 @@ var slot_index: int = -1
 ## 타입 해석이 꼬여 스크립트 전체가 컴파일에 실패한다.
 var source: Array = []
 
-## 이 칸에서 끌어내거나 이 칸에 떨굴 수 있는지.
-## 상점처럼 값을 치르고 오가야 하는 격자는 꺼둔다. 안 끄면
-## 끌어 옮기기로 돈을 안 내고 물건을 가져갈 수 있다.
 var draggable: bool = true
 
-## 툴팁에서 value를 무엇으로 부를지. 상점은 "구매가"/"판매가"로 바꿔 단다.
 var price_label: String = "가치"
 
 @onready var amount_label: Label = $AmountLabel
+@onready var ammo_bar: ProgressBar = $AmmoBar
 
 
 func _ready() -> void:
@@ -40,7 +37,6 @@ func _gui_input(event: InputEvent) -> void:
 		right_pressed.emit()
 
 
-## 좌클릭 드래그가 시작되면 Godot이 부른다. null을 반환하면 드래그하지 않는다.
 func _get_drag_data(_at_position: Vector2) -> Variant:
 	if not draggable or selected_item == null or slot_index < 0:
 		return null
@@ -54,18 +50,13 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 	preview.modulate.a = 0.8
 	set_drag_preview(preview)
 
-	# 어느 배열에서 왔는지 같이 보낸다. 이게 없으면 받는 쪽이 상자에서 온 것인지
-	# 가방에서 온 것인지 구분하지 못한다.
 	return {"from_index": slot_index, "from_source": source}
 
 
-## 이 칸 위에 드롭할 수 있는지. false면 커서가 금지 표시로 바뀐다.
 func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 	return draggable and slot_index >= 0 and data is Dictionary and data.has("from_source")
 
 
-## 두 칸을 통째로 맞바꾼다. 상자와 가방 사이도 같은 방식이다.
-## 스택 합치기는 아직 안 한다. 칸 하나를 통으로 주고받을 뿐이다.
 func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	var from_source: Array = data["from_source"]
 	var from_index: int = data["from_index"]
@@ -99,9 +90,22 @@ func set_slot(stack: ItemStack) -> void:
 	amount_label.text = str(stack.amount)
 	amount_label.visible = stack.amount > 1
 
+	_show_ammo(item)
+
 
 func clear() -> void:
 	selected_item = null
 	icon = null
 	tooltip_text = ""
 	amount_label.hide()
+	ammo_bar.hide()
+
+
+func _show_ammo(item: Items) -> void:
+	if item.max_ammo <= 0:
+		ammo_bar.hide()
+		return
+
+	ammo_bar.max_value = item.max_ammo
+	ammo_bar.value = clampi(item.current_ammo, 0, item.max_ammo)
+	ammo_bar.show()

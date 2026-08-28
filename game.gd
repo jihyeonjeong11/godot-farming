@@ -1,6 +1,6 @@
 extends Node2D
 
-@export_file("*.tscn") var scene_farm := "res://scenes/test_scenes/player_test.tscn"
+@export_file("*.tscn") var scene_farm := "res://scenes/test_scenes/farm.tscn"
 @export_file("*.tscn") var scene_city := "res://scenes/test_scene_outside.tscn"
 @export_file("*.tscn") var scene_mainmenu := "res://scenes/mainmenu.tscn"
 
@@ -43,10 +43,10 @@ func on_main_menu_requested() -> void:
 	swap_scene.call_deferred(scene_mainmenu)
 
 
-func on_scene_change_requested(scene_path: String) -> void:
-	swap_scene.call_deferred(scene_path)
+func on_scene_change_requested(scene_path: String, spawn_id: StringName) -> void:
+	swap_scene.call_deferred(scene_path, spawn_id)
 
-func swap_scene(path: String) -> void:
+func swap_scene(path: String, spawn_id: StringName = &"") -> void:
 	if _swapping:
 		return
 
@@ -63,9 +63,33 @@ func swap_scene(path: String) -> void:
 
 	current_scene.add_child(packed.instantiate())
 
+	# 씬마다 플레이어가 따로 박혀 있다. 문으로 들어왔으면 그 씬에 박힌 자리 대신
+	# 문이 가리킨 스폰 지점에 세운다.
+	if not spawn_id.is_empty():
+		move_player_to_spawn(spawn_id)
+
 	if path == scene_mainmenu:
 		game_state_manager.enter_main_menu()
 	else:
 		game_state_manager.enter_gameplay()
 
 	_swapping = false
+
+
+## 지점을 못 찾아도 플레이어를 건드리지 않는다. 문이 잘못 가리켰다고
+## 맵 밖으로 떨어뜨리는 것보다 씬에 박힌 자리에 서 있는 편이 낫다.
+func move_player_to_spawn(spawn_id: StringName) -> void:
+	var player := get_tree().get_first_node_in_group(&"player") as Node2D
+	if player == null:
+		push_warning("스폰 지점으로 옮길 플레이어가 씬에 없다: %s" % spawn_id)
+		return
+
+	for node in get_tree().get_nodes_in_group(SpawnPoint.GROUP):
+		var point := node as SpawnPoint
+		if point == null or point.spawn_id != spawn_id:
+			continue
+
+		player.global_position = point.global_position
+		return
+
+	push_warning("스폰 지점을 찾지 못했다: %s" % spawn_id)

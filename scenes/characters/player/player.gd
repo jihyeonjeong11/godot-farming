@@ -42,8 +42,7 @@ const TOOL_FRAMES_DIR := "res://scenes/characters/player/tools/"
 @export var tool_front_sprite: AnimatedSprite2D
 @export var state_machine: NodeStateMachine
 @export var direction_component: CharacterDirectionComponent
-## 걷기 기본 속도. 달리기는 이 값의 두 배이고,
-## 실제 이동에는 stats.current_speed 배율이 곱해진다.
+
 @export var walk_speed: int = 90
 
 @export var stats: BaseCharacterStats
@@ -64,13 +63,15 @@ var _current_action: String = "idle"
 var _current_duration: float = 0.0
 var _tool_frames_cache: Dictionary = {}
 
+func click() -> void:
+	GameInputEvents.is_use_tool():
+		
+
 func _unhandled_input(event: InputEvent) -> void:
 	var slot := GameInputEvents.number_key_input(event)
 	if slot >= 0:
 		Inventory.select_slot(slot)
 		get_viewport().set_input_as_handled()
-
-
 
 func _ready() -> void:
 	setup_stats()
@@ -82,8 +83,6 @@ func setup_stats() -> void:
 	if stats == null:
 		return
 
-	# 포탈로 씬만 옮긴 경우엔 손대지 않는다. .tres는 캐시에 남아 값이 이어진다.
-	# is_initialized 검사는 F6로 이 씬만 단독 실행해 Game을 안 거친 경우를 위한 것.
 	var is_fresh_start: bool = SaveAndLoad.consume_fresh_start()
 	if not is_fresh_start and stats.is_initialized:
 		return
@@ -301,5 +300,6 @@ func is_action_playing() -> bool:
 
 func take_hit(hit_damage: int = 0) -> void:
 	stats.health -= hit_damage
-	if state_machine:
-		state_machine.transition_to("Hurt")
+	#todo: die animation
+	#if state_machine:
+		#state_machine.transition_to("Hurt")

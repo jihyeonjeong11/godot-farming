@@ -21,4 +21,6 @@ use_range = 26.0
 max_stack = -1
 anim_prefix = &"watering_can"
 world_scene_path = "uid://bjhypadfrbhvk"
+max_ammo = 30
+current_ammo = 30
 metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

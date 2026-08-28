@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cmc3tqcugvvas" path="res://assets/splash/splash.png" id="2_splash"]
 [ext_resource type="PackedScene" uid="uid://tp870g51e2ww" path="res://managers/game_state_manager.tscn" id="3_7jktm"]
 [ext_resource type="PackedScene" uid="uid://b68mls6gpmwtq" path="res://managers/audio_manager.tscn" id="4_audio"]
+[ext_resource type="Script" uid="uid://d1i6k3nwymf64" path="res://managers/screen_fade.gd" id="5_fade"]
 
 [node name="Game" type="Node2D" unique_id=1847824133]
 script = ExtResource("1_80nbo")
@@ -16,6 +17,11 @@ script = ExtResource("1_80nbo")
 [node name="UiManager" parent="." unique_id=913842581 instance=ExtResource("2_fc0e3")]
 
 [node name="CurrentScene" type="Node" parent="." unique_id=1847824134]
+
+[node name="ScreenFade" type="CanvasLayer" parent="." unique_id=1847824138]
+process_mode = 3
+layer = 100
+script = ExtResource("5_fade")
 
 [node name="SplashLayer" type="CanvasLayer" parent="." unique_id=1847824135]
 layer = 128

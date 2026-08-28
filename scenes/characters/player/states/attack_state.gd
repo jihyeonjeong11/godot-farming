@@ -6,6 +6,8 @@ extends NodeState
 
 
 func _on_enter() -> void:
+	var required_action = player.attack_action()
+	print(required_action)
 	player.play_action(player.attack_action(), duration)
 	player.set_hitbox_active(player.has_melee_shape())
 

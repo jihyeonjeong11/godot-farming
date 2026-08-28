@@ -53,15 +53,11 @@ class_name Items extends Resource
 ## droppable
 @export_file("*.tscn") var world_scene_path: String = ""
 
+@export var max_ammo: int
+@export var current_ammo: int
 
-## 툴팁 한 덩어리. 의미 있는 줄만 골라 넣는다 — 빈 설명이나 0짜리
-## 수치까지 다 찍으면 읽을 것보다 건너뛸 것이 많아진다.
-##
-## 문자열을 부르는 쪽이 짜지 않고 아이템이 직접 만든다. 필드가 늘 때
-## 칸·퀵바·상자·상점을 일일이 고치지 않기 위해서다.
-##
-## price_label은 value를 무엇으로 부를지. 가방에서는 "가치"지만
-## 상점에서는 같은 숫자가 "구매가"나 "판매가"가 된다.
+
+## TODO: Make theme as a file for localization support
 func describe(price_label: String = "가치") -> String:
 	var lines: PackedStringArray = [item_name]
 

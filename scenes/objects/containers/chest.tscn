@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://boxnoddybhkgt"]
+
+[ext_resource type="Texture2D" uid="uid://mloe6l4aphpg" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crafting.png" id="1_tb4or"]
+[ext_resource type="Script" uid="uid://dixnsccl8a3kg" path="res://scenes/objects/containers/container.gd" id="2_4d2i3"]
+[ext_resource type="PackedScene" uid="uid://b17pqg2t34n5v" path="res://scenes/components/container_inventory_component.tscn" id="3_ge2ct"]
+[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/items.gd" id="3_gm8h5"]
+[ext_resource type="Resource" uid="uid://iadbnqiiwu53" path="res://scripts/resources/tools/axe.tres" id="4_m34xe"]
+[ext_resource type="Resource" uid="uid://h1l1g07oam5a" path="res://scripts/resources/tools/hoe.tres" id="5_jvp21"]
+[ext_resource type="Resource" uid="uid://c0lbpg1cpf40p" path="res://scripts/resources/tools/watering_can.tres" id="6_pfbvd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tctrp"]
+atlas = ExtResource("1_tb4or")
+region = Rect2(392, 18, 48, 42)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kxuq"]
+size = Vector2(42, 38)
+
+[node name="Chest" type="Sprite2D" unique_id=401607489 groups=["interactables"]]
+texture = SubResource("AtlasTexture_tctrp")
+script = ExtResource("2_4d2i3")
+initial_items = Array[ExtResource("3_gm8h5")]([ExtResource("4_m34xe"), ExtResource("5_jvp21"), ExtResource("6_pfbvd")])
+
+[node name="ContainerInventoryComponent" parent="." unique_id=1057856798 instance=ExtResource("3_ge2ct")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=162178401]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2109676807]
+shape = SubResource("RectangleShape2D_4kxuq")

@@ -41,7 +41,8 @@ signal load_game_requested()
 
 signal barter_opened(slots: Array)
 
-signal scene_change_requested(scene_path: String)
+## spawn_id 는 도착한 씬의 SpawnPoint 이름. 비어 있으면 그 씬에 박힌 자리에 그대로 선다.
+signal scene_change_requested(scene_path: String, spawn_id: StringName)
 
 # TODO: this is temp signal, need a system
 signal sound_requested(soundKey: String)

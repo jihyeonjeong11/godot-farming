@@ -30,7 +30,6 @@ tool_back_sprite = NodePath("ToolBack")
 tool_front_sprite = NodePath("ToolFront")
 state_machine = NodePath("StateMachine")
 direction_component = NodePath("CharacterDirectionComponent")
-walk_speed = null
 stats = ExtResource("2_blysn")
 
 [node name="PlayerBuffComponent" parent="." unique_id=1924369797 instance=ExtResource("3_blysn")]
@@ -44,7 +43,7 @@ offset = Vector2(0, -30)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=143008096]
 sprite_frames = ExtResource("1_frames")
-animation = &"idle_right"
+animation = &"thrust_back"
 offset = Vector2(0, -30)
 
 [node name="ToolFront" type="AnimatedSprite2D" parent="." unique_id=185958211]

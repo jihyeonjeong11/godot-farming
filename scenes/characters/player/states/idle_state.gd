@@ -16,7 +16,7 @@ func _on_physics_process(_delta: float) -> void:
 func _on_next_transitions() -> void:
 	GameInputEvents.movement_input()
 
-	if GameInputEvents.use_tool() and player.can_attack():
+	if GameInputEvents.use_tool():
 		transition.emit("Attack")
 	elif player.key_just_pressed("jump"):
 		transition.emit("Jump")

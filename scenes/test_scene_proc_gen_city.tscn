@@ -40,7 +40,6 @@ script = ExtResource("1_byhwx")
 noise_height_text = SubResource("NoiseTexture2D_cbi1e")
 noise_tree_text = SubResource("NoiseTexture2D_o1cg7")
 
-
 [node name="GameTileMap" type="TileMapLayer" parent="." unique_id=1111176685]
 tile_set = ExtResource("2_byhwx")
 
@@ -59,12 +58,10 @@ y_sort_enabled = true
 tile_map_data = PackedByteArray("AAAJAAMABAAJAAAAAAAJAAQABAAJAAEAAAAKAAMABAAKAAAAAAAKAAQABAAKAAEAAAALAAMABAALAAAAAAALAAQABAALAAEAAAAMAAMABAAMAAAAAAAMAAQABAAMAAEAAAAJAAIABAAEAAMAAAAKAAIABAAHAAMAAAALAAIABAAIAAMAAAAMAAIABAAJAAMAAAAJAP//BAAFAAAAAAAJAAAABAAFAAEAAAAJAAEABAAFAAIAAAAKAP//BAAGAAAAAAAKAAAABAAGAAEAAAAKAAEABAAGAAIAAAALAP//BAAHAAAAAAALAAAABAAGAAEAAAALAAEABAAHAAIAAAAMAP//BAAIAAAAAAAMAAAABAAIAAEAAAAMAAEABAAIAAIAAAA=")
 tile_set = ExtResource("4_yeaon")
 
-[node name="Water" type="TileMapLayer" parent="GameTileMap" unique_id=1724266227]
+[node name="Water" type="TileMapLayer" parent="GameTileMap" unique_id=1724266227 groups=["water"]]
 
 [node name="SmallZombie" parent="." unique_id=1619301887 instance=ExtResource("6_6htjd")]
 position = Vector2(377, 165)
-
-
 
 [node name="DayNightCycleComponent" parent="." unique_id=1908140115 instance=ExtResource("9_gnrof")]
 

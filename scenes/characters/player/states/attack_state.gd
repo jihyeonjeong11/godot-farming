@@ -6,8 +6,9 @@ extends NodeState
 
 
 func _on_enter() -> void:
-	var required_action = player.attack_action()
-	print(required_action)
+	## TODO: needs refactor for watering can ammo
+	print("ammo=", player.has_ammo(), " water=", player.is_mouse_on_water())
+
 	player.play_action(player.attack_action(), duration)
 	player.set_hitbox_active(player.has_melee_shape())
 

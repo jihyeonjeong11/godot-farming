@@ -44,7 +44,6 @@ func on_settings_closed() -> void:
 
 
 func on_save_pressed() -> void:
-	# MenuOverlay는 레벨 루트의 직속 자식이라 부모가 곧 레벨이다.
 	SaveAndLoad.save_level(get_parent())
 	SaveAndLoad.save_inventory()
 	SaveAndLoad.save_time()

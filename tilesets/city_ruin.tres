@@ -1,0 +1,9 @@
+[gd_resource type="TileSet" format=3 uid="uid://dkw01fa84lera"]
+
+[ext_resource type="Texture2D" uid="uid://bnif2lxsjm6nu" path="res://assets/apo/32x32_main_lev.png" id="1_365rt"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_orngm"]
+texture = ExtResource("1_365rt")
+
+[resource]
+sources/0 = SubResource("TileSetAtlasSource_orngm")

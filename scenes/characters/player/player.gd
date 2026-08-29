@@ -63,9 +63,6 @@ var _current_action: String = "idle"
 var _current_duration: float = 0.0
 var _tool_frames_cache: Dictionary = {}
 
-func click() -> void:
-	GameInputEvents.is_use_tool():
-		
 
 func _unhandled_input(event: InputEvent) -> void:
 	var slot := GameInputEvents.number_key_input(event)
@@ -160,8 +157,6 @@ func _edge(key: String, code: Key) -> bool:
 	_just_pressed[key] = edge
 	return edge
 
-func attack_action() -> String:
-	return TOOL_ACTION.get(equipped_tool, "slash")
 
 func set_hitbox_active(active: bool) -> void:
 	if hit_shape != null:
@@ -176,6 +171,22 @@ func can_attack() -> bool:
 	if item != null and (item.item_type == "tool" or item.item_type == "seeds"):
 		return true
 	return item != null and item.melee_shape != null
+	
+func attack_action() -> String:
+	return TOOL_ACTION.get(equipped_tool, "slash")
+
+## 지금 든 것에 탄약 개념이 있나(물뿌리개 물통 같은).
+func has_ammo() -> bool:
+	var item: Items = Inventory.get_selected_item()
+	return item != null and item.max_ammo > 0
+
+func is_mouse_on_water() -> bool:
+	var water := get_tree().get_first_node_in_group(&"water") as TileMapLayer
+	if water == null:
+		return false
+
+	var cell := water.local_to_map(water.get_local_mouse_position())
+	return water.get_cell_source_id(cell) != -1
 
 func consume_selected() -> bool:
 	var item: Items = Inventory.get_selected_item()
@@ -202,6 +213,13 @@ func finish_tool_use() -> void:
 	if item == null:
 		return
 	SignalBus.tool_used.emit(item, global_position, get_global_mouse_position())
+
+	if item.max_ammo > 0:
+		if is_mouse_on_water():
+			item.current_ammo = item.max_ammo
+		else:
+			item.current_ammo = maxi(item.current_ammo - 1, 0)
+		Inventory.inventory_updated.emit()
 
 func key_just_pressed(key: String) -> bool:
 	return _just_pressed.get(key, false)

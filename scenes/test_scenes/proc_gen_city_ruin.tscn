@@ -2,9 +2,34 @@
 
 [ext_resource type="Script" uid="uid://ciy2w5al054wb" path="res://scenes/test_scenes/proc_gen_city_ruin.gd" id="1_fb62f"]
 [ext_resource type="TileSet" uid="uid://dkw01fa84lera" path="res://tilesets/city_ruin.tres" id="2_v2c2p"]
+[ext_resource type="PackedScene" uid="uid://bmp8j4fwdkl82" path="res://scenes/characters/player/player.tscn" id="3_player"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_city"]
+vertices = PackedVector2Array(0, 0, 20480, 0, 20480, 20480, 0, 20480)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(0, 0, 20480, 0, 20480, 20480, 0, 20480)])
 
 [node name="ProcGenCityRuin" type="Node2D" unique_id=749933569]
+y_sort_enabled = true
 script = ExtResource("1_fb62f")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=61191778]
+[node name="Ground" type="TileMapLayer" parent="." unique_id=61191778]
 tile_set = ExtResource("2_v2c2p")
+
+[node name="Walk" type="TileMapLayer" parent="." unique_id=1946610148]
+tile_set = ExtResource("2_v2c2p")
+
+[node name="Road" type="TileMapLayer" parent="." unique_id=1612547893]
+tile_set = ExtResource("2_v2c2p")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1517440240]
+visible = false
+navigation_polygon = SubResource("NavigationPolygon_city")
+
+[node name="Props" type="TileMapLayer" parent="." unique_id=1612547894]
+y_sort_enabled = true
+tile_set = ExtResource("2_v2c2p")
+
+[node name="Player" parent="." unique_id=1080784849 instance=ExtResource("3_player")]
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=2061470451]

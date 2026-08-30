@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://b1r1piv7rhuop"]
+
+[ext_resource type="Texture2D" uid="uid://dmej0tp32bpis" path="res://assets/craftland/Craftland Terrain/32x32/CL_Buildings.png" id="1_psugd"]
+[ext_resource type="Script" uid="uid://cst1t2e1553dk" path="res://scenes/objects/pickables/buildables/bed.gd" id="2_p207t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4kxuq"]
+atlas = ExtResource("1_psugd")
+region = Rect2(259, 993, 60, 86)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kxuq"]
+size = Vector2(47, 85)
+
+[node name="Bed" type="Sprite2D" unique_id=1824249774 groups=["interactables"]]
+texture = SubResource("AtlasTexture_4kxuq")
+offset = Vector2(1, -52)
+script = ExtResource("2_p207t")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1013788210]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=513960997]
+position = Vector2(-0.5, -51.5)
+shape = SubResource("RectangleShape2D_4kxuq")

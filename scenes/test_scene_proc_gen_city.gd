@@ -24,7 +24,7 @@ var terrain_grass_int = 1
 var cliff_tiles_arr = []
 var terrain_cliff_int = 2
 
-@export var tree_scene: PackedScene = preload("res://scenes/objects/trees/SmallTree.tscn")
+@export var tree_scene: PackedScene = preload("res://scenes/objects/placables/trees/SmallTree.tscn")
 var tree_tiles_arr = []
 
 

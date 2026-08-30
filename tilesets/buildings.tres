@@ -1,6 +1,7 @@
 [gd_resource type="TileSet" format=3 uid="uid://8jdyac0p5kww"]
 
 [ext_resource type="Texture2D" uid="uid://dmej0tp32bpis" path="res://assets/craftland/Craftland Terrain/32x32/CL_Buildings.png" id="1_tdktn"]
+[ext_resource type="Texture2D" uid="uid://dlbdfiq133kcc" path="res://assets/apo/anims/32x32_trash_can_fire.png" id="2_og1x3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bv2fu"]
 texture = ExtResource("1_tdktn")
@@ -63,6 +64,11 @@ texture_region_size = Vector2i(32, 32)
 8:33/0 = 0
 9:31/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4o58g"]
+texture = ExtResource("2_og1x3")
+texture_region_size = Vector2i(32, 32)
+
 [resource]
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_bv2fu")
+sources/1 = SubResource("TileSetAtlasSource_4o58g")

@@ -9,21 +9,23 @@
 [ext_resource type="Texture2D" uid="uid://bv8qd0agwulti" path="res://assets/craftland/Craftland Terrain/32x32/CL_MainLev.png" id="4_itdck"]
 [ext_resource type="Texture2D" uid="uid://dmej0tp32bpis" path="res://assets/craftland/Craftland Terrain/32x32/CL_Buildings.png" id="5_fqec8"]
 [ext_resource type="Script" uid="uid://rpepg711y8sv" path="res://scenes/components/tilemap/watered_soil_layer.gd" id="5_wtrsl"]
-[ext_resource type="PackedScene" uid="uid://boxnoddybhkgt" path="res://scenes/objects/containers/chest.tscn" id="6_bv2fu"]
-[ext_resource type="PackedScene" uid="uid://hw03yyvlo6vg" path="res://scenes/objects/buildables/door.tscn" id="6_door"]
+[ext_resource type="PackedScene" uid="uid://boxnoddybhkgt" path="res://scenes/objects/pickables/containers/chest.tscn" id="6_bv2fu"]
+[ext_resource type="PackedScene" uid="uid://hw03yyvlo6vg" path="res://scenes/objects/pickables/buildables/door.tscn" id="6_door"]
 [ext_resource type="Script" uid="uid://cyg8x8ganehgt" path="res://scenes/components/spawn_point.gd" id="6_spawn"]
 [ext_resource type="Script" uid="uid://dq3m8sf1nybr7" path="res://scenes/components/persistent/level_crops.gd" id="7_lcrop"]
 [ext_resource type="Script" uid="uid://c6wj2phe45tvn" path="res://scenes/components/persistent/level_tilled_soils.gd" id="7_ltild"]
 [ext_resource type="Script" uid="uid://123k15c3oq0r" path="res://scenes/components/persistent/level_nature.gd" id="8_lnatr"]
 [ext_resource type="Script" uid="uid://bjqk2jiorau6t" path="res://scenes/components/persistent/level_objects.gd" id="8_lobjs"]
 [ext_resource type="Script" uid="uid://vdfoocwoprvh" path="res://scenes/components/persistent/level_buildables.gd" id="9_lbldb"]
+[ext_resource type="PackedScene" uid="uid://d0jwliwel36al" path="res://scenes/objects/pickables/buildables/fire_trash_can.tscn" id="15_y7ey2"]
 [ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/items.gd" id="16_326xb"]
 [ext_resource type="Texture2D" uid="uid://bnif2lxsjm6nu" path="res://assets/apo/32x32_main_lev.png" id="16_nkhic"]
 [ext_resource type="Resource" uid="uid://iadbnqiiwu53" path="res://scripts/resources/tools/axe.tres" id="17_kja7d"]
 [ext_resource type="Resource" uid="uid://h1l1g07oam5a" path="res://scripts/resources/tools/hoe.tres" id="18_y7ey2"]
 [ext_resource type="Resource" uid="uid://c0lbpg1cpf40p" path="res://scripts/resources/tools/watering_can.tres" id="19_1kpj0"]
-[ext_resource type="PackedScene" uid="uid://dnj6pdjn0gx20" path="res://scenes/objects/fruit_trees/apple_tree/apple_tree.tscn" id="20_k6jv7"]
-[ext_resource type="Shader" uid="uid://bxq7f2mnvta3l" path="res://scenes/objects/fruit_trees/fruit_tree_shake.gdshader" id="21_mge4w"]
+[ext_resource type="PackedScene" uid="uid://dnj6pdjn0gx20" path="res://scenes/objects/placables/fruit_trees/apple_tree/apple_tree.tscn" id="20_k6jv7"]
+[ext_resource type="Resource" uid="uid://cukembyxyfglu" path="res://scripts/resources/tools/pickaxe.tres" id="21_1kpj0"]
+[ext_resource type="Shader" uid="uid://bxq7f2mnvta3l" path="res://scenes/objects/placables/fruit_trees/fruit_tree_shake.gdshader" id="21_mge4w"]
 [ext_resource type="PackedScene" path="res://scenes/components/portal_component.tscn" id="22_portl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_itdck"]
@@ -688,7 +690,7 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_bv2fu")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_kja7d"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k6jv7"]
 resource_local_to_scene = true
 shader = ExtResource("21_mge4w")
 shader_parameter/base_y = 0.0
@@ -718,9 +720,6 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_mti6b"]
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_4tab4")
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_portout"]
-size = Vector2(32, 32)
 
 [node name="Farm" type="Node2D" unique_id=864644704]
 
@@ -794,12 +793,15 @@ script = ExtResource("8_lobjs")
 y_sort_enabled = true
 script = ExtResource("9_lbldb")
 
+[node name="FireTrashCan" parent="FarmTilemap/LevelBuildables" unique_id=401521629 instance=ExtResource("15_y7ey2")]
+position = Vector2(414, 571)
+
 [node name="Container" parent="FarmTilemap/LevelBuildables" unique_id=401607489 instance=ExtResource("6_bv2fu")]
 position = Vector2(429, 647)
-initial_items = Array[ExtResource("16_326xb")]([ExtResource("17_kja7d"), ExtResource("18_y7ey2"), ExtResource("19_1kpj0"), null])
+initial_items = Array[ExtResource("16_326xb")]([ExtResource("17_kja7d"), ExtResource("18_y7ey2"), ExtResource("19_1kpj0"), ExtResource("21_1kpj0")])
 
 [node name="AppleTree" parent="FarmTilemap/LevelBuildables" unique_id=144522866 instance=ExtResource("20_k6jv7")]
-material = SubResource("ShaderMaterial_kja7d")
+material = SubResource("ShaderMaterial_k6jv7")
 position = Vector2(328, 758)
 
 [node name="ConcretePath" type="TileMapLayer" parent="FarmTilemap" unique_id=1762211901]
@@ -808,13 +810,8 @@ tile_set = SubResource("TileSet_mti6b")
 
 [node name="PortalToOutside" parent="FarmTilemap" unique_id=1930517001 instance=ExtResource("22_portl")]
 position = Vector2(49, 559)
-target_scene = "uid://cisnfhhd77c24"
-
-[node name="Sprite2D" parent="FarmTilemap/PortalToOutside" index="0"]
-visible = false
-
-[node name="CollisionShape2D" parent="FarmTilemap/PortalToOutside" index="1"]
-shape = SubResource("RectangleShape2D_portout")
+target_scene = "uid://kqf460uvb87q"
+target_spawn = &"farm_gate"
 
 [node name="Player" parent="." unique_id=523926272 instance=ExtResource("3_hbq8b")]
 position = Vector2(263, 682)

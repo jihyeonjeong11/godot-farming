@@ -20,5 +20,5 @@ melee_shape = SubResource("RectangleShape2D_hoe")
 use_range = 22.0
 max_stack = -1
 anim_prefix = &"hoe"
-world_scene_path = "uid://cebbmage0v73g"
+world_scene_path = "uid://cb65olukse4yu"
 metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

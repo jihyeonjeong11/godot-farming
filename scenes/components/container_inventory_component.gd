@@ -1,9 +1,5 @@
 class_name ContainerInventoryComponent
 extends Node
-## 아이템을 담아두는 물건에 붙인다. 담을 곳만 갖고, 여는 UI는 모른다.
-##
-## 칸은 Inventory와 같은 모양이다. 빈 칸은 null로 남겨야 자리가 밀리지 않는다.
-## 칸 수는 씬마다 다르다. 새 종류를 만들 때 스크립트가 아니라 이 값만 바꾼다.
 
 @export var slot_count: int = 12
 
@@ -15,9 +11,6 @@ func _ready() -> void:
 	slots.resize(maxi(slot_count, 0))
 
 
-## 처음 내용물을 채운다. 앞 칸부터 하나씩 놓고, 칸이 모자라면 남는 것은 버린다.
-## 부모 씬이 _ready에서 부른다. 이때는 slots가 이미 잡혀 있다.
-## amounts는 items와 같은 순서. 짧으면 나머지는 1개로 본다.
 func fill(items: Array[Items], amounts: Array[int] = []) -> void:
 	for i in mini(items.size(), slots.size()):
 		if items[i] == null:
@@ -26,10 +19,14 @@ func fill(items: Array[Items], amounts: Array[int] = []) -> void:
 		var amount: int = amounts[i] if i < amounts.size() else 1
 		slots[i] = ItemStack.new(items[i], maxi(amount, 1))
 
+## 한 칸이라도 차 있으면 false.
+func is_empty() -> bool:
+	for stack in slots:
+		if stack != null and stack.item != null:
+			return false
+	return true
 
-## 칸 순서 그대로 떠낸다. 빈 칸은 null로 남겨야 불러올 때 자리가 밀리지 않는다.
-## 아이템 자체(.tres)는 프로젝트 리소스라 저장하지 않고 경로만 적는다.
-## 형식은 플레이어 인벤토리 세이브와 같다.
+
 func capture() -> Array:
 	var out := []
 

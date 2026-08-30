@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cb65olukse4yu"]
+
+[ext_resource type="Script" uid="uid://8m42q1dd5syc" path="res://scenes/objects/pickables/dropped_item.gd" id="1_drop"]
+[ext_resource type="Script" uid="uid://ce7wvcm7jv2xv" path="res://scenes/components/drop_pop_component.gd" id="2_pop"]
+[ext_resource type="Resource" uid="uid://bch5t2qw8n1kd" path="res://scripts/resources/buildables/chest.tres" id="2_uuepf"]
+[ext_resource type="PackedScene" uid="uid://ctp4naj2hxw80" path="res://scenes/components/collectable_component.tscn" id="3_coll"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_drop"]
+radius = 40.0
+
+[node name="DroppedItem" type="Sprite2D" unique_id=1214118777]
+script = ExtResource("1_drop")
+item = ExtResource("2_uuepf")
+
+[node name="DropPopComponent" type="Node" parent="." unique_id=987652340]
+script = ExtResource("2_pop")
+
+[node name="CollectableComponent" parent="." unique_id=425904563 instance=ExtResource("3_coll")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent" unique_id=901977724]
+shape = SubResource("CircleShape2D_drop")

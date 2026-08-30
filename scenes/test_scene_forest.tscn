@@ -11,13 +11,12 @@
 [ext_resource type="PackedScene" uid="uid://b0a3am51xwndg" path="res://scenes/components/day_night_cycle_component.tscn" id="9_dg6co"]
 [ext_resource type="PackedScene" uid="uid://ts47olgc55kh" path="res://scenes/components/crops_cursor_component.tscn" id="14_in03s"]
 [ext_resource type="PackedScene" uid="uid://c5e10kwwdcap1" path="res://scenes/components/field_cursor_component.tscn" id="23_cckqj"]
-[ext_resource type="PackedScene" uid="uid://dile8iqj8hrux" path="res://scenes/objects/containers/container.tscn" id="24_cntnr"]
+[ext_resource type="PackedScene" uid="uid://dile8iqj8hrux" path="res://scenes/objects/pickables/containers/container.tscn" id="24_cntnr"]
 [ext_resource type="PackedScene" uid="uid://co1flbsq0iwon" path="res://scenes/components/buildable_cursor_component.tscn" id="25_bldcr"]
-[ext_resource type="Script" path="res://scenes/components/persistent/level_buildables.gd" id="27_bldbl"]
+[ext_resource type="Script" uid="uid://vdfoocwoprvh" path="res://scenes/components/persistent/level_buildables.gd" id="27_bldbl"]
 
 [node name="TestSceneForest" type="Node2D" unique_id=695838568]
 y_sort_enabled = true
-
 
 [node name="GameTileMap" type="TileMapLayer" parent="." unique_id=1111176685]
 y_sort_enabled = true
@@ -67,7 +66,6 @@ position = Vector2(360, 200)
 [node name="FieldCursorComponent" parent="." unique_id=1217772296 node_paths=PackedStringArray("grass_tilemap_layer", "tilled_soil_tilemap_layer") instance=ExtResource("23_cckqj")]
 grass_tilemap_layer = NodePath("../GameTileMap/Floors")
 tilled_soil_tilemap_layer = NodePath("../GameTileMap/TilledSoil")
-terrain = 4
 
 [node name="CropsCursorComponent" parent="." unique_id=1655129501 node_paths=PackedStringArray("tilled_soil_tilemap_layer", "crops_layer") instance=ExtResource("14_in03s")]
 tilled_soil_tilemap_layer = NodePath("../GameTileMap/TilledSoil")
@@ -77,13 +75,10 @@ crops_layer = NodePath("../GameTileMap/LevelCrops")
 grass_tilemap_layer = NodePath("../GameTileMap/Floors")
 buildables_layer = NodePath("../GameTileMap/Buildables")
 
-
 [node name="Player" parent="." unique_id=940443478 instance=ExtResource("5_i0cr0")]
 position = Vector2(317, 157)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1050224738]
 position = Vector2(-4, 6)
-
-
 
 [node name="DayNightCycleComponent" parent="." unique_id=1908140115 instance=ExtResource("9_dg6co")]

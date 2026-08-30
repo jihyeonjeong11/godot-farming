@@ -17,5 +17,6 @@ edible = 10
 description = "Onion seeds"
 value = 15
 max_stack = 100
-crop_scene_path = "res://scenes/objects/crops/wheat/wheat.tscn"
+world_scene_path = "uid://cb65olukse4yu"
+crop_scene_path = "res://scenes/objects/placables/crops/wheat/wheat.tscn"
 metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

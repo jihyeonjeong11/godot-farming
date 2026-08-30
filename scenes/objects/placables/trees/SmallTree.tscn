@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://c4xghignasnpy"]
+
+[ext_resource type="Texture2D" uid="uid://ddkd6i8mtwy5y" path="res://assets/Objects/Nature/Green/Tree_3_Normal_Green.png" id="1_74yud"]
+[ext_resource type="Shader" uid="uid://dn6q4tvxb8jke" path="res://scenes/objects/placables/trees/tree_shake.gdshader" id="1_shk01"]
+[ext_resource type="Script" uid="uid://c6bb7potuk6ff" path="res://scenes/objects/placables/trees/small_tree.gd" id="2_ulr35"]
+[ext_resource type="PackedScene" uid="uid://bwn5t2ejgp0hr" path="res://scenes/components/hurt_component.tscn" id="3_hrt01"]
+[ext_resource type="PackedScene" uid="uid://dk3jgaxq07bts" path="res://scenes/components/damage_component.tscn" id="4_dmg01"]
+[ext_resource type="Texture2D" uid="uid://xaiewcxiuhdc" path="res://assets/effects/dust_effect.png" id="6_s3mqe"]
+[ext_resource type="Resource" uid="uid://f56b1jph4cua" path="res://scripts/resources/pickables/log.tres" id="9_dropi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_shk01"]
+resource_local_to_scene = true
+shader = ExtResource("1_shk01")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xv1n"]
+atlas = ExtResource("1_74yud")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4kxuq"]
+radius = 4.1231055
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hrt01"]
+size = Vector2(16, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w72ds"]
+atlas = ExtResource("6_s3mqe")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ef2e"]
+atlas = ExtResource("6_s3mqe")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1j6qm"]
+atlas = ExtResource("6_s3mqe")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m01bf"]
+atlas = ExtResource("6_s3mqe")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4kxuq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w72ds")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ef2e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1j6qm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m01bf")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="SmallTree" type="Sprite2D" unique_id=495184973]
+material = SubResource("ShaderMaterial_shk01")
+texture = SubResource("AtlasTexture_2xv1n")
+script = ExtResource("2_ulr35")
+drop_item = ExtResource("9_dropi")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=372018802]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1511329243]
+position = Vector2(0, 11)
+shape = SubResource("CircleShape2D_4kxuq")
+
+[node name="HurtComponent" parent="." unique_id=1533014795 instance=ExtResource("3_hrt01")]
+tool = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent" unique_id=1793199480]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_hrt01")
+debug_color = Color(0.8463241, 0.34185705, 0.42788085, 0.41960785)
+
+[node name="DamageComponent" parent="." unique_id=367003997 instance=ExtResource("4_dmg01")]
+max_damage = 3
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=848430212]
+sprite_frames = SubResource("SpriteFrames_4kxuq")

@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+const DROPPED_ITEM := preload("res://scenes/objects/pickables/dropped_item.tscn")
+
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var hurt_component: HurtComponent = $HurtComponent
 @onready var damage_component: DamageComponent = $DamageComponent
@@ -104,14 +106,16 @@ func die() -> void:
 
 
 func drop_loot() -> void:
-	var loot_scene: PackedScene = root_table.get_root()
-	if loot_scene == null:
+	var loot_item: Items = root_table.roll()
+	if loot_item == null:
 		return
 
 	var host := get_parent()
 	if host == null:
 		return
 
-	var loot := loot_scene.instantiate() as Node2D
+	var loot := DROPPED_ITEM.instantiate() as Node2D
+	# add_child가 _ready를 돌리므로 그 전에 무엇인지 알려준다.
+	loot.item = loot_item
 	host.add_child(loot)
 	loot.global_position = global_position

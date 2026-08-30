@@ -3,9 +3,9 @@
 [ext_resource type="TileSet" uid="uid://8jdyac0p5kww" path="res://tilesets/buildings.tres" id="1_s2ciu"]
 [ext_resource type="Script" uid="uid://cyg8x8ganehgt" path="res://scenes/components/spawn_point.gd" id="2_spawn"]
 [ext_resource type="PackedScene" uid="uid://bmp8j4fwdkl82" path="res://scenes/characters/player/player.tscn" id="3_playr"]
-[ext_resource type="PackedScene" uid="uid://hw03yyvlo6vg" path="res://scenes/objects/buildables/door.tscn" id="3_v16bj"]
+[ext_resource type="PackedScene" uid="uid://hw03yyvlo6vg" path="res://scenes/objects/pickables/buildables/door.tscn" id="3_v16bj"]
 [ext_resource type="PackedScene" uid="uid://ccnxtlq1ru1pv" path="res://scenes/components/cursors/object_cursor_component.tscn" id="4_cursr"]
-[ext_resource type="PackedScene" uid="uid://b1r1piv7rhuop" path="res://scenes/objects/buildables/bed.tscn" id="5_bed"]
+[ext_resource type="PackedScene" uid="uid://b1r1piv7rhuop" path="res://scenes/objects/pickables/buildables/bed.tscn" id="5_bed"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4kxuq"]
 

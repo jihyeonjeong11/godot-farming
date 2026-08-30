@@ -53,6 +53,10 @@ class_name Items extends Resource
 ## droppable
 @export_file("*.tscn") var world_scene_path: String = ""
 
+## 땅에 떨어졌을 때 쓸 그림. 비워두면 item_texture를 쓴다.
+## 인벤토리 아이콘과 월드 그림이 다른 것들(돌·통나무·당근)만 채우면 된다.
+@export var world_texture: Texture2D
+
 @export var max_ammo: int
 @export var current_ammo: int
 

@@ -1,7 +1,7 @@
 extends Node2D
 
 @export_file("*.tscn") var scene_farm := "res://scenes/test_scenes/farm.tscn"
-@export_file("*.tscn") var scene_city := "res://scenes/test_scene_outside.tscn"
+@export_file("*.tscn") var scene_city := "res://scenes/test_scenes/proc_gen_city_ruin.tscn"
 @export_file("*.tscn") var scene_mainmenu := "res://scenes/mainmenu.tscn"
 
 @onready var current_scene: Node = $CurrentScene

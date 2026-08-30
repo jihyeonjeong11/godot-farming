@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://0jfpbkyqxmgp"]
+
+[ext_resource type="PackedScene" uid="uid://ctp4naj2hxw80" path="res://scenes/components/collectable_component.tscn" id="1_8orss"]
+[ext_resource type="Texture2D" uid="uid://bi7sc3d1g8ya0" path="res://assets/Objects/Nature/Flowers_Mashrooms_Other-nature-stuff/Rocks/Rock_1.png" id="1_stn01"]
+[ext_resource type="Resource" uid="uid://bvp0rivu0hk48" path="res://scripts/resources/pickables/stone.tres" id="2_oca81"]
+[ext_resource type="Script" uid="uid://ce7wvcm7jv2xv" path="res://scenes/components/drop_pop_component.gd" id="4_pop01"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stn01"]
+atlas = ExtResource("1_stn01")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_64ktg"]
+radius = 40.0
+
+[node name="Stone" type="Sprite2D" unique_id=841055070]
+texture = SubResource("AtlasTexture_stn01")
+
+[node name="DropPopComponent" type="Node" parent="." unique_id=1710000401]
+script = ExtResource("4_pop01")
+
+[node name="CollectableComponent" parent="." unique_id=1149376405 instance=ExtResource("1_8orss")]
+item = ExtResource("2_oca81")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent" unique_id=2138219417]
+shape = SubResource("CircleShape2D_64ktg")
+debug_color = Color(0.35016045, 0.61620694, 0.1935752, 0.41960785)

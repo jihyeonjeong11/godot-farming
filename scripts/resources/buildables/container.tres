@@ -6,13 +6,10 @@
 [resource]
 script = ExtResource("1_items")
 item_type = "buildable"
-tool_type = 0
 item_name = "container"
 item_texture = ExtResource("2_tex")
 description = "물건을 넣어두는 상자. 땅에 놓고 우클릭하면 열린다."
 max_stack = 99
-melee_damage = 0
-melee_knockback = 0
-world_scene_path = "uid://cq3mv7bktnx4e"
 buildable_scene_path = "uid://dile8iqj8hrux"
+world_scene_path = "uid://cb65olukse4yu"
 metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

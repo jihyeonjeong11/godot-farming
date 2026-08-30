@@ -16,5 +16,6 @@ item_texture = SubResource("AtlasTexture_c2m8l")
 description = "Wheat seeds"
 value = 18
 max_stack = 100
-crop_scene_path = "res://scenes/objects/crops/wheat/wheat.tscn"
+crop_scene_path = "res://scenes/objects/placables/crops/wheat/wheat.tscn"
+world_scene_path = "uid://cb65olukse4yu"
 metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

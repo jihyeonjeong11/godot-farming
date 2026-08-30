@@ -1,17 +1,31 @@
 extends CanvasLayer
 
 @onready var menu_panel: MarginContainer = $MarginContainer
-@onready var settings_button: Button = %SettingsButton
-@onready var quit_button: Button = %QuitButton
 @onready var settings_panel: Control = $Settings
 
-@onready var inventory_grid: GridContainer = $MarginContainer/PanelContainer/InventoryGridContainer/InventoryGrid
-@onready var inventory_description := $MarginContainer/PanelContainer/DescContainer/InventoryDescription as InventoryDescription
+@onready var inventory_grid: GridContainer = %InventoryGrid
+@onready var inventory_description := %InventoryDescription as InventoryDescription
+@onready var craft_grid: GridContainer = %CraftGrid
+@onready var craft_info: Label = %CraftInfo
+
+enum Menus {
+	Inventory,
+	Crafting,
+	Settings
+}
 
 const INVENTORY_SLOT = preload("uid://byt1lfm4vsyc4")
 
+
+
+## 만들 수 있는 것들. 씬에서 채운다.
+## 조합법도 아이템처럼 리소스라 새로 늘릴 때 이 스크립트를 건드릴 일이 없다.
+@export var recipes: Array[CraftRecipe] = []
+
 var slots: Array[InventorySlot] = []
+var craft_slots: Array[InventorySlot] = []
 var focused_slot_index: int = -1
+var focused_recipe_index: int = -1
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_WHEN_PAUSED
@@ -19,13 +33,20 @@ func _ready() -> void:
 	settings_panel.visible = false
 
 	SignalBus.ingame_paused.connect(on_game_paused)
-	settings_button.pressed.connect(on_settings_pressed)
-	quit_button.pressed.connect(on_quit_pressed)
 	settings_panel.closed.connect(on_settings_closed)
-	
+
+	build_inventory_grid()
+	build_craft_grid()
+
+	Inventory.inventory_updated.connect(refresh)
+	refresh()
+
+
+func build_inventory_grid() -> void:
 	for child in inventory_grid.get_children():
 		inventory_grid.remove_child(child)
 		child.queue_free()
+	slots.clear()
 
 	for i in Inventory.BASE_INVENTORY_LIMIT:
 		var slot: InventorySlot = INVENTORY_SLOT.instantiate()
@@ -37,9 +58,34 @@ func _ready() -> void:
 		inventory_grid.add_child(slot)
 		slots.append(slot)
 
-	Inventory.inventory_updated.connect(refresh)
-	refresh()
-	
+
+## 조합 칸도 같은 슬롯 씬을 쓴다. 다만 인벤토리 칸이 아니라서 끌어봐야 옮길 곳이 없다.
+## draggable 을 끄면 InventorySlot 이 드래그도 드롭도 거부한다.
+func build_craft_grid() -> void:
+	for child in craft_grid.get_children():
+		craft_grid.remove_child(child)
+		child.queue_free()
+	craft_slots.clear()
+
+	for i in recipes.size():
+		var recipe := recipes[i]
+		if recipe == null or recipe.result == null:
+			continue
+
+		var slot: InventorySlot = INVENTORY_SLOT.instantiate()
+		slot.name = "Craft%d" % i
+		slot.slot_index = i
+		slot.draggable = false
+		# 결과물 텍스처는 크기가 제각각이다. 눌러 담지 않으면 큰 그림 하나가 줄 높이를 다 먹는다.
+		slot.expand_icon = true
+		slot.pressed.connect(on_craft_pressed.bind(i))
+		slot.mouse_entered.connect(on_craft_hovered.bind(i))
+		craft_grid.add_child(slot)
+		craft_slots.append(slot)
+
+		slot.set_slot(ItemStack.new(recipe.result, recipe.result_amount))
+
+
 func on_slot_pressed(index: int) -> void:
 	if Inventory.get_item(index) == null or focused_slot_index == index:
 		focused_slot_index = -1
@@ -49,6 +95,18 @@ func on_slot_pressed(index: int) -> void:
 
 func on_slot_right_pressed(index: int) -> void:
 	Inventory.drop_item(index)
+
+
+func on_craft_pressed(index: int) -> void:
+	focused_recipe_index = index
+	Inventory.craft(recipes[index])
+	refresh()
+
+
+func on_craft_hovered(index: int) -> void:
+	focused_recipe_index = index
+	refresh_craft_info()
+
 
 func refresh() -> void:
 	for i in slots.size():
@@ -65,12 +123,33 @@ func refresh() -> void:
 	else:
 		inventory_description.show_item(selected.item, selected.amount)
 
+	refresh_craft()
+
+
+## 못 만드는 조합법도 흐리게 남겨둔다. 목록에서 빼버리면 뭘 모아야 하는지 알 수 없다.
+func refresh_craft() -> void:
+	for slot in craft_slots:
+		var recipe := recipes[slot.slot_index]
+		slot.modulate.a = 1.0 if Inventory.can_craft(recipe) else 0.4
+		slot.tooltip_text = recipe.describe()
+
+	refresh_craft_info()
+
+
+func refresh_craft_info() -> void:
+	if focused_recipe_index < 0 or focused_recipe_index >= recipes.size():
+		craft_info.text = ""
+		return
+
+	craft_info.text = recipes[focused_recipe_index].describe()
+
 
 func on_game_paused(is_paused: bool) -> void:
 	visible = is_paused
 	if is_paused:
 		menu_panel.visible = true
 		settings_panel.visible = false
+		refresh()
 	else:
 		menu_panel.visible = false
 
@@ -82,7 +161,6 @@ func on_settings_pressed() -> void:
 
 func on_settings_closed() -> void:
 	menu_panel.visible = true
-	settings_button.grab_focus()
 
 
 func on_quit_pressed() -> void:

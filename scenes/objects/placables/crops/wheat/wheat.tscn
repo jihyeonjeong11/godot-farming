@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://dpw8u7j2bijii"]
+
+[ext_resource type="Script" uid="uid://bnuxlp0n63gpc" path="res://scenes/objects/placables/crops/wheat/wheat.gd" id="1_ub34l"]
+[ext_resource type="Texture2D" uid="uid://j1o8v4xqk4ef" path="res://assets/Objects/crops/crops.png" id="2_7gl54"]
+[ext_resource type="PackedScene" uid="uid://icexu1c4ffpk" path="res://scenes/components/growth_cycle_component.tscn" id="3_j8ogt"]
+[ext_resource type="PackedScene" uid="uid://bu66glbfsvp45" path="res://scenes/objects/placables/crops/flowering_particles.tscn" id="4_5k6vj"]
+[ext_resource type="PackedScene" uid="uid://cehk8b7braiq8" path="res://scenes/objects/placables/crops/watering_particles.tscn" id="5_yahxe"]
+[ext_resource type="PackedScene" uid="uid://dn08baylvwldn" path="res://scenes/components/farming_hurt_component.tscn" id="6_dl25i"]
+[ext_resource type="Resource" uid="uid://cw3ahtn6vyqk8" path="res://scripts/resources/pickables/wheat.tres" id="9_dropi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st0"]
+atlas = ExtResource("2_7gl54")
+region = Rect2(736, 6, 32, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st1"]
+atlas = ExtResource("2_7gl54")
+region = Rect2(704, 36, 32, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st2"]
+atlas = ExtResource("2_7gl54")
+region = Rect2(736, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st3"]
+atlas = ExtResource("2_7gl54")
+region = Rect2(768, 16, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st4"]
+atlas = ExtResource("2_7gl54")
+region = Rect2(800, 6, 32, 58)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kxuq"]
+size = Vector2(8.5, 8.5)
+
+[node name="Wheat" type="Node2D" unique_id=204010315]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_ub34l")
+harvest_item = ExtResource("9_dropi")
+growth_textures = Array[Texture2D]([SubResource("AtlasTexture_st0"), SubResource("AtlasTexture_st1"), SubResource("AtlasTexture_st2"), SubResource("AtlasTexture_st3"), SubResource("AtlasTexture_st4")])
+
+[node name="GrowthCycleComponent" parent="." unique_id=1492934040 instance=ExtResource("3_j8ogt")]
+days_until_harvest = 7
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=723048481]
+texture = SubResource("AtlasTexture_st0")
+centered = false
+offset = Vector2(-16, -20)
+
+[node name="FloweringParticles" parent="." unique_id=208500673 instance=ExtResource("4_5k6vj")]
+
+[node name="WateringParticles" parent="." unique_id=799299299 instance=ExtResource("5_yahxe")]
+
+[node name="FarmingHurtComponent" parent="." unique_id=1760748724 instance=ExtResource("6_dl25i")]
+tool = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FarmingHurtComponent" unique_id=1001496469]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_4kxuq")

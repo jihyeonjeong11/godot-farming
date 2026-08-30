@@ -2,10 +2,15 @@
 
 [ext_resource type="Texture2D" uid="uid://j1o8v4xqk4ef" path="res://assets/Objects/crops/crops.png" id="1_38tgp"]
 [ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/items.gd" id="2_62xar"]
+[ext_resource type="Texture2D" uid="uid://dog4l2sx7u7cn" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png" id="3_crtw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_potato"]
 atlas = ExtResource("1_38tgp")
 region = Rect2(838, 355, 23, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_carrot_world"]
+atlas = ExtResource("3_crtw")
+region = Rect2(834, 351, 30, 31)
 
 [resource]
 script = ExtResource("2_62xar")
@@ -18,5 +23,6 @@ thirst = 5
 description = "Harvested from a mature potato plant. 우클릭으로 먹는다."
 value = 40
 max_stack = 100
-world_scene_path = "uid://bl0lklid7te08"
+world_scene_path = "uid://cb65olukse4yu"
+world_texture = SubResource("AtlasTexture_carrot_world")
 metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

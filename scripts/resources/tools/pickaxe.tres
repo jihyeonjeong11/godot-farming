@@ -20,5 +20,5 @@ melee_radius = 10.0
 melee_shape = SubResource("RectangleShape2D_pickaxe")
 max_stack = -1
 anim_prefix = &"pickaxe"
-world_scene_path = "uid://cyd3ld0r7fmsh"
+world_scene_path = "uid://cb65olukse4yu"
 metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

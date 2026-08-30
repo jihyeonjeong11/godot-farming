@@ -22,5 +22,5 @@ melee_radius = 12.0
 melee_shape = SubResource("RectangleShape2D_axe")
 max_stack = -1
 anim_prefix = &"axe"
-world_scene_path = "uid://fta66ic867g8"
+world_scene_path = "uid://cb65olukse4yu"
 metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

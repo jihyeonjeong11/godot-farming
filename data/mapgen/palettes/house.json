@@ -1,0 +1,19 @@
+{
+  "type": "palette",
+  "id": "house",
+  "terrain": {
+    " ": "t_null",
+    ".": "t_floor",
+    "#": "t_wall",
+    "+": "t_door_c",
+    "'": "t_window"
+  },
+  "furniture": {
+    "T": "f_table",
+    "K": "f_counter",
+    "S": "f_shelf",
+    "W": "f_sink",
+    "F": "f_fridge",
+    "L": "f_locker"
+  }
+}

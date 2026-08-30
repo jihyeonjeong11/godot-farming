@@ -17,5 +17,5 @@ thirst = 10
 description = "사과나무를 흔들어 얻는다. 우클릭으로 먹는다."
 value = 30
 max_stack = 100
-world_scene_path = "uid://bn4h7ycl0swzq"
+world_scene_path = "uid://cb65olukse4yu"
 metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

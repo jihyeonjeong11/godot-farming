@@ -19,5 +19,5 @@ melee_radius = 17.0
 melee_shape = SubResource("RectangleShape2D_bat")
 max_stack = -1
 anim_prefix = &"bat"
-world_scene_path = "uid://bi7ka3smrh104"
+world_scene_path = "uid://cb65olukse4yu"
 metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

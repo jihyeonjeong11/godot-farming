@@ -12,5 +12,5 @@ edible = 30
 description = "For cure your wounds."
 value = 100
 max_stack = 100
-world_scene_path = "uid://bssiydf5x86ti"
+world_scene_path = "uid://cb65olukse4yu"
 metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

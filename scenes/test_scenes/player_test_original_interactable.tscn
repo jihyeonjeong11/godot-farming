@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://123k15c3oq0r" path="res://scenes/components/persistent/level_nature.gd" id="7_u7a26"]
 [ext_resource type="Script" uid="uid://bjqk2jiorau6t" path="res://scenes/components/persistent/level_objects.gd" id="8_wv1wo"]
 [ext_resource type="Script" uid="uid://vdfoocwoprvh" path="res://scenes/components/persistent/level_buildables.gd" id="9_xnxxa"]
-[ext_resource type="PackedScene" uid="uid://dile8iqj8hrux" path="res://scenes/objects/containers/container.tscn" id="10_sm868"]
+[ext_resource type="PackedScene" uid="uid://dile8iqj8hrux" path="res://scenes/objects/pickables/containers/container.tscn" id="10_sm868"]
 [ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/items.gd" id="11_k7mw8"]
 [ext_resource type="Resource" uid="uid://iadbnqiiwu53" path="res://scripts/resources/tools/axe.tres" id="12_lqkyj"]
 [ext_resource type="Resource" uid="uid://h1l1g07oam5a" path="res://scripts/resources/tools/hoe.tres" id="13_r1n3o"]
@@ -93,7 +93,3 @@ crops_layer = NodePath("../GameTileMap/LevelCrops")
 [node name="BuildableCursorComponent" parent="." unique_id=1217772298 node_paths=PackedStringArray("grass_tilemap_layer", "buildables_layer") instance=ExtResource("24_jdr7e")]
 grass_tilemap_layer = NodePath("../GameTileMap/Floors")
 buildables_layer = NodePath("../GameTileMap/Buildables")
-
-
-
-

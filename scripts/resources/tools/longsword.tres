@@ -20,4 +20,5 @@ melee_radius = 20.0
 melee_shape = SubResource("RectangleShape2D_longsword")
 max_stack = -1
 anim_prefix = &"longsword"
+world_scene_path = "uid://cb65olukse4yu"
 metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

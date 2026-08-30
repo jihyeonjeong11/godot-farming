@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ciy2w5al054wb" path="res://scenes/test_scenes/proc_gen_city_ruin.gd" id="1_fb62f"]
 [ext_resource type="TileSet" uid="uid://dkw01fa84lera" path="res://tilesets/city_ruin.tres" id="2_v2c2p"]
 [ext_resource type="PackedScene" uid="uid://bmp8j4fwdkl82" path="res://scenes/characters/player/player.tscn" id="3_player"]
+[ext_resource type="TileSet" uid="uid://bfjfke80cfmmc" path="res://tilesets/house_tile_set.tres" id="4_house"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_city"]
 vertices = PackedVector2Array(0, 0, 20480, 0, 20480, 20480, 0, 20480)
@@ -22,13 +23,23 @@ tile_set = ExtResource("2_v2c2p")
 [node name="Road" type="TileMapLayer" parent="." unique_id=1612547893]
 tile_set = ExtResource("2_v2c2p")
 
+[node name="Floors" type="TileMapLayer" parent="." unique_id=1612547895]
+scale = Vector2(2, 2)
+tile_set = ExtResource("4_house")
+
+[node name="Walls" type="TileMapLayer" parent="." unique_id=1612547896]
+y_sort_enabled = true
+scale = Vector2(2, 2)
+tile_set = ExtResource("4_house")
+
+[node name="Furniture" type="TileMapLayer" parent="." unique_id=1612547897]
+y_sort_enabled = true
+scale = Vector2(2, 2)
+tile_set = ExtResource("4_house")
+
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1517440240]
 visible = false
 navigation_polygon = SubResource("NavigationPolygon_city")
-
-[node name="Props" type="TileMapLayer" parent="." unique_id=1612547894]
-y_sort_enabled = true
-tile_set = ExtResource("2_v2c2p")
 
 [node name="Player" parent="." unique_id=1080784849 instance=ExtResource("3_player")]
 

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://hw03yyvlo6vg"]
+
+[ext_resource type="Texture2D" uid="uid://dmej0tp32bpis" path="res://assets/craftland/Craftland Terrain/32x32/CL_Buildings.png" id="1_7ohlw"]
+[ext_resource type="Script" uid="uid://bkrucv1wer0n3" path="res://scenes/objects/pickables/buildables/door.gd" id="2_a7a1q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4kxuq"]
+atlas = ExtResource("1_7ohlw")
+region = Rect2(390, 159, 51, 108)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kxuq"]
+size = Vector2(49, 16)
+
+[node name="Door" type="Sprite2D" unique_id=561351757 groups=["interactables"]]
+texture = SubResource("AtlasTexture_4kxuq")
+offset = Vector2(-0.5, -43)
+script = ExtResource("2_a7a1q")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1190430320]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1052428538]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_4kxuq")

@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://q3lj38dps36l" path="res://assets/Objects/Garbage-Bin_2.png" id="2_ugfrm"]
 [ext_resource type="Texture2D" uid="uid://bb3db23ssl81y" path="res://assets/Objects/Street-Light_1_Side.png" id="3_k4vir"]
 [ext_resource type="Texture2D" uid="uid://ddpvefpnuo760" path="res://assets/Objects/Nature/Green/Tree_1_Spruce_Green.png" id="4_rgab8"]
-[ext_resource type="PackedScene" uid="uid://c4xghignasnpy" path="res://scenes/objects/trees/SmallTree.tscn" id="5_3pqg7"]
+[ext_resource type="PackedScene" uid="uid://c4xghignasnpy" path="res://scenes/objects/placables/trees/SmallTree.tscn" id="5_3pqg7"]
 [ext_resource type="Texture2D" uid="uid://wacspr67cr3n" path="res://assets/Objects/Nature/Green/Tree-trunk_2_grass_Green.png" id="5_6n3bw"]
-[ext_resource type="PackedScene" uid="uid://bbeiswymb5pbp" path="res://scenes/objects/rocks/Rock.tscn" id="6_4gtdd"]
+[ext_resource type="PackedScene" uid="uid://bbeiswymb5pbp" path="res://scenes/objects/placables/rocks/Rock.tscn" id="6_4gtdd"]
 [ext_resource type="Texture2D" uid="uid://brg4dadf3kj8j" path="res://assets/Objects/Nature/Green/Grass_5_Green.png" id="6_tlb4r"]
 [ext_resource type="Texture2D" uid="uid://cj03g78c283cx" path="res://assets/Objects/Nature/Bleak-Yellow/Grass_5_Bleak-Yellow.png" id="7_tlb4r"]
 

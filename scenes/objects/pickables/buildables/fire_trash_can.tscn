@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://d0jwliwel36al"]
+
+[ext_resource type="Texture2D" uid="uid://dlbdfiq133kcc" path="res://assets/apo/anims/32x32_trash_can_fire.png" id="1_wonjg"]
+[ext_resource type="Script" uid="uid://bq8ktwmynff3a" path="res://scenes/components/interactable_component.gd" id="2_adr8o"]
+[ext_resource type="Script" uid="uid://dw4yk6dantq6" path="res://scenes/objects/pickables/buildables/fire_trash_can.gd" id="2_ckgyh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_adr8o"]
+atlas = ExtResource("1_wonjg")
+region = Rect2(192, 0, 32, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wonjg"]
+atlas = ExtResource("1_wonjg")
+region = Rect2(0, 0, 32, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckgyh"]
+atlas = ExtResource("1_wonjg")
+region = Rect2(32, 0, 32, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rib2q"]
+atlas = ExtResource("1_wonjg")
+region = Rect2(64, 0, 32, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0mm3e"]
+atlas = ExtResource("1_wonjg")
+region = Rect2(96, 0, 32, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1uib"]
+atlas = ExtResource("1_wonjg")
+region = Rect2(128, 0, 32, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uirj6"]
+atlas = ExtResource("1_wonjg")
+region = Rect2(160, 0, 32, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4kxuq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_adr8o")
+}],
+"loop": 0,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wonjg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ckgyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rib2q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0mm3e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1uib")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uirj6")
+}],
+"loop": 1,
+"name": &"on",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ckgyh"]
+size = Vector2(42, 67)
+
+[node name="FireTrashCan" type="AnimatedSprite2D" unique_id=401521629]
+sprite_frames = SubResource("SpriteFrames_4kxuq")
+animation = &"on"
+autoplay = "off"
+script = ExtResource("2_ckgyh")
+
+[node name="InteractableComponent" type="Node" parent="." unique_id=1748631257]
+script = ExtResource("2_adr8o")
+metadata/_custom_type_script = "uid://bq8ktwmynff3a"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=373654856]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1907511713]
+position = Vector2(0, 14.5)
+shape = SubResource("RectangleShape2D_ckgyh")

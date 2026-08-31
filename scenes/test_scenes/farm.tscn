@@ -27,6 +27,8 @@
 [ext_resource type="Resource" uid="uid://cukembyxyfglu" path="res://scripts/resources/tools/pickaxe.tres" id="21_1kpj0"]
 [ext_resource type="Shader" uid="uid://bxq7f2mnvta3l" path="res://scenes/objects/placables/fruit_trees/fruit_tree_shake.gdshader" id="21_mge4w"]
 [ext_resource type="PackedScene" path="res://scenes/components/portal_component.tscn" id="22_portl"]
+[ext_resource type="PackedScene" uid="uid://bqtvqkygn3rwm" path="res://scenes/objects/placables/barrels/Barrels.tscn" id="26_mge4w"]
+[ext_resource type="Shader" uid="uid://dn6q4tvxb8jke" path="res://scenes/objects/placables/trees/tree_shake.gdshader" id="27_ysy4c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_itdck"]
 texture = ExtResource("4_itdck")
@@ -690,7 +692,7 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_bv2fu")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_k6jv7"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u7oqc"]
 resource_local_to_scene = true
 shader = ExtResource("21_mge4w")
 shader_parameter/base_y = 0.0
@@ -720,6 +722,12 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_mti6b"]
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_4tab4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qyw75"]
+resource_local_to_scene = true
+shader = ExtResource("27_ysy4c")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
 
 [node name="Farm" type="Node2D" unique_id=864644704]
 
@@ -801,7 +809,7 @@ position = Vector2(429, 647)
 initial_items = Array[ExtResource("16_326xb")]([ExtResource("17_kja7d"), ExtResource("18_y7ey2"), ExtResource("19_1kpj0"), ExtResource("21_1kpj0")])
 
 [node name="AppleTree" parent="FarmTilemap/LevelBuildables" unique_id=144522866 instance=ExtResource("20_k6jv7")]
-material = SubResource("ShaderMaterial_k6jv7")
+material = SubResource("ShaderMaterial_u7oqc")
 position = Vector2(328, 758)
 
 [node name="ConcretePath" type="TileMapLayer" parent="FarmTilemap" unique_id=1762211901]
@@ -812,6 +820,10 @@ tile_set = SubResource("TileSet_mti6b")
 position = Vector2(49, 559)
 target_scene = "uid://kqf460uvb87q"
 target_spawn = &"farm_gate"
+
+[node name="Barrels" parent="FarmTilemap" unique_id=495184973 instance=ExtResource("26_mge4w")]
+material = SubResource("ShaderMaterial_qyw75")
+position = Vector2(287, 524)
 
 [node name="Player" parent="." unique_id=523926272 instance=ExtResource("3_hbq8b")]
 position = Vector2(263, 682)

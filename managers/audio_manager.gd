@@ -16,6 +16,8 @@ const SFX_TREE_HITTING := "TREE_HITTING"
 const SFX_EATING := "EATING"
 const SFX_TILLING_GROUND := "TILLING_GROUND"
 const SFX_WATERING_CROPS := "WATERING_CROPS"
+const SFX_FIRE_ON := "FIRE_ON"
+const SFX_FIRE_OFF := "FIRE_OFF"
 
 const SOUND_EFFECTS := {
 	SFX_TREE_SHAKING: preload("uid://cf5dkduwvar7f"),
@@ -23,6 +25,8 @@ const SOUND_EFFECTS := {
 	SFX_EATING: preload("uid://3ehkno4ns3if"),
 	SFX_TILLING_GROUND: preload("uid://b5ll7oh7g02ah"),
 	SFX_WATERING_CROPS: preload("uid://s3cy4shkem8o"),
+	SFX_FIRE_ON: preload("uid://cluwpcp6k6vrc"),  # fire_on.mp3
+	SFX_FIRE_OFF: preload("uid://by72sp3vkhet8"),  # fire_off.mp3
 }
 
 const SFX_POOL_SIZE := 4

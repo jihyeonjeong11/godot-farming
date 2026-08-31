@@ -121,7 +121,7 @@ const FURN_TILE := {
 }
 
 @export var world_seed: int = 0         
-@export var city_size: int = 8
+@export var city_size: int = 4
 
 @onready var ground: TileMapLayer = $Ground  
 @onready var walk: TileMapLayer = $Walk     
@@ -757,20 +757,6 @@ func wall_slice(c: Vector2i) -> Vector2i:
 		ex = 0 if (rt and not lf) else (2 if (lf and not rt) else 1)
 		ey = 0 if (dn and not up) else (2 if (up and not dn) else 1)
 	return WALL_TILE[ey][ex]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 func west_gate_omt() -> Vector2i:
 	var omt := city_pos

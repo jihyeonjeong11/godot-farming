@@ -1,3 +1,6 @@
 [gd_scene format=3 uid="uid://c6015pym7v1mt"]
 
-[node name="DroppedItem" type="Node2D" unique_id=1991837336]
+[ext_resource type="Script" uid="uid://q403ywpyx88q" path="res://scenes/objects/pickables/held_item.gd" id="1_o7eqb"]
+
+[node name="HeldItem" type="Node2D" unique_id=1991837336]
+script = ExtResource("1_o7eqb")

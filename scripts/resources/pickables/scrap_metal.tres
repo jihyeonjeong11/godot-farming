@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Items" format=3 uid="uid://d1ybgcifdoahc"]
+
+[ext_resource type="Texture2D" uid="uid://cd23fy8lk2tva" path="res://assets/apo/32x32_dec_props.png" id="1_avjcs"]
+[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/items.gd" id="2_lpbap"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8xnv"]
+atlas = ExtResource("1_avjcs")
+region = Rect2(719, 414, 37, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpbap"]
+atlas = ExtResource("1_avjcs")
+region = Rect2(716, 401, 46, 54)
+
+[resource]
+script = ExtResource("2_lpbap")
+item_type = "resource"
+item_name = "Scrap metal"
+item_texture = SubResource("AtlasTexture_d8xnv")
+description = "고철 한 덩어리"
+max_stack = 100
+world_scene_path = "uid://cb65olukse4yu"
+world_texture = SubResource("AtlasTexture_lpbap")
+metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

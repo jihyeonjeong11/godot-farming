@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Items" format=3 uid="uid://bt7rqf3kx2moa"]
+
+[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/items.gd" id="1_items"]
+[ext_resource type="Texture2D" uid="uid://dlbdfiq133kcc" path="res://assets/apo/anims/32x32_trash_can_fire.png" id="2_tex"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_can"]
+atlas = ExtResource("2_tex")
+region = Rect2(192, 38, 32, 57)
+
+[resource]
+script = ExtResource("1_items")
+item_type = "buildable"
+item_name = "fire trash can"
+item_texture = SubResource("AtlasTexture_can")
+description = "불을 피우는 드럼통. 우클릭하면 켜고 끈다. 불이 꺼져 있을 때만 다시 들 수 있다."
+max_stack = 99
+buildable_scene_path = "uid://d0jwliwel36al"
+world_scene_path = "uid://cb65olukse4yu"
+metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

@@ -94,30 +94,30 @@ const CATALOG := [
 ]
 
 # ──────────────────────────────────────────────────────────────
-# 렌더링 — 의미 격자(ter/furn)를 타일로 바꿀 때만 쓰는 표
+# 프리팹 — 지금은 Building_2 한 장뿐이다
+#
+# 원래는 data/mapgen 의 JSON 프리팹을 구워 ter/furn 을 만들고, 그걸 house_tile_set
+# 스프라이트로 옮겨 그렸다. 그런데 도로/인도는 city_ruin 타일셋이라 두 아트가 안 맞는다.
+# 그래서 city_ruin 으로 직접 그린 Building_2 를 모든 건물의 단 하나의 프리팹으로 쓴다.
+# CDDA 의 2단 구조는 그대로다 — OMT 층이 자리를 잡고(#3), mapgen 이 그 자리에 프리팹을
+# 앉힌다. 다만 지금은 뽑기 표에 프리팹이 한 장뿐이라 항상 같은 게 나온다.
+# 프리팹이 늘면 여기를 배열로 만들고 oter 별 가중치 뽑기를 붙이면 된다.
 # ──────────────────────────────────────────────────────────────
-## house_tile_set 의 아틀라스 소스. 두 재질이 같은 좌표를 쓰도록 타일을 맞춰뒀다.
-const MAT_BEIGE := 0   # Buildings_beige — 주거
-const MAT_GRAY := 4    # Buildings_gray  — 상업
+const BUILDING_SCENE: PackedScene = preload("res://scenes/buildings/building_2.tscn")
 
-## 벽 9-slice. [세로 edge][가로 edge], edge: 0=시작 1=중간 2=끝.
-const WALL_TILE := [
-	[Vector2i(5, 0), Vector2i(6, 0), Vector2i(8, 0)],
-	[Vector2i(5, 1), Vector2i(6, 1), Vector2i(8, 1)],
-	[Vector2i(5, 2), Vector2i(6, 2), Vector2i(8, 2)],
-]
-const FLOOR_TILE := Vector2i(7, 4)
-const WINDOW_TILE := Vector2i(9, 0)
+## 프리팹의 레이어 이름 -> 이 씬의 레이어 이름. 여기 없는 레이어는 무시한다.
+const TEMPLATE_LAYERS := {
+	"Floors": "floors",
+	"Walls": "walls",
+	"Furnitures": "furniture",
+	"Roofs": "roofs",
+}
 
-## 가구 스프라이트. [source, coords] 이고 source -1 은 "건물 재질을 따른다".
-## 냉장고/사물함은 별도 텍스처라 재질과 무관하게 고정 소스를 쓴다.
-const FURN_TILE := {
-	MapgenDefs.Furn.TABLE:   [-1, Vector2i(4, 4)],
-	MapgenDefs.Furn.COUNTER: [-1, Vector2i(6, 3)],
-	MapgenDefs.Furn.SHELF:   [-1, Vector2i(4, 5)],
-	MapgenDefs.Furn.SINK:    [-1, Vector2i(7, 3)],
-	MapgenDefs.Furn.FRIDGE:  [1, Vector2i(0, 0)],
-	MapgenDefs.Furn.LOCKER:  [3, Vector2i(0, 0)],
+## 프리팹 레이어가 의미 격자에 남기는 값. 그림이 아니라 "여기가 무엇인가" 쪽이고,
+## #7 폐허화와 이동 판정이 읽을 곳은 타일맵이 아니라 이쪽이다.
+const TEMPLATE_TER := {
+	"Floors": MapgenDefs.Ter.FLOOR,
+	"Walls": MapgenDefs.Ter.WALL,
 }
 
 @export var world_seed: int = 0         
@@ -129,6 +129,7 @@ const FURN_TILE := {
 @onready var floors: TileMapLayer = $Floors
 @onready var walls: TileMapLayer = $Walls
 @onready var furniture: TileMapLayer = $Furniture
+@onready var roofs: TileMapLayer = $Roofs
 @onready var player: CharacterBody2D = $Player
 @onready var camera: Camera2D = $Player/Camera2D
 
@@ -146,7 +147,10 @@ var occ := PackedByteArray()             # TILES x TILES, 값은 Occ — "여기
 ## #7 폐허화와 문/창문 상호작용이 읽을 것도 이쪽이다.
 var ter := PackedByteArray()             # TILES x TILES, 값은 MapgenDefs.Ter
 var furn := PackedByteArray()            # TILES x TILES, 값은 MapgenDefs.Furn
-var mapgen := Mapgen.new()
+## Building_2 에서 뽑아온 타일 판. 좌상단 기준 오프셋으로 펴놨다.
+## 건물마다 씬을 인스턴스하면 수백 채에서 노드가 폭발한다 — 타일만 베껴 찍는다.
+var building_template: Array[Dictionary] = []
+var building_size := Vector2i.ZERO
 var placed_buildings: Array[Dictionary] = []   # 배치 결과. 페인팅과 미니맵이 읽는다.
 var park_omts: Dictionary = {}           # 공원으로 잡힌 OMT. 나무를 더 심는다.
 var placed_unique: Dictionary = {}       # CITY_UNIQUE 중복 방지. CDDA는 도시마다 새로 만든다.
@@ -156,7 +160,7 @@ var gate_spawn: SpawnPoint               # 그 안쪽, 농장에서 넘어온 �
 
 func _ready() -> void:
 	# 프리팹은 시드와 무관하므로 한 번만 읽는다. 리롤은 뽑기만 다시 한다.
-	mapgen.load_all()
+	load_building_template()
 	_generate()
 	place_player()
 	# 디버그 UI(줌/리롤/미니맵)는 이 씬만 F6로 띄웠을 때만 붙인다.
@@ -181,6 +185,7 @@ func _generate() -> void:
 	floors.clear()
 	walls.clear()
 	furniture.clear()
+	roofs.clear()
 	placed_buildings.clear()
 	park_omts.clear()
 	placed_unique.clear()
@@ -343,9 +348,6 @@ func build_city_street(p: Vector2i, cs: int, dir: int, block_width: int = 2) -> 
 			build_city_street(rp, left, turn_left(dir), new_width)
 			build_city_street(rp, right, turn_right(dir), new_width)
 
-		# overmap_city.cpp:439 — 도로 한 칸마다 좌/우 각각 굴린다.
-		# !one_in(4) 는 25%가 아니라 75%다. 도로 1칸당 평균 1.5채가 나온다.
-		# 가지 도로를 먼저 뻗고 나서 세우는 순서까지 CDDA와 같다 — 순서가 결과를 바꾼다.
 		if not one_in(BUILDING_CHANCE):
 			place_building(rp, turn_left(dir))
 		if not one_in(BUILDING_CHANCE):
@@ -580,14 +582,8 @@ func pick_random_building(town_dist: int) -> Dictionary:
 			return b
 	return pool[pool.size() - 1]
 
-
-## overmap_city.cpp:281 — 핵심은 세 줄이다.
-##   building_pos = 도로 노드에서 직각으로 한 칸 옆
-##   building_dir = opposite(dir)  → 정면이 항상 도로를 향한다
-##   town_dist    = 도심 거리를 city_size 로 나눠 0~100 으로 정규화
 func place_building(p: Vector2i, dir: int) -> void:
 	var building_pos := p + DIR_VEC[dir]
-	# 건물이 바라보는 방향. 우린 이걸 문 뚫을 변을 고르는 데 쓴다.
 	var building_dir := opposite(dir)
 	var town_dist := int(Vector2(building_pos - city_pos).length() * 100.0 / maxi(city_size, 1))
 
@@ -647,7 +643,7 @@ func building_rect(cells: Array[Vector2i], size: Vector2i, face: int) -> Rect2i:
 # ──────────────────────────────────────────────────────────────
 # mapgen — CDDA 가 OMT 에 들어갈 때 하는 일
 #
-# 예약된 필지마다 oter 에 걸린 프리팹을 하나 뽑아, 회전시켜 ter/furn 격자에 굽는다.
+# 예약된 필지마다 프리팹을 하나 앉히고, 그 프리팹이 뭘 만드는지를 ter 격자에 굽는다.
 # 여기서 타일은 하나도 안 찍는다. 찍는 건 render_buildings() 이고, 그 사이에
 # #7 폐허화가 들어올 것이다 — 순서가 "굽기 -> (부수기) -> 그리기" 라야 한다.
 # ──────────────────────────────────────────────────────────────
@@ -664,38 +660,69 @@ func ter_at(c: Vector2i) -> int:
 	return ter[c.y * TILES + c.x]
 
 
-## 벽 9-slice 가 "여기가 방 안쪽인가"를 물을 때 쓴다.
-func is_room(c: Vector2i) -> bool:
-	var t := ter_at(c)
-	return t == MapgenDefs.Ter.FLOOR or t == MapgenDefs.Ter.DOOR_O or t == MapgenDefs.Ter.RUBBLE
+## 프리팹 씬을 한 번만 읽어 좌상단 기준 오프셋 목록으로 펴둔다.
+## 여기서 좌표계가 바뀐다 — 프리팹 안의 절대 좌표는 그린 사람 사정이고,
+## 도시는 "필지 왼쪽 위에서 몇 칸"만 알면 된다.
+func load_building_template() -> void:
+	building_template.clear()
+	building_size = Vector2i.ZERO
+
+	var inst := BUILDING_SCENE.instantiate()
+	var raw: Array[Dictionary] = []
+	var mn := Vector2i(1 << 30, 1 << 30)
+	var mx := Vector2i(-(1 << 30), -(1 << 30))
+	# 자식 순서가 곧 그리는 순서다. Floors 가 먼저 오고 Walls 가 뒤에 와야
+	# 겹치는 칸에서 ter 가 WALL 로 덮인다.
+	for child in inst.get_children():
+		var src := child as TileMapLayer
+		if src == null or not TEMPLATE_LAYERS.has(src.name):
+			continue
+		var dst: TileMapLayer = get(TEMPLATE_LAYERS[src.name])
+		var t: int = TEMPLATE_TER.get(src.name, MapgenDefs.Ter.NULL)
+		for c: Vector2i in src.get_used_cells():
+			raw.append({
+				"layer": dst,
+				"at": c,
+				"src": src.get_cell_source_id(c),
+				"atlas": src.get_cell_atlas_coords(c),
+				"ter": t,
+			})
+			mn = mn.min(c)
+			mx = mx.max(c)
+	inst.free()
+
+	if raw.is_empty():
+		push_warning("프리팹 %s 에 찍힌 타일이 없다" % BUILDING_SCENE.resource_path)
+		return
+	building_size = mx - mn + Vector2i.ONE
+	for e: Dictionary in raw:
+		e["at"] = e["at"] - mn
+		building_template.append(e)
 
 
 func stamp_buildings() -> void:
+	if building_template.is_empty():
+		return
 	for b: Dictionary in placed_buildings:
-		var chunk := mapgen.pick_for_oter(b["oter"], rng)
-		if chunk == "":
-			push_warning("mapgen: oter '%s' 에 걸린 프리팹이 없다" % b["oter"])
-			continue
-		var baked := mapgen.bake(chunk, rng)
-		if baked.is_empty():
-			continue
-
-		# 프리팹은 정면이 북쪽을 보게 그려져 있다. face 만큼 시계방향으로 돌리면
-		# 정면이 도로를 본다 — CDDA 의 house_north / house_east ... 와 같은 규칙이다.
-		var face: int = b["face"]
-		var size := Mapgen.rotated_size(baked["size"], face)
-		var r := building_rect(b["cells"], size, face)
-
-		mapgen.blit(baked, ter, furn, r.position, face, TILES)
+		# 프리팹은 3/4 시점으로 정면이 고정돼 그려져 있다. 돌리면 지붕과 파사드가
+		# 같이 눕는다 — 그래서 face 는 회전이 아니라 앞마당을 어느 변에 둘지에만 쓴다.
+		var r := building_rect(b["cells"], building_size, b["face"])
 		# 벽 안팎 전부 배치 금지로 막는다. 뒤에 오는 것들이 거실에 생기면 곤란하다.
 		occ_fill(r, Occ.BLOCKED)
-
-		b["chunk"] = chunk
 		b["rect"] = r
+
+		for e: Dictionary in building_template:
+			var t: int = e["ter"]
+			if t == MapgenDefs.Ter.NULL:
+				continue
+			var c: Vector2i = r.position + e["at"]
+			if c.x < 0 or c.y < 0 or c.x >= TILES or c.y >= TILES:
+				continue
+			ter[c.y * TILES + c.x] = t
 
 
 # ──────────────────────────────────────────────────────────────
-# 렌더 패스 — ter/furn 격자를 타일로
+# 렌더 패스 — 굽힌 자리에 프리팹 타일을 그대로 찍는다
 # 여기가 유일하게 스프라이트를 아는 곳이다. 위쪽은 전부 의미만 다룬다.
 # ──────────────────────────────────────────────────────────────
 func render_buildings() -> void:
@@ -703,60 +730,10 @@ func render_buildings() -> void:
 		if not b.has("rect"):
 			continue
 		var r: Rect2i = b["rect"]
-		var mat: int = MAT_GRAY if b["kind"] == Kind.SHOP else MAT_BEIGE
-		for y in range(r.position.y, r.end.y):
-			for x in range(r.position.x, r.end.x):
-				render_cell(Vector2i(x, y), mat)
+		for e: Dictionary in building_template:
+			var layer: TileMapLayer = e["layer"]
+			layer.set_cell(r.position + e["at"], e["src"], e["atlas"])
 
-
-func render_cell(c: Vector2i, mat: int) -> void:
-	var i := c.y * TILES + c.x
-	var t := ter[i]
-	if t == MapgenDefs.Ter.NULL:
-		return
-
-	# 바닥은 벽 밑에도 깐다. #7 이 벽을 무너뜨리면 그 밑에서 바닥이 드러나야 하고,
-	# 그때 타일을 새로 계산하지 않으려면 지금 깔아두는 게 싸다.
-	floors.set_cell(c, mat, FLOOR_TILE)
-
-	match t:
-		MapgenDefs.Ter.WALL, MapgenDefs.Ter.WALL_BROKEN:
-			walls.set_cell(c, mat, wall_slice(c))
-		MapgenDefs.Ter.WINDOW:
-			walls.set_cell(c, mat, WINDOW_TILE)
-		# 문짝 스프라이트가 house_tile_set 에 없다(assets/Objects/Buildings/Door_*.png 는
-		# 16x25 짜리 파사드용이라 타일로 안 들어간다). 지금은 뚫린 칸으로 그린다.
-		# ter 값은 DOOR_C 로 남아 있으니 나중에 스프라이트만 붙이면 된다.
-		_:
-			pass
-
-	var f := furn[i]
-	if f != MapgenDefs.Furn.NULL:
-		var spec: Array = FURN_TILE[f]
-		var src: int = mat if spec[0] < 0 else spec[0]
-		furniture.set_cell(c, src, spec[1])
-
-
-## 이웃 껍데기를 보고 9-slice 조각을 고른다.
-## 직선 구간은 방이 어느 쪽인지로 바깥면을 정하고, 모서리는 껍데기가 뻗은 두 방향으로 정한다.
-func wall_slice(c: Vector2i) -> Vector2i:
-	var up := MapgenDefs.is_shell(ter_at(c + Vector2i(0, -1)))
-	var dn := MapgenDefs.is_shell(ter_at(c + Vector2i(0, 1)))
-	var lf := MapgenDefs.is_shell(ter_at(c + Vector2i(-1, 0)))
-	var rt := MapgenDefs.is_shell(ter_at(c + Vector2i(1, 0)))
-
-	var ex := 1
-	var ey := 1
-	if lf and rt and not (up or dn):
-		# 가로 직선. 방이 아래면 윗벽, 위면 아랫벽.
-		ey = 0 if is_room(c + Vector2i(0, 1)) else 2
-	elif up and dn and not (lf or rt):
-		# 세로 직선. 방이 오른쪽이면 왼벽.
-		ex = 0 if is_room(c + Vector2i(1, 0)) else 2
-	else:
-		ex = 0 if (rt and not lf) else (2 if (lf and not rt) else 1)
-		ey = 0 if (dn and not up) else (2 if (up and not dn) else 1)
-	return WALL_TILE[ey][ex]
 
 func west_gate_omt() -> Vector2i:
 	var omt := city_pos

@@ -29,7 +29,6 @@ func on_max_damage_reached() -> void:
 
 func add_log_scene() -> void:
 	var log_instance = DROPPED_ITEM.instantiate() as Node2D
-	# add_child가 _ready를 돌리므로 그 전에 무엇인지 알려준다.
 	log_instance.item = drop_item
 	get_parent().add_child(log_instance)
 	log_instance.global_position = global_position

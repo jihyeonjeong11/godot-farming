@@ -93,10 +93,15 @@ def size_class(w, h):
 
 
 def foot_polygon(fw, fh):
-    """밑동 사각형을 앵커 셀 중앙 기준 좌표로. proc_gen의 foot_rect()와 같은 사각형이다."""
-    x0, y0 = -(fw // 2), -(fh - 1)
-    l, r = x0 * CELL_PX - 16, (x0 + fw) * CELL_PX - 16
-    t, b = y0 * CELL_PX - 16, (y0 + fh) * CELL_PX - 16
+    """밑동 사각형을 앵커 셀 중앙 기준 좌표로.
+
+    스프라이트는 앵커 셀에 **가로 가운데 정렬**로 그려진다. 그러니 콜리전도 같은 축에
+    맞춰야 한다 — 예전엔 x0=-(fw//2) 로 왼쪽에 붙여서 짝수 폭 프롭이 반 칸씩 어긋났다.
+    세로는 아래변을 앵커 셀의 아래변에 붙인다. 그게 밑동이다.
+    """
+    l, r = -fw * CELL_PX // 2, fw * CELL_PX // 2
+    b = CELL_PX // 2
+    t = b - fh * CELL_PX
     return f"PackedVector2Array({l}, {t}, {r}, {t}, {r}, {b}, {l}, {b})"
 
 
@@ -109,9 +114,13 @@ def emit_tres_lines(props):
         if (w, h) != (1, 1):
             lines.append(f"{key}/size_in_atlas = Vector2i({w}, {h})")
         lines.append(f"{key}/0 = 0")
-        # 스프라이트를 위로 밀어 밑동을 셀 바닥에 맞춘다. 멀티셀 타일은 셀 중앙 기준으로 그려진다.
+        # 스프라이트를 위로 밀어 밑동을 앵커 셀 바닥에 맞춘다.
+        # 멀티셀 타일은 앵커 셀 중앙 기준으로 그려지고, Godot 은 texture_origin 을
+        # **빼서** 위치를 잡는다(dest = 셀중앙 - 텍스처크기/2 - texture_origin).
+        # 그래서 위로 밀려면 양수다. 음수를 주면 반대로 아래로 밀려서
+        # 앵커 셀이 프롭의 꼭대기가 되고, 콜리전이 머리 위에 붙는다.
         if h > 1:
-            lines.append(f"{key}/0/texture_origin = Vector2i(0, {-(h - 1) * 16})")
+            lines.append(f"{key}/0/texture_origin = Vector2i(0, {(h - 1) * 16})")
         lines.append(f"{key}/0/y_sort_origin = 16")
         # 서 있는 물건만 막는다. 납작한 잔해는 밟고 지나갈 수 있어야 한다.
         if h >= SOLID_MIN_H:

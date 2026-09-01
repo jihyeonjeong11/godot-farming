@@ -76,7 +76,7 @@ const PARK_SIGMA := 100 - PARK_RADIUS
 ##   2) 그 OMT 에 들어갈 때 mapgen 이 oter 에 걸린 프리팹 중 하나를 뽑아 찍는다  <- mapgen.cpp
 ## 그래서 "집"은 하나지만 house_small / house_wide / house_deep 셋 중 하나로 나온다.
 ## 어느 쪽이 나올지는 data/mapgen/houses/*.json 의 weight 가 정하고, 이 표는 모른다.
-##   oter — data/mapgen 의 om_terrain 과 맞아야 한다. 빈 문자열이면 안 짓는다(공원).
+##   oter — MAPGEN 의 키(=CDDA 의 om_terrain)와 맞아야 한다.
 ##   foot — OMT 단위 발자국. (가로=도로와 나란한 축, 세로=도로에서 멀어지는 축)
 ##   min_city — CDDA의 constraints.city_size. 큰 건물이 촌마을에 안 뜨게 한다.
 ##   unique — CITY_UNIQUE. 도시당 하나.
@@ -85,31 +85,44 @@ const CATALOG := [
 	 "weight": 20, "min_city": 1},
 	{"id": "shop", "oter": "shop", "kind": Kind.SHOP, "foot": Vector2i(1, 1),
 	 "weight": 10, "min_city": 1},
+	{"id": "shop_1", "oter": "shop_1", "kind": Kind.SHOP, "foot": Vector2i(2, 2),
+	 "weight": 6, "min_city": 3},
 	{"id": "strip_mall", "oter": "strip_mall", "kind": Kind.SHOP, "foot": Vector2i(2, 1),
 	 "weight": 4, "min_city": 6},
 	{"id": "office", "oter": "office", "kind": Kind.SHOP, "foot": Vector2i(1, 2),
 	 "weight": 3, "min_city": 5, "unique": true},
-	{"id": "park", "oter": "", "kind": Kind.PARK, "foot": Vector2i(1, 1),
+	{"id": "park", "oter": "park", "kind": Kind.PARK, "foot": Vector2i(1, 1),
 	 "weight": 10, "min_city": 1},
 ]
 
 # ──────────────────────────────────────────────────────────────
-# 프리팹 — 지금은 Building_2 한 장뿐이다
+# mapgen 등록표 — mapgen.cpp 의 oter_mapgen
 #
-# 원래는 data/mapgen 의 JSON 프리팹을 구워 ter/furn 을 만들고, 그걸 house_tile_set
-# 스프라이트로 옮겨 그렸다. 그런데 도로/인도는 city_ruin 타일셋이라 두 아트가 안 맞는다.
-# 그래서 city_ruin 으로 직접 그린 Building_2 를 모든 건물의 단 하나의 프리팹으로 쓴다.
-# CDDA 의 2단 구조는 그대로다 — OMT 층이 자리를 잡고(#3), mapgen 이 그 자리에 프리팹을
-# 앉힌다. 다만 지금은 뽑기 표에 프리팹이 한 장뿐이라 항상 같은 게 나온다.
-# 프리팹이 늘면 여기를 배열로 만들고 oter 별 가중치 뽑기를 붙이면 된다.
+# CDDA 는 oter_id 에 mapgen 함수를 직접 박지 않는다. om_terrain 문자열마다 가중치 목록을
+# 달아두고(oter_mapgen::add), 그 OMT 에 들어갈 때 거기서 한 장을 뽑는다. 그래서 "집"이라는
+# 한 종류가 house01 / house02 / ... 로 갈린다. 이 표가 그 목록이고, 여기 없는 oter 는
+# 아직 프리팹이 없는 것이라 building_2 로 때운다 (CDDA 라면 여기서 에러를 낸다).
+#
+# 프리팹 한 장 = OMT 한 칸 = CELL x CELL 타일. 앞마당까지 프리팹 안에 그려져 있고
+# 정면은 남쪽 고정이다 — 3/4 시점 아트라 돌리면 지붕과 파사드가 같이 눕는다.
 # ──────────────────────────────────────────────────────────────
-const BUILDING_SCENE: PackedScene = preload("res://scenes/buildings/building_2.tscn")
+const FALLBACK_SCENE: PackedScene = preload("res://scenes/buildings/building_2.tscn")
+
+const MAPGEN := {
+	"house": [{"scene": preload("res://scenes/prefabs/house.tscn"), "weight": 100}],
+	"park": [{"scene": preload("res://scenes/prefabs/park.tscn"), "weight": 100}],
+	"shop_1": [{"scene": preload("res://scenes/prefabs/shop.tscn"), "weight": 100}],
+}
 
 ## 프리팹의 레이어 이름 -> 이 씬의 레이어 이름. 여기 없는 레이어는 무시한다.
+## Props 는 프리팹 안의 잡동사니(덤불/쓰레기)라 가구와 같은 판에 얹는다.
 const TEMPLATE_LAYERS := {
+	"Ground": "ground",
+	"Path": "walk",
 	"Floors": "floors",
 	"Walls": "walls",
 	"Furnitures": "furniture",
+	"Props": "furniture",
 	"Roofs": "roofs",
 }
 
@@ -121,7 +134,7 @@ const TEMPLATE_TER := {
 }
 
 @export var world_seed: int = 0         
-@export var city_size: int = 4
+@export var city_size: int = 6
 
 @onready var ground: TileMapLayer = $Ground  
 @onready var walk: TileMapLayer = $Walk     
@@ -147,10 +160,12 @@ var occ := PackedByteArray()             # TILES x TILES, 값은 Occ — "여기
 ## #7 폐허화와 문/창문 상호작용이 읽을 것도 이쪽이다.
 var ter := PackedByteArray()             # TILES x TILES, 값은 MapgenDefs.Ter
 var furn := PackedByteArray()            # TILES x TILES, 값은 MapgenDefs.Furn
-## Building_2 에서 뽑아온 타일 판. 좌상단 기준 오프셋으로 펴놨다.
-## 건물마다 씬을 인스턴스하면 수백 채에서 노드가 폭발한다 — 타일만 베껴 찍는다.
-var building_template: Array[Dictionary] = []
-var building_size := Vector2i.ZERO
+## 구워둔 프리팹 판. resource_path -> {cells, size, objects}. 좌상단 기준 오프셋으로 펴놨다.
+## 건물마다 씬을 통째로 인스턴스하면 수백 채에서 노드가 폭발한다 — 타일은 베껴 찍고
+## 노드라야 하는 것(나무)만 objects 로 따로 세운다.
+var templates: Dictionary = {}
+## 프리팹이 세운 노드들이 사는 곳. 재생성마다 통째로 비운다.
+var objects_root: Node2D
 var placed_buildings: Array[Dictionary] = []   # 배치 결과. 페인팅과 미니맵이 읽는다.
 var park_omts: Dictionary = {}           # 공원으로 잡힌 OMT. 나무를 더 심는다.
 var placed_unique: Dictionary = {}       # CITY_UNIQUE 중복 방지. CDDA는 도시마다 새로 만든다.
@@ -159,8 +174,12 @@ var gate_spawn: SpawnPoint               # 그 안쪽, 농장에서 넘어온 �
 
 
 func _ready() -> void:
-	# 프리팹은 시드와 무관하므로 한 번만 읽는다. 리롤은 뽑기만 다시 한다.
-	load_building_template()
+	# 프리팹은 시드와 무관하므로 한 번만 굽는다. 리롤은 뽑기만 다시 한다.
+	objects_root = Node2D.new()
+	objects_root.name = "PrefabObjects"
+	objects_root.y_sort_enabled = true
+	add_child(objects_root)
+	bake_templates()
 	_generate()
 	place_player()
 	# 디버그 UI(줌/리롤/미니맵)는 이 씬만 F6로 띄웠을 때만 붙인다.
@@ -186,6 +205,8 @@ func _generate() -> void:
 	walls.clear()
 	furniture.clear()
 	roofs.clear()
+	for child in objects_root.get_children():
+		child.free()
 	placed_buildings.clear()
 	park_omts.clear()
 	placed_unique.clear()
@@ -604,16 +625,18 @@ func place_building(p: Vector2i, dir: int) -> void:
 		if spec["kind"] == Kind.PARK:
 			for c: Vector2i in cells:
 				park_omts[c] = true
-		else:
-			# 크기를 여기서 못 정한다 — 어떤 프리팹이 나올지는 mapgen 이 정하고,
-			# 그건 CDDA 에서 이 OMT 에 실제로 들어갈 때 일어나는 일이다.
-			# 그래서 여기서는 필지만 남기고 stamp_buildings() 로 넘긴다.
-			placed_buildings.append({
-				"oter": spec["oter"],
-				"cells": cells,
-				"face": building_dir,
-				"kind": spec["kind"],
-			})
+		# 공원도 oter 를 가진 OMT 다 — CDDA 에서 park 는 제 mapgen 을 가진 지형이지
+		# 건물이 아니어서 빠지는 예외가 아니다. 같은 줄에 세워 같은 길을 타게 한다.
+		#
+		# 크기를 여기서 못 정한다 — 어떤 프리팹이 나올지는 mapgen 이 정하고,
+		# 그건 CDDA 에서 이 OMT 에 실제로 들어갈 때 일어나는 일이다.
+		# 그래서 여기서는 필지만 남기고 stamp_buildings() 로 넘긴다.
+		placed_buildings.append({
+			"oter": spec["oter"],
+			"cells": cells,
+			"face": building_dir,
+			"kind": spec["kind"],
+		})
 		return
 
 
@@ -637,6 +660,11 @@ func building_rect(cells: Array[Vector2i], size: Vector2i, face: int) -> Rect2i:
 			pos.x = lot.position.x + SETBACK
 		Dir.EAST:
 			pos.x = lot.end.x - SETBACK - size.x
+	# 프리팹이 필지를 꽉 채우면 앞마당을 뺄 자리가 없다 — SETBACK 이 필지 밖으로 민다.
+	# CDDA 의 mapgen 은 OMT 를 통째로 채우고 앞마당도 프리팹 안에 그리므로 그쪽이 정답이고,
+	# 여기서는 잘라 필지 안에 붙인다. 작은 프리팹은 그대로 앞마당을 얻는다.
+	pos.x = clampi(pos.x, lot.position.x, maxi(lot.position.x, lot.end.x - size.x))
+	pos.y = clampi(pos.y, lot.position.y, maxi(lot.position.y, lot.end.y - size.y))
 	return Rect2i(pos, size)
 
 
@@ -660,58 +688,109 @@ func ter_at(c: Vector2i) -> int:
 	return ter[c.y * TILES + c.x]
 
 
+## 등록표에 실린 프리팹을 전부 한 번씩 구워둔다. 씬을 공유하는 항목은 한 번만 굽는다.
+func bake_templates() -> void:
+	templates.clear()
+	bake_template(FALLBACK_SCENE)
+	for oter: String in MAPGEN:
+		for entry: Dictionary in MAPGEN[oter]:
+			bake_template(entry["scene"])
+
+
 ## 프리팹 씬을 한 번만 읽어 좌상단 기준 오프셋 목록으로 펴둔다.
 ## 여기서 좌표계가 바뀐다 — 프리팹 안의 절대 좌표는 그린 사람 사정이고,
 ## 도시는 "필지 왼쪽 위에서 몇 칸"만 알면 된다.
-func load_building_template() -> void:
-	building_template.clear()
-	building_size = Vector2i.ZERO
+func bake_template(scene: PackedScene) -> void:
+	if templates.has(scene.resource_path):
+		return
 
-	var inst := BUILDING_SCENE.instantiate()
+	var inst := scene.instantiate()
 	var raw: Array[Dictionary] = []
+	var nodes: Array[Dictionary] = []
 	var mn := Vector2i(1 << 30, 1 << 30)
 	var mx := Vector2i(-(1 << 30), -(1 << 30))
 	# 자식 순서가 곧 그리는 순서다. Floors 가 먼저 오고 Walls 가 뒤에 와야
 	# 겹치는 칸에서 ter 가 WALL 로 덮인다.
 	for child in inst.get_children():
 		var src := child as TileMapLayer
-		if src == null or not TEMPLATE_LAYERS.has(src.name):
+		if src != null:
+			if not TEMPLATE_LAYERS.has(src.name):
+				continue
+			var dst: TileMapLayer = get(TEMPLATE_LAYERS[src.name])
+			var t: int = TEMPLATE_TER.get(src.name, MapgenDefs.Ter.NULL)
+			for c: Vector2i in src.get_used_cells():
+				raw.append({
+					"layer": dst,
+					"at": c,
+					"src": src.get_cell_source_id(c),
+					"atlas": src.get_cell_atlas_coords(c),
+					"ter": t,
+				})
+				mn = mn.min(c)
+				mx = mx.max(c)
 			continue
-		var dst: TileMapLayer = get(TEMPLATE_LAYERS[src.name])
-		var t: int = TEMPLATE_TER.get(src.name, MapgenDefs.Ter.NULL)
-		for c: Vector2i in src.get_used_cells():
-			raw.append({
-				"layer": dst,
-				"at": c,
-				"src": src.get_cell_source_id(c),
-				"atlas": src.get_cell_atlas_coords(c),
-				"ter": t,
-			})
-			mn = mn.min(c)
-			mx = mx.max(c)
+		# 타일로 못 그리는 것들 — 나무처럼 제 스크립트와 충돌체를 갖고 사는 것만 여기 온다.
+		# 씬 파일을 들고 있다가 배치 때 세운다. 프리팹 노드 자체를 복제하면 원본이 딸려온다.
+		if child.name == "Objects":
+			for obj in child.get_children():
+				var n := obj as Node2D
+				if n == null or n.scene_file_path.is_empty():
+					continue
+				nodes.append({"path": n.scene_file_path, "at": n.position})
 	inst.free()
 
 	if raw.is_empty():
-		push_warning("프리팹 %s 에 찍힌 타일이 없다" % BUILDING_SCENE.resource_path)
+		push_warning("프리팹 %s 에 찍힌 타일이 없다" % scene.resource_path)
 		return
-	building_size = mx - mn + Vector2i.ONE
+
+	var origin_px := Vector2(mn * TILE_PX)
 	for e: Dictionary in raw:
 		e["at"] = e["at"] - mn
-		building_template.append(e)
+	for n: Dictionary in nodes:
+		n["at"] = (n["at"] as Vector2) - origin_px
+
+	templates[scene.resource_path] = {
+		"cells": raw,
+		"objects": nodes,
+		"size": mx - mn + Vector2i.ONE,
+	}
+
+
+## oter 에 걸린 프리팹 중 하나를 가중치로 뽑는다 — mapgen.cpp 의 oter_mapgen::pick.
+## 등록표에 없는 oter 는 아직 프리팹이 없는 것이라 fallback 이 나온다.
+func pick_prefab(oter: String) -> Dictionary:
+	var pool: Array = MAPGEN.get(oter, [])
+	var chosen: PackedScene = FALLBACK_SCENE
+	if not pool.is_empty():
+		var total := 0
+		for entry: Dictionary in pool:
+			total += int(entry["weight"])
+		var roll := rng.randi_range(0, maxi(total, 1) - 1)
+		chosen = pool[pool.size() - 1]["scene"]
+		for entry: Dictionary in pool:
+			roll -= int(entry["weight"])
+			if roll < 0:
+				chosen = entry["scene"]
+				break
+	return templates.get(chosen.resource_path, {})
 
 
 func stamp_buildings() -> void:
-	if building_template.is_empty():
-		return
 	for b: Dictionary in placed_buildings:
+		# 프리팹 뽑기가 여기 있는 이유 — 자리 예약(#3)은 종류만 알고 크기를 모른다.
+		# CDDA 도 OMT 에 실제로 들어갈 때 뽑는다.
+		var tpl := pick_prefab(b["oter"])
+		if tpl.is_empty():
+			continue
+		b["tpl"] = tpl
 		# 프리팹은 3/4 시점으로 정면이 고정돼 그려져 있다. 돌리면 지붕과 파사드가
 		# 같이 눕는다 — 그래서 face 는 회전이 아니라 앞마당을 어느 변에 둘지에만 쓴다.
-		var r := building_rect(b["cells"], building_size, b["face"])
+		var r := building_rect(b["cells"], tpl["size"], b["face"])
 		# 벽 안팎 전부 배치 금지로 막는다. 뒤에 오는 것들이 거실에 생기면 곤란하다.
 		occ_fill(r, Occ.BLOCKED)
 		b["rect"] = r
 
-		for e: Dictionary in building_template:
+		for e: Dictionary in tpl["cells"]:
 			var t: int = e["ter"]
 			if t == MapgenDefs.Ter.NULL:
 				continue
@@ -730,9 +809,19 @@ func render_buildings() -> void:
 		if not b.has("rect"):
 			continue
 		var r: Rect2i = b["rect"]
-		for e: Dictionary in building_template:
+		var tpl: Dictionary = b["tpl"]
+		for e: Dictionary in tpl["cells"]:
 			var layer: TileMapLayer = e["layer"]
 			layer.set_cell(r.position + e["at"], e["src"], e["atlas"])
+
+		var base := Vector2(r.position * TILE_PX)
+		for n: Dictionary in tpl["objects"]:
+			var scene: PackedScene = load(n["path"])
+			if scene == null:
+				continue
+			var node := scene.instantiate() as Node2D
+			node.position = base + (n["at"] as Vector2)
+			objects_root.add_child(node)
 
 
 func west_gate_omt() -> Vector2i:

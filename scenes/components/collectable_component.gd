@@ -10,10 +10,20 @@ extends Area2D
 
 ## 플레이어와 이 거리 안까지 붙으면 획득(px).
 @export var pickup_distance := 4.0
-## 최대 비행 속도(px/s).
-@export var max_speed := 140.0
-## 가속(px/s²). 처음엔 느리게 출발해 붙을수록 빨라진다.
-@export var acceleration := 400.0
+## 최대 비행 속도(px/s). 이 캡에 걸린 뒤로는 등속이라, 프로파일 끝값보다 위에 둬야
+## 마지막 구간이 평평해지지 않는다. 여기 걸리는 게 "가속처럼 안 보이는" 주범이었다.
+@export var max_speed := 400.0
+
+## 자석 감지 반경(px). dropped_item.tscn의 CollisionShape2D 반경과 맞춰둔다.
+## 가속을 거리로 스케일하는 기준값이라, 실제 반경과 어긋나면 당기는 세기가 달라진다.
+@export var magnet_radius := 40.0
+## 반경 끝에서의 가속(px/s²).
+@export var acceleration := 900.0
+## 가까워질수록 가속이 커지는 정도. 0이면 예전 등가속, 클수록 끝에서 확 빨아들인다.
+@export var pull_falloff := 1.5
+
+## 가속이 발산하지 않게 자르는 최소 거리(px).
+const PULL_MIN_DIST := 6.0
 
 ## 스폰 직후 이 시간 동안 자석을 끈다(초).
 ## 나무를 베면 로그가 플레이어 바로 옆에 떨어지기 때문에, 이 지연이 없으면
@@ -54,12 +64,17 @@ func _physics_process(delta: float) -> void:
 		return
 
 	var to_player: Vector2 = _target.global_position - host.global_position
-	if to_player.length() <= pickup_distance:
+	var dist := to_player.length()
+	if dist <= pickup_distance:
 		_collect()
 		return
 
-	_speed = minf(_speed + acceleration * delta, max_speed)
-	host.global_position += to_player.normalized() * _speed * delta
+	# 가까울수록 세게 당긴다. 등가속이면 36px 구간에서 속도가 두 배도 안 올라
+	# 눈에는 등속으로 보인다 — 끝에서 속도가 계속 올라야 빨려드는 것처럼 읽힌다.
+	var pull := acceleration * pow(magnet_radius / maxf(dist, PULL_MIN_DIST), pull_falloff)
+	_speed = minf(_speed + pull * delta, max_speed)
+	# 한 프레임에 플레이어를 지나쳐 버리면 다음 프레임에 방향이 뒤집혀 떨린다.
+	host.global_position += to_player.normalized() * minf(_speed * delta, dist)
 
 
 func _collect() -> void:

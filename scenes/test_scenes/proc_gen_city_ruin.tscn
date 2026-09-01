@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ciy2w5al054wb" path="res://scenes/test_scenes/proc_gen_city_ruin.gd" id="1_fb62f"]
 [ext_resource type="TileSet" uid="uid://dkw01fa84lera" path="res://tilesets/city_ruin.tres" id="2_v2c2p"]
 [ext_resource type="PackedScene" uid="uid://bmp8j4fwdkl82" path="res://scenes/characters/player/player.tscn" id="3_player"]
+[ext_resource type="PackedScene" uid="uid://ccnxtlq1ru1pv" path="res://scenes/components/cursors/object_cursor_component.tscn" id="4_cursor"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_city"]
 vertices = PackedVector2Array(0, 0, 20480, 0, 20480, 20480, 0, 20480)
@@ -12,6 +13,8 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(0, 0, 20480, 0, 20480, 
 [node name="ProcGenCityRuin" type="Node2D" unique_id=749933569]
 y_sort_enabled = true
 script = ExtResource("1_fb62f")
+
+[node name="ObjectCursorComponent" parent="." unique_id=396383454 instance=ExtResource("4_cursor")]
 
 [node name="Ground" type="TileMapLayer" parent="." unique_id=61191778]
 tile_set = ExtResource("2_v2c2p")

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Items" format=3]
+
+[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/items.gd" id="1_items"]
+[ext_resource type="Texture2D" uid="uid://cu1j5fe2x3s8b" path="res://assets/Objects/items/95.png" id="2_icon"]
+
+[resource]
+script = ExtResource("1_items")
+item_type = "consumable"
+item_name = "Water Bottle"
+item_texture = ExtResource("2_icon")
+thirst = 30
+description = "뚜껑이 아직 닫혀 있는 생수병. 우클릭으로 마신다."
+value = 35
+max_stack = 100
+world_scene_path = "uid://cb65olukse4yu"
+metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

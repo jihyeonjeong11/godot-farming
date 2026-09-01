@@ -5,6 +5,7 @@
 ##   city_wide.png — 도시 전체. 도로망과 존잉 분포.
 ##   house.png     — 집 한 채. 9-slice 와 가구 배치.
 ##   shop.png      — 상점 한 채. 회색 재질 쪽도 같이 본다.
+##   park.png      — 공원 한 칸. park 프리팹이 앉았는지 본다.
 extends SceneTree
 
 const SCENE := "res://scenes/test_scenes/proc_gen_city_ruin.tscn"
@@ -12,6 +13,7 @@ const SCENE := "res://scenes/test_scenes/proc_gen_city_ruin.tscn"
 # proc_gen_city_ruin.gd 의 Kind 이넘 값. 스크립트를 preload 하지 않고 값만 쓴다.
 const KIND_HOUSE := 0
 const KIND_SHOP := 1
+const KIND_PARK := 2
 
 var city: Node2D
 var out_dir := "res://"
@@ -42,6 +44,9 @@ func _process(_d: float) -> bool:
 			_focus(_pick(KIND_SHOP))
 		18:
 			_save("shop.png")
+			_focus(_pick(KIND_PARK))
+		22:
+			_save("park.png")
 			return true
 	return false
 

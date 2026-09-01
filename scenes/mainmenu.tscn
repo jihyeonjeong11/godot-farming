@@ -68,4 +68,4 @@ icon = ExtResource("5_7yvfd")
 
 [node name="SettingsPanel" parent="." unique_id=2106012997 instance=ExtResource("6_stgs0")]
 visible = false
-layout_mode = 3
+layout_mode = 1

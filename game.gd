@@ -25,17 +25,20 @@ func _free_tab_key() -> void:
 				InputMap.action_erase_event(action, event)
 
 
-func on_new_game_requested() -> void:
+func on_new_game_requested(slot: int) -> void:
+	SaveAndLoad.select_slot(slot)
+	# 쓰던 슬롯 위에 새 판을 얹으면, 이번 판에서 가보지 않은 레벨의 옛 상태가
+	# 그대로 남아 나중에 그 레벨에 들어갔을 때 딸려온다.
+	SaveAndLoad.clear_slot()
 	SaveAndLoad.load_requested = false
 	SaveAndLoad.fresh_start = true
 	swap_scene.call_deferred(scene_farm)
 
-func on_load_game_requested() -> void:
-	SaveAndLoad.load_requested = true
+func on_load_game_requested(slot: int) -> void:
+	SaveAndLoad.select_slot(slot)
 	SaveAndLoad.fresh_start = true
 	# 인벤토리와 시간은 오토로드라 씬 교체와 무관하다. 여기서 바로 얹어도 된다.
-	SaveAndLoad.load_inventory()
-	SaveAndLoad.load_time()
+	SaveAndLoad.load_game()
 	swap_scene.call_deferred(scene_farm)
 
 
@@ -61,7 +64,11 @@ func swap_scene(path: String, spawn_id: StringName = &"") -> void:
 		current_scene.remove_child(child)
 		child.queue_free()
 
-	current_scene.add_child(packed.instantiate())
+	var instance := packed.instantiate()
+	current_scene.add_child(instance)
+
+	# 메인메뉴는 레벨이 아니다. null로 둬야 메뉴에서 실수로 저장이 나가지 않는다.
+	SaveAndLoad.current_level = null if path == scene_mainmenu else instance
 
 	# 씬마다 플레이어가 따로 박혀 있다. 문으로 들어왔으면 그 씬에 박힌 자리 대신
 	# 문이 가리킨 스폰 지점에 세운다.

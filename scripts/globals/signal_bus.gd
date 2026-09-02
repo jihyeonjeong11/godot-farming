@@ -33,11 +33,13 @@ var interact_handled := false
 
 signal container_opened(slots: Array)
 
-signal new_game_requested()
+## 어느 슬롯으로 시작하는가. 메뉴의 슬롯 화면이 고른 번호를 싣는다.
+signal new_game_requested(slot: int)
 
 signal main_menu_requested()
 
-signal load_game_requested()
+## 어느 슬롯을 불러오는가.
+signal load_game_requested(slot: int)
 
 signal barter_opened(slots: Array)
 

@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://yrf8j8wet4t3" path="res://assets/UI/Menu/Main Menu/Settings_Not-Pressed.png" id="4_s5g8n"]
 [ext_resource type="Texture2D" uid="uid://bfcxasobxoe2x" path="res://assets/UI/Menu/Main Menu/Quit_Not-Pressed.png" id="5_7yvfd"]
 [ext_resource type="PackedScene" uid="uid://dr4x4rp0j1rci" path="res://scenes/ui/scene_overlay_menu_settings.tscn" id="6_stgs0"]
+[ext_resource type="PackedScene" uid="uid://ddkhimlenwa4b" path="res://scenes/ui/saves/save_slots.tscn" id="7_slots"]
 
 [node name="Mainmenu" type="Control" unique_id=1899142544]
 layout_mode = 3
@@ -67,5 +68,9 @@ layout_mode = 2
 icon = ExtResource("5_7yvfd")
 
 [node name="SettingsPanel" parent="." unique_id=2106012997 instance=ExtResource("6_stgs0")]
+visible = false
+layout_mode = 1
+
+[node name="SaveSlots" parent="." instance=ExtResource("7_slots")]
 visible = false
 layout_mode = 1

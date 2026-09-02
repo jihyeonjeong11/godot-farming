@@ -97,6 +97,9 @@ func _ready() -> void:
 	Inventory.set_player_reference(self)
 	apply_hitbox(null)
 	hurt_component.hurt.connect(take_hit)
+	Inventory.equipment_updated.connect(refresh_equipment_stats)
+	# 세이브에서 이미 입은 채로 들어올 수 있다. 신호를 기다리면 그건 반영되지 않는다.
+	refresh_equipment_stats()
 	
 
 func setup_stats() -> void:
@@ -118,6 +121,16 @@ func setup_stats() -> void:
 		stats.hunger = saved.get("hunger", stats.hunger)
 		stats.thirst = saved.get("thirst", stats.thirst)
 		stats.gold = saved.get("gold", stats.gold)
+
+## 입고 있는 것들의 방어·속도를 스탯에 다시 얹는다.
+## 스탯 리소스는 인벤토리를 모르므로 값을 아는 이쪽이 건네준다.
+func refresh_equipment_stats() -> void:
+	if stats == null:
+		return
+
+	var bonus := Inventory.equipment_bonus()
+	stats.apply_equipment(bonus["defense"], bonus["speed"])
+
 
 ## base_speed 대비 current_speed의 비율. 버프가 없으면 1.0.
 func speed_multiplier() -> float:

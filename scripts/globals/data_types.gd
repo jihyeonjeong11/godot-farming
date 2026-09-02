@@ -26,6 +26,15 @@ enum Tools {
 	PlantCorn,   # 9
 }
 
+## 착용 부위. Items.wear_slot 과 EquipmentSlot.slot_type 이 이 값으로 짝을 맞춘다.
+## None 이면 어느 장비 칸에도 들어가지 않는다.
+## Tools 와 같은 이유로 뒤에만 덧붙인다.
+enum WearSlot {
+	None,  # 0
+	Armor, # 1
+	Boots, # 2
+}
+
 ## 갈린 땅 타일맵이 쓰는 terrain_set. 타일셋에 0번 하나뿐이다.
 const SOIL_TERRAIN_SET: int = 0
 

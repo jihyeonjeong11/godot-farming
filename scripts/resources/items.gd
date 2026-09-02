@@ -60,6 +60,14 @@ class_name Items extends Resource
 @export var max_ammo: int
 @export var current_ammo: int
 
+## wearables
+## 착용 부위. None 이면 장비 칸에 넣을 수 없다.
+@export var wear_slot: DataTypes.WearSlot = DataTypes.WearSlot.None
+## 입었을 때 더해주는 방어력.
+@export var defense: int
+## 입었을 때 더해주는 이동 속도. base_speed 에 더해지므로 100 기준으로 읽는다.
+@export var speed: int
+
 
 
 
@@ -75,6 +83,12 @@ func describe(price_label: String = "가치") -> String:
 
 	if melee_damage > 0:
 		lines.append("공격력 %d" % melee_damage)
+
+	if defense > 0:
+		lines.append("방어 +%d" % defense)
+
+	if speed != 0:
+		lines.append("속도 %+d" % speed)
 
 	if edible > 0:
 		lines.append("회복량 %d" % edible)

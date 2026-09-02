@@ -3,6 +3,7 @@
 [ext_resource type="Theme" uid="uid://bkny51ahdetw" path="res://scenes/ui/game_theme.tres" id="1_i3e23"]
 [ext_resource type="Script" uid="uid://bg2dpi4ax43gc" path="res://scenes/ui/scene_overlay_menu.gd" id="2_mnovl"]
 [ext_resource type="PackedScene" uid="uid://dr4x4rp0j1rci" path="res://scenes/ui/scene_overlay_menu_settings.tscn" id="3_stgs0"]
+[ext_resource type="PackedScene" uid="uid://ddkhimlenwa4b" path="res://scenes/ui/saves/save_slots.tscn" id="4_slots"]
 
 [node name="MenuOverlay" type="CanvasLayer" unique_id=2106012999]
 script = ExtResource("2_mnovl")
@@ -57,5 +58,9 @@ text = "Exit Game
 "
 
 [node name="Settings" parent="." unique_id=2106012998 instance=ExtResource("3_stgs0")]
+visible = false
+layout_mode = 3
+
+[node name="SaveSlots" parent="." instance=ExtResource("4_slots")]
 visible = false
 layout_mode = 3

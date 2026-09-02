@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Items" format=3 uid="uid://c32ywew2ly6sh"]
+
+[ext_resource type="Texture2D" uid="uid://d0yxlapdmgjm8" path="res://assets/Objects/items/50.png" id="1_disob"]
+[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/items.gd" id="2_r6an4"]
+
+[resource]
+script = ExtResource("2_r6an4")
+item_type = "wearable"
+item_name = "Military boots"
+item_texture = ExtResource("1_disob")
+description = "A pair of military issued walkers."
+world_texture = ExtResource("1_disob")
+max_stack = 1
+world_scene_path = "res://scenes/objects/pickables/dropped_item.tscn"
+wear_slot = 2
+defense = 2
+speed = 50
+metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

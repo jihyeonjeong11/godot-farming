@@ -1,13 +1,20 @@
 extends Node
 
 signal inventory_updated
+signal equipment_updated
 signal selected_slot_changed(index: int)
 
 const BASE_INVENTORY_LIMIT = 30
 const QUICKBAR_LIMIT = 10
+## 부위당 한 칸. 늘어나면 여기만 키우고 UI가 칸을 더 꽂으면 된다.
+const EQUIPMENT_SLOT_LIMIT = 1
 
 ## 각 칸은 ItemStack, 빈 칸은 null.
 var inventory: Array[ItemStack] = []
+## 착용 칸도 같은 ItemStack 배열이다. 그래야 InventorySlot 이 인벤토리와 장비를
+## 구분하지 않고 배열끼리 맞바꾸는 것만으로 입고 벗기가 된다.
+var armor: Array[ItemStack] = []
+var boots: Array[ItemStack] = []
 var selected_slot: int = 0
 ## 플레이어 씬이 둘이라 타입을 좁게 박지 않는다. 떨군 자리를 잡는 데만 쓴다.
 var player_node: Node2D
@@ -15,6 +22,10 @@ var world_scene_cache: Dictionary = {}
 
 func _ready():
 	inventory.resize(BASE_INVENTORY_LIMIT)
+	# 크기를 안 잡아두면 armor[0]이 범위를 벗어나고,
+	# InventorySlot._drop_data 도 to_source.size()가 0이라 드롭을 통째로 무시한다.
+	armor.resize(EQUIPMENT_SLOT_LIMIT)
+	boots.resize(EQUIPMENT_SLOT_LIMIT)
 
 func get_item(i: int) -> ItemStack:
 	if i < 0 or i >= inventory.size():
@@ -205,6 +216,37 @@ func get_world_scene(item: Items) -> PackedScene:
 
 	world_scene_cache[item.world_scene_path] = scene
 	return scene
+
+
+## 착용 부위에 해당하는 배열. UI와 세이브가 같은 표를 보게 한다.
+func equipment_source(slot: DataTypes.WearSlot) -> Array:
+	match slot:
+		DataTypes.WearSlot.Armor:
+			return armor
+		DataTypes.WearSlot.Boots:
+			return boots
+	return []
+
+
+## 이 배열이 착용 칸인가. 드롭 한 번에 어느 쪽이든 걸렸으면 장비가 바뀐 것이다.
+## InventorySlot 이 인벤토리와 장비를 구분하지 않으므로 판단은 여기서 한다.
+func is_equipment_source(source: Array) -> bool:
+	return is_same(source, armor) or is_same(source, boots)
+
+
+## 지금 입고 있는 것들이 더해주는 값의 합.
+## 스탯 리소스는 이 오토로드를 모르므로, 값만 뽑아 넘겨주는 쪽이 이 함수를 쓴다.
+func equipment_bonus() -> Dictionary:
+	var total := {"defense": 0, "speed": 0}
+
+	for source in [armor, boots]:
+		for stack in source:
+			if stack == null or stack.item == null:
+				continue
+			total["defense"] += stack.item.defense
+			total["speed"] += stack.item.speed
+
+	return total
 
 
 func increase_iventory_size():

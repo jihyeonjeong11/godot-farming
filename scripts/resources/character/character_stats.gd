@@ -63,6 +63,12 @@ var gold: int = 0: set = _on_gold_set
 
 var stat_buffs: Array[StatBuff]
 
+## 착용 장비가 더해주는 값. 이 리소스는 Inventory 오토로드를 모른다 —
+## 오토로드가 안 뜬 환경(헤드리스 검증 등)에서도 스탯은 굴러가야 하므로,
+## 인벤토리를 아는 쪽(Player)이 apply_equipment 로 채워 넣는다.
+var equip_defense: int = 0
+var equip_speed: int = 0
+
 ## 한 번이라도 채워졌는가. 씬을 옮겨도 이 리소스는 캐시에 남으므로,
 ## 새 Player가 또 채워서 값을 날리지 않도록 부르는 쪽이 이 값을 본다.
 var is_initialized := false
@@ -76,6 +82,17 @@ func setup_stats() -> void:
 	stamina = current_max_stamina
 	gold = base_gold
 	
+## 착용 장비가 바뀔 때마다 통째로 다시 받는다. 입은 것/벗은 것을 하나씩 세면
+## 씬을 옮기며 리소스가 살아남는 동안 값이 어긋난다.
+func apply_equipment(defense: int, speed: int) -> void:
+	if equip_defense == defense and equip_speed == speed:
+		return
+
+	equip_defense = defense
+	equip_speed = speed
+	recalculate_stats()
+
+
 func add_buff(buff: StatBuff) -> void:
 	stat_buffs.append(buff)
 	recalculate_stats.call_deferred()
@@ -111,9 +128,9 @@ func recalculate_stats() -> void:
 	var level_bonus: int = level - 1
 	current_max_health = base_max_health + level_bonus
 	current_max_stamina = base_max_stamina + level_bonus
-	current_defense = base_defense + level_bonus
+	current_defense = base_defense + level_bonus + equip_defense
 	current_attack = base_attack + level_bonus
-	current_speed = base_speed
+	current_speed = base_speed + equip_speed
 
 	current_max_hunger = base_max_hunger
 	current_max_thirst = base_max_thirst

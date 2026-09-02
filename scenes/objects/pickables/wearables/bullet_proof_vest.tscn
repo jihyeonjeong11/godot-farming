@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://d35cgwtoj3tu3"]
+
+[ext_resource type="PackedScene" uid="uid://cb65olukse4yu" path="res://scenes/objects/pickables/dropped_item.tscn" id="1_drop"]
+[ext_resource type="Resource" uid="uid://bvd6cr7kxxbwp" path="res://scripts/resources/wearables/bulletproof_vest.tres" id="2_vest"]
+
+[node name="BulletProofVest" unique_id=608387228 instance=ExtResource("1_drop")]
+item = ExtResource("2_vest")

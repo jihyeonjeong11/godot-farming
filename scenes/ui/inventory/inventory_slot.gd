@@ -9,12 +9,6 @@ signal right_pressed
 ## 배열에서 이 칸이 가리키는 위치. 부모가 생성할 때 넣어준다.
 var slot_index: int = -1
 
-## 이 칸이 보고 있는 배열. 부모가 만들 때 넣어준다.
-## 퀵바·인벤토리 창은 Inventory.inventory를, 상자 격자는 상자의 칸을 넣는다.
-## 이 한 줄 덕분에 같은 칸 씬이 세 군데에 그대로 쓰인다.
-##
-## 게터로 Inventory를 기본값 삼지 않는다. 클래스 본문에서 오토로드를 건드리면
-## 타입 해석이 꼬여 스크립트 전체가 컴파일에 실패한다.
 var source: Array = []
 
 var draggable: bool = true
@@ -75,6 +69,11 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 
 	# 양쪽 격자를 한 신호로 다시 그린다. 상자 UI도 이걸 듣는다.
 	Inventory.inventory_updated.emit()
+
+	# 입든 벗든 배열 하나가 장비 칸이면 장비가 바뀐 것이다. 벗을 때는 이 _drop_data가
+	# 인벤토리 칸 쪽에서 도므로, EquipmentSlot 에만 걸어두면 벗기를 놓친다.
+	if Inventory.is_equipment_source(from_source) or Inventory.is_equipment_source(to_source):
+		Inventory.equipment_updated.emit()
 
 
 func set_slot(stack: ItemStack) -> void:

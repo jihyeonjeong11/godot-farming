@@ -13,27 +13,42 @@ const MUSIC_INGAME = [
 ## 상수로 묶는다.
 const SFX_TREE_SHAKING := "TREE_SHAKING"
 const SFX_TREE_HITTING := "TREE_HITTING"
+const SFX_MINING_ROCK := "MINING_ROCK"
 const SFX_EATING := "EATING"
 const SFX_TILLING_GROUND := "TILLING_GROUND"
 const SFX_WATERING_CROPS := "WATERING_CROPS"
+const SFX_DOOR_OPENING := "DOOR_OPENING"
 const SFX_FIRE_ON := "FIRE_ON"
 const SFX_FIRE_OFF := "FIRE_OFF"
+const SFX_FOOTSTEP := "FOOTSTEP"
+const SFX_FOOTSTEP_GRASS := "FOOTSTEP_GRASS"
+const SFX_FOOTSTEP_CONCRETE := "FOOTSTEP_CONCRETE"
+const SFX_ITEM_PICKUP := "ITEM_PICKUP"
 
 const SOUND_EFFECTS := {
 	SFX_TREE_SHAKING: preload("uid://cf5dkduwvar7f"),
 	SFX_TREE_HITTING: preload("uid://dclgtskcouocj"),
+	SFX_MINING_ROCK: preload("uid://boqllg37niafw"),  # hitting_pickaxe.mp3
 	SFX_EATING: preload("uid://3ehkno4ns3if"),
 	SFX_TILLING_GROUND: preload("uid://b5ll7oh7g02ah"),
 	SFX_WATERING_CROPS: preload("uid://s3cy4shkem8o"),
+	# TODO: 문 여는 소리 에셋이 아직 없다. 자리만 잡아두고 hit.wav 로 임시로 때운다.
+	SFX_DOOR_OPENING: preload("uid://tk2bqsvswsev"),
 	SFX_FIRE_ON: preload("uid://cluwpcp6k6vrc"),  # fire_on.mp3
-	SFX_FIRE_OFF: preload("uid://by72sp3vkhet8"),  # fire_off.mp3
+	SFX_FIRE_OFF: preload("uid://by72sp3vkhet8"),  # fire_off.mp3,
+	SFX_FOOTSTEP: preload("uid://bhcyvr82bqnal"),
+	SFX_FOOTSTEP_GRASS: preload("uid://d2ytgjedd650g"),  # footstep_grass.mp3
+	SFX_FOOTSTEP_CONCRETE: preload("uid://igeuw168phye"),  # footstep_concrete.mp3
+	SFX_ITEM_PICKUP: preload("uid://dtkma6bmtb12v"),  # bloop.mp3
 }
 
-const SFX_POOL_SIZE := 4
+const SFX_POOL_SIZE := 12
 
 @onready var music: AudioStreamPlayer = $Music
 
 var _sfx_players: Array[AudioStreamPlayer] = []
+## 이미 경고를 띄운 미등록 키. 같은 오타로 로그가 도배되는 걸 막는다.
+var _warned_keys: Dictionary = {}
 
 
 func _ready() -> void:
@@ -53,6 +68,11 @@ func _build_sfx_pool() -> void:
 
 func play_sound_effect(key: String) -> void:
 	var stream: AudioStream = SOUND_EFFECTS.get(key)
+	if stream == null:
+		if not _warned_keys.has(key):
+			_warned_keys[key] = true   # 매 프레임 도는 소리면 로그가 도배된다. 키당 한 번만.
+			push_warning("등록되지 않은 효과음 키: '%s' (AudioManager.SOUND_EFFECTS 확인)" % key)
+		return
 
 	var player := _idle_sfx_player()
 	if player == null:

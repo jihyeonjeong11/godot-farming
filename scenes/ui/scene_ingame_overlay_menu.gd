@@ -7,19 +7,22 @@ extends CanvasLayer
 @onready var inventory_description := %InventoryDescription as InventoryDescription
 @onready var craft_grid: GridContainer = %CraftGrid
 @onready var craft_info: Label = %CraftInfo
+@onready var stats_info: Label = %StatsInfo
 
-enum Menus {
-	Inventory,
-	Crafting,
-	Settings
-}
+## 탭 버튼과 패널은 순서로 짝을 맞춘다. 둘 다 같은 순서로 채운다.
+@onready var tab_buttons: Array[Button] = [
+	%InventoryTab, %CraftingTab, %StatsTab, %SettingsTab
+]
+@onready var tab_panels: Array[Control] = [
+	%InventoryPanel, %CraftingPanel, %StatsPanel, %SettingsPanel
+]
+
+@onready var options_button: Button = %OptionsButton
+@onready var quit_button: Button = %QuitButton
 
 const INVENTORY_SLOT = preload("uid://byt1lfm4vsyc4")
 
 
-
-## 만들 수 있는 것들. 씬에서 채운다.
-## 조합법도 아이템처럼 리소스라 새로 늘릴 때 이 스크립트를 건드릴 일이 없다.
 @export var recipes: Array[CraftRecipe] = []
 
 var slots: Array[InventorySlot] = []
@@ -35,11 +38,29 @@ func _ready() -> void:
 	SignalBus.ingame_paused.connect(on_game_paused)
 	settings_panel.closed.connect(on_settings_closed)
 
+	for i in tab_buttons.size():
+		tab_buttons[i].pressed.connect(show_tab.bind(i))
+
+	options_button.pressed.connect(on_settings_pressed)
+	quit_button.pressed.connect(on_quit_pressed)
+
 	build_inventory_grid()
 	build_craft_grid()
 
 	Inventory.inventory_updated.connect(refresh)
+	show_tab(0)
 	refresh()
+
+
+## 누른 탭만 남기고 나머지는 접는다. 버튼은 ButtonGroup이 알아서 하나만 눌린 상태로 만든다.
+func show_tab(index: int) -> void:
+	for i in tab_panels.size():
+		tab_panels[i].visible = i == index
+
+	tab_buttons[index].button_pressed = true
+
+	if index == 2:
+		refresh_stats()
 
 
 func build_inventory_grid() -> void:
@@ -53,6 +74,8 @@ func build_inventory_grid() -> void:
 		slot.name = "Slot%d" % i
 		slot.slot_index = i
 		slot.source = Inventory.inventory
+		# 아이템 그림은 26px 칸보다 큰 것이 많다. 눌러 담지 않으면 옆 칸까지 넘어간다.
+		slot.expand_icon = true
 		slot.pressed.connect(on_slot_pressed.bind(i))
 		slot.right_pressed.connect(on_slot_right_pressed.bind(i))
 		inventory_grid.add_child(slot)
@@ -144,11 +167,36 @@ func refresh_craft_info() -> void:
 	craft_info.text = recipes[focused_recipe_index].describe()
 
 
+## 플레이어를 그룹에서 찾아 그때그때 읽는다. 창을 열 때만 보므로 신호를 걸어둘 필요가 없다.
+func refresh_stats() -> void:
+	var player := get_tree().get_first_node_in_group("player")
+	if player == null or not ("stats" in player):
+		stats_info.text = "플레이어 없음"
+		return
+
+	var s: BaseCharacterStats = player.stats
+	if s == null:
+		stats_info.text = "스탯 없음"
+		return
+
+	stats_info.text = "\n".join([
+		"Lv. %d  (EXP %d)" % [s.level, s.experience],
+		"HP      %d / %d" % [s.health, s.current_max_health],
+		"STAMINA %d / %d" % [s.stamina, s.current_max_stamina],
+		"HUNGER  %d / %d" % [s.hunger, s.current_max_hunger],
+		"THIRST  %d / %d" % [s.thirst, s.current_max_thirst],
+		"",
+		"ATK %d   DEF %d   SPD %d" % [s.current_attack, s.current_defense, s.current_speed],
+		"GOLD %d" % s.gold,
+	])
+
+
 func on_game_paused(is_paused: bool) -> void:
 	visible = is_paused
 	if is_paused:
 		menu_panel.visible = true
 		settings_panel.visible = false
+		show_tab(0)
 		refresh()
 	else:
 		menu_panel.visible = false

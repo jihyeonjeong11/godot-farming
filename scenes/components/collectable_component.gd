@@ -69,11 +69,8 @@ func _physics_process(delta: float) -> void:
 		_collect()
 		return
 
-	# 가까울수록 세게 당긴다. 등가속이면 36px 구간에서 속도가 두 배도 안 올라
-	# 눈에는 등속으로 보인다 — 끝에서 속도가 계속 올라야 빨려드는 것처럼 읽힌다.
 	var pull := acceleration * pow(magnet_radius / maxf(dist, PULL_MIN_DIST), pull_falloff)
 	_speed = minf(_speed + pull * delta, max_speed)
-	# 한 프레임에 플레이어를 지나쳐 버리면 다음 프레임에 방향이 뒤집혀 떨린다.
 	host.global_position += to_player.normalized() * minf(_speed * delta, dist)
 
 
@@ -81,8 +78,9 @@ func _collect() -> void:
 	if Inventory.add_item(item) == true:
 		_collected = true
 		set_physics_process(false)
+		# 부모가 곧 사라지므로 위치 기반 플레이어는 못 쓴다. 전역 SFX 풀로 낸다.
+		SignalBus.sound_requested.emit(AudioManager.SFX_ITEM_PICKUP)
 		get_parent().queue_free()
-		
 		return
 
 	if not _warned:

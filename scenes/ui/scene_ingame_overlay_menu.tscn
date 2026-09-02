@@ -1,18 +1,20 @@
-[gd_scene format=3 uid="uid://dncd82n2y0aas"]
+[gd_scene load_steps=9 format=3 uid="uid://dncd82n2y0aas"]
 
-[ext_resource type="Theme" uid="uid://bkny51ahdetw" path="res://scenes/ui/game_theme.tres" id="1_fa1oo"]
 [ext_resource type="Script" uid="uid://dsa30maka7f6r" path="res://scenes/ui/scene_ingame_overlay_menu.gd" id="1_lngvq"]
+[ext_resource type="PackedScene" uid="uid://deugupwqjk44e" path="res://scenes/ui/base_ui.tscn" id="2_baseui"]
 [ext_resource type="PackedScene" uid="uid://b8v85sm37h1qw" path="res://scenes/ui/inventory/inventory-description.tscn" id="4_s64m0"]
 [ext_resource type="PackedScene" uid="uid://dr4x4rp0j1rci" path="res://scenes/ui/scene_overlay_menu_settings.tscn" id="6_stgs0"]
 [ext_resource type="Script" uid="uid://c7xk2mvbqjy4n" path="res://scripts/resources/craft_recipe.gd" id="7_recipe"]
 [ext_resource type="Resource" uid="uid://ct8n2b4kqvmxr" path="res://scripts/resources/recipes/container_recipe.tres" id="8_r_container"]
 [ext_resource type="Resource" uid="uid://bqm4vd7yxs1oe" path="res://scripts/resources/recipes/axe_recipe.tres" id="9_r_axe"]
 
-[node name="SceneIngameOverlayMenu" type="CanvasLayer" unique_id=701174629]
+[sub_resource type="ButtonGroup" id="ButtonGroup_tabs"]
+
+[node name="SceneIngameOverlayMenu" type="CanvasLayer"]
 script = ExtResource("1_lngvq")
 recipes = Array[ExtResource("7_recipe")]([ExtResource("8_r_container"), ExtResource("9_r_axe")])
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=58764590]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -23,100 +25,137 @@ theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=184961893]
-layout_mode = 2
-theme_override_constants/separation = 6
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=442026145]
-layout_mode = 2
-
-[node name="InventoryButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=231240092]
-layout_mode = 2
-text = "Inventory"
-
-[node name="Crafting" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=203592503]
-layout_mode = 2
-text = "Crafting
-"
-
-[node name="Settings" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1689513876]
-layout_mode = 2
-text = "Settings
-"
-
-[node name="InventoryPanel" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=78052273]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = ExtResource("1_fa1oo")
-theme_type_variation = &"IngamePanel"
-
-[node name="Margin" type="MarginContainer" parent="MarginContainer/VBoxContainer/InventoryPanel" unique_id=684717293]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 6
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 6
-
-[node name="Rows" type="VBoxContainer" parent="MarginContainer/VBoxContainer/InventoryPanel/Margin" unique_id=622436409]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/InventoryPanel/Margin/Rows" unique_id=1570149111]
+[node name="TabColumn" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(72, 0)
 layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="InventoryTab" type="Button" parent="MarginContainer/HBoxContainer/TabColumn"]
+unique_name_in_owner = true
+layout_mode = 2
+toggle_mode = true
+button_pressed = true
+button_group = SubResource("ButtonGroup_tabs")
+theme_override_font_sizes/font_size = 10
 text = "Inventory"
 
-[node name="InventoryGrid" type="GridContainer" parent="MarginContainer/VBoxContainer/InventoryPanel/Margin/Rows" unique_id=50328110]
+[node name="CraftingTab" type="Button" parent="MarginContainer/HBoxContainer/TabColumn"]
+unique_name_in_owner = true
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_tabs")
+theme_override_font_sizes/font_size = 10
+text = "Crafting"
+
+[node name="StatsTab" type="Button" parent="MarginContainer/HBoxContainer/TabColumn"]
+unique_name_in_owner = true
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_tabs")
+theme_override_font_sizes/font_size = 10
+text = "Stats"
+
+[node name="SettingsTab" type="Button" parent="MarginContainer/HBoxContainer/TabColumn"]
+unique_name_in_owner = true
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_tabs")
+theme_override_font_sizes/font_size = 10
+text = "Settings"
+
+[node name="InventoryPanel" parent="MarginContainer/HBoxContainer" instance=ExtResource("2_baseui")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Margin" type="MarginContainer" parent="MarginContainer/HBoxContainer/InventoryPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 8
+
+[node name="Rows" type="VBoxContainer" parent="MarginContainer/HBoxContainer/InventoryPanel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Title" type="Label" parent="MarginContainer/HBoxContainer/InventoryPanel/Margin/Rows"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "INVENTORY"
+
+[node name="InventoryGrid" type="GridContainer" parent="MarginContainer/HBoxContainer/InventoryPanel/Margin/Rows"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_constants/h_separation = 2
+theme_override_constants/v_separation = 2
 columns = 10
 
-[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/InventoryPanel/Margin/Rows" unique_id=50249733]
+[node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer/InventoryPanel/Margin/Rows"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="InventoryDescription" parent="MarginContainer/VBoxContainer/InventoryPanel/Margin/Rows" unique_id=316026720 instance=ExtResource("4_s64m0")]
+[node name="InventoryDescription" parent="MarginContainer/HBoxContainer/InventoryPanel/Margin/Rows" instance=ExtResource("4_s64m0")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
+size_flags_horizontal = 0
 size_flags_vertical = 8
 
-[node name="CraftPanel" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=67782102]
+[node name="CraftingPanel" parent="MarginContainer/HBoxContainer" instance=ExtResource("2_baseui")]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("1_fa1oo")
-theme_type_variation = &"IngamePanel"
 
-[node name="Margin" type="MarginContainer" parent="MarginContainer/VBoxContainer/CraftPanel" unique_id=1496745802]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 6
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 6
+[node name="Margin" type="MarginContainer" parent="MarginContainer/HBoxContainer/CraftingPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 8
 
-[node name="Rows" type="VBoxContainer" parent="MarginContainer/VBoxContainer/CraftPanel/Margin" unique_id=91733923]
+[node name="Rows" type="VBoxContainer" parent="MarginContainer/HBoxContainer/CraftingPanel/Margin"]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/CraftPanel/Margin/Rows" unique_id=850099289]
+[node name="Title" type="Label" parent="MarginContainer/HBoxContainer/CraftingPanel/Margin/Rows"]
 layout_mode = 2
-text = "Craftables"
+theme_override_font_sizes/font_size = 10
+text = "CRAFTING"
 
-[node name="CraftGrid" type="GridContainer" parent="MarginContainer/VBoxContainer/CraftPanel/Margin/Rows" unique_id=979702349]
+[node name="CraftGrid" type="GridContainer" parent="MarginContainer/HBoxContainer/CraftingPanel/Margin/Rows"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_constants/h_separation = 2
+theme_override_constants/v_separation = 2
 columns = 10
 
-[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/CraftPanel/Margin/Rows" unique_id=792879983]
+[node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer/CraftingPanel/Margin/Rows"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="CraftInfo" type="Label" parent="MarginContainer/VBoxContainer/CraftPanel/Margin/Rows" unique_id=595884289]
+[node name="CraftInfo" type="Label" parent="MarginContainer/HBoxContainer/CraftingPanel/Margin/Rows"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
@@ -125,6 +164,88 @@ theme_override_colors/font_color = Color(0.78431374, 0.78431374, 0.78431374, 1)
 theme_override_font_sizes/font_size = 8
 autowrap_mode = 3
 
-[node name="Settings" parent="." unique_id=884863369 instance=ExtResource("6_stgs0")]
+[node name="StatsPanel" parent="MarginContainer/HBoxContainer" instance=ExtResource("2_baseui")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Margin" type="MarginContainer" parent="MarginContainer/HBoxContainer/StatsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 8
+
+[node name="Rows" type="VBoxContainer" parent="MarginContainer/HBoxContainer/StatsPanel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Title" type="Label" parent="MarginContainer/HBoxContainer/StatsPanel/Margin/Rows"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "STATS"
+
+[node name="StatsInfo" type="Label" parent="MarginContainer/HBoxContainer/StatsPanel/Margin/Rows"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.78431374, 0.78431374, 0.78431374, 1)
+theme_override_font_sizes/font_size = 8
+autowrap_mode = 3
+
+[node name="SettingsPanel" parent="MarginContainer/HBoxContainer" instance=ExtResource("2_baseui")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Margin" type="MarginContainer" parent="MarginContainer/HBoxContainer/SettingsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 8
+
+[node name="Rows" type="VBoxContainer" parent="MarginContainer/HBoxContainer/SettingsPanel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Title" type="Label" parent="MarginContainer/HBoxContainer/SettingsPanel/Margin/Rows"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "SETTINGS"
+
+[node name="OptionsButton" type="Button" parent="MarginContainer/HBoxContainer/SettingsPanel/Margin/Rows"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 10
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="MarginContainer/HBoxContainer/SettingsPanel/Margin/Rows"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 10
+text = "Quit"
+
+[node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer/SettingsPanel/Margin/Rows"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Settings" parent="." instance=ExtResource("6_stgs0")]
 visible = false
 layout_mode = 3

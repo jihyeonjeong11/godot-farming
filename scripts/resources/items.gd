@@ -61,6 +61,8 @@ class_name Items extends Resource
 @export var current_ammo: int
 
 
+
+
 ## TODO: Make theme as a file for localization support
 func describe(price_label: String = "가치") -> String:
 	var lines: PackedStringArray = [item_name]

@@ -25,7 +25,7 @@ func on_interact(user_position: Vector2, cursor_position: Vector2) -> void:
 		var object := candidate as Node2D
 		if object == null:
 			continue
-
+			
 		if object.global_position.distance_to(user_position) > player_interaction_range:
 			continue
 

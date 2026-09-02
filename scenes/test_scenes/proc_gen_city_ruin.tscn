@@ -16,27 +16,30 @@ script = ExtResource("1_fb62f")
 
 [node name="ObjectCursorComponent" parent="." unique_id=396383454 instance=ExtResource("4_cursor")]
 
-[node name="Ground" type="TileMapLayer" parent="." unique_id=61191778]
+[node name="Tilemap" type="TileMapLayer" parent="." unique_id=61191700]
+y_sort_enabled = true
+
+[node name="Land" type="TileMapLayer" parent="Tilemap" unique_id=61191778]
 tile_set = ExtResource("2_v2c2p")
 
-[node name="Walk" type="TileMapLayer" parent="." unique_id=1946610148]
+[node name="Walk" type="TileMapLayer" parent="Tilemap" unique_id=1946610148]
 tile_set = ExtResource("2_v2c2p")
 
-[node name="Road" type="TileMapLayer" parent="." unique_id=1612547893]
+[node name="Road" type="TileMapLayer" parent="Tilemap" unique_id=1612547893]
 tile_set = ExtResource("2_v2c2p")
 
-[node name="Floors" type="TileMapLayer" parent="." unique_id=1612547895]
+[node name="Floors" type="TileMapLayer" parent="Tilemap" unique_id=1612547895]
 tile_set = ExtResource("2_v2c2p")
 
-[node name="Walls" type="TileMapLayer" parent="." unique_id=1612547896]
+[node name="Walls" type="TileMapLayer" parent="Tilemap" unique_id=1612547896]
 y_sort_enabled = true
 tile_set = ExtResource("2_v2c2p")
 
-[node name="Furniture" type="TileMapLayer" parent="." unique_id=1612547897]
+[node name="Furniture" type="TileMapLayer" parent="Tilemap" unique_id=1612547897]
 y_sort_enabled = true
 tile_set = ExtResource("2_v2c2p")
 
-[node name="Roofs" type="TileMapLayer" parent="." unique_id=1612547898]
+[node name="Roofs" type="TileMapLayer" parent="Tilemap" unique_id=1612547898]
 tile_set = ExtResource("2_v2c2p")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1517440240]

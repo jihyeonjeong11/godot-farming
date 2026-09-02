@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cobr0qt4lwno6" path="res://scenes/characters/enemy/zombie_big/big_zombie.tscn" id="12_bgzom"]
 [ext_resource type="PackedScene" uid="uid://bmp8j4fwdkl82" path="res://scenes/characters/player/player.tscn" id="13_4d0tx"]
 [ext_resource type="PackedScene" path="res://scenes/characters/enemy/zombie_axe/axe_zombie.tscn" id="13_axzom"]
-[ext_resource type="PackedScene" path="res://scenes/components/portal_component.tscn" id="14_portl"]
+[ext_resource type="PackedScene" uid="uid://y27b0nq34315" path="res://scenes/components/portal_component.tscn" id="14_portl"]
 [ext_resource type="PackedScene" uid="uid://dogc4aluyci8r" path="res://scenes/characters/enemy/zombie/zombie.tscn" id="15_zmb32"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_4kxuq"]
@@ -61,8 +61,6 @@ target_spawn = &"outside"
 
 [node name="Zombie" parent="." unique_id=1619301887 instance=ExtResource("15_zmb32")]
 position = Vector2(377, 165)
-
-
 
 [node name="DayNightCycleComponent" parent="." unique_id=1908140115 instance=ExtResource("9_osfbq")]
 

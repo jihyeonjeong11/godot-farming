@@ -31,12 +31,12 @@ const PAINT_MARGIN := 2     # 32 * 2
 const BUILDING_CHANCE := 4  # 1/4 25%
 const TILES := OMAP_SIZE * CELL   # 640 — 타일 해상도 점유 맵의 한 변
 
-## 서쪽 관문에 세울 문. 농장 문과 같은 씬을 그대로 쓴다.
+## 동쪽 관문에 세울 문. 농장 문과 같은 씬을 그대로 쓴다.
 const PORTAL_SCENE: PackedScene = preload("res://scenes/components/portal_component.tscn")
 ## 문 너머 — 농장 씬과 그쪽 스폰 지점 이름.
 const FARM_SCENE := "uid://b0kcgeo77475t"
 const FARM_SPAWN: StringName = &"outside"
-## 농장 문이 이 씬을 부를 때 쓰는 이름. 서쪽 관문 안쪽에 세운다.
+## 농장 문이 이 씬을 부를 때 쓰는 이름. 동쪽 관문 안쪽에 세운다.
 const GATE_SPAWN: StringName = &"farm_gate"
 ## 관문 앞을 비워둘 길이(타일). 문과 스폰 지점이 여기 들어간다.
 const GATE_CLEAR := 8
@@ -117,7 +117,7 @@ const MAPGEN := {
 ## 프리팹의 레이어 이름 -> 이 씬의 레이어 이름. 여기 없는 레이어는 무시한다.
 ## Props 는 프리팹 안의 잡동사니(덤불/쓰레기)라 가구와 같은 판에 얹는다.
 const TEMPLATE_LAYERS := {
-	"Ground": "ground",
+	"Ground": "land",
 	"Path": "walk",
 	"Floors": "floors",
 	"Walls": "walls",
@@ -126,8 +126,6 @@ const TEMPLATE_LAYERS := {
 	"Roofs": "roofs",
 }
 
-## 프리팹 레이어가 의미 격자에 남기는 값. 그림이 아니라 "여기가 무엇인가" 쪽이고,
-## #7 폐허화와 이동 판정이 읽을 곳은 타일맵이 아니라 이쪽이다.
 const TEMPLATE_TER := {
 	"Floors": MapgenDefs.Ter.FLOOR,
 	"Walls": MapgenDefs.Ter.WALL,
@@ -136,13 +134,13 @@ const TEMPLATE_TER := {
 @export var world_seed: int = 0         
 @export var city_size: int = 6
 
-@onready var ground: TileMapLayer = $Ground  
-@onready var walk: TileMapLayer = $Walk     
-@onready var road: TileMapLayer = $Road     
-@onready var floors: TileMapLayer = $Floors
-@onready var walls: TileMapLayer = $Walls
-@onready var furniture: TileMapLayer = $Furniture
-@onready var roofs: TileMapLayer = $Roofs
+@onready var land: TileMapLayer = $Tilemap/Land  
+@onready var walk: TileMapLayer = $Tilemap/Walk     
+@onready var road: TileMapLayer = $Tilemap/Road     
+@onready var floors: TileMapLayer = $Tilemap/Floors
+@onready var walls: TileMapLayer = $Tilemap/Walls
+@onready var furniture: TileMapLayer = $Tilemap/Furniture
+@onready var roofs: TileMapLayer = $Tilemap/Roofs
 @onready var player: CharacterBody2D = $Player
 @onready var camera: Camera2D = $Player/Camera2D
 
@@ -169,7 +167,7 @@ var objects_root: Node2D
 var placed_buildings: Array[Dictionary] = []   # 배치 결과. 페인팅과 미니맵이 읽는다.
 var park_omts: Dictionary = {}           # 공원으로 잡힌 OMT. 나무를 더 심는다.
 var placed_unique: Dictionary = {}       # CITY_UNIQUE 중복 방지. CDDA는 도시마다 새로 만든다.
-var gate: PortalComponent                # 서쪽 관문. 재생성 때마다 새 자리에 다시 세운다.
+var gate: PortalComponent                # 동쪽 관문. 재생성 때마다 새 자리에 다시 세운다.
 var gate_spawn: SpawnPoint               # 그 안쪽, 농장에서 넘어온 플레이어가 설 자리.
 
 
@@ -198,7 +196,7 @@ func _generate() -> void:
 	rng.seed = active_seed
 	grid.clear()
 	manholes.clear()
-	ground.clear()
+	land.clear()
 	walk.clear()
 	road.clear()
 	floors.clear()
@@ -224,14 +222,14 @@ func _generate() -> void:
 	paint_all()
 	# 관문 앞 통로는 건물보다 먼저 찜해둔다. 도시 밖 칸의 건물이 앞마당을 뻗어
 	# 문을 벽으로 덮어버리면 농장으로 돌아갈 길이 없어진다.
-	reserve_west_gate()
+	reserve_east_gate()
 	var t2 := Time.get_ticks_msec()
 	# 여기서부터가 CDDA 의 mapgen 이다. 예약된 OMT 마다 프리팹을 뽑아 ter/furn 에 굽고,
 	# 그 다음에야 타일을 고른다. 두 단계를 붙여놓으면 #7 이 끼어들 자리가 없어진다.
 	stamp_buildings()
 	var t3 := Time.get_ticks_msec()
 	render_buildings()
-	place_west_gate()
+	place_east_gate()
 	var t4 := Time.get_ticks_msec()
 	print("[city] seed=%d  도로 %d칸 (%dms)  페인팅 흙%d+인도%d+도로%d셀 (%dms)  건물 %d채(공원 %d) 찍기 %dms 그리기 %dms"
 		% [active_seed, road_omts, t1 - t0, dirt_cells.size(), walk_cells.size(), road_cells.size(),
@@ -481,7 +479,7 @@ func paint_all() -> void:
 
 	# 모아둔 좌표를 터레인 솔버에 한 번에 넘긴다.
 	# 셀마다 이웃 제약을 풀기 때문에 set_cell()보다 훨씬 비싸다 — 반드시 일괄 호출.
-	ground.set_cells_terrain_connect(dirt_cells, TERRAIN_SET, TERRAIN_DIRT, false)
+	land.set_cells_terrain_connect(dirt_cells, TERRAIN_SET, TERRAIN_DIRT, false)
 	walk.set_cells_terrain_connect(walk_cells, TERRAIN_SET, TERRAIN_CONCRETE, false)
 	road.set_cells_terrain_connect(road_cells, TERRAIN_SET, TERRAIN_ASPHALT, false)
 
@@ -824,34 +822,36 @@ func render_buildings() -> void:
 			objects_root.add_child(node)
 
 
-func west_gate_omt() -> Vector2i:
+# 농장 문이 농장 서쪽 끝에 있으니, 거기서 서쪽으로 걸어 나온 플레이어는 이 도시의
+# 동쪽 끝으로 들어온다. 그래서 돌아가는 문도 동쪽 관문에 세운다.
+func east_gate_omt() -> Vector2i:
 	var omt := city_pos
-	while is_road(omt + DIR_VEC[Dir.WEST]):
-		omt += DIR_VEC[Dir.WEST]
+	while is_road(omt + DIR_VEC[Dir.EAST]):
+		omt += DIR_VEC[Dir.EAST]
 	return omt
 
-func west_gate_rect() -> Rect2i:
-	var base := west_gate_omt() * CELL
-	return Rect2i(base.x, base.y + (CELL - ROAD_W) / 2, GATE_CLEAR, ROAD_W)
+func east_gate_rect() -> Rect2i:
+	var base := east_gate_omt() * CELL
+	return Rect2i(base.x + CELL - GATE_CLEAR, base.y + (CELL - ROAD_W) / 2, GATE_CLEAR, ROAD_W)
 
-func reserve_west_gate() -> void:
-	occ_fill(west_gate_rect(), Occ.BLOCKED)
+func reserve_east_gate() -> void:
+	occ_fill(east_gate_rect(), Occ.BLOCKED)
 
 
-func place_west_gate() -> void:
+func place_east_gate() -> void:
 	if is_instance_valid(gate):
 		gate.queue_free()
 	if is_instance_valid(gate_spawn):
 		gate_spawn.queue_free()
 
-	var r := west_gate_rect()
+	var r := east_gate_rect()
 	var mid := r.position.y + ROAD_W / 2
 
 	var portal := PORTAL_SCENE.instantiate() as PortalComponent
 	portal.name = "PortalToFarm"
 	portal.target_scene = FARM_SCENE
 	portal.target_spawn = FARM_SPAWN
-	portal.position = road.map_to_local(Vector2i(r.position.x + 1, mid))
+	portal.position = road.map_to_local(Vector2i(r.position.x + GATE_CLEAR - 2, mid))
 	# 문짝 스프라이트는 16px 짜리라 32px 타일 위에선 점처럼 보인다.
 	(portal.get_node("Sprite2D") as Sprite2D).scale = Vector2(3, 3)
 	# 판정은 도로 폭을 통째로 막는 세로 띠로 키운다. 씬에 박힌 16x8 사각형은 여기선
@@ -867,7 +867,7 @@ func place_west_gate() -> void:
 	var point := SpawnPoint.new()
 	point.name = "SpawnFromFarm"
 	point.spawn_id = GATE_SPAWN
-	point.position = road.map_to_local(Vector2i(r.position.x + GATE_CLEAR - 2, mid))
+	point.position = road.map_to_local(Vector2i(r.position.x + 1, mid))
 	add_child(point)
 	gate_spawn = point
 

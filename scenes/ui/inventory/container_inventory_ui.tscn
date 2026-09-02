@@ -1,12 +1,14 @@
-[gd_scene format=3 uid="uid://b7xqk2mcnv0ug"]
+[gd_scene load_steps=4 format=3 uid="uid://b7xqk2mcnv0ug"]
 
-[ext_resource type="Theme" uid="uid://bkny51ahdetw" path="res://scenes/ui/game_theme.tres" id="1_theme"]
 [ext_resource type="Script" uid="uid://bimsyx630p20r" path="res://scenes/ui/inventory/container_inventory_ui.gd" id="2_ctnui"]
+[ext_resource type="PackedScene" uid="uid://deugupwqjk44e" path="res://scenes/ui/base_ui.tscn" id="3_baseui"]
 
-[node name="ContainerInventoryUI" type="CanvasLayer" unique_id=1280521689]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bare"]
+
+[node name="ContainerInventoryUI" type="CanvasLayer"]
 script = ExtResource("2_ctnui")
 
-[node name="CenterContainer" type="CenterContainer" parent="." unique_id=484976779]
+[node name="CenterContainer" type="CenterContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -14,36 +16,81 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="CenterContainer" unique_id=629948498]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
 layout_mode = 2
-theme = ExtResource("1_theme")
-theme_type_variation = &"IngamePanel"
+theme_override_constants/separation = 6
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer" unique_id=924861876]
+[node name="ContainerPanel" type="PanelContainer" parent="CenterContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 12
-theme_override_constants/margin_top = 12
-theme_override_constants/margin_right = 12
-theme_override_constants/margin_bottom = 12
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_bare")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer" unique_id=63320551]
+[node name="BaseUi" parent="CenterContainer/HBoxContainer/ContainerPanel" instance=ExtResource("3_baseui")]
 layout_mode = 2
-theme_override_constants/separation = 8
 
-[node name="TitleLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=537145385]
+[node name="Margin" type="MarginContainer" parent="CenterContainer/HBoxContainer/ContainerPanel"]
 layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 8
+
+[node name="Rows" type="VBoxContainer" parent="CenterContainer/HBoxContainer/ContainerPanel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/HBoxContainer/ContainerPanel/Margin/Rows"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
 text = "상자"
 
-[node name="ContainerGrid" type="GridContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=450373927]
+[node name="ContainerGrid" type="GridContainer" parent="CenterContainer/HBoxContainer/ContainerPanel/Margin/Rows"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/h_separation = 2
+theme_override_constants/v_separation = 2
 columns = 6
 
-[node name="InventoryTitleLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=537145386]
+[node name="Spacer" type="Control" parent="CenterContainer/HBoxContainer/ContainerPanel/Margin/Rows"]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="InventoryPanel" type="PanelContainer" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_bare")
+
+[node name="BaseUi" parent="CenterContainer/HBoxContainer/InventoryPanel" instance=ExtResource("3_baseui")]
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="CenterContainer/HBoxContainer/InventoryPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 8
+
+[node name="Rows" type="VBoxContainer" parent="CenterContainer/HBoxContainer/InventoryPanel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="InventoryTitleLabel" type="Label" parent="CenterContainer/HBoxContainer/InventoryPanel/Margin/Rows"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
 text = "가방"
 
-[node name="InventoryGrid" type="GridContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1602221246]
+[node name="InventoryGrid" type="GridContainer" parent="CenterContainer/HBoxContainer/InventoryPanel/Margin/Rows"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/h_separation = 2
+theme_override_constants/v_separation = 2
 columns = 10
+
+[node name="Spacer" type="Control" parent="CenterContainer/HBoxContainer/InventoryPanel/Margin/Rows"]
+layout_mode = 2
+size_flags_vertical = 3

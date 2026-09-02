@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://deugupwqjk44e"]
+
+[ext_resource type="Texture2D" uid="uid://ct3d5abkpag8t" path="res://assets/UI/nine_slice_panel.png" id="1_mlarl"]
+
+[node name="BaseUi" type="Control" unique_id=118001860]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1979188203]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_mlarl")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect" unique_id=1967566677]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12

@@ -36,6 +36,21 @@ const BARE_REACH := 18.0
 const BARE_RADIUS := 14.0
 const TOOL_FRAMES_DIR := "res://scenes/characters/player/tools/"
 
+## 발밑 지형. 타일셋의 terrain 이름을 그대로 쓴다. 번호로 비교하면 안 된다 —
+## land.tres 는 0 이 Grass 인데 city_ruin.tres 는 0 이 Asphalt 라, 씬을 옮기는
+## 순간 풀밭 소리가 아스팔트에서 난다.
+const TERRAIN_NONE := &""
+const TERRAIN_GRASS := &"Grass"
+const TERRAIN_DIRT := &"Dirt"
+const TERRAIN_CONCRETE := &"Concrete"
+const TERRAIN_ASPHALT := &"Asphalt"
+
+## 발밑 지형을 찾을 레이어. 위에 그려지는 판이 먼저다(도로 > 인도 > 실내 바닥 > 맨땅).
+## 여기 없는 이름은 무시하므로 씬마다 있는 레이어만 잡힌다.
+const GROUND_LAYERS: Array[String] = [
+	"Road", "ConcretePath", "StonePath", "Walk", "Floors", "Land",
+]
+
 @export var sprite_layers: Array[AnimatedSprite2D] = []
 
 @export var tool_back_sprite: AnimatedSprite2D
@@ -51,6 +66,11 @@ const TOOL_FRAMES_DIR := "res://scenes/characters/player/tools/"
 @onready var hit_shape: CollisionShape2D = $HitComponent/HitComponentShape2D
 @onready var hurt_component: HurtComponent = $HurtComponent
 
+## Tilemap 밑에서 찾아낸 지형 레이어들. GROUND_LAYERS 순서를 그대로 따른다.
+var _ground_layers: Array[TileMapLayer] = []
+
+var current_tile
+
 var _equipped_item: Items
 var equipped_tool: String = ""
 
@@ -64,6 +84,7 @@ var _current_duration: float = 0.0
 var _tool_frames_cache: Dictionary = {}
 
 
+
 func _unhandled_input(event: InputEvent) -> void:
 	var slot := GameInputEvents.number_key_input(event)
 	if slot >= 0:
@@ -71,10 +92,12 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 
 func _ready() -> void:
+	_collect_ground_layers()
 	setup_stats()
 	Inventory.set_player_reference(self)
 	apply_hitbox(null)
 	hurt_component.hurt.connect(take_hit)
+	
 
 func setup_stats() -> void:
 	if stats == null:
@@ -118,6 +141,7 @@ func apply_hitbox(item: Items) -> void:
 		return
 
 func _physics_process(_delta: float) -> void:
+	
 	for key in TEST_KEYS:
 		_edge(key, TEST_KEYS[key])
 
@@ -187,6 +211,34 @@ func is_mouse_on_water() -> bool:
 
 	var cell := water.local_to_map(water.get_local_mouse_position())
 	return water.get_cell_source_id(cell) != -1
+
+
+## 씬의 Tilemap 밑에서 지형 레이어를 모은다. 씬마다 구성이 달라서 있는 것만 챙긴다.
+func _collect_ground_layers() -> void:
+	_ground_layers.clear()
+
+	var tilemap := owner.get_node_or_null("Tilemap") if owner != null else null
+	if tilemap == null:
+		return
+
+	for layer_name in GROUND_LAYERS:
+		var layer := tilemap.get_node_or_null(layer_name) as TileMapLayer
+		if layer != null and layer.tile_set != null:
+			_ground_layers.append(layer)
+
+
+## 발밑 칸의 terrain 이름. 위 레이어부터 훑어 처음 잡히는 지형을 쓴다 —
+## 인도 위에 도로가 겹쳐 깔린 칸이면 도로가 이긴다.
+## 레이어가 없거나(농장 밖) 지형이 안 칠해진 칸이면 TERRAIN_NONE.
+func get_terrain() -> StringName:
+	for layer in _ground_layers:
+		var data := layer.get_cell_tile_data(layer.local_to_map(layer.to_local(global_position)))
+		if data == null or data.terrain < 0:
+			continue
+
+		return StringName(layer.tile_set.get_terrain_name(data.terrain_set, data.terrain))
+
+	return TERRAIN_NONE
 
 func consume_selected() -> bool:
 	var item: Items = Inventory.get_selected_item()
@@ -285,6 +337,8 @@ func clip_length(clip: StringName) -> float:
 func stop_action() -> void:
 	for layer in sprite_layers:
 		layer.stop()
+		
+	
 
 func apply_tool_frames() -> void:
 	if tool_back_sprite != null:

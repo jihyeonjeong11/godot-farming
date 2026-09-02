@@ -8,16 +8,11 @@ const DROPPED_ITEM := preload("res://scenes/objects/pickables/dropped_item.tscn"
 
 @export var drop_items: Array[Items] = []
 
-## 한 종류당 떨어지는 개수 범위.
 @export var min_drop_count: int = 1
 @export var max_drop_count: int = 2
 
-## 떨어진 것이 밑동에서 흩어지는 거리(px).
 @export var scatter_radius: float = 20.0
 
-## 흩어지는 데 걸리는 시간(초).
-## CollectableComponent.arm_delay(0.35)보다 짧아야 한다 — 자석이 켜진 뒤에는
-## 그쪽이 global_position을 직접 밀기 때문에 서로 잡아당긴다.
 const SCATTER_TIME := 0.25
 
 
@@ -28,7 +23,6 @@ func _ready() -> void:
 
 
 func on_hurt(hit_damage: int) -> void:
-	SignalBus.sound_requested.emit(AudioManager.SFX_TREE_HITTING)
 	damage_component.apply_damage(hit_damage)
 	material.set_shader_parameter("shake_intensity", 1.0)
 	await get_tree().create_timer(0.3).timeout
@@ -39,7 +33,6 @@ func on_max_damage_reached() -> void:
 	animated_sprite_2d.show()
 	animated_sprite_2d.play("default")
 	await animated_sprite_2d.animation_finished
-	# 신호를 받는 도중에 부모 트리에 노드를 붙이면 Godot이 싫어한다.
 	spill_items.call_deferred()
 	queue_free()
 
@@ -72,7 +65,6 @@ func spill_items() -> void:
 		).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 
 
-## 밑동 아래쪽으로 부채꼴. 위로 던지면 자판기 스프라이트에 가려서 안 보인다.
 func _scatter_offset(index: int, total: int) -> Vector2:
 	if total <= 1:
 		return Vector2.DOWN * scatter_radius

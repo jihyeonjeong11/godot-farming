@@ -60,6 +60,8 @@ func _build_inventory_cells() -> void:
 		cell.name = "InventorySlot%d" % i
 		cell.slot_index = i
 		cell.source = Inventory.inventory
+		# 아이템 그림은 26px 칸보다 큰 것이 많다. 눌러 담지 않으면 옆 칸까지 넘어간다.
+		cell.expand_icon = true
 		inventory_grid.add_child(cell)
 		_inventory_cells.append(cell)
 
@@ -71,11 +73,15 @@ func _rebuild() -> void:
 
 	_cells.clear()
 
+	# 칸이 적은 상자까지 6열로 깔면 오른쪽이 텅 빈 채로 넓어진다.
+	grid.columns = clampi(slots.size(), 1, 6)
+
 	for i in slots.size():
 		var cell: InventorySlot = INVENTORY_SLOT.instantiate()
 		cell.name = "Slot%d" % i
 		cell.slot_index = i
 		# 이 칸이 가방이 아니라 상자를 보게 한다. 끌어 옮길 때 출처가 된다.
 		cell.source = slots
+		cell.expand_icon = true
 		grid.add_child(cell)
 		_cells.append(cell)

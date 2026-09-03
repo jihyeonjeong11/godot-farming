@@ -2,6 +2,7 @@ class_name Items extends Resource
 
 ## 확졍 아님.
 
+@export var item_id = ""
 ## melee, range, tool, consumable, material, artifact, ammo, seed, buildable, misc
 @export var item_type = ""
 @export var tool_type: DataTypes.Tools = DataTypes.Tools.None

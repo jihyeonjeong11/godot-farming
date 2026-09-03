@@ -1,6 +1,7 @@
 extends Node
 
 signal inventory_updated
+signal item_gained(item: Items, amount: int)
 signal equipment_updated
 signal selected_slot_changed(index: int)
 
@@ -55,12 +56,14 @@ func add_item(item: Items) -> bool:
 		if stack != null and stack.can_stack(item):
 			stack.amount += 1
 			inventory_updated.emit()
+			item_gained.emit(item, 1)
 			return true
 
 	for i in inventory.size():
 		if inventory[i] == null:
 			inventory[i] = ItemStack.new(item, 1)
 			inventory_updated.emit()
+			item_gained.emit(item, 1)
 			return true
 
 	return false

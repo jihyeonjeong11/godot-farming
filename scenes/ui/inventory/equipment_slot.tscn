@@ -16,6 +16,7 @@ offset_bottom = 8.0
 theme = ExtResource("1_ahuri")
 theme_type_variation = &"GameButton"
 icon_alignment = 1
+expand_icon = true
 script = ExtResource("2_ahuri")
 
 [node name="AmountLabel" type="Label" parent="." unique_id=1259465140]

@@ -7,8 +7,10 @@
 [ext_resource type="Script" uid="uid://v33xqm1r0ndn" path="res://scenes/ui/equipment_panel.gd" id="7_eomoy"]
 [ext_resource type="Script" uid="uid://c7xk2mvbqjy4n" path="res://scripts/resources/craft_recipe.gd" id="7_recipe"]
 [ext_resource type="PackedScene" uid="uid://dowq4j5556c76" path="res://scenes/ui/inventory/equipment_slot.tscn" id="7_tab21"]
+[ext_resource type="Texture2D" uid="uid://c8mivs47gnjpl" path="res://assets/Objects/items/36.png" id="8_q512q"]
 [ext_resource type="Resource" uid="uid://ct8n2b4kqvmxr" path="res://scripts/resources/recipes/container_recipe.tres" id="8_r_container"]
 [ext_resource type="Resource" uid="uid://bqm4vd7yxs1oe" path="res://scripts/resources/recipes/axe_recipe.tres" id="9_r_axe"]
+[ext_resource type="Texture2D" uid="uid://d0yxlapdmgjm8" path="res://assets/Objects/items/50.png" id="10_1f56n"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_tabs"]
 
@@ -91,11 +93,6 @@ theme_override_constants/margin_bottom = 8
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="Title" type="Label" parent="MarginContainer/HBoxContainer/InventoryPanel/Margin/Rows" unique_id=1525212749]
-layout_mode = 2
-theme_override_font_sizes/font_size = 10
-text = "INVENTORY"
-
 [node name="InventoryGrid" type="GridContainer" parent="MarginContainer/HBoxContainer/InventoryPanel/Margin/Rows" unique_id=1273650325]
 unique_name_in_owner = true
 layout_mode = 2
@@ -120,9 +117,13 @@ script = ExtResource("7_eomoy")
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/InventoryPanel/Margin/Rows/EquipmentPanel" unique_id=2012841278]
 layout_mode = 2
 
-[node name="Armor" type="Label" parent="MarginContainer/HBoxContainer/InventoryPanel/Margin/Rows/EquipmentPanel/HBoxContainer" unique_id=1453045354]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/InventoryPanel/Margin/Rows/EquipmentPanel/HBoxContainer" unique_id=723819748]
+custom_minimum_size = Vector2(26, 26)
 layout_mode = 2
-text = "Armor"
+size_flags_vertical = 4
+texture = ExtResource("8_q512q")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="EquipmentSlot" parent="MarginContainer/HBoxContainer/InventoryPanel/Margin/Rows/EquipmentPanel/HBoxContainer" unique_id=1656223806 instance=ExtResource("7_tab21")]
 layout_mode = 2
@@ -130,9 +131,13 @@ layout_mode = 2
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/HBoxContainer/InventoryPanel/Margin/Rows/EquipmentPanel" unique_id=932861925]
 layout_mode = 2
 
-[node name="Boots" type="Label" parent="MarginContainer/HBoxContainer/InventoryPanel/Margin/Rows/EquipmentPanel/HBoxContainer2" unique_id=1956048941]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/InventoryPanel/Margin/Rows/EquipmentPanel/HBoxContainer2" unique_id=1660333583]
+custom_minimum_size = Vector2(26, 26)
 layout_mode = 2
-text = "Boots"
+size_flags_vertical = 4
+texture = ExtResource("10_1f56n")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="EquipmentSlot" parent="MarginContainer/HBoxContainer/InventoryPanel/Margin/Rows/EquipmentPanel/HBoxContainer2" unique_id=379350201 instance=ExtResource("7_tab21")]
 layout_mode = 2

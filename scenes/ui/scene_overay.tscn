@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://d384q4vj3r24y" path="res://scenes/ui/inventory/quick_bar.tscn" id="2_uj2p4"]
 [ext_resource type="PackedScene" uid="uid://cwpugakipo362" path="res://scenes/ui/player_stats_menu.tscn" id="3_xqf54"]
 [ext_resource type="PackedScene" uid="uid://p7t7asu1gdgy" path="res://scenes/ui/time.tscn" id="4_7adw0"]
+[ext_resource type="PackedScene" uid="uid://857mx4r1yr3x" path="res://scenes/ui/toast/toast.tscn" id="5_aptss"]
 
 [node name="SceneOveray" type="CanvasLayer" unique_id=476376829]
 
@@ -13,3 +14,5 @@ player_stats = ExtResource("2_3tyhe")
 [node name="Quickbar" parent="." unique_id=684302791 instance=ExtResource("2_uj2p4")]
 
 [node name="Time" parent="." unique_id=1714628396 instance=ExtResource("4_7adw0")]
+
+[node name="Toast" parent="." unique_id=910842577 instance=ExtResource("5_aptss")]

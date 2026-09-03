@@ -7,7 +7,7 @@ extends Sprite2D
 ## 그림과 컴포넌트를 맞춘다. 세이브에서 되살아날 때는 LevelLayer가 add_child
 ## 다음에 apply_state를 부르므로 후자에 해당한다.
 
-@export var item: Items: set = set_item
+@export var item: Item: set = set_item
 
 ## CollectableComponent로 타입을 박지 않는다. 그쪽이 Inventory 오토로드에 묶여 있어서,
 ## 오토로드가 안 뜬 환경(헤드리스 검증 등)에서는 이 대입 자체가 터진다.
@@ -26,7 +26,7 @@ func _warn_if_empty() -> void:
 		push_warning("item이 끝내 비어 있는 DroppedItem이다: %s" % name)
 
 
-func set_item(value: Items) -> void:
+func set_item(value: Item) -> void:
 	item = value
 	# _ready 전이면 노드가 아직 없다. 그때는 _ready가 대신 불러준다.
 	if is_node_ready():
@@ -51,4 +51,4 @@ func apply_state(state: Dictionary) -> void:
 	if path.is_empty():
 		queue_free()
 		return
-	set_item(load(path) as Items)
+	set_item(load(path) as Item)

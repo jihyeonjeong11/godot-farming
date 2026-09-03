@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="Items" format=3 uid="uid://djnwaopxvypu3"]
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://djnwaopxvypu3"]
 
 [ext_resource type="Texture2D" uid="uid://rek03og87el7" path="res://assets/Objects/Pickable/Bandage.png" id="1_pqwlm"]
-[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/items.gd" id="2_wycep"]
+[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/item.gd" id="2_wycep"]
 
 [resource]
 script = ExtResource("2_wycep")
+item_id = "bandage"
 item_type = "material"
 item_name = "Bandage"
 item_texture = ExtResource("1_pqwlm")

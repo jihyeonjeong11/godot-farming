@@ -25,7 +25,7 @@ func _ready() -> void:
 				"  밭=", tilled_soil_tilemap_layer,
 				"  작물레이어=", crops_layer)
 
-func _on_tool_used(item: Items, _user_position: Vector2, _target_position: Vector2) -> void:
+func _on_tool_used(item: Item, _user_position: Vector2, _target_position: Vector2) -> void:
 	if item == null:
 		return
 
@@ -59,7 +59,7 @@ func get_cell_under_mouse() -> void:
 				"  거리=", snappedf(distance, 0.1))
 
 
-func add_crop(item: Items) -> void:
+func add_crop(item: Item) -> void:
 	# TilledSoil 레이어에 타일이 없으면(-1) 안 갈린 맨땅이라 심을 수 없다.
 	if distance >= item.use_range or cell_source_id == -1:
 		if debug_log:
@@ -93,7 +93,7 @@ func add_crop(item: Items) -> void:
 	Inventory.remove_item(Inventory.selected_slot, 1)
 
 
-func remove_crop(item: Items) -> void:
+func remove_crop(item: Item) -> void:
 	if distance >= item.use_range:
 		if debug_log:
 			print("[CropsCursor] 4) 제거 취소 — 사거리 밖 ",

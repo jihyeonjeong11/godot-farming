@@ -3,7 +3,7 @@ extends Node2D
 const DROPPED_ITEM := preload("res://scenes/objects/pickables/dropped_item.tscn")
 
 ## 수확하면 나올 것. 떨어진 물건 쪽은 공용 dropped_item.tscn 하나를 돌려쓴다.
-@export var harvest_item: Items
+@export var harvest_item: Item
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var flowering_particles: GPUParticles2D = $FloweringParticles
 @onready var watering_particles: GPUParticles2D = $WateringParticles

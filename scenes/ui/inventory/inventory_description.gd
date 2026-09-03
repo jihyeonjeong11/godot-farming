@@ -12,7 +12,7 @@ func _ready() -> void:
 	clear()
 
 
-func show_item(item: Items, amount: int) -> void:
+func show_item(item: Item, amount: int) -> void:
 	if item == null:
 		clear()
 		return

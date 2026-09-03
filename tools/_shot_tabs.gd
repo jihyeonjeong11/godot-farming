@@ -60,7 +60,7 @@ func _find_items(dir_path: String) -> Array[String]:
 		elif entry.ends_with(".tres"):
 			var res := load(full)
 			if res != null and res.get_script() != null \
-					and str(res.get_script().get_global_name()) == "Items":
+					and str(res.get_script().get_global_name()) == "Item":
 				found.append(full)
 		entry = dir.get_next()
 	return found

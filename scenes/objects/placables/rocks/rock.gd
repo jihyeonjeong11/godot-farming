@@ -7,7 +7,7 @@ extends Sprite2D
 const DROPPED_ITEM := preload("res://scenes/objects/pickables/dropped_item.tscn")
 
 ## 부수면 나올 것. 떨어진 물건 쪽은 공용 dropped_item.tscn 하나를 돌려쓴다.
-@export var drop_item: Items
+@export var drop_item: Item
 
 func _ready() -> void:
 	hurt_component.hurt.connect(on_hurt)

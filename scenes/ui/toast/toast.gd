@@ -20,7 +20,7 @@ func _ready() -> void:
 	Inventory.item_gained.connect(_on_item_gained)
 
 
-func _on_item_gained(item: Items, amount: int) -> void:
+func _on_item_gained(item: Item, amount: int) -> void:
 	if item == null:
 		return
 	show_toast(item.item_texture, "+%d" % amount)

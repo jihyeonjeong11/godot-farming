@@ -6,7 +6,7 @@ extends Sprite2D
 
 const DROPPED_ITEM := preload("res://scenes/objects/pickables/dropped_item.tscn")
 
-@export var drop_items: Array[Items] = []
+@export var drop_items: Array[Item] = []
 
 @export var min_drop_count: int = 1
 @export var max_drop_count: int = 2

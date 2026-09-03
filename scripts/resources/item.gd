@@ -1,4 +1,4 @@
-class_name Items extends Resource
+class_name Item extends Resource
 
 ## 확졍 아님.
 

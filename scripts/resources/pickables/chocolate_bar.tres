@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="Items" format=3]
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://bdum523m0ael4"]
 
-[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/items.gd" id="1_items"]
+[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/item.gd" id="1_items"]
 [ext_resource type="Texture2D" uid="uid://cweromqn3jqa0" path="res://assets/Objects/items/98.png" id="2_icon"]
 
 [resource]
 script = ExtResource("1_items")
+item_id = "chocolate_bar"
 item_type = "consumable"
 item_name = "Chocolate Bar"
 item_texture = ExtResource("2_icon")

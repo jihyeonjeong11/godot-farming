@@ -6,7 +6,7 @@ extends Sprite2D
 
 const DROPPED_ITEM := preload("res://scenes/objects/pickables/dropped_item.tscn")
 
-@export var drop_item: Items
+@export var drop_item: Item
 
 func _ready() -> void:
 	hurt_component.hurt.connect(on_hurt)

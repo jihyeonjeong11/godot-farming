@@ -4,7 +4,7 @@ extends Button
 ## 이 칸을 우클릭했을 때. Button.pressed는 좌클릭만 잡아서 따로 둔다.
 signal right_pressed
 
-@export var selected_item: Items
+@export var selected_item: Item
 
 ## 배열에서 이 칸이 가리키는 위치. 부모가 생성할 때 넣어준다.
 var slot_index: int = -1
@@ -100,7 +100,7 @@ func clear() -> void:
 	ammo_bar.hide()
 
 
-func _show_ammo(item: Items) -> void:
+func _show_ammo(item: Item) -> void:
 	if item.max_ammo <= 0:
 		ammo_bar.hide()
 		return

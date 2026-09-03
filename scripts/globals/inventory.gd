@@ -1,7 +1,7 @@
 extends Node
 
 signal inventory_updated
-signal item_gained(item: Items, amount: int)
+signal item_gained(item: Item, amount: int)
 signal equipment_updated
 signal selected_slot_changed(index: int)
 
@@ -41,13 +41,13 @@ func select_slot(index: int) -> void:
 	selected_slot = index
 	selected_slot_changed.emit(index)
 
-func get_selected_item() -> Items:
+func get_selected_item() -> Item:
 	var stack := get_item(selected_slot)
 	if stack == null:
 		return null
 	return stack.item
 
-func add_item(item: Items) -> bool:
+func add_item(item: Item) -> bool:
 	if item == null:
 		return false
 
@@ -81,7 +81,7 @@ func remove_item(i: int, amount: int = 1) -> bool:
 	return true
 
 ## 인벤토리 전체에서 이 아이템이 몇 개인지. 칸이 여러 개로 쪼개져 있어도 합쳐서 센다.
-func count_item(item: Items) -> int:
+func count_item(item: Item) -> int:
 	if item == null:
 		return 0
 
@@ -94,7 +94,7 @@ func count_item(item: Items) -> int:
 
 ## 앞 칸부터 훑으며 amount 만큼 뺀다. 모자라면 아무것도 건드리지 않고 실패한다.
 ## 반쯤 깎다 멈추면 재료만 날아가므로 먼저 세고 나서 뺀다.
-func consume_item(item: Items, amount: int) -> bool:
+func consume_item(item: Item, amount: int) -> bool:
 	if item == null or amount <= 0:
 		return false
 	if count_item(item) < amount:
@@ -119,7 +119,7 @@ func consume_item(item: Items, amount: int) -> bool:
 
 
 ## 결과물을 받아줄 자리가 있는지. 재료를 뺀 뒤에 자리가 없으면 만든 물건이 증발한다.
-func has_room_for(item: Items) -> bool:
+func has_room_for(item: Item) -> bool:
 	if item == null:
 		return false
 
@@ -205,7 +205,7 @@ func drop_item(i: int) -> bool:
 	return remove_item(i, amount)
 
 
-func get_world_scene(item: Items) -> PackedScene:
+func get_world_scene(item: Item) -> PackedScene:
 	if item == null or item.world_scene_path.is_empty():
 		return null
 

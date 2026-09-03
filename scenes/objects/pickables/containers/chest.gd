@@ -2,7 +2,7 @@ extends "res://scenes/objects/pickables/containers/container.gd"
 
 const DROPPED_ITEM := preload("res://scenes/objects/pickables/dropped_item.tscn")
 
-@export var dropped_item: Items
+@export var dropped_item: Item
 
 @onready var hurt_component: HurtComponent = $HurtComponent
 

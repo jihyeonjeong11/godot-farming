@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="Items" format=3 uid="uid://bt7rqf3kx2moa"]
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://bt7rqf3kx2moa"]
 
-[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/items.gd" id="1_items"]
+[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/item.gd" id="1_items"]
 [ext_resource type="Texture2D" uid="uid://dlbdfiq133kcc" path="res://assets/apo/anims/32x32_trash_can_fire.png" id="2_tex"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_can"]
@@ -9,6 +9,7 @@ region = Rect2(192, 38, 32, 57)
 
 [resource]
 script = ExtResource("1_items")
+item_id = "fire_trash_can"
 item_type = "buildable"
 item_name = "fire trash can"
 item_texture = SubResource("AtlasTexture_can")

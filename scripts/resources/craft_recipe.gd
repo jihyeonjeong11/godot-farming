@@ -5,7 +5,7 @@ class_name CraftRecipe extends Resource
 ## 개수를 세는 코드를 두 번 쓸 일이 없다.
 ## 실제로 깎고 만드는 일은 Inventory.craft() 가 한다.
 
-@export var result: Items
+@export var result: Item
 @export var result_amount: int = 1
 @export var ingredients: Array[ItemStack] = []
 

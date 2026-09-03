@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="Items" format=3 uid="uid://f56b1jph4cua"]
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://f56b1jph4cua"]
 
-[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/items.gd" id="1_6lvr7"]
+[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/item.gd" id="1_6lvr7"]
 [ext_resource type="Texture2D" uid="uid://mloe6l4aphpg" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crafting.png" id="1_lyhyj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jg2iq"]
@@ -13,6 +13,7 @@ region = Rect2(288, 0, 34, 34)
 
 [resource]
 script = ExtResource("1_6lvr7")
+item_id = "log"
 item_type = "material"
 item_name = "Log"
 item_texture = SubResource("AtlasTexture_jg2iq")

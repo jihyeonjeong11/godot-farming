@@ -1,6 +1,6 @@
 extends Sprite2D
 
-@export var initial_items: Array[Items] = []
+@export var initial_items: Array[Item] = []
 @export var initial_amounts: Array[int] = []
 
 @onready var inventory_component: ContainerInventoryComponent = $ContainerInventoryComponent

@@ -30,7 +30,7 @@ func _ready() -> void:
 
 ## 좌클릭. 손에 든 것이 buildable이면 그 칸에 세운다.
 ## 무엇이 세워질지는 아이템이 직접 들고 있으므로 여기에 종류별 if가 늘지 않는다.
-func _on_tool_used(item: Items, _user_position: Vector2, _target_position: Vector2) -> void:
+func _on_tool_used(item: Item, _user_position: Vector2, _target_position: Vector2) -> void:
 	if item == null or item.item_type != \"buildable\":
 		return
 	if item.buildable_scene_path.is_empty():

@@ -3,11 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://mloe6l4aphpg" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crafting.png" id="1_tb4or"]
 [ext_resource type="Script" uid="uid://cyibceseal6wu" path="res://scenes/objects/pickables/containers/chest.gd" id="2_kwr1m"]
 [ext_resource type="PackedScene" uid="uid://b17pqg2t34n5v" path="res://scenes/components/container_inventory_component.tscn" id="3_ge2ct"]
-[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/items.gd" id="3_gm8h5"]
 [ext_resource type="Resource" uid="uid://bch5t2qw8n1kd" path="res://scripts/resources/buildables/chest.tres" id="3_mussn"]
-[ext_resource type="Resource" uid="uid://iadbnqiiwu53" path="res://scripts/resources/tools/axe.tres" id="4_m34xe"]
-[ext_resource type="Resource" uid="uid://h1l1g07oam5a" path="res://scripts/resources/tools/hoe.tres" id="5_jvp21"]
-[ext_resource type="Resource" uid="uid://cukembyxyfglu" path="res://scripts/resources/tools/pickaxe.tres" id="6_47xrw"]
 [ext_resource type="PackedScene" uid="uid://bwn5t2ejgp0hr" path="res://scenes/components/hurt_component.tscn" id="8_47xrw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tctrp"]
@@ -24,7 +20,6 @@ size = Vector2(40, 34)
 texture = SubResource("AtlasTexture_tctrp")
 script = ExtResource("2_kwr1m")
 dropped_item = ExtResource("3_mussn")
-initial_items = Array[ExtResource("3_gm8h5")]([ExtResource("5_jvp21"), ExtResource("4_m34xe"), ExtResource("6_47xrw"), null])
 
 [node name="ContainerInventoryComponent" parent="." unique_id=1057856798 instance=ExtResource("3_ge2ct")]
 

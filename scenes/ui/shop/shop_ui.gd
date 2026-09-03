@@ -101,7 +101,7 @@ func buy(index: int) -> void:
 
 ## Inventory.add_item과 같은 규칙으로 상인 재고에 한 개를 얹는다.
 ## 쌓을 수 있으면 쌓고, 아니면 빈 칸을 찾는다. 둘 다 안 되면 false.
-func _give_to_merchant(item: Items) -> bool:
+func _give_to_merchant(item: Item) -> bool:
 	for stack in slots:
 		if stack != null and stack.can_stack(item):
 			stack.amount += 1

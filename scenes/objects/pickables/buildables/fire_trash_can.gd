@@ -3,7 +3,7 @@ extends AnimatedSprite2D
 
 const DROPPED_ITEM := preload("res://scenes/objects/pickables/dropped_item.tscn")
 
-@export var dropped_item: Items
+@export var dropped_item: Item
 
 var lit := false
 

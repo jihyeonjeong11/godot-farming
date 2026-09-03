@@ -6,7 +6,7 @@ extends Area2D
 ## 감지되면 부모 노드가 플레이어를 향해 가속하며 이동한다.
 
 ## 이 컴포넌트가 지급할 아이템 정의.
-@export var item: Items
+@export var item: Item
 
 ## 플레이어와 이 거리 안까지 붙으면 획득(px).
 @export var pickup_distance := 4.0

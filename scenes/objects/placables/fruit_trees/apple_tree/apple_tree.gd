@@ -4,7 +4,7 @@ const DROPPED_ITEM := preload("res://scenes/objects/pickables/dropped_item.tscn"
 
 ## 흔들면 떨어질 아이템. 씬이 무엇이 떨어지는지 들고 있고,
 ## 떨어진 물건 쪽은 공용 dropped_item.tscn 하나를 돌려쓴다.
-@export var fruit_item: Items
+@export var fruit_item: Item
 
 ## 사과가 밑동에서 흩어질 때까지 걸리는 시간(초).
 ## CollectableComponent.arm_delay(0.35)보다 짧아야 한다 — 자석이 켜진 뒤에는

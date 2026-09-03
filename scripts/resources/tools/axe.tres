@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="Items" format=3 uid="uid://iadbnqiiwu53"]
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://iadbnqiiwu53"]
 
-[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/items.gd" id="1_8qw6j"]
+[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/item.gd" id="1_8qw6j"]
 [ext_resource type="Texture2D" uid="uid://588k133pjqfk" path="res://assets/UI/Inventory/Objects/Icon_Axe.png" id="1_o7r4i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e2a05"]
@@ -11,6 +11,7 @@ size = Vector2(16, 16)
 
 [resource]
 script = ExtResource("1_8qw6j")
+item_id = "axe"
 item_type = "tool"
 tool_type = 1
 item_name = "axe"

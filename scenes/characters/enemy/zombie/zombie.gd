@@ -106,7 +106,7 @@ func die() -> void:
 
 
 func drop_loot() -> void:
-	var loot_item: Items = root_table.roll()
+	var loot_item: Item = root_table.roll()
 	if loot_item == null:
 		return
 

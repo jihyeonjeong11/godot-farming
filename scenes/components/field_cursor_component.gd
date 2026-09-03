@@ -22,7 +22,7 @@ var distance: float
 func _ready() -> void:
 	SignalBus.tool_used.connect(_on_tool_used)
 
-func _on_tool_used(item: Items, _user_position: Vector2, _target_position: Vector2) -> void:
+func _on_tool_used(item: Item, _user_position: Vector2, _target_position: Vector2) -> void:
 	if item.tool_type != null && item.tool_type == DataTypes.Tools.TillGround:
 		get_cell_under_mouse()
 		add_tilled_soil_cell(item)
@@ -33,7 +33,7 @@ func _on_tool_used(item: Items, _user_position: Vector2, _target_position: Vecto
 		get_cell_under_mouse()
 		remove_tilled_soil_cell(item)
 
-func add_watered_soil_cell(item: Items) -> void:
+func add_watered_soil_cell(item: Item) -> void:
 	if distance >= item.use_range or watered_soil_layer == null:
 		return
 
@@ -48,12 +48,12 @@ func get_cell_under_mouse() -> void:
 	distance = player.global_position.distance_to(local_cell_position)
 	
 
-func add_tilled_soil_cell(item: Items) -> void:
+func add_tilled_soil_cell(item: Item) -> void:
 	if distance < item.use_range && cell_source_id != -1:
 		tilled_soil_tilemap_layer.set_cells_terrain_connect([cell_position], terrain_set, terrain, true)
 		SignalBus.sound_requested.emit(AudioManager.SFX_TILLING_GROUND)
 
-func remove_tilled_soil_cell(item: Items) -> void:
+func remove_tilled_soil_cell(item: Item) -> void:
 	if distance >= item.use_range or cell_source_id == -1:
 		return
 

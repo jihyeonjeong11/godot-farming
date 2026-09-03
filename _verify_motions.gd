@@ -26,7 +26,7 @@ func _init() -> void:
 		await physics_frame
 
 		var clip := str(body.animation)
-		var held: Items = Inventory.get_selected_item()
+		var held: Item = Inventory.get_selected_item()
 		var want: String = String(held.anim_prefix) if held != null else ""
 		var expect: String = _p.attack_action() + "_front"
 		var frames: SpriteFrames = body.sprite_frames

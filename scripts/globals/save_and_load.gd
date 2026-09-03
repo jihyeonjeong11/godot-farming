@@ -192,7 +192,7 @@ func _capture_slots(source: Array) -> Array:
 			slots.append(null)
 			continue
 
-		# 코드로 만든 Items는 경로가 없어 다시 찾을 방법이 없다.
+		# 코드로 만든 Item는 경로가 없어 다시 찾을 방법이 없다.
 		if stack.item.resource_path.is_empty():
 			push_warning("resource_path가 없어 저장할 수 없다: %s" % stack.item.item_name)
 			slots.append(null)
@@ -221,8 +221,8 @@ func _restore_slots(target: Array, saved: Variant, size: int) -> void:
 			continue
 
 		# load는 같은 경로에 대해 같은 인스턴스를 돌려준다.
-		# ItemStack.can_stack이 Items를 참조로 비교하므로 duplicate하면 안 된다.
-		var item := load(entry["item"]) as Items
+		# ItemStack.can_stack이 Item를 참조로 비교하므로 duplicate하면 안 된다.
+		var item := load(entry["item"]) as Item
 		if item == null:
 			push_warning("아이템을 불러오지 못했다: %s" % entry["item"])
 			continue

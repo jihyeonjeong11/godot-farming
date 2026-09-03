@@ -20,7 +20,7 @@ signal time_tick_day(day: int)
 
 ## 도구를 사용한 순간. 무엇을 할지는 듣는 쪽이 item.tool_type을 보고 정한다.
 ## 플레이어 씬이 레벨의 타일맵을 몰라도 되게 하는 통로.
-signal tool_used(item: Items, user_position: Vector2, target_position: Vector2)
+signal tool_used(item: Item, user_position: Vector2, target_position: Vector2)
 
 ## 우클릭한 순간. tool_used와 같은 통로인데 도구를 싣지 않는다.
 ## 빈손이어도 상자는 열려야 하기 때문이다.

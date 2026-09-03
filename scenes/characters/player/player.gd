@@ -71,7 +71,7 @@ var _ground_layers: Array[TileMapLayer] = []
 
 var current_tile
 
-var _equipped_item: Items
+var _equipped_item: Item
 var equipped_tool: String = ""
 
 var _held: Dictionary = {}
@@ -145,7 +145,7 @@ func get_move_speed(running: bool) -> float:
 	return base_move * speed_multiplier()
 
 
-func apply_hitbox(item: Items) -> void:
+func apply_hitbox(item: Item) -> void:
 	if hit_shape == null:
 		return
 
@@ -169,7 +169,7 @@ func _physics_process(_delta: float) -> void:
 		if not SignalBus.interact_handled:
 			consume_selected()
 
-	var held: Items = Inventory.get_selected_item()
+	var held: Item = Inventory.get_selected_item()
 	equipped_tool = String(held.anim_prefix) if held != null else ""
 
 	hit_component.current_tool = held.tool_type if held != null else DataTypes.Tools.None
@@ -200,11 +200,11 @@ func set_hitbox_active(active: bool) -> void:
 		hit_shape.set_deferred("disabled", not active)
 
 func has_melee_shape() -> bool:
-	var item: Items = Inventory.get_selected_item()
+	var item: Item = Inventory.get_selected_item()
 	return item != null and item.melee_shape != null
 
 func can_attack() -> bool:
-	var item: Items = Inventory.get_selected_item()
+	var item: Item = Inventory.get_selected_item()
 	if item != null and (item.item_type == "tool" or item.item_type == "seeds"):
 		return true
 	return item != null and item.melee_shape != null
@@ -214,7 +214,7 @@ func attack_action() -> String:
 
 ## 지금 든 것에 탄약 개념이 있나(물뿌리개 물통 같은).
 func has_ammo() -> bool:
-	var item: Items = Inventory.get_selected_item()
+	var item: Item = Inventory.get_selected_item()
 	return item != null and item.max_ammo > 0
 
 func is_mouse_on_water() -> bool:
@@ -254,7 +254,7 @@ func get_terrain() -> StringName:
 	return TERRAIN_NONE
 
 func consume_selected() -> bool:
-	var item: Items = Inventory.get_selected_item()
+	var item: Item = Inventory.get_selected_item()
 	if item == null or item.item_type != "consumable":
 		return false
 
@@ -274,7 +274,7 @@ func consume_selected() -> bool:
 	return true
 
 func finish_tool_use() -> void:
-	var item: Items = Inventory.get_selected_item()
+	var item: Item = Inventory.get_selected_item()
 	if item == null:
 		return
 	SignalBus.tool_used.emit(item, global_position, get_global_mouse_position())

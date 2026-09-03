@@ -26,7 +26,7 @@ enum Tools {
 	PlantCorn,   # 9
 }
 
-## 착용 부위. Items.wear_slot 과 EquipmentSlot.slot_type 이 이 값으로 짝을 맞춘다.
+## 착용 부위. Item.wear_slot 과 EquipmentSlot.slot_type 이 이 값으로 짝을 맞춘다.
 ## None 이면 어느 장비 칸에도 들어가지 않는다.
 ## Tools 와 같은 이유로 뒤에만 덧붙인다.
 enum WearSlot {

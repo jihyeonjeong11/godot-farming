@@ -7,10 +7,17 @@
 [ext_resource type="Script" uid="uid://v33xqm1r0ndn" path="res://scenes/ui/equipment_panel.gd" id="7_eomoy"]
 [ext_resource type="Script" uid="uid://c7xk2mvbqjy4n" path="res://scripts/resources/craft_recipe.gd" id="7_recipe"]
 [ext_resource type="PackedScene" uid="uid://dowq4j5556c76" path="res://scenes/ui/inventory/equipment_slot.tscn" id="7_tab21"]
-[ext_resource type="Texture2D" uid="uid://c8mivs47gnjpl" path="res://assets/Objects/items/36.png" id="8_q512q"]
 [ext_resource type="Resource" uid="uid://ct8n2b4kqvmxr" path="res://scripts/resources/recipes/container_recipe.tres" id="8_r_container"]
 [ext_resource type="Resource" uid="uid://bqm4vd7yxs1oe" path="res://scripts/resources/recipes/axe_recipe.tres" id="9_r_axe"]
-[ext_resource type="Texture2D" uid="uid://d0yxlapdmgjm8" path="res://assets/Objects/items/50.png" id="10_1f56n"]
+[ext_resource type="Texture2D" uid="uid://bo5k8csiengg7" path="res://assets/Objects/items/items_atlas.png" id="atlas_items"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_item36"]
+atlas = ExtResource("atlas_items")
+region = Rect2(160, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_item50"]
+atlas = ExtResource("atlas_items")
+region = Rect2(288, 128, 32, 32)
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_tabs"]
 
@@ -121,7 +128,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(26, 26)
 layout_mode = 2
 size_flags_vertical = 4
-texture = ExtResource("8_q512q")
+texture = SubResource("AtlasTexture_item36")
 expand_mode = 1
 stretch_mode = 5
 
@@ -135,7 +142,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(26, 26)
 layout_mode = 2
 size_flags_vertical = 4
-texture = ExtResource("10_1f56n")
+texture = SubResource("AtlasTexture_item50")
 expand_mode = 1
 stretch_mode = 5
 

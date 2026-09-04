@@ -691,7 +691,7 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_bv2fu")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_mge4w"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k6jv7"]
 resource_local_to_scene = true
 shader = ExtResource("21_mge4w")
 shader_parameter/base_y = 0.0
@@ -722,21 +722,21 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_4tab4")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ysy4c"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mge4w"]
 resource_local_to_scene = true
 shader = ExtResource("27_ysy4c")
 shader_parameter/shake_top_y = 0.0
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 20.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_u7oqc"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ysy4c"]
 resource_local_to_scene = true
 shader = ExtResource("27_ysy4c")
 shader_parameter/shake_top_y = -160.0
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 20.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qyw75"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u7oqc"]
 resource_local_to_scene = true
 shader = ExtResource("27_ysy4c")
 shader_parameter/shake_top_y = -40.0
@@ -821,9 +821,10 @@ position = Vector2(414, 571)
 [node name="Container" parent="Tilemap/LevelBuildables" unique_id=401607489 instance=ExtResource("6_bv2fu")]
 position = Vector2(429, 647)
 initial_items = Array[ExtResource("16_326xb")]([ExtResource("18_k6jv7")])
+initial_amounts = Array[int]([10, 0, 0])
 
 [node name="AppleTree" parent="Tilemap/LevelBuildables" unique_id=144522866 instance=ExtResource("20_k6jv7")]
-material = SubResource("ShaderMaterial_mge4w")
+material = SubResource("ShaderMaterial_k6jv7")
 position = Vector2(328, 758)
 
 [node name="ConcretePath" type="TileMapLayer" parent="Tilemap" unique_id=1762211901]
@@ -836,7 +837,7 @@ target_scene = "uid://kqf460uvb87q"
 target_spawn = &"farm_gate"
 
 [node name="Barrels" parent="Tilemap" unique_id=495184973 instance=ExtResource("26_mge4w")]
-material = SubResource("ShaderMaterial_ysy4c")
+material = SubResource("ShaderMaterial_mge4w")
 position = Vector2(287, 524)
 
 [node name="Player" parent="." unique_id=523926272 instance=ExtResource("3_hbq8b")]
@@ -855,10 +856,10 @@ script = ExtResource("6_spawn")
 spawn_id = &"outside"
 
 [node name="OakTree" parent="." unique_id=1835615693 instance=ExtResource("28_ysy4c")]
-material = SubResource("ShaderMaterial_u7oqc")
+material = SubResource("ShaderMaterial_ysy4c")
 position = Vector2(269, 717)
 
 [node name="VendingMachine1" parent="." unique_id=1046362585 instance=ExtResource("31_u7oqc")]
-material = SubResource("ShaderMaterial_qyw75")
+material = SubResource("ShaderMaterial_u7oqc")
 position = Vector2(357, 553)
 drop_items = Array[ExtResource("16_326xb")]([])

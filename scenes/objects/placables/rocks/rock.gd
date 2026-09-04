@@ -4,9 +4,9 @@ extends Sprite2D
 @onready var damage_component: DamageComponent = $DamageComponent
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
-const DROPPED_ITEM := preload("res://scenes/objects/pickables/dropped_item.tscn")
+const ITEM_STACK_INSTANCE := preload("res://scenes/objects/pickables/item_stack_instance.tscn")
 
-## 부수면 나올 것. 떨어진 물건 쪽은 공용 dropped_item.tscn 하나를 돌려쓴다.
+## 부수면 나올 것. 떨어진 물건 쪽은 공용 item_stack_instance.tscn 하나를 돌려쓴다.
 @export var drop_item: Item
 
 func _ready() -> void:
@@ -28,8 +28,8 @@ func on_max_damage_reached() -> void:
 	queue_free()
 
 func add_stone_scene() -> void:
-	var stone_instance = DROPPED_ITEM.instantiate() as Node2D
+	var stone_instance := ITEM_STACK_INSTANCE.instantiate() as ItemStackInstance
 	# add_child가 _ready를 돌리므로 그 전에 무엇인지 알려준다.
-	stone_instance.item = drop_item
+	stone_instance.stack = ItemStack.new(drop_item, 1)
 	get_parent().add_child(stone_instance)
 	stone_instance.global_position = global_position

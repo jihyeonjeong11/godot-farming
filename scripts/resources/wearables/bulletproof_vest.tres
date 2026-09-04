@@ -1,18 +1,22 @@
 [gd_resource type="Resource" script_class="Item" format=3 uid="uid://bvd6cr7kxxbwp"]
 
 [ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/item.gd" id="1_5emht"]
-[ext_resource type="Texture2D" uid="uid://c8mivs47gnjpl" path="res://assets/Objects/items/36.png" id="1_tj15q"]
+[ext_resource type="Texture2D" uid="uid://bo5k8csiengg7" path="res://assets/Objects/items/items_atlas.png" id="atlas_items"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_item36"]
+atlas = ExtResource("atlas_items")
+region = Rect2(160, 96, 32, 32)
 
 [resource]
 script = ExtResource("1_5emht")
 item_id = "bulletproof_vest"
 item_type = "wearable"
 item_name = "Bulletproof vest"
-item_texture = ExtResource("1_tj15q")
+item_texture = SubResource("AtlasTexture_item36")
 description = "A bulletproof vest."
-world_texture = ExtResource("1_tj15q")
 max_stack = 1
-world_scene_path = "res://scenes/objects/pickables/dropped_item.tscn"
+world_scene_path = "res://scenes/objects/pickables/item_stack_instance.tscn"
+world_texture = SubResource("AtlasTexture_item36")
 wear_slot = 1
 defense = 3
 metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

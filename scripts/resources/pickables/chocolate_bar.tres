@@ -1,14 +1,18 @@
 [gd_resource type="Resource" script_class="Item" format=3 uid="uid://bdum523m0ael4"]
 
 [ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/item.gd" id="1_items"]
-[ext_resource type="Texture2D" uid="uid://cweromqn3jqa0" path="res://assets/Objects/items/98.png" id="2_icon"]
+[ext_resource type="Texture2D" uid="uid://bo5k8csiengg7" path="res://assets/Objects/items/items_atlas.png" id="atlas_items"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_item98"]
+atlas = ExtResource("atlas_items")
+region = Rect2(224, 288, 32, 32)
 
 [resource]
 script = ExtResource("1_items")
 item_id = "chocolate_bar"
 item_type = "consumable"
 item_name = "Chocolate Bar"
-item_texture = ExtResource("2_icon")
+item_texture = SubResource("AtlasTexture_item98")
 hunger = 10
 description = "유통기한이 한참 지났지만 초콜릿은 잘 안 상한다. 우클릭으로 먹는다."
 value = 25

@@ -4,7 +4,7 @@ extends Sprite2D
 @onready var damage_component: DamageComponent = $DamageComponent
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
-const DROPPED_ITEM := preload("res://scenes/objects/pickables/dropped_item.tscn")
+const ITEM_STACK_INSTANCE := preload("res://scenes/objects/pickables/item_stack_instance.tscn")
 
 @export var drop_item: Item
 
@@ -28,7 +28,7 @@ func on_max_damage_reached() -> void:
 	queue_free()
 
 func add_log_scene() -> void:
-	var log_instance = DROPPED_ITEM.instantiate() as Node2D
-	log_instance.item = drop_item
+	var log_instance := ITEM_STACK_INSTANCE.instantiate() as ItemStackInstance
+	log_instance.stack = ItemStack.new(drop_item, 1)
 	get_parent().add_child(log_instance)
 	log_instance.global_position = global_position

@@ -5,8 +5,12 @@ extends Area2D
 ## Area2D 반경이 자석 감지 범위, [member pickup_distance]가 실제 획득 거리다.
 ## 감지되면 부모 노드가 플레이어를 향해 가속하며 이동한다.
 
-## 이 컴포넌트가 지급할 아이템 정의.
-@export var item: Item
+## 인스펙터에서 꽂는 원본 스펙. RefCounted 인 ItemStack 은 씬에 저장되지 않으므로
+## 씬 쪽 입구는 계속 Item 이다. 꽂으면 1개짜리 뭉치가 만들어진다.
+@export var item: Item: set = set_item, get = get_item
+
+## 이 컴포넌트가 지급할 뭉치. ItemStackInstance 은 자기 것을 그대로 넘겨준다.
+var stack: ItemStack
 
 ## 플레이어와 이 거리 안까지 붙으면 획득(px).
 @export var pickup_distance := 4.0
@@ -14,7 +18,7 @@ extends Area2D
 ## 마지막 구간이 평평해지지 않는다. 여기 걸리는 게 "가속처럼 안 보이는" 주범이었다.
 @export var max_speed := 400.0
 
-## 자석 감지 반경(px). dropped_item.tscn의 CollisionShape2D 반경과 맞춰둔다.
+## 자석 감지 반경(px). item_stack_instance.tscn의 CollisionShape2D 반경과 맞춰둔다.
 ## 가속을 거리로 스케일하는 기준값이라, 실제 반경과 어긋나면 당기는 세기가 달라진다.
 @export var magnet_radius := 40.0
 ## 반경 끝에서의 가속(px/s²).
@@ -39,6 +43,14 @@ var _collected := false
 var _warned := false
 
 
+func set_item(value: Item) -> void:
+	stack = ItemStack.new(value, 1) if value != null else null
+
+
+func get_item() -> Item:
+	return stack.item if stack != null else null
+
+
 func _ready() -> void:
 	set_physics_process(false)
 	if arm_delay <= 0.0:
@@ -51,8 +63,8 @@ func _ready() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if _collected or not body.is_in_group("player"):
 		return
-	if item == null:
-		push_warning("item 미지정: %s" % get_parent().name)
+	if stack == null or not stack.is_valid():
+		push_warning("stack 미지정: %s" % get_parent().name)
 		return
 	_target = body
 	set_physics_process(true)
@@ -75,7 +87,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _collect() -> void:
-	if Inventory.add_item(item) == true:
+	if Inventory.add_item(stack) == true:
 		_collected = true
 		set_physics_process(false)
 		# 부모가 곧 사라지므로 위치 기반 플레이어는 못 쓴다. 전역 SFX 풀로 낸다.
@@ -85,6 +97,6 @@ func _collect() -> void:
 
 	if not _warned:
 		_warned = true
-		push_warning("인벤토리에 넣지 못했습니다: %s" % item.item_name)
+		push_warning("인벤토리에 넣지 못했습니다: %s" % stack.item.item_name)
 	set_physics_process(false)
 	_target = null

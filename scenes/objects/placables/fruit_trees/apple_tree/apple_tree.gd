@@ -1,9 +1,9 @@
 extends Sprite2D
 
-const DROPPED_ITEM := preload("res://scenes/objects/pickables/dropped_item.tscn")
+const ITEM_STACK_INSTANCE := preload("res://scenes/objects/pickables/item_stack_instance.tscn")
 
 ## 흔들면 떨어질 아이템. 씬이 무엇이 떨어지는지 들고 있고,
-## 떨어진 물건 쪽은 공용 dropped_item.tscn 하나를 돌려쓴다.
+## 떨어진 물건 쪽은 공용 item_stack_instance.tscn 하나를 돌려쓴다.
 @export var fruit_item: Item
 
 ## 사과가 밑동에서 흩어질 때까지 걸리는 시간(초).
@@ -76,8 +76,8 @@ func drop_apples() -> void:
 		return
 
 	for i in apples_per_shake:
-		var apple := DROPPED_ITEM.instantiate() as Node2D
-		apple.item = fruit_item
+		var apple := ITEM_STACK_INSTANCE.instantiate() as ItemStackInstance
+		apple.stack = ItemStack.new(fruit_item, 1)
 		host.add_child(apple)
 
 		# 노드가 트리에 들어간 뒤에 좌표를 준다. 부모가 옮겨져 있으면

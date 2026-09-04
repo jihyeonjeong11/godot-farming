@@ -1,8 +1,8 @@
 extends Node2D
 
-const DROPPED_ITEM := preload("res://scenes/objects/pickables/dropped_item.tscn")
+const ITEM_STACK_INSTANCE := preload("res://scenes/objects/pickables/item_stack_instance.tscn")
 
-## 수확하면 나올 것. 떨어진 물건 쪽은 공용 dropped_item.tscn 하나를 돌려쓴다.
+## 수확하면 나올 것. 떨어진 물건 쪽은 공용 item_stack_instance.tscn 하나를 돌려쓴다.
 @export var harvest_item: Item
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var flowering_particles: GPUParticles2D = $FloweringParticles
@@ -76,9 +76,9 @@ func harvest() -> void:
 		return
 	_harvested = true
 
-	var drop: Node2D = DROPPED_ITEM.instantiate()
+	var drop: ItemStackInstance = ITEM_STACK_INSTANCE.instantiate()
 	# add_child가 _ready를 돌리므로 그 전에 무엇인지 알려준다.
-	drop.item = harvest_item
+	drop.stack = ItemStack.new(harvest_item, 1)
 	# 같은 부모에 붙이므로 로컬 좌표를 그대로 물려주면 위치가 맞는다.
 	drop.position = position
 	# area_entered(물리 콜백) 안에서 호출되므로 add_child는 지연시켜야 한다.

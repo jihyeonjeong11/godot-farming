@@ -1,18 +1,22 @@
 [gd_resource type="Resource" script_class="Item" format=3 uid="uid://c32ywew2ly6sh"]
 
-[ext_resource type="Texture2D" uid="uid://d0yxlapdmgjm8" path="res://assets/Objects/items/50.png" id="1_disob"]
 [ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/item.gd" id="2_r6an4"]
+[ext_resource type="Texture2D" uid="uid://bo5k8csiengg7" path="res://assets/Objects/items/items_atlas.png" id="atlas_items"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_item50"]
+atlas = ExtResource("atlas_items")
+region = Rect2(288, 128, 32, 32)
 
 [resource]
 script = ExtResource("2_r6an4")
 item_id = "military_boots"
 item_type = "wearable"
 item_name = "Military boots"
-item_texture = ExtResource("1_disob")
+item_texture = SubResource("AtlasTexture_item50")
 description = "A pair of military issued walkers."
-world_texture = ExtResource("1_disob")
+world_texture = SubResource("AtlasTexture_item50")
 max_stack = 1
-world_scene_path = "res://scenes/objects/pickables/dropped_item.tscn"
+world_scene_path = "res://scenes/objects/pickables/item_stack_instance.tscn"
 wear_slot = 2
 defense = 2
 speed = 50

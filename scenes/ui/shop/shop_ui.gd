@@ -62,7 +62,9 @@ func sell(index: int) -> void:
 		return
 
 	# 상인이 받아줄 자리가 없으면 물건만 사라지는 일이 없도록 넘기기부터 해본다.
-	if not _give_to_merchant(stack.item):
+	# 한 개씩 오가므로 넘기는 것도 1개짜리 새 뭉치다. 가방 칸의 뭉치를 그대로
+	# 넘기면 두 격자가 같은 것을 나눠 갖게 된다.
+	if not _give_to_merchant(ItemStack.new(stack.item, 1)):
 		return
 
 	var price: int = stack.item.value
@@ -87,7 +89,7 @@ func buy(index: int) -> void:
 		return
 
 	# 가방이 꽉 찼는데 돈만 나가는 일이 없도록 넣기부터 시도한다.
-	if not Inventory.add_item(stack.item):
+	if not Inventory.add_item(ItemStack.new(stack.item, 1)):
 		return
 
 	stats.gold -= price
@@ -99,17 +101,20 @@ func buy(index: int) -> void:
 	refresh()
 
 
-## Inventory.add_item과 같은 규칙으로 상인 재고에 한 개를 얹는다.
+## Inventory.add_item과 같은 규칙으로 상인 재고에 뭉치 하나를 얹는다.
 ## 쌓을 수 있으면 쌓고, 아니면 빈 칸을 찾는다. 둘 다 안 되면 false.
-func _give_to_merchant(item: Item) -> bool:
+func _give_to_merchant(incoming: ItemStack) -> bool:
+	if incoming == null or not incoming.is_valid():
+		return false
+
 	for stack in slots:
-		if stack != null and stack.can_stack(item):
-			stack.amount += 1
+		if stack != null and stack.can_stack(incoming) and stack.free_space() >= incoming.amount:
+			stack.amount += incoming.amount
 			return true
 
 	for i in slots.size():
 		if slots[i] == null:
-			slots[i] = ItemStack.new(item, 1)
+			slots[i] = incoming
 			return true
 
 	return false

@@ -7,11 +7,12 @@ var slots: Array[ItemStack] = []
 
 
 func _ready() -> void:
-	# @export는 _init 다음에 들어온다. _init에서 잡으면 씬에서 정한 칸 수가 무시된다.
 	slots.resize(maxi(slot_count, 0))
 
 
-func fill(items: Array[ItemStack], amounts: Array[int] = []) -> void:
+## 씬에서 정해둔 초기 물건을 채운다. 입구는 Item 배열이다 — RefCounted 인 ItemStack 은
+## 씬에 저장되지 않으므로 인스펙터가 줄 수 있는 것은 스펙뿐이다. 뭉치는 여기서 만든다.
+func fill(items: Array[Item], amounts: Array[int] = []) -> void:
 	for i in mini(items.size(), slots.size()):
 		if items[i] == null:
 			continue
@@ -31,20 +32,8 @@ func capture() -> Array:
 	var out := []
 
 	for stack in slots:
-		if stack == null or stack.item == null:
-			out.append(null)
-			continue
-
-		# 코드로 만든 Item는 경로가 없어 다시 찾을 방법이 없다.
-		if stack.item.resource_path.is_empty():
-			push_warning("resource_path가 없어 저장할 수 없다: %s" % stack.item.item_name)
-			out.append(null)
-			continue
-
-		out.append({
-			"item": stack.item.resource_path,
-			"amount": stack.amount,
-		})
+		# 저장할 수 없는 칸(코드로 만든 Item 등)은 null 로 남는다. 자리는 밀리지 않는다.
+		out.append(stack.to_dict() if stack != null else null)
 
 	return out
 
@@ -61,15 +50,4 @@ func apply(data: Array) -> void:
 		push_warning("칸이 %d개 줄어 그만큼 버린다" % (data.size() - slots.size()))
 
 	for i in mini(data.size(), slots.size()):
-		var entry: Variant = data[i]
-		if entry is not Dictionary:
-			continue
-
-		# load는 같은 경로에 대해 같은 인스턴스를 돌려준다.
-		# ItemStack.can_stack이 Item를 참조로 비교하므로 duplicate하면 안 된다.
-		var item := load(entry["item"]) as Item
-		if item == null:
-			push_warning("아이템을 불러오지 못했다: %s" % entry["item"])
-			continue
-
-		slots[i] = ItemStack.new(item, entry["amount"])
+		slots[i] = ItemStack.from_dict(data[i])

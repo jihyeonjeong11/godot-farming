@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const DROPPED_ITEM := preload("res://scenes/objects/pickables/dropped_item.tscn")
+const ITEM_STACK_INSTANCE := preload("res://scenes/objects/pickables/item_stack_instance.tscn")
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var hurt_component: HurtComponent = $HurtComponent
@@ -114,8 +114,8 @@ func drop_loot() -> void:
 	if host == null:
 		return
 
-	var loot := DROPPED_ITEM.instantiate() as Node2D
+	var loot := ITEM_STACK_INSTANCE.instantiate() as ItemStackInstance
 	# add_child가 _ready를 돌리므로 그 전에 무엇인지 알려준다.
-	loot.item = loot_item
+	loot.stack = ItemStack.new(loot_item, 1)
 	host.add_child(loot)
 	loot.global_position = global_position

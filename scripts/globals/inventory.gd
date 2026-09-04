@@ -41,32 +41,55 @@ func select_slot(index: int) -> void:
 	selected_slot = index
 	selected_slot_changed.emit(index)
 
+## 들고 있는 뭉치. 인스턴스 상태(탄약 등)를 봐야 하는 쪽은 이걸 쓴다.
+func get_selected_stack() -> ItemStack:
+	return get_item(selected_slot)
+
+## 들고 있는 물건의 스펙만. 무엇을 들었는지만 궁금한 쪽은 이걸 쓴다.
 func get_selected_item() -> Item:
-	var stack := get_item(selected_slot)
+	var stack := get_selected_stack()
 	if stack == null:
 		return null
 	return stack.item
 
-func add_item(item: Item) -> bool:
-	if item == null:
+## 뭉치 하나를 통째로 넣는다. 쌓을 수 있는 칸부터 붓고 남으면 빈 칸을 쓴다.
+## 전부 들어갈 자리가 없으면 아무것도 넣지 않는다 — 절반만 먹고 나머지가
+## 증발하면 어디로 갔는지 알 길이 없다.
+func add_item(stack: ItemStack) -> bool:
+	if stack == null or not stack.is_valid():
+		return false
+	if not has_room_for(stack.item, stack.amount):
 		return false
 
-	for i in inventory.size():
-		var stack := inventory[i]
-		if stack != null and stack.can_stack(item):
-			stack.amount += 1
-			inventory_updated.emit()
-			item_gained.emit(item, 1)
-			return true
+	var left := stack.amount
 
 	for i in inventory.size():
-		if inventory[i] == null:
-			inventory[i] = ItemStack.new(item, 1)
-			inventory_updated.emit()
-			item_gained.emit(item, 1)
-			return true
+		if left <= 0:
+			break
+		var slot := inventory[i]
+		if slot == null or not slot.can_stack(stack):
+			continue
 
-	return false
+		var put: int = mini(slot.free_space(), left)
+		slot.amount += put
+		left -= put
+
+	# 남은 만큼은 빈 칸에 새 뭉치로 만든다. 넘겨받은 스택을 그대로 꽂지 않는다 —
+	# 준 쪽(땅에 떨어진 아이템 등)과 칸이 같은 뭉치를 공유하게 된다.
+	var per_slot := ItemStack.slot_capacity(stack.item)
+	for i in inventory.size():
+		if left <= 0:
+			break
+		if inventory[i] != null:
+			continue
+
+		var put: int = mini(per_slot, left)
+		inventory[i] = ItemStack.new(stack.item, put)
+		left -= put
+
+	inventory_updated.emit()
+	item_gained.emit(stack.item, stack.amount - left)
+	return left <= 0
 
 func remove_item(i: int, amount: int = 1) -> bool:
 	var stack := get_item(i)
@@ -87,7 +110,7 @@ func count_item(item: Item) -> int:
 
 	var total := 0
 	for stack in inventory:
-		if stack != null and stack.item == item:
+		if stack != null and stack.is_same_kind(item):
 			total += stack.amount
 	return total
 
@@ -105,7 +128,7 @@ func consume_item(item: Item, amount: int) -> bool:
 		if left <= 0:
 			break
 		var stack := inventory[i]
-		if stack == null or stack.item != item:
+		if stack == null or not stack.is_same_kind(item):
 			continue
 
 		var take: int = mini(left, stack.amount)
@@ -119,15 +142,23 @@ func consume_item(item: Item, amount: int) -> bool:
 
 
 ## 결과물을 받아줄 자리가 있는지. 재료를 뺀 뒤에 자리가 없으면 만든 물건이 증발한다.
-func has_room_for(item: Item) -> bool:
-	if item == null:
+## 빈 칸뿐 아니라 이미 쌓여 있는 칸의 여유도 같이 센다.
+func has_room_for(item: Item, amount: int = 1) -> bool:
+	if item == null or amount <= 0:
 		return false
+
+	var per_slot := ItemStack.slot_capacity(item)
+	var room := 0
 
 	for stack in inventory:
 		if stack == null:
+			room += per_slot
+		elif stack.is_same_kind(item):
+			room += stack.free_space()
+
+		if room >= amount:
 			return true
-		if stack.can_stack(item):
-			return true
+
 	return false
 
 
@@ -141,7 +172,7 @@ func can_craft(recipe: CraftRecipe) -> bool:
 		if count_item(need.item) < need.amount:
 			return false
 
-	return has_room_for(recipe.result)
+	return has_room_for(recipe.result, maxi(recipe.result_amount, 1))
 
 
 ## 재료를 깎고 결과물을 넣는다. 한 번이라도 모자라면 시작조차 하지 않는다.
@@ -152,8 +183,7 @@ func craft(recipe: CraftRecipe) -> bool:
 	for need in recipe.ingredients:
 		consume_item(need.item, need.amount)
 
-	for _n in maxi(recipe.result_amount, 1):
-		add_item(recipe.result)
+	add_item(ItemStack.new(recipe.result, maxi(recipe.result_amount, 1)))
 
 	inventory_updated.emit()
 	return true
@@ -176,7 +206,7 @@ func swap_items(from: int, to: int) -> bool:
 
 func drop_item(i: int) -> bool:
 	var stack := get_item(i)
-	if stack == null:
+	if stack == null or stack.item == null:
 		return false
 
 	var scene := get_world_scene(stack.item)
@@ -192,15 +222,17 @@ func drop_item(i: int) -> bool:
 		return false
 
 	var amount := stack.amount
-	for _n in amount:
-		var drop := scene.instantiate() as Node2D
-		if drop == null:
-			continue
-		# 공용 dropped_item.tscn은 자기가 무엇인지 모른다. 붙이기 전에 꽂아준다.
-		if drop is DroppedItem:
-			drop.item = stack.item
-		host.add_child(drop)
-		drop.global_position = player_node.global_position
+	var drop := scene.instantiate() as Node2D
+	if drop == null:
+		return false
+
+	# 칸 하나는 땅에서도 뭉치 하나다. 10개를 버리면 10개짜리 노드가 하나 떨어진다.
+	# 공용 item_stack_instance.tscn은 자기가 무엇인지 모른다. 붙이기 전에 꽂아준다.
+	# 넘겨받은 뭉치를 그대로 꽂지 않는다 — 칸과 땅이 같은 것을 공유하면 안 된다.
+	if drop is ItemStackInstance:
+		drop.stack = ItemStack.new(stack.item, amount)
+	host.add_child(drop)
+	drop.global_position = player_node.global_position
 
 	return remove_item(i, amount)
 
@@ -257,5 +289,3 @@ func increase_iventory_size():
 
 func set_player_reference(player: Node2D) -> void:
 	player_node = player
-	
-	

@@ -1,14 +1,18 @@
 [gd_resource type="Resource" script_class="Item" format=3 uid="uid://bouhn343yve2d"]
 
 [ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/item.gd" id="1_items"]
-[ext_resource type="Texture2D" uid="uid://cu1j5fe2x3s8b" path="res://assets/Objects/items/95.png" id="2_icon"]
+[ext_resource type="Texture2D" uid="uid://bo5k8csiengg7" path="res://assets/Objects/items/items_atlas.png" id="atlas_items"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_item95"]
+atlas = ExtResource("atlas_items")
+region = Rect2(128, 288, 32, 32)
 
 [resource]
 script = ExtResource("1_items")
 item_id = "water_bottle"
 item_type = "consumable"
 item_name = "Water Bottle"
-item_texture = ExtResource("2_icon")
+item_texture = SubResource("AtlasTexture_item95")
 thirst = 30
 description = "뚜껑이 아직 닫혀 있는 생수병. 우클릭으로 마신다."
 value = 35

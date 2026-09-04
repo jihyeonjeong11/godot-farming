@@ -4,7 +4,7 @@ extends Sprite2D
 @onready var damage_component: DamageComponent = $DamageComponent
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
-const DROPPED_ITEM := preload("res://scenes/objects/pickables/dropped_item.tscn")
+const ITEM_STACK_INSTANCE := preload("res://scenes/objects/pickables/item_stack_instance.tscn")
 
 @export var drop_items: Array[Item] = []
 
@@ -47,9 +47,10 @@ func spill_items() -> void:
 		if item == null:
 			continue
 		for i in randi_range(min_drop_count, max_drop_count):
-			var dropped := DROPPED_ITEM.instantiate() as Node2D
+			var dropped := ITEM_STACK_INSTANCE.instantiate() as ItemStackInstance
 			# add_child가 _ready를 돌리므로 그 전에 무엇인지 알려준다.
-			dropped.item = item
+			# 떨어지는 개수만큼 새 뭉치를 만든다 — 하나를 여럿이 나눠 가지면 안 된다.
+			dropped.stack = ItemStack.new(item, 1)
 			host.add_child(dropped)
 
 			# 노드가 트리에 들어간 뒤에 좌표를 준다. 부모가 옮겨져 있으면

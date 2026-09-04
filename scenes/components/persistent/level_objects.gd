@@ -1,11 +1,11 @@
 extends LevelLayer
 ## 땅에 떨어져 있어 주울 수 있는 것들. 도구와 씨앗.
 ##
-## 떨어진 물건은 전부 dropped_item.tscn 하나를 쓰므로 씬 경로로는 무엇인지 알 수 없다.
+## 떨어진 물건은 전부 item_stack_instance.tscn 하나를 쓰므로 씬 경로로는 무엇인지 알 수 없다.
 ## 어떤 아이템인지는 "state"에 실어 보낸다 — LevelLayer가 add_child 다음에
-## apply_state로 넘겨주고, DroppedItem이 그걸로 자기 그림과 컴포넌트를 맞춘다.
+## apply_state로 넘겨주고, ItemStackInstance이 그걸로 자기 그림과 컴포넌트를 맞춘다.
 
-const DROP := "res://scenes/objects/pickables/dropped_item.tscn"
+const DROP := "res://scenes/objects/pickables/item_stack_instance.tscn"
 
 
 func _init() -> void:

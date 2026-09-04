@@ -188,20 +188,8 @@ func _capture_slots(source: Array) -> Array:
 	var slots := []
 
 	for stack in source:
-		if stack == null or stack.item == null:
-			slots.append(null)
-			continue
-
-		# 코드로 만든 Item는 경로가 없어 다시 찾을 방법이 없다.
-		if stack.item.resource_path.is_empty():
-			push_warning("resource_path가 없어 저장할 수 없다: %s" % stack.item.item_name)
-			slots.append(null)
-			continue
-
-		slots.append({
-			"item": stack.item.resource_path,
-			"amount": stack.amount,
-		})
+		# 저장할 수 없는 칸(코드로 만든 Item 등)은 null 로 남는다. 자리는 밀리지 않는다.
+		slots.append(stack.to_dict() if stack != null else null)
 
 	return slots
 
@@ -216,18 +204,7 @@ func _restore_slots(target: Array, saved: Variant, size: int) -> void:
 		return
 
 	for i in mini((saved as Array).size(), size):
-		var entry: Variant = saved[i]
-		if entry is not Dictionary:
-			continue
-
-		# load는 같은 경로에 대해 같은 인스턴스를 돌려준다.
-		# ItemStack.can_stack이 Item를 참조로 비교하므로 duplicate하면 안 된다.
-		var item := load(entry["item"]) as Item
-		if item == null:
-			push_warning("아이템을 불러오지 못했다: %s" % entry["item"])
-			continue
-
-		target[i] = ItemStack.new(item, entry["amount"])
+		target[i] = ItemStack.from_dict(saved[i])
 
 
 ## 인벤토리 30칸과 착용 칸을 한 파일에 담는다. 장비를 따로 두면 슬롯을 지울 때

@@ -2,15 +2,19 @@
 - 다만 총 스프라이트랑 애음니메이션을 찾고 싶
 - 아이템 스프라이트는 itch io에 있었음
 
+- [] UI 별 컨트롤 다르게(더블 클릭일때? 오른쪽 클ㄹ깅ㄹ때 템은 어케 버리지? 등)
+
+- 거래 UI
+
 - 피커블 / 플레이서블 리팩터
 
 - [x] items.gd -> item.gd 이름 바꾸기
 - [x] item_stack.tscn 추가 refCounted
 - [x] 기존 item_stack 옮기기
-- [] item_stack.tscn에 모든 기능 복제(droppable, )
-- [] dropped_item 스크립트 item_stack으로 바꾸기
-- [] 모든 dropped_item을 item_stack으로 변경
-- [] 모든 item 참조를 item_stack으로 변경
+- [x] item_stack.tscn에 모든 기능 복제(droppable, )
+- [x] dropped_item 스크립트 item_stack으로 바꾸기
+- [x] 모든 dropped_item을 item_stack으로 변경
+- [] 모든 item 참조를 item_id으로 변경
 
 - [] 모든 item 참조는 item_id를 참조하도록
 

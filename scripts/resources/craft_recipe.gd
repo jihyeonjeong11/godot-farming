@@ -1,13 +1,13 @@
 class_name CraftRecipe extends Resource
 ## 조합법 하나. 재료 목록과 결과물만 들고 있는 순수 데이터다.
 ##
-## 재료는 ItemStack 을 그대로 재사용한다. 인벤토리 칸과 같은 모양이라
-## 개수를 세는 코드를 두 번 쓸 일이 없다.
+## 재료는 CraftIngredient 다. ItemStack 은 RefCounted 라 @export 가 되지 않으므로
+## 인스펙터에서 찍어 넣는 저작 데이터로는 쓸 수 없다.
 ## 실제로 깎고 만드는 일은 Inventory.craft() 가 한다.
 
 @export var result: Item
 @export var result_amount: int = 1
-@export var ingredients: Array[ItemStack] = []
+@export var ingredients: Array[CraftIngredient] = []
 
 ## 표시용 이름. 비우면 결과물 이름을 쓴다.
 @export var recipe_name: String = ""

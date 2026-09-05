@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_wycep")
 item_id = "bandage"
-item_type = "material"
+item_type = 5
 item_name = "Bandage"
 item_texture = ExtResource("1_pqwlm")
 edible = 30

@@ -47,13 +47,7 @@ func capture_state() -> Dictionary:
 
 
 func apply_state(state: Dictionary) -> void:
-	var saved: Variant = state.get("stack", null)
-	if saved == null:
-		var legacy_path: String = state.get("item", "")
-		if not legacy_path.is_empty():
-			saved = {"item": legacy_path, "amount": 1}
-
-	var restored := ItemStack.from_dict(saved)
+	var restored := ItemStack.from_dict(state.get("stack", null))
 	if restored == null:
 		queue_free()
 		return

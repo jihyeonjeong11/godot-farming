@@ -10,7 +10,7 @@ region = Rect2(838, 32, 20, 32)
 [resource]
 script = ExtResource("1_whtit")
 item_id = "wheat"
-item_type = "material"
+item_type = 5
 item_name = "Wheat"
 item_texture = SubResource("AtlasTexture_wheat")
 description = "Harvested from a mature wheat plant."

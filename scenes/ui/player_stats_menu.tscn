@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://bkny51ahdetw" path="res://scenes/ui/game_theme.tres" id="1_dqrvi"]
 [ext_resource type="Script" uid="uid://dw2u1vri2siyj" path="res://scenes/ui/player_stats_menu.gd" id="2_dqrvi"]
-[ext_resource type="Texture2D" uid="uid://crsa2umvkiy5h" path="res://assets/UI/Inventory/Objects/gold.png" id="4_m34xu"]
+[ext_resource type="Texture2D" uid="uid://bo5k8csiengg7" path="res://assets/Objects/items/items_atlas.png" id="4_m34xu"]
 [ext_resource type="Texture2D" uid="uid://o2uun2ogmxr5" path="res://assets/UI/stats/stats.png" id="4_m58ab"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_frame"]
@@ -24,6 +24,10 @@ region = Rect2(3, 21, 26, 4)
 [sub_resource type="AtlasTexture" id="AtlasTexture_thirst"]
 atlas = ExtResource("4_m58ab")
 region = Rect2(3, 26, 26, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kitxi"]
+atlas = ExtResource("4_m34xu")
+region = Rect2(102, 265, 20, 17)
 
 [node name="PlayerStats" type="PanelContainer" unique_id=870378732]
 offset_right = 150.0
@@ -77,7 +81,7 @@ layout_mode = 2
 
 [node name="GoldIcon" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1010093778]
 layout_mode = 2
-texture = ExtResource("4_m34xu")
+texture = SubResource("AtlasTexture_kitxi")
 
 [node name="GoldLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1793482979]
 layout_mode = 2

@@ -9,7 +9,7 @@ size = Vector2(24, 44)
 [resource]
 script = ExtResource("1_xn2c3")
 item_id = "bat"
-item_type = "melee"
+item_type = 8
 tool_type = 6
 item_name = "bat"
 item_texture = ExtResource("2_icon")

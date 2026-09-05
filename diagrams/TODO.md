@@ -16,8 +16,6 @@
 - [x] 모든 dropped_item을 item_stack으로 변경
 - [] 모든 item 참조를 item_id으로 변경
 
-- [] 모든 item 참조는 item_id를 참조하도록
-
 - [] 맨 마지막 tscn 아이템들 모두 정리
 - [] 옮겨진 파일들 삭제
 

@@ -14,7 +14,7 @@ region = Rect2(716, 401, 46, 54)
 [resource]
 script = ExtResource("2_lpbap")
 item_id = "scrap_metal"
-item_type = "resource"
+item_type = 5
 item_name = "Scrap metal"
 item_texture = SubResource("AtlasTexture_d8xnv")
 description = "고철 한 덩어리"

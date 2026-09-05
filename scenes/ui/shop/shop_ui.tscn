@@ -87,7 +87,13 @@ theme_override_constants/separation = 4
 layout_mode = 2
 text = "상인"
 
-[node name="MerchantGrid" type="GridContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Columns/MerchantPanel/Margin/VBox" unique_id=2025252295]
+[node name="ScrollContainer" type="ScrollContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Columns/MerchantPanel/Margin/VBox" unique_id=1374879707]
+custom_minimum_size = Vector2(0, 146)
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_scroll_mode = 0
+
+[node name="MerchantGrid" type="GridContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Columns/MerchantPanel/Margin/VBox/ScrollContainer" unique_id=2025252295]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(26, 26)
 layout_mode = 2

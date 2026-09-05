@@ -10,7 +10,7 @@ region = Rect2(708, 0, 24, 32)
 [resource]
 script = ExtResource("2_jsa01")
 item_id = "wheat_seeds"
-item_type = "seeds"
+item_type = 3
 tool_type = 8
 item_name = "Carrot Seeds"
 item_texture = SubResource("AtlasTexture_c2m8l")

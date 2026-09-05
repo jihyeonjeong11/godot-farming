@@ -10,7 +10,7 @@ region = Rect2(128, 288, 32, 32)
 [resource]
 script = ExtResource("1_items")
 item_id = "water_bottle"
-item_type = "consumable"
+item_type = 2
 item_name = "Water Bottle"
 item_texture = SubResource("AtlasTexture_item95")
 thirst = 30

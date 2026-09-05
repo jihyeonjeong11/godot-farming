@@ -26,10 +26,10 @@ func _ready() -> void:
 				"  작물레이어=", crops_layer)
 
 func _on_tool_used(item: Item, _user_position: Vector2, _target_position: Vector2) -> void:
-	if item == null:
+	if item == null or item.item_id.is_empty():
 		return
 
-	if item.item_type == "seeds":
+	if item.item_type == DataTypes.ItemType.Seeds:
 		get_cell_under_mouse()
 		if debug_log:
 			print("[CropsCursor] 2) 액션=심기  아이템=", item.item_name)
@@ -41,7 +41,7 @@ func _on_tool_used(item: Item, _user_position: Vector2, _target_position: Vector
 		remove_crop(item)
 	elif debug_log:
 		print("[CropsCursor] 2) 액션 없음  아이템=", item.item_name,
-				"  종류=", item.item_type, "  도구=", item.tool_type)
+				"  종류=", DataTypes.item_type_label(item.item_type), "  도구=", item.tool_type)
 	
 
 func get_cell_under_mouse() -> void:

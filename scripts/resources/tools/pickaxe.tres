@@ -9,7 +9,7 @@ size = Vector2(16, 16)
 [resource]
 script = ExtResource("1_items")
 item_id = "pickaxe"
-item_type = "tool"
+item_type = 4
 tool_type = 2
 item_name = "pickaxe"
 item_texture = ExtResource("2_icon")

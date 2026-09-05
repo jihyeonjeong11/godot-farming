@@ -10,7 +10,7 @@ region = Rect2(392, 18, 48, 42)
 [resource]
 script = ExtResource("1_items")
 item_id = "chest"
-item_type = "buildable"
+item_type = 6
 item_name = "chest"
 item_texture = SubResource("AtlasTexture_chest")
 description = "물건을 넣어두는 궤. 땅에 놓고 우클릭하면 열린다. 비어 있을 때만 다시 들 수 있다."

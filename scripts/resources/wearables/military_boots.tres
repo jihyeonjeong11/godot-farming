@@ -10,13 +10,13 @@ region = Rect2(288, 128, 32, 32)
 [resource]
 script = ExtResource("2_r6an4")
 item_id = "military_boots"
-item_type = "wearable"
+item_type = 7
 item_name = "Military boots"
 item_texture = SubResource("AtlasTexture_item50")
 description = "A pair of military issued walkers."
-world_texture = SubResource("AtlasTexture_item50")
 max_stack = 1
 world_scene_path = "res://scenes/objects/pickables/item_stack_instance.tscn"
+world_texture = SubResource("AtlasTexture_item50")
 wear_slot = 2
 defense = 2
 speed = 50

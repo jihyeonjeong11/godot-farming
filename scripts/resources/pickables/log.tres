@@ -14,7 +14,7 @@ region = Rect2(288, 0, 34, 34)
 [resource]
 script = ExtResource("1_6lvr7")
 item_id = "log"
-item_type = "material"
+item_type = 5
 item_name = "Log"
 item_texture = SubResource("AtlasTexture_jg2iq")
 description = "나무를 베어 얻는다."

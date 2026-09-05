@@ -10,7 +10,7 @@ region = Rect2(192, 288, 32, 32)
 [resource]
 script = ExtResource("1_items")
 item_id = "canned_food"
-item_type = "consumable"
+item_type = 2
 item_name = "Canned Food"
 item_texture = SubResource("AtlasTexture_item97")
 hunger = 20

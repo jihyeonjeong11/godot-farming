@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_e3wir")
 item_id = "carrot_seeds"
-item_type = "seeds"
+item_type = 3
 tool_type = 8
 item_name = "Carrot Seeds"
 item_texture = ExtResource("1_ivuok")

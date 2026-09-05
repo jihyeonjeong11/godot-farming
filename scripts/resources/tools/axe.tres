@@ -12,7 +12,7 @@ size = Vector2(16, 16)
 [resource]
 script = ExtResource("1_8qw6j")
 item_id = "axe"
-item_type = "tool"
+item_type = 4
 tool_type = 1
 item_name = "axe"
 item_texture = SubResource("AtlasTexture_e2a05")

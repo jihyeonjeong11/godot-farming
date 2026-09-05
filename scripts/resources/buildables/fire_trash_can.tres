@@ -10,7 +10,7 @@ region = Rect2(192, 38, 32, 57)
 [resource]
 script = ExtResource("1_items")
 item_id = "fire_trash_can"
-item_type = "buildable"
+item_type = 6
 item_name = "fire trash can"
 item_texture = SubResource("AtlasTexture_can")
 description = "불을 피우는 드럼통. 우클릭하면 켜고 끈다. 불이 꺼져 있을 때만 다시 들 수 있다."

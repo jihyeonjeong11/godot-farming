@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://il4cvgvm03hb"]
+
+[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/item.gd" id="1_item"]
+[ext_resource type="Texture2D" uid="uid://bo5k8csiengg7" path="res://assets/Objects/items/items_atlas.png" id="2_atlas"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snack_pack_red"]
+atlas = ExtResource("2_atlas")
+region = Rect2(32, 288, 32, 32)
+
+[resource]
+script = ExtResource("1_item")
+item_id = "snack_pack_red"
+item_type = 1
+item_name = "Red snack pack"
+item_texture = SubResource("AtlasTexture_snack_pack_red")
+description = "붉은 포장의 과자."
+value = 18
+max_stack = 50
+world_scene_path = "uid://cb65olukse4yu"
+metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_items")
 item_id = "container"
-item_type = "buildable"
+item_type = 6
 item_name = "container"
 item_texture = ExtResource("2_tex")
 description = "물건을 넣어두는 상자. 땅에 놓고 우클릭하면 열린다."

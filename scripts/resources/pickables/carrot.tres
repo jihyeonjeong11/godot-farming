@@ -15,7 +15,7 @@ region = Rect2(834, 351, 30, 31)
 [resource]
 script = ExtResource("2_62xar")
 item_id = "carrot"
-item_type = "consumable"
+item_type = 2
 item_name = "Carrot"
 item_texture = SubResource("AtlasTexture_potato")
 edible = 2

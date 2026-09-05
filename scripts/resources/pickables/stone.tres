@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("1_oq3po")
 item_id = "stone"
-item_type = "material"
+item_type = 5
 item_name = "Stone"
 item_texture = ExtResource("2_stn01")
 description = "Mined from rocks."

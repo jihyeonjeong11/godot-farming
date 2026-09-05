@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://jideracvddan"]
+
+[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/item.gd" id="1_item"]
+[ext_resource type="Texture2D" uid="uid://bo5k8csiengg7" path="res://assets/Objects/items/items_atlas.png" id="2_atlas"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smartphone"]
+atlas = ExtResource("2_atlas")
+region = Rect2(0, 96, 32, 32)
+
+[resource]
+script = ExtResource("1_item")
+item_id = "smartphone"
+item_type = 1
+item_name = "Smartphone"
+item_texture = SubResource("AtlasTexture_smartphone")
+description = "배터리는 남았지만 신호가 없다."
+value = 60
+max_stack = 10
+world_scene_path = "uid://cb65olukse4yu"
+metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

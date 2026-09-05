@@ -44,7 +44,7 @@ func spill_items() -> void:
 
 	var spilled: Array[Node2D] = []
 	for item in drop_items:
-		if item == null:
+		if item == null or item.item_id.is_empty():
 			continue
 		for i in randi_range(min_drop_count, max_drop_count):
 			var dropped := ITEM_STACK_INSTANCE.instantiate() as ItemStackInstance

@@ -10,7 +10,7 @@ region = Rect2(4, 36, 20, 26)
 [resource]
 script = ExtResource("1_apitm")
 item_id = "apple"
-item_type = "consumable"
+item_type = 2
 item_name = "Apple"
 item_texture = SubResource("AtlasTexture_apple")
 hunger = 15

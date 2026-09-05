@@ -3,8 +3,9 @@ class_name Item extends Resource
 ## 확졍 아님.
 
 @export var item_id = ""
-## melee, range, tool, consumable, material, artifact, ammo, seed, buildable, misc
-@export var item_type = ""
+## 아이템의 큰 갈래. 문자열이던 시절엔 주석의 목록과 .tres 의 실제 값이
+## 따로 놀았다(주석은 "seed", 데이터는 "seeds").
+@export var item_type: DataTypes.ItemType = DataTypes.ItemType.Misc
 @export var tool_type: DataTypes.Tools = DataTypes.Tools.None
 @export var item_name = ""
 @export var item_texture: Texture
@@ -76,8 +77,8 @@ class_name Item extends Resource
 func describe(price_label: String = "가치") -> String:
 	var lines: PackedStringArray = [item_name]
 
-	if not item_type.is_empty():
-		lines.append("[%s]" % item_type)
+	if item_type != DataTypes.ItemType.Misc:
+		lines.append("[%s]" % DataTypes.item_type_label(item_type))
 
 	if not description.is_empty():
 		lines.append(description)

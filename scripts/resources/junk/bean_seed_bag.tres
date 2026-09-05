@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://jnhk2eyco73o"]
+
+[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/item.gd" id="1_item"]
+[ext_resource type="Texture2D" uid="uid://bo5k8csiengg7" path="res://assets/Objects/items/items_atlas.png" id="2_atlas"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bean_seed_bag"]
+atlas = ExtResource("2_atlas")
+region = Rect2(96, 64, 32, 32)
+
+[resource]
+script = ExtResource("1_item")
+item_id = "bean_seed_bag"
+item_type = 1
+item_name = "Bag of bean seeds"
+item_texture = SubResource("AtlasTexture_bean_seed_bag")
+description = "콩 씨앗이 든 자루."
+value = 25
+max_stack = 50
+world_scene_path = "uid://cb65olukse4yu"
+metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

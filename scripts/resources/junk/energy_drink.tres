@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://kxvt5dg05d6u"]
+
+[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/item.gd" id="1_item"]
+[ext_resource type="Texture2D" uid="uid://bo5k8csiengg7" path="res://assets/Objects/items/items_atlas.png" id="2_atlas"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_energy_drink"]
+atlas = ExtResource("2_atlas")
+region = Rect2(64, 192, 32, 32)
+
+[resource]
+script = ExtResource("1_item")
+item_id = "energy_drink"
+item_type = 1
+item_name = "Energy drink"
+item_texture = SubResource("AtlasTexture_energy_drink")
+description = "유통기한이 한참 지난 에너지 드링크."
+value = 30
+max_stack = 20
+world_scene_path = "uid://cb65olukse4yu"
+metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

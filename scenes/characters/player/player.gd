@@ -205,7 +205,7 @@ func has_melee_shape() -> bool:
 
 func can_attack() -> bool:
 	var item: Item = Inventory.get_selected_item()
-	if item != null and (item.item_type == "tool" or item.item_type == "seeds"):
+	if item != null and item.item_type in [DataTypes.ItemType.Tool, DataTypes.ItemType.Seeds]:
 		return true
 	return item != null and item.melee_shape != null
 	
@@ -255,7 +255,7 @@ func get_terrain() -> StringName:
 
 func consume_selected() -> bool:
 	var item: Item = Inventory.get_selected_item()
-	if item == null or item.item_type != "consumable":
+	if item == null or item.item_type != DataTypes.ItemType.Consumable:
 		return false
 
 	if stats != null:

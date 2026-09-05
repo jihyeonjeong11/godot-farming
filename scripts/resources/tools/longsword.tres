@@ -9,7 +9,7 @@ size = Vector2(20, 36)
 [resource]
 script = ExtResource("1_items")
 item_id = "longsword"
-item_type = "melee"
+item_type = 8
 tool_type = 6
 item_name = "longsword"
 item_texture = ExtResource("2_icon")

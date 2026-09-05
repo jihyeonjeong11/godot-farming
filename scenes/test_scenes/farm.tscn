@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://bqtvqkygn3rwm" path="res://scenes/objects/placables/barrels/Barrels.tscn" id="26_mge4w"]
 [ext_resource type="Shader" uid="uid://dn6q4tvxb8jke" path="res://scenes/objects/placables/trees/tree_shake.gdshader" id="27_ysy4c"]
 [ext_resource type="PackedScene" uid="uid://dkuhtvrn33fcx" path="res://scenes/objects/placables/trees/OakTree.tscn" id="28_ysy4c"]
+[ext_resource type="PackedScene" uid="uid://m70mkxtn3dt5" path="res://scenes/objects/placables/terminals/merchant_terminal.tscn" id="29_mge4w"]
 [ext_resource type="PackedScene" uid="uid://qup7j2sipi2x" path="res://scenes/objects/placables/vending_machines/vending_machine_1.tscn" id="31_u7oqc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_itdck"]
@@ -863,3 +864,6 @@ position = Vector2(269, 717)
 material = SubResource("ShaderMaterial_u7oqc")
 position = Vector2(357, 553)
 drop_items = Array[ExtResource("16_326xb")]([])
+
+[node name="MerchantTerminal" parent="." unique_id=720967649 instance=ExtResource("29_mge4w")]
+position = Vector2(680, 614)

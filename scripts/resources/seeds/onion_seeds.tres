@@ -10,7 +10,7 @@ region = Rect2(706, 192, 28, 32)
 [resource]
 script = ExtResource("2_3gqp4")
 item_id = "onion_seeds"
-item_type = "seeds"
+item_type = 3
 tool_type = 8
 item_name = "Carrot Seeds"
 item_texture = SubResource("AtlasTexture_txaa0")
@@ -18,6 +18,6 @@ edible = 10
 description = "Onion seeds"
 value = 15
 max_stack = 100
-world_scene_path = "uid://cb65olukse4yu"
 crop_scene_path = "res://scenes/objects/placables/crops/wheat/wheat.tscn"
+world_scene_path = "uid://cb65olukse4yu"
 metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

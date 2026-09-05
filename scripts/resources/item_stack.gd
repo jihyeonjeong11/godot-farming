@@ -9,11 +9,12 @@ func _init(p_item: Item = null, p_amount: int = 1) -> void:
 	amount = p_amount
 
 
+## item_id 는 String 이라 절대 null 이 아니다. 빈 문자열이 "없음"이다.
 func is_valid() -> bool:
-	return item.item_id != null and amount > 0
+	return item != null and not item.item_id.is_empty() and amount > 0
 
 func is_same_kind(other: Item) -> bool:
-	if item.item_id == null or other == null:
+	if item == null or other == null:
 		return false
 	if item.item_id.is_empty():
 		return false
@@ -47,13 +48,14 @@ func to_dict() -> Variant:
 	if item == null:
 		return null
 
-	# 코드로 만든 Item 은 경로가 없어 다시 찾을 방법이 없다.
-	if item.resource_path.is_empty():
-		push_warning("resource_path가 없어 저장할 수 없다: %s" % item.item_name)
+	# 경로가 아니라 id 로 적는다. 경로로 적으면 .tres 를 옮기는 순간 세이브가 끊긴다.
+	# 코드로 만든 임시 Item 은 id 가 없어 되찾을 방법이 없다.
+	if item.item_id.is_empty():
+		push_warning("item_id가 없어 저장할 수 없다: %s" % item.item_name)
 		return null
 
 	return {
-		"item": item.resource_path,
+		"item_id": item.item_id,
 		"amount": amount,
 	}
 
@@ -62,13 +64,13 @@ static func from_dict(data: Variant) -> ItemStack:
 	if data is not Dictionary:
 		return null
 
-	var path: String = data.get("item", "")
-	if path.is_empty():
+	var id := StringName(data.get("item_id", ""))
+	if id.is_empty():
 		return null
 
-	var spec := load(path) as Item
+	# 모르는 id 면 ItemDB 가 경고를 남긴다. 여기서는 조용히 접는다.
+	var spec := ItemDB.get_item(id)
 	if spec == null:
-		push_warning("아이템을 불러오지 못했다: %s" % path)
 		return null
 
 	return ItemStack.new(spec, maxi(int(data.get("amount", 1)), 1))

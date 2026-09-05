@@ -20,29 +20,42 @@ enum Tools {
 	PlantPotato, # 5
 	Melee,       # 6
 	Ranged,      # 7
-	## 아래는 뒤에만 덧붙인다. .tres 는 tool_type 을 정수로 저장하므로
-	## 중간에 끼워 넣으면 Melee(6)/Ranged(7) 를 쓰던 리소스가 통째로 밀린다.
 	PlantWheat,  # 8
 	PlantCorn,   # 9
 }
 
-## 착용 부위. Item.wear_slot 과 EquipmentSlot.slot_type 이 이 값으로 짝을 맞춘다.
-## None 이면 어느 장비 칸에도 들어가지 않는다.
-## Tools 와 같은 이유로 뒤에만 덧붙인다.
 enum WearSlot {
 	None,  # 0
 	Armor, # 1
 	Boots, # 2
 }
+enum ItemType {
+	Misc,       # 0  아직 분류 안 된 것
+	Junk,       # 1  주워서 팔거나 분해하는 잡동사니
+	Consumable, # 2  먹거나 써서 없어지는 것
+	Seeds,      # 3
+	Tool,       # 4  tool_type 을 가진 도구
+	Material,   # 5  제작 재료 (옛 "material" + "resource")
+	Buildable,  # 6  땅에 세우는 것
+	Wearable,   # 7  입는 것
+	Melee,      # 8  근접 무기
+}
 
-## 갈린 땅 타일맵이 쓰는 terrain_set. 타일셋에 0번 하나뿐이다.
+static func item_type_label(type: ItemType) -> String:
+	match type:
+		ItemType.Junk: return "junk"
+		ItemType.Consumable: return "consumable"
+		ItemType.Seeds: return "seeds"
+		ItemType.Tool: return "tool"
+		ItemType.Material: return "material"
+		ItemType.Buildable: return "buildable"
+		ItemType.Wearable: return "wearable"
+		ItemType.Melee: return "melee"
+	return ""
+
+
 const SOIL_TERRAIN_SET: int = 0
 
-## 땅 상태. 값이 곧 타일셋의 terrain 번호라 .tres 를 같이 고치지 않는 한 바꾸면 안 된다.
-##
-## WateredDirt 로는 칠하지 않는다. TilledDirt 와 다른 terrain 이라 오토타일이 서로
-## 남으로 보고 이어 붙이질 않아, 밭이 칸마다 동그란 섬으로 쪼개진다. 물기는
-## WateredSoilLayer 가 따로 그린다. 여기 남겨둔 건 타일셋에 그 번호가 있어서다.
 enum SoilTerrains {
 	TilledDirt = 4,
 	WateredDirt = 5,

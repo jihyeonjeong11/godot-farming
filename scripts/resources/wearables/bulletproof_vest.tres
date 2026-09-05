@@ -10,7 +10,7 @@ region = Rect2(160, 96, 32, 32)
 [resource]
 script = ExtResource("1_5emht")
 item_id = "bulletproof_vest"
-item_type = "wearable"
+item_type = 7
 item_name = "Bulletproof vest"
 item_texture = SubResource("AtlasTexture_item36")
 description = "A bulletproof vest."

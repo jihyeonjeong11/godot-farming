@@ -21,6 +21,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+GlobalVars="*uid://dm0kyhg7vo3vn"
 ItemDB="*res://scripts/globals/item_db.gd"
 SignalBus="*uid://c5yk62a6w1nji"
 DayAndNightCycle="*uid://db650q1a0xbln"

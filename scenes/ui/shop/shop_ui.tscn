@@ -1,100 +1,208 @@
-[gd_scene format=3 uid="uid://pip21txswroy"]
+[gd_scene format=3 uid="uid://cdnvo7ichp0x8"]
 
-[ext_resource type="Theme" uid="uid://bkny51ahdetw" path="res://scenes/ui/game_theme.tres" id="1_theme"]
-[ext_resource type="Script" uid="uid://cb17fnol6lnw8" path="res://scenes/ui/shop/shop_ui.gd" id="2_shop"]
+[ext_resource type="Script" uid="uid://dtnd5vb7sp0tr" path="res://scenes/ui/shop/shop_ui.gd" id="1_i7oi7"]
+[ext_resource type="PackedScene" uid="uid://deugupwqjk44e" path="res://scenes/ui/base_ui.tscn" id="1_mwvj2"]
+[ext_resource type="Texture2D" uid="uid://bo5k8csiengg7" path="res://assets/Objects/items/items_atlas.png" id="2_34wyy"]
+[ext_resource type="FontFile" uid="uid://croxjd7q24c1o" path="res://assets/fonts/DS-DIGI.TTF" id="3_dsdig"]
 
-[node name="ShopUI" type="CanvasLayer" unique_id=100231432]
-script = ExtResource("2_shop")
+[sub_resource type="AtlasTexture" id="AtlasTexture_4kxuq"]
+atlas = ExtResource("2_34wyy")
+region = Rect2(100, 100, 23, 25)
 
-[node name="CenterContainer" type="CenterContainer" parent="." unique_id=488818529]
+[sub_resource type="AtlasTexture" id="AtlasTexture_cash"]
+atlas = ExtResource("2_34wyy")
+region = Rect2(96, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gold"]
+atlas = ExtResource("2_34wyy")
+region = Rect2(256, 224, 32, 32)
+
+[node name="ShopUi" type="CanvasLayer" unique_id=1195450820]
+script = ExtResource("1_i7oi7")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=204471939]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
+theme_override_constants/separation = 8
 
-[node name="PanelContainer" type="PanelContainer" parent="CenterContainer" unique_id=1841121091]
+[node name="InventoryPanel" parent="HBoxContainer" unique_id=118001860 instance=ExtResource("1_mwvj2")]
 layout_mode = 2
-theme = ExtResource("1_theme")
-theme_type_variation = &"IngamePanel"
+size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer" unique_id=1779235878]
-layout_mode = 2
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/InventoryPanel" unique_id=1777641433]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer" unique_id=911998636]
-layout_mode = 2
-theme_override_constants/separation = 8
-
-[node name="TitleLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=372814476]
-layout_mode = 2
-text = "상점"
-horizontal_alignment = 1
-
-[node name="Columns" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=977202895]
-layout_mode = 2
-theme_override_constants/separation = 0
-
-[node name="BagPanel" type="PanelContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Columns" unique_id=659004652]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-theme_type_variation = &"IngamePanel"
-
-[node name="Margin" type="MarginContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Columns/BagPanel" unique_id=337095017]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="VBox" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Columns/BagPanel/Margin" unique_id=1080406825]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/InventoryPanel/MarginContainer" unique_id=311020401]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Columns/BagPanel/Margin/VBox" unique_id=1954955225]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/InventoryPanel/MarginContainer/VBoxContainer" unique_id=1866158721]
+custom_maximum_size = Vector2(15, 15)
 layout_mode = 2
-text = "가방"
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_4kxuq")
 
-[node name="BagGrid" type="GridContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Columns/BagPanel/Margin/VBox" unique_id=1771672124]
+[node name="MyInventoryGrid" type="GridContainer" parent="HBoxContainer/InventoryPanel/MarginContainer/VBoxContainer" unique_id=156679186]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(26, 26)
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+theme_override_constants/h_separation = 2
+theme_override_constants/v_separation = 2
 columns = 6
 
-[node name="MerchantPanel" type="PanelContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Columns" unique_id=1034781809]
+[node name="BarterPanel" parent="HBoxContainer" unique_id=1713300810 instance=ExtResource("1_mwvj2")]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 0
-theme_type_variation = &"IngamePanel"
 
-[node name="Margin" type="MarginContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Columns/MerchantPanel" unique_id=1485121446]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/BarterPanel" unique_id=1319885102]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
 
-[node name="VBox" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Columns/MerchantPanel/Margin" unique_id=2108600427]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/BarterPanel/MarginContainer" unique_id=1662570985]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Columns/MerchantPanel/Margin/VBox" unique_id=1606713805]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/BarterPanel/MarginContainer/VBoxContainer" unique_id=1044892517]
+custom_maximum_size = Vector2(15, 15)
 layout_mode = 2
-text = "상인"
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_cash")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Columns/MerchantPanel/Margin/VBox" unique_id=1374879707]
-custom_minimum_size = Vector2(0, 146)
+[node name="BarterInventoryGrid" type="GridContainer" parent="HBoxContainer/BarterPanel/MarginContainer/VBoxContainer" unique_id=890531830]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+theme_override_constants/h_separation = 2
+theme_override_constants/v_separation = 2
+columns = 6
+
+[node name="Settle" type="HBoxContainer" parent="HBoxContainer/BarterPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 12
+
+[node name="Amounts" type="VBoxContainer" parent="HBoxContainer/BarterPanel/MarginContainer/VBoxContainer/Settle"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/separation = 2
+
+[node name="GoldRow" type="HBoxContainer" parent="HBoxContainer/BarterPanel/MarginContainer/VBoxContainer/Settle/Amounts"]
+layout_mode = 2
+alignment = 2
+
+[node name="GoldLabel" type="Label" parent="HBoxContainer/BarterPanel/MarginContainer/VBoxContainer/Settle/Amounts/GoldRow"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_dsdig")
+theme_override_font_sizes/font_size = 20
+text = "0"
+horizontal_alignment = 2
+
+[node name="GoldIcon" type="TextureRect" parent="HBoxContainer/BarterPanel/MarginContainer/VBoxContainer/Settle/Amounts/GoldRow"]
+custom_minimum_size = Vector2(16, 16)
+custom_maximum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_cash")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="SlotRow" type="HBoxContainer" parent="HBoxContainer/BarterPanel/MarginContainer/VBoxContainer/Settle/Amounts"]
+layout_mode = 2
+alignment = 2
+
+[node name="SlotLabel" type="Label" parent="HBoxContainer/BarterPanel/MarginContainer/VBoxContainer/Settle/Amounts/SlotRow"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_dsdig")
+theme_override_font_sizes/font_size = 20
+text = "0 / 30"
+horizontal_alignment = 2
+
+[node name="SlotIcon" type="TextureRect" parent="HBoxContainer/BarterPanel/MarginContainer/VBoxContainer/Settle/Amounts/SlotRow"]
+custom_minimum_size = Vector2(16, 16)
+custom_maximum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_4kxuq")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Buttons" type="VBoxContainer" parent="HBoxContainer/BarterPanel/MarginContainer/VBoxContainer/Settle"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="ConfirmButton" type="Button" parent="HBoxContainer/BarterPanel/MarginContainer/VBoxContainer/Settle/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Confirm"
+
+[node name="CancelButton" type="Button" parent="HBoxContainer/BarterPanel/MarginContainer/VBoxContainer/Settle/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Cancel"
+
+[node name="ShopPanel" parent="HBoxContainer" unique_id=940376186 instance=ExtResource("1_mwvj2")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/ShopPanel" unique_id=759418733]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/ShopPanel/MarginContainer" unique_id=1205334876]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/ShopPanel/MarginContainer/VBoxContainer" unique_id=175248167]
+custom_maximum_size = Vector2(15, 15)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_gold")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/ShopPanel/MarginContainer/VBoxContainer" unique_id=868563294]
+layout_mode = 2
+size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="MerchantGrid" type="GridContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Columns/MerchantPanel/Margin/VBox/ScrollContainer" unique_id=2025252295]
+[node name="ShopInventoryGrid" type="GridContainer" parent="HBoxContainer/ShopPanel/MarginContainer/VBoxContainer/ScrollContainer" unique_id=2053005673]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(26, 26)
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/h_separation = 2
+theme_override_constants/v_separation = 2
 columns = 6

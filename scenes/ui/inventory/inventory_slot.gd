@@ -1,7 +1,6 @@
 class_name InventorySlot
 extends Button
 
-## 이 칸을 우클릭했을 때. Button.pressed는 좌클릭만 잡아서 따로 둔다.
 signal right_pressed
 
 @export var selected_item: Item
@@ -24,12 +23,17 @@ func _ready() -> void:
 
 
 func _gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton \
-			and event.button_index == MOUSE_BUTTON_RIGHT \
-			and event.pressed:
-		accept_event()
-		right_pressed.emit()
-
+	if event is InputEventMouseButton and event.pressed:
+		match event.button_index:
+			MOUSE_BUTTON_LEFT:
+				accept_event()
+				pressed.emit()
+			MOUSE_BUTTON_RIGHT:
+				accept_event()
+				right_pressed.emit()
+			MOUSE_BUTTON_MIDDLE:
+				accept_event()
+				#middle_pressed.emit()
 
 func _get_drag_data(_at_position: Vector2) -> Variant:
 	if not draggable or selected_item == null or slot_index < 0:

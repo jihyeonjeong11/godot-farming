@@ -5,8 +5,7 @@ const SCENE_OVERAY = preload("uid://cgv3nwfyr3n17")
 const SCENE_OVERLAY_MENU = preload("uid://6jsgfc4dh1hr")
 const SCENE_INGAME_OVERLAY_MENU = preload("uid://dncd82n2y0aas")
 const SCENE_CONTAINER_INVENTORY_UI = preload("uid://b7xqk2mcnv0ug")
-const SHOP_UI = preload("uid://pip21txswroy")
-const NEW_SHOP = preload("uid://cdnvo7ichp0x8")
+const SHOP_UI = preload("uid://cdnvo7ichp0x8")
 
 enum Layer { PAUSE_MENU, INGAME_MENU, CONTAINER, SHOP }
 
@@ -165,7 +164,7 @@ func _open_layer_node(layer: Layer) -> void:
 		Layer.CONTAINER:
 			node = SCENE_CONTAINER_INVENTORY_UI.instantiate()
 		Layer.SHOP:
-			node = NEW_SHOP.instantiate()
+			node = SHOP_UI.instantiate()
 
 	if node == null:
 		return

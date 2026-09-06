@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b1r1piv7rhuop"]
 
 [ext_resource type="Texture2D" uid="uid://dmej0tp32bpis" path="res://assets/craftland/Craftland Terrain/32x32/CL_Buildings.png" id="1_psugd"]
-[ext_resource type="Script" uid="uid://cst1t2e1553dk" path="res://scenes/objects/pickables/buildables/bed.gd" id="2_p207t"]
+[ext_resource type="Script" uid="uid://cst1t2e1553dk" path="res://scenes/objects/pickables/placeables/bed.gd" id="2_p207t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4kxuq"]
 atlas = ExtResource("1_psugd")

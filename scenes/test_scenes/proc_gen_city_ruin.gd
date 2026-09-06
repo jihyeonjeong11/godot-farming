@@ -49,6 +49,11 @@ const TERRAIN_ASPHALT := 0
 const TERRAIN_CONCRETE := 1
 const TERRAIN_DIRT := 2 
 
+const SIDE_BITS: Array[int] = [
+	TileSet.CELL_NEIGHBOR_LEFT_SIDE, TileSet.CELL_NEIGHBOR_RIGHT_SIDE,
+	TileSet.CELL_NEIGHBOR_TOP_SIDE, TileSet.CELL_NEIGHBOR_BOTTOM_SIDE,
+]
+
 enum Cell { EMPTY, ROAD, BUILDING }
 # 타일 해상도 점유. Dictionary는 40만 셀에서 메모리도 조회도 부담이라 바이트 배열을 쓴다.
 enum Occ { FREE, ROAD, WALK, BLOCKED }
@@ -145,6 +150,7 @@ const TEMPLATE_TER := {
 @onready var camera: Camera2D = $Player/Camera2D
 
 var rng := RandomNumberGenerator.new()
+var tile_rng := RandomNumberGenerator.new()
 var grid: Dictionary = {}       # Cell Grid
 var manholes: Dictionary = {}
 var city_pos: Vector2i
@@ -153,6 +159,8 @@ var road_cells: Array[Vector2i] = []
 var walk_cells: Array[Vector2i] = []
 var dirt_cells: Array[Vector2i] = []
 var occ := PackedByteArray()             # TILES x TILES, 값은 Occ — "여기 뭘 놓을 수 있나"
+var paint_mask := PackedByteArray()      # fill_terrain 이 쓰는 집합 판정용 임시 판
+var center_tiles: Dictionary = {}        # terrain -> Array[Vector3i(source, atlas_x, atlas_y)]
 ## CDDA 의 map::ter / map::furn. "여기가 무엇인가" 쪽이고, occ 와 목적이 다르다.
 ## occ 는 배치용 임시 판정, 이쪽은 생성이 끝난 뒤에도 계속 살아있는 세계 상태다.
 ## #7 폐허화와 문/창문 상호작용이 읽을 것도 이쪽이다.
@@ -177,6 +185,7 @@ func _ready() -> void:
 	objects_root.name = "PrefabObjects"
 	objects_root.y_sort_enabled = true
 	add_child(objects_root)
+	bake_center_tiles()
 	bake_templates()
 	_generate()
 	place_player()
@@ -194,6 +203,7 @@ func _generate() -> void:
 	var t0 := Time.get_ticks_msec()
 	active_seed = world_seed if world_seed != 0 else randi()
 	rng.seed = active_seed
+	tile_rng.seed = active_seed
 	grid.clear()
 	manholes.clear()
 	land.clear()
@@ -477,11 +487,9 @@ func paint_all() -> void:
 		for ox in range(b.position.x, b.end.x):
 			paint_cell(Vector2i(ox, oy))
 
-	# 모아둔 좌표를 터레인 솔버에 한 번에 넘긴다.
-	# 셀마다 이웃 제약을 풀기 때문에 set_cell()보다 훨씬 비싸다 — 반드시 일괄 호출.
-	land.set_cells_terrain_connect(dirt_cells, TERRAIN_SET, TERRAIN_DIRT, false)
-	walk.set_cells_terrain_connect(walk_cells, TERRAIN_SET, TERRAIN_CONCRETE, false)
-	road.set_cells_terrain_connect(road_cells, TERRAIN_SET, TERRAIN_ASPHALT, false)
+	fill_terrain(land, dirt_cells, TERRAIN_DIRT)
+	fill_terrain(walk, walk_cells, TERRAIN_CONCRETE)
+	fill_terrain(road, road_cells, TERRAIN_ASPHALT)
 
 	# 페인팅 결과를 그대로 점유 맵에 굽는다. 따로 순회할 이유가 없다.
 	occ_mark(walk_cells, Occ.WALK)
@@ -495,6 +503,65 @@ func paint_all() -> void:
 		road.set_cell(base + Vector2i(h, h - 1), SRC, T_MANHOLE[1])
 		road.set_cell(base + Vector2i(h - 1, h), SRC, T_MANHOLE[2])
 		road.set_cell(base + Vector2i(h, h), SRC, T_MANHOLE[3])
+
+
+# ──────────────────────────────────────────────────────────────
+# 터레인 채우기 — 경계만 솔버, 안쪽은 중앙 타일 직접 찍기
+# ──────────────────────────────────────────────────────────────
+func bake_center_tiles() -> void:
+	center_tiles.clear()
+	var ts := land.tile_set
+	for si in ts.get_source_count():
+		var sid := ts.get_source_id(si)
+		var atlas := ts.get_source(sid) as TileSetAtlasSource
+		if atlas == null:
+			continue
+		for ti in atlas.get_tiles_count():
+			var coords := atlas.get_tile_id(ti)
+			var td := atlas.get_tile_data(coords, 0)
+			if td == null or td.terrain_set != TERRAIN_SET or td.terrain < 0:
+				continue
+			var is_center := true
+			for bit: int in SIDE_BITS:
+				if td.get_terrain_peering_bit(bit) != td.terrain:
+					is_center = false
+					break
+			if not is_center:
+				continue
+			if not center_tiles.has(td.terrain):
+				center_tiles[td.terrain] = []
+			(center_tiles[td.terrain] as Array).append(Vector3i(sid, coords.x, coords.y))
+
+
+func fill_terrain(layer: TileMapLayer, cells: Array[Vector2i], terrain: int) -> void:
+	var centers: Array = center_tiles.get(terrain, [])
+	if centers.is_empty():
+		layer.set_cells_terrain_connect(cells, TERRAIN_SET, terrain, false)
+		return
+
+	paint_mask.resize(TILES * TILES)
+	paint_mask.fill(0)
+	for c: Vector2i in cells:
+		if c.x >= 0 and c.y >= 0 and c.x < TILES and c.y < TILES:
+			paint_mask[c.y * TILES + c.x] = 1
+
+	var _m0 := Time.get_ticks_msec()
+	var n := centers.size()
+	var border: Array[Vector2i] = []
+	for c: Vector2i in cells:
+		if c.x <= 0 or c.y <= 0 or c.x >= TILES - 1 or c.y >= TILES - 1:
+			border.append(c)
+			continue
+		var i := c.y * TILES + c.x
+		if paint_mask[i - 1] == 0 or paint_mask[i + 1] == 0 				or paint_mask[i - TILES] == 0 or paint_mask[i + TILES] == 0:
+			border.append(c)
+			continue
+		var t: Vector3i = centers[tile_rng.randi() % n]
+		layer.set_cell(c, t.x, Vector2i(t.y, t.z))
+
+	var _m1 := Time.get_ticks_msec()
+	layer.set_cells_terrain_connect(border, TERRAIN_SET, terrain, false)
+	print("[fill] %s cells=%d border=%d inner=%dms solver=%dms" % [layer.name, cells.size(), border.size(), _m1-_m0, Time.get_ticks_msec()-_m1])
 
 
 # ──────────────────────────────────────────────────────────────

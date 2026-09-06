@@ -12,4 +12,4 @@ extends LevelLayer
 
 
 func _init() -> void:
-	layer_id = &"buildables"
+	layer_id = &"placeables"

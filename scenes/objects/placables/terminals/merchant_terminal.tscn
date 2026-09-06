@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://m70mkxtn3dt5"]
 
-[ext_resource type="Resource" uid="uid://bch5t2qw8n1kd" path="res://scripts/resources/buildables/chest.tres" id="0_item"]
-[ext_resource type="Resource" uid="uid://ck8n2vqx1bldr" path="res://scripts/resources/buildables/container.tres" id="1_item"]
+[ext_resource type="Resource" uid="uid://bch5t2qw8n1kd" path="res://scripts/resources/placeables/chest.tres" id="0_item"]
+[ext_resource type="Resource" uid="uid://ck8n2vqx1bldr" path="res://scripts/resources/placeables/container.tres" id="1_item"]
 [ext_resource type="Texture2D" uid="uid://cgqkg1g5et36e" path="res://assets/apo/32x32_buildings_furnitures.png" id="1_n1h1u"]
 [ext_resource type="Script" uid="uid://7mcjkarrr3ls" path="res://scenes/objects/placables/terminals/merchant_terminal.gd" id="2_1dn1k"]
-[ext_resource type="Resource" uid="uid://bt7rqf3kx2moa" path="res://scripts/resources/buildables/fire_trash_can.tres" id="2_item"]
+[ext_resource type="Resource" uid="uid://bt7rqf3kx2moa" path="res://scripts/resources/placeables/fire_trash_can.tres" id="2_item"]
 [ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/item.gd" id="3_g7ipn"]
 [ext_resource type="Resource" uid="uid://dqk5v8n3wpyt2" path="res://scripts/resources/consumables/apple.tres" id="3_item"]
 [ext_resource type="PackedScene" uid="uid://b17pqg2t34n5v" path="res://scenes/components/container_inventory_component.tscn" id="3_rmklh"]

@@ -2,9 +2,9 @@
 
 [ext_resource type="TileSet" uid="uid://dkw01fa84lera" path="res://tilesets/city_ruin.tres" id="1_newp8"]
 [ext_resource type="PackedScene" uid="uid://boxnoddybhkgt" path="res://scenes/objects/pickables/containers/chest.tscn" id="2_if212"]
-[ext_resource type="PackedScene" uid="uid://b1r1piv7rhuop" path="res://scenes/objects/pickables/buildables/bed.tscn" id="3_vgjsd"]
-[ext_resource type="PackedScene" uid="uid://d0jwliwel36al" path="res://scenes/objects/pickables/buildables/fire_trash_can.tscn" id="4_11752"]
-[ext_resource type="PackedScene" uid="uid://hw03yyvlo6vg" path="res://scenes/objects/pickables/buildables/door.tscn" id="5_vgjsd"]
+[ext_resource type="PackedScene" uid="uid://b1r1piv7rhuop" path="res://scenes/objects/pickables/placeables/bed.tscn" id="3_vgjsd"]
+[ext_resource type="PackedScene" uid="uid://d0jwliwel36al" path="res://scenes/objects/pickables/placeables/fire_trash_can.tscn" id="4_11752"]
+[ext_resource type="PackedScene" uid="uid://hw03yyvlo6vg" path="res://scenes/objects/pickables/placeables/door.tscn" id="5_vgjsd"]
 
 [node name="Building_Inside_1" type="Node2D" unique_id=2008763867]
 

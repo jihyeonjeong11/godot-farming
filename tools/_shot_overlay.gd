@@ -13,11 +13,11 @@ func _ready() -> void:
 	await _wait(0.3)
 
 	for i in 3:
-		Inventory.add_item(ITEMS[i])
+		Inventory.add_item(ItemStack.new(ITEMS[i], 1))
 		await _wait(0.35)
 	await _shot("stack_3")
 
-	Inventory.add_item(ITEMS[3])
+	Inventory.add_item(ItemStack.new(ITEMS[3], 1))
 	await _wait(0.35)
 	await _shot("stack_overflow")
 

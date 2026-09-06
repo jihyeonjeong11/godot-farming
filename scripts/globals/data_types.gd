@@ -36,7 +36,7 @@ enum ItemType {
 	Seeds,      # 3
 	Tool,       # 4  tool_type 을 가진 도구
 	Material,   # 5  제작 재료 (옛 "material" + "resource")
-	Buildable,  # 6  땅에 세우는 것
+	Placeable,  # 6  땅에 놓는 것 (모닥불·가구 등)
 	Wearable,   # 7  입는 것
 	Melee,      # 8  근접 무기
 }
@@ -48,7 +48,7 @@ static func item_type_label(type: ItemType) -> String:
 		ItemType.Seeds: return "seeds"
 		ItemType.Tool: return "tool"
 		ItemType.Material: return "material"
-		ItemType.Buildable: return "buildable"
+		ItemType.Placeable: return "placeable"
 		ItemType.Wearable: return "wearable"
 		ItemType.Melee: return "melee"
 	return ""

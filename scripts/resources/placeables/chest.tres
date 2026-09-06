@@ -15,6 +15,6 @@ item_name = "chest"
 item_texture = SubResource("AtlasTexture_chest")
 description = "물건을 넣어두는 궤. 땅에 놓고 우클릭하면 열린다. 비어 있을 때만 다시 들 수 있다."
 max_stack = 99
-buildable_scene_path = "uid://boxnoddybhkgt"
+placeable_scene_path = "uid://boxnoddybhkgt"
 world_scene_path = "uid://cb65olukse4yu"
 metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

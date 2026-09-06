@@ -62,6 +62,9 @@ func _build_inventory_cells() -> void:
 		cell.source = Inventory.inventory
 		# 아이템 그림은 26px 칸보다 큰 것이 많다. 눌러 담지 않으면 옆 칸까지 넘어간다.
 		cell.expand_icon = true
+		cell.draggable = false
+		cell.pressed.connect(on_bag_pressed.bind(i))
+		cell.right_pressed.connect(on_bag_pressed.bind(i, true))
 		inventory_grid.add_child(cell)
 		_inventory_cells.append(cell)
 
@@ -80,8 +83,30 @@ func _rebuild() -> void:
 		var cell: InventorySlot = INVENTORY_SLOT.instantiate()
 		cell.name = "Slot%d" % i
 		cell.slot_index = i
-		# 이 칸이 가방이 아니라 상자를 보게 한다. 끌어 옮길 때 출처가 된다.
 		cell.source = slots
 		cell.expand_icon = true
+		cell.draggable = false
+		cell.pressed.connect(on_container_pressed.bind(i))
+		cell.right_pressed.connect(on_container_pressed.bind(i, true))
 		grid.add_child(cell)
 		_cells.append(cell)
+
+
+func on_bag_pressed(index: int, half: bool = false) -> void:
+	_move(Inventory.inventory, index, slots, half)
+
+
+func on_container_pressed(index: int, half: bool = false) -> void:
+	_move(slots, index, Inventory.inventory, half)
+
+
+func _move(from: Array, index: int, to: Array, half: bool) -> void:
+	var stack: ItemStack = from[index] if index >= 0 and index < from.size() else null
+	if stack == null or not stack.is_valid():
+		return
+
+	var count: int = ceili(stack.amount / 2.0) if half else stack.amount
+	if Inventory.transfer_stack(from, index, to, count) <= 0:
+		return
+
+	Inventory.inventory_updated.emit()

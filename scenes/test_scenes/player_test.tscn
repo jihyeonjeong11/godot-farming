@@ -21,7 +21,7 @@
 [ext_resource type="Resource" uid="uid://b7ncxvq4td2ma" path="res://scripts/resources/seeds/corn_seeds.tres" id="17_corn"]
 [ext_resource type="Resource" uid="uid://s3ye070bqhv3" path="res://scripts/resources/seeds/carrot_seeds.tres" id="18_carrot"]
 [ext_resource type="Resource" uid="uid://cn8vrpxa2yl4e" path="res://scripts/resources/seeds/potato_seeds.tres" id="19_potato"]
-[ext_resource type="Script" uid="uid://vdfoocwoprvh" path="res://scenes/components/persistent/level_buildables.gd" id="21_bldbl"]
+[ext_resource type="Script" uid="uid://vdfoocwoprvh" path="res://scenes/components/persistent/level_placeables.gd" id="21_bldbl"]
 [ext_resource type="PackedScene" uid="uid://y27b0nq34315" path="res://scenes/components/portal_component.tscn" id="24_luow7"]
 [ext_resource type="Script" uid="uid://123k15c3oq0r" path="res://scenes/components/persistent/level_nature.gd" id="24_nature"]
 [ext_resource type="Script" uid="uid://dq3m8sf1nybr7" path="res://scenes/components/persistent/level_crops.gd" id="25_crops"]
@@ -90,14 +90,14 @@ script = ExtResource("24_nature")
 y_sort_enabled = true
 script = ExtResource("11_objs")
 
-[node name="Buildables" type="Node2D" parent="GameTileMap" unique_id=79467844]
+[node name="LevelPlaceables" type="Node2D" parent="GameTileMap" unique_id=79467844]
 y_sort_enabled = true
 script = ExtResource("21_bldbl")
 
-[node name="MerchantTerminal" parent="GameTileMap/Buildables" unique_id=720967649 instance=ExtResource("11_eywrv")]
+[node name="MerchantTerminal" parent="GameTileMap/LevelPlaceables" unique_id=720967649 instance=ExtResource("11_eywrv")]
 position = Vector2(111, 139)
 
-[node name="Container" parent="GameTileMap/Buildables" unique_id=401607489 instance=ExtResource("6_2dh05")]
+[node name="Container" parent="GameTileMap/LevelPlaceables" unique_id=401607489 instance=ExtResource("6_2dh05")]
 position = Vector2(407, 297)
 initial_items = Array[ExtResource("8_q27ys")]([ExtResource("12_axe"), ExtResource("13_hoe"), ExtResource("14_pick"), ExtResource("15_can"), ExtResource("16_bat"), ExtResource("16_sword"), ExtResource("19_potato"), ExtResource("17_corn"), ExtResource("18_carrot")])
 initial_amounts = Array[int]([1, 1, 1, 1, 1, 5, 5, 5])

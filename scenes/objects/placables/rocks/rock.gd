@@ -30,6 +30,6 @@ func on_max_damage_reached() -> void:
 func add_stone_scene() -> void:
 	var stone_instance := ITEM_STACK_INSTANCE.instantiate() as ItemStackInstance
 	# add_child가 _ready를 돌리므로 그 전에 무엇인지 알려준다.
-	stone_instance.stack = ItemStack.new(drop_item, 1)
+	stone_instance.stack = ItemStack.new(drop_item, 5)
 	get_parent().add_child(stone_instance)
 	stone_instance.global_position = global_position

@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+const INVENTORY_SLOT = preload("uid://byt1lfm4vsyc4")
+
 @onready var menu_panel: MarginContainer = $MarginContainer
 @onready var settings_panel: Control = $Settings
 
@@ -9,7 +11,6 @@ extends CanvasLayer
 @onready var craft_info: Label = %CraftInfo
 @onready var stats_info: Label = %StatsInfo
 
-## 탭 버튼과 패널은 순서로 짝을 맞춘다. 둘 다 같은 순서로 채운다.
 @onready var tab_buttons: Array[Button] = [
 	%InventoryTab, %CraftingTab, %StatsTab, %SettingsTab
 ]
@@ -20,15 +21,12 @@ extends CanvasLayer
 @onready var options_button: Button = %OptionsButton
 @onready var quit_button: Button = %QuitButton
 
-const INVENTORY_SLOT = preload("uid://byt1lfm4vsyc4")
-
-
-@export var recipes: Array[CraftRecipe] = []
-
+var recipes: Array[CraftRecipe] = []
 var slots: Array[InventorySlot] = []
 var craft_slots: Array[InventorySlot] = []
 var focused_slot_index: int = -1
 var focused_recipe_index: int = -1
+
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_WHEN_PAUSED
@@ -44,6 +42,7 @@ func _ready() -> void:
 	options_button.pressed.connect(on_settings_pressed)
 	quit_button.pressed.connect(on_quit_pressed)
 
+	recipes = RecipeDB.all()
 	build_inventory_grid()
 	build_craft_grid()
 
@@ -52,7 +51,6 @@ func _ready() -> void:
 	refresh()
 
 
-## 누른 탭만 남기고 나머지는 접는다. 버튼은 ButtonGroup이 알아서 하나만 눌린 상태로 만든다.
 func show_tab(index: int) -> void:
 	for i in tab_panels.size():
 		tab_panels[i].visible = i == index
@@ -74,7 +72,6 @@ func build_inventory_grid() -> void:
 		slot.name = "Slot%d" % i
 		slot.slot_index = i
 		slot.source = Inventory.inventory
-		# 아이템 그림은 26px 칸보다 큰 것이 많다. 눌러 담지 않으면 옆 칸까지 넘어간다.
 		slot.expand_icon = true
 		slot.pressed.connect(on_slot_pressed.bind(i))
 		slot.right_pressed.connect(on_slot_right_pressed.bind(i))
@@ -82,8 +79,6 @@ func build_inventory_grid() -> void:
 		slots.append(slot)
 
 
-## 조합 칸도 같은 슬롯 씬을 쓴다. 다만 인벤토리 칸이 아니라서 끌어봐야 옮길 곳이 없다.
-## draggable 을 끄면 InventorySlot 이 드래그도 드롭도 거부한다.
 func build_craft_grid() -> void:
 	for child in craft_grid.get_children():
 		craft_grid.remove_child(child)
@@ -92,21 +87,24 @@ func build_craft_grid() -> void:
 
 	for i in recipes.size():
 		var recipe := recipes[i]
-		if recipe == null or recipe.result == null:
+		if recipe == null:
+			continue
+
+		var result := recipe.result_item()
+		if result == null:
 			continue
 
 		var slot: InventorySlot = INVENTORY_SLOT.instantiate()
 		slot.name = "Craft%d" % i
 		slot.slot_index = i
 		slot.draggable = false
-		# 결과물 텍스처는 크기가 제각각이다. 눌러 담지 않으면 큰 그림 하나가 줄 높이를 다 먹는다.
 		slot.expand_icon = true
 		slot.pressed.connect(on_craft_pressed.bind(i))
 		slot.mouse_entered.connect(on_craft_hovered.bind(i))
 		craft_grid.add_child(slot)
 		craft_slots.append(slot)
 
-		slot.set_slot(ItemStack.new(recipe.result, recipe.result_amount))
+		slot.set_slot(ItemStack.new(result, recipe.result_amount))
 
 
 func on_slot_pressed(index: int) -> void:
@@ -115,6 +113,7 @@ func on_slot_pressed(index: int) -> void:
 	else:
 		focused_slot_index = index
 	refresh()
+
 
 func on_slot_right_pressed(index: int) -> void:
 	Inventory.drop_item(index)
@@ -149,7 +148,6 @@ func refresh() -> void:
 	refresh_craft()
 
 
-## 못 만드는 조합법도 흐리게 남겨둔다. 목록에서 빼버리면 뭘 모아야 하는지 알 수 없다.
 func refresh_craft() -> void:
 	for slot in craft_slots:
 		var recipe := recipes[slot.slot_index]
@@ -167,7 +165,6 @@ func refresh_craft_info() -> void:
 	craft_info.text = recipes[focused_recipe_index].describe()
 
 
-## 플레이어를 그룹에서 찾아 그때그때 읽는다. 창을 열 때만 보므로 신호를 걸어둘 필요가 없다.
 func refresh_stats() -> void:
 	var player := get_tree().get_first_node_in_group("player")
 	if player == null or not ("stats" in player):

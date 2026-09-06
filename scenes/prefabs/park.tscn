@@ -22,7 +22,7 @@ tile_set = ExtResource("1_tiles")
 y_sort_enabled = true
 
 [node name="OakTree" parent="Objects" instance=ExtResource("2_oak")]
-position = Vector2(151, 339)
+position = Vector2(94, 178)
 
 [node name="AppleTree1" parent="Objects" instance=ExtResource("3_apple")]
 position = Vector2(390, 150)

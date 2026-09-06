@@ -3,7 +3,7 @@ extends Node
 
 const SCENE_OVERAY = preload("uid://cgv3nwfyr3n17")
 const SCENE_OVERLAY_MENU = preload("uid://6jsgfc4dh1hr")
-const SCENE_INGAME_OVERLAY_MENU = preload("uid://dncd82n2y0aas")
+const SCENE_INGAME_OVERLAY_MENU = preload("uid://be5ayk7yu0e7k")
 const SCENE_CONTAINER_INVENTORY_UI = preload("uid://b7xqk2mcnv0ug")
 const SHOP_UI = preload("uid://cdnvo7ichp0x8")
 

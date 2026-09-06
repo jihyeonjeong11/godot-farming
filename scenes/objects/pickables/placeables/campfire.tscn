@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://cmp4fr3bqx7ne"]
+
+[ext_resource type="Texture2D" uid="uid://cd4sr74a3nt6m" path="res://assets/apo/anims/32x32_bonfire.png" id="1_tex"]
+[ext_resource type="Script" uid="uid://7wrccrmc410y" path="res://scenes/objects/pickables/placeables/campfire.gd" id="2_script"]
+[ext_resource type="Resource" uid="uid://b8kcmpfr2wq1d" path="res://scripts/resources/placeables/campfire.tres" id="3_item"]
+[ext_resource type="PackedScene" uid="uid://bwn5t2ejgp0hr" path="res://scenes/components/hurt_component.tscn" id="4_hurt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cf0"]
+atlas = ExtResource("1_tex")
+region = Rect2(0, 0, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cf1"]
+atlas = ExtResource("1_tex")
+region = Rect2(64, 0, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cf2"]
+atlas = ExtResource("1_tex")
+region = Rect2(128, 0, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cf3"]
+atlas = ExtResource("1_tex")
+region = Rect2(192, 0, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cf4"]
+atlas = ExtResource("1_tex")
+region = Rect2(0, 96, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cf5"]
+atlas = ExtResource("1_tex")
+region = Rect2(64, 96, 64, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_campfire"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cf0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cf1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cf2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cf3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cf4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cf5")
+}],
+"loop": 1,
+"name": &"burn",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
+size = Vector2(52, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hurt"]
+size = Vector2(56, 46)
+
+[node name="Campfire" type="AnimatedSprite2D" unique_id=1654925413 groups=["interactables"]]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_campfire")
+animation = &"burn"
+autoplay = "burn"
+centered = false
+offset = Vector2(-32, -96)
+script = ExtResource("2_script")
+dropped_item = ExtResource("3_item")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1055148402]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2019641783]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_body")
+
+[node name="HurtComponent" parent="." unique_id=1263867338 instance=ExtResource("4_hurt")]
+tool = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent" unique_id=736488179]
+position = Vector2(0, -28)
+shape = SubResource("RectangleShape2D_hurt")

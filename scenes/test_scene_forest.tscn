@@ -12,8 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://ts47olgc55kh" path="res://scenes/components/crops_cursor_component.tscn" id="14_in03s"]
 [ext_resource type="PackedScene" uid="uid://c5e10kwwdcap1" path="res://scenes/components/field_cursor_component.tscn" id="23_cckqj"]
 [ext_resource type="PackedScene" uid="uid://dile8iqj8hrux" path="res://scenes/objects/pickables/containers/container.tscn" id="24_cntnr"]
-[ext_resource type="PackedScene" uid="uid://co1flbsq0iwon" path="res://scenes/components/buildable_cursor_component.tscn" id="25_bldcr"]
-[ext_resource type="Script" uid="uid://vdfoocwoprvh" path="res://scenes/components/persistent/level_buildables.gd" id="27_bldbl"]
+[ext_resource type="PackedScene" uid="uid://co1flbsq0iwon" path="res://scenes/components/placeable_cursor_component.tscn" id="25_bldcr"]
+[ext_resource type="Script" uid="uid://vdfoocwoprvh" path="res://scenes/components/persistent/level_placeables.gd" id="27_bldbl"]
 
 [node name="TestSceneForest" type="Node2D" unique_id=695838568]
 y_sort_enabled = true
@@ -56,11 +56,11 @@ tile_map_data = PackedByteArray("AAAWABAAAAAPAAcAAAAWABEAAAARAAoAAAAWABIAAAARAAo
 tile_set = ExtResource("2_oidve")
 script = ExtResource("1_soils")
 
-[node name="Buildables" type="Node2D" parent="GameTileMap" unique_id=79467843]
+[node name="LevelPlaceables" type="Node2D" parent="GameTileMap" unique_id=79467843]
 y_sort_enabled = true
 script = ExtResource("27_bldbl")
 
-[node name="Container" parent="GameTileMap/Buildables" unique_id=401607490 instance=ExtResource("24_cntnr")]
+[node name="Container" parent="GameTileMap/LevelPlaceables" unique_id=401607490 instance=ExtResource("24_cntnr")]
 position = Vector2(360, 200)
 
 [node name="FieldCursorComponent" parent="." unique_id=1217772296 node_paths=PackedStringArray("grass_tilemap_layer", "tilled_soil_tilemap_layer") instance=ExtResource("23_cckqj")]
@@ -71,9 +71,9 @@ tilled_soil_tilemap_layer = NodePath("../GameTileMap/TilledSoil")
 tilled_soil_tilemap_layer = NodePath("../GameTileMap/TilledSoil")
 crops_layer = NodePath("../GameTileMap/LevelCrops")
 
-[node name="BuildableCursorComponent" parent="." unique_id=1217772297 node_paths=PackedStringArray("grass_tilemap_layer", "buildables_layer") instance=ExtResource("25_bldcr")]
+[node name="PlaceableCursorComponent" parent="." unique_id=1217772297 node_paths=PackedStringArray("grass_tilemap_layer", "placeables_layer") instance=ExtResource("25_bldcr")]
 grass_tilemap_layer = NodePath("../GameTileMap/Floors")
-buildables_layer = NodePath("../GameTileMap/Buildables")
+placeables_layer = NodePath("../GameTileMap/LevelPlaceables")
 
 [node name="Player" parent="." unique_id=940443478 instance=ExtResource("5_i0cr0")]
 position = Vector2(317, 157)

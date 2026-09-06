@@ -135,7 +135,7 @@ func on_confirm() -> void:
 	for i in sell_slots.size():
 		if sell_slots[i] == null:
 			continue
-		_transfer(sell_slots, i, shop_slots, sell_slots[i].amount)
+		Inventory.transfer_stack(sell_slots, i, shop_slots, sell_slots[i].amount)
 
 	stats.gold += net
 	Inventory.inventory_updated.emit()
@@ -239,42 +239,12 @@ func _move(from: Array[ItemStack], index: int, to: Array[ItemStack], half: bool)
 		return
 
 	var count: int = ceili(stack.amount / 2.0) if half else 1
-	if _transfer(from, index, to, count) <= 0:
+	if Inventory.transfer_stack(from, index, to, count) <= 0:
 		return
 
 	if is_same(from, Inventory.inventory) or is_same(to, Inventory.inventory):
 		Inventory.inventory_updated.emit()
 	refresh()
-
-
-func _transfer(from: Array[ItemStack], index: int, to: Array[ItemStack], count: int) -> int:
-	var stack := from[index]
-	var moved := 0
-
-	while moved < count and stack.amount > 0 and _push(to, stack.item):
-		stack.amount -= 1
-		moved += 1
-
-	if stack.amount <= 0:
-		from[index] = null
-
-	return moved
-
-
-func _push(slots: Array[ItemStack], spec: Item) -> bool:
-	var incoming := ItemStack.new(spec, 1)
-
-	for stack in slots:
-		if stack != null and stack.can_stack(incoming):
-			stack.amount += 1
-			return true
-
-	var free := slots.find(null)
-	if free == -1:
-		return false
-
-	slots[free] = incoming
-	return true
 
 
 func _restore_table() -> void:
@@ -287,7 +257,7 @@ func _drain(from: Array[ItemStack], to: Array[ItemStack]) -> void:
 	for i in from.size():
 		if from[i] == null:
 			continue
-		_transfer(from, i, to, from[i].amount)
+		Inventory.transfer_stack(from, i, to, from[i].amount)
 
 
 func _make_cell(cell_name: String, index: int, source: Array, price_label: String) -> InventorySlot:

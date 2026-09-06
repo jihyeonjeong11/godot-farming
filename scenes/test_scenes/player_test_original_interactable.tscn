@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://dq3m8sf1nybr7" path="res://scenes/components/persistent/level_crops.gd" id="6_dr12x"]
 [ext_resource type="Script" uid="uid://123k15c3oq0r" path="res://scenes/components/persistent/level_nature.gd" id="7_u7a26"]
 [ext_resource type="Script" uid="uid://bjqk2jiorau6t" path="res://scenes/components/persistent/level_objects.gd" id="8_wv1wo"]
-[ext_resource type="Script" uid="uid://vdfoocwoprvh" path="res://scenes/components/persistent/level_buildables.gd" id="9_xnxxa"]
+[ext_resource type="Script" uid="uid://vdfoocwoprvh" path="res://scenes/components/persistent/level_placeables.gd" id="9_xnxxa"]
 [ext_resource type="PackedScene" uid="uid://dile8iqj8hrux" path="res://scenes/objects/pickables/containers/container.tscn" id="10_sm868"]
 [ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/item.gd" id="11_k7mw8"]
 [ext_resource type="Resource" uid="uid://iadbnqiiwu53" path="res://scripts/resources/tools/axe.tres" id="12_lqkyj"]
@@ -23,7 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://bmp8j4fwdkl82" path="res://scenes/characters/player/player.tscn" id="21_d5rbo"]
 [ext_resource type="PackedScene" uid="uid://c5e10kwwdcap1" path="res://scenes/components/field_cursor_component.tscn" id="22_rq7xq"]
 [ext_resource type="PackedScene" uid="uid://ts47olgc55kh" path="res://scenes/components/crops_cursor_component.tscn" id="23_7w4rg"]
-[ext_resource type="PackedScene" uid="uid://co1flbsq0iwon" path="res://scenes/components/buildable_cursor_component.tscn" id="24_jdr7e"]
+[ext_resource type="PackedScene" uid="uid://co1flbsq0iwon" path="res://scenes/components/placeable_cursor_component.tscn" id="24_jdr7e"]
 
 [node name="PlayerTestScene" type="Node2D" unique_id=695838568]
 y_sort_enabled = true
@@ -70,11 +70,11 @@ script = ExtResource("7_u7a26")
 y_sort_enabled = true
 script = ExtResource("8_wv1wo")
 
-[node name="Buildables" type="Node2D" parent="GameTileMap" unique_id=79467844]
+[node name="LevelPlaceables" type="Node2D" parent="GameTileMap" unique_id=79467844]
 y_sort_enabled = true
 script = ExtResource("9_xnxxa")
 
-[node name="Container" parent="GameTileMap/Buildables" unique_id=401607489 instance=ExtResource("10_sm868")]
+[node name="Container" parent="GameTileMap/LevelPlaceables" unique_id=401607489 instance=ExtResource("10_sm868")]
 position = Vector2(407, 297)
 initial_items = Array[ExtResource("11_k7mw8")]([ExtResource("12_lqkyj"), ExtResource("13_r1n3o"), ExtResource("14_abgmb"), ExtResource("15_vy426"), ExtResource("16_rh1rw"), ExtResource("17_i5lod"), ExtResource("18_4551l"), ExtResource("19_ww5jh"), ExtResource("20_x6i7f")])
 initial_amounts = Array[int]([1, 1, 1, 1, 1, 5, 5, 5])
@@ -90,6 +90,6 @@ tilled_soil_tilemap_layer = NodePath("../GameTileMap/TilledSoil")
 tilled_soil_tilemap_layer = NodePath("../GameTileMap/TilledSoil")
 crops_layer = NodePath("../GameTileMap/LevelCrops")
 
-[node name="BuildableCursorComponent" parent="." unique_id=1217772298 node_paths=PackedStringArray("grass_tilemap_layer", "buildables_layer") instance=ExtResource("24_jdr7e")]
+[node name="PlaceableCursorComponent" parent="." unique_id=1217772298 node_paths=PackedStringArray("grass_tilemap_layer", "placeables_layer") instance=ExtResource("24_jdr7e")]
 grass_tilemap_layer = NodePath("../GameTileMap/Floors")
-buildables_layer = NodePath("../GameTileMap/Buildables")
+placeables_layer = NodePath("../GameTileMap/LevelPlaceables")

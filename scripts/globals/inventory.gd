@@ -162,17 +162,57 @@ func has_room_for(item: Item, amount: int = 1) -> bool:
 	return false
 
 
-func can_craft(recipe: CraftRecipe) -> bool:
-	if recipe == null or recipe.result == null:
+func transfer_stack(from: Array, index: int, to: Array, count: int) -> int:
+	if index < 0 or index >= from.size():
+		return 0
+
+	var stack: ItemStack = from[index]
+	if stack == null or not stack.is_valid():
+		return 0
+
+	var moved := 0
+	while moved < count and stack.amount > 0 and push_stack(to, stack.item):
+		stack.amount -= 1
+		moved += 1
+
+	if stack.amount <= 0:
+		from[index] = null
+
+	return moved
+
+
+func push_stack(slots: Array, spec: Item) -> bool:
+	var incoming := ItemStack.new(spec, 1)
+
+	for stack in slots:
+		if stack != null and stack.can_stack(incoming):
+			stack.amount += 1
+			return true
+
+	var free := slots.find(null)
+	if free == -1:
 		return false
 
-	for need in recipe.ingredients:
-		if need == null or need.item == null:
+	slots[free] = incoming
+	return true
+
+
+func can_craft(recipe: CraftRecipe) -> bool:
+	if recipe == null:
+		return false
+
+	var result := recipe.result_item()
+	if result == null:
+		return false
+
+	for id in recipe.ingredients:
+		var need := ItemDB.get_item(id)
+		if need == null:
 			return false
-		if count_item(need.item) < need.amount:
+		if count_item(need) < recipe.ingredients[id]:
 			return false
 
-	return has_room_for(recipe.result, maxi(recipe.result_amount, 1))
+	return has_room_for(result, maxi(recipe.result_amount, 1))
 
 
 ## 재료를 깎고 결과물을 넣는다. 한 번이라도 모자라면 시작조차 하지 않는다.
@@ -180,10 +220,10 @@ func craft(recipe: CraftRecipe) -> bool:
 	if not can_craft(recipe):
 		return false
 
-	for need in recipe.ingredients:
-		consume_item(need.item, need.amount)
+	for id in recipe.ingredients:
+		consume_item(ItemDB.get_item(id), recipe.ingredients[id])
 
-	add_item(ItemStack.new(recipe.result, maxi(recipe.result_amount, 1)))
+	add_item(ItemStack.new(recipe.result_item(), maxi(recipe.result_amount, 1)))
 
 	inventory_updated.emit()
 	return true

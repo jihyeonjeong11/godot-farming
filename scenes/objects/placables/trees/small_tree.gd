@@ -29,6 +29,6 @@ func on_max_damage_reached() -> void:
 
 func add_log_scene() -> void:
 	var log_instance := ITEM_STACK_INSTANCE.instantiate() as ItemStackInstance
-	log_instance.stack = ItemStack.new(drop_item, 1)
+	log_instance.stack = ItemStack.new(drop_item, 5)
 	get_parent().add_child(log_instance)
 	log_instance.global_position = global_position

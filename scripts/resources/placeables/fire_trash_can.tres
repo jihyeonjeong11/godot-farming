@@ -15,6 +15,6 @@ item_name = "fire trash can"
 item_texture = SubResource("AtlasTexture_can")
 description = "불을 피우는 드럼통. 우클릭하면 켜고 끈다. 불이 꺼져 있을 때만 다시 들 수 있다."
 max_stack = 99
-buildable_scene_path = "uid://d0jwliwel36al"
+placeable_scene_path = "uid://d0jwliwel36al"
 world_scene_path = "uid://cb65olukse4yu"
 metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

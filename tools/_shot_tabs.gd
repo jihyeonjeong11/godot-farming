@@ -6,7 +6,7 @@
 ## /root 에서 노드로 꺼내 쓴다.
 extends SceneTree
 
-const SCENE := "res://scenes/ui/scene_ingame_overlay_menu.tscn"
+const SCENE := "res://scenes/ui/tabs/Tabs.tscn"
 
 var menu: CanvasLayer
 var out_dir := "res://"

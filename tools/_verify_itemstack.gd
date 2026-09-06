@@ -117,18 +117,17 @@ func _run() -> void:
 	print("--- 조합 ---")
 	_reset()
 	var recipe := CraftRecipe.new()
-	recipe.result = STONE
+	recipe.result_id = &"stone"
 	recipe.result_amount = 4
-	var need := CraftIngredient.new()
-	need.item = WOOD
-	need.amount = 6
-	recipe.ingredients = [need]
+	recipe.ingredients = {&"log": 6}
 	_check("재료 없으면 못 만든다", not Inventory.can_craft(recipe))
 	Inventory.add_item(ItemStack.new(WOOD.duplicate() as Item, 6))
 	_check("duplicate 재료로도 만들 수 있다", Inventory.can_craft(recipe))
 	_check("조합 성공", Inventory.craft(recipe))
 	_check("재료 6 소모", Inventory.count_item(WOOD) == 0, "log=%d" % Inventory.count_item(WOOD))
 	_check("결과 4개", Inventory.count_item(STONE) == 4, "stone=%d" % Inventory.count_item(STONE))
+
+	_verify_recipe_files()
 
 
 	print("--- 버리기: 칸 하나가 노드 하나로 ---")
@@ -161,3 +160,26 @@ func _run() -> void:
 	_reset()
 	Inventory.add_item(node.stack)
 	_check("한 뭉치로 되줍힌다", Inventory.count_item(WOOD) == 10, "count=%d" % Inventory.count_item(WOOD))
+
+
+## 재료를 문자열로 적으니 오타는 실행 전까지 조용하다. 여기서 한 번에 훑는다.
+func _verify_recipe_files() -> void:
+	const RECIPE_ROOT := "res://scripts/resources/recipes"
+
+	var dir := DirAccess.open(RECIPE_ROOT)
+	if dir == null:
+		_check("조합법 폴더", false, RECIPE_ROOT)
+		return
+
+	for file_name in dir.get_files():
+		var res_name := file_name.trim_suffix(".remap")
+		if not res_name.ends_with(".tres"):
+			continue
+
+		var recipe := load("%s/%s" % [RECIPE_ROOT, res_name]) as CraftRecipe
+		if recipe == null:
+			_check("조합법 로드: %s" % res_name, false)
+			continue
+
+		var problems := recipe.validate()
+		_check("조합법 id: %s" % res_name, problems.is_empty(), " / ".join(problems))

@@ -1,0 +1,113 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://casrvb22ybyc7"]
+
+[ext_resource type="Texture2D" uid="uid://ca2xqx1nr36yt" path="res://assets/effects/slash_back.png" id="1_back"]
+[ext_resource type="Texture2D" uid="uid://bttqgtbuij7pw" path="res://assets/effects/slash_front.png" id="1_front"]
+[ext_resource type="Texture2D" uid="uid://cievarvmkv21i" path="res://assets/effects/slash_left.png" id="1_left"]
+[ext_resource type="Texture2D" uid="uid://bbks136w6w165" path="res://assets/effects/slash_right.png" id="1_right"]
+
+[sub_resource type="AtlasTexture" id="AT_back_0"]
+atlas = ExtResource("1_back")
+region = Rect2(0, 0, 32, 40)
+
+[sub_resource type="AtlasTexture" id="AT_back_1"]
+atlas = ExtResource("1_back")
+region = Rect2(32, 0, 32, 40)
+
+[sub_resource type="AtlasTexture" id="AT_back_2"]
+atlas = ExtResource("1_back")
+region = Rect2(64, 0, 32, 40)
+
+[sub_resource type="AtlasTexture" id="AT_front_0"]
+atlas = ExtResource("1_front")
+region = Rect2(0, 0, 32, 39)
+
+[sub_resource type="AtlasTexture" id="AT_front_1"]
+atlas = ExtResource("1_front")
+region = Rect2(32, 0, 32, 39)
+
+[sub_resource type="AtlasTexture" id="AT_front_2"]
+atlas = ExtResource("1_front")
+region = Rect2(64, 0, 32, 39)
+
+[sub_resource type="AtlasTexture" id="AT_left_0"]
+atlas = ExtResource("1_left")
+region = Rect2(0, 0, 44, 32)
+
+[sub_resource type="AtlasTexture" id="AT_left_1"]
+atlas = ExtResource("1_left")
+region = Rect2(44, 0, 44, 32)
+
+[sub_resource type="AtlasTexture" id="AT_left_2"]
+atlas = ExtResource("1_left")
+region = Rect2(88, 0, 44, 32)
+
+[sub_resource type="AtlasTexture" id="AT_right_0"]
+atlas = ExtResource("1_right")
+region = Rect2(0, 0, 44, 32)
+
+[sub_resource type="AtlasTexture" id="AT_right_1"]
+atlas = ExtResource("1_right")
+region = Rect2(44, 0, 44, 32)
+
+[sub_resource type="AtlasTexture" id="AT_right_2"]
+atlas = ExtResource("1_right")
+region = Rect2(88, 0, 44, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AT_back_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AT_back_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AT_back_2")
+}],
+"loop": 0,
+"name": &"back",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AT_front_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AT_front_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AT_front_2")
+}],
+"loop": 0,
+"name": &"front",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AT_left_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AT_left_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AT_left_2")
+}],
+"loop": 0,
+"name": &"left",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AT_right_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AT_right_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AT_right_2")
+}],
+"loop": 0,
+"name": &"right",
+"speed": 12.0
+}]

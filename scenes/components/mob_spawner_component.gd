@@ -2,7 +2,7 @@ class_name MobSpawnerComponent
 extends Node2D
 
 @export var mob_scene: PackedScene
-@export var spawn_radius: float = 100.0
+@export var spawn_radius: float = 200.0
 @export var spawn_count: int = 1
 
 var heat_score: int = 0

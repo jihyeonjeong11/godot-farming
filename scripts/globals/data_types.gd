@@ -39,6 +39,7 @@ enum ItemType {
 	Placeable,  # 6  땅에 놓는 것 (모닥불·가구 등)
 	Wearable,   # 7  입는 것
 	Melee,      # 8  근접 무기
+	Ranged
 }
 
 static func item_type_label(type: ItemType) -> String:

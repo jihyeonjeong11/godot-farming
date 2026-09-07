@@ -44,7 +44,7 @@ offset = Vector2(0, -30)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=143008096]
 sprite_frames = ExtResource("1_frames")
-animation = &"thrust_back"
+animation = &"slash_back"
 offset = Vector2(0, -30)
 
 [node name="ToolFront" type="AnimatedSprite2D" parent="." unique_id=185958211]

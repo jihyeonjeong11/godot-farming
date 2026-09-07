@@ -24,6 +24,8 @@ const SFX_FOOTSTEP := "FOOTSTEP"
 const SFX_FOOTSTEP_GRASS := "FOOTSTEP_GRASS"
 const SFX_FOOTSTEP_CONCRETE := "FOOTSTEP_CONCRETE"
 const SFX_ITEM_PICKUP := "ITEM_PICKUP"
+const SFX_PISTOL_FIRE := "PISTOL_FIRE"
+const SFX_PISTOL_RELOAD := "PISTOL_RELOAD"
 
 const SOUND_EFFECTS := {
 	SFX_TREE_SHAKING: preload("uid://cf5dkduwvar7f"),
@@ -40,6 +42,8 @@ const SOUND_EFFECTS := {
 	SFX_FOOTSTEP_GRASS: preload("uid://d2ytgjedd650g"),  # footstep_grass.mp3
 	SFX_FOOTSTEP_CONCRETE: preload("uid://igeuw168phye"),  # footstep_concrete.mp3
 	SFX_ITEM_PICKUP: preload("uid://dtkma6bmtb12v"),  # bloop.mp3
+	SFX_PISTOL_FIRE: preload("uid://b4bramp10vmn1"),  # firing_pistol.mp3
+	SFX_PISTOL_RELOAD: preload("uid://d2joe0nck87kj"),  # reloading_pistol.mp3
 }
 
 const SFX_POOL_SIZE := 12

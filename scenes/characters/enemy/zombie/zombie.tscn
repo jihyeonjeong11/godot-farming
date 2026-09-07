@@ -1410,7 +1410,7 @@ stats = ExtResource("8_stats")
 
 [node name="DetectionComponent" parent="." unique_id=411700426 instance=ExtResource("12_detect")]
 min_detection_range = 8
-max_detection_range = 128
+max_detection_range = 250
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionComponent" unique_id=1393989046]
 shape = SubResource("CircleShape2D_detect")

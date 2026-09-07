@@ -19,7 +19,14 @@ const TOOL_ACTION := {
 	"hammer": "tool_hammer",
 	"fishing_rod": "tool_rod",
 	"whip": "tool_whip",
+	"range": "range"
 }
+
+const SLASH_EFFECT_SCENE := preload("res://scenes/effects/slash_effect.tscn")
+const BULLET_EFFECT_SCENE := preload("res://scenes/effects/bullet_effect.tscn")
+
+const MUZZLE_HEIGHT := -10.0
+const MUZZLE_OFFSET := 14.0
 
 const BLINK_LOOPS: int = 6
 const BLINK_STEP: float = 0.05
@@ -31,7 +38,6 @@ const TOOL_VISIBLE_ACTIONS: Array[String] = [
 	"tool_hammer",
 	"tool_rod",
 	"tool_whip",
-	"slash",
 ]
 
 const RUN_MULTIPLIER := 2
@@ -157,7 +163,9 @@ func apply_hitbox(item: Item) -> void:
 		return
 
 func _physics_process(_delta: float) -> void:
-	
+	if stats.stamina > stats.current_max_stamina:
+		stats.stamina += 1
+		
 	for key in TEST_KEYS:
 		_edge(key, TEST_KEYS[key])
 
@@ -208,12 +216,78 @@ func has_melee_shape() -> bool:
 
 func can_attack() -> bool:
 	var item: Item = Inventory.get_selected_item()
-	if item != null and item.item_type in [DataTypes.ItemType.Tool, DataTypes.ItemType.Seeds]:
+	if item != null and item.item_type in [DataTypes.ItemType.Tool, DataTypes.ItemType.Seeds, DataTypes.ItemType.Ranged]:
 		return true
 	return item != null and item.melee_shape != null
 	
 func attack_action() -> String:
-	return TOOL_ACTION.get(equipped_tool, "slash")
+	return TOOL_ACTION.get(equipped_tool, "")
+
+func has_action_clip(action: String) -> bool:
+	if action.is_empty() or sprite_layers.is_empty():
+		return false
+
+	var frames := sprite_layers[0].sprite_frames
+	if frames == null:
+		return false
+
+	var directional := "%s_%s" % [action, direction_component.get_suffix()]
+	return frames.has_animation(directional) or frames.has_animation(action)
+
+func is_ranged() -> bool:
+	var item: Item = Inventory.get_selected_item()
+	return item != null and item.tool_type == DataTypes.Tools.Ranged
+
+func fire_ranged() -> void:
+	var item: Item = Inventory.get_selected_item()
+	if item == null:
+		return
+
+	if item.current_ammo <= 0:
+		reload_ranged(item)
+		return
+
+	var muzzle := global_position + Vector2(0, MUZZLE_HEIGHT)
+	var aim := muzzle.direction_to(get_global_mouse_position())
+	if aim.is_zero_approx():
+		aim = direction_component.get_facing()
+
+	direction_component.set_facing(cardinal(aim))
+
+	var bullet := BULLET_EFFECT_SCENE.instantiate() as BulletEffect
+	get_parent().add_child(bullet)
+	bullet.global_position = global_position + aim * MUZZLE_OFFSET
+	bullet.shooter = self
+	bullet.launch(aim, item.melee_damage, item.melee_knockback)
+
+	item.current_ammo -= 1
+	Inventory.inventory_updated.emit()
+	SignalBus.sound_requested.emit(AudioManager.SFX_PISTOL_FIRE)
+
+func reload_ranged(item: Item) -> void:
+	item.current_ammo = item.max_ammo
+	Inventory.inventory_updated.emit()
+	SignalBus.sound_requested.emit(AudioManager.SFX_PISTOL_RELOAD)
+
+func cardinal(direction: Vector2) -> Vector2:
+	if absf(direction.x) >= absf(direction.y):
+		return Vector2.RIGHT if direction.x > 0.0 else Vector2.LEFT
+
+	return Vector2.DOWN if direction.y > 0.0 else Vector2.UP
+
+func is_melee_slash() -> bool:
+	return attack_action().is_empty() and has_melee_shape()
+
+
+func play_slash_effect(duration: float = 0.0) -> void:
+	var suffix := StringName(direction_component.get_suffix())
+	var effect := SLASH_EFFECT_SCENE.instantiate() as SlashEffect
+	add_child(effect)
+
+	if suffix == &"back":
+		move_child(effect, 0)
+
+	effect.play_direction(suffix, duration)
 
 func has_ammo() -> bool:
 	var item: Item = Inventory.get_selected_item()
@@ -275,7 +349,7 @@ func finish_tool_use() -> void:
 		return
 	SignalBus.tool_used.emit(item, global_position, get_global_mouse_position())
 
-	if item.max_ammo > 0:
+	if item.max_ammo > 0 and item.tool_type != DataTypes.Tools.Ranged:
 		if is_mouse_on_water():
 			item.current_ammo = item.max_ammo
 		else:

@@ -3,6 +3,6 @@
 [ext_resource type="Script" uid="uid://nkqqyjrlonco" path="res://scenes/components/mob_spawner_component.gd" id="1_spwn"]
 [ext_resource type="PackedScene" uid="uid://dogc4aluyci8r" path="res://scenes/characters/enemy/zombie/zombie.tscn" id="2_zmb"]
 
-[node name="MobSpawnerComponent" type="Node2D"]
+[node name="MobSpawnerComponent" type="Node2D" unique_id=1141814469]
 script = ExtResource("1_spwn")
 mob_scene = ExtResource("2_zmb")

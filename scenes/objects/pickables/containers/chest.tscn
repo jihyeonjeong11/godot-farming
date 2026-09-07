@@ -17,8 +17,8 @@ size = Vector2(42, 38)
 size = Vector2(40, 34)
 
 [node name="Chest" type="Sprite2D" unique_id=401607489 groups=["interactables"]]
-offset = Vector2(0, -21)
 texture = SubResource("AtlasTexture_tctrp")
+offset = Vector2(0, -21)
 script = ExtResource("2_kwr1m")
 dropped_item = ExtResource("3_mussn")
 
@@ -26,8 +26,8 @@ dropped_item = ExtResource("3_mussn")
 position = Vector2(0, -21)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=162178401]
-position = Vector2(0, -21)
 visible = false
+position = Vector2(0, -21)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2109676807]
 shape = SubResource("RectangleShape2D_4kxuq")

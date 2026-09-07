@@ -4,6 +4,7 @@
 [ext_resource type="TileSet" uid="uid://dkw01fa84lera" path="res://tilesets/city_ruin.tres" id="2_v2c2p"]
 [ext_resource type="PackedScene" uid="uid://bmp8j4fwdkl82" path="res://scenes/characters/player/player.tscn" id="3_player"]
 [ext_resource type="PackedScene" uid="uid://ccnxtlq1ru1pv" path="res://scenes/components/cursors/object_cursor_component.tscn" id="4_cursor"]
+[ext_resource type="PackedScene" uid="uid://c7mobspwnr01" path="res://scenes/components/mob_spawner_component.tscn" id="5_spawner"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_city"]
 vertices = PackedVector2Array(0, 0, 20480, 0, 20480, 20480, 0, 20480)
@@ -44,6 +45,8 @@ tile_set = ExtResource("2_v2c2p")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1517440240]
 navigation_polygon = SubResource("NavigationPolygon_city")
+
+[node name="MobSpawnerComponent" parent="." unique_id=1186729794 instance=ExtResource("5_spawner")]
 
 [node name="Player" parent="." unique_id=1080784849 instance=ExtResource("3_player")]
 

@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bwn5t2ejgp0hr" path="res://scenes/components/hurt_component.tscn" id="8_ykrpk"]
 [ext_resource type="PackedScene" uid="uid://0pe6fvow1o6b" path="res://scenes/components/hit_component.tscn" id="9_hit"]
 [ext_resource type="Script" uid="uid://xscrrqrdk8os" path="res://scenes/characters/player/states/attack_state.gd" id="11_attack"]
+[ext_resource type="Script" uid="uid://4bjocvfn4nqy" path="res://scenes/characters/player/states/die_state.gd" id="12_die"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_body"]
 radius = 8.0
@@ -101,4 +102,8 @@ player = NodePath("../..")
 
 [node name="Climb" type="Node" parent="StateMachine" unique_id=418016975 node_paths=PackedStringArray("player")]
 script = ExtResource("8_climb")
+player = NodePath("../..")
+
+[node name="Die" type="Node" parent="StateMachine" unique_id=771043982 node_paths=PackedStringArray("player")]
+script = ExtResource("12_die")
 player = NodePath("../..")

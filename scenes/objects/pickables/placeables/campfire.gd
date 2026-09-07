@@ -7,6 +7,7 @@ const ITEM_STACK_INSTANCE := preload("res://scenes/objects/pickables/item_stack_
 @onready var hurt_component: HurtComponent = $HurtComponent
 
 
+
 func _ready() -> void:
 	hurt_component.hurt.connect(on_hurt)
 

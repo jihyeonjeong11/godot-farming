@@ -21,6 +21,10 @@ const TOOL_ACTION := {
 	"whip": "tool_whip",
 }
 
+const BLINK_LOOPS: int = 6
+const BLINK_STEP: float = 0.05
+const BLINK_MIN_ALPHA: float = 0.2
+
 const TOOL_VISIBLE_ACTIONS: Array[String] = [
 	"thrust",
 	"tool_axe",
@@ -63,6 +67,7 @@ const GROUND_LAYERS: Array[String] = [
 @onready var hit_component: HitComponent = $HitComponent
 @onready var hit_shape: CollisionShape2D = $HitComponent/HitComponentShape2D
 @onready var hurt_component: HurtComponent = $HurtComponent
+@onready var hurt_shape: CollisionShape2D = $HurtComponent/CollisionShape2D
 
 ## Tilemap 밑에서 찾아낸 지형 레이어들. GROUND_LAYERS 순서를 그대로 따른다.
 var _ground_layers: Array[TileMapLayer] = []
@@ -76,6 +81,9 @@ var _held: Dictionary = {}
 var _just_pressed: Dictionary = {}
 
 var _drawn_tool: String = ""
+
+var is_invulnerable: bool = false
+var is_dead: bool = false
 
 var _current_action: String = "idle"
 var _current_duration: float = 0.0
@@ -98,7 +106,6 @@ func _ready() -> void:
 	Inventory.equipment_updated.connect(refresh_equipment_stats)
 	# 세이브에서 이미 입은 채로 들어올 수 있다. 신호를 기다리면 그건 반영되지 않는다.
 	refresh_equipment_stats()
-	
 
 func setup_stats() -> void:
 	if stats == null:
@@ -130,14 +137,12 @@ func refresh_equipment_stats() -> void:
 	stats.apply_equipment(bonus["defense"], bonus["speed"])
 
 
-## base_speed 대비 current_speed의 비율. 버프가 없으면 1.0.
 func speed_multiplier() -> float:
 	if stats == null or stats.base_speed <= 0:
 		return 1.0
 	return float(stats.current_speed) / float(stats.base_speed)
 
 
-## 이동에 실제로 쓰이는 속도. 스탯 버프까지 반영한 값.
 func get_move_speed(running: bool) -> float:
 	var base_move: int = stats.base_speed * RUN_MULTIPLIER if running else stats.base_speed
 	return base_move * speed_multiplier()
@@ -210,7 +215,6 @@ func can_attack() -> bool:
 func attack_action() -> String:
 	return TOOL_ACTION.get(equipped_tool, "slash")
 
-## 지금 든 것에 탄약 개념이 있나(물뿌리개 물통 같은).
 func has_ammo() -> bool:
 	var item: Item = Inventory.get_selected_item()
 	return item != null and item.max_ammo > 0
@@ -223,8 +227,6 @@ func is_mouse_on_water() -> bool:
 	var cell := water.local_to_map(water.get_local_mouse_position())
 	return water.get_cell_source_id(cell) != -1
 
-
-## 씬의 Tilemap 밑에서 지형 레이어를 모은다. 씬마다 구성이 달라서 있는 것만 챙긴다.
 func _collect_ground_layers() -> void:
 	_ground_layers.clear()
 
@@ -237,10 +239,6 @@ func _collect_ground_layers() -> void:
 		if layer != null and layer.tile_set != null:
 			_ground_layers.append(layer)
 
-
-## 발밑 칸의 terrain 이름. 위 레이어부터 훑어 처음 잡히는 지형을 쓴다 —
-## 인도 위에 도로가 겹쳐 깔린 칸이면 도로가 이긴다.
-## 레이어가 없거나(농장 밖) 지형이 안 칠해진 칸이면 TERRAIN_NONE.
 func get_terrain() -> StringName:
 	for layer in _ground_layers:
 		var data := layer.get_cell_tile_data(layer.local_to_map(layer.to_local(global_position)))
@@ -382,7 +380,48 @@ func is_action_playing() -> bool:
 	return not sprite_layers.is_empty() and sprite_layers[0].is_playing()
 
 func take_hit(hit_damage: int = 0) -> void:
+	if is_invulnerable or is_dead:
+		return
+
 	stats.health -= hit_damage
-	#todo: die animation
-	#if state_machine:
-		#state_machine.transition_to("Hurt")
+
+	if stats.health <= 0:
+		die()
+		return
+
+	await play_invulnerability()
+
+
+func play_invulnerability() -> void:
+	is_invulnerable = true
+	hurt_shape.set_deferred("disabled", true)
+
+	var tween := create_tween().set_loops(BLINK_LOOPS)
+	tween.tween_property(self, "modulate:a", BLINK_MIN_ALPHA, BLINK_STEP)
+	tween.tween_property(self, "modulate:a", 1.0, BLINK_STEP)
+	await tween.finished
+
+	modulate.a = 1.0
+
+	if is_dead:
+		return
+
+	hurt_shape.set_deferred("disabled", false)
+	is_invulnerable = false
+
+
+func die() -> void:
+	if is_dead:
+		return
+
+	is_dead = true
+	is_invulnerable = true
+	hurt_shape.set_deferred("disabled", true)
+	modulate.a = 1.0
+
+	if state_machine:
+		state_machine.transition_to("Die")
+	if not sprite_layers.is_empty() and sprite_layers[0].is_playing():
+		await sprite_layers[0].animation_finished
+	await ScreenFade.fade_out()
+	

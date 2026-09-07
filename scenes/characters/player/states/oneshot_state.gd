@@ -9,7 +9,6 @@ extends NodeState
 
 
 func _on_enter() -> void:
-	
 	player.play_action(action if not action.is_empty() else player.attack_action(), duration)
 
 

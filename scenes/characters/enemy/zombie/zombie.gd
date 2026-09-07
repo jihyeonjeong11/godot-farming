@@ -15,9 +15,7 @@ const ITEM_STACK_INSTANCE := preload("res://scenes/objects/pickables/item_stack_
 @export var min_walk_cycle: int = 2
 @export var max_walk_cycle: int = 6
 
-## 이 거리 안으로 붙으면 chase 가 attack 으로 넘긴다.
 @export var attack_range: float = 20.0
-## 한 번 휘두르고 다음 휘두르기까지 쉬는 시간.
 @export var attack_cooldown: float = 1.2
 
 var walk_cycles: int
@@ -41,7 +39,7 @@ func _ready() -> void:
 	stats = stats.duplicate()
 	stats.setup_stats()
 
-	hit_component.hit_damage = stats.current_attack
+	hit_component.hit_damage = 20
 	hurt_component.hurt.connect(on_hurt)
 	stats.health_depleted.connect(die)
 

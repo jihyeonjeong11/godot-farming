@@ -37,7 +37,7 @@ signal gold_changed(cur_gold: int)
 @export var base_max_health = 100
 @export var base_defense = 0
 @export var base_attack = 1
-@export var base_speed = 100
+@export var base_speed = 150
 @export var base_max_stamina = 100
 @export var base_max_hunger = 100
 @export var base_max_thirst = 100

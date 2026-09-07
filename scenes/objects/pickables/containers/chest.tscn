@@ -17,19 +17,23 @@ size = Vector2(42, 38)
 size = Vector2(40, 34)
 
 [node name="Chest" type="Sprite2D" unique_id=401607489 groups=["interactables"]]
+offset = Vector2(0, -21)
 texture = SubResource("AtlasTexture_tctrp")
 script = ExtResource("2_kwr1m")
 dropped_item = ExtResource("3_mussn")
 
 [node name="ContainerInventoryComponent" parent="." unique_id=1057856798 instance=ExtResource("3_ge2ct")]
+position = Vector2(0, -21)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=162178401]
+position = Vector2(0, -21)
 visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2109676807]
 shape = SubResource("RectangleShape2D_4kxuq")
 
 [node name="HurtComponent" parent="." unique_id=1533014795 instance=ExtResource("8_47xrw")]
+position = Vector2(0, -21)
 tool = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent" unique_id=1452397736]

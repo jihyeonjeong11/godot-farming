@@ -58,8 +58,6 @@ const GROUND_LAYERS: Array[String] = [
 @export var state_machine: NodeStateMachine
 @export var direction_component: CharacterDirectionComponent
 
-@export var walk_speed: int = 90
-
 @export var stats: BaseCharacterStats
 
 @onready var hit_component: HitComponent = $HitComponent
@@ -141,7 +139,7 @@ func speed_multiplier() -> float:
 
 ## 이동에 실제로 쓰이는 속도. 스탯 버프까지 반영한 값.
 func get_move_speed(running: bool) -> float:
-	var base_move: int = walk_speed * RUN_MULTIPLIER if running else walk_speed
+	var base_move: int = stats.base_speed * RUN_MULTIPLIER if running else stats.base_speed
 	return base_move * speed_multiplier()
 
 

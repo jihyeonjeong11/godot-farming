@@ -17,14 +17,14 @@ tile_map_data = PackedByteArray("AAAFAAcABAACAA0AAAAFAAgABAACAA4AAAAFAAkABAACAA8
 tile_set = ExtResource("1_newp8")
 
 [node name="Chest" parent="." unique_id=401607489 instance=ExtResource("2_if212")]
-position = Vector2(215, 117)
+position = Vector2(215, 138)
 
 [node name="Bed" parent="." unique_id=1824249774 instance=ExtResource("3_vgjsd")]
-position = Vector2(286, 190)
+position = Vector2(286, 181)
 
 [node name="FireTrashCan" parent="." unique_id=401521629 instance=ExtResource("4_11752")]
-position = Vector2(369, 123)
+position = Vector2(369, 170)
 
 [node name="Door" parent="." unique_id=561351757 instance=ExtResource("5_vgjsd")]
-position = Vector2(353, 349)
+position = Vector2(353, 357)
 target_scene = "uid://kqf460uvb87q"

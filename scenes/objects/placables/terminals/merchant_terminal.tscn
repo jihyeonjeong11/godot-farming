@@ -137,19 +137,22 @@ atlas = ExtResource("1_n1h1u")
 region = Rect2(3, 706, 60, 113)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4kxuq"]
-size = Vector2(56, 103)
+size = Vector2(56, 33)
 
 [node name="MerchantTerminal" type="Sprite2D" unique_id=720967649 groups=["interactables"]]
 texture = SubResource("AtlasTexture_i7oi7")
+offset = Vector2(0, -56.5)
 script = ExtResource("2_1dn1k")
 initial_items = Array[ExtResource("3_g7ipn")]([ExtResource("0_item"), ExtResource("1_item"), ExtResource("2_item"), ExtResource("3_item"), ExtResource("4_item"), ExtResource("5_item"), ExtResource("6_item"), ExtResource("7_item"), ExtResource("8_item"), ExtResource("9_item"), ExtResource("10_item"), ExtResource("11_item"), ExtResource("12_item"), ExtResource("13_item"), ExtResource("14_item"), ExtResource("15_item"), ExtResource("16_item"), ExtResource("17_item"), ExtResource("18_item"), ExtResource("19_item"), ExtResource("20_item"), ExtResource("21_item"), ExtResource("22_item"), ExtResource("23_item"), ExtResource("24_item"), ExtResource("25_item"), ExtResource("26_item"), ExtResource("27_item"), ExtResource("28_item"), ExtResource("29_item"), ExtResource("30_item"), ExtResource("31_item"), ExtResource("32_item"), ExtResource("33_item"), ExtResource("34_item"), ExtResource("35_item"), ExtResource("36_item"), ExtResource("37_item"), ExtResource("38_item"), ExtResource("39_item"), ExtResource("40_item"), ExtResource("41_item"), ExtResource("42_item"), ExtResource("43_item"), ExtResource("44_item"), ExtResource("45_item"), ExtResource("46_item"), ExtResource("47_item"), ExtResource("48_item"), ExtResource("49_item"), ExtResource("50_item"), ExtResource("51_item"), ExtResource("52_item"), ExtResource("53_item"), ExtResource("54_item"), ExtResource("55_item"), ExtResource("56_item"), ExtResource("57_item"), ExtResource("58_item"), ExtResource("59_item"), ExtResource("60_item"), ExtResource("61_item"), ExtResource("62_item"), ExtResource("63_item"), ExtResource("64_item"), ExtResource("65_item"), ExtResource("66_item"), ExtResource("67_item"), ExtResource("68_item"), ExtResource("69_item"), ExtResource("70_item"), ExtResource("71_item"), ExtResource("72_item"), ExtResource("73_item"), ExtResource("74_item"), ExtResource("75_item"), ExtResource("76_item"), ExtResource("77_item"), ExtResource("78_item"), ExtResource("79_item"), ExtResource("80_item"), ExtResource("81_item"), ExtResource("82_item"), ExtResource("83_item"), ExtResource("84_item"), ExtResource("85_item"), ExtResource("86_item"), ExtResource("87_item"), ExtResource("88_item"), ExtResource("89_item"), ExtResource("90_item"), ExtResource("91_item"), ExtResource("92_item"), ExtResource("93_item"), ExtResource("94_item"), ExtResource("95_item"), ExtResource("96_item"), ExtResource("97_item"), ExtResource("98_item"), ExtResource("99_item"), ExtResource("100_item"), ExtResource("101_item"), ExtResource("102_item"), ExtResource("103_item"), ExtResource("104_item"), ExtResource("105_item"), ExtResource("106_item"), ExtResource("107_item"), ExtResource("108_item"), ExtResource("109_item"), ExtResource("110_item"), ExtResource("111_item"), ExtResource("112_item"), ExtResource("113_item"), ExtResource("114_item"), ExtResource("115_item"), ExtResource("116_item"), ExtResource("117_item"), ExtResource("118_item"), ExtResource("119_item"), ExtResource("120_item"), ExtResource("121_item"), ExtResource("122_item"), ExtResource("123_item"), ExtResource("124_item"), ExtResource("125_item"), ExtResource("126_item")])
 initial_amounts = Array[int]([20, 10, 4, 24, 20, 18, 4, 17, 2, 3, 3, 11, 8, 2, 2, 20, 9, 3, 2, 8, 3, 8, 22, 12, 23, 20, 2, 5, 14, 2, 25, 23, 11, 5, 5, 2, 2, 2, 18, 14, 5, 2, 7, 3, 20, 2, 10, 5, 3, 1, 18, 4, 3, 9, 5, 10, 12, 12, 1, 18, 5, 2, 7, 2, 10, 10, 8, 10, 10, 10, 17, 7, 17, 16, 17, 14, 5, 2, 4, 2, 19, 5, 14, 4, 19, 23, 14, 9, 6, 23, 20, 15, 3, 11, 5, 2, 10, 2, 9, 3, 2, 2, 2, 25, 1, 3, 4, 2, 11, 5, 5, 22, 19, 11, 12, 18, 5, 10, 18, 1, 1, 1, 1, 1, 1, 1, 1])
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=564171742]
+position = Vector2(0, -56.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=525508054]
-position = Vector2(-1, 4)
+position = Vector2(-1, 39)
 shape = SubResource("RectangleShape2D_4kxuq")
 
 [node name="ContainerInventoryComponent" parent="." unique_id=1057856798 instance=ExtResource("3_rmklh")]
+position = Vector2(0, -56.5)
 slot_count = 127

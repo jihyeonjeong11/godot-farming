@@ -23,7 +23,7 @@ atlas = ExtResource("1_ihme7")
 region = Rect2(1444, 3, 57, 116)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
-size = Vector2(44, 50)
+size = Vector2(44, 21)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hrt01"]
 size = Vector2(48, 104)
@@ -75,10 +75,11 @@ drop_items = Array[ExtResource("8_items")]([ExtResource("6_canned"), ExtResource
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=372018803]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1511329244]
-position = Vector2(0, -25)
+position = Vector2(0, -10.5)
 shape = SubResource("RectangleShape2D_body")
 
 [node name="HurtComponent" parent="." unique_id=1533014796 instance=ExtResource("3_hurt")]
+visible = false
 tool = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent" unique_id=1793199481]

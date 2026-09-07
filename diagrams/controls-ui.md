@@ -1,3 +1,12 @@
+#### 우리 코드에 옮길 때 걸리는 것
+
+- 지금 우리 우클릭은 **버리기**(`scene_ingame_overlay_menu.gd:120`)인데 스듀에선 **한 개 집기**다.
+  커서 모델로 가면 버리기는 **메뉴 바깥 클릭**으로 옮겨가야 한다.
+- 스택 합치기가 우리에겐 없다. `inventory_slot.gd:66-68` 은 무조건 swap.
+- 커서 모델을 쓰면 드래그 콜백 3개(`inventory_slot.gd:34, 50, 54`)와 `draggable` 플래그,
+  `EquipmentSlot._can_drop_data` 상속이 전부 사라진다.
+- 아직 안 정함: 커서 모델로 갈아탈지, 드래그를 유지할지.
+
 ### 슬롯 컨트롤 — 스타듀밸리 조사 (2026-09-05)
 
 출처: [WeDias/StardewValley](https://github.com/WeDias/StardewValley) 디컴파일 1.5.6. 줄번호는 그 레포 기준.

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="PackedScene" uid="uid://c6oksipcp6e1x" path="res://scenes/objects/placables/crops/carrot/carrot.tscn" id="1_crop"]
+
+[node name="CarrotGrown" instance=ExtResource("1_crop")]
+
+[node name="GrowthCycleComponent" parent="."]
+current_growth_state = 4

@@ -37,9 +37,9 @@ position = Vector2(291, 259)
 position = Vector2(-2, 4)
 
 [node name="Bed" parent="." unique_id=1824249774 instance=ExtResource("5_bed")]
-position = Vector2(256, 160)
+position = Vector2(256, 151)
 
 [node name="Door" parent="." unique_id=561351757 instance=ExtResource("3_v16bj")]
-position = Vector2(290, 375)
+position = Vector2(290, 383)
 target_scene = "uid://b0kcgeo77475t"
 target_spawn = &"house_door"

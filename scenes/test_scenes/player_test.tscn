@@ -95,7 +95,7 @@ y_sort_enabled = true
 script = ExtResource("21_bldbl")
 
 [node name="MerchantTerminal" parent="GameTileMap/LevelPlaceables" unique_id=720967649 instance=ExtResource("11_eywrv")]
-position = Vector2(111, 139)
+position = Vector2(111, 195.5)
 
 [node name="Container" parent="GameTileMap/LevelPlaceables" unique_id=401607489 instance=ExtResource("6_2dh05")]
 position = Vector2(407, 297)

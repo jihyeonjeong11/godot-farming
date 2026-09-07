@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="PackedScene" uid="uid://dpw8u7j2bijii" path="res://scenes/objects/placables/crops/wheat/wheat.tscn" id="1_crop"]
+
+[node name="WheatGrown" instance=ExtResource("1_crop")]
+
+[node name="GrowthCycleComponent" parent="."]
+current_growth_state = 4

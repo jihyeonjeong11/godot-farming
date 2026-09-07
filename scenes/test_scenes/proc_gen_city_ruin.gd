@@ -63,7 +63,7 @@ const DIR_VEC: Array[Vector2i] = [Vector2i(0, -1), Vector2i(1, 0), Vector2i(0, 1
 # ──────────────────────────────────────────────────────────────
 # 건물 — overmap_city.cpp:235 / :281
 # ──────────────────────────────────────────────────────────────
-enum Kind { HOUSE, SHOP, PARK }
+enum Kind { HOUSE, SHOP, PARK, FIELD }
 
 ## 필지 안에서 건물을 도로쪽 변에 붙일 때 남기는 앞마당 칸수.
 const SETBACK := 2
@@ -74,6 +74,11 @@ const SHOP_RADIUS := 30
 const SHOP_SIGMA := 20
 const PARK_RADIUS := 30
 const PARK_SIGMA := 100 - PARK_RADIUS
+
+## 도심다움. 중심이 1, city_size 만큼 떨어진 외곽이 0이다. town_dist 와 같은 축을 뒤집은 것.
+## 밭은 이 값이 낮은 데서만 나오고, 바깥으로 갈수록 확률이 오른다.
+const FIELD_URBANITY := 0.2
+const FIELD_MAX_CHANCE := 0.5
 
 ## overmap_special 카탈로그 — 여기는 OMT 층이다. 실제 벽 배치는 여기 없다.
 ## CDDA 와 같은 2단 구조를 그대로 둔다:
@@ -87,17 +92,37 @@ const PARK_SIGMA := 100 - PARK_RADIUS
 ##   unique — CITY_UNIQUE. 도시당 하나.
 const CATALOG := [
 	{"id": "house", "oter": "house", "kind": Kind.HOUSE, "foot": Vector2i(1, 1),
-	 "weight": 20, "min_city": 1},
+	 "weight": 20, "min_city": 1, "mondensity": 2.0},
 	{"id": "shop", "oter": "shop", "kind": Kind.SHOP, "foot": Vector2i(1, 1),
-	 "weight": 10, "min_city": 1},
+	 "weight": 10, "min_city": 1, "mondensity": 2.0},
 	{"id": "shop_1", "oter": "shop_1", "kind": Kind.SHOP, "foot": Vector2i(2, 2),
-	 "weight": 6, "min_city": 3},
+	 "weight": 6, "min_city": 3, "mondensity": 3.0},
 	{"id": "strip_mall", "oter": "strip_mall", "kind": Kind.SHOP, "foot": Vector2i(2, 1),
-	 "weight": 4, "min_city": 6},
+	 "weight": 4, "min_city": 6, "mondensity": 3.0},
 	{"id": "office", "oter": "office", "kind": Kind.SHOP, "foot": Vector2i(1, 2),
-	 "weight": 3, "min_city": 5, "unique": true},
+	 "weight": 3, "min_city": 5, "unique": true, "mondensity": 3.0},
 	{"id": "park", "oter": "park", "kind": Kind.PARK, "foot": Vector2i(1, 1),
-	 "weight": 10, "min_city": 1},
+	 "weight": 10, "min_city": 1, "mondensity": 0.5},
+	{"id": "field", "oter": "field", "kind": Kind.FIELD, "foot": Vector2i(1, 1),
+	 "weight": 10, "min_city": 1, "mondensity": 0.5},
+]
+
+# ──────────────────────────────────────────────────────────────
+# 몬스터 — monstergroup.json 의 GROUP_ZOMBIE + map::place_spawns()
+#
+# CDDA 는 OMT 지형마다 mondensity 를 적어두고(위 카탈로그), mapgen 이 끝나면
+# place_spawns(GROUP_ZOMBIE, 2, ..., density) 를 부른다. 규칙 세 가지가 전부다:
+#   1) one_in(2) 로 절반은 그냥 넘긴다 — 텅 빈 건물이 있어야 한다
+#   2) 마리수 = density (소수부는 확률로 굴린다)
+#   3) 한 마리마다 freq 로 뽑고, 통행 가능한 칸이 나올 때까지 자리를 다시 굴린다
+# starts 는 monstergroup 의 시작 일차다. 초반에는 약한 놈만 표에 들어 있다.
+# ──────────────────────────────────────────────────────────────
+const SPAWN_CHANCE := 2
+const SPAWN_TRIES := 10
+
+const MONGROUP := [
+	{"scene": preload("res://scenes/characters/enemy/zombie/zombie.tscn"),
+	 "freq": 500, "starts": 1},
 ]
 
 # ──────────────────────────────────────────────────────────────
@@ -117,6 +142,8 @@ const MAPGEN := {
 	"house": [{"scene": preload("res://scenes/prefabs/house.tscn"), "weight": 100}],
 	"park": [{"scene": preload("res://scenes/prefabs/park.tscn"), "weight": 100}],
 	"shop_1": [{"scene": preload("res://scenes/prefabs/shop.tscn"), "weight": 100}],
+	"exit_gate": [{"scene": preload("res://scenes/prefabs/exit_gate.tscn"), "weight": 100}],
+	"field": [{"scene": preload("res://scenes/prefabs/field.tscn"), "weight": 100}],
 }
 
 ## 프리팹의 레이어 이름 -> 이 씬의 레이어 이름. 여기 없는 레이어는 무시한다.
@@ -174,8 +201,10 @@ var templates: Dictionary = {}
 var objects_root: Node2D
 var placed_buildings: Array[Dictionary] = []   # 배치 결과. 페인팅과 미니맵이 읽는다.
 var park_omts: Dictionary = {}           # 공원으로 잡힌 OMT. 나무를 더 심는다.
+var field_omts: Dictionary = {}          # 밭으로 잡힌 OMT. 미니맵에서 따로 보려고 들고 있다.
 var placed_unique: Dictionary = {}       # CITY_UNIQUE 중복 방지. CDDA는 도시마다 새로 만든다.
 var gate: PortalComponent                # 동쪽 관문. 재생성 때마다 새 자리에 다시 세운다.
+var gate_omt: Vector2i                   # 그 관문이 선 OMT. 미니맵이 읽는다.
 var gate_spawn: SpawnPoint               # 그 안쪽, 농장에서 넘어온 플레이어가 설 자리.
 
 
@@ -189,7 +218,9 @@ func _ready() -> void:
 	bake_templates()
 	_generate()
 	place_player()
-	# 디버그 UI(줌/리롤/미니맵)는 이 씬만 F6로 띄웠을 때만 붙인다.
+	# 미니맵은 게임 안에서도 띄운다. 생성 결과를 그 자리에서 확인할 수 있어야 한다.
+	_setup_minimap()
+	# 줌/리롤 버튼과 수치 HUD 는 이 씬만 F6로 띄웠을 때만 붙인다.
 	if is_standalone():
 		_setup_debug_ui()
 
@@ -217,6 +248,7 @@ func _generate() -> void:
 		child.free()
 	placed_buildings.clear()
 	park_omts.clear()
+	field_omts.clear()
 	placed_unique.clear()
 	occ_reset()
 	ter_reset()
@@ -239,6 +271,7 @@ func _generate() -> void:
 	stamp_buildings()
 	var t3 := Time.get_ticks_msec()
 	render_buildings()
+	place_spawns()
 	place_east_gate()
 	var t4 := Time.get_ticks_msec()
 	print("[city] seed=%d  도로 %d칸 (%dms)  페인팅 흙%d+인도%d+도로%d셀 (%dms)  건물 %d채(공원 %d) 찍기 %dms 그리기 %dms"
@@ -635,12 +668,23 @@ func can_place_building(cells: Array[Vector2i]) -> bool:
 ## 고정 반경이 아니라 건물마다 경계선을 정규분포로 새로 굴리는 게 핵심이다.
 ## max(radius, roll) 는 한쪽으로만 clamp 라서 실효 반경이 radius 위로 밀린다.
 ## park_sigma 가 70이라 공원은 도시 어디서든 나올 확률이 0이 아니다.
+func urbanity(town_dist: int) -> float:
+	return clampf(1.0 - town_dist / 100.0, 0.0, 1.0)
+
+
+## 외곽으로 갈수록 오른다. 문턱(0.2)에서 0, 도시 끝(0)에서 FIELD_MAX_CHANCE.
+func field_chance(town_dist: int) -> float:
+	return inverse_lerp(FIELD_URBANITY, 0.0, urbanity(town_dist)) * FIELD_MAX_CHANCE
+
+
 func pick_random_building(town_dist: int) -> Dictionary:
 	var shop_normal := maxi(SHOP_RADIUS, int(rng.randfn(SHOP_RADIUS, SHOP_SIGMA)))
 	var park_normal := maxi(PARK_RADIUS, int(rng.randfn(PARK_RADIUS, PARK_SIGMA)))
 
 	var kind := Kind.HOUSE
-	if shop_normal > town_dist:
+	if urbanity(town_dist) < FIELD_URBANITY and rng.randf() < field_chance(town_dist):
+		kind = Kind.FIELD
+	elif shop_normal > town_dist:
 		kind = Kind.SHOP
 	elif park_normal > town_dist:
 		kind = Kind.PARK
@@ -690,6 +734,9 @@ func place_building(p: Vector2i, dir: int) -> void:
 		if spec["kind"] == Kind.PARK:
 			for c: Vector2i in cells:
 				park_omts[c] = true
+		if spec["kind"] == Kind.FIELD:
+			for c: Vector2i in cells:
+				field_omts[c] = true
 		# 공원도 oter 를 가진 OMT 다 — CDDA 에서 park 는 제 mapgen 을 가진 지형이지
 		# 건물이 아니어서 빠지는 예외가 아니다. 같은 줄에 세워 같은 길을 타게 한다.
 		#
@@ -889,12 +936,111 @@ func render_buildings() -> void:
 			objects_root.add_child(node)
 
 
+## current_day 는 첫 _process 뒤에야 채워진다. 생성은 _ready 안에서 끝나므로 시간에서 직접 센다.
+func spawn_day() -> int:
+	var minutes := int(DayAndNightCycle.time / DayAndNightCycle.GAME_MINUTE_DURARTION)
+	return minutes / DayAndNightCycle.MINUTES_PER_DAY
+
+
+## GROUP_ZOMBIE 에서 한 마리 뽑는다 — MonsterGroupManager::GetResultFromGroup.
+## 아직 시작 일차가 안 된 항목은 표에서 빠진다.
+func pick_monster(day: int) -> Dictionary:
+	var total := 0
+	for e: Dictionary in MONGROUP:
+		if day >= int(e["starts"]):
+			total += int(e["freq"])
+	if total <= 0:
+		return {}
+
+	var roll := rng.randi_range(0, total - 1)
+	for e: Dictionary in MONGROUP:
+		if day < int(e["starts"]):
+			continue
+		roll -= int(e["freq"])
+		if roll < 0:
+			return e
+	return {}
+
+
+func passable(cell: Vector2i) -> bool:
+	if cell.x < 0 or cell.y < 0 or cell.x >= TILES or cell.y >= TILES:
+		return false
+	return (MapgenDefs.TER_FLAGS[ter_at(cell)] & MapgenDefs.F_PASSABLE) != 0
+
+
+## map::place_spawns() — 필지마다 굴려서 그 안 통행 가능한 칸에 놓는다.
+func place_spawns() -> void:
+	var day := spawn_day()
+	var placed := 0
+	var want := 0
+
+	for b: Dictionary in placed_buildings:
+		if not b.has("rect"):
+			continue
+		var density := float(oter_mondensity(b["oter"]))
+		if density <= 0.0 or not one_in(SPAWN_CHANCE):
+			continue
+
+		# 소수부는 확률로 굴린다. 0.5 짜리 공원은 두 번에 한 번만 한 마리다.
+		var count := int(density)
+		if rng.randf() < density - float(count):
+			count += 1
+
+		var lot: Rect2i = lot_rect(b["cells"])
+		want += count
+		# cost 는 CDDA 의 cost_multiplier 다. 비싼 놈은 한 마리가 예산을 더 먹어서
+		# 그만큼 다른 놈이 덜 나온다. 확률로 걸러내면 그 자리가 그냥 비어버린다.
+		var budget := float(count)
+		while budget >= 1.0:
+			var spec := pick_monster(day)
+			if spec.is_empty():
+				break
+			budget -= float(spec.get("cost", 1.0))
+
+			for _try in SPAWN_TRIES:
+				var cell := Vector2i(
+					rng.randi_range(lot.position.x, lot.end.x - 1),
+					rng.randi_range(lot.position.y, lot.end.y - 1))
+				if not passable(cell):
+					continue
+				var mob := (spec["scene"] as PackedScene).instantiate() as Node2D
+				mob.position = Vector2(cell * TILE_PX) + Vector2.ONE * (TILE_PX * 0.5)
+				objects_root.add_child(mob)
+				placed += 1
+				break
+
+	print("[city] 좀비 %d/%d마리 (%d일차)" % [placed, want, day])
+
+
+func oter_mondensity(oter: String) -> float:
+	for spec: Dictionary in CATALOG:
+		if spec["oter"] == oter:
+			return float(spec.get("mondensity", 0.0))
+	return 0.0
+
+
+func lot_rect(cells: Array) -> Rect2i:
+	var mn: Vector2i = cells[0]
+	var mx: Vector2i = cells[0]
+	for p: Vector2i in cells:
+		mn = mn.min(p)
+		mx = mx.max(p)
+	return Rect2i(mn * CELL, (mx - mn + Vector2i.ONE) * CELL)
+
+
 # 농장 문이 농장 서쪽 끝에 있으니, 거기서 서쪽으로 걸어 나온 플레이어는 이 도시의
 # 동쪽 끝으로 들어온다. 그래서 돌아가는 문도 동쪽 관문에 세운다.
 func east_gate_omt() -> Vector2i:
 	var omt := city_pos
-	while is_road(omt + DIR_VEC[Dir.EAST]):
-		omt += DIR_VEC[Dir.EAST]
+	for pos: Vector2i in grid:
+		# 서쪽에서 도로가 들어오는 칸만 후보다. 세로 도로의 끝은 관문 프리팹의
+		# 가로 통로와 어긋난다.
+		if grid[pos] != Cell.ROAD or not is_road(pos + DIR_VEC[Dir.WEST]):
+			continue
+		if pos.x > omt.x:
+			omt = pos
+		elif pos.x == omt.x and absi(pos.y - city_pos.y) < absi(omt.y - city_pos.y):
+			omt = pos
 	return omt
 
 func east_gate_rect() -> Rect2i:
@@ -902,7 +1048,16 @@ func east_gate_rect() -> Rect2i:
 	return Rect2i(base.x + CELL - GATE_CLEAR, base.y + (CELL - ROAD_W) / 2, GATE_CLEAR, ROAD_W)
 
 func reserve_east_gate() -> void:
+	gate_omt = east_gate_omt()
 	occ_fill(east_gate_rect(), Occ.BLOCKED)
+
+	var cells: Array[Vector2i] = [gate_omt]
+	placed_buildings.append({
+		"oter": "exit_gate",
+		"cells": cells,
+		"face": Dir.WEST,
+		"kind": Kind.SHOP,
+	})
 
 
 func place_east_gate() -> void:
@@ -999,42 +1154,86 @@ func _setup_debug_ui() -> void:
 	_hud.add_theme_color_override("font_color", Color(1, 0.95, 0.6))
 	layer.add_child(_hud)
 
+
+## 위젯 한 변(px). 도시 bbox 를 여기에 꽉 차게 맞춰 그린다 — 40x40 격자를 통째로
+## 그리면 도시가 차지하는 10칸 남짓만 빼고 전부 빈 판이라 아무것도 안 보인다.
+const MINIMAP_SIDE := 150.0
+## 게임 화면은 640x360 이라 F6 때 크기를 그대로 쓰면 화면을 반이나 먹는다.
+const MINIMAP_SIDE_GAME := 92.0
+const MINIMAP_KEY := KEY_M
+
+var _minimap: Control
+var _hud: Label
+
+
+func _setup_minimap() -> void:
+	var layer := CanvasLayer.new()
+	layer.name = "MinimapLayer"
+	# 화면 암전(ScreenFade, 100)보다 아래, 그 밖의 UI 위.
+	layer.layer = 90
+	add_child(layer)
+
+	var side := MINIMAP_SIDE if is_standalone() else MINIMAP_SIDE_GAME
+
 	var mini := Control.new()
 	mini.name = "Minimap"
-	mini.position = Vector2(8, 40)
-	mini.custom_minimum_size = Vector2(OMAP_SIZE, OMAP_SIZE) * MINIMAP_SCALE
+	mini.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	mini.custom_minimum_size = Vector2(side, side)
+	mini.size = Vector2(side, side)
+	if is_standalone():
+		mini.position = Vector2(8, 40)
+	else:
+		# 오른쪽 위 시계 밑에 붙인다.
+		mini.set_anchors_preset(Control.PRESET_TOP_RIGHT)
+		mini.offset_left = -side - 6
+		mini.offset_top = 46
+		mini.offset_right = -6
+		mini.offset_bottom = 46 + side
 	mini.draw.connect(_draw_minimap.bind(mini))
 	layer.add_child(mini)
 	_minimap = mini
 
 
-const MINIMAP_SCALE := 4.0
-var _minimap: Control
-var _hud: Label
+func _unhandled_input(event: InputEvent) -> void:
+	if _minimap == null:
+		return
+	var key := event as InputEventKey
+	if key != null and key.pressed and not key.echo and key.keycode == MINIMAP_KEY:
+		_minimap.visible = not _minimap.visible
+		get_viewport().set_input_as_handled()
 
 
 # OMT 1칸 = 4px. 도로 재귀 결과를 타일과 무관하게 눈으로 검증하는 용도.
 # 회색 = 도로, 흰색 = 맨홀, 빨강 = 도시 중심, 노랑 = 플레이어.
 func _draw_minimap(c: Control) -> void:
-	var s := MINIMAP_SCALE
-	c.draw_rect(Rect2(Vector2.ZERO, Vector2(OMAP_SIZE, OMAP_SIZE) * s), Color(0, 0, 0, 0.5))
+	var b := city_bounds()
+	var s := minf(c.size.x / float(b.size.x), c.size.y / float(b.size.y))
+	var org := Vector2(b.position)
+	c.draw_rect(Rect2(Vector2.ZERO, c.size), Color(0, 0, 0, 0.55))
 	for pos: Vector2i in grid:
 		var col: Color
 		if grid[pos] == Cell.BUILDING:
 			# 초록 = 공원, 황토 = 건물. 도심에 황토가 몰리고 외곽으로 갈수록 흩어지면 존잉이 도는 것이다.
-			col = Color(0.35, 0.6, 0.3) if park_omts.has(pos) else Color(0.75, 0.6, 0.35)
+			if park_omts.has(pos):
+				col = Color(0.35, 0.6, 0.3)
+			elif field_omts.has(pos):
+				col = Color(0.8, 0.75, 0.35)
+			else:
+				col = Color(0.75, 0.6, 0.35)
 		elif manholes.has(pos):
 			col = Color(0.9, 0.9, 0.9)
 		else:
 			col = Color(0.45, 0.45, 0.5)
-		c.draw_rect(Rect2(Vector2(pos) * s, Vector2(s, s)), col)
-	c.draw_rect(Rect2(Vector2(city_pos) * s, Vector2(s, s)), Color(1, 0.3, 0.2))
-	var po := player.position / float(CELL * TILE_PX) * s
-	c.draw_circle(po, 2.0, Color(1, 0.9, 0.2))
+		c.draw_rect(Rect2((Vector2(pos) - org) * s, Vector2(s, s)), col)
+	c.draw_rect(Rect2((Vector2(city_pos) - org) * s, Vector2(s, s)), Color(1, 0.3, 0.2))
+	# 하늘색 = 농장으로 나가는 관문.
+	c.draw_rect(Rect2((Vector2(gate_omt) - org) * s, Vector2(s, s)), Color(0.3, 0.9, 1))
+	var po := (player.position / float(CELL * TILE_PX) - org) * s
+	c.draw_circle(po, maxf(2.0, s * 0.4), Color(1, 0.9, 0.2))
 
 
 func _process(_delta: float) -> void:
-	if _minimap != null:
+	if _minimap != null and _minimap.visible:
 		_minimap.queue_redraw()
 	if _hud != null:
 		_hud.text = "필지 %d  공원 %d  |  씬 노드 %d  fps %d" % [

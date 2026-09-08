@@ -1,5 +1,11 @@
 class_name DataTypes
 
+enum QuestGoal {
+	Gather,
+	Harvest,
+	Slay,
+}
+
 enum GameState {
 	MainMenu,
 	Game
@@ -44,6 +50,14 @@ enum ItemType {
 	Melee,      # 8  근접 무기
 	Ranged
 }
+
+static func quest_goal_label(goal: QuestGoal) -> String:
+	match goal:
+		QuestGoal.Gather: return "채집"
+		QuestGoal.Harvest: return "수확"
+		QuestGoal.Slay: return "처치"
+	return ""
+
 
 static func item_type_label(type: ItemType) -> String:
 	match type:

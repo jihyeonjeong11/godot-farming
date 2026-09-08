@@ -1,0 +1,91 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/quests/quest_panel.gd" id="1_qpnl"]
+[ext_resource type="PackedScene" uid="uid://deugupwqjk44e" path="res://scenes/ui/base_ui.tscn" id="2_baseui"]
+
+[node name="QuestPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qpnl")
+
+[node name="BaseUi" parent="." instance=ExtResource("2_baseui")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 8
+
+[node name="Rows" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="PanelTitle" type="Label" parent="Margin/Rows"]
+unique_name_in_owner = true
+layout_mode = 2
+auto_translate_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "QUESTS"
+
+[node name="ListView" type="ScrollContainer" parent="Margin/Rows"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="QuestList" type="VBoxContainer" parent="Margin/Rows/ListView"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="DetailView" type="VBoxContainer" parent="Margin/Rows"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 4
+
+[node name="DetailDescription" type="Label" parent="Margin/Rows/DetailView"]
+unique_name_in_owner = true
+layout_mode = 2
+auto_translate_mode = 2
+theme_override_colors/font_color = Color(0.78431374, 0.78431374, 0.78431374, 1)
+theme_override_font_sizes/font_size = 8
+autowrap_mode = 3
+
+[node name="DetailObjectives" type="VBoxContainer" parent="Margin/Rows/DetailView"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 1
+
+[node name="DetailReward" type="Label" parent="Margin/Rows/DetailView"]
+unique_name_in_owner = true
+layout_mode = 2
+auto_translate_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.78, 0.45, 1)
+theme_override_font_sizes/font_size = 8
+
+[node name="BackButton" type="Button" parent="Margin/Rows/DetailView"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "QUEST_BACK"

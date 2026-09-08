@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Quest" format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/quests/quest_objective.gd" id="1_o38bc"]
+[ext_resource type="Script" path="res://scripts/resources/quests/quest.gd" id="2_4eatj"]
+
+[sub_resource type="Resource" id="Resource_05i4i"]
+script = ExtResource("1_o38bc")
+target_id = "rags"
+target_amount = 24
+
+[resource]
+script = ExtResource("2_4eatj")
+quest_id = "quest_fill_03"
+quest_title = "QUEST_GATHER_01_TITLE"
+quest_description = "QUEST_GATHER_01_DESC"
+reward_gold = 49
+goal = Array[ExtResource("1_o38bc")]([SubResource("Resource_05i4i")])

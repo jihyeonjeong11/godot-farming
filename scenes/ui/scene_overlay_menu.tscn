@@ -61,6 +61,5 @@ text = "Exit Game
 visible = false
 layout_mode = 3
 
-[node name="SaveSlots" parent="." instance=ExtResource("4_slots")]
+[node name="SaveSlots" parent="." unique_id=855613153 instance=ExtResource("4_slots")]
 visible = false
-layout_mode = 3

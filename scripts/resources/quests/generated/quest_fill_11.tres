@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Quest" format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/quests/quest_objective.gd" id="1_dnebo"]
+[ext_resource type="Script" path="res://scripts/resources/quests/quest.gd" id="2_sgw7f"]
+
+[sub_resource type="Resource" id="Resource_wtuau"]
+script = ExtResource("1_dnebo")
+target_id = "iron_ingot"
+target_amount = 40
+
+[resource]
+script = ExtResource("2_sgw7f")
+quest_id = "quest_fill_11"
+quest_title = "QUEST_GATHER_01_TITLE"
+quest_description = "QUEST_GATHER_01_DESC"
+reward_gold = 153
+goal = Array[ExtResource("1_dnebo")]([SubResource("Resource_wtuau")])

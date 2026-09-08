@@ -77,7 +77,7 @@ class_name Item extends Resource
 
 ## TODO: Make theme as a file for localization support
 func describe(price_label: String = "가치") -> String:
-	var lines: PackedStringArray = [item_name]
+	var lines: PackedStringArray = [tr(item_name)]
 
 	if item_type != DataTypes.ItemType.Misc:
 		lines.append("[%s]" % DataTypes.item_type_label(item_type))

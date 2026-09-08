@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Quest" format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/quests/quest_objective.gd" id="1_i4qtx"]
+[ext_resource type="Script" path="res://scripts/resources/quests/quest.gd" id="2_b60yq"]
+
+[sub_resource type="Resource" id="Resource_7im1j"]
+script = ExtResource("1_i4qtx")
+target_id = "floppy_disk"
+target_amount = 41
+
+[resource]
+script = ExtResource("2_b60yq")
+quest_id = "quest_fill_34"
+quest_title = "QUEST_GATHER_01_TITLE"
+quest_description = "QUEST_GATHER_01_DESC"
+reward_gold = 52
+goal = Array[ExtResource("1_i4qtx")]([SubResource("Resource_7im1j")])

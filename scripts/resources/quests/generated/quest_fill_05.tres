@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Quest" format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/quests/quest_objective.gd" id="1_c53v4"]
+[ext_resource type="Script" path="res://scripts/resources/quests/quest.gd" id="2_rguix"]
+
+[sub_resource type="Resource" id="Resource_acugw"]
+script = ExtResource("1_c53v4")
+target_id = "cooking_pot"
+target_amount = 38
+
+[resource]
+script = ExtResource("2_rguix")
+quest_id = "quest_fill_05"
+quest_title = "QUEST_GATHER_01_TITLE"
+quest_description = "QUEST_GATHER_01_DESC"
+reward_gold = 75
+goal = Array[ExtResource("1_c53v4")]([SubResource("Resource_acugw")])

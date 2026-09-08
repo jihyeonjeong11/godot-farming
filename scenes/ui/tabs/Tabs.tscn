@@ -6,7 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://dr4x4rp0j1rci" path="res://scenes/ui/scene_overlay_menu_settings.tscn" id="6_stgs0"]
 [ext_resource type="Script" uid="uid://v33xqm1r0ndn" path="res://scenes/ui/equipment_panel.gd" id="7_eomoy"]
 [ext_resource type="PackedScene" uid="uid://dowq4j5556c76" path="res://scenes/ui/inventory/equipment_slot.tscn" id="7_tab21"]
+[ext_resource type="PackedScene" path="res://scenes/ui/quests/quest_panel.tscn" id="10_qpnl"]
 [ext_resource type="Texture2D" uid="uid://bo5k8csiengg7" path="res://assets/Objects/items/items_atlas.png" id="atlas_items"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_tabs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_item36"]
 atlas = ExtResource("atlas_items")
@@ -15,8 +18,6 @@ region = Rect2(160, 96, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_item50"]
 atlas = ExtResource("atlas_items")
 region = Rect2(288, 128, 32, 32)
-
-[sub_resource type="ButtonGroup" id="ButtonGroup_tabs"]
 
 [node name="Tabs" type="CanvasLayer" unique_id=997795060]
 script = ExtResource("1_lngvq")
@@ -57,6 +58,14 @@ theme_override_font_sizes/font_size = 10
 toggle_mode = true
 button_group = SubResource("ButtonGroup_tabs")
 text = "Crafting"
+
+[node name="QuestTab" type="Button" parent="MarginContainer/HBoxContainer/TabColumn" unique_id=1868430367]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+toggle_mode = true
+button_group = SubResource("ButtonGroup_tabs")
+text = "Quests"
 
 [node name="StatsTab" type="Button" parent="MarginContainer/HBoxContainer/TabColumn" unique_id=1844722630]
 unique_name_in_owner = true
@@ -230,6 +239,13 @@ size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.78431374, 0.78431374, 0.78431374, 1)
 theme_override_font_sizes/font_size = 8
 autowrap_mode = 3
+
+[node name="QuestPanel" parent="MarginContainer/HBoxContainer" unique_id=118001860 instance=ExtResource("10_qpnl")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="SettingsPanel" parent="MarginContainer/HBoxContainer" unique_id=1529285723 instance=ExtResource("2_baseui")]
 unique_name_in_owner = true

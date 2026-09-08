@@ -1,0 +1,6 @@
+keys,en,ko
+QUEST_GATHER_01_TITLE,"Gather Logs","통나무 모으기"
+QUEST_GATHER_01_DESC,"Chop down some trees to get some!","나무를 베어 통나무를 구해오게."
+QUEST_PROGRESS,"{target} {cur}/{req}","{target} {cur}/{req}"
+QUEST_REWARD_GOLD,"Reward: {gold} gold","보상: 골드 {gold}"
+QUEST_BACK,"Back","뒤로"

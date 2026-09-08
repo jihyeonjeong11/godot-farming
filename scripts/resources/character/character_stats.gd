@@ -12,6 +12,9 @@ enum Buffables {
 	SPEED,
 }
 
+@export var character_id: String
+
+
 const STAT_CURVES: Dictionary[Buffables, Curve] = {
 	Buffables.MAX_HEALTH: preload("uid://de15cyxl57l1i"),
 	Buffables.MAX_STAMINA: preload("uid://de15cyxl57l1i"),
@@ -33,6 +36,7 @@ signal gold_changed(cur_gold: int)
 @export var experience = 0: set = _on_experience_set
 
 @export var base_gold = 500
+
 
 @export var base_max_health = 100
 @export var base_defense = 0

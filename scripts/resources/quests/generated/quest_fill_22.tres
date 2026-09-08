@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Quest" format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/quests/quest_objective.gd" id="1_382hg"]
+[ext_resource type="Script" path="res://scripts/resources/quests/quest.gd" id="2_cwcqf"]
+
+[sub_resource type="Resource" id="Resource_onsc2"]
+script = ExtResource("1_382hg")
+target_id = "red_pants"
+target_amount = 37
+
+[resource]
+script = ExtResource("2_cwcqf")
+quest_id = "quest_fill_22"
+quest_title = "QUEST_GATHER_01_TITLE"
+quest_description = "QUEST_GATHER_01_DESC"
+reward_gold = 96
+goal = Array[ExtResource("1_382hg")]([SubResource("Resource_onsc2")])

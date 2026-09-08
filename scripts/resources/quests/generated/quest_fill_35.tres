@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Quest" format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/quests/quest_objective.gd" id="1_rnh6f"]
+[ext_resource type="Script" path="res://scripts/resources/quests/quest.gd" id="2_j7jmu"]
+
+[sub_resource type="Resource" id="Resource_qs3ti"]
+script = ExtResource("1_rnh6f")
+target_id = "key"
+target_amount = 8
+
+[resource]
+script = ExtResource("2_j7jmu")
+quest_id = "quest_fill_35"
+quest_title = "QUEST_GATHER_01_TITLE"
+quest_description = "QUEST_GATHER_01_DESC"
+reward_gold = 65
+goal = Array[ExtResource("1_rnh6f")]([SubResource("Resource_qs3ti")])

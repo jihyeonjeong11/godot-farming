@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Quest" format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/quests/quest_objective.gd" id="1_63p6d"]
+[ext_resource type="Script" path="res://scripts/resources/quests/quest.gd" id="2_nkq42"]
+
+[sub_resource type="Resource" id="Resource_gclsl"]
+script = ExtResource("1_63p6d")
+target_id = "laser_sight"
+target_amount = 28
+
+[resource]
+script = ExtResource("2_nkq42")
+quest_id = "quest_fill_15"
+quest_title = "QUEST_GATHER_01_TITLE"
+quest_description = "QUEST_GATHER_01_DESC"
+reward_gold = 205
+goal = Array[ExtResource("1_63p6d")]([SubResource("Resource_gclsl")])

@@ -145,7 +145,7 @@ select_inventory_10={
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://assets/texts/dialog.en.translation", "res://assets/texts/dialog.ko.translation")
+locale/translations=PackedStringArray("res://assets/texts/dialog.en.translation", "res://assets/texts/dialog.ko.translation", "res://assets/texts/quests.en.translation", "res://assets/texts/quests.ko.translation", "res://assets/texts/items.en.translation", "res://assets/texts/items.ko.translation")
 
 [layer_names]
 

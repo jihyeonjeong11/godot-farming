@@ -9,7 +9,6 @@ const SCENE_CONTAINER_INVENTORY_UI = preload("uid://b7xqk2mcnv0ug")
 const SHOP_UI = preload("uid://cdnvo7ichp0x8")
 const DIALOG = preload("uid://3p1327khsld7")
 
-enum Layer { PAUSE_MENU, INGAME_MENU, CONTAINER, SHOP, DIALOG }
 
 var stack: Array[int] = []
 
@@ -31,20 +30,36 @@ func _ready() -> void:
 	SignalBus.barter_opened.connect(on_barter_opened)
 	SignalBus.dialog.connect(on_dialog)
 	
-func on_dialog() -> void:
-	open(Layer.DIALOG, null)
+func on_dialog(text_keys: Array[StringName]) -> void:
+	if text_keys.is_empty():
+		return
+
+	open(DataTypes.UI_Layer.DIALOG, text_keys)
+
+
+func _input(event: InputEvent) -> void:
+	if not is_open(DataTypes.UI_Layer.DIALOG):
+		return
+	if not (event is InputEventMouseButton and event.pressed):
+		return
+
+	get_viewport().set_input_as_handled()
+
+	var node: Node = _layer_nodes.get(DataTypes.UI_Layer.DIALOG)
+	if is_instance_valid(node) and node.has_method(&"advance") and node.call(&"advance"):
+		return
+
+	close(DataTypes.UI_Layer.DIALOG)
 
 
 func _shortcut_input(event: InputEvent) -> void:
 	if _game_state == DataTypes.GameState.MainMenu:
 		return
-	
-	
 		
 	if event.is_action_pressed("ingame_pause"):
 		# Currently there are no consecutive menus.
 		if stack.is_empty():
-			_toggle(Layer.INGAME_MENU)
+			_toggle(DataTypes.UI_Layer.INGAME_MENU)
 			get_viewport().set_input_as_handled()
 		else:
 			_pop()
@@ -52,7 +67,7 @@ func _shortcut_input(event: InputEvent) -> void:
 
 	if event.is_action_pressed("pause"):
 		if stack.is_empty():
-			_push(Layer.PAUSE_MENU)
+			_push(DataTypes.UI_Layer.PAUSE_MENU)
 		else:
 			_pop()
 		get_viewport().set_input_as_handled()
@@ -71,36 +86,36 @@ func on_change_game_state(game_state: DataTypes.GameState) -> void:
 
 
 func on_container_opened(slots: Array) -> void:
-	if is_open(Layer.CONTAINER):
-		if is_same(_layer_payloads.get(Layer.CONTAINER), slots):
-			close(Layer.CONTAINER)
+	if is_open(DataTypes.UI_Layer.CONTAINER):
+		if is_same(_layer_payloads.get(DataTypes.UI_Layer.CONTAINER), slots):
+			close(DataTypes.UI_Layer.CONTAINER)
 		else:
-			_layer_payloads[Layer.CONTAINER] = slots
-			_apply_payload(Layer.CONTAINER)
+			_layer_payloads[DataTypes.UI_Layer.CONTAINER] = slots
+			_apply_payload(DataTypes.UI_Layer.CONTAINER)
 		return
 
-	open(Layer.CONTAINER, slots)
+	open(DataTypes.UI_Layer.CONTAINER, slots)
 	
 func on_barter_opened(slots: Array) -> void:
-	if is_open(Layer.SHOP):
-		if is_same(_layer_payloads.get(Layer.SHOP), slots):
-			close(Layer.SHOP)
+	if is_open(DataTypes.UI_Layer.SHOP):
+		if is_same(_layer_payloads.get(DataTypes.UI_Layer.SHOP), slots):
+			close(DataTypes.UI_Layer.SHOP)
 		else:
-			_layer_payloads[Layer.SHOP] = slots
-			_apply_payload(Layer.SHOP)
+			_layer_payloads[DataTypes.UI_Layer.SHOP] = slots
+			_apply_payload(DataTypes.UI_Layer.SHOP)
 		return
 
-	open(Layer.SHOP, slots)
+	open(DataTypes.UI_Layer.SHOP, slots)
 
 
-func open(layer: Layer, payload: Variant = null) -> void:
+func open(layer: DataTypes.UI_Layer, payload: Variant = null) -> void:
 	if stack.has(layer):
 		return
 	_layer_payloads[layer] = payload
 	_push(layer)
 
 
-func close(layer: Layer) -> void:
+func close(layer: DataTypes.UI_Layer) -> void:
 	if not stack.has(layer):
 		return
 	stack.erase(layer)
@@ -114,7 +129,7 @@ func close_all() -> void:
 	_sync()
 
 
-func is_open(layer: Layer) -> bool:
+func is_open(layer: DataTypes.UI_Layer) -> bool:
 	return stack.has(layer)
 
 
@@ -138,8 +153,7 @@ func close_ingame_overlay() -> void:
 	ingame_overlay.queue_free()
 	ingame_overlay = null
 
-
-func _toggle(layer: Layer) -> void:
+func _toggle(layer: DataTypes.UI_Layer) -> void:
 	if stack.has(layer):
 		stack.erase(layer)
 	else:
@@ -147,7 +161,7 @@ func _toggle(layer: Layer) -> void:
 	_sync()
 
 
-func _push(layer: Layer) -> void:
+func _push(layer: DataTypes.UI_Layer) -> void:
 	stack.push_back(layer)
 	_sync()
 
@@ -159,21 +173,21 @@ func _pop() -> void:
 	_sync()
 
 
-func _open_layer_node(layer: Layer) -> void:
+func _open_layer_node(layer: DataTypes.UI_Layer) -> void:
 	if _layer_nodes.has(layer):
 		return
 
 	var node: CanvasLayer = null
 	match layer:
-		Layer.PAUSE_MENU:
+		DataTypes.UI_Layer.PAUSE_MENU:
 			node = SCENE_OVERLAY_MENU.instantiate()
-		Layer.INGAME_MENU:
+		DataTypes.UI_Layer.INGAME_MENU:
 			node = SCENE_INGAME_OVERLAY_MENU.instantiate()
-		Layer.CONTAINER:
+		DataTypes.UI_Layer.CONTAINER:
 			node = SCENE_CONTAINER_INVENTORY_UI.instantiate()
-		Layer.SHOP:
+		DataTypes.UI_Layer.SHOP:
 			node = SHOP_UI.instantiate()
-		Layer.DIALOG:
+		DataTypes.UI_Layer.DIALOG:
 			node = DIALOG.instantiate()
 
 	if node == null:
@@ -184,7 +198,7 @@ func _open_layer_node(layer: Layer) -> void:
 	_apply_payload(layer)
 
 
-func _apply_payload(layer: Layer) -> void:
+func _apply_payload(layer: DataTypes.UI_Layer) -> void:
 	var payload: Variant = _layer_payloads.get(layer)
 	if payload == null:
 		return
@@ -196,7 +210,7 @@ func _apply_payload(layer: Layer) -> void:
 	node.call(&"setup", payload)
 
 
-func _close_layer_node(layer: Layer) -> void:
+func _close_layer_node(layer: DataTypes.UI_Layer) -> void:
 	if not _layer_nodes.has(layer):
 		return
 
@@ -213,7 +227,7 @@ func _sync() -> void:
 
 	SignalBus.ui_stack_changed.emit(not stack.is_empty())
 
-	for layer in Layer.values():
+	for layer in DataTypes.UI_Layer.values():
 		var opened := stack.has(layer)
 		if _announced.get(layer, false) == opened:
 			continue
@@ -225,7 +239,7 @@ func _sync() -> void:
 			_close_layer_node(layer)
 
 		match layer:
-			Layer.PAUSE_MENU:
+			DataTypes.UI_Layer.PAUSE_MENU:
 				SignalBus.game_paused.emit(opened)
-			Layer.INGAME_MENU:
+			DataTypes.UI_Layer.INGAME_MENU:
 				SignalBus.ingame_paused.emit(opened)

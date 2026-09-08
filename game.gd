@@ -30,12 +30,17 @@ func _free_tab_key() -> void:
 
 func on_new_game_requested(slot: int) -> void:
 	SaveAndLoad.select_slot(slot)
-	# 쓰던 슬롯 위에 새 판을 얹으면, 이번 판에서 가보지 않은 레벨의 옛 상태가
-	# 그대로 남아 나중에 그 레벨에 들어갔을 때 딸려온다.
 	SaveAndLoad.clear_slot()
 	SaveAndLoad.load_requested = false
 	SaveAndLoad.fresh_start = true
 	swap_scene.call_deferred(scene_farm)
+	_open_intro_dialog.call_deferred()
+	
+
+func _open_intro_dialog() -> void:
+	var keys: Array[StringName] = [&"DIALOG_ON_START_1", &"DIALOG_ON_START_2"]
+	SignalBus.dialog.emit(keys)
+
 
 func on_load_game_requested(slot: int) -> void:
 	SaveAndLoad.select_slot(slot)
@@ -57,7 +62,8 @@ func on_player_died() -> void:
 	await ScreenFade.fade_out()
 	await get_tree().process_frame
 	swap_scene(scene_farm, respawn_spawn)
-	SignalBus.dialog.emit()
+	var keys: Array[StringName] = [&"DIALOG_ON_DEATH"]
+	SignalBus.dialog.emit(keys)
 	revive_player()
 	await ScreenFade.fade_in()
 

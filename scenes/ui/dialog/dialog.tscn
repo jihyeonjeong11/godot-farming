@@ -2,12 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://deugupwqjk44e" path="res://scenes/ui/base_ui.tscn" id="1_2f6hm"]
 [ext_resource type="Texture2D" uid="uid://bo5k8csiengg7" path="res://assets/Objects/items/items_atlas.png" id="2_0e1gd"]
+[ext_resource type="Script" uid="uid://c0bwiw4mt7l6b" path="res://scenes/ui/dialog/dialog.gd" id="3_dlg0g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mti6b"]
 atlas = ExtResource("2_0e1gd")
 region = Rect2(105, 34, 14, 27)
 
 [node name="Dialog" type="CanvasLayer" unique_id=119802128]
+script = ExtResource("3_dlg0g")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=40049216]
 anchors_preset = 12
@@ -38,7 +40,6 @@ texture = SubResource("AtlasTexture_mti6b")
 layout_mode = 2
 size_flags_horizontal = 3
 bbcode_enabled = true
-text = "Looks like you couldn't handle some zombies! Don't worry, try again.
-"
+text = "DIALOG_ON_DEATH"
 
 [editable path="MarginContainer/BaseUi"]

@@ -66,7 +66,7 @@ func on_save_slots_closed() -> void:
 
 
 func on_resume_pressed() -> void:
-	SignalBus.ui_close_requested.emit(UIManager.Layer.PAUSE_MENU)
+	SignalBus.ui_close_requested.emit(DataTypes.UI_Layer.PAUSE_MENU)
 
 
 func on_main_menu_pressed() -> void:

@@ -2,7 +2,7 @@
 # TODO: add some events
 extends Node
 
-signal dialog
+signal dialog(text_key_arr: Array[StringName])
 
 signal game_state_changed(game_state: DataTypes.GameState)
 

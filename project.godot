@@ -143,6 +143,10 @@ select_inventory_10={
 ]
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://assets/texts/dialog.en.translation", "res://assets/texts/dialog.ko.translation")
+
 [layer_names]
 
 2d_physics/layer_1="Ground"

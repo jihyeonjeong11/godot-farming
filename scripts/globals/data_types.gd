@@ -5,6 +5,9 @@ enum GameState {
 	Game
 }
 
+enum UI_Layer { PAUSE_MENU, INGAME_MENU, CONTAINER, SHOP, DIALOG }
+
+
 enum Levels {
 	MainMenu,
 	Farm,

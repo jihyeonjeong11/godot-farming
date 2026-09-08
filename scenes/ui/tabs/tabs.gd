@@ -4,8 +4,6 @@ const INVENTORY_SLOT = preload("uid://byt1lfm4vsyc4")
 const TAB_QUESTS: int = 2
 const TAB_STATS: int = 3
 
-const QUEST_ROOT := "res://scripts/resources/quests"
-
 @onready var menu_panel: MarginContainer = $MarginContainer
 @onready var settings_panel: Control = $Settings
 
@@ -50,7 +48,7 @@ func _ready() -> void:
 	recipes = RecipeDB.all()
 	build_inventory_grid()
 	build_craft_grid()
-	quest_panel.setup(load_quests(QUEST_ROOT))
+	quest_panel.setup(all_quests())
 
 	Inventory.inventory_updated.connect(refresh)
 	show_tab(0)
@@ -116,28 +114,13 @@ func build_craft_grid() -> void:
 		slot.set_slot(ItemStack.new(result, recipe.result_amount))
 
 
-func load_quests(path: String) -> Array[Quest]:
-	var found: Array[Quest] = []
+func all_quests() -> Array[Quest]:
+	var manager := QuestManager.find(get_tree())
+	if manager == null:
+		push_error("[Tabs] QuestManager 가 트리에 없다")
+		return []
 
-	var dir := DirAccess.open(path)
-	if dir == null:
-		push_error("[Tabs] 퀘스트 폴더를 열지 못했다: %s" % path)
-		return found
-
-	for sub_dir in dir.get_directories():
-		found.append_array(load_quests("%s/%s" % [path, sub_dir]))
-
-	for file_name in dir.get_files():
-		var res_name := file_name.trim_suffix(".remap")
-		if not res_name.ends_with(".tres"):
-			continue
-
-		var quest := load("%s/%s" % [path, res_name]) as Quest
-		if quest != null:
-			found.append(quest)
-
-	found.sort_custom(func(a: Quest, b: Quest) -> bool: return a.quest_id < b.quest_id)
-	return found
+	return manager.all()
 
 
 func on_slot_pressed(index: int) -> void:

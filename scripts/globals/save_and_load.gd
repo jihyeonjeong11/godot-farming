@@ -24,6 +24,7 @@ const INVENTORY_FILE := "inventory"
 const TIME_FILE := "time"
 const STATS_FILE := "stats"
 const META_FILE := "meta"
+const QUESTS_FILE := "quests"
 
 ## 지금 읽고 쓰는 슬롯. 메뉴에서 고른 순간 정해지고 그 판이 끝날 때까지 유지된다.
 ## 인게임 저장이 어느 슬롯으로 가는지도 이 값 하나로 정해진다.
@@ -89,6 +90,7 @@ func save_game() -> void:
 	save_level(current_level)
 	save_inventory()
 	save_time()
+	save_quests()
 
 	# 플레이어는 레벨 씬마다 따로 박혀 있어서 여기서 찾아 쓴다.
 	var player := get_tree().get_first_node_in_group(&"player")
@@ -104,6 +106,7 @@ func load_game() -> void:
 	load_requested = true
 	load_inventory()
 	load_time()
+	load_quests()
 
 
 ## 목록에 뿌릴 값만 담는다. 복원에 쓰이지 않으므로 형식이 바뀌어도 세이브는 멀쩡하다.
@@ -233,6 +236,23 @@ func load_inventory() -> void:
 	Inventory.select_slot(parsed.get("selected_slot", 0))
 	Inventory.inventory_updated.emit()
 	Inventory.equipment_updated.emit()
+
+
+func save_quests() -> void:
+	var manager := QuestManager.find(get_tree())
+	if manager == null:
+		return
+
+	_write(_slot_file(QUESTS_FILE), manager.capture())
+
+
+func load_quests() -> void:
+	var manager := QuestManager.find(get_tree())
+	if manager == null:
+		return
+
+	var parsed: Variant = _read(_slot_file(QUESTS_FILE))
+	manager.restore(parsed if parsed is Dictionary else {})
 
 
 ## 현재값만 적는다. 기준값은 player_stats.tres에 있으니 저장할 이유가 없고,

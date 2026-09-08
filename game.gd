@@ -33,9 +33,19 @@ func on_new_game_requested(slot: int) -> void:
 	SaveAndLoad.clear_slot()
 	SaveAndLoad.load_requested = false
 	SaveAndLoad.fresh_start = true
+	reset_quests()
 	swap_scene.call_deferred(scene_farm)
 	_open_intro_dialog.call_deferred()
 	
+
+func reset_quests() -> void:
+	var manager := QuestManager.find(get_tree())
+	if manager == null:
+		push_warning("퀘스트 진행도를 비울 QuestManager 가 없다")
+		return
+
+	manager.reset_progress()
+
 
 func _open_intro_dialog() -> void:
 	var keys: Array[StringName] = [&"DIALOG_ON_START_1", &"DIALOG_ON_START_2"]

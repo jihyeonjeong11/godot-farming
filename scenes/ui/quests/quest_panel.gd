@@ -10,16 +10,44 @@ const LIST_TITLE := "QUESTS"
 @onready var detail_description: Label = %DetailDescription
 @onready var detail_objectives: VBoxContainer = %DetailObjectives
 @onready var detail_reward: Label = %DetailReward
+@onready var complete_button: Button = %CompleteButton
 @onready var back_button: Button = %BackButton
 
 var quests: Array[Quest] = []
 var rows: Array[Button] = []
 var focused_quest: Quest = null
 
+var manager: QuestManager = null
+
 
 func _ready() -> void:
+	manager = QuestManager.find(get_tree())
 	back_button.pressed.connect(show_list)
+	complete_button.pressed.connect(on_complete_pressed)
+	SignalBus.quest_progressed.connect(on_quest_progressed)
 	show_list()
+
+
+func on_complete_pressed() -> void:
+	if manager == null or focused_quest == null:
+		return
+	if not manager.complete_quest(focused_quest.quest_id):
+		return
+
+	focused_quest = null
+	quests = manager.all()
+	build_rows()
+	show_list()
+
+
+func on_quest_progressed(quest_id: String) -> void:
+	for i in quests.size():
+		if quests[i].quest_id == quest_id and i < rows.size():
+			rows[i].text = row_text(quests[i])
+			break
+
+	if detail_view.visible and focused_quest != null and focused_quest.quest_id == quest_id:
+		show_detail(focused_quest)
 
 
 func setup(new_quests: Array[Quest]) -> void:
@@ -32,6 +60,7 @@ func show_list() -> void:
 	title_label.text = LIST_TITLE
 	list_view.visible = true
 	detail_view.visible = false
+	complete_button.visible = false
 	focus_row()
 
 
@@ -48,22 +77,28 @@ func show_detail(quest: Quest) -> void:
 	detail_reward.text = "" if quest.reward_gold <= 0 \
 			else tr(&"QUEST_REWARD_GOLD").format({"gold": quest.reward_gold})
 
+	complete_button.visible = manager != null and manager.can_complete(quest.quest_id)
+
 	for child in detail_objectives.get_children():
 		detail_objectives.remove_child(child)
 		child.queue_free()
 
-	for objective in quest.goal:
+	for i in quest.goal.size():
+		var objective := quest.goal[i]
 		if objective == null:
 			continue
 
 		var line := Label.new()
 		line.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
 		line.add_theme_font_size_override("font_size", 8)
-		line.text = objective.describe()
+		line.text = objective.describe(progress_of(quest, i))
 		detail_objectives.add_child(line)
 
 	if is_visible_in_tree():
-		back_button.grab_focus()
+		if complete_button.visible:
+			complete_button.grab_focus()
+		else:
+			back_button.grab_focus()
 
 
 func build_rows() -> void:
@@ -111,7 +146,15 @@ func row_text(quest: Quest) -> String:
 	if quest.goal.is_empty() or quest.goal[0] == null:
 		return quest.display_title()
 
-	return "%s   0/%d" % [quest.display_title(), quest.goal[0].target_amount]
+	return "%s   %d/%d" % [
+		quest.display_title(),
+		progress_of(quest, 0),
+		quest.goal[0].target_amount,
+	]
+
+
+func progress_of(quest: Quest, index: int) -> int:
+	return 0 if manager == null else manager.objective_progress(quest.quest_id, index)
 
 
 func row_icon(quest: Quest) -> Texture2D:

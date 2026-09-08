@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cmc3tqcugvvas" path="res://assets/splash/splash.png" id="2_splash"]
 [ext_resource type="PackedScene" uid="uid://tp870g51e2ww" path="res://managers/game_state_manager.tscn" id="3_7jktm"]
 [ext_resource type="PackedScene" uid="uid://b68mls6gpmwtq" path="res://managers/audio_manager.tscn" id="4_audio"]
+[ext_resource type="PackedScene" uid="uid://br26lxwsmljo4" path="res://managers/quest_manager.tscn" id="4_quest"]
 [ext_resource type="PackedScene" uid="uid://b0a3am51xwndg" path="res://scenes/components/day_night_cycle_component.tscn" id="5_eow3j"]
 [ext_resource type="Script" uid="uid://d1i6k3nwymf64" path="res://managers/screen_fade.gd" id="5_fade"]
 
@@ -14,6 +15,8 @@ script = ExtResource("1_80nbo")
 [node name="GameStateManager" parent="." unique_id=723736324 instance=ExtResource("3_7jktm")]
 
 [node name="AudioManager" parent="." unique_id=1618537928 instance=ExtResource("4_audio")]
+
+[node name="QuestManager" parent="." unique_id=1847824139 instance=ExtResource("4_quest")]
 
 [node name="UiManager" parent="." unique_id=913842581 instance=ExtResource("2_fc0e3")]
 

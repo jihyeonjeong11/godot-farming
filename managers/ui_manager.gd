@@ -5,9 +5,11 @@ const SCENE_OVERAY = preload("uid://cgv3nwfyr3n17")
 const SCENE_OVERLAY_MENU = preload("uid://6jsgfc4dh1hr")
 const SCENE_INGAME_OVERLAY_MENU = preload("uid://be5ayk7yu0e7k")
 const SCENE_CONTAINER_INVENTORY_UI = preload("uid://b7xqk2mcnv0ug")
-const SHOP_UI = preload("uid://cdnvo7ichp0x8")
 
-enum Layer { PAUSE_MENU, INGAME_MENU, CONTAINER, SHOP }
+const SHOP_UI = preload("uid://cdnvo7ichp0x8")
+const DIALOG = preload("uid://3p1327khsld7")
+
+enum Layer { PAUSE_MENU, INGAME_MENU, CONTAINER, SHOP, DIALOG }
 
 var stack: Array[int] = []
 
@@ -27,11 +29,17 @@ func _ready() -> void:
 	SignalBus.ui_close_requested.connect(close)
 	SignalBus.container_opened.connect(on_container_opened)
 	SignalBus.barter_opened.connect(on_barter_opened)
+	SignalBus.dialog.connect(on_dialog)
+	
+func on_dialog() -> void:
+	open(Layer.DIALOG, null)
 
 
 func _shortcut_input(event: InputEvent) -> void:
 	if _game_state == DataTypes.GameState.MainMenu:
 		return
+	
+	
 		
 	if event.is_action_pressed("ingame_pause"):
 		# Currently there are no consecutive menus.
@@ -165,6 +173,8 @@ func _open_layer_node(layer: Layer) -> void:
 			node = SCENE_CONTAINER_INVENTORY_UI.instantiate()
 		Layer.SHOP:
 			node = SHOP_UI.instantiate()
+		Layer.DIALOG:
+			node = DIALOG.instantiate()
 
 	if node == null:
 		return

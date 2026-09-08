@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://3p1327khsld7"]
+
+[ext_resource type="PackedScene" uid="uid://deugupwqjk44e" path="res://scenes/ui/base_ui.tscn" id="1_2f6hm"]
+[ext_resource type="Texture2D" uid="uid://bo5k8csiengg7" path="res://assets/Objects/items/items_atlas.png" id="2_0e1gd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mti6b"]
+atlas = ExtResource("2_0e1gd")
+region = Rect2(105, 34, 14, 27)
+
+[node name="Dialog" type="CanvasLayer" unique_id=119802128]
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=40049216]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -113.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="BaseUi" parent="MarginContainer" unique_id=118001860 instance=ExtResource("1_2f6hm")]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/BaseUi/NinePatchRect/MarginContainer" parent_id_path=PackedInt32Array(118001860, 1967566677) index="0" unique_id=283597429]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/BaseUi/NinePatchRect/MarginContainer/HBoxContainer" unique_id=1125909524]
+layout_mode = 2
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_mti6b")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/BaseUi/NinePatchRect/MarginContainer/HBoxContainer" unique_id=1687362815]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "Looks like you couldn't handle some zombies! Don't worry, try again.
+"
+
+[editable path="MarginContainer/BaseUi"]

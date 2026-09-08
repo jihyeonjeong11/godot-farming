@@ -848,7 +848,11 @@ func bake_template(scene: PackedScene) -> void:
 				var n := obj as Node2D
 				if n == null or n.scene_file_path.is_empty():
 					continue
-				nodes.append({"path": n.scene_file_path, "at": n.position})
+				nodes.append({
+					"path": n.scene_file_path,
+					"at": n.position,
+					"props": prefab_overrides(n),
+				})
 	inst.free()
 
 	if raw.is_empty():
@@ -866,6 +870,30 @@ func bake_template(scene: PackedScene) -> void:
 		"objects": nodes,
 		"size": mx - mn + Vector2i.ONE,
 	}
+
+
+## 프리팹 안에서 손으로 고쳐둔 export 값. 배치 때는 씬을 새로 세우므로
+## 이걸 챙기지 않으면 문이 어디로 가는지 같은 설정이 통째로 날아간다.
+func prefab_overrides(node: Node2D) -> Dictionary:
+	var packed := load(node.scene_file_path) as PackedScene
+	if packed == null:
+		return {}
+
+	var fresh := packed.instantiate()
+	var out := {}
+	for p: Dictionary in node.get_property_list():
+		var usage: int = p["usage"]
+		if usage & PROPERTY_USAGE_SCRIPT_VARIABLE == 0:
+			continue
+		if usage & PROPERTY_USAGE_STORAGE == 0:
+			continue
+		var prop: String = p["name"]
+		var value: Variant = node.get(prop)
+		if value == fresh.get(prop):
+			continue
+		out[prop] = value
+	fresh.free()
+	return out
 
 
 ## oter 에 걸린 프리팹 중 하나를 가중치로 뽑는다 — mapgen.cpp 의 oter_mapgen::pick.
@@ -933,6 +961,8 @@ func render_buildings() -> void:
 				continue
 			var node := scene.instantiate() as Node2D
 			node.position = base + (n["at"] as Vector2)
+			for prop: String in n["props"]:
+				node.set(prop, n["props"][prop])
 			objects_root.add_child(node)
 
 

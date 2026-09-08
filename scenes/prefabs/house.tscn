@@ -3,6 +3,7 @@
 [ext_resource type="TileSet" uid="uid://dkw01fa84lera" path="res://tilesets/city_ruin.tres" id="1_tiles"]
 [ext_resource type="PackedScene" uid="uid://dnj6pdjn0gx20" path="res://scenes/objects/placables/fruit_trees/apple_tree/apple_tree.tscn" id="2_apple"]
 [ext_resource type="Shader" uid="uid://bxq7f2mnvta3l" path="res://scenes/objects/placables/fruit_trees/fruit_tree_shake.gdshader" id="3_ouhpp"]
+[ext_resource type="PackedScene" uid="uid://hw03yyvlo6vg" path="res://scenes/objects/pickables/placeables/door.tscn" id="4_door"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nqkes"]
 resource_local_to_scene = true
@@ -74,3 +75,8 @@ position = Vector2(470, 250)
 [node name="AppleTree3" parent="Objects" unique_id=273324503 instance=ExtResource("2_apple")]
 material = SubResource("ShaderMaterial_usral")
 position = Vector2(176, 480)
+
+[node name="Door" parent="Objects" unique_id=561351757 instance=ExtResource("4_door")]
+position = Vector2(288, 384)
+target_scene = "res://scenes/prefabs/interiors/house_inside.tscn"
+target_spawn = &"house_entrance"

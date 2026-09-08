@@ -1395,7 +1395,8 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_body"]
 radius = 8.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_hurt"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pyc8v"]
+size = Vector2(20, 57)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hitbox"]
 radius = 8.0
@@ -1429,7 +1430,8 @@ shape = SubResource("CircleShape2D_body")
 tool = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent" unique_id=566285358]
-shape = SubResource("CircleShape2D_hurt")
+position = Vector2(0, -18.5)
+shape = SubResource("RectangleShape2D_pyc8v")
 debug_color = Color(0.65893734, 0.5122168, 0.1647709, 0.41960785)
 
 [node name="DamageComponent" parent="." unique_id=367003998 instance=ExtResource("14_dmg")]

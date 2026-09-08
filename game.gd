@@ -4,6 +4,8 @@ extends Node2D
 @export_file("*.tscn") var scene_city := "res://scenes/test_scenes/proc_gen_city_ruin.tscn"
 @export_file("*.tscn") var scene_mainmenu := "res://scenes/mainmenu.tscn"
 
+@export var respawn_spawn: StringName = &""
+
 @onready var current_scene: Node = $CurrentScene
 @onready var game_state_manager: GameStateManager = $GameStateManager
 
@@ -16,6 +18,7 @@ func _ready() -> void:
 	SignalBus.load_game_requested.connect(on_load_game_requested)
 	SignalBus.scene_change_requested.connect(on_scene_change_requested)
 	SignalBus.main_menu_requested.connect(on_main_menu_requested)
+	SignalBus.player_died.connect(on_player_died)
 	swap_scene(scene_mainmenu)
 
 func _free_tab_key() -> void:
@@ -48,6 +51,24 @@ func on_main_menu_requested() -> void:
 
 func on_scene_change_requested(scene_path: String, spawn_id: StringName) -> void:
 	swap_scene.call_deferred(scene_path, spawn_id)
+
+
+func on_player_died() -> void:
+	await ScreenFade.fade_out()
+	await get_tree().process_frame
+	swap_scene(scene_farm, respawn_spawn)
+	SignalBus.dialog.emit()
+	revive_player()
+	await ScreenFade.fade_in()
+
+
+func revive_player() -> void:
+	var player := get_tree().get_first_node_in_group(&"player") as Player
+	if player == null:
+		push_warning("되살릴 플레이어가 씬에 없다")
+		return
+
+	player.revive()
 
 func swap_scene(path: String, spawn_id: StringName = &"") -> void:
 	if _swapping:

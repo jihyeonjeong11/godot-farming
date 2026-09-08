@@ -2,6 +2,8 @@
 # TODO: add some events
 extends Node
 
+signal dialog
+
 signal game_state_changed(game_state: DataTypes.GameState)
 
 signal game_paused(is_paused: bool)
@@ -45,6 +47,8 @@ signal barter_opened(slots: Array)
 
 ## spawn_id 는 도착한 씬의 SpawnPoint 이름. 비어 있으면 그 씬에 박힌 자리에 그대로 선다.
 signal scene_change_requested(scene_path: String, spawn_id: StringName)
+
+signal player_died()
 
 # TODO: this is temp signal, need a system
 signal sound_requested(soundKey: String)

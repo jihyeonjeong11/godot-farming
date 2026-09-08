@@ -70,6 +70,8 @@ class_name Item extends Resource
 ## 입었을 때 더해주는 이동 속도. base_speed 에 더해지므로 100 기준으로 읽는다.
 @export var speed: int
 
+@export var tool_action: String
+
 
 
 

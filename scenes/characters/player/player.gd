@@ -25,7 +25,7 @@ const TOOL_ACTION := {
 const SLASH_EFFECT_SCENE := preload("res://scenes/effects/slash_effect.tscn")
 const BULLET_EFFECT_SCENE := preload("res://scenes/effects/bullet_effect.tscn")
 
-const MUZZLE_HEIGHT := -10.0
+const MUZZLE_HEIGHT := 0
 const MUZZLE_OFFSET := 14.0
 
 const BLINK_LOOPS: int = 6
@@ -42,21 +42,16 @@ const TOOL_VISIBLE_ACTIONS: Array[String] = [
 
 const RUN_MULTIPLIER := 2
 
-const BARE_REACH := 18.0
+const BARE_REACH := 64.0
 const BARE_RADIUS := 14.0
 const TOOL_FRAMES_DIR := "res://scenes/characters/player/tools/"
 
-## 발밑 지형. 타일셋의 terrain 이름을 그대로 쓴다. 번호로 비교하면 안 된다 —
-## land.tres 는 0 이 Grass 인데 city_ruin.tres 는 0 이 Asphalt 라, 씬을 옮기는
-## 순간 풀밭 소리가 아스팔트에서 난다.
 const TERRAIN_NONE := &""
 const TERRAIN_GRASS := &"Grass"
 const TERRAIN_DIRT := &"Dirt"
 const TERRAIN_CONCRETE := &"Concrete"
 const TERRAIN_ASPHALT := &"Asphalt"
 
-## 발밑 지형을 찾을 레이어. 위에 그려지는 판이 먼저다(도로 > 인도 > 실내 바닥 > 맨땅).
-## 여기 없는 이름은 무시하므로 씬마다 있는 레이어만 잡힌다.
 const GROUND_LAYERS: Array[String] = [
 	"Road", "ConcretePath", "StonePath", "Walk", "Floors", "Land",
 ]
@@ -75,7 +70,6 @@ const GROUND_LAYERS: Array[String] = [
 @onready var hurt_component: HurtComponent = $HurtComponent
 @onready var hurt_shape: CollisionShape2D = $HurtComponent/CollisionShape2D
 
-## Tilemap 밑에서 찾아낸 지형 레이어들. GROUND_LAYERS 순서를 그대로 따른다.
 var _ground_layers: Array[TileMapLayer] = []
 
 var current_tile
@@ -110,7 +104,6 @@ func _ready() -> void:
 	apply_hitbox(null)
 	hurt_component.hurt.connect(take_hit)
 	Inventory.equipment_updated.connect(refresh_equipment_stats)
-	# 세이브에서 이미 입은 채로 들어올 수 있다. 신호를 기다리면 그건 반영되지 않는다.
 	refresh_equipment_stats()
 
 func setup_stats() -> void:
@@ -133,8 +126,6 @@ func setup_stats() -> void:
 		stats.thirst = saved.get("thirst", stats.thirst)
 		stats.gold = saved.get("gold", stats.gold)
 
-## 입고 있는 것들의 방어·속도를 스탯에 다시 얹는다.
-## 스탯 리소스는 인벤토리를 모르므로 값을 아는 이쪽이 건네준다.
 func refresh_equipment_stats() -> void:
 	if stats == null:
 		return
@@ -497,5 +488,15 @@ func die() -> void:
 		state_machine.transition_to("Die")
 	if not sprite_layers.is_empty() and sprite_layers[0].is_playing():
 		await sprite_layers[0].animation_finished
-	await ScreenFade.fade_out()
-	
+	SignalBus.player_died.emit()
+
+
+func revive() -> void:
+	is_dead = false
+	is_invulnerable = false
+	hurt_shape.set_deferred("disabled", false)
+	modulate.a = 1.0
+	stats.health = stats.current_max_health
+
+	if state_machine:
+		state_machine.transition_to("Idle")

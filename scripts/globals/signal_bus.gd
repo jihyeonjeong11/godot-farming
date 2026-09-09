@@ -56,5 +56,9 @@ signal quest_completed(quest_id: String)
 
 signal quest_cleared(quest_id: String)
 
+signal quest_list_changed()
+
+signal enemy_killed(enemy_id: StringName)
+
 # TODO: this is temp signal, need a system
 signal sound_requested(soundKey: String)

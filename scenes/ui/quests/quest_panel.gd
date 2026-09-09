@@ -21,23 +21,35 @@ var manager: QuestManager = null
 
 
 func _ready() -> void:
-	manager = QuestManager.find(get_tree())
 	back_button.pressed.connect(show_list)
 	complete_button.pressed.connect(on_complete_pressed)
 	SignalBus.quest_progressed.connect(on_quest_progressed)
-	show_list()
+	SignalBus.quest_list_changed.connect(refresh_quests)
+	refresh_quests()
+
+
+func refresh_quests() -> void:
+	if manager == null:
+		manager = QuestManager.find(get_tree())
+
+	quests.clear()
+	if manager != null:
+		quests = manager.all()
+
+	if focused_quest != null and not quests.has(focused_quest):
+		focused_quest = null
+
+	build_rows()
+
+	if focused_quest == null:
+		show_list()
+	else:
+		show_detail(focused_quest)
 
 
 func on_complete_pressed() -> void:
-	if manager == null or focused_quest == null:
-		return
-	if not manager.complete_quest(focused_quest.quest_id):
-		return
-
-	focused_quest = null
-	quests = manager.all()
-	build_rows()
-	show_list()
+	if manager != null and focused_quest != null:
+		manager.complete_quest(focused_quest.quest_id)
 
 
 func on_quest_progressed(quest_id: String) -> void:
@@ -48,12 +60,6 @@ func on_quest_progressed(quest_id: String) -> void:
 
 	if detail_view.visible and focused_quest != null and focused_quest.quest_id == quest_id:
 		show_detail(focused_quest)
-
-
-func setup(new_quests: Array[Quest]) -> void:
-	quests = new_quests
-	build_rows()
-	show_list()
 
 
 func show_list() -> void:
@@ -159,6 +165,9 @@ func progress_of(quest: Quest, index: int) -> int:
 
 func row_icon(quest: Quest) -> Texture2D:
 	if quest.goal.is_empty() or quest.goal[0] == null:
+		return null
+
+	if quest.goal[0].goal_type == DataTypes.QuestGoal.Slay:
 		return null
 
 	var item := ItemDB.get_item(quest.goal[0].target_id)

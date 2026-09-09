@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var state_machine: NodeStateMachine = $StateMachine
 
 @export var stats: BaseCharacterStats
+@export var enemy_id: StringName = &"axe_zombie"
 
 @export var min_walk_cycle: int = 2
 @export var max_walk_cycle: int = 6
@@ -51,6 +52,7 @@ func on_hurt(hit_damage: int) -> void:
 
 func die() -> void:
 	is_dead = true
+	SignalBus.enemy_killed.emit(enemy_id)
 	
 	state_machine.set_process(false)
 	state_machine.set_physics_process(false)

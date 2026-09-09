@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="QuestObjective" format=3 uid="uid://crbd6yglbkjlf"]
+
+[ext_resource type="Script" uid="uid://co8yh1vw15o1u" path="res://scripts/resources/quests/quest_objective.gd" id="1_oww2a"]
+
+[resource]
+script = ExtResource("1_oww2a")
+objective_id = "obj_gather_material"
+target_type = 5
+amount_min = 5
+amount_max = 25
+amount_step = 5
+metadata/_custom_type_script = "uid://co8yh1vw15o1u"

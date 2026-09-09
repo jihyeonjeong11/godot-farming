@@ -48,7 +48,6 @@ func _ready() -> void:
 	recipes = RecipeDB.all()
 	build_inventory_grid()
 	build_craft_grid()
-	quest_panel.setup(all_quests())
 
 	Inventory.inventory_updated.connect(refresh)
 	show_tab(0)
@@ -112,15 +111,6 @@ func build_craft_grid() -> void:
 		craft_slots.append(slot)
 
 		slot.set_slot(ItemStack.new(result, recipe.result_amount))
-
-
-func all_quests() -> Array[Quest]:
-	var manager := QuestManager.find(get_tree())
-	if manager == null:
-		push_error("[Tabs] QuestManager 가 트리에 없다")
-		return []
-
-	return manager.all()
 
 
 func on_slot_pressed(index: int) -> void:

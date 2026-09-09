@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Quest" format=3 uid="uid://b8i16lv8h78x3"]
+
+[ext_resource type="Script" uid="uid://co8yh1vw15o1u" path="res://scripts/resources/quests/quest_objective.gd" id="1_v8ols"]
+[ext_resource type="Script" uid="uid://bkol60dwix8h2" path="res://scripts/resources/quests/quest.gd" id="2_rkoc8"]
+
+[sub_resource type="Resource" id="Resource_onu5s"]
+script = ExtResource("1_v8ols")
+target_id = "wood_log"
+target_amount = 10
+metadata/_custom_type_script = "uid://co8yh1vw15o1u"
+
+[resource]
+script = ExtResource("2_rkoc8")
+quest_id = "quest_slay_01"
+quest_title = "QUEST_GATHER_01_TITLE"
+quest_description = "QUEST_GATHER_01_DESC"
+goal_type = 2
+reward_gold = 50
+goal = Array[ExtResource("1_v8ols")]([SubResource("Resource_onu5s")])
+metadata/_custom_type_script = "uid://bkol60dwix8h2"

@@ -3,8 +3,6 @@ extends Node
 
 const GROUP: StringName = &"quest_manager"
 
-const QUEST_ROOT := "res://scripts/resources/quests"
-
 var quests: Array[Quest] = []
 
 var progress: Dictionary = {}
@@ -13,20 +11,79 @@ var completed: Array[String] = []
 
 var cleared: Array[String] = []
 
+var radiant_ids: Array[String] = []
+
+var radiant_serial: int = 0
+
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	add_to_group(GROUP)
 	reload()
 	Inventory.item_gained.connect(on_item_gained)
+	SignalBus.time_tick_day.connect(on_tick_day)
+	SignalBus.enemy_killed.connect(on_enemy_killed)
+	
 
 
 static func find(tree: SceneTree) -> QuestManager:
 	return tree.get_first_node_in_group(GROUP) as QuestManager
 
 
+func on_tick_day(_day: int) -> void:
+	clear_radiant_quests()
+	generate_radiant_quests(1, DataTypes.QuestGoal.Gather)
+	generate_radiant_quests(1, DataTypes.QuestGoal.Slay)
+
+
+func clear_radiant_quests() -> void:
+	for quest_id in radiant_ids:
+		var quest := get_quest(quest_id)
+		if quest != null:
+			quests.erase(quest)
+		progress.erase(quest_id)
+		completed.erase(quest_id)
+
+	radiant_ids.clear()
+	SignalBus.quest_list_changed.emit()
+
+
+func generate_radiant_quests(count: int = 1,
+		goal_type: DataTypes.QuestGoal = DataTypes.QuestGoal.Gather) -> void:
+	var template_ids := QuestDB.quest_ids_of_goal(goal_type, true)
+	var objective_ids := QuestDB.objective_ids_of_goal(goal_type)
+
+	if template_ids.is_empty() or objective_ids.is_empty():
+		push_warning("[QuestManager] %s 라디언트 템플릿이나 목표가 DB 에 없다"
+				% DataTypes.quest_goal_label(goal_type))
+		return
+
+	for i in count:
+		var template_id: StringName = template_ids.pick_random()
+		radiant_serial += 1
+
+		var quest := QuestDB.make_quest(template_id, "%s_r%d" % [template_id, radiant_serial])
+		if quest == null:
+			continue
+
+		var objective := QuestDB.roll_objective(objective_ids.pick_random())
+		if objective == null or objective.target_id.is_empty():
+			continue
+
+		var goal: Array[QuestObjective] = [objective]
+		quest.goal = goal
+		quest.reward_gold += quest.reward_per_unit * objective.target_amount
+
+		quests.append(quest)
+		radiant_ids.append(quest.quest_id)
+
+	quests.sort_custom(func(a: Quest, b: Quest) -> bool: return a.quest_id < b.quest_id)
+	_sync_progress()
+	SignalBus.quest_list_changed.emit()
+
+
 func all() -> Array[Quest]:
-	return quests
+	return quests.duplicate()
 
 
 func get_quest(quest_id: String) -> Quest:
@@ -52,9 +109,15 @@ func objective_progress(quest_id: String, index: int) -> int:
 func on_item_gained(item: Item, amount: int) -> void:
 	if item == null or amount <= 0:
 		return
-	add_progress(item.item_id, amount)
+	add_progress(item.item_id, amount,
+			[DataTypes.QuestGoal.Gather, DataTypes.QuestGoal.Harvest])
 
-func add_progress(target_id: String, amount: int) -> void:
+
+func on_enemy_killed(enemy_id: StringName) -> void:
+	add_progress(String(enemy_id), 1, [DataTypes.QuestGoal.Slay])
+
+
+func add_progress(target_id: String, amount: int, goals: Array[int]) -> void:
 	if target_id.is_empty() or amount <= 0:
 		return
 
@@ -68,6 +131,8 @@ func add_progress(target_id: String, amount: int) -> void:
 		for i in quest.goal.size():
 			var objective := quest.goal[i]
 			if objective == null or objective.target_id != target_id:
+				continue
+			if not goals.has(objective.goal_type):
 				continue
 			if counts[i] >= objective.target_amount:
 				continue
@@ -103,6 +168,7 @@ func complete_quest(quest_id: String) -> bool:
 	cleared.append(quest_id)
 
 	SignalBus.quest_cleared.emit(quest_id)
+	SignalBus.quest_list_changed.emit()
 	return true
 
 
@@ -198,38 +264,7 @@ func _sync_progress() -> void:
 
 func reload() -> void:
 	quests.clear()
-
-	for quest in _scan(QUEST_ROOT):
-		if cleared.has(quest.quest_id):
-			continue
-
-		if has_quest(quest.quest_id):
-			push_warning("[QuestManager] quest_id 가 겹친다: %s" % quest.quest_id)
-			continue
-		quests.append(quest)
-
+	radiant_ids.clear()
 	quests.sort_custom(func(a: Quest, b: Quest) -> bool: return a.quest_id < b.quest_id)
 	_sync_progress()
-
-
-func _scan(path: String) -> Array[Quest]:
-	var found: Array[Quest] = []
-
-	var dir := DirAccess.open(path)
-	if dir == null:
-		push_error("[QuestManager] 퀘스트 폴더를 열지 못했다: %s" % path)
-		return found
-
-	for sub_dir in dir.get_directories():
-		found.append_array(_scan("%s/%s" % [path, sub_dir]))
-
-	for file_name in dir.get_files():
-		var res_name := file_name.trim_suffix(".remap")
-		if not res_name.ends_with(".tres"):
-			continue
-
-		var quest := load("%s/%s" % [path, res_name]) as Quest
-		if quest != null:
-			found.append(quest)
-
-	return found
+	SignalBus.quest_list_changed.emit()

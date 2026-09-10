@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="PlaceableObject" format=3 uid="uid://b0mebugnhfw2t"]
+
+[ext_resource type="Script" uid="uid://c0e27vd6vvrd3" path="res://scripts/resources/loot/loot.gd" id="1_loot"]
+[ext_resource type="Script" uid="uid://bstiq6ulxip1a" path="res://scripts/resources/placeable_object/placeable_object.gd" id="2_object"]
+[ext_resource type="Resource" uid="uid://bvp0rivu0hk48" path="res://scripts/resources/item/pickables/stone.tres" id="3_drop"]
+[ext_resource type="Texture2D" uid="uid://mmovo8dlqfkt" path="res://assets/craftland/Craftland Mines/32x32/CLM_Mining_Vegetables.png" id="4_atlas"]
+
+[sub_resource type="Resource" id="Resource_drop"]
+script = ExtResource("1_loot")
+item = ExtResource("3_drop")
+min = 5
+max = 5
+metadata/_custom_type_script = "uid://c0e27vd6vvrd3"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_object"]
+atlas = ExtResource("4_atlas")
+region = Rect2(264, 74, 52, 46)
+
+[resource]
+script = ExtResource("2_object")
+object_id = "rock"
+object_name = "Rock"
+destructible_tool = 2
+object_texture = SubResource("AtlasTexture_object")
+object_max_health = 3
+dropped_items = Array[ExtResource("1_loot")]([SubResource("Resource_drop")])
+metadata/_custom_type_script = "uid://bstiq6ulxip1a"

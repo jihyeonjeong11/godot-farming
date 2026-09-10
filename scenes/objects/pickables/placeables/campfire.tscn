@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cd4sr74a3nt6m" path="res://assets/apo/anims/32x32_bonfire.png" id="1_tex"]
 [ext_resource type="Script" uid="uid://7wrccrmc410y" path="res://scenes/objects/pickables/placeables/campfire.gd" id="2_script"]
-[ext_resource type="Resource" uid="uid://b8kcmpfr2wq1d" path="res://scripts/resources/placeables/campfire.tres" id="3_item"]
+[ext_resource type="Resource" uid="uid://b8kcmpfr2wq1d" path="res://scripts/resources/item/placeables/campfire.tres" id="3_item"]
 [ext_resource type="PackedScene" uid="uid://bwn5t2ejgp0hr" path="res://scenes/components/hurt_component.tscn" id="4_hurt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cf0"]

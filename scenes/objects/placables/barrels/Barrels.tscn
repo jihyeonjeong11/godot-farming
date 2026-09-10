@@ -3,7 +3,7 @@
 [ext_resource type="Shader" uid="uid://beerf3cxjtkqb" path="res://scenes/objects/placables/barrels/barrel_shaker.gdshader" id="1_eugow"]
 [ext_resource type="Texture2D" uid="uid://cd23fy8lk2tva" path="res://assets/apo/32x32_dec_props.png" id="2_imkq6"]
 [ext_resource type="Script" uid="uid://baxx5vh3wfxp5" path="res://scenes/objects/placables/barrels/barrels.gd" id="3_imkq6"]
-[ext_resource type="Resource" uid="uid://d1ybgcifdoahc" path="res://scripts/resources/pickables/scrap_metal.tres" id="4_eugow"]
+[ext_resource type="Resource" uid="uid://d1ybgcifdoahc" path="res://scripts/resources/item/pickables/scrap_metal.tres" id="4_eugow"]
 [ext_resource type="PackedScene" uid="uid://bwn5t2ejgp0hr" path="res://scenes/components/hurt_component.tscn" id="5_fc2tu"]
 [ext_resource type="PackedScene" uid="uid://dk3jgaxq07bts" path="res://scenes/components/damage_component.tscn" id="6_7ydc8"]
 [ext_resource type="Texture2D" uid="uid://xaiewcxiuhdc" path="res://assets/effects/dust_effect.png" id="7_6pu7a"]

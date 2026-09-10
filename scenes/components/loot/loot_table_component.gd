@@ -4,10 +4,10 @@ extends Node
 ## 떨어진 물건은 전부 item_stack_instance.tscn 하나를 쓰므로, 여기서 고르는 것은
 ## 씬이 아니라 Item 리소스다. 씬을 만드는 일은 떨구는 쪽이 한다.
 
-const CARROT_SEED := preload("res://scripts/resources/seeds/carrot_seeds.tres")
-const CORN_SEED := preload("res://scripts/resources/seeds/corn_seeds.tres")
-const POTATO_SEED := preload("res://scripts/resources/seeds/potato_seeds.tres")
-const WHEAT_SEED := preload("res://scripts/resources/seeds/wheat_seeds.tres")
+const CARROT_SEED := preload("res://scripts/resources/item/seeds/carrot_seeds.tres")
+const CORN_SEED := preload("res://scripts/resources/item/seeds/corn_seeds.tres")
+const POTATO_SEED := preload("res://scripts/resources/item/seeds/potato_seeds.tres")
+const WHEAT_SEED := preload("res://scripts/resources/item/seeds/wheat_seeds.tres")
 
 # TODO: make it dynamic. currently this only applies to small_zombie
 var loot_pool: Array[Item] = [CARROT_SEED, WHEAT_SEED]

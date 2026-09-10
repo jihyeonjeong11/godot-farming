@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ctp4naj2hxw80" path="res://scenes/components/collectable_component.tscn" id="1_8orss"]
 [ext_resource type="Texture2D" uid="uid://bi7sc3d1g8ya0" path="res://assets/Objects/Nature/Flowers_Mashrooms_Other-nature-stuff/Rocks/Rock_1.png" id="1_stn01"]
-[ext_resource type="Resource" uid="uid://bvp0rivu0hk48" path="res://scripts/resources/pickables/stone.tres" id="2_oca81"]
+[ext_resource type="Resource" uid="uid://bvp0rivu0hk48" path="res://scripts/resources/item/pickables/stone.tres" id="2_oca81"]
 [ext_resource type="Script" uid="uid://ce7wvcm7jv2xv" path="res://scenes/components/drop_pop_component.gd" id="4_pop01"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_stn01"]

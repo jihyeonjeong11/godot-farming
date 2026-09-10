@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://ck8n2vqx1bldr"]
+
+[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/item/item.gd" id="1_items"]
+[ext_resource type="Texture2D" uid="uid://dnrv20csqyqnv" path="res://assets/Objects/Container/Container_5_Red_Vertical.png" id="2_tex"]
+
+[resource]
+script = ExtResource("1_items")
+item_id = "container"
+item_type = 6
+item_name = "container"
+item_texture = ExtResource("2_tex")
+description = "물건을 넣어두는 상자. 땅에 놓고 우클릭하면 열린다."
+max_stack = 99
+placeable_scene_path = "uid://dile8iqj8hrux"
+world_scene_path = "uid://cb65olukse4yu"
+metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

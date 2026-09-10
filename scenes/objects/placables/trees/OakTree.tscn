@@ -3,7 +3,7 @@
 [ext_resource type="Shader" uid="uid://dn6q4tvxb8jke" path="res://scenes/objects/placables/trees/tree_shake.gdshader" id="1_gbxoi"]
 [ext_resource type="Texture2D" uid="uid://dog4l2sx7u7cn" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png" id="2_gbxoi"]
 [ext_resource type="Script" uid="uid://c6bb7potuk6ff" path="res://scenes/objects/placables/trees/small_tree.gd" id="3_cu5ud"]
-[ext_resource type="Resource" uid="uid://f56b1jph4cua" path="res://scripts/resources/pickables/log.tres" id="4_m822m"]
+[ext_resource type="Resource" uid="uid://f56b1jph4cua" path="res://scripts/resources/item/pickables/log.tres" id="4_m822m"]
 [ext_resource type="PackedScene" uid="uid://bwn5t2ejgp0hr" path="res://scenes/components/hurt_component.tscn" id="5_e0fwi"]
 [ext_resource type="PackedScene" uid="uid://dk3jgaxq07bts" path="res://scenes/components/damage_component.tscn" id="6_ove66"]
 [ext_resource type="Texture2D" uid="uid://xaiewcxiuhdc" path="res://assets/effects/dust_effect.png" id="7_yjhwv"]

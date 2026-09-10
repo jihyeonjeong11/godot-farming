@@ -51,6 +51,19 @@ enum ItemType {
 	Ranged
 }
 
+enum ObjectType {
+	Nature, # 자연물
+	Furniture, # 가구
+	
+}
+
+enum Interactable_actions {
+	None,
+	Sleep,
+	Craft,
+	Shake
+}
+
 static func quest_goal_label(goal: QuestGoal) -> String:
 	match goal:
 		QuestGoal.Gather: return "채집"

@@ -1,6 +1,6 @@
 extends Node
 
-const ITEM_ROOT := "res://scripts/resources"
+const ITEM_ROOT := "res://scripts/resources/item"
 
 var _by_id: Dictionary[StringName, Item] = {}
 

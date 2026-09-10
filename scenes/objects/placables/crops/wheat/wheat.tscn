@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bu66glbfsvp45" path="res://scenes/objects/placables/crops/flowering_particles.tscn" id="4_5k6vj"]
 [ext_resource type="PackedScene" uid="uid://cehk8b7braiq8" path="res://scenes/objects/placables/crops/watering_particles.tscn" id="5_yahxe"]
 [ext_resource type="PackedScene" uid="uid://dn08baylvwldn" path="res://scenes/components/farming_hurt_component.tscn" id="6_dl25i"]
-[ext_resource type="Resource" uid="uid://cw3ahtn6vyqk8" path="res://scripts/resources/pickables/wheat.tres" id="9_dropi"]
+[ext_resource type="Resource" uid="uid://cw3ahtn6vyqk8" path="res://scripts/resources/item/pickables/wheat.tres" id="9_dropi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_st0"]
 atlas = ExtResource("2_7gl54")

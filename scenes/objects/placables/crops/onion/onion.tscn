@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bu66glbfsvp45" path="res://scenes/objects/placables/crops/flowering_particles.tscn" id="4_f2mx2"]
 [ext_resource type="PackedScene" uid="uid://cehk8b7braiq8" path="res://scenes/objects/placables/crops/watering_particles.tscn" id="5_eye6f"]
 [ext_resource type="PackedScene" uid="uid://dn08baylvwldn" path="res://scenes/components/farming_hurt_component.tscn" id="6_0g7nr"]
-[ext_resource type="Resource" uid="uid://bpt4ohgnvxqy2" path="res://scripts/resources/pickables/potato.tres" id="9_dropi"]
+[ext_resource type="Resource" uid="uid://bpt4ohgnvxqy2" path="res://scripts/resources/item/pickables/potato.tres" id="9_dropi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l106e"]
 atlas = ExtResource("3_oqt3h")

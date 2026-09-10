@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://mloe6l4aphpg" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crafting.png" id="1_tb4or"]
 [ext_resource type="Script" uid="uid://cyibceseal6wu" path="res://scenes/objects/pickables/containers/chest.gd" id="2_kwr1m"]
 [ext_resource type="PackedScene" uid="uid://b17pqg2t34n5v" path="res://scenes/components/container_inventory_component.tscn" id="3_ge2ct"]
-[ext_resource type="Resource" uid="uid://bch5t2qw8n1kd" path="res://scripts/resources/placeables/chest.tres" id="3_mussn"]
+[ext_resource type="Resource" uid="uid://bch5t2qw8n1kd" path="res://scripts/resources/item/placeables/chest.tres" id="3_mussn"]
 [ext_resource type="PackedScene" uid="uid://bwn5t2ejgp0hr" path="res://scenes/components/hurt_component.tscn" id="8_47xrw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tctrp"]

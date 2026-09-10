@@ -4,7 +4,7 @@
 [ext_resource type="Shader" uid="uid://bxq7f2mnvta3l" path="res://scenes/objects/placables/fruit_trees/fruit_tree_shake.gdshader" id="2_shk01"]
 [ext_resource type="Script" uid="uid://c8pdk4rw1gy06" path="res://scenes/objects/placables/fruit_trees/apple_tree/apple_tree.gd" id="3_appl1"]
 [ext_resource type="PackedScene" uid="uid://mhgj40v08fke" path="res://scenes/components/interactable_component.tscn" id="4_intr1"]
-[ext_resource type="Resource" uid="uid://dqk5v8n3wpyt2" path="res://scripts/resources/consumables/apple.tres" id="5_appit"]
+[ext_resource type="Resource" uid="uid://dqk5v8n3wpyt2" path="res://scripts/resources/item/consumables/apple.tres" id="5_appit"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_shk01"]
 resource_local_to_scene = true

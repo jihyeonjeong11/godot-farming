@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bwn5t2ejgp0hr" path="res://scenes/components/hurt_component.tscn" id="4_02xw0"]
 [ext_resource type="PackedScene" uid="uid://dk3jgaxq07bts" path="res://scenes/components/damage_component.tscn" id="5_jur6h"]
 [ext_resource type="Texture2D" uid="uid://xaiewcxiuhdc" path="res://assets/effects/dust_effect.png" id="6_s3mqe"]
-[ext_resource type="Resource" uid="uid://bvp0rivu0hk48" path="res://scripts/resources/pickables/stone.tres" id="9_dropi"]
+[ext_resource type="Resource" uid="uid://bvp0rivu0hk48" path="res://scripts/resources/item/pickables/stone.tres" id="9_dropi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_shk01"]
 resource_local_to_scene = true

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cs37xus6fdfc"]
+
+[ext_resource type="Script" uid="uid://bpfuyaaa70eyp" path="res://scenes/objects/placables/object_instance.gd" id="1_1krxx"]
+
+[node name="ObjectInstance" type="Sprite2D" unique_id=1513629613]
+script = ExtResource("1_1krxx")

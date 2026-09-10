@@ -19,9 +19,8 @@
 [ext_resource type="Script" uid="uid://vdfoocwoprvh" path="res://scenes/components/persistent/level_placeables.gd" id="9_lbldb"]
 [ext_resource type="Texture2D" uid="uid://cd23fy8lk2tva" path="res://assets/apo/32x32_dec_props.png" id="11_y23mg"]
 [ext_resource type="PackedScene" uid="uid://d0jwliwel36al" path="res://scenes/objects/pickables/placeables/fire_trash_can.tscn" id="15_y7ey2"]
-[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/item.gd" id="16_326xb"]
+[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/item/item.gd" id="16_326xb"]
 [ext_resource type="Texture2D" uid="uid://bnif2lxsjm6nu" path="res://assets/apo/32x32_main_lev.png" id="16_nkhic"]
-[ext_resource type="Resource" uid="uid://c5iqtmnq4272e" path="res://scripts/resources/pickables/carrot.tres" id="18_k6jv7"]
 [ext_resource type="PackedScene" uid="uid://dnj6pdjn0gx20" path="res://scenes/objects/placables/fruit_trees/apple_tree/apple_tree.tscn" id="20_k6jv7"]
 [ext_resource type="Shader" uid="uid://bxq7f2mnvta3l" path="res://scenes/objects/placables/fruit_trees/fruit_tree_shake.gdshader" id="21_mge4w"]
 [ext_resource type="PackedScene" uid="uid://y27b0nq34315" path="res://scenes/components/portal_component.tscn" id="22_portl"]
@@ -32,6 +31,8 @@
 [ext_resource type="PackedScene" uid="uid://bbeiswymb5pbp" path="res://scenes/objects/placables/rocks/Rock.tscn" id="30_u7oqc"]
 [ext_resource type="Shader" uid="uid://bcp8mmn7pipyu" path="res://scenes/objects/placables/rocks/rock_shake.gdshader" id="31_qyw75"]
 [ext_resource type="PackedScene" uid="uid://qup7j2sipi2x" path="res://scenes/objects/placables/vending_machines/vending_machine_1.tscn" id="31_u7oqc"]
+[ext_resource type="PackedScene" uid="uid://cs37xus6fdfc" path="res://scenes/objects/placables/object_instance.tscn" id="32_p4kff"]
+[ext_resource type="Resource" uid="uid://cwu5que5eyybe" path="res://scripts/resources/placeable_object/nature/oak_tree.tres" id="33_l5ara"]
 [ext_resource type="PackedScene" uid="uid://co1flbsq0iwon" path="res://scenes/components/placeable_cursor_component.tscn" id="40_plccr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_itdck"]
@@ -750,7 +751,7 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_4tab4")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_y23mg"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wnnmy"]
 resource_local_to_scene = true
 shader = ExtResource("21_mge4w")
 shader_parameter/base_y = 0.0
@@ -760,28 +761,28 @@ shader_parameter/sway_speed = 1.3
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 26.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_p4kff"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s0ls1"]
 resource_local_to_scene = true
 shader = ExtResource("27_ysy4c")
 shader_parameter/shake_top_y = -63.0
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 20.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_l5ara"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uq05m"]
 resource_local_to_scene = true
 shader = ExtResource("27_ysy4c")
 shader_parameter/shake_top_y = -41.0
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 20.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wnnmy"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rim5b"]
 resource_local_to_scene = true
 shader = ExtResource("27_ysy4c")
 shader_parameter/shake_top_y = -40.0
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 20.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_s0ls1"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a4mcd"]
 resource_local_to_scene = true
 shader = ExtResource("31_qyw75")
 shader_parameter/shake_intensity = 0.0
@@ -879,23 +880,22 @@ position = Vector2(414, 618)
 
 [node name="Container" parent="Level/LevelPlaceables" unique_id=401607489 instance=ExtResource("6_bv2fu")]
 position = Vector2(429, 668)
-initial_items = Array[ExtResource("16_326xb")]([ExtResource("18_k6jv7")])
 initial_amounts = Array[int]([10, 0, 0])
 
 [node name="AppleTree" parent="Level/LevelPlaceables" unique_id=144522866 instance=ExtResource("20_k6jv7")]
-material = SubResource("ShaderMaterial_y23mg")
+material = SubResource("ShaderMaterial_wnnmy")
 position = Vector2(328, 758)
 
 [node name="OakTree" parent="Level" unique_id=1835615693 instance=ExtResource("28_ysy4c")]
-material = SubResource("ShaderMaterial_p4kff")
+material = SubResource("ShaderMaterial_s0ls1")
 position = Vector2(159, 549.5)
 
 [node name="Barrels" parent="Level" unique_id=495184973 instance=ExtResource("26_mge4w")]
-material = SubResource("ShaderMaterial_l5ara")
+material = SubResource("ShaderMaterial_uq05m")
 position = Vector2(207, 531)
 
 [node name="VendingMachine1" parent="Level" unique_id=1046362585 instance=ExtResource("31_u7oqc")]
-material = SubResource("ShaderMaterial_wnnmy")
+material = SubResource("ShaderMaterial_rim5b")
 position = Vector2(357, 553)
 drop_items = Array[ExtResource("16_326xb")]([])
 
@@ -903,13 +903,17 @@ drop_items = Array[ExtResource("16_326xb")]([])
 position = Vector2(680, 670.5)
 
 [node name="Rock" parent="Level" unique_id=631817687 instance=ExtResource("30_u7oqc")]
-material = SubResource("ShaderMaterial_s0ls1")
+material = SubResource("ShaderMaterial_a4mcd")
 position = Vector2(91, 656)
 
 [node name="PortalToOutside" parent="Level" unique_id=1930517001 instance=ExtResource("22_portl")]
 position = Vector2(49, 559)
 target_scene = "uid://kqf460uvb87q"
 target_spawn = &"farm_gate"
+
+[node name="OakTree2" parent="Level" unique_id=1513629613 instance=ExtResource("32_p4kff")]
+position = Vector2(168, 334)
+object = ExtResource("33_l5ara")
 
 [node name="SpawnFromHouse" type="Marker2D" parent="." unique_id=1822180509]
 position = Vector2(544, 705)

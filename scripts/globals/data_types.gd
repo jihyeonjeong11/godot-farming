@@ -72,6 +72,31 @@ static func item_type_label(type: ItemType) -> String:
 	return ""
 
 
+enum TerrainKind {
+	Empty,         # 0  맵 밖. 그리드에 없는 칸
+	Dirt,         # 1  맨땅. 전부 허용
+	StonePath,     # 2
+	ConcretePath,  # 3
+	BuildingDecal, # 4
+	Object,        # 5
+	Building,      # 6
+	Cliff,         # 7
+	Water,         # 8
+	TilledSoil,
+	WateredSoil
+}
+
+enum CellFlags {
+	None = 0,
+	NoWalk = 1,
+	NoTill = 2,
+	NoPlace = 4,
+	NoBreak = 8,
+}
+
+const PRESET_BLOCKED := CellFlags.NoWalk | CellFlags.NoTill | CellFlags.NoPlace | CellFlags.NoBreak
+
+
 const SOIL_TERRAIN_SET: int = 0
 
 enum SoilTerrains {

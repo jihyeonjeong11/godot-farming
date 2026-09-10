@@ -14,16 +14,7 @@ const DROP := "res://scenes/objects/pickables/item_stack_instance.tscn"
 func _init() -> void:
 	layer_id = &"objects"
 	initial_objects = {
-		"CornSeeds": _drop(&"corn_seeds", Vector2(178, 124)),
-		"CarrotSeeds": _drop(&"carrot_seeds", Vector2(418, 153)),
-		"PotatoSeeds": _drop(&"potato_seeds", Vector2(486, 223)),
-		"ContainerItem": _drop(&"container", Vector2(340, 120)),
-		"axe": _drop(&"axe", Vector2(296, 255)),
-		"bat": _drop(&"bat", Vector2(47, 265)),
-		"hoe": _drop(&"hoe", Vector2(26, 151)),
-		"pickaxe": _drop(&"pickaxe", Vector2(286, 64)),
-		"watering_can": _drop(&"watering_can", Vector2(478, 82)),
-	}
+		}
 
 
 func _drop(item_id: StringName, position: Vector2) -> Dictionary:

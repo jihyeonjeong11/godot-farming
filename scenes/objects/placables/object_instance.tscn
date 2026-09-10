@@ -1,6 +1,16 @@
 [gd_scene format=3 uid="uid://cs37xus6fdfc"]
 
 [ext_resource type="Script" uid="uid://bpfuyaaa70eyp" path="res://scenes/objects/placables/object_instance.gd" id="1_1krxx"]
+[ext_resource type="PackedScene" uid="uid://bwn5t2ejgp0hr" path="res://scenes/components/hurt_component.tscn" id="2_hrt01"]
 
 [node name="ObjectInstance" type="Sprite2D" unique_id=1513629613]
 script = ExtResource("1_1krxx")
+
+[node name="Hurtbox" parent="." unique_id=900425874 instance=ExtResource("2_hrt01")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1466203915]
+debug_color = Color(0.8008646, 0.42010838, 0.03236889, 0.41960785)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=275583156]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2136806622]

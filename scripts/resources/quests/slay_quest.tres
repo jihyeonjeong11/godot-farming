@@ -12,11 +12,9 @@ metadata/_custom_type_script = "uid://co8yh1vw15o1u"
 [resource]
 script = ExtResource("2_rkoc8")
 quest_id = "quest_slay_01"
-quest_title = "QUEST_RADIANT_SLAY_TITLE"
-quest_description = "QUEST_RADIANT_SLAY_DESC"
+quest_title = "QUEST_GATHER_01_TITLE"
+quest_description = "QUEST_GATHER_01_DESC"
 goal_type = 2
-is_radiant = true
 reward_gold = 50
-reward_per_unit = 10
 goal = Array[ExtResource("1_v8ols")]([SubResource("Resource_onu5s")])
 metadata/_custom_type_script = "uid://bkol60dwix8h2"

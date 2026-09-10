@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="QuestObjective" format=3 uid="uid://c5asp3pchb3p1"]
+[gd_resource type="Resource" script_class="QuestObjective" format=3]
 
 [ext_resource type="Script" uid="uid://co8yh1vw15o1u" path="res://scripts/resources/quests/quest_objective.gd" id="1_obj"]
 
@@ -6,7 +6,11 @@
 script = ExtResource("1_obj")
 objective_id = "obj_slay_zombie"
 goal_type = 2
-target_pool = Array[String](["zombie"])
+target_id = ""
+target_amount = 1
+target_pool = Array[String](["zombie", "small_zombie", "axe_zombie", "big_zombie"])
+target_type = 0
 amount_min = 3
 amount_max = 10
+amount_step = 1
 metadata/_custom_type_script = "uid://co8yh1vw15o1u"

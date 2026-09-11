@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Chest" format=3 uid="uid://q5k5lnlwb1nme"]
+[gd_resource type="Resource" script_class="Chest" format=3 uid="uid://boxn8fwv175lc"]
 
 [ext_resource type="Script" uid="uid://c0e27vd6vvrd3" path="res://scripts/resources/loot/loot.gd" id="1_loot"]
 [ext_resource type="Script" uid="uid://cysc7e4h5lbve" path="res://scripts/resources/placeable_object/chest.gd" id="2_object"]

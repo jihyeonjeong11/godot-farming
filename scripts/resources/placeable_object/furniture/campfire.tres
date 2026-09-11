@@ -56,7 +56,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fire5")
 }],
-"loop": true,
+"loop": 1,
 "name": &"burn",
 "speed": 8.0
 }]
@@ -68,7 +68,6 @@ object_name = "Campfire"
 destructible_tool = 2
 object_texture = SubResource("AtlasTexture_fire0")
 object_type = 1
-interactable_actions = 0
 object_max_health = 1
 dropped_items = Array[ExtResource("1_loot")]([SubResource("Resource_drop")])
 offset = Vector2i(-32, -96)

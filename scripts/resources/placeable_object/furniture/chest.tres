@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c0e27vd6vvrd3" path="res://scripts/resources/loot/loot.gd" id="1_loot"]
 [ext_resource type="Script" uid="uid://cysc7e4h5lbve" path="res://scripts/resources/placeable_object/chest.gd" id="2_object"]
 [ext_resource type="Resource" uid="uid://bch5t2qw8n1kd" path="res://scripts/resources/item/placeables/chest.tres" id="3_drop"]
+[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/item/item.gd" id="3_hojc3"]
 [ext_resource type="Texture2D" uid="uid://mloe6l4aphpg" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crafting.png" id="4_atlas"]
 
 [sub_resource type="Resource" id="Resource_drop"]
@@ -31,5 +32,4 @@ hurtbox_radius = 20
 scatter_radius = 18
 collision_offset = Vector2i(0, -21)
 collision_radius = 21
-slot_count = 12
 metadata/_custom_type_script = "uid://cysc7e4h5lbve"

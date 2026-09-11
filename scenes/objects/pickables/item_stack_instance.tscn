@@ -7,7 +7,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_drop"]
 radius = 40.0
 
-[node name="ItemStackInstance" type="Sprite2D" unique_id=1214118777]
+[node name="ItemStackInstance" type="Sprite2D" unique_id=679945143]
 script = ExtResource("1_drop")
 
 [node name="DropPopComponent" type="Node" parent="." unique_id=987652340]

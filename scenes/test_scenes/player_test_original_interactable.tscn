@@ -9,21 +9,11 @@
 [ext_resource type="Script" uid="uid://123k15c3oq0r" path="res://scenes/components/persistent/level_nature.gd" id="7_u7a26"]
 [ext_resource type="Script" uid="uid://bjqk2jiorau6t" path="res://scenes/components/persistent/level_objects.gd" id="8_wv1wo"]
 [ext_resource type="Script" uid="uid://vdfoocwoprvh" path="res://scenes/components/persistent/level_placeables.gd" id="9_xnxxa"]
-[ext_resource type="PackedScene" uid="uid://dile8iqj8hrux" path="res://scenes/objects/pickables/containers/container.tscn" id="10_sm868"]
-[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/item/item.gd" id="11_k7mw8"]
-[ext_resource type="Resource" uid="uid://iadbnqiiwu53" path="res://scripts/resources/item/tools/axe.tres" id="12_lqkyj"]
-[ext_resource type="Resource" uid="uid://h1l1g07oam5a" path="res://scripts/resources/item/tools/hoe.tres" id="13_r1n3o"]
-[ext_resource type="Resource" uid="uid://cukembyxyfglu" path="res://scripts/resources/item/tools/pickaxe.tres" id="14_abgmb"]
-[ext_resource type="Resource" uid="uid://c0lbpg1cpf40p" path="res://scripts/resources/item/tools/watering_can.tres" id="15_vy426"]
-[ext_resource type="Resource" uid="uid://bu1ltn3qpwpqc" path="res://scripts/resources/item/tools/bat.tres" id="16_rh1rw"]
-[ext_resource type="Resource" uid="uid://cc468nspnvreg" path="res://scripts/resources/item/tools/longsword.tres" id="17_i5lod"]
-[ext_resource type="Resource" uid="uid://cn8vrpxa2yl4e" path="res://scripts/resources/item/seeds/potato_seeds.tres" id="18_4551l"]
-[ext_resource type="Resource" uid="uid://b7ncxvq4td2ma" path="res://scripts/resources/item/seeds/corn_seeds.tres" id="19_ww5jh"]
-[ext_resource type="Resource" uid="uid://s3ye070bqhv3" path="res://scripts/resources/item/seeds/carrot_seeds.tres" id="20_x6i7f"]
 [ext_resource type="PackedScene" uid="uid://bmp8j4fwdkl82" path="res://scenes/characters/player/player.tscn" id="21_d5rbo"]
-[ext_resource type="PackedScene" uid="uid://c5e10kwwdcap1" path="res://scenes/components/field_cursor_component.tscn" id="22_rq7xq"]
-[ext_resource type="PackedScene" uid="uid://ts47olgc55kh" path="res://scenes/components/crops_cursor_component.tscn" id="23_7w4rg"]
 [ext_resource type="PackedScene" uid="uid://co1flbsq0iwon" path="res://scenes/components/placeable_cursor_component.tscn" id="24_jdr7e"]
+
+[ext_resource type="PackedScene" uid="uid://cs37xus6fdfc" path="res://scenes/objects/placables/object_instance.tscn" id="90_objin"]
+[ext_resource type="Resource" uid="uid://fawg9ydbt6tet" path="res://scripts/resources/placeable_object/furniture/dev_toolbox.tres" id="95_devbox"]
 
 [node name="PlayerTestScene" type="Node2D" unique_id=695838568]
 y_sort_enabled = true
@@ -74,21 +64,12 @@ script = ExtResource("8_wv1wo")
 y_sort_enabled = true
 script = ExtResource("9_xnxxa")
 
-[node name="Container" parent="GameTileMap/LevelPlaceables" unique_id=401607489 instance=ExtResource("10_sm868")]
+[node name="Container" parent="GameTileMap/LevelPlaceables" unique_id=401607489 instance=ExtResource("90_objin")]
 position = Vector2(407, 297)
-initial_items = Array[ExtResource("11_k7mw8")]([ExtResource("12_lqkyj"), ExtResource("13_r1n3o"), ExtResource("14_abgmb"), ExtResource("15_vy426"), ExtResource("16_rh1rw"), ExtResource("17_i5lod"), ExtResource("18_4551l"), ExtResource("19_ww5jh"), ExtResource("20_x6i7f")])
-initial_amounts = Array[int]([1, 1, 1, 1, 1, 5, 5, 5])
+object = ExtResource("95_devbox")
 
 [node name="Player" parent="." unique_id=1444377080 instance=ExtResource("21_d5rbo")]
 position = Vector2(276, 192)
-
-[node name="FieldCursorComponent" parent="." unique_id=1217772299 node_paths=PackedStringArray("grass_tilemap_layer", "tilled_soil_tilemap_layer") instance=ExtResource("22_rq7xq")]
-grass_tilemap_layer = NodePath("../GameTileMap/Floors")
-tilled_soil_tilemap_layer = NodePath("../GameTileMap/TilledSoil")
-
-[node name="CropsCursorComponent" parent="." unique_id=1655129502 node_paths=PackedStringArray("tilled_soil_tilemap_layer", "crops_layer") instance=ExtResource("23_7w4rg")]
-tilled_soil_tilemap_layer = NodePath("../GameTileMap/TilledSoil")
-crops_layer = NodePath("../GameTileMap/LevelCrops")
 
 [node name="PlaceableCursorComponent" parent="." unique_id=1217772298 node_paths=PackedStringArray("grass_tilemap_layer", "placeables_layer") instance=ExtResource("24_jdr7e")]
 grass_tilemap_layer = NodePath("../GameTileMap/Floors")

@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://dn08baylvwldn"]
+[gd_scene format=3 uid="uid://7jrnbl4nl6yn"]
 
-[ext_resource type="Script" uid="uid://cwbw1n20dg07" path="res://scenes/components/farming_hurt_component.gd" id="1_a8o4y"]
+[ext_resource type="Script" path="res://scenes/components/farming_hurt_component.gd" id="1_a8o4y"]
 
 [node name="FarmingHurtComponent" type="Area2D" unique_id=309631884]
 collision_layer = 16

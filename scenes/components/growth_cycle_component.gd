@@ -10,6 +10,7 @@ signal crop_maturity
 signal crop_harvesting
 
 var watered_days: int = 0
+var start_state: DataTypes.GrowthStates = DataTypes.GrowthStates.Seed
 
 @onready var crop: Node2D = get_parent() as Node2D
 
@@ -63,9 +64,11 @@ func growth_states() -> void:
 		return
 
 	var final_state: int = DataTypes.GrowthStates.Maturity
+	var first_state: int = start_state
+	var span: int = final_state - first_state
 
-	var state_index: int = roundi(float(watered_days) * final_state / days_until_harvest)
-	current_growth_state = clampi(state_index, DataTypes.GrowthStates.Germination, final_state)
+	var state_index: int = first_state + roundi(float(watered_days) * span / days_until_harvest)
+	current_growth_state = clampi(state_index, mini(first_state + 1, final_state), final_state)
 
 	if current_growth_state == DataTypes.GrowthStates.Maturity:
 		crop_maturity.emit()
@@ -80,6 +83,13 @@ func harvest_state(starting_day: int, current_day: int):
 		current_growth_state = DataTypes.GrowthStates.Harvesting
 		crop_harvesting.emit()
 	
+func regrow(from_state: DataTypes.GrowthStates, days: int) -> void:
+	start_state = from_state
+	days_until_harvest = maxi(days, 1)
+	watered_days = 0
+	current_growth_state = from_state
+
+
 func get_current_growth_state() -> DataTypes.GrowthStates:
 	return current_growth_state
 
@@ -91,6 +101,7 @@ func capture() -> Dictionary:
 	return {
 		"growth_state": int(current_growth_state),
 		"watered_days": watered_days,
+		"start_state": int(start_state),
 	}
 
 
@@ -100,3 +111,4 @@ func apply(state: Variant) -> void:
 
 	current_growth_state = int(state.get("growth_state", current_growth_state))
 	watered_days = int(state.get("watered_days", watered_days))
+	start_state = int(state.get("start_state", start_state))

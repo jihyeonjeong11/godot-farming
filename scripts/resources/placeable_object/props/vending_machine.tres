@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="PlaceableObject" format=3 uid="uid://nvdrzwv0dzvnh"]
+
+[ext_resource type="Script" uid="uid://c0e27vd6vvrd3" path="res://scripts/resources/loot/loot.gd" id="1_loot"]
+[ext_resource type="Script" uid="uid://bstiq6ulxip1a" path="res://scripts/resources/placeable_object/placeable_object.gd" id="2_object"]
+[ext_resource type="Texture2D" uid="uid://cd23fy8lk2tva" path="res://assets/apo/32x32_dec_props.png" id="4_atlas"]
+[ext_resource type="Resource" uid="uid://c57yp0dkeit0x" path="res://scripts/resources/item/pickables/canned_food.tres" id="3_canned"]
+[ext_resource type="Resource" uid="uid://bdum523m0ael4" path="res://scripts/resources/item/pickables/chocolate_bar.tres" id="3_choco"]
+[ext_resource type="Resource" uid="uid://bouhn343yve2d" path="res://scripts/resources/item/pickables/water_bottle.tres" id="3_water"]
+
+[sub_resource type="Resource" id="Resource_canned"]
+script = ExtResource("1_loot")
+item = ExtResource("3_canned")
+min = 1
+max = 2
+
+[sub_resource type="Resource" id="Resource_choco"]
+script = ExtResource("1_loot")
+item = ExtResource("3_choco")
+min = 1
+max = 2
+
+[sub_resource type="Resource" id="Resource_water"]
+script = ExtResource("1_loot")
+item = ExtResource("3_water")
+min = 1
+max = 2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_object"]
+atlas = ExtResource("4_atlas")
+region = Rect2(1444, 3, 57, 116)
+
+[resource]
+script = ExtResource("2_object")
+object_id = "vending_machine"
+object_name = "Vending Machine"
+destructible_tool = 2
+object_texture = SubResource("AtlasTexture_object")
+object_type = 1
+object_max_health = 3
+dropped_items = Array[ExtResource("1_loot")]([SubResource("Resource_canned"), SubResource("Resource_choco"), SubResource("Resource_water")])
+offset = Vector2i(-28, -116)
+hurtbox_offset = Vector2i(0, -48)
+hurtbox_radius = 30
+scatter_radius = 20
+collision_offset = Vector2i(0, -12)
+collision_radius = 16
+shake_intensity = 1.0
+shake_speed = 20.0
+metadata/_custom_type_script = "uid://bstiq6ulxip1a"

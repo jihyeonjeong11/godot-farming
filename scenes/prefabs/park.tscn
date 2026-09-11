@@ -1,57 +1,9 @@
 [gd_scene format=4 uid="uid://5eoffqdgig8q"]
 
 [ext_resource type="TileSet" uid="uid://dkw01fa84lera" path="res://tilesets/city_ruin.tres" id="1_tiles"]
-[ext_resource type="PackedScene" uid="uid://dkuhtvrn33fcx" path="res://scenes/objects/placables/trees/OakTree.tscn" id="2_oak"]
-[ext_resource type="PackedScene" uid="uid://dnj6pdjn0gx20" path="res://scenes/objects/placables/fruit_trees/apple_tree/apple_tree.tscn" id="3_apple"]
-[ext_resource type="Shader" uid="uid://dn6q4tvxb8jke" path="res://scenes/objects/placables/trees/tree_shake.gdshader" id="3_q2wpi"]
-[ext_resource type="Shader" uid="uid://bxq7f2mnvta3l" path="res://scenes/objects/placables/fruit_trees/fruit_tree_shake.gdshader" id="5_dsoj5"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_58pdf"]
-resource_local_to_scene = true
-shader = ExtResource("3_q2wpi")
-shader_parameter/shake_top_y = -63.0
-shader_parameter/shake_intensity = 0.0
-shader_parameter/shake_speed = 20.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_trpwl"]
-resource_local_to_scene = true
-shader = ExtResource("5_dsoj5")
-shader_parameter/base_y = 0.0
-shader_parameter/bend_height = 128.0
-shader_parameter/sway_amount = 0.6
-shader_parameter/sway_speed = 1.3
-shader_parameter/shake_intensity = 0.0
-shader_parameter/shake_speed = 26.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_11wb1"]
-resource_local_to_scene = true
-shader = ExtResource("5_dsoj5")
-shader_parameter/base_y = 0.0
-shader_parameter/bend_height = 128.0
-shader_parameter/sway_amount = 0.6
-shader_parameter/sway_speed = 1.3
-shader_parameter/shake_intensity = 0.0
-shader_parameter/shake_speed = 26.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1m22m"]
-resource_local_to_scene = true
-shader = ExtResource("5_dsoj5")
-shader_parameter/base_y = 0.0
-shader_parameter/bend_height = 128.0
-shader_parameter/sway_amount = 0.6
-shader_parameter/sway_speed = 1.3
-shader_parameter/shake_intensity = 0.0
-shader_parameter/shake_speed = 26.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xbfwg"]
-resource_local_to_scene = true
-shader = ExtResource("5_dsoj5")
-shader_parameter/base_y = 0.0
-shader_parameter/bend_height = 128.0
-shader_parameter/sway_amount = 0.6
-shader_parameter/sway_speed = 1.3
-shader_parameter/shake_intensity = 0.0
-shader_parameter/shake_speed = 26.0
+[ext_resource type="PackedScene" uid="uid://cs37xus6fdfc" path="res://scenes/objects/placables/object_instance.tscn" id="90_objin"]
+[ext_resource type="Resource" uid="uid://cwu5que5eyybe" path="res://scripts/resources/placeable_object/nature/oak_tree.tres" id="96_oak"]
+[ext_resource type="Resource" uid="uid://d0o000jgyh5ci" path="res://scripts/resources/placeable_object/nature/apple_tree.tres" id="97_apple"]
 
 [node name="Park" type="Node2D" unique_id=1129775154]
 
@@ -70,22 +22,22 @@ tile_set = ExtResource("1_tiles")
 [node name="Objects" type="Node2D" parent="." unique_id=1298987822]
 y_sort_enabled = true
 
-[node name="OakTree" parent="Objects" unique_id=176733332 instance=ExtResource("2_oak")]
-material = SubResource("ShaderMaterial_58pdf")
+[node name="OakTree" parent="Objects" unique_id=176733332 instance=ExtResource("90_objin")]
 position = Vector2(94, 178)
+object = ExtResource("96_oak")
 
-[node name="AppleTree1" parent="Objects" unique_id=918257299 instance=ExtResource("3_apple")]
-material = SubResource("ShaderMaterial_trpwl")
+[node name="AppleTree1" parent="Objects" unique_id=918257299 instance=ExtResource("90_objin")]
 position = Vector2(390, 150)
+object = ExtResource("97_apple")
 
-[node name="AppleTree2" parent="Objects" unique_id=884818209 instance=ExtResource("3_apple")]
-material = SubResource("ShaderMaterial_11wb1")
+[node name="AppleTree2" parent="Objects" unique_id=884818209 instance=ExtResource("90_objin")]
 position = Vector2(472, 176)
+object = ExtResource("97_apple")
 
-[node name="AppleTree3" parent="Objects" unique_id=33939665 instance=ExtResource("3_apple")]
-material = SubResource("ShaderMaterial_1m22m")
+[node name="AppleTree3" parent="Objects" unique_id=33939665 instance=ExtResource("90_objin")]
 position = Vector2(330, 470)
+object = ExtResource("97_apple")
 
-[node name="AppleTree4" parent="Objects" unique_id=1145120559 instance=ExtResource("3_apple")]
-material = SubResource("ShaderMaterial_xbfwg")
+[node name="AppleTree4" parent="Objects" unique_id=1145120559 instance=ExtResource("90_objin")]
 position = Vector2(70, 478)
+object = ExtResource("97_apple")

@@ -2,15 +2,13 @@
 
 [ext_resource type="TileSet" uid="uid://1kprd2nysueh" path="res://tilesets/land.tres" id="1_c0444"]
 [ext_resource type="PackedScene" uid="uid://ccnxtlq1ru1pv" path="res://scenes/components/cursors/object_cursor_component.tscn" id="1_mn5sv"]
-[ext_resource type="PackedScene" uid="uid://c5e10kwwdcap1" path="res://scenes/components/field_cursor_component.tscn" id="2_bxte1"]
+[ext_resource type="PackedScene" uid="uid://bjnqegfrvs57s" path="res://scenes/components/cursors/cursor_component.tscn" id="1_ysy4c"]
 [ext_resource type="TileSet" uid="uid://sprbaxmhi3h1" path="res://tilesets/water.tres" id="2_hbq8b"]
 [ext_resource type="PackedScene" uid="uid://bmp8j4fwdkl82" path="res://scenes/characters/player/player.tscn" id="3_hbq8b"]
-[ext_resource type="PackedScene" uid="uid://ts47olgc55kh" path="res://scenes/components/crops_cursor_component.tscn" id="3_qviak"]
 [ext_resource type="Texture2D" uid="uid://bv8qd0agwulti" path="res://assets/craftland/Craftland Terrain/32x32/CL_MainLev.png" id="4_itdck"]
 [ext_resource type="Texture2D" uid="uid://dmej0tp32bpis" path="res://assets/craftland/Craftland Terrain/32x32/CL_Buildings.png" id="5_fqec8"]
 [ext_resource type="Script" uid="uid://rpepg711y8sv" path="res://scenes/components/tilemap/watered_soil_layer.gd" id="5_wtrsl"]
-[ext_resource type="PackedScene" uid="uid://boxnoddybhkgt" path="res://scenes/objects/pickables/containers/chest.tscn" id="6_bv2fu"]
-[ext_resource type="PackedScene" uid="uid://hw03yyvlo6vg" path="res://scenes/objects/pickables/placeables/door.tscn" id="6_door"]
+[ext_resource type="PackedScene" uid="uid://hw03yyvlo6vg" path="res://scenes/objects/portals/door.tscn" id="6_door"]
 [ext_resource type="Script" uid="uid://cyg8x8ganehgt" path="res://scenes/components/spawn_point.gd" id="6_spawn"]
 [ext_resource type="Script" uid="uid://dq3m8sf1nybr7" path="res://scenes/components/persistent/level_crops.gd" id="7_lcrop"]
 [ext_resource type="Script" uid="uid://c6wj2phe45tvn" path="res://scenes/components/persistent/level_tilled_soils.gd" id="7_ltild"]
@@ -18,20 +16,13 @@
 [ext_resource type="Script" uid="uid://bjqk2jiorau6t" path="res://scenes/components/persistent/level_objects.gd" id="8_lobjs"]
 [ext_resource type="Script" uid="uid://vdfoocwoprvh" path="res://scenes/components/persistent/level_placeables.gd" id="9_lbldb"]
 [ext_resource type="Texture2D" uid="uid://cd23fy8lk2tva" path="res://assets/apo/32x32_dec_props.png" id="11_y23mg"]
-[ext_resource type="PackedScene" uid="uid://d0jwliwel36al" path="res://scenes/objects/pickables/placeables/fire_trash_can.tscn" id="15_y7ey2"]
-[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/item/item.gd" id="16_326xb"]
 [ext_resource type="Texture2D" uid="uid://bnif2lxsjm6nu" path="res://assets/apo/32x32_main_lev.png" id="16_nkhic"]
-[ext_resource type="PackedScene" uid="uid://dnj6pdjn0gx20" path="res://scenes/objects/placables/fruit_trees/apple_tree/apple_tree.tscn" id="20_k6jv7"]
-[ext_resource type="Shader" uid="uid://bxq7f2mnvta3l" path="res://scenes/objects/placables/fruit_trees/fruit_tree_shake.gdshader" id="21_mge4w"]
 [ext_resource type="PackedScene" uid="uid://y27b0nq34315" path="res://scenes/components/portal_component.tscn" id="22_portl"]
-[ext_resource type="PackedScene" uid="uid://bqtvqkygn3rwm" path="res://scenes/objects/placables/barrels/Barrels.tscn" id="26_mge4w"]
-[ext_resource type="Shader" uid="uid://dn6q4tvxb8jke" path="res://scenes/objects/placables/trees/tree_shake.gdshader" id="27_ysy4c"]
-[ext_resource type="PackedScene" uid="uid://m70mkxtn3dt5" path="res://scenes/objects/placables/terminals/merchant_terminal.tscn" id="29_mge4w"]
-[ext_resource type="Resource" uid="uid://b0mebugnhfw2t" path="res://scripts/resources/placeable_object/nature/rock.tres" id="31_qyw75"]
-[ext_resource type="PackedScene" uid="uid://qup7j2sipi2x" path="res://scenes/objects/placables/vending_machines/vending_machine_1.tscn" id="31_u7oqc"]
-[ext_resource type="PackedScene" uid="uid://cs37xus6fdfc" path="res://scenes/objects/placables/object_instance.tscn" id="32_p4kff"]
-[ext_resource type="Resource" uid="uid://cwu5que5eyybe" path="res://scripts/resources/placeable_object/nature/oak_tree.tres" id="33_l5ara"]
+[ext_resource type="PackedScene" uid="uid://m70mkxtn3dt5" path="res://scenes/objects/for_dev_purpose/merchant_terminal.tscn" id="29_mge4w"]
 [ext_resource type="PackedScene" uid="uid://co1flbsq0iwon" path="res://scenes/components/placeable_cursor_component.tscn" id="40_plccr"]
+[ext_resource type="PackedScene" uid="uid://cs37xus6fdfc" path="res://scenes/objects/placables/object_instance.tscn" id="50_objin"]
+[ext_resource type="Resource" uid="uid://w88frqrhhdxjn" path="res://scripts/resources/placeable_object/furniture/fire_trash_can.tres" id="51_trash"]
+[ext_resource type="Resource" uid="uid://dv80lbs85tnag" path="res://scripts/resources/placeable_object/furniture/campfire.tres" id="52_campf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_itdck"]
 texture = ExtResource("4_itdck")
@@ -749,42 +740,15 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_4tab4")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_p4kff"]
-resource_local_to_scene = true
-shader = ExtResource("21_mge4w")
-shader_parameter/base_y = 0.0
-shader_parameter/bend_height = 128.0
-shader_parameter/sway_amount = 0.6
-shader_parameter/sway_speed = 1.3
-shader_parameter/shake_intensity = 0.0
-shader_parameter/shake_speed = 26.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wnnmy"]
-resource_local_to_scene = true
-shader = ExtResource("27_ysy4c")
-shader_parameter/shake_top_y = -41.0
-shader_parameter/shake_intensity = 0.0
-shader_parameter/shake_speed = 20.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_s0ls1"]
-resource_local_to_scene = true
-shader = ExtResource("27_ysy4c")
-shader_parameter/shake_top_y = -40.0
-shader_parameter/shake_intensity = 0.0
-shader_parameter/shake_speed = 20.0
-
 [node name="Farm" type="Node2D" unique_id=864644704]
 
-[node name="ObjectCursorComponent" parent="." unique_id=396383454 instance=ExtResource("1_mn5sv")]
-
-[node name="FieldCursorComponent" parent="." unique_id=1217772296 node_paths=PackedStringArray("grass_tilemap_layer", "tilled_soil_tilemap_layer") instance=ExtResource("2_bxte1")]
-grass_tilemap_layer = NodePath("../Tilemap/Land")
-tilled_soil_tilemap_layer = NodePath("../Tilemap/TilledSoil")
-terrain = 0
-
-[node name="CropsCursorComponent" parent="." unique_id=1655129501 node_paths=PackedStringArray("tilled_soil_tilemap_layer", "crops_layer") instance=ExtResource("3_qviak")]
+[node name="CursorComponent" parent="." unique_id=481343120 node_paths=PackedStringArray("tilemap", "tilled_soil_tilemap_layer", "crops_layer") instance=ExtResource("1_ysy4c")]
+tilemap = NodePath("../Tilemap/Land")
 tilled_soil_tilemap_layer = NodePath("../Tilemap/TilledSoil")
 crops_layer = NodePath("../Level/LevelCrops")
+terrain = 0
+
+[node name="ObjectCursorComponent" parent="." unique_id=396383454 instance=ExtResource("1_mn5sv")]
 
 [node name="PlaceableCursorComponent" parent="." unique_id=1217772299 node_paths=PackedStringArray("grass_tilemap_layer", "placeables_layer") instance=ExtResource("40_plccr")]
 grass_tilemap_layer = NodePath("../Tilemap/Land")
@@ -860,25 +824,13 @@ script = ExtResource("8_lobjs")
 y_sort_enabled = true
 script = ExtResource("9_lbldb")
 
-[node name="FireTrashCan" parent="Level/LevelPlaceables" unique_id=401521629 instance=ExtResource("15_y7ey2")]
+[node name="FireTrashCan" parent="Level/LevelPlaceables" instance=ExtResource("50_objin")]
 position = Vector2(414, 618)
+object = ExtResource("51_trash")
 
-[node name="Container" parent="Level/LevelPlaceables" unique_id=401607489 instance=ExtResource("6_bv2fu")]
-position = Vector2(429, 668)
-initial_amounts = Array[int]([10, 0, 0])
-
-[node name="AppleTree" parent="Level/LevelPlaceables" unique_id=144522866 instance=ExtResource("20_k6jv7")]
-material = SubResource("ShaderMaterial_p4kff")
-position = Vector2(328, 758)
-
-[node name="Barrels" parent="Level" unique_id=495184973 instance=ExtResource("26_mge4w")]
-material = SubResource("ShaderMaterial_wnnmy")
+[node name="Campfire" parent="Level/LevelPlaceables" instance=ExtResource("50_objin")]
 position = Vector2(207, 531)
-
-[node name="VendingMachine1" parent="Level" unique_id=1046362585 instance=ExtResource("31_u7oqc")]
-material = SubResource("ShaderMaterial_s0ls1")
-position = Vector2(357, 553)
-drop_items = Array[ExtResource("16_326xb")]([])
+object = ExtResource("52_campf")
 
 [node name="MerchantTerminal" parent="Level" unique_id=720967649 instance=ExtResource("29_mge4w")]
 position = Vector2(680, 670.5)
@@ -887,14 +839,6 @@ position = Vector2(680, 670.5)
 position = Vector2(49, 559)
 target_scene = "uid://kqf460uvb87q"
 target_spawn = &"farm_gate"
-
-[node name="OakTree" parent="Level" unique_id=1513629613 instance=ExtResource("32_p4kff")]
-position = Vector2(168, 334)
-object = ExtResource("33_l5ara")
-
-[node name="Rock" parent="Level" unique_id=891602337 instance=ExtResource("32_p4kff")]
-position = Vector2(262, 331)
-object = ExtResource("31_qyw75")
 
 [node name="SpawnFromHouse" type="Marker2D" parent="." unique_id=1822180509]
 position = Vector2(544, 705)

@@ -1,7 +1,8 @@
 [gd_scene format=3]
 
 [ext_resource type="TileSet" uid="uid://dkw01fa84lera" path="res://tilesets/city_ruin.tres" id="1_tiles"]
-[ext_resource type="PackedScene" uid="uid://qup7j2sipi2x" path="res://scenes/objects/placables/vending_machines/vending_machine_1.tscn" id="2_vend"]
+[ext_resource type="PackedScene" uid="uid://cs37xus6fdfc" path="res://scenes/objects/placables/object_instance.tscn" id="90_objin"]
+[ext_resource type="Resource" uid="uid://nvdrzwv0dzvnh" path="res://scripts/resources/placeable_object/props/vending_machine.tres" id="99_vend"]
 
 [node name="Shop" type="Node2D"]
 
@@ -28,5 +29,6 @@ tile_set = ExtResource("1_tiles")
 [node name="Objects" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="VendingMachine1" parent="Objects" instance=ExtResource("2_vend")]
+[node name="VendingMachine1" parent="Objects" instance=ExtResource("90_objin")]
 position = Vector2(352, 895)
+object = ExtResource("99_vend")

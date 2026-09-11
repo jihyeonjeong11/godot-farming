@@ -1,13 +1,16 @@
-[gd_scene load_steps=10 format=3]
+[gd_scene format=3]
 
 [ext_resource type="TileSet" uid="uid://dkw01fa84lera" path="res://tilesets/city_ruin.tres" id="1_tiles"]
 [ext_resource type="PackedScene" uid="uid://ccnxtlq1ru1pv" path="res://scenes/components/cursors/object_cursor_component.tscn" id="2_cursor"]
 [ext_resource type="Script" uid="uid://cyg8x8ganehgt" path="res://scenes/components/spawn_point.gd" id="3_spawn"]
 [ext_resource type="PackedScene" uid="uid://bmp8j4fwdkl82" path="res://scenes/characters/player/player.tscn" id="4_player"]
-[ext_resource type="PackedScene" uid="uid://hw03yyvlo6vg" path="res://scenes/objects/pickables/placeables/door.tscn" id="5_door"]
-[ext_resource type="PackedScene" uid="uid://b1r1piv7rhuop" path="res://scenes/objects/pickables/placeables/bed.tscn" id="6_bed"]
-[ext_resource type="PackedScene" uid="uid://boxnoddybhkgt" path="res://scenes/objects/pickables/containers/chest.tscn" id="7_chest"]
-[ext_resource type="PackedScene" uid="uid://d0jwliwel36al" path="res://scenes/objects/pickables/placeables/fire_trash_can.tscn" id="8_fire"]
+[ext_resource type="PackedScene" uid="uid://hw03yyvlo6vg" path="res://scenes/objects/portals/door.tscn" id="5_door"]
+
+[ext_resource type="PackedScene" uid="uid://cs37xus6fdfc" path="res://scenes/objects/placables/object_instance.tscn" id="90_objin"]
+[ext_resource type="Resource" uid="uid://dn1oxfy01wq4k" path="res://scripts/resources/placeable_object/furniture/bed.tres" id="91_bed"]
+[ext_resource type="Resource" uid="uid://w88frqrhhdxjn" path="res://scripts/resources/placeable_object/furniture/fire_trash_can.tres" id="92_trash"]
+
+[ext_resource type="Resource" uid="uid://clh75kbapjbke" path="res://scripts/resources/placeable_object/furniture/chest.tres" id="94_chest"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_spawn"]
 
@@ -39,14 +42,17 @@ y_sort_enabled = true
 tile_map_data = PackedByteArray("AAABAAQABgAVAAQAAAABAAUABgAVAAUAAAABAAYABgAVAAYAAAABAAcABgAVAAcAAAABAAwABgADABoAAAABAA0ABgADABsAAAACAAQABgAWAAQAAAACAAUABgAWAAUAAAACAAYABgAWAAYAAAACAAcABgAWAAcAAAACAAkABgATABUAAAACAAoABgATABYAAAACAAsABgATABcAAAACAAwABgAFABoAAAACAA0ABgAFABsAAAADAAQABgAcAAQAAAADAAUABgAcAAUAAAADAAYABgAcAAYAAAADAAcABgAcAAcAAAADAAkABgAUABUAAAADAAoABgAUABYAAAADAAsABgAUABcAAAAEAAQABgAdAAQAAAAEAAUABgAdAAUAAAAEAAYABgAdAAYAAAAEAAcABgAdAAcAAAAEAAkABgAVABUAAAAEAAoABgAVABYAAAAEAAsABgAVABcAAAAFAAQABgAeAAQAAAAFAAUABgAeAAUAAAAFAAYABgAeAAYAAAAFAAcABgAeAAcAAAAFAAkABgAPABUAAAAFAAoABgAPABYAAAAFAAsABgAPABcAAAAFAAwABgAMABUAAAAFAA0ABgAMABYAAAAGAAEABgAMAB4AAAAGAAIABgAMAB8AAAAGAAUABgAVAA0AAAAGAAYABgAVAA4AAAAGAAcABgAVAA8AAAAGAAkABgAQABUAAAAGAAoABgAQABYAAAAGAAsABgAQABcAAAAGAAwABgANABUAAAAGAA0ABgANABYAAAAHAAEABgANAB4AAAAHAAIABgANAB8AAAAHAAUABgAWAA0AAAAHAAYABgAWAA4AAAAHAAcABgAWAA8AAAAIAAEABgAOAB4AAAAIAAIABgAOAB8AAAAIAAQABgASABEAAAAIAAUABgASABIAAAAIAAYABgASABMAAAAIAAcABgASABQAAAAJAAQABgATABEAAAAJAAUABgATABIAAAAJAAYABgATABMAAAAJAAcABgATABQAAAAJAAkABgAMABwAAAAJAAoABgAMAB0AAAAKAAQABgAUABEAAAAKAAUABgAUABIAAAAKAAYABgAUABMAAAAKAAcABgAUABQAAAAKAAgABgAEABoAAAAKAAkABgAEABsAAAAKAAoABgANAB0AAAAMAAQABgAZAAQAAAAMAAUABgAZAAUAAAAMAAYABgAZAAYAAAAMAAcABgAZAAcAAAAMAAwABgAMABUAAAAMAA0ABgAMABYAAAANAAIABgASAB4AAAANAAMABgASAB8AAAANAAQABgAaAAQAAAANAAUABgAaAAUAAAANAAYABgAaAAYAAAANAAcABgAaAAcAAAANAAwABgANABUAAAANAA0ABgANABYAAAAOAAIABgATAB4AAAAOAAMABgATAB8AAAAOAAQABgAbAAQAAAAOAAUABgAbAAUAAAAOAAYABgAbAAYAAAAOAAcABgAbAAcAAAA=")
 tile_set = ExtResource("1_tiles")
 
-[node name="Bed" parent="." instance=ExtResource("6_bed")]
+[node name="Bed" parent="." instance=ExtResource("90_objin")]
 position = Vector2(432, 384)
+object = ExtResource("91_bed")
 
-[node name="Chest" parent="." instance=ExtResource("7_chest")]
+[node name="Chest" parent="." instance=ExtResource("90_objin")]
 position = Vector2(404, 424)
+object = ExtResource("94_chest")
 
-[node name="FireTrashCan" parent="." instance=ExtResource("8_fire")]
+[node name="FireTrashCan" parent="." instance=ExtResource("90_objin")]
 position = Vector2(80, 416)
+object = ExtResource("92_trash")
 
 [node name="Door" parent="." instance=ExtResource("5_door")]
 position = Vector2(257, 485)

@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="Crops" format=3 uid="uid://byrv640mk3yb0"]
+
+[ext_resource type="Script" uid="uid://c0e27vd6vvrd3" path="res://scripts/resources/loot/loot.gd" id="1_loot"]
+[ext_resource type="Resource" uid="uid://cw3ahtn6vyqk8" path="res://scripts/resources/item/pickables/wheat.tres" id="2_drop"]
+[ext_resource type="Script" uid="uid://dq7cbpl12dto7" path="res://scripts/resources/placeable_object/crops.gd" id="3_crops"]
+[ext_resource type="Texture2D" uid="uid://j1o8v4xqk4ef" path="res://assets/Objects/crops/crops.png" id="4_atlas"]
+
+[sub_resource type="Resource" id="Resource_drop"]
+script = ExtResource("1_loot")
+item = ExtResource("2_drop")
+min = 1
+max = 2
+metadata/_custom_type_script = "uid://c0e27vd6vvrd3"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st0"]
+atlas = ExtResource("4_atlas")
+region = Rect2(736, 6, 32, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st1"]
+atlas = ExtResource("4_atlas")
+region = Rect2(704, 36, 32, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st2"]
+atlas = ExtResource("4_atlas")
+region = Rect2(736, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st3"]
+atlas = ExtResource("4_atlas")
+region = Rect2(768, 16, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st4"]
+atlas = ExtResource("4_atlas")
+region = Rect2(800, 6, 32, 58)
+
+[resource]
+script = ExtResource("3_crops")
+growth_textures = Array[Texture2D]([SubResource("AtlasTexture_st0"), SubResource("AtlasTexture_st1"), SubResource("AtlasTexture_st2"), SubResource("AtlasTexture_st3"), SubResource("AtlasTexture_st4")])
+days_until_harvest = 5
+object_id = "crop_wheat"
+object_name = "Wheat"
+destructible_tool = 2
+object_type = 2
+interactable_actions = 4
+dropped_items = Array[ExtResource("1_loot")]([SubResource("Resource_drop")])
+hurtbox_offset = Vector2i(0, -12)
+hurtbox_radius = 14
+metadata/_custom_type_script = "uid://dq7cbpl12dto7"

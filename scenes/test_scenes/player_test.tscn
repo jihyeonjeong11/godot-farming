@@ -6,40 +6,18 @@
 [ext_resource type="TileSet" uid="uid://bg7n2qxwlk4ay" path="res://tilesets/apocalypse_green_tile_set.tres" id="2_8fa0t"]
 [ext_resource type="TileSet" uid="uid://dcq54frn85y6v" path="res://tilesets/apocalypse_tile_set.tres" id="3_f6mep"]
 [ext_resource type="TileSet" uid="uid://bfjfke80cfmmc" path="res://tilesets/house_tile_set.tres" id="4_n36ir"]
-[ext_resource type="PackedScene" uid="uid://dile8iqj8hrux" path="res://scenes/objects/pickables/containers/container.tscn" id="6_2dh05"]
 [ext_resource type="Script" uid="uid://c6wj2phe45tvn" path="res://scenes/components/persistent/level_tilled_soils.gd" id="8_fsc66"]
 [ext_resource type="PackedScene" uid="uid://bmp8j4fwdkl82" path="res://scenes/characters/player/player.tscn" id="8_k3y2l"]
-[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/item/item.gd" id="8_q27ys"]
-[ext_resource type="PackedScene" uid="uid://m70mkxtn3dt5" path="res://scenes/objects/placables/terminals/merchant_terminal.tscn" id="11_eywrv"]
+[ext_resource type="PackedScene" uid="uid://m70mkxtn3dt5" path="res://scenes/objects/for_dev_purpose/merchant_terminal.tscn" id="11_eywrv"]
 [ext_resource type="Script" uid="uid://bjqk2jiorau6t" path="res://scenes/components/persistent/level_objects.gd" id="11_objs"]
-[ext_resource type="Resource" uid="uid://iadbnqiiwu53" path="res://scripts/resources/item/tools/axe.tres" id="12_axe"]
-[ext_resource type="Resource" uid="uid://h1l1g07oam5a" path="res://scripts/resources/item/tools/hoe.tres" id="13_hoe"]
-[ext_resource type="Resource" uid="uid://cukembyxyfglu" path="res://scripts/resources/item/tools/pickaxe.tres" id="14_pick"]
-[ext_resource type="Resource" uid="uid://c0lbpg1cpf40p" path="res://scripts/resources/item/tools/watering_can.tres" id="15_can"]
-[ext_resource type="Resource" uid="uid://bu1ltn3qpwpqc" path="res://scripts/resources/item/tools/bat.tres" id="16_bat"]
-[ext_resource type="Resource" uid="uid://cc468nspnvreg" path="res://scripts/resources/item/tools/longsword.tres" id="16_sword"]
-[ext_resource type="Resource" uid="uid://b7ncxvq4td2ma" path="res://scripts/resources/item/seeds/corn_seeds.tres" id="17_corn"]
-[ext_resource type="Resource" uid="uid://s3ye070bqhv3" path="res://scripts/resources/item/seeds/carrot_seeds.tres" id="18_carrot"]
-[ext_resource type="Resource" uid="uid://cn8vrpxa2yl4e" path="res://scripts/resources/item/seeds/potato_seeds.tres" id="19_potato"]
 [ext_resource type="Script" uid="uid://vdfoocwoprvh" path="res://scenes/components/persistent/level_placeables.gd" id="21_bldbl"]
 [ext_resource type="PackedScene" uid="uid://y27b0nq34315" path="res://scenes/components/portal_component.tscn" id="24_luow7"]
 [ext_resource type="Script" uid="uid://123k15c3oq0r" path="res://scenes/components/persistent/level_nature.gd" id="24_nature"]
 [ext_resource type="Script" uid="uid://dq3m8sf1nybr7" path="res://scenes/components/persistent/level_crops.gd" id="25_crops"]
-[ext_resource type="PackedScene" uid="uid://c5e10kwwdcap1" path="res://scenes/components/field_cursor_component.tscn" id="26_field"]
-[ext_resource type="PackedScene" uid="uid://ts47olgc55kh" path="res://scenes/components/crops_cursor_component.tscn" id="27_crops"]
-[ext_resource type="PackedScene" uid="uid://dnj6pdjn0gx20" path="res://scenes/objects/placables/fruit_trees/apple_tree/apple_tree.tscn" id="28_2l28n"]
 [ext_resource type="Script" uid="uid://rpepg711y8sv" path="res://scenes/components/tilemap/watered_soil_layer.gd" id="28_watrd"]
-[ext_resource type="Shader" uid="uid://bxq7f2mnvta3l" path="res://scenes/objects/placables/fruit_trees/fruit_tree_shake.gdshader" id="29_eywrv"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_llh38"]
-resource_local_to_scene = true
-shader = ExtResource("29_eywrv")
-shader_parameter/base_y = 0.0
-shader_parameter/bend_height = 128.0
-shader_parameter/sway_amount = 0.6
-shader_parameter/sway_speed = 1.3
-shader_parameter/shake_intensity = 0.0
-shader_parameter/shake_speed = 26.0
+[ext_resource type="PackedScene" uid="uid://cs37xus6fdfc" path="res://scenes/objects/placables/object_instance.tscn" id="90_objin"]
+[ext_resource type="Resource" uid="uid://fawg9ydbt6tet" path="res://scripts/resources/placeable_object/furniture/dev_toolbox.tres" id="95_devbox"]
+[ext_resource type="Resource" uid="uid://d0o000jgyh5ci" path="res://scripts/resources/placeable_object/nature/apple_tree.tres" id="97_apple"]
 
 [node name="PlayerTestScene" type="Node2D" unique_id=695838568]
 y_sort_enabled = true
@@ -97,10 +75,9 @@ script = ExtResource("21_bldbl")
 [node name="MerchantTerminal" parent="GameTileMap/LevelPlaceables" unique_id=720967649 instance=ExtResource("11_eywrv")]
 position = Vector2(111, 195.5)
 
-[node name="Container" parent="GameTileMap/LevelPlaceables" unique_id=401607489 instance=ExtResource("6_2dh05")]
+[node name="Container" parent="GameTileMap/LevelPlaceables" unique_id=401607489 instance=ExtResource("90_objin")]
 position = Vector2(407, 297)
-initial_items = Array[ExtResource("8_q27ys")]([ExtResource("12_axe"), ExtResource("13_hoe"), ExtResource("14_pick"), ExtResource("15_can"), ExtResource("16_bat"), ExtResource("16_sword"), ExtResource("19_potato"), ExtResource("17_corn"), ExtResource("18_carrot")])
-initial_amounts = Array[int]([1, 1, 1, 1, 1, 5, 5, 5])
+object = ExtResource("95_devbox")
 
 [node name="PortalComponent" parent="GameTileMap" unique_id=1930517001 instance=ExtResource("24_luow7")]
 position = Vector2(70, 364)
@@ -117,14 +94,6 @@ limit_bottom = 416
 
 [node name="Weathers" parent="Player/Camera2D" instance=ExtResource("30_weath")]
 
-[node name="FieldCursorComponent" parent="." unique_id=1217772299 node_paths=PackedStringArray("grass_tilemap_layer", "tilled_soil_tilemap_layer") instance=ExtResource("26_field")]
-grass_tilemap_layer = NodePath("../GameTileMap/Floors")
-tilled_soil_tilemap_layer = NodePath("../GameTileMap/TilledSoil")
-
-[node name="CropsCursorComponent" parent="." unique_id=1655129502 node_paths=PackedStringArray("tilled_soil_tilemap_layer", "crops_layer") instance=ExtResource("27_crops")]
-tilled_soil_tilemap_layer = NodePath("../GameTileMap/TilledSoil")
-crops_layer = NodePath("../GameTileMap/LevelCrops")
-
-[node name="AppleTree" parent="." unique_id=144522866 instance=ExtResource("28_2l28n")]
-material = SubResource("ShaderMaterial_llh38")
+[node name="AppleTree" parent="." unique_id=144522866 instance=ExtResource("90_objin")]
 position = Vector2(507, 157)
+object = ExtResource("97_apple")

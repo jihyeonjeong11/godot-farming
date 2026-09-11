@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="Chest" format=3 uid="uid://clh75kbapjbke"]
+
+[ext_resource type="Script" uid="uid://c0e27vd6vvrd3" path="res://scripts/resources/loot/loot.gd" id="1_loot"]
+[ext_resource type="Script" uid="uid://cysc7e4h5lbve" path="res://scripts/resources/placeable_object/chest.gd" id="2_object"]
+[ext_resource type="Resource" uid="uid://bch5t2qw8n1kd" path="res://scripts/resources/item/placeables/chest.tres" id="3_drop"]
+[ext_resource type="Texture2D" uid="uid://mloe6l4aphpg" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crafting.png" id="4_atlas"]
+
+[sub_resource type="Resource" id="Resource_drop"]
+script = ExtResource("1_loot")
+item = ExtResource("3_drop")
+min = 1
+max = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_object"]
+atlas = ExtResource("4_atlas")
+region = Rect2(392, 18, 48, 42)
+
+[resource]
+script = ExtResource("2_object")
+object_id = "chest"
+object_name = "Chest"
+destructible_tool = 2
+object_texture = SubResource("AtlasTexture_object")
+object_type = 1
+interactable_actions = 6
+object_max_health = 1
+dropped_items = Array[ExtResource("1_loot")]([SubResource("Resource_drop")])
+offset = Vector2i(-24, -42)
+hurtbox_offset = Vector2i(0, -23)
+hurtbox_radius = 20
+scatter_radius = 18
+collision_offset = Vector2i(0, -21)
+collision_radius = 21
+slot_count = 12
+metadata/_custom_type_script = "uid://cysc7e4h5lbve"

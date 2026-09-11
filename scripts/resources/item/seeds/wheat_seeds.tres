@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dog4l2sx7u7cn" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png" id="1_e7f81"]
 [ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/item/item.gd" id="2_jsa01"]
+[ext_resource type="Resource" uid="uid://byrv640mk3yb0" path="res://scripts/resources/placeable_object/crops/crop_wheat.tres" id="9_crop"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c2m8l"]
 atlas = ExtResource("1_e7f81")
@@ -17,6 +18,6 @@ item_texture = SubResource("AtlasTexture_c2m8l")
 description = "Wheat seeds"
 value = 18
 max_stack = 100
-crop_scene_path = "res://scenes/objects/placables/crops/wheat/wheat.tscn"
+crop_object = ExtResource("9_crop")
 world_scene_path = "uid://cb65olukse4yu"
 metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

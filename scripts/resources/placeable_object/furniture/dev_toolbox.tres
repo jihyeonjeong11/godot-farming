@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="Chest" format=3 uid="uid://fawg9ydbt6tet"]
+
+[ext_resource type="Script" uid="uid://c0e27vd6vvrd3" path="res://scripts/resources/loot/loot.gd" id="1_loot"]
+[ext_resource type="Script" uid="uid://cysc7e4h5lbve" path="res://scripts/resources/placeable_object/chest.gd" id="2_object"]
+[ext_resource type="Resource" uid="uid://ck8n2vqx1bldr" path="res://scripts/resources/item/placeables/container.tres" id="3_drop"]
+[ext_resource type="Texture2D" uid="uid://dnrv20csqyqnv" path="res://assets/Objects/Container/Container_5_Red_Vertical.png" id="4_tex"]
+[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/item/item.gd" id="5_item"]
+[ext_resource type="Resource" uid="uid://iadbnqiiwu53" path="res://scripts/resources/item/tools/axe.tres" id="10_axe"]
+[ext_resource type="Resource" uid="uid://h1l1g07oam5a" path="res://scripts/resources/item/tools/hoe.tres" id="10_hoe"]
+[ext_resource type="Resource" uid="uid://cukembyxyfglu" path="res://scripts/resources/item/tools/pickaxe.tres" id="10_pick"]
+[ext_resource type="Resource" uid="uid://c0lbpg1cpf40p" path="res://scripts/resources/item/tools/watering_can.tres" id="10_can"]
+[ext_resource type="Resource" uid="uid://bu1ltn3qpwpqc" path="res://scripts/resources/item/tools/bat.tres" id="10_bat"]
+[ext_resource type="Resource" uid="uid://cc468nspnvreg" path="res://scripts/resources/item/tools/longsword.tres" id="10_sword"]
+[ext_resource type="Resource" uid="uid://cn8vrpxa2yl4e" path="res://scripts/resources/item/seeds/potato_seeds.tres" id="10_potato"]
+[ext_resource type="Resource" uid="uid://b7ncxvq4td2ma" path="res://scripts/resources/item/seeds/corn_seeds.tres" id="10_corn"]
+[ext_resource type="Resource" uid="uid://s3ye070bqhv3" path="res://scripts/resources/item/seeds/carrot_seeds.tres" id="10_carrot"]
+
+[sub_resource type="Resource" id="Resource_drop"]
+script = ExtResource("1_loot")
+item = ExtResource("3_drop")
+min = 1
+max = 1
+
+[resource]
+script = ExtResource("2_object")
+object_id = "dev_toolbox"
+object_name = "Dev Toolbox"
+destructible_tool = 2
+object_texture = ExtResource("4_tex")
+object_type = 1
+interactable_actions = 6
+object_max_health = 1
+dropped_items = Array[ExtResource("1_loot")]([SubResource("Resource_drop")])
+offset = Vector2i(-12, -43)
+hurtbox_offset = Vector2i(0, -21)
+hurtbox_radius = 12
+scatter_radius = 18
+collision_offset = Vector2i(0, -21)
+collision_radius = 10
+slot_count = 12
+initial_items = Array[ExtResource("5_item")]([ExtResource("10_axe"), ExtResource("10_hoe"), ExtResource("10_pick"), ExtResource("10_can"), ExtResource("10_bat"), ExtResource("10_sword"), ExtResource("10_potato"), ExtResource("10_corn"), ExtResource("10_carrot")])
+initial_amounts = Array[int]([1, 1, 1, 1, 1, 1, 5, 5, 5])
+metadata/_custom_type_script = "uid://cysc7e4h5lbve"

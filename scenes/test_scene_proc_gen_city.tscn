@@ -34,7 +34,8 @@ var terrain_grass_int = 1
 var cliff_tiles_arr = []
 var terrain_cliff_int = 2
 
-@export var tree_scene: PackedScene = preload(\"res://scenes/objects/placables/trees/SmallTree.tscn\")
+@export var tree_scene: PackedScene = preload(\"res://scenes/objects/placables/object_instance.tscn\")
+@export var tree_object: PlaceableObject = preload(\"res://scripts/resources/placeable_object/nature/oak_tree.tres\")
 var tree_tiles_arr = []
 
 
@@ -120,6 +121,7 @@ func place_trees():
 
 	for coords in tree_tiles_arr:
 		var tree = tree_scene.instantiate()
+		tree.object = tree_object
 		tree.position = game_tile_map.map_to_local(coords)
 		container.add_child(tree)
 

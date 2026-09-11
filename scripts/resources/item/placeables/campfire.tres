@@ -15,6 +15,6 @@ item_name = "campfire"
 item_texture = SubResource("AtlasTexture_campfire")
 description = "돌로 두르고 장작을 쌓은 모닥불. 땅에 놓으면 계속 탄다."
 max_stack = 99
-placeable_scene_path = "uid://cmp4fr3bqx7ne"
+placeable_object_path = "res://scripts/resources/placeable_object/furniture/campfire.tres"
 world_scene_path = "uid://cb65olukse4yu"
 metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

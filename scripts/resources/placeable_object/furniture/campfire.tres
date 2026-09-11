@@ -1,0 +1,83 @@
+[gd_resource type="Resource" script_class="PlaceableObject" format=3 uid="uid://dv80lbs85tnag"]
+
+[ext_resource type="Script" uid="uid://c0e27vd6vvrd3" path="res://scripts/resources/loot/loot.gd" id="1_loot"]
+[ext_resource type="Script" uid="uid://bstiq6ulxip1a" path="res://scripts/resources/placeable_object/placeable_object.gd" id="2_object"]
+[ext_resource type="Resource" uid="uid://b8kcmpfr2wq1d" path="res://scripts/resources/item/placeables/campfire.tres" id="3_drop"]
+[ext_resource type="Texture2D" uid="uid://cd4sr74a3nt6m" path="res://assets/apo/anims/32x32_bonfire.png" id="4_atlas"]
+
+[sub_resource type="Resource" id="Resource_drop"]
+script = ExtResource("1_loot")
+item = ExtResource("3_drop")
+min = 1
+max = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fire0"]
+atlas = ExtResource("4_atlas")
+region = Rect2(0, 0, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fire1"]
+atlas = ExtResource("4_atlas")
+region = Rect2(64, 0, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fire2"]
+atlas = ExtResource("4_atlas")
+region = Rect2(128, 0, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fire3"]
+atlas = ExtResource("4_atlas")
+region = Rect2(192, 0, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fire4"]
+atlas = ExtResource("4_atlas")
+region = Rect2(0, 96, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fire5"]
+atlas = ExtResource("4_atlas")
+region = Rect2(64, 96, 64, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_object"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fire0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fire1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fire2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fire3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fire4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fire5")
+}],
+"loop": true,
+"name": &"burn",
+"speed": 8.0
+}]
+
+[resource]
+script = ExtResource("2_object")
+object_id = "campfire"
+object_name = "Campfire"
+destructible_tool = 2
+object_texture = SubResource("AtlasTexture_fire0")
+object_type = 1
+interactable_actions = 0
+object_max_health = 1
+dropped_items = Array[ExtResource("1_loot")]([SubResource("Resource_drop")])
+offset = Vector2i(-32, -96)
+sprite_scale = 0.5
+hurtbox_offset = Vector2i(0, -28)
+hurtbox_radius = 26
+scatter_radius = 18
+collision_offset = Vector2i(0, -16)
+collision_radius = 12
+sprite_frames = SubResource("SpriteFrames_object")
+default_animation = &"burn"
+metadata/_custom_type_script = "uid://bstiq6ulxip1a"

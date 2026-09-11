@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene format=3]
 
-[ext_resource type="PackedScene" uid="uid://d2dyppm7c3x2f" path="res://scenes/objects/placables/crops/onion/onion.tscn" id="1_crop"]
+[ext_resource type="PackedScene" uid="uid://40jg6cjqc3uf" path="res://scenes/objects/placables/crop_instance.tscn" id="1_crop"]
+[ext_resource type="Resource" uid="uid://byytf5qor2mjr" path="res://scripts/resources/placeable_object/crops/crop_onion.tres" id="2_object"]
 
 [node name="OnionGrown" instance=ExtResource("1_crop")]
+object = ExtResource("2_object")
 
 [node name="GrowthCycleComponent" parent="."]
 current_growth_state = 4

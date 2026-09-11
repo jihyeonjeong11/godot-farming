@@ -1,0 +1,53 @@
+[gd_resource type="Resource" script_class="Crops" format=3 uid="uid://br508nhwc2ahw"]
+
+[ext_resource type="Script" uid="uid://c0e27vd6vvrd3" path="res://scripts/resources/loot/loot.gd" id="1_pioaa"]
+[ext_resource type="Resource" uid="uid://k16qjyvu865o" path="res://scripts/resources/item/junk/corn.tres" id="2_8vlp5"]
+[ext_resource type="Texture2D" uid="uid://dog4l2sx7u7cn" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png" id="2_w284c"]
+[ext_resource type="Script" uid="uid://dq7cbpl12dto7" path="res://scripts/resources/placeable_object/crops.gd" id="3_8vlp5"]
+
+[sub_resource type="Resource" id="Resource_e0bvm"]
+script = ExtResource("1_pioaa")
+item = ExtResource("2_8vlp5")
+min = 2
+max = 5
+metadata/_custom_type_script = "uid://c0e27vd6vvrd3"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qax0x"]
+atlas = ExtResource("2_w284c")
+region = Rect2(934, 10, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_137c7"]
+atlas = ExtResource("2_w284c")
+region = Rect2(936, 38, 16, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lycgc"]
+atlas = ExtResource("2_w284c")
+region = Rect2(964, 24, 22, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8c7e"]
+atlas = ExtResource("2_w284c")
+region = Rect2(996, 10, 22, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7yb71"]
+atlas = ExtResource("2_w284c")
+region = Rect2(1024, 0, 31, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8gjh0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qke8d"]
+atlas = ExtResource("2_w284c")
+region = Rect2(1057, 0, 101, 124)
+
+[resource]
+script = ExtResource("3_8vlp5")
+growth_textures = Array[Texture2D]([SubResource("AtlasTexture_qax0x"), SubResource("AtlasTexture_137c7"), SubResource("AtlasTexture_lycgc"), SubResource("AtlasTexture_o8c7e"), SubResource("AtlasTexture_7yb71"), SubResource("AtlasTexture_8gjh0")])
+days_until_harvest = 12
+regrow_days = 6
+regrow_texture = SubResource("AtlasTexture_qke8d")
+object_id = "crop_corn"
+object_name = "Corn Plant"
+destructible_tool = 2
+object_type = 2
+interactable_actions = 4
+dropped_items = Array[ExtResource("1_pioaa")]([SubResource("Resource_e0bvm")])
+metadata/_custom_type_script = "uid://dq7cbpl12dto7"

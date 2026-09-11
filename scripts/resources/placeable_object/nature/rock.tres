@@ -29,4 +29,7 @@ hurtbox_offset = Vector2i(0, -21)
 hurtbox_radius = 20
 collision_offset = Vector2i(0, -22)
 collision_radius = 15
+shake_intensity = 1.0
+shake_speed = 22.0
+shake_bend_height = 8.0
 metadata/_custom_type_script = "uid://bstiq6ulxip1a"

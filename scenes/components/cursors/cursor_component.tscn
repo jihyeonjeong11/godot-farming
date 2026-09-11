@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bjnqegfrvs57s"]
+
+[ext_resource type="Script" uid="uid://byrt2vb30tp85" path="res://scenes/components/cursors/cursor_component.gd" id="1_180nw"]
+
+[node name="CursorComponent" type="Node2D" unique_id=542531313]
+script = ExtResource("1_180nw")

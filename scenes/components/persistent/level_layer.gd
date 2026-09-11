@@ -35,6 +35,10 @@ func capture() -> Variant:
 			"position": object.position,
 		}
 
+		var instance := object as ObjectInstance
+		if instance != null and instance.object != null and not instance.object.resource_path.is_empty():
+			entry["object"] = instance.object.resource_path
+
 		if object.has_method(&"capture_state"):
 			entry["state"] = object.call(&"capture_state")
 
@@ -66,6 +70,10 @@ func apply(state: Variant) -> void:
 		var object := packed.instantiate() as Node2D
 		object.name = String(object_name)
 		object.position = entry["position"]
+
+		if entry.has("object") and object is ObjectInstance:
+			(object as ObjectInstance).object = load(entry["object"]) as PlaceableObject
+
 		add_child(object)
 
 		# add_child 다음이라야 한다. 그 전에는 자식 컴포넌트의 _ready가 아직 안 돌아

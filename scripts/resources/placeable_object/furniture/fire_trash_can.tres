@@ -1,0 +1,97 @@
+[gd_resource type="Resource" script_class="PlaceableObject" format=3 uid="uid://dw62tg57ndkqt"]
+
+[ext_resource type="Script" uid="uid://c0e27vd6vvrd3" path="res://scripts/resources/loot/loot.gd" id="1_loot"]
+[ext_resource type="Script" uid="uid://bstiq6ulxip1a" path="res://scripts/resources/placeable_object/placeable_object.gd" id="2_object"]
+[ext_resource type="Resource" uid="uid://bt7rqf3kx2moa" path="res://scripts/resources/item/placeables/fire_trash_can.tres" id="3_drop"]
+[ext_resource type="Texture2D" uid="uid://dlbdfiq133kcc" path="res://assets/apo/anims/32x32_trash_can_fire.png" id="4_atlas"]
+
+[sub_resource type="Resource" id="Resource_drop"]
+script = ExtResource("1_loot")
+item = ExtResource("3_drop")
+min = 1
+max = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trash0"]
+atlas = ExtResource("4_atlas")
+region = Rect2(192, 0, 32, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trash1"]
+atlas = ExtResource("4_atlas")
+region = Rect2(0, 0, 32, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trash2"]
+atlas = ExtResource("4_atlas")
+region = Rect2(32, 0, 32, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trash3"]
+atlas = ExtResource("4_atlas")
+region = Rect2(64, 0, 32, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trash4"]
+atlas = ExtResource("4_atlas")
+region = Rect2(96, 0, 32, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trash5"]
+atlas = ExtResource("4_atlas")
+region = Rect2(128, 0, 32, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trash6"]
+atlas = ExtResource("4_atlas")
+region = Rect2(160, 0, 32, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_object"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trash0")
+}],
+"loop": false,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trash1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trash2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trash3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trash4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trash5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trash6")
+}],
+"loop": true,
+"name": &"on",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("2_object")
+object_id = "fire_trash_can"
+object_name = "Fire Trash Can"
+destructible_tool = 2
+object_texture = SubResource("AtlasTexture_trash0")
+object_type = 1
+interactable_actions = 5
+object_max_health = 1
+dropped_items = Array[ExtResource("1_loot")]([SubResource("Resource_drop")])
+offset = Vector2i(-16, -96)
+hurtbox_offset = Vector2i(0, -29)
+hurtbox_radius = 28
+scatter_radius = 18
+collision_offset = Vector2i(0, -6)
+collision_radius = 16
+sprite_frames = SubResource("SpriteFrames_object")
+default_animation = &"off"
+toggle_animation = &"on"
+toggle_on_sfx = "FIRE_ON"
+toggle_off_sfx = "FIRE_OFF"
+metadata/_custom_type_script = "uid://bstiq6ulxip1a"

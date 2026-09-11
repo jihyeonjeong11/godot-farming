@@ -34,9 +34,6 @@ const PULL_MIN_DIST := 6.0
 ## 즉시 획득돼서 날아오는 연출이 보이지 않는다.
 @export var arm_delay := 0.35
 
-## @deprecated: [member item]으로 대체됨. stone.tscn이 아직 참조하고 있어 남겨둠.
-@export var collectable_name: String
-
 var _target: Node2D = null
 var _speed := 0.0
 var _collected := false

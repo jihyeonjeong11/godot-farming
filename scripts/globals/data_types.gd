@@ -54,14 +54,18 @@ enum ItemType {
 enum ObjectType {
 	Nature, # 자연물
 	Furniture, # 가구
+	Crops
 	
 }
 
-enum Interactable_actions {
+enum InteractableActions {
 	None,
 	Sleep,
 	Craft,
-	Shake
+	Shake,
+	Harvest,
+	Toggle,
+	Open
 }
 
 static func quest_goal_label(goal: QuestGoal) -> String:

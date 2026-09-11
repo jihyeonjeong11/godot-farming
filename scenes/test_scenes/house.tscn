@@ -1,15 +1,20 @@
 [gd_scene format=4 uid="uid://cd31oy17nwpe5"]
 
+[ext_resource type="PackedScene" uid="uid://bjnqegfrvs57s" path="res://scenes/components/cursors/cursor_component.tscn" id="1_1kwl1"]
 [ext_resource type="TileSet" uid="uid://8jdyac0p5kww" path="res://tilesets/buildings.tres" id="1_s2ciu"]
 [ext_resource type="Script" uid="uid://cyg8x8ganehgt" path="res://scenes/components/spawn_point.gd" id="2_spawn"]
 [ext_resource type="PackedScene" uid="uid://bmp8j4fwdkl82" path="res://scenes/characters/player/player.tscn" id="3_playr"]
-[ext_resource type="PackedScene" uid="uid://hw03yyvlo6vg" path="res://scenes/objects/pickables/placeables/door.tscn" id="3_v16bj"]
+[ext_resource type="PackedScene" uid="uid://hw03yyvlo6vg" path="res://scenes/objects/portals/door.tscn" id="3_v16bj"]
 [ext_resource type="PackedScene" uid="uid://ccnxtlq1ru1pv" path="res://scenes/components/cursors/object_cursor_component.tscn" id="4_cursr"]
-[ext_resource type="PackedScene" uid="uid://b1r1piv7rhuop" path="res://scenes/objects/pickables/placeables/bed.tscn" id="5_bed"]
+[ext_resource type="PackedScene" uid="uid://cs37xus6fdfc" path="res://scenes/objects/placables/object_instance.tscn" id="5_objin"]
+[ext_resource type="Resource" uid="uid://dn1oxfy01wq4k" path="res://scripts/resources/placeable_object/furniture/bed.tres" id="6_bed"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4kxuq"]
 
 [node name="House" type="Node2D" unique_id=2135102818]
+
+[node name="CursorComponent" parent="." unique_id=542531313 node_paths=PackedStringArray("tilemap") instance=ExtResource("1_1kwl1")]
+tilemap = NodePath("../TileMapLayer/Land")
 
 [node name="ObjectCursorComponent" parent="." unique_id=396383454 instance=ExtResource("4_cursr")]
 
@@ -36,8 +41,9 @@ position = Vector2(291, 259)
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1878920121]
 position = Vector2(-2, 4)
 
-[node name="Bed" parent="." unique_id=1824249774 instance=ExtResource("5_bed")]
+[node name="Bed" parent="." unique_id=1824249774 instance=ExtResource("5_objin")]
 position = Vector2(256, 151)
+object = ExtResource("6_bed")
 
 [node name="Door" parent="." unique_id=561351757 instance=ExtResource("3_v16bj")]
 position = Vector2(290, 383)

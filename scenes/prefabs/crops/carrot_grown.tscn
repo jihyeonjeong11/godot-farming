@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene format=3]
 
-[ext_resource type="PackedScene" uid="uid://c6oksipcp6e1x" path="res://scenes/objects/placables/crops/carrot/carrot.tscn" id="1_crop"]
+[ext_resource type="PackedScene" uid="uid://40jg6cjqc3uf" path="res://scenes/objects/placables/crop_instance.tscn" id="1_crop"]
+[ext_resource type="Resource" uid="uid://cqttvaoihxhx6" path="res://scripts/resources/placeable_object/crops/crop_carrot.tres" id="2_object"]
 
 [node name="CarrotGrown" instance=ExtResource("1_crop")]
+object = ExtResource("2_object")
 
 [node name="GrowthCycleComponent" parent="."]
 current_growth_state = 4

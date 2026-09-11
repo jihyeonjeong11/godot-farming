@@ -1,7 +1,12 @@
 [gd_resource type="Resource" script_class="Item" format=3 uid="uid://s3ye070bqhv3"]
 
+[ext_resource type="Texture2D" uid="uid://dog4l2sx7u7cn" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png" id="1_bui5a"]
 [ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/item/item.gd" id="1_e3wir"]
-[ext_resource type="Texture2D" uid="uid://7ves104qekrd" path="res://assets/UI/Inventory/Objects/Icon_carrot_seeds.png" id="1_ivuok"]
+[ext_resource type="Resource" uid="uid://cqttvaoihxhx6" path="res://scripts/resources/placeable_object/crops/crop_carrot.tres" id="9_crop"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5wjh"]
+atlas = ExtResource("1_bui5a")
+region = Rect2(706, 320, 28, 32)
 
 [resource]
 script = ExtResource("1_e3wir")
@@ -9,9 +14,9 @@ item_id = "carrot_seeds"
 item_type = 3
 tool_type = 8
 item_name = "Carrot Seeds"
-item_texture = ExtResource("1_ivuok")
+item_texture = SubResource("AtlasTexture_j5wjh")
 description = "Canned carrot seeds"
 max_stack = 100
-crop_scene_path = "res://scenes/objects/placables/crops/carrot/carrot.tscn"
+crop_object = ExtResource("9_crop")
 world_scene_path = "uid://cb65olukse4yu"
 metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

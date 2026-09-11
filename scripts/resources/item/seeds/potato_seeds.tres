@@ -1,7 +1,12 @@
 [gd_resource type="Resource" script_class="Item" format=3 uid="uid://cn8vrpxa2yl4e"]
 
+[ext_resource type="Texture2D" uid="uid://dog4l2sx7u7cn" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png" id="1_2b2vw"]
 [ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/item/item.gd" id="1_e3wir"]
-[ext_resource type="Texture2D" uid="uid://dx3d24o7ecsiv" path="res://assets/UI/Inventory/Objects/Icon_potato_seeds.png" id="1_ivuok"]
+[ext_resource type="Resource" uid="uid://bpx14r3ruwcwd" path="res://scripts/resources/placeable_object/crops/crop_potato.tres" id="9_crop"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7m8b"]
+atlas = ExtResource("1_2b2vw")
+region = Rect2(704, 65, 31, 33)
 
 [resource]
 script = ExtResource("1_e3wir")
@@ -9,9 +14,9 @@ item_id = "potato_seeds"
 item_type = 3
 tool_type = 5
 item_name = "Potato Seeds"
-item_texture = ExtResource("1_ivuok")
+item_texture = SubResource("AtlasTexture_k7m8b")
 description = "Canned potato seeds"
 max_stack = 100
-crop_scene_path = "res://scenes/objects/placables/crops/potato/potato.tscn"
+crop_object = ExtResource("9_crop")
 world_scene_path = "uid://cb65olukse4yu"
 metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

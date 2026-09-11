@@ -10,11 +10,8 @@
 [ext_resource type="Script" uid="uid://rpepg711y8sv" path="res://scenes/components/tilemap/watered_soil_layer.gd" id="5_wtrsl"]
 [ext_resource type="PackedScene" uid="uid://hw03yyvlo6vg" path="res://scenes/objects/portals/door.tscn" id="6_door"]
 [ext_resource type="Script" uid="uid://cyg8x8ganehgt" path="res://scenes/components/spawn_point.gd" id="6_spawn"]
-[ext_resource type="Script" uid="uid://dq3m8sf1nybr7" path="res://scenes/components/persistent/level_crops.gd" id="7_lcrop"]
-[ext_resource type="Script" uid="uid://c6wj2phe45tvn" path="res://scenes/components/persistent/level_tilled_soils.gd" id="7_ltild"]
-[ext_resource type="Script" uid="uid://123k15c3oq0r" path="res://scenes/components/persistent/level_nature.gd" id="8_lnatr"]
-[ext_resource type="Script" uid="uid://bjqk2jiorau6t" path="res://scenes/components/persistent/level_objects.gd" id="8_lobjs"]
-[ext_resource type="Script" uid="uid://vdfoocwoprvh" path="res://scenes/components/persistent/level_placeables.gd" id="9_lbldb"]
+[ext_resource type="Script" uid="uid://cn7l4yqx8mkr2" path="res://scenes/components/persistent/level_layer.gd" id="7_layer"]
+[ext_resource type="Script" uid="uid://c6wj2phe45tvn" path="res://scenes/components/persistent/level_tile_map_layer.gd" id="7_ltild"]
 [ext_resource type="Texture2D" uid="uid://cd23fy8lk2tva" path="res://assets/apo/32x32_dec_props.png" id="11_y23mg"]
 [ext_resource type="Texture2D" uid="uid://bnif2lxsjm6nu" path="res://assets/apo/32x32_main_lev.png" id="16_nkhic"]
 [ext_resource type="PackedScene" uid="uid://y27b0nq34315" path="res://scenes/components/portal_component.tscn" id="22_portl"]
@@ -745,14 +742,14 @@ sources/0 = SubResource("TileSetAtlasSource_4tab4")
 [node name="CursorComponent" parent="." unique_id=481343120 node_paths=PackedStringArray("tilemap", "tilled_soil_tilemap_layer", "crops_layer") instance=ExtResource("1_ysy4c")]
 tilemap = NodePath("../Tilemap/Land")
 tilled_soil_tilemap_layer = NodePath("../Tilemap/TilledSoil")
-crops_layer = NodePath("../Level/LevelCrops")
+crops_layer = NodePath("../Level/Objects")
 terrain = 0
 
 [node name="ObjectCursorComponent" parent="." unique_id=396383454 instance=ExtResource("1_mn5sv")]
 
 [node name="PlaceableCursorComponent" parent="." unique_id=1217772299 node_paths=PackedStringArray("grass_tilemap_layer", "placeables_layer") instance=ExtResource("40_plccr")]
 grass_tilemap_layer = NodePath("../Tilemap/Land")
-placeables_layer = NodePath("../Level/LevelPlaceables")
+placeables_layer = NodePath("../Level/Objects")
 
 [node name="Tilemap" type="TileMapLayer" parent="." unique_id=34709960]
 y_sort_enabled = true
@@ -808,27 +805,15 @@ position = Vector2(544, 680)
 target_scene = "uid://cd31oy17nwpe5"
 target_spawn = &"entrance"
 
-[node name="LevelCrops" type="Node2D" parent="Level" unique_id=79467847]
+[node name="Objects" type="Node2D" parent="Level" unique_id=79467847]
 y_sort_enabled = true
-script = ExtResource("7_lcrop")
+script = ExtResource("7_layer")
 
-[node name="LevelNature" type="Node2D" parent="Level" unique_id=79467846]
-y_sort_enabled = true
-script = ExtResource("8_lnatr")
-
-[node name="LevelObjects" type="Node2D" parent="Level" unique_id=79467845]
-y_sort_enabled = true
-script = ExtResource("8_lobjs")
-
-[node name="LevelPlaceables" type="Node2D" parent="Level" unique_id=79467844]
-y_sort_enabled = true
-script = ExtResource("9_lbldb")
-
-[node name="FireTrashCan" parent="Level/LevelPlaceables" instance=ExtResource("50_objin")]
+[node name="FireTrashCan" parent="Level/Objects" instance=ExtResource("50_objin")]
 position = Vector2(414, 618)
 object = ExtResource("51_trash")
 
-[node name="Campfire" parent="Level/LevelPlaceables" instance=ExtResource("50_objin")]
+[node name="Campfire" parent="Level/Objects" instance=ExtResource("50_objin")]
 position = Vector2(207, 531)
 object = ExtResource("52_campf")
 

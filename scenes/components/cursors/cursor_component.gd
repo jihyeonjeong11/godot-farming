@@ -20,7 +20,7 @@ var held: Item
 
 @onready var player: Node2D = get_tree().get_first_node_in_group(&"player")
 @onready var watered_soil_layer: WateredSoilLayer = (
-	get_tree().get_first_node_in_group(WateredSoilLayer.layer_id) as WateredSoilLayer
+	get_tree().get_first_node_in_group(WateredSoilLayer.GROUP) as WateredSoilLayer
 )
 
 func _physics_process(_delta: float) -> void:

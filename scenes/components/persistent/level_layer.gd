@@ -3,10 +3,9 @@ extends Node2D
 
 
 const GROUP := &"level_layer"
+const OBJECT_GROUP := &"object"
 
-var layer_id: StringName
-
-var initial_objects: Dictionary = {}
+@export var layer_id: StringName = &"objects"
 
 
 func _ready() -> void:
@@ -19,7 +18,7 @@ func capture() -> Variant:
 	var entries := {}
 
 	for child in get_children():
-		if child.is_queued_for_deletion():
+		if child.is_queued_for_deletion() or not child.is_in_group(OBJECT_GROUP):
 			continue
 
 		var object := child as Node2D
@@ -47,20 +46,18 @@ func capture() -> Variant:
 	return entries
 
 
-## 세이브가 있으면 그걸로, 없으면(null) 초기 배치로 레이어를 채운다.
+## 세이브가 없으면(null) 씬에 놓인 그대로 둔다.
 func apply(state: Variant) -> void:
-	if state is not Dictionary and initial_objects.is_empty():
+	if state is not Dictionary:
 		return
-
-	var entries: Dictionary = state if state is Dictionary else initial_objects
 
 	# 다시 깔기 전에 비운다. queue_free만 하면 프레임 끝까지 남아 새것과 겹친다.
 	for child in get_children():
 		remove_child(child)
 		child.queue_free()
 
-	for object_name in entries:
-		var entry: Dictionary = entries[object_name]
+	for object_name in state:
+		var entry: Dictionary = state[object_name]
 
 		var packed := load(entry["scene"]) as PackedScene
 		if packed == null:

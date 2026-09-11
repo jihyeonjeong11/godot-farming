@@ -1,6 +1,6 @@
 class_name WateredSoilLayer
-extends TileMapLayer
-const layer_id: StringName = &"watered_soil"
+extends LevelTileMapLayer
+const GROUP := &"watered_soil"
 
 @export var source_id: int = 6
 ## 젖은 땅 그림이 갈린 땅 그림과 같은 아틀라스에서 몇 칸 떨어져 있는지.
@@ -9,28 +9,14 @@ const layer_id: StringName = &"watered_soil"
 @export var atlas_offset: Vector2i = Vector2i.ZERO
 
 
+func _init() -> void:
+	layer_id = GROUP
+
+
 func _ready() -> void:
 	SignalBus.time_tick_day.connect(on_time_tick_day)
 	clear()
-	add_to_group(LevelLayer.GROUP)
-	apply(SaveAndLoad.load_layer(self, layer_id))
-	
-func capture() -> Variant:
-	return Marshalls.raw_to_base64(tile_map_data)
-	
-
-func apply(state: Variant) -> void:
-	if state is not String:
-		return
-
-	var encoded := state as String
-	var data := Marshalls.base64_to_raw(encoded)
-	if data.is_empty() and not encoded.is_empty():
-		push_error("갈린 땅 데이터를 풀지 못했다")
-		return
-
-	tile_map_data = data
-
+	super()
 
 
 func water_cell(cell: Vector2i, tilled_soil: TileMapLayer) -> void:

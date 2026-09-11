@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://vx6ampntykpf"]
+
+[ext_resource type="Script" path="res://scenes/components/persistent/persistents.gd" id="1_gtltw"]
+
+[node name="Persistents" type="Node" unique_id=1429802561]
+script = ExtResource("1_gtltw")

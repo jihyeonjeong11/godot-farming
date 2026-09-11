@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ccnxtlq1ru1pv" path="res://scenes/components/cursors/object_cursor_component.tscn" id="4_cursr"]
 [ext_resource type="PackedScene" uid="uid://cs37xus6fdfc" path="res://scenes/objects/placables/object_instance.tscn" id="5_objin"]
 [ext_resource type="Resource" uid="uid://dn1oxfy01wq4k" path="res://scripts/resources/placeable_object/furniture/bed.tres" id="6_bed"]
+[ext_resource type="Script" uid="uid://cn7l4yqx8mkr2" path="res://scenes/components/persistent/level_layer.gd" id="7_layer"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4kxuq"]
 
@@ -41,7 +42,11 @@ position = Vector2(291, 259)
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1878920121]
 position = Vector2(-2, 4)
 
-[node name="Bed" parent="." unique_id=1824249774 instance=ExtResource("5_objin")]
+[node name="Objects" type="Node2D" parent="." unique_id=79467847]
+y_sort_enabled = true
+script = ExtResource("7_layer")
+
+[node name="Bed" parent="Objects" unique_id=1824249774 instance=ExtResource("5_objin")]
 position = Vector2(256, 151)
 object = ExtResource("6_bed")
 

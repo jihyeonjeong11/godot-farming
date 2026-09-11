@@ -48,7 +48,7 @@ func get_watered_soil() -> WateredSoilLayer:
 	if is_instance_valid(_watered_soil):
 		return _watered_soil
 
-	_watered_soil = get_tree().get_first_node_in_group(WateredSoilLayer.layer_id) as WateredSoilLayer
+	_watered_soil = get_tree().get_first_node_in_group(WateredSoilLayer.GROUP) as WateredSoilLayer
 	return _watered_soil
 
 ## 물 안 준 날은 아예 진행이 없다. 그래서 날짜를 받지 않는다.

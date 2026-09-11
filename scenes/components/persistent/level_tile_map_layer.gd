@@ -1,5 +1,7 @@
+class_name LevelTileMapLayer
 extends TileMapLayer
-var layer_id: StringName = &"tilled_soil"
+
+@export var layer_id: StringName = &"tilled_soil"
 
 
 func _ready() -> void:
@@ -15,10 +17,11 @@ func apply(state: Variant) -> void:
 	if state is not String:
 		return
 
+
 	var encoded := state as String
 	var data := Marshalls.base64_to_raw(encoded)
 	if data.is_empty() and not encoded.is_empty():
-		push_error("갈린 땅 데이터를 풀지 못했다")
+		push_error("타일 데이터를 풀지 못했다: %s" % layer_id)
 		return
 
 	tile_map_data = data

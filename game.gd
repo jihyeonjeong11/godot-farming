@@ -1,6 +1,6 @@
 extends Node2D
 
-@export_file("*.tscn") var scene_farm := "res://scenes/test_scenes/farm.tscn"
+@export_file("*.tscn") var scene_farm := "res://scenes/levels/main_farm.tscn"
 @export_file("*.tscn") var scene_city := "res://scenes/test_scenes/proc_gen_city_ruin.tscn"
 @export_file("*.tscn") var scene_mainmenu := "res://scenes/mainmenu.tscn"
 
@@ -96,6 +96,9 @@ func swap_scene(path: String, spawn_id: StringName = &"") -> void:
 		return
 
 	_swapping = true
+
+	if is_instance_valid(SaveAndLoad.current_level):
+		SaveAndLoad.stash_level(SaveAndLoad.current_level)
 
 	for child in current_scene.get_children():
 		current_scene.remove_child(child)

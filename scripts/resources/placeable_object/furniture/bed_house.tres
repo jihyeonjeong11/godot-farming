@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="PlaceableObject" format=3 uid="uid://txf3sdnp05dp"]
+
+[ext_resource type="Script" uid="uid://bstiq6ulxip1a" path="res://scripts/resources/placeable_object/placeable_object.gd" id="1_object"]
+[ext_resource type="Script" uid="uid://c0e27vd6vvrd3" path="res://scripts/resources/loot/loot.gd" id="1_upk2h"]
+[ext_resource type="Texture2D" uid="uid://dd2rbvkdlrgd6" path="res://assets/craftland/Craftland Town/32x32/CLT_Houses.png" id="2_atlas"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_object"]
+atlas = ExtResource("2_atlas")
+region = Rect2(1536, 1184, 64, 96)
+
+[resource]
+script = ExtResource("1_object")
+object_id = "bed_house"
+object_name = "Bed"
+object_texture = SubResource("AtlasTexture_object")
+object_type = 1
+interactable_actions = 1
+object_max_health = 999
+offset = Vector2i(-32, -96)
+hurtbox_offset = Vector2i(0, -48)
+hurtbox_radius = 30
+collision_offset = Vector2i(0, -50)
+collision_radius = 28
+metadata/_custom_type_script = "uid://bstiq6ulxip1a"

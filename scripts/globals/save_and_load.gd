@@ -130,9 +130,20 @@ func level_save_path(level_id: String) -> String:
 ## 레벨 안의 레이어를 전부 훑어 한 파일로 떠낸다.
 ## 무엇을 어떻게 떠낼지는 레이어가 정한다(LevelLayer.capture).
 func save_level(level: Node) -> void:
-	var level_id := _level_id_of(level)
+	var level_id := stash_level(level)
 	if level_id.is_empty():
 		return
+
+	_write(level_save_path(level_id), _level_cache[level_id])
+
+
+## 파일에 쓰지 않고 이번 실행의 캐시에만 떠둔다. 포탈로 씬을 옮길 때 쓴다.
+## 집에 들어갔다 나와도 밭과 잔해가 그대로 남아야 하고, 그렇다고 문을 지날 때마다
+## 세이브 파일을 덮어쓰면 "저장" 을 누르지 않은 상태가 디스크에 남는다.
+func stash_level(level: Node) -> String:
+	var level_id := _level_id_of(level)
+	if level_id.is_empty():
+		return ""
 
 	var layers := {}
 
@@ -146,18 +157,23 @@ func save_level(level: Node) -> void:
 		layers[String(node.get(&"layer_id"))] = node.call(&"capture")
 
 	_level_cache[level_id] = layers
-	_write(level_save_path(level_id), layers)
+	return level_id
 
 
 ## 레이어가 _ready에서 자기 몫만 꺼내 간다.
 ## null이면 세이브가 없다는 뜻이고, 그때 무엇으로 시작할지는 레이어가 정한다.
 func load_layer(layer: Node, layer_id: StringName) -> Variant:
-	if not load_requested:
-		return null
-
 	# 레벨 씬 안에 놓인 노드의 owner는 그 레벨의 루트다.
 	var level_id := _level_id_of(layer.owner if layer.owner != null else layer)
 	if level_id.is_empty():
+		return null
+
+	# 이번 실행에서 다녀간 레벨은 새 게임이어도 캐시가 우선이다. 파일은 "불러오기" 로
+	# 들어왔을 때만 읽는다.
+	if _level_cache.has(level_id):
+		return _level_cache[level_id].get(String(layer_id))
+
+	if not load_requested:
 		return null
 
 	return _read_level(level_id).get(String(layer_id))

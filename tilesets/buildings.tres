@@ -63,6 +63,7 @@ texture_region_size = Vector2i(32, 32)
 9:33/0 = 0
 8:33/0 = 0
 9:31/0 = 0
+0:1/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4o58g"]
 texture = ExtResource("2_og1x3")

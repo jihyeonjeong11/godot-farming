@@ -46,12 +46,10 @@ func capture() -> Variant:
 	return entries
 
 
-## 세이브가 없으면(null) 씬에 놓인 그대로 둔다.
 func apply(state: Variant) -> void:
 	if state is not Dictionary:
 		return
 
-	# 다시 깔기 전에 비운다. queue_free만 하면 프레임 끝까지 남아 새것과 겹친다.
 	for child in get_children():
 		remove_child(child)
 		child.queue_free()
@@ -73,7 +71,5 @@ func apply(state: Variant) -> void:
 
 		add_child(object)
 
-		# add_child 다음이라야 한다. 그 전에는 자식 컴포넌트의 _ready가 아직 안 돌아
-		# 받아둘 그릇이 없다.
 		if entry.has("state") and object.has_method(&"apply_state"):
 			object.call(&"apply_state", entry["state"])

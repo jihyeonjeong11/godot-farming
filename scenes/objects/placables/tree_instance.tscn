@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://ctree1nst4nce"]
+
+[ext_resource type="Script" path="res://scenes/objects/placables/tree_instance.gd" id="1_tree"]
+[ext_resource type="PackedScene" uid="uid://bwn5t2ejgp0hr" path="res://scenes/components/hurt_component.tscn" id="2_hrt01"]
+
+[node name="TreeInstance" type="Sprite2D"]
+script = ExtResource("1_tree")
+
+[node name="Hurtbox" parent="." instance=ExtResource("2_hrt01")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+debug_color = Color(0.8008646, 0.42010838, 0.03236889, 0.41960785)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]

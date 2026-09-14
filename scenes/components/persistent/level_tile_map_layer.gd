@@ -10,6 +10,9 @@ func _ready() -> void:
 
 
 func capture() -> Variant:
+	if tile_map_data.is_empty():
+		return ""
+
 	return Marshalls.raw_to_base64(tile_map_data)
 
 

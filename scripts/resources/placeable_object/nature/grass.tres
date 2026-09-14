@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="PlaceableObject" format=3 uid="uid://decb1xhh1uabh"]
+
+[ext_resource type="Script" uid="uid://c0e27vd6vvrd3" path="res://scripts/resources/loot/loot.gd" id="1_k8o0v"]
+[ext_resource type="Texture2D" uid="uid://dog4l2sx7u7cn" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png" id="2_blbij"]
+[ext_resource type="Script" uid="uid://bstiq6ulxip1a" path="res://scripts/resources/placeable_object/placeable_object.gd" id="2_c4m6d"]
+[ext_resource type="Resource" uid="uid://c5t88yavj8wqb" path="res://scripts/resources/item/pickables/fiber.tres" id="3_drop"]
+
+[sub_resource type="Resource" id="Resource_drop"]
+script = ExtResource("1_k8o0v")
+item = ExtResource("3_drop")
+min = 1
+max = 2
+metadata/_custom_type_script = "uid://c0e27vd6vvrd3"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_blbij"]
+atlas = ExtResource("2_blbij")
+region = Rect2(991, 747, 36, 45)
+
+[resource]
+script = ExtResource("2_c4m6d")
+object_id = "grass"
+object_name = "Grass"
+object_texture = SubResource("AtlasTexture_blbij")
+object_max_health = 1
+dropped_items = Array[ExtResource("1_k8o0v")]([SubResource("Resource_drop")])
+offset = Vector2i(-18, -45)
+hurtbox_offset = Vector2i(0, -16)
+hurtbox_radius = 14
+scatter_radius = 12
+collision_offset = Vector2i(0, -16)
+collision_radius = 0
+shake_intensity = 2.0
+shake_speed = 22.0
+shake_bend_height = 30.0
+metadata/_custom_type_script = "uid://bstiq6ulxip1a"

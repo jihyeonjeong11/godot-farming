@@ -7,4 +7,7 @@
 script = ExtResource("1_el2f4")
 item_type = 5
 item_texture = ExtResource("1_owbex")
+description = "A lump of coal."
+max_stack = 100
+world_scene_path = "uid://cb65olukse4yu"
 metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

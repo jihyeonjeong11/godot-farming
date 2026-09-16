@@ -1,0 +1,53 @@
+[gd_resource type="TileSet" format=3 uid="uid://7nsi7pibyhfe"]
+
+[ext_resource type="Texture2D" uid="uid://cd23fy8lk2tva" path="res://assets/apo/32x32_dec_props.png" id="1_hypke"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hypke"]
+texture = ExtResource("1_hypke")
+texture_region_size = Vector2i(32, 32)
+22:25/0 = 0
+22:26/0 = 0
+22:27/0 = 0
+22:28/0 = 0
+27:24/0 = 0
+27:25/0 = 0
+27:26/0 = 0
+27:27/0 = 0
+27:20/0 = 0
+27:21/0 = 0
+27:22/0 = 0
+27:23/0 = 0
+28:20/0 = 0
+28:21/0 = 0
+28:22/0 = 0
+28:23/0 = 0
+28:25/0 = 0
+28:26/0 = 0
+28:27/0 = 0
+28:28/0 = 0
+20:26/0 = 0
+15:24/0 = 0
+15:25/0 = 0
+15:26/0 = 0
+15:27/0 = 0
+16:24/0 = 0
+16:25/0 = 0
+16:26/0 = 0
+16:27/0 = 0
+12:14/0 = 0
+13:14/0 = 0
+13:13/0 = 0
+12:13/0 = 0
+12:12/0 = 0
+13:12/0 = 0
+14:20/0 = 0
+14:21/0 = 0
+14:22/0 = 0
+14:23/0 = 0
+25:20/0 = 0
+25:21/0 = 0
+25:22/0 = 0
+25:23/0 = 0
+
+[resource]
+sources/0 = SubResource("TileSetAtlasSource_hypke")

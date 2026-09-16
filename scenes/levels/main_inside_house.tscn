@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bmp8j4fwdkl82" path="res://scenes/characters/player/player.tscn" id="4_player"]
 [ext_resource type="PackedScene" uid="uid://y27b0nq34315" path="res://scenes/components/portal_component.tscn" id="5_portal"]
 [ext_resource type="PackedScene" uid="uid://cs37xus6fdfc" path="res://scenes/objects/placables/object_instance.tscn" id="6_objin"]
-[ext_resource type="Resource" uid="uid://t5yr12xwj1i5j" path="res://scripts/resources/placeable_object/furniture/bed_house.tres" id="7_bed"]
+[ext_resource type="Resource" uid="uid://txf3sdnp05dp" path="res://scripts/resources/placeable_object/furniture/bed_house.tres" id="7_bed"]
 [ext_resource type="Script" uid="uid://cn7l4yqx8mkr2" path="res://scenes/components/persistent/level_layer.gd" id="8_layer"]
 
 [node name="MainInsideHouse" type="Node2D" unique_id=545508750]
@@ -41,30 +41,30 @@ y_sort_enabled = true
 tile_map_data = PackedByteArray("AAABAAIAAAAmACAAAAACAAIAAAAnACAAAAABAAMAAAAmACEAAAACAAMAAAAnACEAAAABAAQAAAAmACIAAAACAAQAAAAnACIAAAADAAIAAAAjAB0AAAAEAAIAAAAkAB0AAAAFAAIAAAAlAB0AAAADAAMAAAAjAB4AAAAEAAMAAAAkAB4AAAAFAAMAAAAlAB4AAAADAAQAAAAjAB8AAAAEAAQAAAAkAB8AAAAFAAQAAAAlAB8AAAAHAAEAAAAsAEEAAAAIAAEAAAAtAEEAAAAHAAIAAAAsAEIAAAAIAAIAAAAtAEIAAAAJAAIAAAAeADgAAAAKAAIAAAAfADgAAAAJAAMAAAAeADkAAAAKAAMAAAAfADkAAAAJAAQAAAAeADoAAAAKAAQAAAAfADoAAAAMAAEAAAAZABsAAAAMAAIAAAAZABwAAAALAAMAAAAmAB4AAAAMAAMAAAAnAB4AAAALAAQAAAAmAB8AAAAMAAQAAAAnAB8AAAAPAAMAAAAqADwAAAAPAAQAAAAqAD0AAAABAAUAAAAoACMAAAABAAYAAAAoACQAAAACAAYAAAA8ADUAAAADAAYAAAA9ADUAAAAEAAYAAAA+ADUAAAACAAcAAAA8ADYAAAADAAcAAAA9ADYAAAAEAAcAAAA+ADYAAAAGAAYAAABCADUAAAAGAAcAAABCADYAAAAHAAYAAAA0ADMAAAAIAAYAAAA1ADMAAAAHAAcAAAA0ADQAAAAIAAcAAAA1ADQAAAAJAAYAAABEADUAAAAJAAcAAABEADYAAAABAAkAAAAhAB0AAAACAAkAAAAiAB0AAAABAAoAAAAhAB4AAAACAAoAAAAiAB4AAAABAAsAAAAhAB8AAAACAAsAAAAiAB8AAAALAAoAAAAuADkAAAAMAAoAAAAvADkAAAALAAsAAAAuADoAAAAMAAsAAAAvADoAAAANAAkAAAAmADgAAAAOAAkAAAAnADgAAAANAAoAAAAmADkAAAAOAAoAAAAnADkAAAANAAsAAAAmADoAAAAOAAsAAAAnADoAAAAPAAoAAAAsADwAAAAPAAsAAAAsAD0AAAA=")
 tile_set = ExtResource("1_tiles")
 
-[node name="ObjectCursorComponent" parent="." instance=ExtResource("2_cursor")]
+[node name="ObjectCursorComponent" parent="." unique_id=1221356844 instance=ExtResource("2_cursor")]
 
-[node name="Level" type="Node2D" parent="."]
+[node name="Level" type="Node2D" parent="." unique_id=1769921065]
 y_sort_enabled = true
 
-[node name="Player" parent="Level" instance=ExtResource("4_player")]
+[node name="Player" parent="Level" unique_id=1433995120 instance=ExtResource("4_player")]
 position = Vector2(256, 400)
 
-[node name="Camera2D" type="Camera2D" parent="Level/Player"]
+[node name="Camera2D" type="Camera2D" parent="Level/Player" unique_id=738248629]
 
-[node name="Objects" type="Node2D" parent="Level"]
+[node name="Objects" type="Node2D" parent="Level" unique_id=1431034486]
 y_sort_enabled = true
 script = ExtResource("8_layer")
 
-[node name="Bed" parent="Level/Objects" instance=ExtResource("6_objin")]
+[node name="Bed" parent="Level/Objects" unique_id=1917527810 instance=ExtResource("6_objin")]
 position = Vector2(448, 192)
 object = ExtResource("7_bed")
 
-[node name="PortalToFarm" parent="." instance=ExtResource("5_portal")]
+[node name="PortalToFarm" parent="." unique_id=866850514 instance=ExtResource("5_portal")]
 position = Vector2(256, 444)
 target_scene = "res://scenes/levels/main_farm.tscn"
 target_spawn = &"house_door"
 
-[node name="SpawnPoint" type="Marker2D" parent="."]
+[node name="SpawnPoint" type="Marker2D" parent="." unique_id=783472678]
 position = Vector2(256, 400)
 script = ExtResource("3_spawn")
 spawn_id = &"house_entrance"

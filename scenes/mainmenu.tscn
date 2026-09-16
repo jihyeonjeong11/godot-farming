@@ -19,6 +19,7 @@ grow_vertical = 2
 script = ExtResource("1_mnscr")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=670319669]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -71,6 +72,6 @@ icon = ExtResource("5_7yvfd")
 visible = false
 layout_mode = 1
 
-[node name="SaveSlots" parent="." instance=ExtResource("7_slots")]
+[node name="SaveSlots" parent="." unique_id=795320480 instance=ExtResource("7_slots")]
 visible = false
 layout_mode = 1

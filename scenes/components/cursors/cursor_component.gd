@@ -1,6 +1,7 @@
 extends Node2D
 
 const OBJECT_GROUP := &"object"
+const PROPS_GROUP := &"props"
 const CROP_INSTANCE := preload("res://scenes/objects/placables/crop_instance.tscn")
 
 
@@ -15,6 +16,7 @@ var mouse_position: Vector2
 var target_position: Vector2
 var cell_position: Vector2i
 var object_target: ObjectInstance
+var props_target: TileMapLayer
 var held: Item
 
 
@@ -29,6 +31,7 @@ func _physics_process(_delta: float) -> void:
 	global_position = target_position
 	cell_position = cell_under_cursor()
 	object_target = object_under_cursor()
+	props_target = props_under_cursor()
 
 	if GameInputEvents.is_use_tool():
 		held = Inventory.get_selected_item()
@@ -47,11 +50,9 @@ func _physics_process(_delta: float) -> void:
 		if object_target != null:
 			return
 
-		# 2. 없으면 타일 확인, 타일은 hoe랑 water이니 그라운드와 water tilledSoil 세가지를 판단해야 함
-		# ground 아무것도 없다면 hoe일떄 tilledDirt가 된다
-		# tilledDirt라면 water일때 wateredDirt가 된다
 		if held.tool_type == DataTypes.Tools.TillGround:
-			till_cell()
+			if props_target == null and object_at_cell() == null:
+				till_cell()
 		if held.tool_type == DataTypes.Tools.MineRock:
 			untill_cell()
 
@@ -67,7 +68,7 @@ func till_cell() -> void:
 	if tilemap == null or tilled_soil_tilemap_layer == null:
 		return
 
-	if tilemap.get_cell_source_id(cell_position) == -1:
+	if not is_cell_dirt():
 		return
 
 	tilled_soil_tilemap_layer.set_cells_terrain_connect(
@@ -110,6 +111,23 @@ func plant_seed() -> void:
 
 	Inventory.remove_item(Inventory.selected_slot, 1)
 	SignalBus.sound_requested.emit(AudioManager.SFX_TILLING_GROUND)
+
+
+func is_cell_dirt() -> bool:
+	var tile := tilemap.get_cell_tile_data(cell_position)
+	return tile != null and tile.get_custom_data(&"tillable")
+
+
+func object_at_cell() -> ObjectInstance:
+	for node in get_tree().get_nodes_in_group(OBJECT_GROUP):
+		var instance := node as ObjectInstance
+		if instance == null or instance.is_queued_for_deletion():
+			continue
+
+		if tilemap.local_to_map(tilemap.to_local(instance.global_position)) == cell_position:
+			return instance
+
+	return null
 
 
 func crop_at_cell() -> CropInstance:
@@ -164,6 +182,19 @@ func object_under_cursor() -> ObjectInstance:
 		closest_distance = distance
 
 	return closest
+
+
+func props_under_cursor() -> TileMapLayer:
+	for node in get_tree().get_nodes_in_group(PROPS_GROUP):
+		var layer := node as TileMapLayer
+		if layer == null:
+			continue
+
+		var cell := layer.local_to_map(layer.to_local(target_position))
+		if layer.get_cell_source_id(cell) != -1:
+			return layer
+
+	return null
 
 
 func uses_cursor(item: Item) -> bool:

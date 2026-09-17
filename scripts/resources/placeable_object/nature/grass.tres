@@ -20,6 +20,7 @@ region = Rect2(991, 747, 36, 45)
 script = ExtResource("2_c4m6d")
 object_id = "grass"
 object_name = "Grass"
+destructible_tool = 1
 object_texture = SubResource("AtlasTexture_blbij")
 object_max_health = 1
 dropped_items = Array[ExtResource("1_k8o0v")]([SubResource("Resource_drop")])

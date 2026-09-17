@@ -24,26 +24,62 @@ https://farmtechsupplies.com/atomic-gardening-the-nuclear-option-that-shaped-eve
 https://pmc.ncbi.nlm.nih.gov/articles/PMC8725632/
 https://en.wikipedia.org/wiki/Atoms_for_Peace
 
-## 튜토리얼
+## 월드빌딩
 
-day 0
+- the States. 국가
+- AP - Atom for Peace
+- Atomic Garden
+
+## 튜토리얼
+- 너무 길고 현학적이야. 스타듀밸리에서도 여러 시스템이 있지만, 이렇게 많지는 않아
+- 퀘스트 몇개로 압축하자.
+- 편지 시스템이 필요함.
+
+### day 0
 
 - 텍스트 추가
-- text_tutorial_01_01
-- 축하합니다! 귀하는 The States의 국민과 방위, 공익을 위한 프로그램, edf의 에이전트로 선정되셨습니다.
-- text_tutorial_01_02
-- 귀하에게 atomic gardening을 위한 부지를 제공해 드립니다. 한 번 둘러보세요!
+- quest_tutorial_01_01
+- 축하합니다! 귀하는 The States의 국민과 방위, 공익을 위한 프로그램, AP의 에이전트로 선정되셨습니다.
 
-- text_tutorial_02_01
-- 먼저 여기까지 오느라 수고하셨습니다. 목마름과 배고픔을 먼저 해결하세요. 근처의 보급상자를 확인하세요! 
-- text_tutorial_02_02
+- quest_tutorial_02_01
+- 먼저 여기까지 오느라 수고하셨습니다. 
+- quest_tutorial_02_02
+- 옆의 상자를 확인해보세요. 구급상자를 사용해 상처를 치료해 보세요.
+
+- quest_tutorial_03_01
+- 고생하셨습니다. 에이전트로써의 일과는 내일부터 시작합니다. 오두막으로 들어가 잠을 자세요.
+
+### day 1
+- quest_tutorial_04_01
+- 에이전트 좋은 아침입니다! 목마름과 배고픔을 먼저 해결하세요. 근처의 보급상자를 확인하세요! 
+- quest_tutorial_04_02
 - 식량과 물을 사용해 배고픔과 목마름을 해결해 보세요.
 
-- text_tutorial_03_01
-- 고생하셨습니다. 에이전트로써의 일과는 내일부터 제대로 시작합니다. 오두막으로 들어가 잠을 자세요.
+- quest_tutorial_04_03
+- 귀하에게 atomic gardening을 위한 부지를 제공해 드립니다. 한 번 둘러보세요!
+- 말풍선 0/3
+- 경작지, 집, 상자, 각종 출구들 다 인터랙션
 
-- day_01
-- 에이전트 좋은 아침입니다! 먼저 오늘의 과제를 위-
+- quest_tutorial_04_portal_to_city
+- 이곳은 에이전트분이 여기까지 도달하는데 이미 거쳐오신 길일겁니다. 위험하지만, 앞으로의 생존에 꼭 필요한 물건을 구하기 위해서 주기적으로 방문해야 합니다.
+- quest_tutorial_04_tillable_area
+- 이곳은 농사 및 이번 프로젝트의 목적인 atomic garden을 설치할 수 있는 공간입니다.
+- quest_tutorial_04_house
+- 열심히 하루를 보낸 에이전트를 위한 조립형 주택입니다.
+
+- quest_tutorial_05_01
+- 이제 진짜 프로젝트를 시작해 봅시다. 아토믹 가든을 실제로 만들어 볼 때입니다!
+- quest_tutorial_05_02
+- 철책을 세울 고철, 작물의 씨앗, 그리고 실제로 돌연변이를 일으킬 수 있는 방사능 물질이 필요합니다.
+- quest_tutorial_05_03
+- 방사능이 강할 수록 좋습니다. 
+- quest_tutorial_05_04
+- 자 이제 도시로 돌아갑시다. 재료를 모아서 진짜 당신만의 atomic 가든을 만들어봅시다.
+
+
+
+
+
 - 기본 농사
 - 기본 크래프팅
 - 기본 탐사 -> 무엇을 가져올것인지? -> 방사능 약품?

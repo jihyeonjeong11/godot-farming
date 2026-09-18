@@ -1,0 +1,72 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/test_scenes/stardew_player/stardew_player.gd" id="1_script"]
+[ext_resource type="Shader" path="res://scenes/test_scenes/stardew_player/sleeve_swap.gdshader" id="2_shader"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_arm"]
+shader = ExtResource("2_shader")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_feet"]
+radius = 4.0
+
+[node name="StardewPlayer" type="CharacterBody2D"]
+script = ExtResource("1_script")
+
+[node name="Rig" type="Node2D" parent="."]
+z_index = 2
+
+[node name="Body" type="Sprite2D" parent="Rig"]
+position = Vector2(-8, -32)
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 32)
+
+[node name="Pants" type="Sprite2D" parent="Rig"]
+z_index = 1
+position = Vector2(-8, -32)
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 32)
+
+[node name="Shirt" type="Sprite2D" parent="Rig"]
+z_index = 2
+position = Vector2(-4, -17)
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 8, 8)
+
+[node name="ShirtDye" type="Sprite2D" parent="Rig"]
+z_index = 3
+position = Vector2(-4, -17)
+centered = false
+region_enabled = true
+region_rect = Rect2(128, 0, 8, 8)
+
+[node name="Hair" type="Sprite2D" parent="Rig"]
+z_index = 5
+position = Vector2(-8, -31)
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 32)
+
+[node name="Arm" type="Sprite2D" parent="Rig"]
+z_index = 6
+material = SubResource("ShaderMaterial_arm")
+position = Vector2(-8, -32)
+centered = false
+region_enabled = true
+region_rect = Rect2(96, 0, 16, 32)
+
+[node name="Tool" type="Sprite2D" parent="Rig"]
+visible = false
+z_index = 7
+position = Vector2(-8, -32)
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 16, 16, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_feet")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://dcq54frn85y6v" path="res://tilesets/apocalypse_tile_set.tres" id="3_cbi1e"]
 [ext_resource type="TileSet" uid="uid://bfjfke80cfmmc" path="res://tilesets/house_tile_set.tres" id="4_yeaon"]
 [ext_resource type="PackedScene" uid="uid://bws7j5ufw4eeg" path="res://scenes/characters/enemy/small_zombie.tscn" id="6_6htjd"]
-[ext_resource type="PackedScene" uid="uid://b0a3am51xwndg" path="res://scenes/components/day_night_cycle_component.tscn" id="9_gnrof"]
+[ext_resource type="PackedScene" uid="uid://b0a3am51xwndg" path="res://managers/day_night_cycle_manager.tscn" id="9_gnrof"]
 [ext_resource type="PackedScene" uid="uid://bmp8j4fwdkl82" path="res://scenes/characters/player/player.tscn" id="10_rlsjh"]
 
 [sub_resource type="GDScript" id="GDScript_xk2cp"]

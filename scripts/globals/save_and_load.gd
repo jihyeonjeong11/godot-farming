@@ -111,12 +111,12 @@ func load_game() -> void:
 
 ## 목록에 뿌릴 값만 담는다. 복원에 쓰이지 않으므로 형식이 바뀌어도 세이브는 멀쩡하다.
 func _save_meta(level: Node) -> void:
-	var total_minutes := int(DayAndNightCycle.time / DayAndNightCycle.GAME_MINUTE_DURARTION)
+	var tm := TimeManager.find(get_tree())
 
 	_write(_slot_file(META_FILE), {
 		# 목록에 그대로 뿌릴 현지 시각 문자열. 유닉스 초로 두면 읽는 쪽이 시간대를 다시 맞춰야 한다.
 		"saved_at": Time.get_datetime_string_from_system(),
-		"day": total_minutes / DayAndNightCycle.MINUTES_PER_DAY,
+		"day": tm.today() if tm != null else 0,
 		"level": _level_id_of(level),
 	})
 
@@ -296,12 +296,19 @@ func load_stats() -> Variant:
 	return parsed if parsed is Dictionary else null
 
 
-## 날짜/시각은 전부 time 하나에서 파생된다(recalculate_time).
-## 그래서 day/hour/minute을 따로 적을 필요가 없고, 적으면 오히려 어긋날 여지만 생긴다.
+## 날씨는 하루 단위로 굴리는 값이라 시각과 같은 파일에 둔다. 따로 떼면 날짜는
+## 복원됐는데 날씨만 빠지는 반쪽 세이브가 생길 수 있다.
 func save_time() -> void:
-	_write(_slot_file(TIME_FILE), {
-		"time": DayAndNightCycle.time,
-	})
+	var data := {}
+	var tm := TimeManager.find(get_tree())
+	if tm != null:
+		data["time"] = tm.current_time.duplicate()
+
+	var weather := WeatherManager.find(get_tree())
+	if weather != null:
+		data["weather"] = DataTypes.WeatherType.keys()[weather.current_weather]
+
+	_write(_slot_file(TIME_FILE), data)
 
 
 func load_time() -> void:
@@ -309,17 +316,22 @@ func load_time() -> void:
 	if parsed is not Dictionary:
 		return
 
-	DayAndNightCycle.time = parsed.get("time", DayAndNightCycle.time)
-	# 엣지 검출용 캐시라 그대로 두면 다음 틱까지 시계 UI가 옛 값을 붙들고 있다.
-	# -1로 밀어 두면 첫 recalculate_time에서 반드시 한 번 쏜다.
-	DayAndNightCycle.current_minute = -1
+	var tm := TimeManager.find(get_tree())
+	var saved_time: Variant = parsed.get("time")
+	if tm != null and saved_time is Dictionary:
+		tm.current_time = saved_time.duplicate()
 
-	# 날짜는 반대로, 불러온 시각에 맞춰 미리 맞춰둔다. 메뉴에 머무는 동안에도
-	# 오토로드는 계속 돌아서 current_day가 이미 딴 날에 가 있고, 그대로 두면 첫
-	# recalculate_time이 하루가 넘어간 줄 알고 time_tick_day를 쏜다. 그러면 방금
-	# 복원한 물기가 바로 마르고 작물은 하루치를 공짜로 먹는다.
-	var total_minutes := int(DayAndNightCycle.time / DayAndNightCycle.GAME_MINUTE_DURARTION)
-	DayAndNightCycle.current_day = total_minutes / DayAndNightCycle.MINUTES_PER_DAY
+	_restore_weather(parsed.get("weather"))
+
+
+## 날씨 키가 없던 시절의 세이브나 모르는 이름이면 맑음으로 둔다.
+func _restore_weather(saved: Variant) -> void:
+	var manager := WeatherManager.find(get_tree())
+	if manager == null:
+		return
+
+	var index := DataTypes.WeatherType.keys().find(saved) if saved is String else -1
+	manager.set_weather(index if index >= 0 else DataTypes.WeatherType.Sunny)
 
 
 ## 임시 파일에 먼저 쓰고 성공했을 때만 바꾼다.

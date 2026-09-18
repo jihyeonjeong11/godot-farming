@@ -16,7 +16,6 @@ signal ui_close_requested(layer: int)
 ## 그게 게임을 멈추는지는 GameStateManager가 판단한다.
 signal ui_stack_changed(pause_requested: bool)
 
-signal game_time(time: float)
 signal time_tick(day: int, hour: int, minute: int)
 signal time_tick_day(day: int)
 

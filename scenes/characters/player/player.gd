@@ -117,7 +117,7 @@ func setup_stats() -> void:
 	stats.setup_stats()
 
 	# setup_stats()가 base 값으로 가득 채운 뒤라, 세이브가 있으면 그 위에 덮는다.
-	# "새 게임"이면 load_stats()가 null을 주므로 가득 찬 상태로 남는다.
+	# "새 게임"이면 load_stats()가 null을 주므로 튜토리얼용으로 체력만 깎아 둔다.
 	var saved: Variant = SaveAndLoad.load_stats()
 	if saved is Dictionary:
 		stats.health = saved.get("health", stats.health)
@@ -125,6 +125,12 @@ func setup_stats() -> void:
 		stats.hunger = saved.get("hunger", stats.hunger)
 		stats.thirst = saved.get("thirst", stats.thirst)
 		stats.gold = saved.get("gold", stats.gold)
+	else:
+		stats.health = floor(stats.current_max_health / 2)
+		stats.hunger = floor(stats.current_max_hunger / 2)
+		stats.thirst = floor(stats.current_max_thirst / 2)
+
+
 
 func refresh_equipment_stats() -> void:
 	if stats == null:
@@ -156,7 +162,10 @@ func apply_hitbox(item: Item) -> void:
 func _physics_process(_delta: float) -> void:
 	if stats.stamina > stats.current_max_stamina:
 		stats.stamina += 1
-		
+	
+	if stats.hunger == 0:
+		die()
+			
 	for key in TEST_KEYS:
 		_edge(key, TEST_KEYS[key])
 
@@ -188,6 +197,8 @@ func _physics_process(_delta: float) -> void:
 	if equipped_tool != _drawn_tool:
 		_drawn_tool = equipped_tool
 		apply_tool_frames()
+		
+	
 
 func _edge(key: String, code: Key) -> bool:
 	var down: bool = Input.is_physical_key_pressed(code)
@@ -497,6 +508,8 @@ func revive() -> void:
 	hurt_shape.set_deferred("disabled", false)
 	modulate.a = 1.0
 	stats.health = stats.current_max_health
+	stats.hunger = 50
+	stats.thirst = 50
 
 	if state_machine:
 		state_machine.transition_to("Idle")

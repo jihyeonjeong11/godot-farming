@@ -966,10 +966,9 @@ func render_buildings() -> void:
 			objects_root.add_child(node)
 
 
-## current_day 는 첫 _process 뒤에야 채워진다. 생성은 _ready 안에서 끝나므로 시간에서 직접 센다.
 func spawn_day() -> int:
-	var minutes := int(DayAndNightCycle.time / DayAndNightCycle.GAME_MINUTE_DURARTION)
-	return minutes / DayAndNightCycle.MINUTES_PER_DAY
+	var tm := TimeManager.find(get_tree())
+	return tm.today() if tm != null else 0
 
 
 ## GROUP_ZOMBIE 에서 한 마리 뽑는다 — MonsterGroupManager::GetResultFromGroup.

@@ -25,6 +25,9 @@
 [ext_resource type="Script" uid="uid://dvg4mqeuiip54" path="res://scenes/components/farm_spawner.gd" id="19_spawner"]
 [ext_resource type="Resource" uid="uid://clh75kbapjbke" path="res://scripts/resources/placeable_object/furniture/chest.tres" id="23_34mxf"]
 [ext_resource type="PackedScene" uid="uid://m70mkxtn3dt5" path="res://scenes/objects/for_dev_purpose/merchant_terminal.tscn" id="24_hguhx"]
+[ext_resource type="Resource" uid="uid://bfurnace00001" path="res://scripts/resources/placeable_object/furniture/furnace.tres" id="25_furnace"]
+[ext_resource type="Resource" uid="uid://bradbarrel001" path="res://scripts/resources/placeable_object/props/radioactive_barrel.tres" id="26_radbarrel"]
+[ext_resource type="PackedScene" uid="uid://bnjt4x85c5afn" path="res://scenes/components/weather/weathers.tscn" id="27_weathers"]
 
 [node name="MainFarm" type="Node2D" unique_id=457676691]
 script = ExtResource("1_65wv7")
@@ -312,14 +315,24 @@ object = ExtResource("7_twig")
 position = Vector2(1008, 688)
 object = ExtResource("7_twig")
 
-[node name="Player" parent="Level/Objects" unique_id=211281896 instance=ExtResource("13_player")]
+[node name="Player" parent="Level" unique_id=211281896 instance=ExtResource("13_player")]
 position = Vector2(307, 310)
 
-[node name="Camera2D" type="Camera2D" parent="Level/Objects/Player" unique_id=841949558]
+[node name="Camera2D" type="Camera2D" parent="Level/Player" unique_id=841949558]
 
-[node name="ObjectInstance" parent="Level" unique_id=1513629613 instance=ExtResource("4_objin")]
+[node name="Weathers" parent="Level/Player/Camera2D" unique_id=1163864841 instance=ExtResource("27_weathers")]
+
+[node name="Chest" parent="Level" unique_id=1513629613 instance=ExtResource("4_objin")]
 position = Vector2(378, 280)
 object = ExtResource("23_34mxf")
+
+[node name="Furnace" parent="Level" unique_id=1908311427 instance=ExtResource("4_objin")]
+position = Vector2(440, 280)
+object = ExtResource("25_furnace")
+
+[node name="RadioactiveBarrel" parent="Level" unique_id=1332077516 instance=ExtResource("4_objin")]
+position = Vector2(944, 465)
+object = ExtResource("26_radbarrel")
 
 [node name="SpawnFromHouse" type="Marker2D" parent="." unique_id=249535749]
 position = Vector2(307, 310)

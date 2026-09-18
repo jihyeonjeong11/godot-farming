@@ -23,12 +23,21 @@ extends Resource
 @export var collision_offset: Vector2i
 @export var collision_radius: int = 32
 
+
 @export_group("Shake")
 @export var shake_intensity: float = 0.0
 @export var shake_speed: float = 20.0
 ## 0 이면 스프라이트 높이 전체를 쓴다.
 @export var shake_bend_height: float = 0.0
 @export var shake_duration: float = 0.3
+
+@export_group("Sound")
+@export var sound_range: float = 120.0
+
+@export_group("Radiation")
+@export var radiation_range: float = 120.0
+@export var radiation: float = 0
+
 
 @export_group("Animation")
 @export var sprite_frames: SpriteFrames

@@ -9,8 +9,6 @@ colors = PackedColorArray(0.086, 0.212, 0.796, 1, 0.129, 0.275, 0.882, 1, 0.365,
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_02hyl"]
 gradient = SubResource("Gradient_76coa")
 
-[node name="DayNightCycleComponent" type="CanvasModulate" unique_id=1908140115]
+[node name="DayNightCycleManager" type="CanvasModulate" unique_id=1908140115]
 script = ExtResource("1_76coa")
-initial_hour = 6
-initial_minute = 0
 day_night_gradient_texture = SubResource("GradientTexture1D_02hyl")

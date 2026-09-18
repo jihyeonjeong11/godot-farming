@@ -26,11 +26,9 @@ ItemDB="*res://scripts/globals/item_db.gd"
 RecipeDB="*res://scripts/globals/recipe_db.gd"
 QuestDB="*res://scripts/globals/quest_db.gd"
 SignalBus="*uid://c5yk62a6w1nji"
-DayAndNightCycle="*uid://db650q1a0xbln"
 Inventory="*uid://vycgnw0v4akr"
 SaveAndLoad="*uid://d0y42xiiply8f"
 Settings="*res://scripts/globals/settings.gd"
-WeatherManager="*uid://c1luewiv23rn7"
 
 [display]
 

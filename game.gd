@@ -34,8 +34,10 @@ func on_new_game_requested(slot: int) -> void:
 	SaveAndLoad.load_requested = false
 	SaveAndLoad.fresh_start = true
 	reset_quests()
+	reset_weather()
 	swap_scene.call_deferred(scene_farm)
 	_open_intro_dialog.call_deferred()
+	
 	
 
 func reset_quests() -> void:
@@ -47,8 +49,17 @@ func reset_quests() -> void:
 	manager.reset_progress()
 
 
+func reset_weather() -> void:
+	var manager := WeatherManager.find(get_tree())
+	if manager == null:
+		push_warning("날씨를 되돌릴 WeatherManager 가 없다")
+		return
+
+	manager.set_weather(DataTypes.WeatherType.Sunny)
+
+
 func _open_intro_dialog() -> void:
-	var keys: Array[StringName] = [&"DIALOG_ON_START_1", &"DIALOG_ON_START_2"]
+	var keys: Array[StringName] = [&"DIALOG_TUTORIAL_01_01", &"DIALOG_TUTORIAL_01_02", &"DIALOG_TUTORIAL_01_03", &"DIALOG_TUTORIAL_01_04"]
 	SignalBus.dialog.emit(keys)
 
 

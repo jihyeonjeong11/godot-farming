@@ -1,0 +1,74 @@
+[gd_resource type="Resource" script_class="PlaceableObject" format=3 uid="uid://bradbarrel001"]
+
+[ext_resource type="Script" uid="uid://c0e27vd6vvrd3" path="res://scripts/resources/loot/loot.gd" id="1_loot"]
+[ext_resource type="Script" uid="uid://bstiq6ulxip1a" path="res://scripts/resources/placeable_object/placeable_object.gd" id="2_object"]
+[ext_resource type="Texture2D" uid="uid://bo0h4hqpc84i2" path="res://assets/temp/radioactive_barrel.png" id="4_atlas"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_barrel0"]
+atlas = ExtResource("4_atlas")
+region = Rect2(0, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_barrel1"]
+atlas = ExtResource("4_atlas")
+region = Rect2(64, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_barrel2"]
+atlas = ExtResource("4_atlas")
+region = Rect2(128, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_barrel3"]
+atlas = ExtResource("4_atlas")
+region = Rect2(192, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_barrel4"]
+atlas = ExtResource("4_atlas")
+region = Rect2(256, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_barrel5"]
+atlas = ExtResource("4_atlas")
+region = Rect2(320, 0, 64, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_object"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_barrel0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_barrel1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_barrel2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_barrel3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_barrel4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_barrel5")
+}],
+"loop": 1,
+"name": &"ripple",
+"speed": 6.0
+}]
+
+[resource]
+script = ExtResource("2_object")
+object_id = "radioactive_barrel"
+object_name = "Radioactive Barrel"
+destructible_tool = 2
+object_texture = SubResource("AtlasTexture_barrel0")
+object_type = 1
+object_max_health = 1
+offset = Vector2i(-32, -74)
+hurtbox_offset = Vector2i(0, -30)
+hurtbox_radius = 24
+scatter_radius = 18
+collision_offset = Vector2i(0, -12)
+collision_radius = 14
+radiation = 10.0
+sprite_frames = SubResource("SpriteFrames_object")
+default_animation = &"ripple"
+metadata/_custom_type_script = "uid://bstiq6ulxip1a"

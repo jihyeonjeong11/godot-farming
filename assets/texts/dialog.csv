@@ -1,4 +1,6 @@
 keys,en,ko
 DIALOG_ON_DEATH,"Looks like you couldn't handle some zombies! Don't worry, try again.","좀비를 감당하기엔 무리였나 보군! 걱정 마, 다시 해보면 돼."
-DIALOG_ON_START_1,"This is first scene of the game","시작 씬"
-DIALOG_ON_START_2,"This is first scene of the game2","시작 씬2"
+DIALOG_TUTORIAL_01_01,"Congratulations! You have been selected as an agent of AP, a program for the people, the defense, and the public good of The States.","축하합니다! 귀하는 The States의 국민과 방위, 공익을 위한 프로그램, AP의 에이전트로 선정되셨습니다."
+DIALOG_TUTORIAL_01_02,"You will be provided with a farm plot and living quarters for AP's glorious experiment.","귀하에게는 영광스러운 AP의 실험을 위한 농장 부지와 거주 공간이 제공됩니다."
+DIALOG_TUTORIAL_01_03,"Thank you for making it this far. The chest beside you holds the supplies issued to agents. There are basic rations, tools, and a first aid kit, so try using them.","여기까지 오느라 수고하셨습니다. 옆의 상자에는 요원들에게 제공되는 보급품이 있습니다. 기초적인 식량과 도구, 구급상자가 있으니 사용해 보세요."
+DIALOG_TUTORIAL_01_04,"Long day, wasn't it? Check the cabin issued as your living quarters. Your duties as an agent begin tomorrow.","긴 하루였죠? 지급된 거주용 오두막을 확인해보세요. 요원으로써의 과제는 내일부터 시작됩니다."

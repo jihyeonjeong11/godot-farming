@@ -3,7 +3,7 @@
 [ext_resource type="TileSet" uid="uid://bg7n2qxwlk4ay" path="res://tilesets/apocalypse_green_tile_set.tres" id="1_824jl"]
 [ext_resource type="TileSet" uid="uid://dcq54frn85y6v" path="res://tilesets/apocalypse_tile_set.tres" id="2_1n7w3"]
 [ext_resource type="TileSet" uid="uid://bfjfke80cfmmc" path="res://tilesets/house_tile_set.tres" id="3_ioctm"]
-[ext_resource type="PackedScene" uid="uid://b0a3am51xwndg" path="res://scenes/components/day_night_cycle_component.tscn" id="9_osfbq"]
+[ext_resource type="PackedScene" uid="uid://b0a3am51xwndg" path="res://managers/day_night_cycle_manager.tscn" id="9_osfbq"]
 [ext_resource type="PackedScene" uid="uid://c7mobspwnr01" path="res://scenes/components/mob_spawner_component.tscn" id="10_mspwn"]
 [ext_resource type="PackedScene" uid="uid://bmp8j4fwdkl82" path="res://scenes/characters/player/player.tscn" id="13_4d0tx"]
 [ext_resource type="PackedScene" uid="uid://y27b0nq34315" path="res://scenes/components/portal_component.tscn" id="14_portl"]

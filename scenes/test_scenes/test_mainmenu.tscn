@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c5l2we0ownx8p"]
+[gd_scene format=3 uid="uid://c5l2we0ownx8p"]
 
 [ext_resource type="Script" uid="uid://ca6xgvjl2lqd1" path="res://scenes/test_scenes/test_mainmenu.gd" id="1_s1rs4"]
 [ext_resource type="TileSet" uid="uid://dkw01fa84lera" path="res://tilesets/city_ruin.tres" id="2_ground"]
@@ -17,7 +17,6 @@ outline_color = Color(0.043137256, 0.08235294, 0.05490196, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_sub"]
 font = ExtResource("6_font")
-font_size = 16
 font_color = Color(0.8235294, 0.827451, 0.7607843, 1)
 outline_size = 5
 outline_color = Color(0.043137256, 0.08235294, 0.05490196, 1)
@@ -29,40 +28,40 @@ font_color = Color(0.9098039, 0.9411765, 0.85490197, 1)
 outline_size = 5
 outline_color = Color(0.043137256, 0.08235294, 0.05490196, 1)
 
-[node name="TestMainmenu" type="Node2D"]
+[node name="TestMainmenu" type="Node2D" unique_id=2003068192]
 script = ExtResource("1_s1rs4")
 
-[node name="Dusk" type="CanvasModulate" parent="."]
+[node name="Dusk" type="CanvasModulate" parent="." unique_id=2033009565]
 color = Color(0.6156863, 0.6, 0.7411765, 1)
 
-[node name="Ground" type="TileMapLayer" parent="."]
+[node name="Ground" type="TileMapLayer" parent="." unique_id=396683945]
 tile_set = ExtResource("2_ground")
 
-[node name="Ruins" type="Node2D" parent="."]
+[node name="Ruins" type="Node2D" parent="." unique_id=1560650769]
 modulate = Color(0.827451, 0.8039216, 0.7529412, 1)
 
-[node name="TilledSoil" type="TileMapLayer" parent="."]
+[node name="TilledSoil" type="TileMapLayer" parent="." unique_id=1128506043]
 tile_set = ExtResource("3_tilled")
 
-[node name="Fence" type="TileMapLayer" parent="."]
+[node name="Fence" type="TileMapLayer" parent="." unique_id=1700703684]
 tile_set = ExtResource("4_fence")
 
-[node name="FarmHouse" parent="." instance=ExtResource("5_farmhouse")]
+[node name="FarmHouse" parent="." unique_id=1667585011 instance=ExtResource("5_farmhouse")]
 position = Vector2(1088, -32)
 
-[node name="Props" type="Node2D" parent="."]
+[node name="Props" type="Node2D" parent="." unique_id=1730572019]
 y_sort_enabled = true
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1233497692]
 position = Vector2(320, 176)
 
-[node name="Ambient" type="AudioStreamPlayer" parent="."]
+[node name="Ambient" type="AudioStreamPlayer" parent="." unique_id=665751637]
 stream = ExtResource("7_radio")
 volume_db = -14.0
 
-[node name="Ui" type="CanvasLayer" parent="."]
+[node name="Ui" type="CanvasLayer" parent="." unique_id=236999062]
 
-[node name="Logo" type="Control" parent="Ui"]
+[node name="Logo" type="Control" parent="Ui" unique_id=1275133088]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -71,7 +70,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Box" type="VBoxContainer" parent="Ui/Logo"]
+[node name="Box" type="VBoxContainer" parent="Ui/Logo" unique_id=1018326721]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -87,19 +86,19 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_constants/separation = 2
 
-[node name="Title" type="Label" parent="Ui/Logo/Box"]
+[node name="Title" type="Label" parent="Ui/Logo/Box" unique_id=1419195053]
 layout_mode = 2
 text = "ATOMIC GARDEN"
 label_settings = SubResource("LabelSettings_title")
 horizontal_alignment = 1
 
-[node name="Subtitle" type="Label" parent="Ui/Logo/Box"]
+[node name="Subtitle" type="Label" parent="Ui/Logo/Box" unique_id=1341929627]
 layout_mode = 2
 text = "DROP THE COBALT AND RUN"
 label_settings = SubResource("LabelSettings_sub")
 horizontal_alignment = 1
 
-[node name="Prompt" type="Label" parent="Ui"]
+[node name="Prompt" type="Label" parent="Ui" unique_id=1989701929]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -107,7 +106,6 @@ anchor_bottom = 1.0
 offset_top = -40.0
 grow_horizontal = 2
 grow_vertical = 0
-mouse_filter = 2
 text = "PRESS ANY KEY"
 label_settings = SubResource("LabelSettings_prompt")
 horizontal_alignment = 1

@@ -14,6 +14,7 @@ var current_health: int
 var shake_tween: Tween
 var current_animation: StringName
 var inventory: ContainerInventoryComponent
+var radiation_area: Area2D
 var _frame: int = 0
 var _frame_time: float = 0.0
 var _sleeping: bool = false
@@ -138,7 +139,9 @@ func sleep() -> void:
 	await ScreenFade.fade_out(SLEEP_FADE_DURATION)
 	await get_tree().create_timer(SLEEP_DURATION).timeout
 
-	DayAndNightCycle.skip_to(DayAndNightCycle.current_day + 1, WAKE_HOUR)
+	var tm := TimeManager.find(get_tree())
+	if tm != null:
+		tm.skip_to(tm.today() + 1, WAKE_HOUR)
 
 	await ScreenFade.fade_in(SLEEP_FADE_DURATION)
 
@@ -185,6 +188,7 @@ func _refresh() -> void:
 	_refresh_hurtbox()
 	_refresh_body()
 	_refresh_shake()
+	_refresh_radiation()
 
 
 func _refresh_inventory() -> void:
@@ -247,6 +251,41 @@ func _refresh_shake() -> void:
 	shake_material.set_shader_parameter("shake_speed", object.shake_speed)
 	shake_material.set_shader_parameter("shake_intensity", 0.0)
 	material = shake_material
+
+
+func _refresh_radiation() -> void:
+	if object.radiation <= 0.0 or object.radiation_range <= 0.0:
+		if radiation_area != null:
+			radiation_area.queue_free()
+			radiation_area = null
+		return
+
+	if radiation_area == null:
+		radiation_area = Area2D.new()
+		radiation_area.name = "RadiationArea"
+		radiation_area.collision_layer = 0
+		radiation_area.collision_mask = 2
+		radiation_area.monitorable = false
+		radiation_area.add_child(CollisionShape2D.new())
+		radiation_area.body_entered.connect(_on_radiation_body_entered)
+		radiation_area.body_exited.connect(_on_radiation_body_exited)
+		add_child(radiation_area)
+
+	var circle := CircleShape2D.new()
+	circle.radius = object.radiation_range
+	(radiation_area.get_child(0) as CollisionShape2D).shape = circle
+
+
+func _on_radiation_body_entered(body: Node2D) -> void:
+	var geiger := body.get_node_or_null(^"GeigerComponent") as GeigerComponent
+	if geiger != null:
+		geiger.add_source(self)
+
+
+func _on_radiation_body_exited(body: Node2D) -> void:
+	var geiger := body.get_node_or_null(^"GeigerComponent") as GeigerComponent
+	if geiger != null:
+		geiger.remove_source(self)
 
 
 func _refresh_body() -> void:

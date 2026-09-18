@@ -58,10 +58,9 @@ func _catch_up() -> void:
 		run_day()
 
 
-## current_day 는 첫 _process 뒤에야 맞춰지므로 time 에서 바로 센다.
 func _today() -> int:
-	var total_minutes := int(DayAndNightCycle.time / DayAndNightCycle.GAME_MINUTE_DURARTION)
-	return total_minutes / DayAndNightCycle.MINUTES_PER_DAY
+	var tm := TimeManager.find(get_tree())
+	return tm.today() if tm != null else 0
 
 
 func on_time_tick_day(day: int) -> void:
@@ -128,7 +127,8 @@ func _spread_debris() -> void:
 	if parents.is_empty():
 		return
 
-	var count := debris_count * (2 if WeatherManager.raining else 1)
+	var weather := WeatherManager.find(get_tree())
+	var count := debris_count * (2 if weather != null and weather.is_raining() else 1)
 	for i in count:
 		var parent: Node2D = parents.pick_random()
 		var target: Vector2i = _cell_of(parent) + NEIGHBOURS.pick_random()

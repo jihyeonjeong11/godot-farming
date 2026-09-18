@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://i8vf0agm5gvo"]
+
+[ext_resource type="Script" uid="uid://cluwq8ygehnsy" path="res://managers/time_manager.gd" id="1_xoxcc"]
+
+[node name="TimeManager" type="Node" unique_id=1432971045]
+script = ExtResource("1_xoxcc")

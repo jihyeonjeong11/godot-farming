@@ -18,13 +18,19 @@ func on_time_tick(day: int, hour: int, minute: int) -> void:
 	time_label.text = "%02d:%02d" % [hour, minute]
 
 
+func _set_speed(speed: float) -> void:
+	var tm := TimeManager.find(get_tree())
+	if tm != null:
+		tm.game_speed = speed
+
+
 func _on_normal_speed_button_pressed() -> void:
-	DayAndNightCycle.game_speed = normal_speed
+	_set_speed(normal_speed)
 
 
 func _on_fast_speed_button_pressed() -> void:
-	DayAndNightCycle.game_speed = fast_speed
+	_set_speed(fast_speed)
 
 
 func _on_cheetah_speed_button_pressed() -> void:
-	DayAndNightCycle.game_speed = cheetah_speed
+	_set_speed(cheetah_speed)

@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="PlaceableObject" format=3 uid="uid://nxezkeh99gqxj"]
+[gd_resource type="Resource" script_class="PlaceableObject" format=3 uid="uid://cc6er7qjkt4n8"]
 
 [ext_resource type="Script" uid="uid://c0e27vd6vvrd3" path="res://scripts/resources/loot/loot.gd" id="1_loot"]
 [ext_resource type="Script" uid="uid://bstiq6ulxip1a" path="res://scripts/resources/placeable_object/placeable_object.gd" id="2_object"]
-[ext_resource type="Texture2D" uid="uid://cd23fy8lk2tva" path="res://assets/apo/32x32_dec_props.png" id="4_atlas"]
 [ext_resource type="Resource" uid="uid://d1ybgcifdoahc" path="res://scripts/resources/item/pickables/scrap_metal.tres" id="3_scrap"]
+[ext_resource type="Texture2D" uid="uid://cd23fy8lk2tva" path="res://assets/apo/32x32_dec_props.png" id="4_atlas"]
 
 [sub_resource type="Resource" id="Resource_drop"]
 script = ExtResource("1_loot")
@@ -31,5 +31,4 @@ scatter_radius = 18
 collision_offset = Vector2i(0, -13)
 collision_radius = 10
 shake_intensity = 1.0
-shake_speed = 20.0
 metadata/_custom_type_script = "uid://bstiq6ulxip1a"

@@ -35,6 +35,7 @@ func _exit_tree() -> void:
 
 
 func on_hunger_changed(cur_hunger: int, max_hunger: int) -> void:
+
 	var ratio: float = float(cur_hunger) / float(max_hunger) if max_hunger > 0 else 1.0
 	set_buff_active(HUNGER_SLOW, ratio < hunger_slow_threshold)
 

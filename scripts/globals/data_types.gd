@@ -58,6 +58,11 @@ enum ObjectType {
 	
 }
 
+enum WeatherType {
+	Sunny,
+	Raining,
+}
+
 enum InteractableActions {
 	None,
 	Sleep,

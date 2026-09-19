@@ -175,14 +175,6 @@ func _physics_process(_delta: float) -> void:
 	if _just_pressed["hurt"]:
 		take_hit()
 
-	if GameInputEvents.interact():
-		
-		SignalBus.interact_handled = false
-		SignalBus.interact_used.emit(global_position, get_global_mouse_position())
-
-		if not SignalBus.interact_handled:
-			consume_selected()
-
 	var held: Item = Inventory.get_selected_item()
 	equipped_tool = String(held.anim_prefix) if held != null else ""
 

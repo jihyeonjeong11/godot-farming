@@ -23,15 +23,6 @@ signal time_tick_day(day: int)
 ## 플레이어 씬이 레벨의 타일맵을 몰라도 되게 하는 통로.
 signal tool_used(item: Item, user_position: Vector2, target_position: Vector2)
 
-## 우클릭한 순간. tool_used와 같은 통로인데 도구를 싣지 않는다.
-## 빈손이어도 상자는 열려야 하기 때문이다.
-signal interact_used(user_position: Vector2, target_position: Vector2)
-
-## interact_used를 받은 쪽이 "내가 처리했다"고 남기는 자리.
-## 시그널은 값을 돌려주지 못해서 이 깃발로 대신한다. 쏘는 쪽이 직전에 false로 두고
-var interact_handled := false
-
-
 signal container_opened(slots: Array)
 
 ## 어느 슬롯으로 시작하는가. 메뉴의 슬롯 화면이 고른 번호를 싣는다.

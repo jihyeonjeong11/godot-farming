@@ -39,13 +39,17 @@ const NEIGHBOURS: Array[Vector2i] = [
 @export_group("Rocks")
 @export var rock_object: PlaceableObject
 @export var coal_rock_object: PlaceableObject
+@export var iron_rock_object: PlaceableObject
 ## 첫 시도 확률. 하나 놓을 때마다 0.75 배로 줄어든다.
 @export_range(0.0, 1.0) var rock_chance: float = 0.5
 ## 바위가 석탄 바위로 나올 비율.
 @export_range(0.0, 1.0) var coal_rock_ratio: float = 0.3
-## 세이브가 없는 첫 농장에 미리 깔아 두는 바위 수. 이 중 석탄 바위가 몇 개인지는 따로 정한다.
-@export var initial_rock_count: int = 8
+## 바위가 철 바위로 나올 비율. 석탄 판정에서 떨어진 뒤 굴린다.
+@export_range(0.0, 1.0) var iron_rock_ratio: float = 0.2
+## 세이브가 없는 첫 농장에 미리 깔아 두는 바위 수. 이 중 석탄·철 바위가 몇 개인지는 따로 정한다.
+@export var initial_rock_count: int = 10
 @export var initial_coal_rock_count: int = 3
+@export var initial_iron_rock_count: int = 2
 
 var last_day: int = -1
 
@@ -111,7 +115,9 @@ func _seed_rocks() -> void:
 	_index_cells()
 	for i in initial_coal_rock_count:
 		_place_rock(coal_rock_object)
-	for i in initial_rock_count - initial_coal_rock_count:
+	for i in initial_iron_rock_count:
+		_place_rock(iron_rock_object)
+	for i in initial_rock_count - initial_coal_rock_count - initial_iron_rock_count:
 		_place_rock(rock_object)
 
 
@@ -125,6 +131,8 @@ func _spawn_rocks() -> void:
 func _pick_rock() -> PlaceableObject:
 	if coal_rock_object != null and randf() < coal_rock_ratio:
 		return coal_rock_object
+	if iron_rock_object != null and randf() < iron_rock_ratio:
+		return iron_rock_object
 	return rock_object
 
 

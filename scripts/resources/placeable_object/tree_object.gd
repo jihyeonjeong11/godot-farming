@@ -1,3 +1,4 @@
+@tool
 class_name TreeObject extends PlaceableObject
 
 ## 단계별 그림. 마지막이 다 자란 나무다.

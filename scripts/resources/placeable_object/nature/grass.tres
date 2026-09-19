@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dog4l2sx7u7cn" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png" id="2_blbij"]
 [ext_resource type="Script" uid="uid://bstiq6ulxip1a" path="res://scripts/resources/placeable_object/placeable_object.gd" id="2_c4m6d"]
 [ext_resource type="Resource" uid="uid://c5t88yavj8wqb" path="res://scripts/resources/item/pickables/fiber.tres" id="3_drop"]
+[ext_resource type="Script" uid="uid://c7xk2mvbqjy4n" path="res://scripts/resources/recipes/craft_recipe.gd" id="4_pkaf8"]
 
 [sub_resource type="Resource" id="Resource_drop"]
 script = ExtResource("1_k8o0v")

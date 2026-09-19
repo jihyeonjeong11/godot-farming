@@ -14,7 +14,6 @@
 [ext_resource type="Resource" uid="uid://cwu5que5eyybe" path="res://scripts/resources/placeable_object/nature/oak_tree.tres" id="8_oak"]
 [ext_resource type="PackedScene" uid="uid://ctree1nst4nce" path="res://scenes/objects/placables/tree_instance.tscn" id="9_tree"]
 [ext_resource type="PackedScene" uid="uid://bjnqegfrvs57s" path="res://scenes/components/cursors/cursor_component.tscn" id="10_cursor"]
-[ext_resource type="PackedScene" uid="uid://ccnxtlq1ru1pv" path="res://scenes/components/cursors/object_cursor_component.tscn" id="11_ocursor"]
 [ext_resource type="PackedScene" uid="uid://bmp8j4fwdkl82" path="res://scenes/characters/player/player.tscn" id="13_player"]
 [ext_resource type="PackedScene" uid="uid://hw03yyvlo6vg" path="res://scenes/objects/portals/door.tscn" id="14_door"]
 [ext_resource type="Script" uid="uid://cyg8x8ganehgt" path="res://scenes/components/spawn_point.gd" id="15_spawn"]
@@ -28,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://bnjt4x85c5afn" path="res://scenes/components/weather/weathers.tscn" id="27_weathers"]
 [ext_resource type="Resource" uid="uid://b0mebugnhfw2t" path="res://scripts/resources/placeable_object/nature/rock.tres" id="28_rock"]
 [ext_resource type="Resource" uid="uid://b3062coieyhe3" path="res://scripts/resources/placeable_object/nature/coal_rock.tres" id="29_coalrock"]
+[ext_resource type="Resource" uid="uid://d1csenn20jv5h" path="res://scripts/resources/placeable_object/nature/iron_rock.tres" id="30_ironrock"]
 
 [node name="MainFarm" type="Node2D" unique_id=457676691]
 script = ExtResource("1_65wv7")
@@ -37,8 +37,6 @@ tilemap = NodePath("../Tilemap/Land")
 tilled_soil_tilemap_layer = NodePath("../Tilemap/TilledSoil")
 crops_layer = NodePath("../Level/Objects")
 terrain = 0
-
-[node name="ObjectCursorComponent" parent="." unique_id=1764218225 instance=ExtResource("11_ocursor")]
 
 [node name="FarmSpawner" type="Node" parent="." unique_id=356470891 node_paths=PackedStringArray("land", "blockers", "tilled_soil", "watered_soil", "objects_layer")]
 script = ExtResource("19_spawner")
@@ -52,6 +50,7 @@ stone_object = ExtResource("6_stone")
 twig_object = ExtResource("7_twig")
 rock_object = ExtResource("28_rock")
 coal_rock_object = ExtResource("29_coalrock")
+iron_rock_object = ExtResource("30_ironrock")
 
 [node name="Tilemap" type="TileMapLayer" parent="." unique_id=1842003803]
 

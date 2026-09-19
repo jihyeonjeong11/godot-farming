@@ -1,3 +1,4 @@
+@tool
 class_name ObjectInstance
 extends Sprite2D
 
@@ -25,14 +26,18 @@ var _sleeping: bool = false
 
 
 func _ready() -> void:
+	if Engine.is_editor_hint():
+		_refresh_visual()
+		return
+
 	hurt_component.hurt.connect(on_hurt)
 	_refresh()
 	add_to_group("object")
-	if object != null and object.interactable_actions != DataTypes.InteractableActions.None:
-		add_to_group("interactables")
 
 
 func _process(delta: float) -> void:
+	if Engine.is_editor_hint():
+		return
 	if object == null or object.sprite_frames == null or current_animation.is_empty():
 		return
 
@@ -60,6 +65,9 @@ func _process(delta: float) -> void:
 func set_object(value: PlaceableObject) -> void:
 	object = value
 	current_health = value.object_max_health if value != null else 0
+	if Engine.is_editor_hint():
+		_refresh_visual()
+		return
 	if is_node_ready():
 		_refresh()
 
@@ -91,6 +99,8 @@ func interact() -> void:
 		DataTypes.InteractableActions.Open:
 			if inventory != null:
 				SignalBus.container_opened.emit(inventory.slots)
+		DataTypes.InteractableActions.Process:
+			print("[ObjectInstance] Process: ", object.object_id)
 
 
 func toggle() -> void:
@@ -176,6 +186,19 @@ func _refresh() -> void:
 	if object == null:
 		return
 
+	_refresh_visual()
+	_refresh_inventory()
+	_refresh_hurtbox()
+	_refresh_body()
+	_refresh_shake()
+	_refresh_radiation()
+
+
+func _refresh_visual() -> void:
+	if object == null:
+		texture = null
+		return
+
 	texture = object.object_texture
 	centered = object.centered
 	offset = Vector2(object.offset)
@@ -184,12 +207,6 @@ func _refresh() -> void:
 	current_animation = &""
 	if object.sprite_frames != null:
 		play_animation(object.default_animation)
-
-	_refresh_inventory()
-	_refresh_hurtbox()
-	_refresh_body()
-	_refresh_shake()
-	_refresh_radiation()
 
 
 func _refresh_inventory() -> void:
@@ -293,9 +310,14 @@ func _refresh_body() -> void:
 	if body_shape == null:
 		return
 
-	var circle := CircleShape2D.new()
-	circle.radius = float(object.collision_radius)
-	body_shape.shape = circle
+	if object.collision_size != Vector2i.ZERO:
+		var rect := RectangleShape2D.new()
+		rect.size = Vector2(object.collision_size)
+		body_shape.shape = rect
+	else:
+		var circle := CircleShape2D.new()
+		circle.radius = float(object.collision_radius)
+		body_shape.shape = circle
 	body_shape.position = Vector2(object.collision_offset)
 
 

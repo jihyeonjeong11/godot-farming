@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c0e27vd6vvrd3" path="res://scripts/resources/loot/loot.gd" id="1_loot"]
 [ext_resource type="Resource" uid="uid://bpt4ohgnvxqy2" path="res://scripts/resources/item/pickables/potato.tres" id="2_drop"]
 [ext_resource type="Script" uid="uid://dq7cbpl12dto7" path="res://scripts/resources/placeable_object/crops.gd" id="3_crops"]
+[ext_resource type="Script" uid="uid://c7xk2mvbqjy4n" path="res://scripts/resources/recipes/craft_recipe.gd" id="4_0lh4f"]
 [ext_resource type="Texture2D" uid="uid://j1o8v4xqk4ef" path="res://assets/Objects/crops/crops.png" id="4_atlas"]
 
 [sub_resource type="Resource" id="Resource_drop"]

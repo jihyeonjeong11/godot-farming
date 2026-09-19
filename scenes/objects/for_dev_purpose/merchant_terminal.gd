@@ -1,4 +1,5 @@
-extends Sprite2D
+@tool
+extends ObjectInstance
 
 const STOCK_MIN := 2
 const STOCK_MAX := 20
@@ -7,6 +8,10 @@ const STOCK_MAX := 20
 
 
 func _ready() -> void:
+	super()
+	if Engine.is_editor_hint():
+		return
+
 	var items: Array[Item] = []
 	var amounts: Array[int] = []
 
@@ -33,3 +38,7 @@ func stock_amount(item: Item) -> int:
 
 func interact() -> void:
 	SignalBus.barter_opened.emit(inventory_component.slots)
+
+
+func on_hurt(_hit_damage: int) -> void:
+	pass

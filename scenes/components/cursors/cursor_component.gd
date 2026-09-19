@@ -41,6 +41,13 @@ func _physics_process(_delta: float) -> void:
 
 	update_place_preview()
 
+	if GameInputEvents.interact():
+		if object_target != null:
+			object_target.interact()
+		elif player != null:
+			player.consume_selected()
+		return
+
 	if GameInputEvents.is_use_tool():
 		if not uses_cursor(held):
 			return

@@ -1,3 +1,4 @@
+@tool
 class_name TreeInstance
 extends ObjectInstance
 
@@ -5,12 +6,22 @@ var tree: TreeObject:
 	get:
 		return object as TreeObject
 
-@export var stage: int = 0
+@export var stage: int = 0: set = set_stage
 
 
 func _ready() -> void:
 	super()
+	if Engine.is_editor_hint():
+		return
 	_refresh_stage()
+
+
+func set_stage(value: int) -> void:
+	if stage == value:
+		return
+	stage = value
+	if Engine.is_editor_hint():
+		_refresh_visual()
 
 
 func is_mature() -> bool:
@@ -59,20 +70,34 @@ func _refresh() -> void:
 		_refresh_stage()
 
 
-func _refresh_stage() -> void:
-	if tree == null or tree.growth_textures.is_empty():
-		return
+func _refresh_visual() -> void:
+	super()
+	_apply_stage_texture()
 
-	stage = clampi(stage, 0, tree.max_stage())
-	var next := tree.growth_textures[stage]
+
+func _apply_stage_texture() -> Texture2D:
+	if tree == null or tree.growth_textures.is_empty():
+		return null
+
+	var index := clampi(stage, 0, tree.max_stage())
+	if index != stage:
+		stage = index
+	var next := tree.growth_textures[index]
 	if next == null:
-		return
+		return null
 
 	texture = next
 	centered = false
-	var size := next.get_size()
-	offset = Vector2(-size.x * 0.5, -size.y)
+	offset = Vector2(-next.get_size().x * 0.5, -next.get_size().y)
+	return next
 
+
+func _refresh_stage() -> void:
+	var next := _apply_stage_texture()
+	if next == null:
+		return
+
+	var size := next.get_size()
 	if is_mature():
 		current_health = tree.object_max_health
 		_refresh_hurtbox()

@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://bdum523m0ael4" path="res://scripts/resources/item/pickables/chocolate_bar.tres" id="3_choco"]
 [ext_resource type="Resource" uid="uid://bouhn343yve2d" path="res://scripts/resources/item/pickables/water_bottle.tres" id="3_water"]
 [ext_resource type="Texture2D" uid="uid://cd23fy8lk2tva" path="res://assets/apo/32x32_dec_props.png" id="4_atlas"]
+[ext_resource type="Script" uid="uid://c7xk2mvbqjy4n" path="res://scripts/resources/recipes/craft_recipe.gd" id="6_s7djf"]
 
 [sub_resource type="Resource" id="Resource_canned"]
 script = ExtResource("1_loot")

@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://bc3jru857xgr8"]
 
 [ext_resource type="TileSet" uid="uid://cq7h2m4x0kw8v" path="res://tilesets/house_interior.tres" id="1_tiles"]
-[ext_resource type="PackedScene" uid="uid://ccnxtlq1ru1pv" path="res://scenes/components/cursors/object_cursor_component.tscn" id="2_cursor"]
+[ext_resource type="PackedScene" uid="uid://bjnqegfrvs57s" path="res://scenes/components/cursors/cursor_component.tscn" id="2_cursor"]
 [ext_resource type="Script" uid="uid://cyg8x8ganehgt" path="res://scenes/components/spawn_point.gd" id="3_spawn"]
 [ext_resource type="PackedScene" uid="uid://bmp8j4fwdkl82" path="res://scenes/characters/player/player.tscn" id="4_player"]
 [ext_resource type="PackedScene" uid="uid://y27b0nq34315" path="res://scenes/components/portal_component.tscn" id="5_portal"]
@@ -41,7 +41,7 @@ y_sort_enabled = true
 tile_map_data = PackedByteArray("AAABAAIAAAAmACAAAAACAAIAAAAnACAAAAABAAMAAAAmACEAAAACAAMAAAAnACEAAAABAAQAAAAmACIAAAACAAQAAAAnACIAAAADAAIAAAAjAB0AAAAEAAIAAAAkAB0AAAAFAAIAAAAlAB0AAAADAAMAAAAjAB4AAAAEAAMAAAAkAB4AAAAFAAMAAAAlAB4AAAADAAQAAAAjAB8AAAAEAAQAAAAkAB8AAAAFAAQAAAAlAB8AAAAHAAEAAAAsAEEAAAAIAAEAAAAtAEEAAAAHAAIAAAAsAEIAAAAIAAIAAAAtAEIAAAAJAAIAAAAeADgAAAAKAAIAAAAfADgAAAAJAAMAAAAeADkAAAAKAAMAAAAfADkAAAAJAAQAAAAeADoAAAAKAAQAAAAfADoAAAAMAAEAAAAZABsAAAAMAAIAAAAZABwAAAALAAMAAAAmAB4AAAAMAAMAAAAnAB4AAAALAAQAAAAmAB8AAAAMAAQAAAAnAB8AAAAPAAMAAAAqADwAAAAPAAQAAAAqAD0AAAABAAUAAAAoACMAAAABAAYAAAAoACQAAAACAAYAAAA8ADUAAAADAAYAAAA9ADUAAAAEAAYAAAA+ADUAAAACAAcAAAA8ADYAAAADAAcAAAA9ADYAAAAEAAcAAAA+ADYAAAAGAAYAAABCADUAAAAGAAcAAABCADYAAAAHAAYAAAA0ADMAAAAIAAYAAAA1ADMAAAAHAAcAAAA0ADQAAAAIAAcAAAA1ADQAAAAJAAYAAABEADUAAAAJAAcAAABEADYAAAABAAkAAAAhAB0AAAACAAkAAAAiAB0AAAABAAoAAAAhAB4AAAACAAoAAAAiAB4AAAABAAsAAAAhAB8AAAACAAsAAAAiAB8AAAALAAoAAAAuADkAAAAMAAoAAAAvADkAAAALAAsAAAAuADoAAAAMAAsAAAAvADoAAAANAAkAAAAmADgAAAAOAAkAAAAnADgAAAANAAoAAAAmADkAAAAOAAoAAAAnADkAAAANAAsAAAAmADoAAAAOAAsAAAAnADoAAAAPAAoAAAAsADwAAAAPAAsAAAAsAD0AAAA=")
 tile_set = ExtResource("1_tiles")
 
-[node name="ObjectCursorComponent" parent="." unique_id=1221356844 instance=ExtResource("2_cursor")]
+[node name="CursorComponent" parent="." instance=ExtResource("2_cursor")]
 
 [node name="Level" type="Node2D" parent="." unique_id=1769921065]
 y_sort_enabled = true

@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="PlaceableObject" load_steps=8 format=3 uid="uid://d1csenn20jv5h"]
+
+[ext_resource type="Script" uid="uid://c0e27vd6vvrd3" path="res://scripts/resources/loot/loot.gd" id="1_eesqf"]
+[ext_resource type="Resource" uid="uid://c06xhhutat24x" path="res://scripts/resources/item/pickables/iron_ore.tres" id="2_78lmu"]
+[ext_resource type="Resource" uid="uid://bvp0rivu0hk48" path="res://scripts/resources/item/pickables/stone.tres" id="3_0r7up"]
+[ext_resource type="Texture2D" uid="uid://mmovo8dlqfkt" path="res://assets/craftland/Craftland Mines/32x32/CLM_Mining_Vegetables.png" id="4_eesqf"]
+[ext_resource type="Script" uid="uid://bstiq6ulxip1a" path="res://scripts/resources/placeable_object/placeable_object.gd" id="6_a02j6"]
+
+[sub_resource type="Resource" id="Resource_ore"]
+script = ExtResource("1_eesqf")
+item = ExtResource("2_78lmu")
+min = 1
+max = 3
+metadata/_custom_type_script = "uid://c0e27vd6vvrd3"
+
+[sub_resource type="Resource" id="Resource_stone"]
+script = ExtResource("1_eesqf")
+item = ExtResource("3_0r7up")
+min = 2
+max = 4
+metadata/_custom_type_script = "uid://c0e27vd6vvrd3"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uwe0m"]
+atlas = ExtResource("4_eesqf")
+region = Rect2(104, 138, 52, 46)
+
+[resource]
+script = ExtResource("6_a02j6")
+object_id = "iron_rock"
+object_name = "Iron Rock"
+destructible_tool = 2
+object_texture = SubResource("AtlasTexture_uwe0m")
+object_max_health = 6
+dropped_items = Array[ExtResource("1_eesqf")]([SubResource("Resource_ore"), SubResource("Resource_stone")])
+offset = Vector2i(-26, -46)
+hurtbox_offset = Vector2i(0, -21)
+hurtbox_radius = 20
+collision_offset = Vector2i(0, -22)
+collision_radius = 15
+shake_intensity = 1.0
+shake_speed = 22.0
+shake_bend_height = 8.0
+metadata/_custom_type_script = "uid://bstiq6ulxip1a"

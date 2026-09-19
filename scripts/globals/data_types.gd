@@ -76,7 +76,10 @@ enum InteractableActions {
 	Shake,
 	Harvest,
 	Toggle,
-	Open
+	Open,
+	Enter,
+	Barter,
+	Process
 }
 
 static func quest_goal_label(goal: QuestGoal) -> String:

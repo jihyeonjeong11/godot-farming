@@ -1,3 +1,4 @@
+@tool
 class_name PlaceableObject
 extends Resource
 
@@ -22,6 +23,8 @@ extends Resource
 @export var scatter_radius: int = 20
 @export var collision_offset: Vector2i
 @export var collision_radius: int = 32
+## 0 이 아니면 원 대신 이 크기의 사각형을 쓴다.
+@export var collision_size: Vector2i
 
 
 @export_group("Shake")

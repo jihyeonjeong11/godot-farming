@@ -1,9 +1,9 @@
-extends Sprite2D
+@tool
+extends ObjectInstance
 
 
 @export_file("*.tscn") var target_scene: String = ""
 @export var target_spawn: StringName = &""
-const OPENING_DOOR = preload("uid://tk2bqsvswsev")
 
 
 func interact() -> void:
@@ -13,3 +13,7 @@ func interact() -> void:
 
 	SignalBus.sound_requested.emit(AudioManager.SFX_DOOR_OPENING)
 	SignalBus.scene_change_requested.emit(target_scene, target_spawn)
+
+
+func on_hurt(_hit_damage: int) -> void:
+	pass

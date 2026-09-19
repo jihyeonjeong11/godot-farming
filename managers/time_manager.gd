@@ -7,6 +7,7 @@ signal advance_day
 const GROUP: StringName = &"time_manager"
 const MINUTES_PER_HOUR := 60
 const HOURS_PER_DAY := 24
+const MINUTES_PER_DAY := HOURS_PER_DAY * MINUTES_PER_HOUR
 const SECONDS_PER_GAME_MINUTE := 0.7
 
 # TODO: 계절 시스템
@@ -97,6 +98,14 @@ func _tick_minute() -> void:
 
 func today() -> int:
 	return current_time["day"]
+
+
+static func minutes_of(day: int, hour: int, minute: int) -> int:
+	return day * MINUTES_PER_DAY + hour * MINUTES_PER_HOUR + minute
+
+
+func total_minutes() -> int:
+	return minutes_of(current_time["day"], current_time["hour"], current_time["minute"])
 
 
 func skip_to(day: int, hour: int, minute: int = 0) -> void:

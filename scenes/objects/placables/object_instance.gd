@@ -4,6 +4,9 @@ extends Sprite2D
 
 const ITEM_STACK_INSTANCE := preload("res://scenes/objects/pickables/item_stack_instance.tscn")
 const SHAKE_SHADER := preload("res://scenes/objects/placables/object_shake.gdshader")
+const CROSS_ICON := preload("res://assets/temp/cross.png")
+const PROCESS_SLOT := preload("res://scenes/ui/process_slot.tscn")
+const PROCESS_SLOT_GAP := 4.0
 const SCATTER_TIME := 0.25
 const SLEEP_FADE_DURATION := 0.4
 const SLEEP_DURATION := 1.5
@@ -16,6 +19,8 @@ var shake_tween: Tween
 var current_animation: StringName
 var inventory: ContainerInventoryComponent
 var radiation_area: Area2D
+var process_slot: ProcessSlot
+var process_state: Dictionary = {}
 var _frame: int = 0
 var _frame_time: float = 0.0
 var _sleeping: bool = false
@@ -31,6 +36,7 @@ func _ready() -> void:
 		return
 
 	hurt_component.hurt.connect(on_hurt)
+	SignalBus.time_tick.connect(_on_time_tick)
 	_refresh()
 	add_to_group("object")
 
@@ -100,7 +106,117 @@ func interact() -> void:
 			if inventory != null:
 				SignalBus.container_opened.emit(inventory.slots)
 		DataTypes.InteractableActions.Process:
-			print("[ObjectInstance] Process: ", object.object_id)
+			process()
+
+
+func process() -> void:
+	if not process_state.is_empty():
+		if _process_done():
+			_collect_result()
+		return
+
+	var held := Inventory.get_selected_item()
+	if held == null:
+		return
+
+	var recipe := _recipe_for(held)
+	if recipe == null:
+		return
+
+	var missing := _missing_ingredients(recipe)
+	if not missing.is_empty():
+		for item in missing:
+			SignalBus.toast_requested.emit(CROSS_ICON, "Needs %d more %s" % [missing[item], item.item_name])
+		return
+
+	for id in recipe.ingredients:
+		Inventory.consume_item(ItemDB.get_item(id), recipe.ingredients[id])
+
+	var now := _now_minutes()
+	process_state = {
+		"recipe": recipe.resource_path,
+		"started_at": now,
+		"done_at": now + recipe.process_minutes,
+	}
+	play_animation(object.toggle_animation)
+	if not object.toggle_on_sfx.is_empty():
+		SignalBus.sound_requested.emit(object.toggle_on_sfx)
+	_show_process_slot(recipe)
+	_refresh_process(now)
+
+
+func _show_process_slot(recipe: CraftRecipe) -> void:
+	if process_slot == null:
+		process_slot = PROCESS_SLOT.instantiate() as ProcessSlot
+		add_child(process_slot)
+		var top := -texture.get_size().y * 0.5 if centered else offset.y
+		process_slot.position = Vector2(-process_slot.size.x * 0.5, top - process_slot.size.y - PROCESS_SLOT_GAP)
+	process_slot.show_result(recipe.result_item(), maxi(recipe.result_amount, 1))
+
+
+func _now_minutes() -> int:
+	var tm := TimeManager.find(get_tree())
+	return tm.total_minutes() if tm != null else 0
+
+
+func _process_done() -> bool:
+	return _now_minutes() >= int(process_state.get("done_at", 0))
+
+
+func _on_time_tick(day: int, hour: int, minute: int) -> void:
+	if process_state.is_empty():
+		return
+	_refresh_process(TimeManager.minutes_of(day, hour, minute))
+
+
+func _refresh_process(now: int) -> void:
+	var started: int = process_state["started_at"]
+	var done: int = process_state["done_at"]
+	var ratio := 1.0 if done <= started else float(now - started) / float(done - started)
+	if process_slot != null:
+		process_slot.set_progress(ratio)
+
+	if now >= done and current_animation != object.default_animation:
+		play_animation(object.default_animation)
+		if not object.toggle_off_sfx.is_empty():
+			SignalBus.sound_requested.emit(object.toggle_off_sfx)
+
+
+func _collect_result() -> void:
+	var recipe := load(process_state["recipe"]) as CraftRecipe
+	if recipe == null:
+		process_state = {}
+		process_slot.clear()
+		return
+
+	var stack := ItemStack.new(recipe.result_item(), maxi(recipe.result_amount, 1))
+	if not Inventory.add_item(stack):
+		SignalBus.toast_requested.emit(CROSS_ICON, "Inventory full")
+		return
+
+	SignalBus.sound_requested.emit("ITEM_PICKUP")
+	process_state = {}
+	process_slot.clear()
+
+
+func _recipe_for(held: Item) -> CraftRecipe:
+	var held_id := StringName(held.item_id)
+	for recipe in object.recipes:
+		if recipe != null and recipe.ingredients.has(held_id):
+			return recipe
+	return null
+
+
+func _missing_ingredients(recipe: CraftRecipe) -> Dictionary[Item, int]:
+	var missing: Dictionary[Item, int] = {}
+	for id in recipe.ingredients:
+		var need := ItemDB.get_item(id)
+		if need == null:
+			continue
+		var short: int = recipe.ingredients[id] - Inventory.count_item(need)
+		if short > 0:
+			missing[need] = short
+	return missing
 
 
 func toggle() -> void:
@@ -127,6 +243,8 @@ func capture_state() -> Variant:
 		state["anim"] = String(current_animation)
 	if inventory != null:
 		state["inventory"] = inventory.capture()
+	if not process_state.is_empty():
+		state["process"] = process_state.duplicate()
 	return state
 
 
@@ -139,6 +257,14 @@ func apply_state(state: Variant) -> void:
 		play_animation(animation)
 	if inventory != null and state.get("inventory") is Array:
 		inventory.apply(state["inventory"])
+
+	process_state = {}
+	if state.get("process") is Dictionary:
+		var recipe := load(state["process"].get("recipe", "")) as CraftRecipe
+		if recipe != null:
+			process_state = state["process"].duplicate()
+			_show_process_slot(recipe)
+			_refresh_process(_now_minutes())
 
 
 func sleep() -> void:

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://phxx6o2l2l42"]
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://phxx6o2l2l42"]
 
 [ext_resource type="Texture2D" uid="uid://mmovo8dlqfkt" path="res://assets/craftland/Craftland Mines/32x32/CLM_Mining_Vegetables.png" id="1_s28te"]
 [ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/item/item.gd" id="2_n3ktp"]

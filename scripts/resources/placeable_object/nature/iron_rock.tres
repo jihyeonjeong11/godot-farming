@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="PlaceableObject" load_steps=8 format=3 uid="uid://d1csenn20jv5h"]
+[gd_resource type="Resource" script_class="PlaceableObject" format=3 uid="uid://d1csenn20jv5h"]
 
 [ext_resource type="Script" uid="uid://c0e27vd6vvrd3" path="res://scripts/resources/loot/loot.gd" id="1_eesqf"]
 [ext_resource type="Resource" uid="uid://c06xhhutat24x" path="res://scripts/resources/item/pickables/iron_ore.tres" id="2_78lmu"]
 [ext_resource type="Resource" uid="uid://bvp0rivu0hk48" path="res://scripts/resources/item/pickables/stone.tres" id="3_0r7up"]
 [ext_resource type="Texture2D" uid="uid://mmovo8dlqfkt" path="res://assets/craftland/Craftland Mines/32x32/CLM_Mining_Vegetables.png" id="4_eesqf"]
+[ext_resource type="Script" uid="uid://c7xk2mvbqjy4n" path="res://scripts/resources/recipes/craft_recipe.gd" id="5_evfui"]
 [ext_resource type="Script" uid="uid://bstiq6ulxip1a" path="res://scripts/resources/placeable_object/placeable_object.gd" id="6_a02j6"]
 
 [sub_resource type="Resource" id="Resource_ore"]

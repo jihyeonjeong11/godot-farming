@@ -25,6 +25,8 @@ signal tool_used(item: Item, user_position: Vector2, target_position: Vector2)
 
 signal container_opened(slots: Array)
 
+signal toast_requested(icon: Texture2D, text: String)
+
 ## 어느 슬롯으로 시작하는가. 메뉴의 슬롯 화면이 고른 번호를 싣는다.
 signal new_game_requested(slot: int)
 

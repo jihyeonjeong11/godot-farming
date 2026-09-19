@@ -18,6 +18,7 @@ var toasts: Array[Control] = []
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	Inventory.item_gained.connect(_on_item_gained)
+	SignalBus.toast_requested.connect(show_toast)
 
 
 func _on_item_gained(item: Item, amount: int) -> void:

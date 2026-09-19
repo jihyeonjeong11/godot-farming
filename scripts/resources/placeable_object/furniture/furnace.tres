@@ -5,6 +5,7 @@
 [ext_resource type="Resource" uid="uid://bfurnace00002" path="res://scripts/resources/item/placeables/furnace.tres" id="3_drop"]
 [ext_resource type="Texture2D" uid="uid://bp43eq45cg36y" path="res://assets/temp/furnace.png" id="4_atlas"]
 [ext_resource type="Script" uid="uid://c7xk2mvbqjy4n" path="res://scripts/resources/recipes/craft_recipe.gd" id="4_g6g56"]
+[ext_resource type="Resource" uid="uid://bironingotrcp1" path="res://scripts/resources/recipes/iron_ingot_recipe.tres" id="5_recipe"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_furnace0"]
 atlas = ExtResource("4_atlas")
@@ -96,4 +97,5 @@ default_animation = &"off"
 toggle_animation = &"on"
 toggle_on_sfx = "FIRE_ON"
 toggle_off_sfx = "FIRE_OFF"
+recipes = Array[ExtResource("4_g6g56")]([ExtResource("5_recipe")])
 metadata/_custom_type_script = "uid://bstiq6ulxip1a"

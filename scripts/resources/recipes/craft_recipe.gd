@@ -9,6 +9,8 @@ class_name CraftRecipe extends Resource
 @export var result_amount: int = 1
 ## item_id -> 필요 개수.
 @export var ingredients: Dictionary[StringName, int] = {}
+## 게임 분. 0 이면 즉시 조합.
+@export var process_minutes: int = 0
 
 ## 표시용 이름. 비우면 결과물 이름을 쓴다.
 @export var recipe_name: String = ""

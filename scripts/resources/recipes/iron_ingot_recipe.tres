@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CraftRecipe" format=3 uid="uid://d4lxl2856qk5e"]
+
+[ext_resource type="Script" uid="uid://c7xk2mvbqjy4n" path="res://scripts/resources/recipes/craft_recipe.gd" id="1_recipe"]
+
+[resource]
+script = ExtResource("1_recipe")
+result_id = &"iron_ingot"
+result_amount = 1
+ingredients = Dictionary[StringName, int]({
+&"coal": 1,
+&"iron_ore": 3
+})
+process_minutes = 240
+recipe_name = "철 주괴"
+metadata/_custom_type_script = "uid://c7xk2mvbqjy4n"

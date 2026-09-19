@@ -24,9 +24,10 @@
 [ext_resource type="Script" uid="uid://dvg4mqeuiip54" path="res://scenes/components/farm_spawner.gd" id="19_spawner"]
 [ext_resource type="Resource" uid="uid://clh75kbapjbke" path="res://scripts/resources/placeable_object/furniture/chest.tres" id="23_34mxf"]
 [ext_resource type="PackedScene" uid="uid://m70mkxtn3dt5" path="res://scenes/objects/for_dev_purpose/merchant_terminal.tscn" id="24_hguhx"]
-[ext_resource type="Resource" uid="uid://bfurnace00001" path="res://scripts/resources/placeable_object/furniture/furnace.tres" id="25_furnace"]
 [ext_resource type="Resource" uid="uid://bradbarrel001" path="res://scripts/resources/placeable_object/props/radioactive_barrel.tres" id="26_radbarrel"]
 [ext_resource type="PackedScene" uid="uid://bnjt4x85c5afn" path="res://scenes/components/weather/weathers.tscn" id="27_weathers"]
+[ext_resource type="Resource" uid="uid://b0mebugnhfw2t" path="res://scripts/resources/placeable_object/nature/rock.tres" id="28_rock"]
+[ext_resource type="Resource" uid="uid://b3062coieyhe3" path="res://scripts/resources/placeable_object/nature/coal_rock.tres" id="29_coalrock"]
 
 [node name="MainFarm" type="Node2D" unique_id=457676691]
 script = ExtResource("1_65wv7")
@@ -49,6 +50,8 @@ objects_layer = NodePath("../Level/Objects")
 grass_object = ExtResource("5_grass")
 stone_object = ExtResource("6_stone")
 twig_object = ExtResource("7_twig")
+rock_object = ExtResource("28_rock")
+coal_rock_object = ExtResource("29_coalrock")
 
 [node name="Tilemap" type="TileMapLayer" parent="." unique_id=1842003803]
 
@@ -320,10 +323,6 @@ position = Vector2(307, 310)
 [node name="Chest" parent="Level" unique_id=1513629613 instance=ExtResource("4_objin")]
 position = Vector2(378, 280)
 object = ExtResource("23_34mxf")
-
-[node name="Furnace" parent="Level" unique_id=1908311427 instance=ExtResource("4_objin")]
-position = Vector2(440, 280)
-object = ExtResource("25_furnace")
 
 [node name="RadioactiveBarrel" parent="Level" unique_id=1332077516 instance=ExtResource("4_objin")]
 position = Vector2(944, 465)

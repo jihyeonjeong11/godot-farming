@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://c0e27vd6vvrd3" path="res://scripts/resources/loot/loot.gd" id="1_loot"]
 [ext_resource type="Script" uid="uid://bstiq6ulxip1a" path="res://scripts/resources/placeable_object/placeable_object.gd" id="2_object"]
+[ext_resource type="Resource" uid="uid://bfurnace00002" path="res://scripts/resources/item/placeables/furnace.tres" id="3_drop"]
 [ext_resource type="Texture2D" uid="uid://bp43eq45cg36y" path="res://assets/temp/furnace.png" id="4_atlas"]
+[ext_resource type="Script" uid="uid://c7xk2mvbqjy4n" path="res://scripts/resources/recipes/craft_recipe.gd" id="4_g6g56"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_furnace0"]
 atlas = ExtResource("4_atlas")
@@ -31,6 +33,12 @@ region = Rect2(320, 0, 64, 80)
 [sub_resource type="AtlasTexture" id="AtlasTexture_furnace6"]
 atlas = ExtResource("4_atlas")
 region = Rect2(384, 0, 64, 80)
+
+[sub_resource type="Resource" id="Resource_drop"]
+script = ExtResource("1_loot")
+item = ExtResource("3_drop")
+min = 1
+max = 1
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_object"]
 animations = [{
@@ -72,9 +80,11 @@ object_id = "furnace"
 object_name = "Furnace"
 destructible_tool = 2
 object_texture = SubResource("AtlasTexture_furnace0")
+animated_texture = Array[Texture]([SubResource("AtlasTexture_furnace0"), SubResource("AtlasTexture_furnace1"), SubResource("AtlasTexture_furnace2"), SubResource("AtlasTexture_furnace3"), SubResource("AtlasTexture_furnace4"), SubResource("AtlasTexture_furnace5"), SubResource("AtlasTexture_furnace6")])
 object_type = 1
 interactable_actions = 5
 object_max_health = 1
+dropped_items = Array[ExtResource("1_loot")]([SubResource("Resource_drop")])
 offset = Vector2i(-32, -78)
 hurtbox_offset = Vector2i(0, -30)
 hurtbox_radius = 28

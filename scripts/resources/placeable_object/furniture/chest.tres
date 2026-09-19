@@ -12,6 +12,7 @@
 [ext_resource type="Resource" uid="uid://h1l1g07oam5a" path="res://scripts/resources/item/tools/hoe.tres" id="8_dclc3"]
 [ext_resource type="Resource" uid="uid://kyf60ga4v2nt" path="res://scripts/resources/item/consumables/first_aid_kit.tres" id="9_2uxdn"]
 [ext_resource type="Resource" uid="uid://ji3esy6m603q" path="res://scripts/resources/item/consumables/canned_soup.tres" id="10_pebyf"]
+[ext_resource type="Script" uid="uid://c7xk2mvbqjy4n" path="res://scripts/resources/recipes/craft_recipe.gd" id="12_w6k1o"]
 
 [sub_resource type="Resource" id="Resource_drop"]
 script = ExtResource("1_loot")

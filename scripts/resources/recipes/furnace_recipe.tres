@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CraftRecipe" format=3 uid="uid://b80n0ng0x1b52"]
+
+[ext_resource type="Script" uid="uid://c7xk2mvbqjy4n" path="res://scripts/resources/recipes/craft_recipe.gd" id="1_nav33"]
+
+[resource]
+script = ExtResource("1_nav33")
+result_id = &"furnace"
+ingredients = Dictionary[StringName, int]({
+&"coal": 5,
+&"stone": 10
+})
+recipe_name = "용광로"
+metadata/_custom_type_script = "uid://c7xk2mvbqjy4n"

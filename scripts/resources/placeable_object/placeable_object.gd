@@ -42,7 +42,7 @@ extends Resource
 # TODO: 레시피 추가하기 - 부엌 - 요리, 크래프팅 테이블- 아토믹 가든
 # 방사능 물질 통 주위로 5x5 정도 돌연변이 지역을 두면 될듯?
 # 생각해보면, 그냥 방사능 물질을 만들수 있게만 하면 되지않나? 담으로 안둘러쳐도 되잖아
-
+@export var recipes: Array[CraftRecipe] = []
 
 @export_group("Animation")
 @export var sprite_frames: SpriteFrames

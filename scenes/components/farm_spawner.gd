@@ -3,7 +3,8 @@ extends Node
 ## 농장의 하루 갱신. 스타듀 Farm.DayUpdate 를 옮긴 것.
 ##
 ## 잔해(풀·돌·가지)는 이미 있는 잔해 옆 3x3 으로만 번지고, 풀은 빈 칸에 조금씩 새로 나고,
-## 다 자란 나무는 주변에 묘목을 떨군다. 농장을 비운 사이 지난 날은 씬이 다시 뜰 때
+## 다 자란 나무는 주변에 묘목을 떨군다. 바위는 언덕 농장 채석장처럼 빈 칸 아무 데나
+## 확률을 줄여 가며 몇 개씩 솟는다. 농장을 비운 사이 지난 날은 씬이 다시 뜰 때
 ## last_day 부터 몰아서 돌린다.
 
 const OBJECT_INSTANCE := preload("res://scenes/objects/placables/object_instance.tscn")
@@ -35,6 +36,17 @@ const NEIGHBOURS: Array[Vector2i] = [
 @export var grass_attempts_max: int = 4
 @export_range(0.0, 1.0) var grass_chance: float = 0.15
 
+@export_group("Rocks")
+@export var rock_object: PlaceableObject
+@export var coal_rock_object: PlaceableObject
+## 첫 시도 확률. 하나 놓을 때마다 0.75 배로 줄어든다.
+@export_range(0.0, 1.0) var rock_chance: float = 0.5
+## 바위가 석탄 바위로 나올 비율.
+@export_range(0.0, 1.0) var coal_rock_ratio: float = 0.3
+## 세이브가 없는 첫 농장에 미리 깔아 두는 바위 수. 이 중 석탄 바위가 몇 개인지는 따로 정한다.
+@export var initial_rock_count: int = 8
+@export var initial_coal_rock_count: int = 3
+
 var last_day: int = -1
 
 var _cells: Dictionary = {}
@@ -53,6 +65,7 @@ func _catch_up() -> void:
 	var today := _today()
 	if last_day < 0:
 		last_day = today
+		_seed_rocks()
 	while last_day < today:
 		last_day += 1
 		run_day()
@@ -88,6 +101,47 @@ func run_day() -> void:
 	_update_trees()
 	_spread_debris()
 	_sprout_grass()
+	_spawn_rocks()
+
+
+func _seed_rocks() -> void:
+	if land == null or objects_layer == null:
+		return
+
+	_index_cells()
+	for i in initial_coal_rock_count:
+		_place_rock(coal_rock_object)
+	for i in initial_rock_count - initial_coal_rock_count:
+		_place_rock(rock_object)
+
+
+func _spawn_rocks() -> void:
+	var chance := rock_chance
+	while randf() < chance:
+		_place_rock(_pick_rock())
+		chance *= 0.75
+
+
+func _pick_rock() -> PlaceableObject:
+	if coal_rock_object != null and randf() < coal_rock_ratio:
+		return coal_rock_object
+	return rock_object
+
+
+func _place_rock(resource: PlaceableObject) -> void:
+	if resource == null:
+		return
+
+	for retry in 5:
+		var target := Vector2i(
+			randi_range(area.position.x, area.end.x - 1),
+			randi_range(area.position.y, area.end.y - 1),
+		)
+		if not _is_open(target) or _cells.has(target) or _is_tilled(target):
+			continue
+
+		_spawn(OBJECT_INSTANCE, resource, target)
+		return
 
 
 func _index_cells() -> void:

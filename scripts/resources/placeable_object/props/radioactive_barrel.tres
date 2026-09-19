@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bstiq6ulxip1a" path="res://scripts/resources/placeable_object/placeable_object.gd" id="2_object"]
 [ext_resource type="Resource" uid="uid://cujeihlqh8a5g" path="res://scripts/resources/item/placeables/radioactive_barrel.tres" id="3_item"]
 [ext_resource type="Texture2D" uid="uid://bo0h4hqpc84i2" path="res://assets/temp/radioactive_barrel.png" id="4_atlas"]
+[ext_resource type="Script" uid="uid://c7xk2mvbqjy4n" path="res://scripts/resources/recipes/craft_recipe.gd" id="4_x8qof"]
 
 [sub_resource type="Resource" id="Resource_drop"]
 script = ExtResource("1_loot")

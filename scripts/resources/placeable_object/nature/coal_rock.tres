@@ -1,35 +1,40 @@
 [gd_resource type="Resource" script_class="PlaceableObject" format=3 uid="uid://b3062coieyhe3"]
 
-[ext_resource type="Script" uid="uid://c0e27vd6vvrd3" path="res://scripts/resources/loot/loot.gd" id="1_bpm1c"]
-[ext_resource type="Texture2D" uid="uid://cpw0yivputqvk" path="res://assets/apo/terrain_props_2.png" id="2_dp6pg"]
-[ext_resource type="Script" uid="uid://bstiq6ulxip1a" path="res://scripts/resources/placeable_object/placeable_object.gd" id="2_fy034"]
-[ext_resource type="Resource" uid="uid://j6l4c4hw53yv" path="res://scripts/resources/item/junk/coal.tres" id="2_sfyda"]
-[ext_resource type="Resource" uid="uid://bvp0rivu0hk48" path="res://scripts/resources/item/pickables/stone.tres" id="3_h725i"]
+[ext_resource type="Script" uid="uid://c0e27vd6vvrd3" path="res://scripts/resources/loot/loot.gd" id="1_loot"]
+[ext_resource type="Script" uid="uid://bstiq6ulxip1a" path="res://scripts/resources/placeable_object/placeable_object.gd" id="2_object"]
+[ext_resource type="Resource" uid="uid://qwqme2a421kw" path="res://scripts/resources/item/pickables/coal.tres" id="3_coal"]
+[ext_resource type="Resource" uid="uid://bvp0rivu0hk48" path="res://scripts/resources/item/pickables/stone.tres" id="4_stone"]
+[ext_resource type="Script" uid="uid://c7xk2mvbqjy4n" path="res://scripts/resources/recipes/craft_recipe.gd" id="5_h725i"]
+[ext_resource type="Texture2D" uid="uid://dx1ojuv03ikd1" path="res://assets/temp/coal_rock.png" id="5_tex"]
 
-[sub_resource type="Resource" id="Resource_sfyda"]
-script = ExtResource("1_bpm1c")
-item = ExtResource("2_sfyda")
+[sub_resource type="Resource" id="Resource_coal"]
+script = ExtResource("1_loot")
+item = ExtResource("3_coal")
 min = 1
 max = 3
 metadata/_custom_type_script = "uid://c0e27vd6vvrd3"
 
-[sub_resource type="Resource" id="Resource_fselo"]
-script = ExtResource("1_bpm1c")
-item = ExtResource("3_h725i")
+[sub_resource type="Resource" id="Resource_stone"]
+script = ExtResource("1_loot")
+item = ExtResource("4_stone")
 min = 2
 max = 4
 metadata/_custom_type_script = "uid://c0e27vd6vvrd3"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dp6pg"]
-atlas = ExtResource("2_dp6pg")
-region = Rect2(367, 1210, 217, 196)
-
 [resource]
-script = ExtResource("2_fy034")
+script = ExtResource("2_object")
 object_id = "coal_rock"
 object_name = "Coal Rock"
 destructible_tool = 2
-object_texture = SubResource("AtlasTexture_dp6pg")
+object_texture = ExtResource("5_tex")
 object_max_health = 5
-dropped_items = Array[ExtResource("1_bpm1c")]([SubResource("Resource_sfyda"), SubResource("Resource_fselo")])
+dropped_items = Array[ExtResource("1_loot")]([SubResource("Resource_coal"), SubResource("Resource_stone")])
+offset = Vector2i(-26, -46)
+hurtbox_offset = Vector2i(0, -21)
+hurtbox_radius = 20
+collision_offset = Vector2i(0, -22)
+collision_radius = 15
+shake_intensity = 1.0
+shake_speed = 22.0
+shake_bend_height = 8.0
 metadata/_custom_type_script = "uid://bstiq6ulxip1a"

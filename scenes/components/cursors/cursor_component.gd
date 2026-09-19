@@ -67,13 +67,6 @@ func _physics_process(_delta: float) -> void:
 		if held.tool_type == DataTypes.Tools.MineRock:
 			untill_cell()
 
-	if GameInputEvents.interact():
-		# 만약 오브젝트가 있다면, interact 시도함
-		if object_target == null:
-			return
-
-		object_target.interact()
-
 
 func till_cell() -> void:
 	if tilemap == null or tilled_soil_tilemap_layer == null:

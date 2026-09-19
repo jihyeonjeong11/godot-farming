@@ -4,3 +4,7 @@
 
 [node name="CursorComponent" type="Node2D" unique_id=542531313]
 script = ExtResource("1_180nw")
+
+[node name="PlacePreview" type="Sprite2D" parent="." unique_id=1913077402]
+visible = false
+z_index = 1

@@ -51,6 +51,12 @@ enum ItemType {
 	Ranged
 }
 
+const HAND_HELD_TYPES: Array[ItemType] = [
+	ItemType.Tool,
+	ItemType.Melee,
+	ItemType.Ranged,
+]
+
 enum ObjectType {
 	Nature, # 자연물
 	Furniture, # 가구

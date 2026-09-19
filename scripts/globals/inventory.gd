@@ -52,6 +52,9 @@ func get_selected_item() -> Item:
 		return null
 	return stack.item
 
+func shows_item_over(item: Item) -> bool:
+	return item != null and item.item_texture != null and item.item_type not in DataTypes.HAND_HELD_TYPES
+
 ## 뭉치 하나를 통째로 넣는다. 쌓을 수 있는 칸부터 붓고 남으면 빈 칸을 쓴다.
 ## 전부 들어갈 자리가 없으면 아무것도 넣지 않는다 — 절반만 먹고 나머지가
 ## 증발하면 어디로 갔는지 알 길이 없다.

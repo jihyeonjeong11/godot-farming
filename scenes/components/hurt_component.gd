@@ -71,4 +71,22 @@ func tool_hit_sound() -> AudioStream:
 
 func on_hit_effect_finished() -> void:
 	animated_sprite_2d.visible = false
-	
+
+
+func release_effects() -> void:
+	var host := owner.get_parent() if owner != null else get_parent()
+	if host == null:
+		return
+
+	for node: Node2D in [animated_sprite_2d, hit_audio_stream_player]:
+		var origin := node.global_position
+		node.get_parent().remove_child(node)
+		host.add_child(node)
+		node.global_position = origin
+
+	animated_sprite_2d.animation_finished.disconnect(on_hit_effect_finished)
+	animated_sprite_2d.animation_finished.connect(animated_sprite_2d.queue_free)
+	if hit_audio_stream_player.playing:
+		hit_audio_stream_player.finished.connect(hit_audio_stream_player.queue_free)
+	else:
+		hit_audio_stream_player.queue_free()

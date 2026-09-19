@@ -42,6 +42,8 @@ const TOOL_VISIBLE_ACTIONS: Array[String] = [
 
 const RUN_MULTIPLIER := 2
 
+const ITEM_OVER_SIZE := 50.0
+
 const BARE_REACH := 64.0
 const BARE_RADIUS := 14.0
 const TOOL_FRAMES_DIR := "res://scenes/characters/player/tools/"
@@ -69,6 +71,7 @@ const GROUND_LAYERS: Array[String] = [
 @onready var hit_shape: CollisionShape2D = $HitComponent/HitComponentShape2D
 @onready var hurt_component: HurtComponent = $HurtComponent
 @onready var hurt_shape: CollisionShape2D = $HurtComponent/CollisionShape2D
+@onready var item_over: Sprite2D = $ItemOver
 
 var _ground_layers: Array[TileMapLayer] = []
 
@@ -189,6 +192,7 @@ func _physics_process(_delta: float) -> void:
 	if held != _equipped_item:
 		_equipped_item = held
 		apply_hitbox(held)
+		apply_item_over(held)
 
 	var facing := direction_component.get_facing()
 	hit_shape.position = facing * (held.melee_reach if held != null else BARE_REACH)
@@ -211,6 +215,16 @@ func _edge(key: String, code: Key) -> bool:
 func set_hitbox_active(active: bool) -> void:
 	if hit_shape != null:
 		hit_shape.set_deferred("disabled", not active)
+
+func apply_item_over(item: Item) -> void:
+	var shown := Inventory.shows_item_over(item)
+	item_over.visible = shown
+	if not shown:
+		return
+
+	item_over.texture = item.item_texture
+	var longest := maxf(item.item_texture.get_width(), item.item_texture.get_height())
+	item_over.scale = Vector2.ONE * (ITEM_OVER_SIZE / longest)
 
 func has_melee_shape() -> bool:
 	var item: Item = Inventory.get_selected_item()
@@ -454,6 +468,19 @@ func load_tool_frames(suffix: String) -> SpriteFrames:
 
 func is_action_playing() -> bool:
 	return not sprite_layers.is_empty() and sprite_layers[0].is_playing()
+
+func action_progress() -> float:
+	if sprite_layers.is_empty():
+		return 1.0
+
+	var layer := sprite_layers[0]
+	if not layer.is_playing() or layer.sprite_frames == null:
+		return 1.0
+
+	var count := layer.sprite_frames.get_frame_count(layer.animation)
+	if count <= 1:
+		return 1.0
+	return float(layer.frame) / float(count - 1)
 
 func take_hit(hit_damage: int = 0) -> void:
 	if is_invulnerable or is_dead:

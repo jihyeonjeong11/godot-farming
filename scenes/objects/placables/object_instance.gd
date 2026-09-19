@@ -74,6 +74,7 @@ func on_hurt(hit_damage: int) -> void:
 		play_shake()
 		return
 
+	hurt_component.release_effects()
 	drop_loot.call_deferred()
 	queue_free()
 

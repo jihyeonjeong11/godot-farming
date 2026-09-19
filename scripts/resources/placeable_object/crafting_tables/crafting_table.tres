@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="PlaceableObject" format=3 uid="uid://fgq13cafx52r"]
+
+[ext_resource type="Script" uid="uid://c0e27vd6vvrd3" path="res://scripts/resources/loot/loot.gd" id="1_iw5qn"]
+[ext_resource type="Texture2D" uid="uid://mloe6l4aphpg" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crafting.png" id="2_lyomq"]
+[ext_resource type="Script" uid="uid://bstiq6ulxip1a" path="res://scripts/resources/placeable_object/placeable_object.gd" id="2_psapt"]
+[ext_resource type="Resource" uid="uid://mhhbcre0ogrk" path="res://scripts/resources/item/placeables/crafting_table.tres" id="3_item"]
+
+[sub_resource type="Resource" id="Resource_drop"]
+script = ExtResource("1_iw5qn")
+item = ExtResource("3_item")
+min = 1
+max = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lyomq"]
+atlas = ExtResource("2_lyomq")
+region = Rect2(2, 50, 60, 46)
+
+[resource]
+script = ExtResource("2_psapt")
+object_id = "crafting_table"
+object_name = "Crafting Table"
+destructible_tool = 2
+object_texture = SubResource("AtlasTexture_lyomq")
+object_type = 1
+interactable_actions = 2
+object_max_health = 1
+dropped_items = Array[ExtResource("1_iw5qn")]([SubResource("Resource_drop")])
+offset = Vector2i(-30, -42)
+hurtbox_offset = Vector2i(0, -22)
+hurtbox_radius = 28
+scatter_radius = 18
+collision_offset = Vector2i(0, -8)
+collision_radius = 20
+shake_intensity = 1.0
+metadata/_custom_type_script = "uid://bstiq6ulxip1a"

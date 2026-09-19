@@ -3,6 +3,7 @@ extends Node2D
 const OBJECT_GROUP := &"object"
 const PROPS_GROUP := &"props"
 const CROP_INSTANCE := preload("res://scenes/objects/placables/crop_instance.tscn")
+const OBJECT_INSTANCE := preload("res://scenes/objects/placables/object_instance.tscn")
 
 
 @export var tilemap: TileMapLayer
@@ -11,6 +12,8 @@ const CROP_INSTANCE := preload("res://scenes/objects/placables/crop_instance.tsc
 @export var terrain_set: int = DataTypes.SOIL_TERRAIN_SET
 @export var terrain: int = DataTypes.SoilTerrains.TilledDirt
 @export var interaction_range: float = 88.0
+@export var place_ok_tint := Color(0.6, 1.0, 0.6, 0.6)
+@export var place_blocked_tint := Color(1.0, 0.45, 0.45, 0.6)
 
 var mouse_position: Vector2
 var target_position: Vector2
@@ -18,7 +21,9 @@ var cell_position: Vector2i
 var object_target: ObjectInstance
 var props_target: TileMapLayer
 var held: Item
+var _placeable_cache: Dictionary = {}
 
+@onready var place_preview: Sprite2D = $PlacePreview
 
 @onready var player: Node2D = get_tree().get_first_node_in_group(&"player")
 @onready var watered_soil_layer: WateredSoilLayer = (
@@ -32,9 +37,11 @@ func _physics_process(_delta: float) -> void:
 	cell_position = cell_under_cursor()
 	object_target = object_under_cursor()
 	props_target = props_under_cursor()
+	held = Inventory.get_selected_item()
+
+	update_place_preview()
 
 	if GameInputEvents.is_use_tool():
-		held = Inventory.get_selected_item()
 		if not uses_cursor(held):
 			return
 		# 1. 먼저 오브젝트 좌표계 열람, 오브젝트 있는지 확인
@@ -45,6 +52,10 @@ func _physics_process(_delta: float) -> void:
 
 		if held.item_type == DataTypes.ItemType.Seeds:
 			plant_seed()
+			return
+
+		if held.item_type == DataTypes.ItemType.Placeable:
+			place_object()
 			return
 
 		if object_target != null:
@@ -113,33 +124,131 @@ func plant_seed() -> void:
 	SignalBus.sound_requested.emit(AudioManager.SFX_TILLING_GROUND)
 
 
+func place_object() -> void:
+	var object := placeable_of(held)
+	if object == null or tilemap == null or crops_layer == null:
+		return
+
+	var cell := place_cell()
+	var center := tilemap.to_global(tilemap.map_to_local(cell))
+	if not can_place_at(object, cell, center):
+		return
+
+	var placed := OBJECT_INSTANCE.instantiate() as ObjectInstance
+	placed.object = object
+	crops_layer.add_child(placed)
+	placed.global_position = center
+
+	Inventory.remove_item(Inventory.selected_slot, 1)
+	SignalBus.sound_requested.emit(AudioManager.SFX_TILLING_GROUND)
+
+
 func is_cell_dirt() -> bool:
 	var tile := tilemap.get_cell_tile_data(cell_position)
 	return tile != null and tile.get_custom_data(&"tillable")
 
 
-func object_at_cell() -> ObjectInstance:
+func object_at_cell(cell: Vector2i = cell_position) -> ObjectInstance:
 	for node in get_tree().get_nodes_in_group(OBJECT_GROUP):
 		var instance := node as ObjectInstance
 		if instance == null or instance.is_queued_for_deletion():
 			continue
 
-		if tilemap.local_to_map(tilemap.to_local(instance.global_position)) == cell_position:
+		if tilemap.local_to_map(tilemap.to_local(instance.global_position)) == cell:
 			return instance
 
 	return null
 
 
-func crop_at_cell() -> CropInstance:
+func crop_at_cell(cell: Vector2i = cell_position) -> CropInstance:
+	if crops_layer == null:
+		return null
+
 	for child in crops_layer.get_children():
 		var crop := child as CropInstance
 		if crop == null or crop.is_queued_for_deletion():
 			continue
 
-		if tilemap.local_to_map(tilemap.to_local(crop.global_position)) == cell_position:
+		if tilemap.local_to_map(tilemap.to_local(crop.global_position)) == cell:
 			return crop
 
 	return null
+
+
+func props_at(point: Vector2) -> TileMapLayer:
+	for node in get_tree().get_nodes_in_group(PROPS_GROUP):
+		var layer := node as TileMapLayer
+		if layer == null:
+			continue
+
+		if layer.get_cell_source_id(layer.local_to_map(layer.to_local(point))) != -1:
+			return layer
+
+	return null
+
+
+func update_place_preview() -> void:
+	var object := placeable_of(held)
+	if object == null or tilemap == null:
+		place_preview.visible = false
+		return
+
+	var cell := place_cell()
+	var center := tilemap.to_global(tilemap.map_to_local(cell))
+
+	place_preview.texture = object.object_texture
+	place_preview.centered = object.centered
+	place_preview.offset = Vector2(object.offset)
+	place_preview.scale = Vector2.ONE * object.sprite_scale
+	place_preview.global_position = center
+	place_preview.modulate = place_ok_tint if can_place_at(object, cell, center) else place_blocked_tint
+	place_preview.visible = true
+
+
+func place_cell() -> Vector2i:
+	var point := clamp_to_reach(mouse_position, float(GlobalVars.base_place_range))
+	return tilemap.local_to_map(tilemap.to_local(point))
+
+
+func can_place_at(object: PlaceableObject, cell: Vector2i, center: Vector2) -> bool:
+	if object_at_cell(cell) != null or crop_at_cell(cell) != null or props_at(center) != null:
+		return false
+
+	return not overlaps_player(object, center)
+
+
+func overlaps_player(object: PlaceableObject, center: Vector2) -> bool:
+	var hurt := player.get_node_or_null(^"HurtComponent") as Area2D if player != null else null
+	if hurt == null:
+		return false
+
+	var circle := CircleShape2D.new()
+	circle.radius = float(object.collision_radius)
+
+	var query := PhysicsShapeQueryParameters2D.new()
+	query.shape = circle
+	query.transform = Transform2D(0.0, center + Vector2(object.collision_offset))
+	query.collide_with_areas = true
+	query.collide_with_bodies = false
+	query.collision_mask = hurt.collision_layer
+
+	for hit in get_world_2d().direct_space_state.intersect_shape(query):
+		if hit.collider == hurt:
+			return true
+
+	return false
+
+
+func placeable_of(item: Item) -> PlaceableObject:
+	if item == null or item.item_type != DataTypes.ItemType.Placeable:
+		return null
+	if item.placeable_object_path.is_empty():
+		return null
+
+	var path := item.placeable_object_path
+	if not _placeable_cache.has(path):
+		_placeable_cache[path] = load(path) as PlaceableObject
+	return _placeable_cache[path]
 
 
 func water_cell() -> void:
@@ -185,16 +294,7 @@ func object_under_cursor() -> ObjectInstance:
 
 
 func props_under_cursor() -> TileMapLayer:
-	for node in get_tree().get_nodes_in_group(PROPS_GROUP):
-		var layer := node as TileMapLayer
-		if layer == null:
-			continue
-
-		var cell := layer.local_to_map(layer.to_local(target_position))
-		if layer.get_cell_source_id(cell) != -1:
-			return layer
-
-	return null
+	return props_at(target_position)
 
 
 func uses_cursor(item: Item) -> bool:
@@ -204,12 +304,13 @@ func uses_cursor(item: Item) -> bool:
 	return (
 		item.item_type == DataTypes.ItemType.Tool
 		or item.item_type == DataTypes.ItemType.Seeds
+		or item.item_type == DataTypes.ItemType.Placeable
 	)
 
 
-func clamp_to_reach(point: Vector2) -> Vector2:
+func clamp_to_reach(point: Vector2, reach: float = interaction_range) -> Vector2:
 	if player == null:
 		return point
 
 	var origin := player.global_position
-	return origin + (point - origin).limit_length(interaction_range)
+	return origin + (point - origin).limit_length(reach)

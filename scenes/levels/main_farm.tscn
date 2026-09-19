@@ -15,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://ctree1nst4nce" path="res://scenes/objects/placables/tree_instance.tscn" id="9_tree"]
 [ext_resource type="PackedScene" uid="uid://bjnqegfrvs57s" path="res://scenes/components/cursors/cursor_component.tscn" id="10_cursor"]
 [ext_resource type="PackedScene" uid="uid://ccnxtlq1ru1pv" path="res://scenes/components/cursors/object_cursor_component.tscn" id="11_ocursor"]
-[ext_resource type="PackedScene" uid="uid://co1flbsq0iwon" path="res://scenes/components/placeable_cursor_component.tscn" id="12_pcursor"]
 [ext_resource type="PackedScene" uid="uid://bmp8j4fwdkl82" path="res://scenes/characters/player/player.tscn" id="13_player"]
 [ext_resource type="PackedScene" uid="uid://hw03yyvlo6vg" path="res://scenes/objects/portals/door.tscn" id="14_door"]
 [ext_resource type="Script" uid="uid://cyg8x8ganehgt" path="res://scenes/components/spawn_point.gd" id="15_spawn"]
@@ -39,10 +38,6 @@ crops_layer = NodePath("../Level/Objects")
 terrain = 0
 
 [node name="ObjectCursorComponent" parent="." unique_id=1764218225 instance=ExtResource("11_ocursor")]
-
-[node name="PlaceableCursorComponent" parent="." unique_id=1128720428 node_paths=PackedStringArray("grass_tilemap_layer", "placeables_layer") instance=ExtResource("12_pcursor")]
-grass_tilemap_layer = NodePath("../Tilemap/Land")
-placeables_layer = NodePath("../Level/Objects")
 
 [node name="FarmSpawner" type="Node" parent="." unique_id=356470891 node_paths=PackedStringArray("land", "blockers", "tilled_soil", "watered_soil", "objects_layer")]
 script = ExtResource("19_spawner")

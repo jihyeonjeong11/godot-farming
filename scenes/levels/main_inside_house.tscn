@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://cs37xus6fdfc" path="res://scenes/objects/placables/object_instance.tscn" id="6_objin"]
 [ext_resource type="Resource" uid="uid://txf3sdnp05dp" path="res://scripts/resources/placeable_object/furniture/bed_house.tres" id="7_bed"]
 [ext_resource type="Script" uid="uid://cn7l4yqx8mkr2" path="res://scenes/components/persistent/level_layer.gd" id="8_layer"]
+[ext_resource type="Resource" uid="uid://btv0000000001" path="res://scripts/resources/placeable_object/furniture/tv.tres" id="9_tv"]
+[ext_resource type="PackedScene" uid="uid://vlwn0vdyb13" path="res://managers/map_feature_manager.tscn" id="10_mapft"]
 
 [node name="MainInsideHouse" type="Node2D" unique_id=545508750]
 y_sort_enabled = true
@@ -59,6 +61,10 @@ script = ExtResource("8_layer")
 position = Vector2(448, 192)
 object = ExtResource("7_bed")
 
+[node name="TV" parent="Level/Objects" unique_id=1917527811 instance=ExtResource("6_objin")]
+position = Vector2(384, 161)
+object = ExtResource("9_tv")
+
 [node name="PortalToFarm" parent="." unique_id=866850514 instance=ExtResource("5_portal")]
 position = Vector2(256, 444)
 target_scene = "res://scenes/levels/main_farm.tscn"
@@ -68,3 +74,5 @@ target_spawn = &"house_door"
 position = Vector2(256, 400)
 script = ExtResource("3_spawn")
 spawn_id = &"house_entrance"
+
+[node name="MapFeatureManager" parent="." instance=ExtResource("10_mapft")]

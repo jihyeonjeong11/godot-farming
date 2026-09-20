@@ -11,6 +11,7 @@ signal crop_harvesting
 
 var watered_days: int = 0
 var start_state: DataTypes.GrowthStates = DataTypes.GrowthStates.Seed
+var last_day: int = -1
 
 @onready var crop: Node2D = get_parent() as Node2D
 
@@ -19,6 +20,7 @@ var _watered_soil: WateredSoilLayer
 
 func _ready() -> void:
 	SignalBus.time_tick_day.connect(on_time_tick_day)
+	last_day = _today()
 
 func get_planted_tile() -> TileData:
 	var soil := get_tilled_soil()
@@ -52,7 +54,29 @@ func get_watered_soil() -> WateredSoilLayer:
 	return _watered_soil
 
 ## 물 안 준 날은 아예 진행이 없다. 그래서 날짜를 받지 않는다.
-func on_time_tick_day(_day: int) -> void:
+func on_time_tick_day(day: int) -> void:
+	last_day = day
+	if not is_tile_watered():
+		return
+
+	watered_days += 1
+	growth_states()
+
+
+func _today() -> int:
+	var tm := TimeManager.find(get_tree())
+	return tm.today() if tm != null else last_day
+
+
+## 농장을 비운 사이 날이 넘어갔으면 여기서 따라잡는다. 그동안 밭이 마르지
+## 않았으니 물 준 날은 며칠을 비웠든 하루로 친다.
+func _catch_up() -> void:
+	var today := _today()
+	if last_day < 0 or last_day >= today:
+		last_day = today
+		return
+
+	last_day = today
 	if not is_tile_watered():
 		return
 
@@ -102,6 +126,7 @@ func capture() -> Dictionary:
 		"growth_state": int(current_growth_state),
 		"watered_days": watered_days,
 		"start_state": int(start_state),
+		"last_day": last_day,
 	}
 
 
@@ -112,3 +137,5 @@ func apply(state: Variant) -> void:
 	current_growth_state = int(state.get("growth_state", current_growth_state))
 	watered_days = int(state.get("watered_days", watered_days))
 	start_state = int(state.get("start_state", start_state))
+	last_day = int(state.get("last_day", _today()))
+	_catch_up()

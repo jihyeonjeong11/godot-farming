@@ -69,6 +69,10 @@ enum WeatherType {
 	Raining,
 }
 
+enum InfluenceType {
+	Radiation,
+}
+
 enum InteractableActions {
 	None,
 	Sleep,

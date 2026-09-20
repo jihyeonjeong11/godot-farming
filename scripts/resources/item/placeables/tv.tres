@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://btv0000000002"]
+
+[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/item/item.gd" id="1_items"]
+[ext_resource type="Texture2D" uid="uid://cafjukjy7dmsm" path="res://assets/temp/tv.png" id="2_tex"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tv"]
+atlas = ExtResource("2_tex")
+region = Rect2(0, 0, 48, 48)
+
+[resource]
+script = ExtResource("1_items")
+item_id = "tv"
+item_type = 6
+item_name = "TV"
+item_texture = SubResource("AtlasTexture_tv")
+description = "낡은 브라운관 TV. 우클릭하면 켜고 끈다. 나오는 건 지직거리는 노이즈뿐이다."
+max_stack = 99
+placeable_object_path = "res://scripts/resources/placeable_object/furniture/tv.tres"
+world_scene_path = "uid://cb65olukse4yu"
+metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

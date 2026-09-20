@@ -9,6 +9,8 @@ var crop: Crops:
 
 var growth_state: DataTypes.GrowthStates = DataTypes.GrowthStates.Seed
 var harvest_count: int = 0
+var genetics: CropGenetics = CropGenetics.new()
+var dose: float = 0.0
 var _shown_state: int = -1
 var _harvested: bool = false
 
@@ -22,6 +24,7 @@ func _ready() -> void:
 	watering_particles.emitting = false
 	flowering_particles.emitting = false
 	growth_cycle_component.crop_maturity.connect(on_crop_maturity)
+	SignalBus.time_tick_day.connect(_on_time_tick_day)
 	_configure_growth()
 	growth_state = growth_cycle_component.get_current_growth_state()
 	apply_growth_texture(growth_state)
@@ -61,6 +64,14 @@ func harvest() -> void:
 
 	growth_cycle_component.regrow(crop.regrow_state, crop.regrow_days)
 	apply_growth_texture(crop.regrow_state)
+
+
+func _on_time_tick_day(_day: int) -> void:
+	var features := get_tree().get_first_node_in_group(&"map_features")
+	if features == null:
+		return
+	dose += features.get_effect_intensity(global_position, DataTypes.InfluenceType.Radiation)
+	genetics.mutate(dose)
 
 
 func on_watered() -> void:

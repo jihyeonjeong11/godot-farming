@@ -18,7 +18,6 @@ var current_health: int
 var shake_tween: Tween
 var current_animation: StringName
 var inventory: ContainerInventoryComponent
-var radiation_area: Area2D
 var process_slot: ProcessSlot
 var process_state: Dictionary = {}
 var _frame: int = 0
@@ -398,38 +397,25 @@ func _refresh_shake() -> void:
 
 
 func _refresh_radiation() -> void:
-	if object.radiation <= 0.0 or object.radiation_range <= 0.0:
-		if radiation_area != null:
-			radiation_area.queue_free()
-			radiation_area = null
+	var features := _map_features()
+	if features == null:
 		return
-
-	if radiation_area == null:
-		radiation_area = Area2D.new()
-		radiation_area.name = "RadiationArea"
-		radiation_area.collision_layer = 0
-		radiation_area.collision_mask = 2
-		radiation_area.monitorable = false
-		radiation_area.add_child(CollisionShape2D.new())
-		radiation_area.body_entered.connect(_on_radiation_body_entered)
-		radiation_area.body_exited.connect(_on_radiation_body_exited)
-		add_child(radiation_area)
-
-	var circle := CircleShape2D.new()
-	circle.radius = object.radiation_range
-	(radiation_area.get_child(0) as CollisionShape2D).shape = circle
+	features.unregister(self)
+	features.register(self)
 
 
-func _on_radiation_body_entered(body: Node2D) -> void:
-	var geiger := body.get_node_or_null(^"GeigerComponent") as GeigerComponent
-	if geiger != null:
-		geiger.add_source(self)
+func _exit_tree() -> void:
+	if Engine.is_editor_hint():
+		return
+	var features := _map_features()
+	if features != null:
+		features.unregister(self)
 
 
-func _on_radiation_body_exited(body: Node2D) -> void:
-	var geiger := body.get_node_or_null(^"GeigerComponent") as GeigerComponent
-	if geiger != null:
-		geiger.remove_source(self)
+func _map_features() -> Node:
+	if not is_inside_tree():
+		return null
+	return get_tree().get_first_node_in_group(&"map_features")
 
 
 func _refresh_body() -> void:

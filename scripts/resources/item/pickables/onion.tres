@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://c8onion0pick1"]
+
+[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/item/item.gd" id="1_onion"]
+[ext_resource type="Texture2D" uid="uid://dog4l2sx7u7cn" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png" id="2_atlas"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onion"]
+atlas = ExtResource("2_atlas")
+region = Rect2(836, 228, 20, 24)
+
+[resource]
+script = ExtResource("1_onion")
+item_id = "onion"
+item_type = 2
+item_name = "Onion"
+item_texture = SubResource("AtlasTexture_onion")
+edible = 2
+description = "Harvested from a mature onion plant. 우클릭으로 먹는다."
+value = 30
+max_stack = 100
+world_scene_path = "uid://cb65olukse4yu"
+metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

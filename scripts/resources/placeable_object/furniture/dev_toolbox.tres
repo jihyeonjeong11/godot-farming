@@ -13,6 +13,7 @@
 [ext_resource type="Resource" uid="uid://cc468nspnvreg" path="res://scripts/resources/item/tools/longsword.tres" id="10_sword"]
 [ext_resource type="Resource" uid="uid://cn8vrpxa2yl4e" path="res://scripts/resources/item/seeds/potato_seeds.tres" id="10_potato"]
 [ext_resource type="Resource" uid="uid://b7ncxvq4td2ma" path="res://scripts/resources/item/seeds/corn_seeds.tres" id="10_corn"]
+[ext_resource type="Resource" uid="uid://b5wq78uf5bfq5" path="res://scripts/resources/item/seeds/onion_seeds.tres" id="10_onion"]
 [ext_resource type="Resource" uid="uid://s3ye070bqhv3" path="res://scripts/resources/item/seeds/carrot_seeds.tres" id="10_carrot"]
 
 [sub_resource type="Resource" id="Resource_drop"]
@@ -38,6 +39,6 @@ scatter_radius = 18
 collision_offset = Vector2i(0, -21)
 collision_radius = 10
 slot_count = 12
-initial_items = Array[ExtResource("5_item")]([ExtResource("10_axe"), ExtResource("10_hoe"), ExtResource("10_pick"), ExtResource("10_can"), ExtResource("10_bat"), ExtResource("10_sword"), ExtResource("10_potato"), ExtResource("10_corn"), ExtResource("10_carrot")])
-initial_amounts = Array[int]([1, 1, 1, 1, 1, 1, 5, 5, 5])
+initial_items = Array[ExtResource("5_item")]([ExtResource("10_axe"), ExtResource("10_hoe"), ExtResource("10_pick"), ExtResource("10_can"), ExtResource("10_bat"), ExtResource("10_sword"), ExtResource("10_potato"), ExtResource("10_corn"), ExtResource("10_carrot"), ExtResource("10_onion")])
+initial_amounts = Array[int]([1, 1, 1, 1, 1, 1, 5, 5, 5, 10])
 metadata/_custom_type_script = "uid://cysc7e4h5lbve"

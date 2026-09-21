@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://40jg6cjqc3uf"]
 
-[ext_resource type="Script" path="res://scenes/objects/placables/crop_instance.gd" id="1_crop"]
+[ext_resource type="Script" uid="uid://cd6aww0reuek4" path="res://scenes/objects/placables/crop_instance.gd" id="1_crop"]
 [ext_resource type="PackedScene" uid="uid://bwn5t2ejgp0hr" path="res://scenes/components/hurt_component.tscn" id="2_gllsh"]
 [ext_resource type="PackedScene" uid="uid://icexu1c4ffpk" path="res://scenes/components/growth_cycle_component.tscn" id="3_growth"]
 [ext_resource type="PackedScene" uid="uid://bu66glbfsvp45" path="res://scenes/objects/placables/crops/flowering_particles.tscn" id="4_flower"]

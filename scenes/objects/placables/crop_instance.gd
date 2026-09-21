@@ -10,7 +10,7 @@ var crop: Crops:
 var growth_state: DataTypes.GrowthStates = DataTypes.GrowthStates.Seed
 var harvest_count: int = 0
 var genetics: CropGenetics = CropGenetics.new()
-var dose: float = 0.0
+var _gene_day: int = -1
 var _shown_state: int = -1
 var _harvested: bool = false
 
@@ -28,6 +28,8 @@ func _ready() -> void:
 	_configure_growth()
 	growth_state = growth_cycle_component.get_current_growth_state()
 	apply_growth_texture(growth_state)
+	_gene_day = _today()
+	_refresh_genetics_visual()
 	if growth_state == DataTypes.GrowthStates.Maturity:
 		on_crop_maturity()
 
@@ -52,7 +54,6 @@ func interact() -> void:
 func harvest() -> void:
 	if _harvested:
 		return
-
 	drop_loot.call_deferred()
 	harvest_count += 1
 	flowering_particles.emitting = false
@@ -66,12 +67,44 @@ func harvest() -> void:
 	apply_growth_texture(crop.regrow_state)
 
 
-func _on_time_tick_day(_day: int) -> void:
-	var features := get_tree().get_first_node_in_group(&"map_features")
-	if features == null:
+func _on_time_tick_day(day: int) -> void:
+	_expose_days(day)
+
+
+func _expose_days(today: int) -> void:
+	if _gene_day < 0 or _gene_day >= today:
+		_gene_day = today
 		return
-	dose += features.get_effect_intensity(global_position, DataTypes.InfluenceType.Radiation)
-	genetics.mutate(dose)
+
+	var features := get_tree().get_first_node_in_group(&"map_features")
+	var dose := 0.0
+	if features != null:
+		dose = features.get_effect_intensity(global_position, DataTypes.InfluenceType.Radiation)
+
+	for day in range(_gene_day, today):
+		genetics.mutate(dose)
+		if genetics.rolls_death(dose):
+			queue_free()
+			return
+
+	_gene_day = today
+	_refresh_genetics_visual()
+
+
+func _today() -> int:
+	var tm := TimeManager.find(get_tree())
+	return tm.today() if tm != null else _gene_day
+
+
+func roll_loot() -> Array[ItemStack]:
+	var stacks := super()
+	for stack in stacks:
+		stack.amount = maxi(roundi(stack.amount * genetics.yield_multiplier()), 0)
+	return stacks
+
+
+func _refresh_genetics_visual() -> void:
+	modulate = genetics.tint_color()
 
 
 func on_watered() -> void:
@@ -112,6 +145,8 @@ func apply_growth_texture(state: int) -> void:
 func capture_state() -> Variant:
 	var state: Dictionary = growth_cycle_component.capture()
 	state["harvest_count"] = harvest_count
+	state["genes"] = genetics.genes.duplicate()
+	state["gene_day"] = _gene_day
 	return state
 
 
@@ -124,6 +159,9 @@ func apply_state(state: Variant) -> void:
 	growth_cycle_component.apply(state)
 	growth_state = growth_cycle_component.get_current_growth_state()
 	apply_growth_texture(growth_state)
+	genetics.genes = state.get("genes", {})
+	_gene_day = int(state.get("gene_day", _today()))
+	_expose_days(_today())
 
 
 func _configure_growth() -> void:

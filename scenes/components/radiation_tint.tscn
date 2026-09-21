@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://c3radtint0001"]
-
-[ext_resource type="Script" path="res://scenes/components/radiation_tint.gd" id="1_tint"]
-
-[node name="RadiationTint" type="CanvasLayer"]
-layer = 5
-script = ExtResource("1_tint")

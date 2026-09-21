@@ -1,9 +1,4 @@
 class_name CraftRecipe extends Resource
-## 조합법 하나. 재료 목록과 결과물만 들고 있는 순수 데이터다.
-##
-## 아이템을 리소스 참조가 아니라 item_id 로 적는다. 참조로 적으면 조합법 하나마다
-## ext_resource 가 딸려 붙고, 재료 한 줄이 또 다른 .tres 가 된다.
-## id 를 실제 Item 으로 바꾸는 일은 ItemDB, 깎고 만드는 일은 Inventory.craft() 가 한다.
 
 @export var result_id: StringName = &""
 @export var result_amount: int = 1

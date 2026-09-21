@@ -19,7 +19,6 @@
 [ext_resource type="Script" uid="uid://cyg8x8ganehgt" path="res://scenes/components/spawn_point.gd" id="15_spawn"]
 [ext_resource type="Script" uid="uid://cn7l4yqx8mkr2" path="res://scenes/components/persistent/level_layer.gd" id="16_layer"]
 [ext_resource type="Script" uid="uid://c6wj2phe45tvn" path="res://scenes/components/persistent/level_tile_map_layer.gd" id="17_ltile"]
-[ext_resource type="PackedScene" uid="uid://c3radtint0001" path="res://scenes/components/radiation_tint.tscn" id="18_b16xi"]
 [ext_resource type="Script" uid="uid://rpepg711y8sv" path="res://scenes/components/tilemap/watered_soil_layer.gd" id="18_wtile"]
 [ext_resource type="Script" uid="uid://dvg4mqeuiip54" path="res://scenes/components/farm_spawner.gd" id="19_spawner"]
 [ext_resource type="Texture2D" uid="uid://dmej0tp32bpis" path="res://assets/craftland/Craftland Terrain/32x32/CL_Buildings.png" id="20_3dnpx"]
@@ -134,8 +133,6 @@ position = Vector2(214, 9)
 
 [node name="Level" type="Node2D" parent="." unique_id=2013859973]
 y_sort_enabled = true
-
-[node name="RadiationTint" parent="Level" unique_id=1782127202 instance=ExtResource("18_b16xi")]
 
 [node name="Door" parent="Level" unique_id=997741542 instance=ExtResource("14_door")]
 position = Vector2(307, 266)

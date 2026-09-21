@@ -284,18 +284,27 @@ func sleep() -> void:
 	_sleeping = false
 
 
+func roll_loot() -> Array[ItemStack]:
+	var stacks: Array[ItemStack] = []
+	if object == null:
+		return stacks
+	for loot in object.dropped_items:
+		if loot == null or loot.item == null:
+			continue
+		stacks.append(ItemStack.new(loot.item, randi_range(loot.min, loot.max)))
+	return stacks
+
+
 func drop_loot() -> void:
 	var host := get_parent()
 	if host == null or object == null:
 		return
 
 	var dropped: Array[Node2D] = []
-	for loot in object.dropped_items:
-		if loot == null or loot.item == null:
-			continue
-		for i in randi_range(loot.min, loot.max):
+	for stack in roll_loot():
+		for i in stack.amount:
 			var instance := ITEM_STACK_INSTANCE.instantiate() as ItemStackInstance
-			instance.stack = ItemStack.new(loot.item, 1)
+			instance.stack = ItemStack.new(stack.item, 1)
 			host.add_child(instance)
 			instance.global_position = global_position
 			dropped.append(instance)

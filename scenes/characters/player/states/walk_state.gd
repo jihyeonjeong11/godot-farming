@@ -25,6 +25,10 @@ func _on_enter() -> void:
 func _on_physics_process(delta: float) -> void:
 	var direction := GameInputEvents.movement_input()
 	var running := player.key_held("run")
+	
+	
+	if GameInputEvents.use_tool():
+		transition.emit("Attack")
 
 	if direction != Vector2.ZERO:
 		# 재생할 클립이 실제로 바뀔 때만 play()를 부른다.

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4ss0vrrp3vx6"
-path="res://.godot/imported/shirt_00.png-086c169b58df110895c4ad854970d7e3.ctex"
+uid="uid://mgkro37sfud7"
+path="res://.godot/imported/hair.png-8f80d6f26fcf4a64b97c8f9d0f41807a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/temp/cloth/shirt_00.png"
-dest_files=["res://.godot/imported/shirt_00.png-086c169b58df110895c4ad854970d7e3.ctex"]
+source_file="res://assets/temp/hair/hair.png"
+dest_files=["res://.godot/imported/hair.png-8f80d6f26fcf4a64b97c8f9d0f41807a.ctex"]
 
 [params]
 

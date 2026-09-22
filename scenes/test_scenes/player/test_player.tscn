@@ -8,9 +8,11 @@
 [ext_resource type="Texture2D" path="res://assets/temp/hand_sheet.png" id="10_hands"]
 [ext_resource type="Texture2D" path="res://assets/temp/hand_pistol_sheet.png" id="11_hands_pistol"]
 [ext_resource type="Script" path="res://scenes/test_scenes/player/legs_layer.gd" id="7_legs"]
-[ext_resource type="Texture2D" path="res://assets/temp/cloth/pants_00.png" id="8_pants"]
-[ext_resource type="Texture2D" path="res://assets/temp/cloth/shirt_00.png" id="9_shirt"]
-[ext_resource type="Texture2D" path="res://assets/temp/hair/hair_00.png" id="6_hair"]
+[ext_resource type="Texture2D" path="res://assets/temp/cloth/pants.png" id="8_pants"]
+[ext_resource type="Texture2D" path="res://assets/temp/cloth/shirt.png" id="9_shirt"]
+[ext_resource type="Texture2D" path="res://assets/temp/cloth/shoes.png" id="12_shoes"]
+[ext_resource type="Script" uid="uid://bkomd2cdsv7qu" path="res://scenes/test_scenes/player/parts_picker.gd" id="13_picker"]
+[ext_resource type="Texture2D" path="res://assets/temp/hair/hair.png" id="6_hair"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r1c0"]
 atlas = ExtResource("1_body")
@@ -667,6 +669,12 @@ texture = ExtResource("8_pants")
 hframes = 8
 script = ExtResource("7_legs")
 
+[node name="Shoes" type="Sprite2D" parent="."]
+z_index = 1
+texture = ExtResource("12_shoes")
+hframes = 8
+script = ExtResource("7_legs")
+
 [node name="Shirt" type="Sprite2D" parent="."]
 z_index = 2
 position = Vector2(0, -2)
@@ -683,3 +691,7 @@ vframes = 4
 script = ExtResource("7_sheet")
 action_sheet = ExtResource("10_hands")
 held_sheet = ExtResource("11_hands_pistol")
+
+[node name="PartsPicker" type="CanvasLayer" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("13_picker")
+player = NodePath("..")

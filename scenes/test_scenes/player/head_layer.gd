@@ -1,6 +1,7 @@
 extends Sprite2D
 
 const COLS := 20
+const CELL_H := 48
 const ROWS := {"side": 0, "down": 1, "up": 2, "right": 3}
 const ANIM_COLS := {
 	"idle": [0, 1, 2, 3],
@@ -24,13 +25,17 @@ const TORSO_OFFSET := [
 ]
 
 @export var torso := false
+@export var variant := 0:
+	set(v):
+		variant = v
+		frame = variant * hframes + frame % hframes
 
 var _base := Vector2.ZERO
 
 
 func _ready() -> void:
 	hframes = 4
-	vframes = 1
+	vframes = maxi(1, texture.get_height() / CELL_H) if texture else 1
 	_base = position
 
 
@@ -43,6 +48,6 @@ func sync(anim: StringName, frame_i: int) -> void:
 	var row: int = ROWS[dir]
 	var cols: Array = ANIM_COLS[act]
 	var col: int = cols[mini(frame_i, cols.size() - 1)]
-	frame = row
+	frame = variant * hframes + row
 	var off: Vector2i = (TORSO_OFFSET if torso else HEAD_OFFSET)[row][col]
 	position = _base + Vector2(off)

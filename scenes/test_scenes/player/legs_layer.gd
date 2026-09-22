@@ -2,6 +2,7 @@ extends Sprite2D
 
 # 8 cells: 0 side_idle 1 side_stepA 2 side_stepB 3 side_crouch 4 down_idle 5 down_step 6 up_idle 7 up_step
 const CELLS := 8
+const CELL_H := 48
 const IDLE := {"side": 0, "down": 4, "up": 6, "right": 0}
 const STEP := {"side": [1, 2], "down": [5, 5], "up": [7, 7], "right": [1, 2]}
 # body sheet column -> (cell, flip, dx); anything not listed uses the idle cell
@@ -18,12 +19,17 @@ const ANIM_COLS := {
 	"sickle": [17, 18, 19],
 }
 
+@export var variant := 0:
+	set(v):
+		variant = v
+		frame = variant * hframes + frame % hframes
+
 var _base := Vector2.ZERO
 
 
 func _ready() -> void:
 	hframes = CELLS
-	vframes = 1
+	vframes = maxi(1, texture.get_height() / CELL_H) if texture else 1
 	_base = position
 
 
@@ -44,6 +50,6 @@ func sync(anim: StringName, frame_i: int) -> void:
 	if mirrored:
 		flip = not flip
 		dx = -dx
-	frame = cell
+	frame = variant * hframes + cell
 	flip_h = flip
 	position = _base + Vector2(dx, 0)

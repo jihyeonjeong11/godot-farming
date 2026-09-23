@@ -1,15 +1,6 @@
 [gd_resource type="TileSet" format=3 uid="uid://dcq54frn85y6v"]
 
-[ext_resource type="Texture2D" uid="uid://dpoh4b3phcc72" path="res://assets/Tiles/Background_Bleak-Yellow_TileSet.png" id="1_jfd57"]
-[ext_resource type="Texture2D" uid="uid://q3lj38dps36l" path="res://assets/Objects/Garbage-Bin_2.png" id="2_ugfrm"]
-[ext_resource type="Texture2D" uid="uid://bb3db23ssl81y" path="res://assets/Objects/Street-Light_1_Side.png" id="3_k4vir"]
-[ext_resource type="Texture2D" uid="uid://ddpvefpnuo760" path="res://assets/Objects/Nature/Green/Tree_1_Spruce_Green.png" id="4_rgab8"]
-[ext_resource type="Texture2D" uid="uid://wacspr67cr3n" path="res://assets/Objects/Nature/Green/Tree-trunk_2_grass_Green.png" id="5_6n3bw"]
-[ext_resource type="Texture2D" uid="uid://brg4dadf3kj8j" path="res://assets/Objects/Nature/Green/Grass_5_Green.png" id="6_tlb4r"]
-[ext_resource type="Texture2D" uid="uid://cj03g78c283cx" path="res://assets/Objects/Nature/Bleak-Yellow/Grass_5_Bleak-Yellow.png" id="7_tlb4r"]
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ugfrm"]
-texture = ExtResource("1_jfd57")
 1:1/0 = 0
 1:1/0/terrain_set = 0
 1:1/0/terrain = 1
@@ -750,38 +741,31 @@ texture = ExtResource("1_jfd57")
 16:11/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k4vir"]
-texture = ExtResource("2_ugfrm")
 texture_region_size = Vector2i(27, 20)
 0:0/next_alternative_id = 2
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-13.5, -9.5, -13.5, 10, 13, 9, 12.5, 10.5, 13, -9.5)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rgab8"]
-texture = ExtResource("3_k4vir")
 texture_region_size = Vector2i(23, 19)
-0:0/size_in_atlas = Vector2i(1, 2)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-11.5, 7.5, -6, 8, -6, 17, -11, 17)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kwnpj"]
-texture = ExtResource("4_rgab8")
 texture_region_size = Vector2i(16, 29)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-7.5, 14.5, -8, 8, 8, 8, 7.5, 14.5)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3pqg7"]
-texture = ExtResource("5_6n3bw")
 texture_region_size = Vector2i(32, 12)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16.5, -6, -16.5, 6, 16, 6, 16, -6)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4gtdd"]
-texture = ExtResource("6_tlb4r")
 texture_region_size = Vector2i(16, 14)
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p75wl"]
-texture = ExtResource("7_tlb4r")
 texture_region_size = Vector2i(16, 14)
 0:0/0 = 0
 

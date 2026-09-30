@@ -7,19 +7,18 @@ signal selected_slot_changed(index: int)
 
 const BASE_INVENTORY_LIMIT = 30
 const QUICKBAR_LIMIT = 10
-## 부위당 한 칸. 늘어나면 여기만 키우고 UI가 칸을 더 꽂으면 된다.
 const EQUIPMENT_SLOT_LIMIT = 1
 
-## 각 칸은 ItemStack, 빈 칸은 null.
 var inventory: Array[ItemStack] = []
-## 착용 칸도 같은 ItemStack 배열이다. 그래야 InventorySlot 이 인벤토리와 장비를
-## 구분하지 않고 배열끼리 맞바꾸는 것만으로 입고 벗기가 된다.
 var armor: Array[ItemStack] = []
 var boots: Array[ItemStack] = []
 var selected_slot: int = 0
-## 플레이어 씬이 둘이라 타입을 좁게 박지 않는다. 떨군 자리를 잡는 데만 쓴다.
 var player_node: Node2D
 var world_scene_cache: Dictionary = {}
+
+# TODO: 나중에 옷 갈아입기, 머리 바꾸기 나오면 별개 파일로 클리닝
+# hair, shirt, pants, shoes
+var vanity_slots = [-1, -1, -1, -1]
 
 func _ready():
 	inventory.resize(BASE_INVENTORY_LIMIT)
@@ -27,6 +26,12 @@ func _ready():
 	# InventorySlot._drop_data 도 to_source.size()가 0이라 드롭을 통째로 무시한다.
 	armor.resize(EQUIPMENT_SLOT_LIMIT)
 	boots.resize(EQUIPMENT_SLOT_LIMIT)
+	
+func get_vanity(index: int) -> int:
+	return vanity_slots[index]
+
+func set_vanity(index: int, value: int) -> void:
+	vanity_slots[index] = value
 
 func get_item(i: int) -> ItemStack:
 	if i < 0 or i >= inventory.size():

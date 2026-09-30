@@ -49,6 +49,10 @@ project/assembly_name="apo-farming"
 
 player=""
 
+[gui]
+
+theme/custom_font="uid://croxjd7q24c1o"
+
 [input]
 
 walk_up={

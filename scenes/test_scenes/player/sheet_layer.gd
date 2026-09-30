@@ -1,7 +1,7 @@
 extends Sprite2D
 
 const COLS := 20
-const ROWS := {"side": 0, "down": 1, "up": 2, "right": 3}
+const ROWS := {"left": 0, "down": 1, "up": 2, "right": 3}
 const ANIM_COLS := {
 	"idle": [0, 1, 2, 3],
 	"walk": [4, 5, 6, 7],
@@ -26,7 +26,7 @@ func _ready() -> void:
 func sync(anim: StringName, frame_i: int) -> void:
 	var parts := String(anim).split("_")
 	var act := parts[0]
-	var dir := parts[1] if parts.size() > 1 else "side"
+	var dir := parts[1] if parts.size() > 1 else "left"
 	if not ANIM_COLS.has(act) or not ROWS.has(dir):
 		return
 	if act in ACTIONS and action_sheet:

@@ -2,7 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://dia4o4d25a22o" path="res://tilesets/craftland_copy.tres" id="1_ts"]
 [ext_resource type="TileSet" uid="uid://cwaqnx3wjt35y" path="res://tilesets/craft.tres" id="1_xcpdh"]
-[ext_resource type="PackedScene" uid="uid://bmp8j4fwdkl82" path="res://scenes/characters/player/player.tscn" id="2_dusfv"]
+[ext_resource type="PackedScene" uid="uid://bmp8j4fwdkl82" path="res://scenes/characters/player/player_old.tscn" id="2_dusfv"]
 
 [node name="TestSceneCraftlandCopy" type="Node2D" unique_id=1810982121]
 

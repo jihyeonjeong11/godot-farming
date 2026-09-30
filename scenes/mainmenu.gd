@@ -13,6 +13,7 @@ extends Control
 
 @export var pan_delay: float = 1.0
 @export var pan_duration: float = 6.0
+@onready var player: Player = $Player
 
 var _slot_mode: SaveSlots.Mode = SaveSlots.Mode.NEW
 var _pan_tween: Tween
@@ -20,6 +21,7 @@ var _pan_target: Vector2
 
 
 func _ready() -> void:
+	player.is_freeze = true
 	menu_panel.visible = false
 	settings_panel.visible = false
 	save_slots.visible = false

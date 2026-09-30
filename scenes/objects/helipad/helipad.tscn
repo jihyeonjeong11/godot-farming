@@ -1,0 +1,37 @@
+[gd_scene format=4 uid="uid://j7kviqjw67tp"]
+
+[ext_resource type="PackedScene" uid="uid://cs37xus6fdfc" path="res://scenes/objects/placables/object_instance.tscn" id="1_4ffq3"]
+[ext_resource type="TileSet" uid="uid://dkw01fa84lera" path="res://tilesets/city_ruin.tres" id="1_crnmu"]
+[ext_resource type="Texture2D" uid="uid://pmyxtchr0btw" path="res://assets/apo/anims/32x48_flag.png" id="2_qo273"]
+[ext_resource type="Resource" uid="uid://b5hrsyfb55y7w" path="res://scripts/resources/placeable_object/props/flag_seven.tres" id="3_gjt5s"]
+[ext_resource type="Texture2D" uid="uid://mloe6l4aphpg" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crafting.png" id="4_gjt5s"]
+[ext_resource type="Resource" uid="uid://clh75kbapjbke" path="res://scripts/resources/placeable_object/furniture/chest.tres" id="5_crnmu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flag0"]
+atlas = ExtResource("2_qo273")
+region = Rect2(0, 0, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b16xi"]
+atlas = ExtResource("4_gjt5s")
+region = Rect2(392, 18, 48, 42)
+
+[node name="Helipad" type="Node2D" unique_id=1866305120]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1732757076]
+tile_map_data = PackedByteArray("AAABAAAACAAAAAAAAAABAAEACAAAAAEAAAABAAIACAAAAAIAAAACAAAACAABAAAAAAACAAEACAABAAEAAAACAAIACAABAAIAAAADAAAACAACAAAAAAADAAEACAACAAEAAAADAAIACAACAAIAAAA=")
+tile_set = ExtResource("1_crnmu")
+
+[node name="Flag" parent="." unique_id=1513629613 instance=ExtResource("1_4ffq3")]
+position = Vector2(12, 18)
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_flag0")
+centered = false
+offset = Vector2(-7, -96)
+object = ExtResource("3_gjt5s")
+
+[node name="Chest" parent="." unique_id=1507364485 instance=ExtResource("1_4ffq3")]
+position = Vector2(79, 122)
+texture = SubResource("AtlasTexture_b16xi")
+centered = false
+offset = Vector2(-24, -42)
+object = ExtResource("5_crnmu")

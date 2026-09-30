@@ -15,7 +15,7 @@ const DEFS := {
 const HELD_ANIMS := ["idle", "walk"]
 
 const POSE := {
-	&"swing": [
+	&"swing_left": [
 		{d = 2, p = Vector2(10, 25), o = Vector2(8, 29), r = 60, z = -1, flip = false},
 		{d = 2, p = Vector2(17, 7), o = Vector2(8, 24), r = 25, z = -1, flip = false},
 		{d = 2, p = Vector2(7, 31), o = Vector2(8, 22), r = -135, z = 1, flip = false},
@@ -41,7 +41,7 @@ const POSE := {
 		{d = 2, p = Vector2(22, 32), o = Vector2(8, 20), r = 140, z = -1, flip = false},
 		{d = 4, p = Vector2(20, 26), o = Vector2(8, 26), r = 0, z = -1, flip = false},
 	],
-	&"water": [
+	&"water_left": [
 		{d = 2, p = Vector2(9, 27), o = Vector2(8, 3), r = 0, z = 1, flip = true},
 		{d = 3, p = Vector2(9, 23), o = Vector2(8, 3), r = 0, z = 1, flip = true},
 	],
@@ -57,7 +57,7 @@ const POSE := {
 		{d = 4, p = Vector2(15, 26), o = Vector2(8, 3), r = 0, z = -1, flip = false},
 		{d = 4, p = Vector2(15, 17), o = Vector2(8, 3), r = 0, z = -1, flip = false},
 	],
-	&"sickle": [
+	&"sickle_left": [
 		{d = 0, p = Vector2(21, 25), o = Vector2(4, 13), r = 45, z = -1, flip = true},
 		{d = 0, p = Vector2(9, 26), o = Vector2(12, 13), r = -45, z = 1, flip = false},
 		{d = 0, p = Vector2(6, 27), o = Vector2(12, 13), r = -60, z = 1, flip = false},
@@ -77,10 +77,10 @@ const POSE := {
 		{d = 0, p = Vector2(15, 30), o = Vector2(12, 13), r = 0, z = -1, flip = false},
 		{d = 0, p = Vector2(9, 26), o = Vector2(12, 13), r = -45, z = -1, flip = false},
 	],
-	&"hold": [
+	&"hold_left": [
 		{d = 0, p = Vector2(9, 23), o = Vector2(9, 21), r = 0, z = 1, flip = false, muzzle = Vector2(30, 13), recoil = 0},
 	],
-	&"shoot": [
+	&"shoot_left": [
 		{d = 0, p = Vector2(9, 23), o = Vector2(9, 21), r = 0, z = 1, flip = false, muzzle = Vector2(30, 13), recoil = 1},
 		{d = 0, p = Vector2(9, 23), o = Vector2(9, 21), r = 0, z = 1, flip = false, muzzle = Vector2(30, 13), recoil = 0},
 	],
@@ -160,8 +160,8 @@ func sync(anim: StringName, frame: int) -> void:
 	var key := anim
 	if def.get("held", false) and String(anim).split("_")[0] in HELD_ANIMS:
 		var parts := String(anim).split("_")
-		var dir := parts[1] if parts.size() > 1 else "side"
-		key = StringName("hold" if dir == "side" else "hold_" + dir)
+		var dir := parts[1] if parts.size() > 1 else "left"
+		key = StringName("hold_" + dir)
 		frame = 0
 	if not POSE.has(key) or frame >= POSE[key].size():
 		visible = false

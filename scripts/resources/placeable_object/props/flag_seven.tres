@@ -1,0 +1,73 @@
+[gd_resource type="Resource" script_class="PlaceableObject" format=3 uid="uid://b5hrsyfb55y7w"]
+
+[ext_resource type="Script" uid="uid://c0e27vd6vvrd3" path="res://scripts/resources/loot/loot.gd" id="1_iyi26"]
+[ext_resource type="Script" uid="uid://bstiq6ulxip1a" path="res://scripts/resources/placeable_object/placeable_object.gd" id="1_object"]
+[ext_resource type="Texture2D" uid="uid://pmyxtchr0btw" path="res://assets/apo/anims/32x48_flag.png" id="2_atlas"]
+[ext_resource type="Script" uid="uid://c7xk2mvbqjy4n" path="res://scripts/resources/recipes/craft_recipe.gd" id="2_cypd7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flag0"]
+atlas = ExtResource("2_atlas")
+region = Rect2(0, 0, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flag1"]
+atlas = ExtResource("2_atlas")
+region = Rect2(64, 0, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flag2"]
+atlas = ExtResource("2_atlas")
+region = Rect2(128, 0, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flag3"]
+atlas = ExtResource("2_atlas")
+region = Rect2(192, 0, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flag4"]
+atlas = ExtResource("2_atlas")
+region = Rect2(256, 0, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flag5"]
+atlas = ExtResource("2_atlas")
+region = Rect2(320, 0, 64, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_object"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flag0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flag1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flag2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flag3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flag4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flag5")
+}],
+"loop": 1,
+"name": &"wave",
+"speed": 8.0
+}]
+
+[resource]
+script = ExtResource("1_object")
+object_id = "flag_seven"
+object_name = "Flag"
+object_texture = SubResource("AtlasTexture_flag0")
+animated_texture = Array[Texture]([null])
+object_type = 1
+offset = Vector2i(-7, -96)
+sprite_scale = 0.5
+hurtbox_radius = 0
+scatter_radius = 0
+collision_offset = Vector2i(0, -2)
+collision_radius = 4
+sprite_frames = SubResource("SpriteFrames_object")
+default_animation = &"wave"
+metadata/_custom_type_script = "uid://bstiq6ulxip1a"

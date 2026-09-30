@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://bhrym0jiq6krx" path="res://assets/UI/Inventory/Inventory-Cell.png" id="1_37ax8"]
 [ext_resource type="Texture2D" uid="uid://bu353in2lh0n0" path="res://assets/UI/Inventory/Inventory-Chosen.png" id="1_gchcn"]
+[ext_resource type="Texture2D" uid="uid://ct3d5abkpag8t" path="res://assets/UI/nine_slice_panel.png" id="2_panel"]
+[ext_resource type="Texture2D" uid="uid://bsc3oeao707bw" path="res://assets/UI/nine_slice_panel_pressed.png" id="3_panelp"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gchcn"]
 load_path = "res://.godot/imported/Inventory-Chosen.png-54c04db39553cd245825cd80e2020184.ctex"
@@ -25,6 +27,28 @@ content_margin_right = 12.0
 content_margin_bottom = 12.0
 bg_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_panel"]
+content_margin_left = 12.0
+content_margin_top = 10.0
+content_margin_right = 12.0
+content_margin_bottom = 10.0
+texture = ExtResource("2_panel")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_panelp"]
+content_margin_left = 12.0
+content_margin_top = 11.0
+content_margin_right = 12.0
+content_margin_bottom = 9.0
+texture = ExtResource("3_panelp")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
 [resource]
 GameButton/base_type = &"Button"
 GameButton/styles/focus = SubResource("StyleBoxTexture_komek")
@@ -42,3 +66,9 @@ GamePanelContainer/styles/panel = SubResource("StyleBoxTexture_4vu20")
 IngamePanel/base_type = &"PanelContainer"
 IngamePanel/styles/panel = SubResource("StyleBoxFlat_lo5r4")
 MenuContainer/base_type = &"PanelContainer"
+PanelButton/base_type = &"Button"
+PanelButton/styles/focus = SubResource("StyleBoxTexture_panel")
+PanelButton/styles/hover = SubResource("StyleBoxTexture_panel")
+PanelButton/styles/hover_pressed = SubResource("StyleBoxTexture_panelp")
+PanelButton/styles/normal = SubResource("StyleBoxTexture_panel")
+PanelButton/styles/pressed = SubResource("StyleBoxTexture_panelp")

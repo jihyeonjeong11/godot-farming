@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://brm7cxrxbfrvc" path="res://assets/apo/32x32_buildings_floors.png" id="6_4ochj"]
 [ext_resource type="Texture2D" uid="uid://cgqkg1g5et36e" path="res://assets/apo/32x32_buildings_furnitures.png" id="7_4ochj"]
 [ext_resource type="Texture2D" uid="uid://bh8nwngs6yenw" path="res://assets/apo/32x32_buildings_roofs.png" id="8_jersd"]
+[ext_resource type="Texture2D" uid="uid://0b6jtdvl6blc" path="res://assets/temp/helipad.png" id="9_helipad"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_orngm"]
 texture = ExtResource("1_365rt")
@@ -2306,6 +2307,19 @@ texture_region_size = Vector2i(32, 32)
 26:10/0 = 0
 26:9/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_helipad"]
+texture = ExtResource("9_helipad")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
 [resource]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
@@ -2327,3 +2341,4 @@ sources/4 = SubResource("TileSetAtlasSource_xvnlv")
 sources/5 = SubResource("TileSetAtlasSource_0qdx3")
 sources/6 = SubResource("TileSetAtlasSource_up1oo")
 sources/7 = SubResource("TileSetAtlasSource_xqroe")
+sources/8 = SubResource("TileSetAtlasSource_helipad")

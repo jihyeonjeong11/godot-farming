@@ -1,6 +1,6 @@
 extends Control
 
-@onready var test_player: TestPlayer = $MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/CenterContainer/PlayerAnchor/TestPlayer
+@onready var test_player: Player = $MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/CenterContainer/PlayerAnchor/TestPlayer
 @onready var part_rows: VBoxContainer = $MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/PartRows
 
 

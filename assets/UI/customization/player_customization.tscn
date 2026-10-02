@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ll517kv0yr4p" path="res://assets/UI/customization/player_customization.gd" id="1_mivbm"]
 [ext_resource type="Texture2D" uid="uid://ct3d5abkpag8t" path="res://assets/UI/nine_slice_panel.png" id="1_pnnco"]
-[ext_resource type="PackedScene" uid="uid://b3wdmejofhe0p" path="res://scenes/characters/player/player.tscn" id="2_yx3b8"]
+[ext_resource type="PackedScene" uid="uid://b3wdmejofhe0p" path="res://scenes/characters/player/player.tscn" id="2_player"]
 [ext_resource type="Texture2D" uid="uid://c1o4itv310j3a" path="res://assets/UI/customization/arrow_left.png" id="4_arl"]
 [ext_resource type="Texture2D" uid="uid://diobn4m60xx2" path="res://assets/UI/customization/arrow_left_pressed.png" id="5_arlp"]
 [ext_resource type="Texture2D" uid="uid://b0g4hdo2mpmop" path="res://assets/UI/customization/arrow_right.png" id="6_arr"]
@@ -54,7 +54,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=407947400]
-custom_minimum_size = Vector2(75, 75)
+custom_minimum_size = Vector2(96, 112)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_p46oh")
 
@@ -62,11 +62,13 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_p46oh")
 layout_mode = 2
 
 [node name="PlayerAnchor" type="Control" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/CenterContainer" unique_id=1290576344]
-custom_minimum_size = Vector2(32, 48)
+custom_minimum_size = Vector2(64, 96)
 layout_mode = 2
 
-[node name="TestPlayer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/CenterContainer/PlayerAnchor" unique_id=407296808 instance=ExtResource("2_yx3b8")]
-position = Vector2(16, 24)
+[node name="TestPlayer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/CenterContainer/PlayerAnchor" unique_id=1257711427 instance=ExtResource("2_player")]
+position = Vector2(32, 34)
+scale = Vector2(2, 2)
+is_freeze = true
 
 [node name="Control" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=403426692]
 layout_mode = 2

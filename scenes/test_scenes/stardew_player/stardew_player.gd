@@ -61,7 +61,7 @@ const Z_TOOL_BACK := -1
 		if is_inside_tree():
 			_build_animations()
 			_refresh_pose()
-@export var shirt_index := 8:
+@export var shirt_index := -1:
 	set(v):
 		shirt_index = v
 		if is_inside_tree():
@@ -71,7 +71,7 @@ const Z_TOOL_BACK := -1
 		hair_index = v
 		if is_inside_tree():
 			_apply_look()
-@export var pants_index := 0:
+@export var pants_index := -1:
 	set(v):
 		pants_index = v
 		if is_inside_tree():
@@ -149,9 +149,9 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		KEY_H:
 			hair_index = (hair_index + 1) % 56
 		KEY_C:
-			shirt_index = (shirt_index + 1) % 112
+			shirt_index = posmod(shirt_index + 2, 113) - 1
 		KEY_P:
-			pants_index = (pants_index + 1) % 20
+			pants_index = posmod(pants_index + 2, 21) - 1
 
 
 func swing() -> void:
@@ -186,6 +186,9 @@ func _apply_look() -> void:
 	pants.modulate = pants_color
 	hair.modulate = hair_color
 	shirt_dye.modulate = shirt_color
+	pants.visible = pants_index >= 0
+	shirt.visible = shirt_index >= 0
+	shirt_dye.visible = shirt_index >= 0
 	var base_img: Image = _sheets.farmer_base.get_image()
 	var shirt_img: Image = _sheets.shirts.get_image()
 	var sx := shirt_index * 8 % 128
@@ -193,8 +196,10 @@ func _apply_look() -> void:
 	var mat: ShaderMaterial = arm.material
 	for i in 3:
 		mat.set_shader_parameter("src%d" % i, base_img.get_pixel(256 + i, 0))
-		var dye := shirt_img.get_pixel(sx + 128, sy + 4 - i)
-		var dst := dye * shirt_color if dye.a >= 1.0 else shirt_img.get_pixel(sx, sy + 4 - i)
+		var dst := base_img.get_pixel(260 + i, 0)
+		if shirt_index >= 0:
+			var dye := shirt_img.get_pixel(sx + 128, sy + 4 - i)
+			dst = dye * shirt_color if dye.a >= 1.0 else shirt_img.get_pixel(sx, sy + 4 - i)
 		mat.set_shader_parameter("dst%d" % i, dst)
 	_build_animations()
 	_refresh_pose()

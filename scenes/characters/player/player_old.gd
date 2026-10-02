@@ -1,5 +1,5 @@
 #class_name Player
-#extends CharacterBody2D
+extends CharacterBody2D
 #
 #const TEST_KEYS := {
 	#"run": KEY_SHIFT,

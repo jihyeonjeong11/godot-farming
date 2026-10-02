@@ -17,13 +17,18 @@ const TOOL_KEYS := {KEY_1: "axe", KEY_2: "pickaxe", KEY_3: "hoe", KEY_4: "wateri
 
 const OUTFIT_PARTS := ["Hair", "Shirt", "Pants", "Shoes"]
 
+
 var stats: BaseCharacterStats
 
 var facing := Vector2.DOWN
+var ground_type: String = ""
+var _ground_layers: Array[TileMapLayer] = []
+
 @export var is_freeze: bool = false
 
 
 func _ready() -> void:
+	_ground_layers = TileUtils.ground_layers(owner)
 	body.frame_changed.connect(_sync_layers)
 	body.animation_changed.connect(_sync_layers)
 	for part in OUTFIT_PARTS.size():
@@ -32,6 +37,9 @@ func _ready() -> void:
 # 로드하면 스탯및 각종 수치 추가하기
 func load_player() -> void:
 	pass
+	
+func get_terrain_type() -> String:
+	return TileUtils.terrain_at(_ground_layers, global_position)
 
 # 로드 없으면 새로 만들
 func initiate_player() -> void:
@@ -55,6 +63,8 @@ func _process(_delta: float) -> void:
 		return
 	tool_layer.aim_at(get_global_mouse_position())
 
+func consume_selected() -> void:
+	pass
 
 func _unhandled_input(event: InputEvent) -> void:
 	if is_freeze:
@@ -76,7 +86,7 @@ func face(input: Vector2) -> void:
 
 
 func outfit_count(part: int) -> int:
-	return _outfit_layer(part).vframes
+	return _outfit_layer(part).variant_count()
 
 
 func equip(part: int, index: int) -> void:

@@ -130,7 +130,8 @@ func swap_scene(path: String, spawn_id: StringName = &"") -> void:
 		game_state_manager.enter_main_menu()
 	else:
 		game_state_manager.enter_gameplay()
-
+	
+	SignalBus.level_loaded.emit()
 	_swapping = false
 
 

@@ -54,3 +54,5 @@ signal enemy_killed(enemy_id: StringName)
 
 # TODO: this is temp signal, need a system
 signal sound_requested(soundKey: String)
+
+signal level_loaded()

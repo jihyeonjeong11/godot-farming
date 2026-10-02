@@ -13,6 +13,8 @@ const DEFS := {
 	"pistol": {y = 0, h = 32, w = 32, act = "shoot", tex = PISTOL, held = true, aimed = true, scale = 0.5, flip = true},
 }
 const HELD_ANIMS := ["idle", "walk"]
+const PX := 1
+const ORIGIN := Vector2(16, 23)
 
 const POSE := {
 	&"swing_left": [
@@ -150,7 +152,7 @@ func muzzle_global() -> Vector2:
 
 
 func _apply_recoil() -> void:
-	position = _base_pos - _aim * _recoil
+	position = _base_pos - _aim * _recoil * PX
 
 
 func sync(anim: StringName, frame: int) -> void:
@@ -181,8 +183,8 @@ func sync(anim: StringName, frame: int) -> void:
 	var w: int = def.get("w", 16)
 	region_rect = Rect2(d * w, def.y, w, def.h)
 	flip_h = flip != def.get("flip", false)
-	scale = Vector2.ONE * def.get("scale", 1.0)
-	_base_pos = pose.p - Vector2(16, 24)
+	scale = Vector2.ONE * def.get("scale", 1.0) * PX
+	_base_pos = (pose.p - ORIGIN) * PX
 	position = _base_pos
 	offset = -pose.o
 	z_index = 5 if pose.z > 0 else -1

@@ -1,7 +1,14 @@
 [gd_scene format=3 uid="uid://piwhghxgnvs4"]
 
 [ext_resource type="PackedScene" uid="uid://b3wdmejofhe0p" path="res://scenes/characters/player/player.tscn" id="1_ukytv"]
+[ext_resource type="PackedScene" path="res://scenes/test_scenes/rpgm_character/rpgm_character.tscn" id="2_rpgm"]
 
 [node name="PlayerTestScene" type="Node2D" unique_id=1060261246]
 
 [node name="TestPlayer" parent="." unique_id=407296808 instance=ExtResource("1_ukytv")]
+position = Vector2(317, 154)
+scale = Vector2(2, 2)
+
+[node name="OriginalSprite" parent="." instance=ExtResource("2_rpgm")]
+position = Vector2(397, 212)
+scale = Vector2(2, 2)

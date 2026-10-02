@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dxabdcbxqeyqa"]
+
+[ext_resource type="Script" uid="uid://dbe0xqqvb403b" path="res://managers/cursor_manager.gd" id="1_eslad"]
+
+[node name="CursorManager" type="Node" unique_id=41647184]
+script = ExtResource("1_eslad")

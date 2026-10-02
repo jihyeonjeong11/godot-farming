@@ -1,10 +1,10 @@
 extends Sprite2D
 
-const COLS := 20
+const COLS := 22
 const ROWS := {"left": 0, "down": 1, "up": 2, "right": 3}
 const ANIM_COLS := {
 	"idle": [0, 1, 2, 3],
-	"walk": [4, 5, 6, 7],
+	"walk": [4, 5, 6, 7, 20, 21],
 	"swing": [11, 12, 13, 14, 11],
 	"water": [15, 16],
 	"sickle": [17, 18, 19],

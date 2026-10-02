@@ -14,6 +14,7 @@ const OBJECT_INSTANCE := preload("res://scenes/objects/placables/object_instance
 @export var interaction_range: float = 88.0
 @export var place_ok_tint := Color(0.6, 1.0, 0.6, 0.6)
 @export var place_blocked_tint := Color(1.0, 0.45, 0.45, 0.6)
+@export var highlight_color := Color(0.3, 0.55, 1.0, 0.4)
 
 var mouse_position: Vector2
 var target_position: Vector2
@@ -24,11 +25,10 @@ var held: Item
 var _placeable_cache: Dictionary = {}
 
 @onready var place_preview: Sprite2D = $PlacePreview
+@onready var tile_highlight: Polygon2D = $TileHighlight
 
 @onready var player: Node2D = get_tree().get_first_node_in_group(&"player")
-@onready var watered_soil_layer: WateredSoilLayer = (
-	get_tree().get_first_node_in_group(WateredSoilLayer.GROUP) as WateredSoilLayer
-)
+
 
 func _physics_process(_delta: float) -> void:
 	mouse_position = get_global_mouse_position()
@@ -39,10 +39,12 @@ func _physics_process(_delta: float) -> void:
 	props_target = props_under_cursor()
 	held = Inventory.get_selected_item()
 
+	update_tile_highlight()
 	update_place_preview()
-
+	
 	if GameInputEvents.interact():
 		if object_target != null:
+			print('interact')
 			object_target.interact()
 		elif player != null:
 			player.consume_selected()
@@ -187,6 +189,23 @@ func props_at(point: Vector2) -> TileMapLayer:
 	return null
 
 
+func update_tile_highlight() -> void:
+	if tilemap == null or tilemap.tile_set == null or not highlights(held):
+		tile_highlight.visible = false
+		return
+
+	var half := Vector2(tilemap.tile_set.tile_size) * 0.5
+	tile_highlight.polygon = PackedVector2Array([
+		-half, Vector2(half.x, -half.y), half, Vector2(-half.x, half.y)
+	])
+	tile_highlight.color = highlight_color
+	tile_highlight.global_transform = Transform2D(
+		0.0, tilemap.global_transform.get_scale(), 0.0,
+		tilemap.to_global(tilemap.map_to_local(cell_position))
+	)
+	tile_highlight.visible = true
+
+
 func update_place_preview() -> void:
 	var object := placeable_of(held)
 	if object == null or tilemap == null:
@@ -295,6 +314,13 @@ func object_under_cursor() -> ObjectInstance:
 
 func props_under_cursor() -> TileMapLayer:
 	return props_at(target_position)
+
+
+func highlights(item: Item) -> bool:
+	return item != null and (
+		item.item_type == DataTypes.ItemType.Tool
+		or item.item_type == DataTypes.ItemType.Seeds
+	)
 
 
 func uses_cursor(item: Item) -> bool:

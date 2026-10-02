@@ -1,19 +1,19 @@
 extends Sprite2D
 
-# 8 cells: 0 side_idle 1 side_stepA 2 side_stepB 3 side_crouch 4 down_idle 5 down_step 6 up_idle 7 up_step
-const CELLS := 8
-const CELL_H := 48
+# 14 cells: 0 side_idle 1 side_stepA 2 side_stepB 3 side_crouch 4 down_idle 5 down_step 6 up_idle 7 up_step 8-11 side_walk 12 down_half 13 up_half
+const CELLS := 14
+const CELL_H := 96
 const IDLE := {"left": 0, "down": 4, "up": 6, "right": 0}
 const STEP := {"left": [1, 2], "down": [5, 5], "up": [7, 7], "right": [1, 2]}
 # body sheet column -> (cell, flip, dx); anything not listed uses the idle cell
 const COL_POSE := {
-	"left": {4: [1, false, 0], 6: [2, false, 0], 10: [0, false, 1], 13: [3, false, 0], 14: [3, false, 0]},
-	"down": {4: [5, false, 0], 6: [5, true, -1]},
-	"up": {4: [7, false, 0], 6: [7, true, -1]},
+	"left": {4: [8, false, 0], 5: [9, false, 0], 7: [10, false, 0], 20: [11, false, 0], 10: [0, false, 2], 13: [3, false, 0], 14: [3, false, 0]},
+	"down": {4: [5, false, 0], 5: [12, false, 0], 7: [5, true, -2], 20: [12, true, -2]},
+	"up": {4: [7, false, 0], 5: [13, false, 0], 7: [7, true, -2], 20: [13, true, -2]},
 }
 const ANIM_COLS := {
 	"idle": [0, 1, 2, 3],
-	"walk": [4, 5, 6, 7],
+	"walk": [4, 5, 6, 7, 20, 21],
 	"swing": [11, 12, 13, 14, 11],
 	"water": [15, 16],
 	"sickle": [17, 18, 19],

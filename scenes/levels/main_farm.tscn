@@ -14,7 +14,6 @@
 [ext_resource type="Resource" uid="uid://cwu5que5eyybe" path="res://scripts/resources/placeable_object/nature/oak_tree.tres" id="8_oak"]
 [ext_resource type="PackedScene" uid="uid://ctree1nst4nce" path="res://scenes/objects/placables/tree_instance.tscn" id="9_tree"]
 [ext_resource type="PackedScene" uid="uid://bjnqegfrvs57s" path="res://scenes/components/cursors/cursor_component.tscn" id="10_cursor"]
-[ext_resource type="PackedScene" uid="uid://bmp8j4fwdkl82" path="res://scenes/characters/player/player_old.tscn" id="13_player"]
 [ext_resource type="PackedScene" uid="uid://hw03yyvlo6vg" path="res://scenes/objects/portals/door.tscn" id="14_door"]
 [ext_resource type="Script" uid="uid://cyg8x8ganehgt" path="res://scenes/components/spawn_point.gd" id="15_spawn"]
 [ext_resource type="Script" uid="uid://cn7l4yqx8mkr2" path="res://scenes/components/persistent/level_layer.gd" id="16_layer"]
@@ -36,6 +35,7 @@
 [ext_resource type="Texture2D" uid="uid://bp43eq45cg36y" path="res://assets/temp/furnace.png" id="33_3dnpx"]
 [ext_resource type="Resource" uid="uid://bfurnace00001" path="res://scripts/resources/placeable_object/furniture/furnace.tres" id="34_0klyg"]
 [ext_resource type="PackedScene" uid="uid://vlwn0vdyb13" path="res://managers/map_feature_manager.tscn" id="35_mapft"]
+[ext_resource type="PackedScene" uid="uid://b3wdmejofhe0p" path="res://scenes/characters/player/player.tscn" id="36_8nd6f"]
 [ext_resource type="PackedScene" uid="uid://j7kviqjw67tp" path="res://scenes/objects/helipad/helipad.tscn" id="37_b16xi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_door"]
@@ -484,13 +484,6 @@ centered = false
 offset = Vector2(-15, -24)
 object = ExtResource("7_twig")
 
-[node name="Player" parent="Level" unique_id=211281896 instance=ExtResource("13_player")]
-position = Vector2(307, 310)
-
-[node name="Camera2D" type="Camera2D" parent="Level/Player" unique_id=841949558]
-
-[node name="Weathers" parent="Level/Player/Camera2D" unique_id=1163864841 instance=ExtResource("27_weathers")]
-
 [node name="Chest" parent="Level" unique_id=1701553048 instance=ExtResource("4_objin")]
 position = Vector2(378, 280)
 texture = SubResource("AtlasTexture_b16xi")
@@ -527,3 +520,11 @@ object = ExtResource("34_0klyg")
 
 [node name="Helipad" parent="." unique_id=1866305120 instance=ExtResource("37_b16xi")]
 position = Vector2(248, 351)
+
+[node name="Player" parent="." unique_id=407296808 instance=ExtResource("36_8nd6f")]
+position = Vector2(469, 270)
+scale = Vector2(2, 2)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=841949558]
+
+[node name="Weathers" parent="Player/Camera2D" unique_id=1163864841 instance=ExtResource("27_weathers")]

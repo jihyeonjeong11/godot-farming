@@ -30,4 +30,4 @@ offset_top = 8.0
 offset_right = 400.0
 offset_bottom = 120.0
 text = "WASD 이동 / 클릭·Space 도구 휘두르기
-T 도구(괭이→곡괭이→도끼)  H 머리  C 셔츠  P 바지"
+T 도구(괭이→곡괭이→도끼)  H 머리  C 셔츠  P 바지 (C·P 첫 칸은 벗기)"

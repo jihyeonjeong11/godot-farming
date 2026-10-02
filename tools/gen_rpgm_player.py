@@ -1,5 +1,5 @@
 import os
-from PIL import Image
+from PIL import Image, ImageOps
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, "assets", "temp", "rpgm_character")
@@ -68,11 +68,100 @@ def recolor(src, body, spec):
     return out
 
 
+INK = (20, 20, 20, 255)
+SKIN = (210, 170, 123, 255)
+ATTACK_COLS = [7, 8, 9]
+ARMS = {
+    "down": {
+        "erase": [(x, y) for x in range(25, 28) for y in range(31, 40)],
+        "seam": [(28, y) for y in range(31, 39)],
+        "swing": {7: ((26, 30), (26, 23)), 8: ((27, 29), (28, 18)), 9: ((26, 31), (24, 38))},
+    },
+    "up": {
+        "erase": [(x, y) for x in range(37, 40) for y in range(31, 38)] + [(38, 38), (39, 38)],
+        "seam": [(36, y) for y in range(32, 38)],
+        "swing": {7: ((37, 30), (37, 23)), 8: ((36, 29), (35, 18)), 9: None},
+    },
+}
+SLEEVES = {"down": lambda x, y: x <= 27 and 31 <= y <= 32, "up": lambda x, y: x >= 37 and 31 <= y <= 32}
+
+
+def cell_box(col, row):
+    return (col * CELL, row * CELL, col * CELL + CELL, row * CELL + CELL)
+
+
+def arm_mask(start, end):
+    mask = set()
+    steps = max(abs(end[0] - start[0]), abs(end[1] - start[1]), 1)
+    for i in range(steps + 1):
+        x = round(start[0] + (end[0] - start[0]) * i / steps)
+        y = round(start[1] + (end[1] - start[1]) * i / steps)
+        mask.update({(x, y), (x + 1, y)})
+    mask.update({(end[0], end[1] - 1), (end[0] + 1, end[1] - 1)})
+    return mask
+
+
+def draw_arm(px, start, end):
+    mask = arm_mask(start, end)
+    for x, y in mask:
+        for dx in (-1, 0, 1):
+            for dy in (-1, 0, 1):
+                n = (x + dx, y + dy)
+                if n in mask:
+                    continue
+                if abs(n[0] - start[0]) <= 1 and n[1] >= start[1] - 1 and px[n][3] > 0:
+                    continue
+                px[n] = INK
+    for p in mask:
+        px[p] = SKIN
+
+
+def build_attack_arms():
+    path = os.path.join(SRC, "rpgm_body_sheet.png")
+    body = Image.open(path).convert("RGBA")
+    for d, spec in ARMS.items():
+        row = DIRS.index(d)
+        for col in ATTACK_COLS:
+            cell = body.crop(cell_box(0, row))
+            px = cell.load()
+            for p in spec["erase"]:
+                px[p] = (0, 0, 0, 0)
+            for p in spec["seam"]:
+                if px[p][3] > 0:
+                    px[p] = INK
+            if spec["swing"][col]:
+                draw_arm(px, *spec["swing"][col])
+            body.paste(cell, cell_box(col, row)[:2])
+    left, right = DIRS.index("left"), DIRS.index("right")
+    for col in ATTACK_COLS:
+        body.paste(ImageOps.mirror(body.crop(cell_box(col, left))), cell_box(col, right)[:2])
+    body.save(path)
+
+
+def pad_attack_cols(src, part):
+    rows = src.height // CELL
+    out = Image.new("RGBA", (CELL * (ATTACK_COLS[-1] + 1), src.height), (0, 0, 0, 0))
+    out.paste(src, (0, 0))
+    for row in range(rows):
+        d = DIRS[row % len(DIRS)]
+        cell = src.crop(cell_box(0, row))
+        if part == "shirt" and d in SLEEVES:
+            px = cell.load()
+            for y in range(CELL):
+                for x in range(CELL):
+                    if SLEEVES[d](x, y):
+                        px[x, y] = (0, 0, 0, 0)
+        for col in ATTACK_COLS:
+            out.paste(cell, cell_box(col, row)[:2])
+    return out
+
+
 def build_outfits():
     os.makedirs(OUT, exist_ok=True)
     body = Image.open(os.path.join(SRC, "rpgm_body_sheet.png")).convert("RGBA")
     for part, variants in OUTFITS.items():
         src = Image.open(os.path.join(SRC, "parts", "rpgm_%s_sheet.png" % part)).convert("RGBA")
+        src = pad_attack_cols(src, part)
         sheet = Image.new("RGBA", (src.width, src.height * len(variants)), (0, 0, 0, 0))
         for i, spec in enumerate(variants):
             sheet.alpha_composite(recolor(src, body, spec), (0, i * src.height))
@@ -106,5 +195,6 @@ def build_frames():
 
 
 if __name__ == "__main__":
+    build_attack_arms()
     build_outfits()
     build_frames()

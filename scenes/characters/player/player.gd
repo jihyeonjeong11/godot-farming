@@ -31,6 +31,7 @@ func _ready() -> void:
 	_ground_layers = TileUtils.ground_layers(owner)
 	body.frame_changed.connect(_sync_layers)
 	body.animation_changed.connect(_sync_layers)
+	body.animation_finished
 	for part in OUTFIT_PARTS.size():
 		equip(part, Inventory.get_vanity(part))
 		

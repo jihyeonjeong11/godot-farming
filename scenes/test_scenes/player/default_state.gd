@@ -22,7 +22,6 @@ func _on_enter() -> void:
 	_footstep_timer = 0.0
 	player.play_action("idle")
 
-
 func _on_physics_process(delta: float) -> void:
 	if is_playing:
 		return
@@ -61,3 +60,4 @@ func _on_animation_finished() -> void:
 		return
 	is_playing = false
 	player.play_action("idle")
+	SignalBus.tool_used.emit(Inventory.get_selected_item())

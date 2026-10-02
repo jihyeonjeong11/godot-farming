@@ -19,9 +19,7 @@ signal ui_stack_changed(pause_requested: bool)
 signal time_tick(day: int, hour: int, minute: int)
 signal time_tick_day(day: int)
 
-## 도구를 사용한 순간. 무엇을 할지는 듣는 쪽이 item.tool_type을 보고 정한다.
-## 플레이어 씬이 레벨의 타일맵을 몰라도 되게 하는 통로.
-signal tool_used(item: Item, user_position: Vector2, target_position: Vector2)
+signal tool_used(item: Item)
 
 signal container_opened(slots: Array)
 

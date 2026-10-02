@@ -30,8 +30,8 @@ const POSE := {
 		{d = 2, p = Vector2(25, 32), o = Vector2(8, 22), r = 140, z = 1, flip = true},
 	],
 	&"swing_down": [
-		{d = 0, p = Vector2(10, 26), o = Vector2(8, 26), r = 0, z = -1, flip = false},
-		{d = 0, p = Vector2(11, 24), o = Vector2(8, 26), r = -10, z = -1, flip = false},
+		{d = 0, p = Vector2(15, 12), o = Vector2(8, 26), r = 0, z = -1, flip = false},
+		{d = 0, p = Vector2(15, 6), o = Vector2(8, 26), r = -10, z = -1, flip = false},
 		{d = 3, p = Vector2(15, 26), o = Vector2(8, 6), r = 0, z = 1, flip = false},
 		{d = 3, p = Vector2(15, 30), o = Vector2(8, 10), r = 0, z = 1, flip = false},
 		{d = 0, p = Vector2(10, 26), o = Vector2(8, 26), r = 0, z = -1, flip = false},
@@ -187,7 +187,8 @@ func sync(anim: StringName, frame: int) -> void:
 	_base_pos = (pose.p - ORIGIN) * PX
 	position = _base_pos
 	offset = -pose.o
-	z_index = 5 if pose.z > 0 else -1
+	z_index = 5 if pose.z > 0 else 0
+	show_behind_parent = pose.z < 0
 	if is_aimed():
 		_apply_recoil()
 	else:

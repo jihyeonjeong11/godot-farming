@@ -30,6 +30,7 @@ var _placeable_cache: Dictionary = {}
 @onready var player: Node2D = get_tree().get_first_node_in_group(&"player")
 
 
+
 func _physics_process(_delta: float) -> void:
 	mouse_position = get_global_mouse_position()
 	target_position = clamp_to_reach(mouse_position)

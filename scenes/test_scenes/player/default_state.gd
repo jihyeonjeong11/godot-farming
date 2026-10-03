@@ -2,6 +2,8 @@ extends NodeState
 
 @export var player: Player
 
+@onready var player_buff_component: PlayerBuffComponent = $"../../PlayerBuffComponent"
+
 const FOOTSTEP_INTERVAL := 0.42
 const FOOTSTEP_BY_TERRAIN := {
 	"Grass": AudioManager.SFX_FOOTSTEP_GRASS,
@@ -29,7 +31,8 @@ func _on_physics_process(delta: float) -> void:
 		player.velocity = Vector2.ZERO
 		player.play_action("idle")
 		return
-	if Input.is_action_just_pressed("hit") and get_viewport().gui_get_hovered_control() == null:
+	if Input.is_action_just_pressed("hit") and get_viewport().gui_get_hovered_control() == null and player.tool_layer.has_tool():
+		pass
 		is_playing = true
 		player.play_action(player.tool_layer.act())
 		return
@@ -40,7 +43,7 @@ func _on_physics_process(delta: float) -> void:
 		player.play_action("idle")
 		return
 	player.face(input)
-	player.velocity = input * player.speed
+	player.velocity = input * player.stats.current_speed
 	player.move_and_slide()
 	player.play_action("walk")
 	_tick_footstep(delta)

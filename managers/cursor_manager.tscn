@@ -5,6 +5,10 @@
 [node name="CursorManager" type="Node" unique_id=41647184]
 script = ExtResource("1_eslad")
 
-[node name="TileHighlight" type="Polygon2D" parent="."]
+[node name="TileHighlight" type="Polygon2D" parent="." unique_id=1646610762]
+visible = false
+z_index = 1
+
+[node name="PlacePreview" type="Sprite2D" parent="."]
 visible = false
 z_index = 1

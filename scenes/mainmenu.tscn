@@ -15,6 +15,7 @@
 [ext_resource type="Theme" uid="uid://bkny51ahdetw" path="res://scenes/ui/game_theme.tres" id="11_theme"]
 [ext_resource type="PackedScene" uid="uid://i5sip4hqwsjx" path="res://scenes/test_scenes/zombie/test_zombie.tscn" id="12_zombie"]
 [ext_resource type="PackedScene" path="res://scenes/test_scenes/rpgm_character/rpgm_character.tscn" id="13_rpgm"]
+[ext_resource type="PackedScene" uid="uid://3ihneii567yc" path="res://assets/UI/customization/player_customization.tscn" id="14_custom"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wheat"]
 atlas = ExtResource("3_cropsB")
@@ -675,6 +676,9 @@ visible = false
 layout_mode = 3
 
 [node name="SaveSlots" parent="CanvasLayer" unique_id=795320480 instance=ExtResource("7_slots")]
+visible = false
+
+[node name="PlayerCustomization" parent="CanvasLayer" instance=ExtResource("14_custom")]
 visible = false
 
 [node name="Player" parent="." unique_id=407296808 instance=ExtResource("2_gjjcl")]

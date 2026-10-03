@@ -73,6 +73,7 @@ is_freeze = true
 [node name="Control" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=403426692]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 4
 
 [node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Control" unique_id=2066716057]
 layout_mode = 2
@@ -86,8 +87,9 @@ size_flags_horizontal = 3
 layout_mode = 2
 
 [node name="PartRows" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=953285286]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 6
 
 [node name="Hair" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/PartRows" unique_id=1618704013]
 layout_mode = 2
@@ -97,9 +99,10 @@ layout_mode = 2
 texture_normal = ExtResource("4_arl")
 texture_pressed = ExtResource("5_arlp")
 
-[node name="Info" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/PartRows/Hair" unique_id=783394195]
+[node name="Info" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/PartRows/Hair" unique_id=783394195]
 layout_mode = 2
 size_flags_horizontal = 3
+alignment = 1
 
 [node name="Name" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/PartRows/Hair/Info" unique_id=763342639]
 layout_mode = 2
@@ -124,9 +127,10 @@ layout_mode = 2
 texture_normal = ExtResource("4_arl")
 texture_pressed = ExtResource("5_arlp")
 
-[node name="Info" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/PartRows/Shirt" unique_id=1418200223]
+[node name="Info" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/PartRows/Shirt" unique_id=1418200223]
 layout_mode = 2
 size_flags_horizontal = 3
+alignment = 1
 
 [node name="Name" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/PartRows/Shirt/Info" unique_id=1628298274]
 layout_mode = 2
@@ -151,9 +155,10 @@ layout_mode = 2
 texture_normal = ExtResource("4_arl")
 texture_pressed = ExtResource("5_arlp")
 
-[node name="Info" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/PartRows/Pants" unique_id=1206985838]
+[node name="Info" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/PartRows/Pants" unique_id=1206985838]
 layout_mode = 2
 size_flags_horizontal = 3
+alignment = 1
 
 [node name="Name" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/PartRows/Pants/Info" unique_id=790377027]
 layout_mode = 2
@@ -178,9 +183,10 @@ layout_mode = 2
 texture_normal = ExtResource("4_arl")
 texture_pressed = ExtResource("5_arlp")
 
-[node name="Info" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/PartRows/Shoes" unique_id=734524563]
+[node name="Info" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/PartRows/Shoes" unique_id=734524563]
 layout_mode = 2
 size_flags_horizontal = 3
+alignment = 1
 
 [node name="Name" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/PartRows/Shoes/Info" unique_id=723958451]
 layout_mode = 2
@@ -196,3 +202,16 @@ horizontal_alignment = 1
 layout_mode = 2
 texture_normal = ExtResource("6_arr")
 texture_pressed = ExtResource("7_arrp")
+
+[node name="Buttons" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+alignment = 1
+
+[node name="Back" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Buttons"]
+layout_mode = 2
+text = "Back"
+
+[node name="Start" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Buttons"]
+layout_mode = 2
+text = "Start"

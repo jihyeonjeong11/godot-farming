@@ -7,14 +7,29 @@ extends PanelContainer
 
 @onready var gold_label: Label = $MarginContainer/VBoxContainer/HBoxContainer/GoldLabel
 
-@export var player_stats: BaseCharacterStats
+var _stats: BaseCharacterStats
 
 func _ready() -> void:
-	bind_stats(player_stats)
+	SignalBus.level_loaded.connect(bind_player)
+	bind_player()
+
+
+func bind_player() -> void:
+	var player := get_tree().get_first_node_in_group(&"player") as Player
+	bind_stats(player.stats if player != null else null)
+
 
 func bind_stats(stats: BaseCharacterStats) -> void:
-	if stats == null:
+	if stats == null or stats == _stats:
 		return
+
+	if _stats != null:
+		_stats.health_changed.disconnect(on_health_changed)
+		_stats.stamina_changed.disconnect(on_stamina_changed)
+		_stats.hunger_changed.disconnect(on_hunger_changed)
+		_stats.thirst_changed.disconnect(on_thirst_changed)
+		_stats.gold_changed.disconnect(on_gold_changed)
+	_stats = stats
 
 	setup_bar(health_bar, stats.health, stats.current_max_health)
 	setup_bar(stamina_bar, stats.stamina, stats.current_max_stamina)

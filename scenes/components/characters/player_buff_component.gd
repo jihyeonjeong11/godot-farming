@@ -1,21 +1,17 @@
 class_name PlayerBuffComponent
 extends Node
 
-
-@export var stats: BaseCharacterStats
-
 @export_range(0.0, 1.0) var hunger_slow_threshold: float = 0.5
 @export_range(0.0, 1.0) var hunger_slow_multiplier: float = 0.5
 
 const HUNGER_SLOW := &"hunger_slow"
 
 var _buffs: Dictionary[StringName, StatBuff] = {}
+var stats: BaseCharacterStats
 
 
-func _ready() -> void:
-	if stats == null:
-		push_warning("PlayerBuffComponent에 stats가 없습니다.")
-		return
+func bind(s: BaseCharacterStats) -> void:
+	stats = s
 
 	_buffs[HUNGER_SLOW] = StatBuff.new(
 		BaseCharacterStats.Buffables.SPEED,

@@ -7,6 +7,7 @@ extends Control
 @onready var menu_panel: PanelContainer = $CanvasLayer/Container
 @onready var settings_panel: Control = $CanvasLayer/SettingsPanel
 @onready var save_slots: SaveSlots = $CanvasLayer/SaveSlots
+@onready var customization: Control = $CanvasLayer/PlayerCustomization
 
 @onready var camera_2d: Camera2D = $Camera2D
 @onready var tile_map_layer: TileMapLayer = $TileMapLayer
@@ -16,6 +17,7 @@ extends Control
 @onready var player: Player = $Player
 
 var _slot_mode: SaveSlots.Mode = SaveSlots.Mode.NEW
+var _pending_slot := -1
 var _pan_tween: Tween
 var _pan_target: Vector2
 
@@ -25,6 +27,7 @@ func _ready() -> void:
 	menu_panel.visible = false
 	settings_panel.visible = false
 	save_slots.visible = false
+	customization.visible = false
 
 	play.pressed.connect(_on_play_pressed)
 	load_game.pressed.connect(_on_load_pressed)
@@ -33,6 +36,8 @@ func _ready() -> void:
 	settings_panel.closed.connect(_on_settings_closed)
 	save_slots.slot_selected.connect(_on_slot_selected)
 	save_slots.closed.connect(_on_slots_closed)
+	customization.confirmed.connect(_on_customization_confirmed)
+	customization.cancelled.connect(_on_customization_cancelled)
 
 	_start_camera_pan()
 
@@ -94,10 +99,21 @@ func _open_slots(mode: SaveSlots.Mode) -> void:
 ## 슬롯이 정해져야 어느 폴더를 읽고 쓸지가 정해진다. 그래서 게임을 여는 신호에
 ## 슬롯 번호를 실어 보낸다.
 func _on_slot_selected(slot: int) -> void:
-	if _slot_mode == SaveSlots.Mode.LOAD:
+	if _slot_mode == SaveSlots.Mode.LOAD or SaveAndLoad.has_save(slot):
 		SignalBus.load_game_requested.emit(slot)
-	else:
-		SignalBus.new_game_requested.emit(slot)
+		return
+	_pending_slot = slot
+	save_slots.visible = false
+	customization.visible = true
+
+
+func _on_customization_confirmed() -> void:
+	SignalBus.new_game_requested.emit(_pending_slot)
+
+
+func _on_customization_cancelled() -> void:
+	customization.visible = false
+	save_slots.open(SaveSlots.Mode.NEW)
 
 
 func _on_slots_closed() -> void:

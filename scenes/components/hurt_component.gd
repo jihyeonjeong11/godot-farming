@@ -17,7 +17,7 @@ const TOOL_SFX: Dictionary = {
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var hit_audio_stream_player: AudioStreamPlayer2D = $HitAudioStreamPlayer
 @export var tool: DataTypes.Tools = DataTypes.Tools.None
-@export var stats: BaseCharacterStats
+@export var follow_shape: CollisionShape2D
 
 signal hurt(hit_damage: int)
 
@@ -33,20 +33,30 @@ func _ready() -> void:
 	if sound != null:
 		hit_audio_stream_player.stream = sound
 
+	if follow_shape != null:
+		var shape := CollisionShape2D.new()
+		shape.shape = follow_shape.shape
+		shape.position = follow_shape.position
+		add_child(shape)
+
 
 func _on_area_entered(area: Area2D) -> void:
-	var hit_component = area as HitComponent
-	
-	if hit_component.owner == owner:
+	var hit_component := area as HitComponent
+	if hit_component == null or hit_component.owner == owner:
 		return
 
-	if hit_component == null:
-		return
+	receive_hit(hit_component.current_tool, hit_component.hit_damage, get_knockback_direction(hit_component))
 
-	if tool == hit_component.current_tool:
-		play_hit_effect()
-		last_knockback_direction = get_knockback_direction(hit_component)
-		hurt.emit(hit_component.hit_damage)
+
+func receive_hit(hit_tool: DataTypes.Tools, damage: int, knockback: Vector2) -> bool:
+	if hit_tool != tool:
+		return false
+
+	play_hit_effect()
+	last_knockback_direction = knockback
+	hurt.emit(damage)
+	return true
+
 
 func get_knockback_direction(hit_component: HitComponent) -> Vector2:
 	if hit_component.knockback_vector != Vector2.ZERO:

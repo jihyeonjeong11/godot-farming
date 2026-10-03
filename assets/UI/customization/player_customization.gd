@@ -1,11 +1,18 @@
 extends Control
 
+signal confirmed
+signal cancelled
+
 @onready var test_player: Player = $MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/CenterContainer/PlayerAnchor/TestPlayer
 @onready var part_rows: VBoxContainer = $MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/PartRows
+@onready var start_button: Button = $MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Buttons/Start
+@onready var back_button: Button = $MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Buttons/Back
 
 
 func _ready() -> void:
 	test_player.is_freeze = true
+	start_button.pressed.connect(confirmed.emit)
+	back_button.pressed.connect(cancelled.emit)
 	for part in test_player.OUTFIT_PARTS.size():
 		var row := _row(part)
 		row.get_node("Prev").pressed.connect(_step.bind(part, -1))

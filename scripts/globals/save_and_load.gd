@@ -234,6 +234,7 @@ func save_inventory() -> void:
 		"armor": _capture_slots(Inventory.armor),
 		"boots": _capture_slots(Inventory.boots),
 		"selected_slot": Inventory.selected_slot,
+		"vanity": Inventory.vanity_slots.duplicate(),
 	})
 
 
@@ -247,6 +248,10 @@ func load_inventory() -> void:
 	# 장비가 없던 시절의 세이브에는 이 키가 없다. 그때는 빈 칸으로 시작한다.
 	_restore_slots(Inventory.armor, parsed.get("armor", []), Inventory.EQUIPMENT_SLOT_LIMIT)
 	_restore_slots(Inventory.boots, parsed.get("boots", []), Inventory.EQUIPMENT_SLOT_LIMIT)
+
+	var vanity: Variant = parsed.get("vanity", [])
+	for i in Inventory.vanity_slots.size():
+		Inventory.vanity_slots[i] = int(vanity[i]) if vanity is Array and i < vanity.size() else -1
 
 	Inventory.selected_slot = 0
 	Inventory.select_slot(parsed.get("selected_slot", 0))

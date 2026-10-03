@@ -1,7 +1,7 @@
 class_name NeedsDecayComponent
 extends Node
 
-@export var stats: BaseCharacterStats
+var stats: BaseCharacterStats
 
 @export var hunger_decay_per_hour: int = 2
 @export var thirst_decay_per_hour: int = 5

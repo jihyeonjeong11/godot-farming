@@ -30,12 +30,14 @@ func _free_tab_key() -> void:
 
 func on_new_game_requested(slot: int) -> void:
 	SaveAndLoad.select_slot(slot)
+	Inventory.player_stats = null
 	SaveAndLoad.clear_slot()
 	SaveAndLoad.load_requested = false
 	SaveAndLoad.fresh_start = true
 	reset_quests()
 	reset_weather()
 	swap_scene.call_deferred(scene_farm)
+	SaveAndLoad.save_game.call_deferred()
 	_open_intro_dialog.call_deferred()
 	
 	
@@ -65,6 +67,7 @@ func _open_intro_dialog() -> void:
 
 func on_load_game_requested(slot: int) -> void:
 	SaveAndLoad.select_slot(slot)
+	Inventory.player_stats = null
 	SaveAndLoad.fresh_start = true
 	# 인벤토리와 시간은 오토로드라 씬 교체와 무관하다. 여기서 바로 얹어도 된다.
 	SaveAndLoad.load_game()

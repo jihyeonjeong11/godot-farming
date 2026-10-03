@@ -35,19 +35,25 @@ OUTFITS = {
         {"ece2e2": "9696a0", "323131": "5f5f69", "141414": "5f5f69", "clip": True},
     ],
     "shirt": [
-        {},
-        {"561c14": "4e5834", "7c281b": "58623a", "872e20": "645638", "c93620": "7a6c46"},
+        ("7c281b", "561c14"),
+        ("58623a", "4e5834"),
     ],
     "pants": [
-        {},
-        {"10313f": "3e5496", "141414": "14191d"},
-        {"10313f": "545e3a", "141414": "14191d"},
+        ("10313f", "0b2430"),
+        ("3e5496", "2f4075"),
+        ("545e3a", "40482c"),
     ],
     "shoes": [
-        {},
-        {"141414": "463c36"},
+        ("141414", "141414"),
+        ("463c36", "141414"),
     ],
 }
+
+SLEEVE_Y = (29, 32)
+TORSO_Y = (33, 37)
+LEG_TOP = 38
+LEG_MIN_BOTTOM = 42
+FOOT_TOP = 44
 
 
 def recolor(src, body, spec):
@@ -83,7 +89,6 @@ ARMS = {
         "swing": {7: ((37, 30), (37, 23)), 8: ((36, 29), (35, 18)), 9: None},
     },
 }
-SLEEVES = {"down": lambda x, y: x <= 27 and 31 <= y <= 32, "up": lambda x, y: x >= 37 and 31 <= y <= 32}
 
 
 def cell_box(col, row):
@@ -138,20 +143,117 @@ def build_attack_arms():
     body.save(path)
 
 
-def pad_attack_cols(src, part):
-    rows = src.height // CELL
-    out = Image.new("RGBA", (CELL * (ATTACK_COLS[-1] + 1), src.height), (0, 0, 0, 0))
-    out.paste(src, (0, 0))
-    for row in range(rows):
-        d = DIRS[row % len(DIRS)]
-        cell = src.crop(cell_box(0, row))
-        if part == "shirt" and d in SLEEVES:
-            px = cell.load()
-            for y in range(CELL):
-                for x in range(CELL):
-                    if SLEEVES[d](x, y):
-                        px[x, y] = (0, 0, 0, 0)
-        for col in ATTACK_COLS:
+def is_ink(p):
+    return p[3] > 0 and p[:3] == INK[:3]
+
+
+def is_flesh(p):
+    return p[3] > 0 and not is_ink(p)
+
+
+def flood(px, seeds, ok):
+    seen = set()
+    stack = [q for q in seeds if ok(q)]
+    while stack:
+        q = stack.pop()
+        if q in seen:
+            continue
+        seen.add(q)
+        x, y = q
+        for n in ((x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)):
+            if 0 <= n[0] < CELL and 0 <= n[1] < CELL and n not in seen and ok(n):
+                stack.append(n)
+    return seen
+
+
+def shirt_mask(px, span):
+    x0, x1 = span
+    sleeves = {(x, y) for x in range(x0, x1) for y in range(SLEEVE_Y[0], SLEEVE_Y[1] + 1) if is_flesh(px[x, y])}
+    in_torso = lambda q: TORSO_Y[0] <= q[1] <= TORSO_Y[1] and is_flesh(px[q])
+    mid = (x0 + x1) // 2
+    seeds = [(mid + dx, TORSO_Y[0]) for dx in (0, -1, 1, -2, 2)]
+    return sleeves | flood(px, seeds, in_torso)
+
+
+def leg_components(px):
+    legs = set()
+    seen = set()
+    below = lambda q: q[1] >= LEG_TOP and is_flesh(px[q])
+    for y in range(LEG_TOP, CELL):
+        for x in range(CELL):
+            if (x, y) in seen or not below((x, y)):
+                continue
+            comp = flood(px, [(x, y)], below)
+            seen |= comp
+            if max(q[1] for q in comp) >= LEG_MIN_BOTTOM:
+                legs |= comp
+    return legs
+
+
+def feet_mask(px, legs):
+    feet = {(x, y) for x in range(CELL) for y in range(FOOT_TOP, CELL) if is_ink(px[x, y])}
+    soles = set()
+    for x in {q[0] for q in feet}:
+        soles.add((x, max(q[1] for q in feet if q[0] == x)))
+    return feet - soles, soles
+
+
+def paint(cell_px, mask, base, shade, px):
+    for q in mask:
+        x, y = q
+        edge = any(not (0 <= n[0] < CELL) or n not in mask and (px[n][3] == 0 or is_ink(px[n]))
+            for n in ((x - 1, y), (x + 1, y)))
+        cell_px[q] = shade if edge else base
+
+
+def outfit_cell(body_cell, part, colors, span):
+    px = body_cell.load()
+    out = Image.new("RGBA", (CELL, CELL), (0, 0, 0, 0))
+    opx = out.load()
+    base, shade = hexc(colors[0]), hexc(colors[1])
+    if part == "shirt":
+        paint(opx, shirt_mask(px, span), base, shade, px)
+    elif part == "pants":
+        paint(opx, leg_components(px), base, shade, px)
+    elif part == "shoes":
+        top, soles = feet_mask(px, leg_components(px))
+        for q in top:
+            opx[q] = base
+        for q in soles:
+            opx[q] = shade
+    return out
+
+
+def body_spans(body):
+    return [body.crop(cell_box(0, row)).getbbox()[0::2] for row in range(len(DIRS))]
+
+
+def head_top(cell, x):
+    px = cell.load()
+    return next(y for y in range(CELL) if px[x, y][3] > 0)
+
+
+def hair_sheet(body):
+    src = Image.open(os.path.join(SRC, "parts", "rpgm_hair_sheet.png")).convert("RGBA")
+    cols = body.width // CELL
+    out = Image.new("RGBA", body.size, (0, 0, 0, 0))
+    for row in range(len(DIRS)):
+        idle_cell = body.crop(cell_box(0, row))
+        x0, _, x1, _ = idle_cell.getbbox()
+        mid = (x0 + x1) // 2
+        idle = idle_cell.load()
+        for col in range(cols):
+            pose_cell = body.crop(cell_box(col, row))
+            dy = head_top(pose_cell, mid) - head_top(idle_cell, mid)
+            cell = Image.new("RGBA", (CELL, CELL), (0, 0, 0, 0))
+            cell.paste(src.crop(cell_box(0, row)), (0, dy))
+            if col in ATTACK_COLS:
+                px = cell.load()
+                pose = pose_cell.load()
+                for y in range(CELL):
+                    for x in range(CELL):
+                        if pose[x, y][3] > 0 and pose[x, y] != idle[x, y]:
+                            px[x, y] = (0, 0, 0, 0)
             out.paste(cell, cell_box(col, row)[:2])
     return out
 
@@ -159,12 +261,20 @@ def pad_attack_cols(src, part):
 def build_outfits():
     os.makedirs(OUT, exist_ok=True)
     body = Image.open(os.path.join(SRC, "rpgm_body_sheet.png")).convert("RGBA")
+    cols, rows = body.width // CELL, body.height // CELL
+    spans = body_spans(body)
     for part, variants in OUTFITS.items():
-        src = Image.open(os.path.join(SRC, "parts", "rpgm_%s_sheet.png" % part)).convert("RGBA")
-        src = pad_attack_cols(src, part)
-        sheet = Image.new("RGBA", (src.width, src.height * len(variants)), (0, 0, 0, 0))
-        for i, spec in enumerate(variants):
-            sheet.alpha_composite(recolor(src, body, spec), (0, i * src.height))
+        sheet = Image.new("RGBA", (body.width, body.height * len(variants)), (0, 0, 0, 0))
+        if part == "hair":
+            hair = hair_sheet(body)
+            for i, spec in enumerate(variants):
+                sheet.alpha_composite(recolor(hair, body, spec), (0, i * body.height))
+        else:
+            for i, colors in enumerate(variants):
+                for row in range(rows):
+                    for col in range(cols):
+                        cell = outfit_cell(body.crop(cell_box(col, row)), part, colors, spans[row])
+                        sheet.alpha_composite(cell, (col * CELL, i * body.height + row * CELL))
         sheet.save(os.path.join(OUT, "%s.png" % part))
 
 

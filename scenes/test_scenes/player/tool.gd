@@ -109,7 +109,7 @@ const POSE := {
 	],
 }
 
-var tool_name := "pickaxe"
+var tool_name := ""
 var _anim: StringName = &""
 var _frame := 0
 var _muzzle := Vector2.ZERO
@@ -119,20 +119,24 @@ var _base_pos := Vector2.ZERO
 
 
 func set_tool(name: String) -> void:
-	tool_name = name
+	tool_name = name if DEFS.has(name) else ""
 	sync(_anim, _frame)
 
 
+func has_tool() -> bool:
+	return DEFS.has(tool_name)
+
+
 func act() -> String:
-	return DEFS[tool_name].act
+	return DEFS[tool_name].act if has_tool() else ""
 
 
 func is_held() -> bool:
-	return DEFS[tool_name].get("held", false)
+	return DEFS.get(tool_name, {}).get("held", false)
 
 
 func is_aimed() -> bool:
-	return DEFS[tool_name].get("aimed", false)
+	return DEFS.get(tool_name, {}).get("aimed", false)
 
 
 func aim_at(target: Vector2) -> void:
@@ -158,6 +162,9 @@ func _apply_recoil() -> void:
 func sync(anim: StringName, frame: int) -> void:
 	_anim = anim
 	_frame = frame
+	if not has_tool():
+		visible = false
+		return
 	var def: Dictionary = DEFS[tool_name]
 	var key := anim
 	if def.get("held", false) and String(anim).split("_")[0] in HELD_ANIMS:

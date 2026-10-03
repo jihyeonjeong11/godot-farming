@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://b3wdmejofhe0p"]
 
 [ext_resource type="SpriteFrames" uid="uid://dg4d1sv3fl8jg" path="res://scenes/characters/player/rpgm_body_frames.tres" id="1_body"]
+[ext_resource type="PackedScene" uid="uid://bwn5t2ejgp0hr" path="res://scenes/components/hurt_component.tscn" id="2_blysn"]
 [ext_resource type="Script" uid="uid://cbfkln4si60o0" path="res://scenes/characters/player/player.gd" id="2_script"]
+[ext_resource type="PackedScene" uid="uid://crv3m1mc5xef2" path="res://scenes/components/characters/player_buff_component.tscn" id="3_hv5x3"]
 [ext_resource type="Script" uid="uid://dt6y3qm1wpx1q" path="res://scenes/characters/player/rpgm_layer.gd" id="3_layer"]
 [ext_resource type="Script" uid="uid://2p2g8fexkyxo" path="res://scenes/test_scenes/player/tool.gd" id="4_tool"]
+[ext_resource type="PackedScene" uid="uid://bx810a2sxe5aa" path="res://scenes/components/characters/needs_decay_component.tscn" id="4_ykrpk"]
 [ext_resource type="Texture2D" uid="uid://dsx32jrpttgk1" path="res://assets/temp/rpgm_character/rpgm_shadow_sheet.png" id="5_shadow"]
 [ext_resource type="Texture2D" uid="uid://ifts8g3ri83v" path="res://assets/temp/rpgm_character/outfits/hair.png" id="6_hair"]
 [ext_resource type="Script" uid="uid://tk1ig2rubqvq" path="res://scenes/test_scenes/player/sheet_layer.gd" id="7_sheet"]
@@ -12,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://cr3gstsll56qq" path="res://assets/temp/rpgm_character/outfits/shoes.png" id="12_shoes"]
 [ext_resource type="Script" uid="uid://ddeeotva2srbc" path="res://scenes/test_scenes/player/default_state.gd" id="14_bym2u"]
 [ext_resource type="Script" uid="uid://bk7xvms3qnp8t" path="res://scripts/state_machine/node_state_machine.gd" id="15_nsm"]
+[ext_resource type="Resource" uid="uid://dv4stqyl5a6tf" path="res://scenes/characters/player/player_stat.tres" id="16_stats"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_feet"]
 radius = 6.0
@@ -24,6 +28,14 @@ script = ExtResource("2_script")
 body = NodePath("Body")
 tool_layer = NodePath("Body/Tool")
 hands_layer = NodePath("Body/Hands")
+base_stats = ExtResource("16_stats")
+
+[node name="HurtComponent" parent="." unique_id=1533014795 node_paths=PackedStringArray("follow_shape") instance=ExtResource("2_blysn")]
+follow_shape = NodePath("../CollisionShape2D")
+
+[node name="PlayerBuffComponent" parent="." unique_id=1924369797 instance=ExtResource("3_hv5x3")]
+
+[node name="NeedsDecayComponent" parent="." unique_id=1939453797 instance=ExtResource("4_ykrpk")]
 
 [node name="Body" type="AnimatedSprite2D" parent="." unique_id=407296809]
 position = Vector2(0, 11)

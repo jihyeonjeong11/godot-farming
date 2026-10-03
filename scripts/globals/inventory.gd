@@ -12,13 +12,15 @@ const EQUIPMENT_SLOT_LIMIT = 1
 var inventory: Array[ItemStack] = []
 var armor: Array[ItemStack] = []
 var boots: Array[ItemStack] = []
-var selected_slot: int = 0
+var selected_slot: int = -1
 var player_node: Node2D
 var world_scene_cache: Dictionary = {}
 
 # TODO: 나중에 옷 갈아입기, 머리 바꾸기 나오면 별개 파일로 클리닝
 # hair, shirt, pants, shoes
 var vanity_slots = [-1, -1, -1, -1]
+
+var player_stats: BaseCharacterStats
 
 func _ready():
 	inventory.resize(BASE_INVENTORY_LIMIT)

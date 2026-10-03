@@ -279,3 +279,23 @@ https://en.wikipedia.org/wiki/Atoms_for_Peace
 대
 
 - ui 맵은 현재 그대로 -> 추후 szadi로 교체할거임
+
+## 새 플레이어 이관 (player_old → player)
+
+- [] revive() 추가 — game.gd:101 에서 호출, 없으면 사망 시 크래시
+- [] 불러오기 시 SaveAndLoad.load_stats() 적용 + fresh_start 소비
+- [] Inventory.set_player_reference(self) — 아이템 버리기 복구
+- [] equipment_updated → stats.apply_equipment 연결
+- [] HurtComponent.hurt → take_hit / 무적 깜빡임 / die → player_died
+- [] 허기 0 이면 die()
+- [] 근접 공격 — HitComponent 없음, CursorManager.hit_target 이 object 그룹만 봄
+- [] 권총 — 총알 생성, 탄약 차감, 재장전
+- [] 물뿌리개 탄약 — on_tool_used 에서 차감, 물 타일에서 충전
+- [] 달리기 (Shift, RUN_MULTIPLIER)
+- [] 스태미나 회복 (옛 코드도 조건 반대라 안 돌았음)
+- [] ItemOver 필요 여부 결정 (tool_layer 로 대체?)
+- [] 메인 농장 외 씬 Player scale 2 맞추기
+- [] scenes/characters/player/states/ 삭제 (옛 상태들, 미사용)
+- [] player_old.tscn / player_old.gd 삭제
+- [] scenes/components/cursors/cursor_component.tscn 삭제 (에디터 잠금으로 남음)
+- [] item.gd:44 주석 CursorComponent → CursorManager

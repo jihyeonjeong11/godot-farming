@@ -52,8 +52,19 @@ func _process(_delta: float) -> void:
 		return
 	tool_layer.aim_at(get_global_mouse_position())
 
-func consume_selected() -> void:
-	pass
+func consume_selected() -> bool:
+	var item := Inventory.get_selected_item()
+	if item == null or item.item_type != DataTypes.ItemType.Consumable:
+		return false
+	if item.edible > 0:
+		stats.health += item.edible
+	if item.hunger > 0:
+		stats.hunger += item.hunger
+	if item.thirst > 0:
+		stats.thirst += item.thirst
+	SignalBus.sound_requested.emit(AudioManager.SFX_EATING)
+	Inventory.remove_item(Inventory.selected_slot, 1)
+	return true
 
 func _unhandled_input(event: InputEvent) -> void:
 	if is_freeze:

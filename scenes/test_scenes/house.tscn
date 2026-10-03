@@ -1,9 +1,8 @@
 [gd_scene format=4 uid="uid://cd31oy17nwpe5"]
 
-[ext_resource type="PackedScene" uid="uid://bjnqegfrvs57s" path="res://scenes/components/cursors/cursor_component.tscn" id="1_1kwl1"]
 [ext_resource type="TileSet" uid="uid://8jdyac0p5kww" path="res://tilesets/buildings.tres" id="1_s2ciu"]
 [ext_resource type="Script" uid="uid://cyg8x8ganehgt" path="res://scenes/components/spawn_point.gd" id="2_spawn"]
-[ext_resource type="PackedScene" uid="uid://bmp8j4fwdkl82" path="res://scenes/characters/player/player_old.tscn" id="3_playr"]
+[ext_resource type="PackedScene" uid="uid://b3wdmejofhe0p" path="res://scenes/characters/player/player.tscn" id="3_playr"]
 [ext_resource type="PackedScene" uid="uid://hw03yyvlo6vg" path="res://scenes/objects/portals/door.tscn" id="3_v16bj"]
 [ext_resource type="PackedScene" uid="uid://cs37xus6fdfc" path="res://scenes/objects/placables/object_instance.tscn" id="5_objin"]
 [ext_resource type="Resource" uid="uid://dn1oxfy01wq4k" path="res://scripts/resources/placeable_object/furniture/bed.tres" id="6_bed"]
@@ -12,9 +11,6 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_4kxuq"]
 
 [node name="House" type="Node2D" unique_id=2135102818]
-
-[node name="CursorComponent" parent="." unique_id=542531313 node_paths=PackedStringArray("tilemap") instance=ExtResource("1_1kwl1")]
-tilemap = NodePath("../TileMapLayer/Land")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1588106319]
 

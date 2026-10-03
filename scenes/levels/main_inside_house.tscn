@@ -1,15 +1,24 @@
 [gd_scene format=4 uid="uid://bc3jru857xgr8"]
 
 [ext_resource type="TileSet" uid="uid://cq7h2m4x0kw8v" path="res://tilesets/house_interior.tres" id="1_tiles"]
-[ext_resource type="PackedScene" uid="uid://bjnqegfrvs57s" path="res://scenes/components/cursors/cursor_component.tscn" id="2_cursor"]
 [ext_resource type="Script" uid="uid://cyg8x8ganehgt" path="res://scenes/components/spawn_point.gd" id="3_spawn"]
-[ext_resource type="PackedScene" uid="uid://bmp8j4fwdkl82" path="res://scenes/characters/player/player_old.tscn" id="4_player"]
+[ext_resource type="PackedScene" uid="uid://b3wdmejofhe0p" path="res://scenes/characters/player/player.tscn" id="4_player"]
+[ext_resource type="Texture2D" uid="uid://dd2rbvkdlrgd6" path="res://assets/craftland/Craftland Town/32x32/CLT_Houses.png" id="5_kq8jo"]
 [ext_resource type="PackedScene" uid="uid://y27b0nq34315" path="res://scenes/components/portal_component.tscn" id="5_portal"]
 [ext_resource type="PackedScene" uid="uid://cs37xus6fdfc" path="res://scenes/objects/placables/object_instance.tscn" id="6_objin"]
+[ext_resource type="Texture2D" uid="uid://cafjukjy7dmsm" path="res://assets/temp/tv.png" id="7_3djy0"]
 [ext_resource type="Resource" uid="uid://txf3sdnp05dp" path="res://scripts/resources/placeable_object/furniture/bed_house.tres" id="7_bed"]
 [ext_resource type="Script" uid="uid://cn7l4yqx8mkr2" path="res://scenes/components/persistent/level_layer.gd" id="8_layer"]
 [ext_resource type="Resource" uid="uid://btv0000000001" path="res://scripts/resources/placeable_object/furniture/tv.tres" id="9_tv"]
 [ext_resource type="PackedScene" uid="uid://vlwn0vdyb13" path="res://managers/map_feature_manager.tscn" id="10_mapft"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_object"]
+atlas = ExtResource("5_kq8jo")
+region = Rect2(1536, 1184, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tv0"]
+atlas = ExtResource("7_3djy0")
+region = Rect2(0, 0, 48, 48)
 
 [node name="MainInsideHouse" type="Node2D" unique_id=545508750]
 y_sort_enabled = true
@@ -43,13 +52,12 @@ y_sort_enabled = true
 tile_map_data = PackedByteArray("AAABAAIAAAAmACAAAAACAAIAAAAnACAAAAABAAMAAAAmACEAAAACAAMAAAAnACEAAAABAAQAAAAmACIAAAACAAQAAAAnACIAAAADAAIAAAAjAB0AAAAEAAIAAAAkAB0AAAAFAAIAAAAlAB0AAAADAAMAAAAjAB4AAAAEAAMAAAAkAB4AAAAFAAMAAAAlAB4AAAADAAQAAAAjAB8AAAAEAAQAAAAkAB8AAAAFAAQAAAAlAB8AAAAHAAEAAAAsAEEAAAAIAAEAAAAtAEEAAAAHAAIAAAAsAEIAAAAIAAIAAAAtAEIAAAAJAAIAAAAeADgAAAAKAAIAAAAfADgAAAAJAAMAAAAeADkAAAAKAAMAAAAfADkAAAAJAAQAAAAeADoAAAAKAAQAAAAfADoAAAAMAAEAAAAZABsAAAAMAAIAAAAZABwAAAALAAMAAAAmAB4AAAAMAAMAAAAnAB4AAAALAAQAAAAmAB8AAAAMAAQAAAAnAB8AAAAPAAMAAAAqADwAAAAPAAQAAAAqAD0AAAABAAUAAAAoACMAAAABAAYAAAAoACQAAAACAAYAAAA8ADUAAAADAAYAAAA9ADUAAAAEAAYAAAA+ADUAAAACAAcAAAA8ADYAAAADAAcAAAA9ADYAAAAEAAcAAAA+ADYAAAAGAAYAAABCADUAAAAGAAcAAABCADYAAAAHAAYAAAA0ADMAAAAIAAYAAAA1ADMAAAAHAAcAAAA0ADQAAAAIAAcAAAA1ADQAAAAJAAYAAABEADUAAAAJAAcAAABEADYAAAABAAkAAAAhAB0AAAACAAkAAAAiAB0AAAABAAoAAAAhAB4AAAACAAoAAAAiAB4AAAABAAsAAAAhAB8AAAACAAsAAAAiAB8AAAALAAoAAAAuADkAAAAMAAoAAAAvADkAAAALAAsAAAAuADoAAAAMAAsAAAAvADoAAAANAAkAAAAmADgAAAAOAAkAAAAnADgAAAANAAoAAAAmADkAAAAOAAoAAAAnADkAAAANAAsAAAAmADoAAAAOAAsAAAAnADoAAAAPAAoAAAAsADwAAAAPAAsAAAAsAD0AAAA=")
 tile_set = ExtResource("1_tiles")
 
-[node name="CursorComponent" parent="." instance=ExtResource("2_cursor")]
-
 [node name="Level" type="Node2D" parent="." unique_id=1769921065]
 y_sort_enabled = true
 
 [node name="Player" parent="Level" unique_id=1433995120 instance=ExtResource("4_player")]
 position = Vector2(256, 400)
+scale = Vector2(2, 2)
 
 [node name="Camera2D" type="Camera2D" parent="Level/Player" unique_id=738248629]
 
@@ -59,10 +67,16 @@ script = ExtResource("8_layer")
 
 [node name="Bed" parent="Level/Objects" unique_id=1917527810 instance=ExtResource("6_objin")]
 position = Vector2(448, 192)
+texture = SubResource("AtlasTexture_object")
+centered = false
+offset = Vector2(-32, -96)
 object = ExtResource("7_bed")
 
 [node name="TV" parent="Level/Objects" unique_id=1917527811 instance=ExtResource("6_objin")]
 position = Vector2(384, 161)
+texture = SubResource("AtlasTexture_tv0")
+centered = false
+offset = Vector2(-24, -80)
 object = ExtResource("9_tv")
 
 [node name="PortalToFarm" parent="." unique_id=866850514 instance=ExtResource("5_portal")]
@@ -75,4 +89,4 @@ position = Vector2(256, 400)
 script = ExtResource("3_spawn")
 spawn_id = &"house_entrance"
 
-[node name="MapFeatureManager" parent="." instance=ExtResource("10_mapft")]
+[node name="MapFeatureManager" parent="." unique_id=544108918 instance=ExtResource("10_mapft")]

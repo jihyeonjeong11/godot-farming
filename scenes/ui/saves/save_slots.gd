@@ -20,6 +20,7 @@ const TITLES := {
 @onready var title_label: Label = %TitleLabel
 @onready var back_button: Button = %BackButton
 @onready var slot_buttons: Array[Button] = [%Slot1Button, %Slot2Button, %Slot3Button]
+@onready var delete_buttons: Array[Button] = [%Slot1Delete, %Slot2Delete, %Slot3Delete]
 
 var _mode: Mode = Mode.LOAD
 
@@ -31,6 +32,7 @@ func _ready() -> void:
 	# 버튼 순서가 곧 슬롯 번호다. 1부터 세는 이유는 폴더 이름(slot_1)에 그대로 쓰기 때문.
 	for i in slot_buttons.size():
 		slot_buttons[i].pressed.connect(on_slot_pressed.bind(i + 1))
+		delete_buttons[i].pressed.connect(on_delete_pressed.bind(i + 1))
 
 
 func open(mode: Mode) -> void:
@@ -51,6 +53,7 @@ func refresh() -> void:
 		slot_buttons[i].text = "%d.  %s" % [slot, describe(meta)]
 		# 불러올 것이 없는 칸은 누를 수 없다. 저장과 새 게임은 빈 칸이 정상이다.
 		slot_buttons[i].disabled = _mode == Mode.LOAD and meta == null
+		delete_buttons[i].disabled = meta == null
 
 
 ## 어느 판인지 가늠하려면 게임 안 날짜와 실제 저장 시각이 둘 다 필요하다.
@@ -88,6 +91,12 @@ func focus_first_enabled() -> void:
 func on_slot_pressed(slot: int) -> void:
 	visible = false
 	slot_selected.emit(slot)
+
+
+func on_delete_pressed(slot: int) -> void:
+	SaveAndLoad.clear_slot(slot)
+	refresh()
+	focus_first_enabled()
 
 
 func close() -> void:

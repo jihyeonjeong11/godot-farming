@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://thbj1uapxcoy" path="res://scenes/test_scenes/ysort_test.gd" id="1_root"]
 [ext_resource type="Script" uid="uid://bl5ygoxckpodh" path="res://scenes/test_scenes/ysort_debug_overlay.gd" id="2_overlay"]
 [ext_resource type="TileSet" uid="uid://dkw01fa84lera" path="res://tilesets/city_ruin.tres" id="3_tiles"]
-[ext_resource type="PackedScene" uid="uid://bmp8j4fwdkl82" path="res://scenes/characters/player/player_old.tscn" id="4_player"]
+[ext_resource type="PackedScene" uid="uid://b3wdmejofhe0p" path="res://scenes/characters/player/player.tscn" id="4_player"]
 [ext_resource type="PackedScene" uid="uid://m70mkxtn3dt5" path="res://scenes/objects/for_dev_purpose/merchant_terminal.tscn" id="15_prop"]
 [ext_resource type="PackedScene" uid="uid://hw03yyvlo6vg" path="res://scenes/objects/portals/door.tscn" id="19_prop"]
 [ext_resource type="PackedScene" uid="uid://cs37xus6fdfc" path="res://scenes/objects/placables/object_instance.tscn" id="90_objin"]

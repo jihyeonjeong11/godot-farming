@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bstiq6ulxip1a" path="res://scripts/resources/placeable_object/placeable_object.gd" id="2_object"]
 [ext_resource type="Resource" uid="uid://btv0000000002" path="res://scripts/resources/item/placeables/tv.tres" id="3_drop"]
 [ext_resource type="Texture2D" uid="uid://cafjukjy7dmsm" path="res://assets/temp/tv.png" id="4_atlas"]
+[ext_resource type="Script" uid="uid://c7xk2mvbqjy4n" path="res://scripts/resources/recipes/craft_recipe.gd" id="4_tbd4w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tv0"]
 atlas = ExtResource("4_atlas")

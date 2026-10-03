@@ -60,7 +60,8 @@ func select_slot(slot: int) -> void:
 ## 새 게임은 그 슬롯의 옛 판을 지우고 시작한다. 파일을 남겨두면 이번 판에서
 ## 가보지 않은 레벨의 옛 상태가 그대로 딸려온다.
 func clear_slot(slot: int = -1) -> void:
-	_level_cache.clear()
+	if slot < 0 or slot == current_slot:
+		_level_cache.clear()
 
 	var dir := DirAccess.open(slot_dir(slot))
 	if dir == null:

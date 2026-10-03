@@ -5,7 +5,7 @@
 [ext_resource type="TileSet" uid="uid://bfjfke80cfmmc" path="res://tilesets/house_tile_set.tres" id="3_ioctm"]
 [ext_resource type="PackedScene" uid="uid://b0a3am51xwndg" path="res://managers/day_night_cycle_manager.tscn" id="9_osfbq"]
 [ext_resource type="PackedScene" uid="uid://c7mobspwnr01" path="res://scenes/components/mob_spawner_component.tscn" id="10_mspwn"]
-[ext_resource type="PackedScene" uid="uid://bmp8j4fwdkl82" path="res://scenes/characters/player/player_old.tscn" id="13_4d0tx"]
+[ext_resource type="PackedScene" uid="uid://b3wdmejofhe0p" path="res://scenes/characters/player/player.tscn" id="13_4d0tx"]
 [ext_resource type="PackedScene" uid="uid://y27b0nq34315" path="res://scenes/components/portal_component.tscn" id="14_portl"]
 [ext_resource type="PackedScene" uid="uid://dogc4aluyci8r" path="res://scenes/characters/enemy/zombie/zombie.tscn" id="15_zmb32"]
 

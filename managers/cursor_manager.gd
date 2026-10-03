@@ -135,6 +135,8 @@ func interact(point: Vector2) -> void:
 	var object := get_object(point)
 	if object != null:
 		object.interact()
+	else:
+		player.consume_selected()
 
 
 func is_tile_occupied(point: Vector2) -> bool:

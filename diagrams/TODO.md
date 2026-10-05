@@ -299,3 +299,16 @@ https://en.wikipedia.org/wiki/Atoms_for_Peace
 - [] player_old.tscn / player_old.gd 삭제
 - [] scenes/components/cursors/cursor_component.tscn 삭제 (에디터 잠금으로 남음)
 - [] item.gd:44 주석 CursorComponent → CursorManager
+
+## IDEA — 상태/세이브/래퍼 구조 (Bravest Coconut 비교, 2026-10-05)
+
+참고: D:\dev\godot\_unpacked\bravest_coconut (helpers/game_state, addons/little_nebula/save_manager, transitions, helpers/base_scene)
+
+- [] 글로벌 상태를 오토로드 하나로 모으기 — 인벤토리/장비/스탯/시간/날씨/퀘스트 진행/스토리 플래그. capture()/restore() 하나로 save_and_load.gd 의 save_x/load_x 짝을 합침 (레벨 레이어 저장은 지금 그대로)
+- [] Flags 오토로드 (scripts/globals/flags.gd) — 플래그/카운터 저장 파일 + 튜토리얼 진행 상태를 여기로 (save_and_load 에 FLAGS_FILE 추가, 새 게임 시 reset)
+- [] 플래그/카운터 Dictionary + once(key)/times(key) — NPC 대사 분기, "처음 한 번" 이벤트용. var 를 하나씩 늘리지 않게
+- [] 런타임 전용 상태(player_node, world_scene_cache 등)는 저장 상태와 분리 (그쪽 GameState / SessionState 구분)
+- [] game.tscn 의 매니저 묶음(Time, Weather, Quest, Audio, Cursor)을 managers.tscn 오토로드로 — find(tree) + null 분기 제거, 레벨 단독 실행(F6) 가능. game.tscn 엔 CurrentScene/UiManager/ScreenFade/흐름 제어만 남김
+  - 위 "refactor jobs: 글로벌 -> game 안으로" 와 반대 방향이라 둘 중 하나로 정할 것
+- [] 레벨이 늘어나면 플레이어/카메라를 base_scene 상속으로 넣는 것 고려
+- [] 확인 필요: QuestManager.restore() 가 reload() 로 quests 를 비운 뒤 _sync_progress() 를 돌려서, 불러오기 시 그날 radiant 퀘스트와 진행도가 사라지는 것 같음 (코드 읽기로만 추정)

@@ -26,6 +26,7 @@ const SFX_FOOTSTEP_CONCRETE := "FOOTSTEP_CONCRETE"
 const SFX_ITEM_PICKUP := "ITEM_PICKUP"
 const SFX_PISTOL_FIRE := "PISTOL_FIRE"
 const SFX_PISTOL_RELOAD := "PISTOL_RELOAD"
+const SFX_UI_CLICK := "UI_CLICK"
 
 const SOUND_EFFECTS := {
 	SFX_TREE_SHAKING: preload("uid://cf5dkduwvar7f"),
@@ -44,6 +45,7 @@ const SOUND_EFFECTS := {
 	SFX_ITEM_PICKUP: preload("uid://dtkma6bmtb12v"),  # bloop.mp3
 	SFX_PISTOL_FIRE: preload("uid://b4bramp10vmn1"),  # firing_pistol.mp3
 	SFX_PISTOL_RELOAD: preload("uid://d2joe0nck87kj"),  # reloading_pistol.mp3
+	SFX_UI_CLICK: preload("uid://ce3nxrettamjh"),  # click.mp3
 }
 
 const SFX_POOL_SIZE := 12
@@ -61,6 +63,8 @@ func _ready() -> void:
 	SignalBus.sound_requested.connect(play_sound_effect)
 	music.finished.connect(on_music_finished)
 	_build_sfx_pool()
+	get_tree().node_added.connect(_hook_button)
+	_hook_buttons_in(get_tree().root)
 
 
 func _build_sfx_pool() -> void:
@@ -68,6 +72,21 @@ func _build_sfx_pool() -> void:
 		var player := AudioStreamPlayer.new()
 		add_child(player)
 		_sfx_players.append(player)
+
+
+func _hook_buttons_in(node: Node) -> void:
+	_hook_button(node)
+	for child in node.get_children():
+		_hook_buttons_in(child)
+
+
+func _hook_button(node: Node) -> void:
+	if node is BaseButton and not node.pressed.is_connected(_on_button_pressed):
+		node.pressed.connect(_on_button_pressed)
+
+
+func _on_button_pressed() -> void:
+	play_sound_effect(SFX_UI_CLICK)
 
 
 func play_sound_effect(key: String) -> void:

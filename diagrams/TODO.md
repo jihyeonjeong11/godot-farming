@@ -4,6 +4,8 @@
 - 다만 총 스프라이트랑 애음니메이션을 찾고 싶
 - 아이템 스프라이트는 itch io에 있었음
 
+- https://www.quora.com/Has-radiation-ever-produced-a-positive-mutation
+
 ## 미니게임
 
 - [] 문따기?

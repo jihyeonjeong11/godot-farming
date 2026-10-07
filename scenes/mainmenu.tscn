@@ -14,8 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://pmyxtchr0btw" path="res://assets/apo/anims/32x48_flag.png" id="8_flag"]
 [ext_resource type="Theme" uid="uid://bkny51ahdetw" path="res://scenes/ui/game_theme.tres" id="11_theme"]
 [ext_resource type="PackedScene" uid="uid://i5sip4hqwsjx" path="res://scenes/test_scenes/zombie/test_zombie.tscn" id="12_zombie"]
-[ext_resource type="PackedScene" path="res://scenes/test_scenes/rpgm_character/rpgm_character.tscn" id="13_rpgm"]
 [ext_resource type="PackedScene" uid="uid://3ihneii567yc" path="res://assets/UI/customization/player_customization.tscn" id="14_custom"]
+[ext_resource type="Texture2D" path="res://assets/temp/logo/title_atomic_garden_vivor.svg" id="15_logo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wheat"]
 atlas = ExtResource("3_cropsB")
@@ -671,6 +671,36 @@ layout_mode = 2
 theme_type_variation = &"PanelButton"
 text = "Quit"
 
+[node name="LogoMargin" type="MarginContainer" parent="CanvasLayer/Container" unique_id=1740263401]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+mouse_filter = 2
+theme_override_constants/margin_top = 20
+
+[node name="Logo" type="TextureRect" parent="CanvasLayer/Container/LogoMargin" unique_id=1740263402]
+texture_filter = 2
+custom_minimum_size = Vector2(400, 40)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("15_logo")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VersionMargin" type="MarginContainer" parent="CanvasLayer/Container" unique_id=1740263403]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+mouse_filter = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_bottom = 4
+
+[node name="Version" type="Label" parent="CanvasLayer/Container/VersionMargin" unique_id=1740263404]
+modulate = Color(1, 1, 1, 0.6)
+layout_mode = 2
+mouse_filter = 2
+text = "v0.0.0-<insert_your_commit_hash_when_release>"
+
 [node name="SettingsPanel" parent="CanvasLayer" unique_id=2106012997 instance=ExtResource("6_stgs0")]
 visible = false
 layout_mode = 3
@@ -678,16 +708,13 @@ layout_mode = 3
 [node name="SaveSlots" parent="CanvasLayer" unique_id=795320480 instance=ExtResource("7_slots")]
 visible = false
 
-[node name="PlayerCustomization" parent="CanvasLayer" instance=ExtResource("14_custom")]
+[node name="PlayerCustomization" parent="CanvasLayer" unique_id=543722201 instance=ExtResource("14_custom")]
 visible = false
 
 [node name="Player" parent="." unique_id=407296808 instance=ExtResource("2_gjjcl")]
 position = Vector2(1016, 200)
-
-[node name="TestZombie" parent="." instance=ExtResource("12_zombie")]
-position = Vector2(900, 200)
 scale = Vector2(2, 2)
 
-[node name="RpgmCharacter" parent="." instance=ExtResource("13_rpgm")]
-position = Vector2(1110, 230)
-is_freeze = true
+[node name="TestZombie" parent="." unique_id=1921168341 instance=ExtResource("12_zombie")]
+position = Vector2(900, 200)
+scale = Vector2(2, 2)

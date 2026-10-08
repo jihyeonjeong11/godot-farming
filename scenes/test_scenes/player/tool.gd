@@ -116,6 +116,7 @@ var _muzzle := Vector2.ZERO
 var _aim := Vector2.RIGHT
 var _recoil := 0
 var _base_pos := Vector2.ZERO
+var _rest_index := -1
 
 
 func set_tool(name: String) -> void:
@@ -194,7 +195,10 @@ func sync(anim: StringName, frame: int) -> void:
 	_base_pos = (pose.p - ORIGIN) * PX
 	position = _base_pos
 	offset = -pose.o
-	z_index = 5 if pose.z > 0 else 0
+	var body := get_parent()
+	if _rest_index < 0:
+		_rest_index = get_index()
+	body.move_child(self, body.get_child_count() - 1 if pose.z > 0 else _rest_index)
 	show_behind_parent = pose.z < 0
 	if is_aimed():
 		_apply_recoil()

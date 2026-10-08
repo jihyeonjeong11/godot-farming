@@ -22,7 +22,7 @@ radius = 6.0
 
 [node name="Player" type="CharacterBody2D" unique_id=407296808 node_paths=PackedStringArray("body", "tool_layer", "hands_layer") groups=["player"]]
 collision_layer = 2
-collision_mask = 65
+collision_mask = 1
 motion_mode = 1
 script = ExtResource("2_script")
 body = NodePath("Body")
@@ -58,28 +58,24 @@ region_rect = Rect2(0, 80, 16, 32)
 script = ExtResource("4_tool")
 
 [node name="Pants" type="Sprite2D" parent="Body" unique_id=1594259407]
-z_index = 1
 texture = ExtResource("8_pants")
 hframes = 14
 vframes = 12
 script = ExtResource("3_layer")
 
 [node name="Shoes" type="Sprite2D" parent="Body" unique_id=1930493842]
-z_index = 1
 texture = ExtResource("12_shoes")
 hframes = 14
 vframes = 8
 script = ExtResource("3_layer")
 
 [node name="Shirt" type="Sprite2D" parent="Body" unique_id=1544262425]
-z_index = 2
 texture = ExtResource("9_shirt")
 hframes = 14
 vframes = 8
 script = ExtResource("3_layer")
 
 [node name="Hair" type="Sprite2D" parent="Body" unique_id=600051656]
-z_index = 3
 texture = ExtResource("6_hair")
 hframes = 14
 vframes = 12
@@ -87,7 +83,6 @@ script = ExtResource("3_layer")
 
 [node name="Hands" type="Sprite2D" parent="Body" unique_id=301758212]
 visible = false
-z_index = 4
 script = ExtResource("7_sheet")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=407296810]

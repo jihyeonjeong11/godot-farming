@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="PlaceableObject" format=3 uid="uid://bcrpsldr7lt2a"]
+
+[ext_resource type="Script" uid="uid://c0e27vd6vvrd3" path="res://scripts/resources/loot/loot.gd" id="1_loot"]
+[ext_resource type="Script" uid="uid://bstiq6ulxip1a" path="res://scripts/resources/placeable_object/placeable_object.gd" id="2_object"]
+[ext_resource type="Resource" uid="uid://cc468nspnvreg" path="res://scripts/resources/item/tools/longsword.tres" id="3_sword"]
+[ext_resource type="Texture2D" uid="uid://bomft32q0e1ku" path="res://assets/temp/corpse_soldier.png" id="4_tex"]
+
+[sub_resource type="Resource" id="Resource_sword"]
+script = ExtResource("1_loot")
+item = ExtResource("3_sword")
+min = 1
+max = 1
+
+[resource]
+script = ExtResource("2_object")
+object_id = "corpse_soldier"
+object_name = "Soldier Corpse"
+object_texture = ExtResource("4_tex")
+object_type = 1
+interactable_actions = 10
+object_max_health = 1
+dropped_items = Array[ExtResource("1_loot")]([SubResource("Resource_sword")])
+offset = Vector2i(-32, -46)
+sprite_scale = 2.0
+hurtbox_radius = 0
+scatter_radius = 24
+collision_offset = Vector2i(0, -5)
+collision_size = Vector2i(28, 8)

@@ -66,3 +66,20 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="DevLayer" type="CanvasLayer" parent="." unique_id=1847824140]
+layer = 99
+
+[node name="DevTutorialButton" type="Button" parent="DevLayer" unique_id=1847824141]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -108.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 39.0
+grow_horizontal = 0
+focus_mode = 0
+text = "DEV: Tutorial"
+
+[connection signal="pressed" from="DevLayer/DevTutorialButton" to="." method="_on_dev_tutorial_pressed"]

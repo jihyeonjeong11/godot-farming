@@ -3,6 +3,7 @@ extends Node2D
 @export_file("*.tscn") var scene_farm := "res://scenes/levels/main_farm.tscn"
 @export_file("*.tscn") var scene_city := "res://scenes/test_scenes/proc_gen_city_ruin.tscn"
 @export_file("*.tscn") var scene_mainmenu := "res://scenes/mainmenu.tscn"
+@export_file("*.tscn") var scene_tutorial := "res://scenes/levels/tutorial.tscn"
 
 @export var respawn_spawn: StringName = &""
 
@@ -80,6 +81,10 @@ func on_main_menu_requested() -> void:
 
 func on_scene_change_requested(scene_path: String, spawn_id: StringName) -> void:
 	swap_scene.call_deferred(scene_path, spawn_id)
+
+
+func _on_dev_tutorial_pressed() -> void:
+	swap_scene.call_deferred(scene_tutorial)
 
 
 func on_player_died() -> void:

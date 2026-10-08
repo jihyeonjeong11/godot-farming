@@ -83,7 +83,9 @@ enum InteractableActions {
 	Open,
 	Enter,
 	Barter,
-	Process
+	Process,
+	Loot
+	
 }
 
 static func quest_goal_label(goal: QuestGoal) -> String:

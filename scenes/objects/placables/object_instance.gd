@@ -23,6 +23,7 @@ var process_state: Dictionary = {}
 var _frame: int = 0
 var _frame_time: float = 0.0
 var _sleeping: bool = false
+var is_looted: bool = false
 
 @onready var hurt_component: HurtComponent = $Hurtbox
 @onready var hurtbox_shape: CollisionShape2D = $Hurtbox/CollisionShape2D
@@ -106,6 +107,16 @@ func interact() -> void:
 				SignalBus.container_opened.emit(inventory.slots)
 		DataTypes.InteractableActions.Process:
 			process()
+		DataTypes.InteractableActions.Loot:
+			loot()
+
+
+func loot() -> void:
+	if is_looted:
+		return
+
+	is_looted = true
+	drop_loot()
 
 
 func process() -> void:
@@ -244,6 +255,8 @@ func capture_state() -> Variant:
 		state["inventory"] = inventory.capture()
 	if not process_state.is_empty():
 		state["process"] = process_state.duplicate()
+	if is_looted:
+		state["looted"] = true
 	return state
 
 
@@ -256,6 +269,7 @@ func apply_state(state: Variant) -> void:
 		play_animation(animation)
 	if inventory != null and state.get("inventory") is Array:
 		inventory.apply(state["inventory"])
+	is_looted = state.get("looted", false)
 
 	process_state = {}
 	if state.get("process") is Dictionary:

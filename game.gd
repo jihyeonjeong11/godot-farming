@@ -4,6 +4,7 @@ extends Node2D
 @export_file("*.tscn") var scene_city := "res://scenes/test_scenes/proc_gen_city_ruin.tscn"
 @export_file("*.tscn") var scene_mainmenu := "res://scenes/mainmenu.tscn"
 @export_file("*.tscn") var scene_tutorial := "res://scenes/levels/tutorial.tscn"
+@onready var dev_layer: CanvasLayer = $DevLayer
 
 @export var respawn_spawn: StringName = &""
 
@@ -14,6 +15,8 @@ var _swapping := false
 
 
 func _ready() -> void:
+	if GlobalVars.is_dev == false:
+		dev_layer.visible = false
 	_free_tab_key()
 	SignalBus.new_game_requested.connect(on_new_game_requested)
 	SignalBus.load_game_requested.connect(on_load_game_requested)

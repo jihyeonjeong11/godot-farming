@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c0e27vd6vvrd3" path="res://scripts/resources/loot/loot.gd" id="1_loot"]
 [ext_resource type="Script" uid="uid://bstiq6ulxip1a" path="res://scripts/resources/placeable_object/placeable_object.gd" id="2_object"]
 [ext_resource type="Resource" uid="uid://cc468nspnvreg" path="res://scripts/resources/item/tools/longsword.tres" id="3_sword"]
+[ext_resource type="Script" uid="uid://c7xk2mvbqjy4n" path="res://scripts/resources/recipes/craft_recipe.gd" id="4_jj07h"]
 [ext_resource type="Texture2D" uid="uid://bomft32q0e1ku" path="res://assets/temp/corpse_soldier.png" id="4_tex"]
 
 [sub_resource type="Resource" id="Resource_sword"]

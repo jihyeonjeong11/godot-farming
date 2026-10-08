@@ -9,3 +9,5 @@ var base_tool_use_range: int = tile_size
 var base_place_range: int = tile_size * 2
 
 var tool_reach_tiles: int = 1
+
+var is_dev = true

@@ -22,7 +22,6 @@ radius = 6.0
 
 [node name="Player" type="CharacterBody2D" unique_id=407296808 node_paths=PackedStringArray("body", "tool_layer", "hands_layer") groups=["player"]]
 collision_layer = 2
-collision_mask = 1
 motion_mode = 1
 script = ExtResource("2_script")
 body = NodePath("Body")

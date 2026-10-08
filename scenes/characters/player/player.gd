@@ -73,6 +73,16 @@ func _unhandled_input(event: InputEvent) -> void:
 	if slot >= 0:
 		Inventory.select_slot(slot)
 		get_viewport().set_input_as_handled()
+	if GameInputEvents.use_tool() == true:
+		var item = Inventory.get_selected_item()
+		if item == null:
+			return
+		match item.item_type:
+			# melee
+			8:
+				print('melee attack')
+				pass
+		pass
 
 
 func _equip_selected() -> void:

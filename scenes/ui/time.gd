@@ -11,6 +11,9 @@ extends PanelContainer
 
 func _ready() -> void:
 	SignalBus.time_tick.connect(on_time_tick)
+	var tm := TimeManager.find(get_tree())
+	if tm != null:
+		on_time_tick(tm.current_time["day"], tm.current_time["hour"], tm.current_time["minute"])
 
 
 func on_time_tick(day: int, hour: int, minute: int) -> void:

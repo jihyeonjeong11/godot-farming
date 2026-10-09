@@ -29,6 +29,7 @@ func _ready() -> void:
 	SignalBus.container_opened.connect(on_container_opened)
 	SignalBus.barter_opened.connect(on_barter_opened)
 	SignalBus.dialog.connect(on_dialog)
+	SignalBus.level_loaded.connect(on_level_loaded)
 	
 func on_dialog(text_keys: Array[StringName]) -> void:
 	if text_keys.is_empty():
@@ -80,9 +81,21 @@ func on_change_game_state(game_state: DataTypes.GameState) -> void:
 
 	match game_state:
 		DataTypes.GameState.Game:
-			open_ingame_overlay()
+			_sync_ingame_overlay()
 		DataTypes.GameState.MainMenu:
 			close_ingame_overlay()
+
+
+func on_level_loaded() -> void:
+	if _game_state == DataTypes.GameState.Game:
+		_sync_ingame_overlay()
+
+
+func _sync_ingame_overlay() -> void:
+	if SessionState.should_hide_ui():
+		close_ingame_overlay()
+	else:
+		open_ingame_overlay()
 
 
 func on_container_opened(slots: Array) -> void:

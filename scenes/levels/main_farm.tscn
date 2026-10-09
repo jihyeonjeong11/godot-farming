@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://bmainfarm0001"]
 
+[ext_resource type="PackedScene" uid="uid://cdko42eau68xt" path="res://scenes/levels/base_level.tscn" id="0_base"]
 [ext_resource type="Script" uid="uid://dktfp1j0y0nax" path="res://scenes/levels/main_farm.gd" id="1_65wv7"]
 [ext_resource type="TileSet" uid="uid://1kprd2nysueh" path="res://tilesets/land.tres" id="1_land"]
 [ext_resource type="TileSet" uid="uid://sprbaxmhi3h1" path="res://tilesets/water.tres" id="2_water"]
@@ -34,7 +35,6 @@
 [ext_resource type="Texture2D" uid="uid://bp43eq45cg36y" path="res://assets/temp/furnace.png" id="33_3dnpx"]
 [ext_resource type="Resource" uid="uid://bfurnace00001" path="res://scripts/resources/placeable_object/furniture/furnace.tres" id="34_0klyg"]
 [ext_resource type="PackedScene" uid="uid://vlwn0vdyb13" path="res://managers/map_feature_manager.tscn" id="35_mapft"]
-[ext_resource type="PackedScene" uid="uid://b3wdmejofhe0p" path="res://scenes/characters/player/player.tscn" id="36_8nd6f"]
 [ext_resource type="PackedScene" uid="uid://j7kviqjw67tp" path="res://scenes/objects/helipad/helipad.tscn" id="37_b16xi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_door"]
@@ -77,7 +77,7 @@ region = Rect2(3, 706, 60, 113)
 atlas = ExtResource("33_3dnpx")
 region = Rect2(0, 0, 64, 80)
 
-[node name="MainFarm" type="Node2D" unique_id=457676691]
+[node name="MainFarm" unique_id=457676691 instance=ExtResource("0_base")]
 script = ExtResource("1_65wv7")
 
 [node name="FarmSpawner" type="Node" parent="." unique_id=356470891 node_paths=PackedStringArray("land", "blockers", "tilled_soil", "watered_soil", "objects_layer")]
@@ -514,10 +514,12 @@ object = ExtResource("34_0klyg")
 [node name="Helipad" parent="." unique_id=1866305120 instance=ExtResource("37_b16xi")]
 position = Vector2(248, 351)
 
-[node name="Player" parent="." unique_id=407296808 instance=ExtResource("36_8nd6f")]
+[node name="SpawnFromTutorial" type="Marker2D" parent="." unique_id=1093384756]
+position = Vector2(496, 144)
+script = ExtResource("15_spawn")
+spawn_id = &"from_tutorial"
+
+[node name="Weathers" parent="CameraComponent" unique_id=1163864841 instance=ExtResource("27_weathers")]
+
+[node name="Player" parent="." unique_id=407296808]
 position = Vector2(469, 270)
-scale = Vector2(2, 2)
-
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=841949558]
-
-[node name="Weathers" parent="Player/Camera2D" unique_id=1163864841 instance=ExtResource("27_weathers")]

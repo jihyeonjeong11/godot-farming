@@ -15,7 +15,7 @@
 [ext_resource type="Theme" uid="uid://bkny51ahdetw" path="res://scenes/ui/game_theme.tres" id="11_theme"]
 [ext_resource type="PackedScene" uid="uid://i5sip4hqwsjx" path="res://scenes/test_scenes/zombie/test_zombie.tscn" id="12_zombie"]
 [ext_resource type="PackedScene" uid="uid://3ihneii567yc" path="res://assets/UI/customization/player_customization.tscn" id="14_custom"]
-[ext_resource type="Texture2D" path="res://assets/temp/logo/title_atomic_garden_vivor.svg" id="15_logo"]
+[ext_resource type="Texture2D" uid="uid://ct1oa2da1aknj" path="res://assets/temp/logo/title_atomic_garden_vivor.svg" id="15_logo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wheat"]
 atlas = ExtResource("3_cropsB")
@@ -698,7 +698,6 @@ theme_override_constants/margin_bottom = 4
 [node name="Version" type="Label" parent="CanvasLayer/Container/VersionMargin" unique_id=1740263404]
 modulate = Color(1, 1, 1, 0.6)
 layout_mode = 2
-mouse_filter = 2
 text = "v0.0.0-<insert_your_commit_hash_when_release>"
 
 [node name="SettingsPanel" parent="CanvasLayer" unique_id=2106012997 instance=ExtResource("6_stgs0")]

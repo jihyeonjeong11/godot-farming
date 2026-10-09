@@ -28,6 +28,7 @@ QuestDB="*res://scripts/globals/quest_db.gd"
 SignalBus="*uid://c5yk62a6w1nji"
 Inventory="*uid://vycgnw0v4akr"
 SaveAndLoad="*uid://d0y42xiiply8f"
+SessionState="*uid://cii4hbh8opbpy"
 Settings="*res://scripts/globals/settings.gd"
 
 [display]

@@ -1,3 +1,14 @@
 [gd_scene format=3 uid="uid://cdko42eau68xt"]
 
+[ext_resource type="Script" uid="uid://dn2lauurfm4ly" path="res://scenes/levels/base_level.gd" id="1_md458"]
+[ext_resource type="PackedScene" uid="uid://b3wdmejofhe0p" path="res://scenes/characters/player/player.tscn" id="2_player"]
+[ext_resource type="PackedScene" uid="uid://d1ev2ggjcjtk7" path="res://scenes/camera/camera_component.tscn" id="3_camera"]
+
 [node name="BaseLevel" type="Node2D" unique_id=711204178]
+script = ExtResource("1_md458")
+
+[node name="Player" parent="." unique_id=407296808 instance=ExtResource("2_player")]
+scale = Vector2(2, 2)
+
+[node name="CameraComponent" parent="." unique_id=1459419885 node_paths=PackedStringArray("target") instance=ExtResource("3_camera")]
+target = NodePath("../Player")

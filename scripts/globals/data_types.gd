@@ -13,11 +13,15 @@ enum GameState {
 
 enum UI_Layer { PAUSE_MENU, INGAME_MENU, CONTAINER, SHOP, DIALOG }
 
+enum Screens {
+	MainMenu,
+	CharacterCustomization,
+}
 
 enum Levels {
-	MainMenu,
 	Farm,
-	RuinCity
+	RuinCity,
+	Tutorial
 }
 
 enum Tools {

@@ -1,4 +1,4 @@
-extends Node2D
+extends "res://scenes/levels/base_level.gd"
 
 # 특정한 크기의 셀을 붙여서 왼쪽에서 오른쪽으로 농장에 도착하는 것으로
 # 

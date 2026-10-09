@@ -1,9 +1,5 @@
 extends Node2D
 
-@export_file("*.tscn") var scene_farm := "res://scenes/levels/main_farm.tscn"
-@export_file("*.tscn") var scene_city := "res://scenes/test_scenes/proc_gen_city_ruin.tscn"
-@export_file("*.tscn") var scene_mainmenu := "res://scenes/mainmenu.tscn"
-@export_file("*.tscn") var scene_tutorial := "res://scenes/levels/tutorial.tscn"
 @onready var dev_layer: CanvasLayer = $DevLayer
 
 @export var respawn_spawn: StringName = &""
@@ -23,7 +19,7 @@ func _ready() -> void:
 	SignalBus.scene_change_requested.connect(on_scene_change_requested)
 	SignalBus.main_menu_requested.connect(on_main_menu_requested)
 	SignalBus.player_died.connect(on_player_died)
-	swap_scene(scene_mainmenu)
+	swap_scene(GlobalVars.SCENE_MAINMENU)
 
 func _free_tab_key() -> void:
 	for action in [&"ui_focus_next", &"ui_focus_prev"]:
@@ -40,7 +36,7 @@ func on_new_game_requested(slot: int) -> void:
 	SaveAndLoad.fresh_start = true
 	reset_quests()
 	reset_weather()
-	swap_scene.call_deferred(scene_farm)
+	swap_level.call_deferred(DataTypes.Levels.Farm)
 	SaveAndLoad.save_game.call_deferred()
 	_open_intro_dialog.call_deferred()
 	
@@ -75,11 +71,11 @@ func on_load_game_requested(slot: int) -> void:
 	SaveAndLoad.fresh_start = true
 	# 인벤토리와 시간은 오토로드라 씬 교체와 무관하다. 여기서 바로 얹어도 된다.
 	SaveAndLoad.load_game()
-	swap_scene.call_deferred(scene_farm)
+	swap_level.call_deferred(DataTypes.Levels.Farm)
 
 
 func on_main_menu_requested() -> void:
-	swap_scene.call_deferred(scene_mainmenu)
+	swap_scene.call_deferred(GlobalVars.SCENE_MAINMENU)
 
 
 func on_scene_change_requested(scene_path: String, spawn_id: StringName) -> void:
@@ -87,13 +83,13 @@ func on_scene_change_requested(scene_path: String, spawn_id: StringName) -> void
 
 
 func _on_dev_tutorial_pressed() -> void:
-	swap_scene.call_deferred(scene_tutorial)
+	swap_level.call_deferred(DataTypes.Levels.Tutorial)
 
 
 func on_player_died() -> void:
 	await ScreenFade.fade_out()
 	await get_tree().process_frame
-	swap_scene(scene_farm, respawn_spawn)
+	swap_level(DataTypes.Levels.Farm, respawn_spawn)
 	var keys: Array[StringName] = [&"DIALOG_ON_DEATH"]
 	SignalBus.dialog.emit(keys)
 	revive_player()
@@ -108,10 +104,15 @@ func revive_player() -> void:
 
 	player.revive()
 
+func swap_level(key: DataTypes.Levels, spawn_id: StringName = &"") -> void:
+	swap_scene(GlobalVars.LEVEL_SCENES[key], spawn_id)
+
+
 func swap_scene(path: String, spawn_id: StringName = &"") -> void:
 	if _swapping:
 		return
 
+	path = ResourceUID.ensure_path(path)
 	var packed := load(path) as PackedScene
 	if packed == null:
 		push_error("씬을 불러오지 못했다: %s" % path)
@@ -126,18 +127,22 @@ func swap_scene(path: String, spawn_id: StringName = &"") -> void:
 		current_scene.remove_child(child)
 		child.queue_free()
 
+	var level_key: Variant = GlobalVars.LEVEL_SCENES.find_key(path)
+	if level_key != null:
+		SessionState.current_scene = level_key
+
 	var instance := packed.instantiate()
 	current_scene.add_child(instance)
 
 	# 메인메뉴는 레벨이 아니다. null로 둬야 메뉴에서 실수로 저장이 나가지 않는다.
-	SaveAndLoad.current_level = null if path == scene_mainmenu else instance
+	SaveAndLoad.current_level = null if path == GlobalVars.SCENE_MAINMENU else instance
 
 	# 씬마다 플레이어가 따로 박혀 있다. 문으로 들어왔으면 그 씬에 박힌 자리 대신
 	# 문이 가리킨 스폰 지점에 세운다.
 	if not spawn_id.is_empty():
 		move_player_to_spawn(spawn_id)
 
-	if path == scene_mainmenu:
+	if path == GlobalVars.SCENE_MAINMENU:
 		game_state_manager.enter_main_menu()
 	else:
 		game_state_manager.enter_gameplay()
@@ -145,9 +150,6 @@ func swap_scene(path: String, spawn_id: StringName = &"") -> void:
 	SignalBus.level_loaded.emit()
 	_swapping = false
 
-
-## 지점을 못 찾아도 플레이어를 건드리지 않는다. 문이 잘못 가리켰다고
-## 맵 밖으로 떨어뜨리는 것보다 씬에 박힌 자리에 서 있는 편이 낫다.
 func move_player_to_spawn(spawn_id: StringName) -> void:
 	var player := get_tree().get_first_node_in_group(&"player") as Node2D
 	if player == null:

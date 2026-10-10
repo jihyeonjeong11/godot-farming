@@ -3,6 +3,8 @@
 [ext_resource type="Theme" uid="uid://bkny51ahdetw" path="res://scenes/ui/game_theme.tres" id="1_rb10q"]
 [ext_resource type="Script" uid="uid://bt8xy3xf1fpyo" path="res://scenes/ui/inventory/quick_bar.gd" id="2_6dy1f"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qbar"]
+
 [node name="Quickbar" type="Control" unique_id=868247231]
 layout_mode = 3
 anchors_preset = 15
@@ -29,6 +31,7 @@ offset_top = -20.0
 offset_right = 10.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_qbar")
 
 [node name="MarginContainer" type="MarginContainer" parent="QuickbarContainer" unique_id=1117198499]
 layout_mode = 2

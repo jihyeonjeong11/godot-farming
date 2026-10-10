@@ -28,7 +28,7 @@ tile_map_data = PackedByteArray("AAADAAEABwAUAAkAAAADAAIABwAUAAoAAAADAAMABwAUAAo
 tile_set = ExtResource("1_tiles")
 
 [node name="Props" type="TileMapLayer" parent="." unique_id=1735593445 groups=["props"]]
-tile_map_data = PackedByteArray("AAAAAA0AAwAcABQAAAABAAMAAQARABAAAAABAA0AAwAcABkAAAACAA0AAwAcABQAAAAEAA4AAwAcABEAAAAFAA4AAwAAAAoAAAAMAA4AAwAVAAQAAAANAAsAAwAMAAAAAAANAA0AAwAcABkAAAAOAAkAAwAdAAAAAAAOAA0AAwAcABQAAAAPAA0AAwAcABkAAAA=")
+tile_map_data = PackedByteArray("AAABAAMAAQARABAAAAA=")
 tile_set = ExtResource("1_tiles")
 
 [node name="Objects" type="Node2D" parent="." unique_id=926735068]

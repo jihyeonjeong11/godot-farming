@@ -104,6 +104,7 @@ func interact() -> void:
 			toggle()
 		DataTypes.InteractableActions.Open:
 			if inventory != null:
+				play_animation(object.toggle_animation)
 				SignalBus.container_opened.emit(inventory.slots)
 		DataTypes.InteractableActions.Process:
 			process()

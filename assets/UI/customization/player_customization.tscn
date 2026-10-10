@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://diobn4m60xx2" path="res://assets/UI/customization/arrow_left_pressed.png" id="5_arlp"]
 [ext_resource type="Texture2D" uid="uid://b0g4hdo2mpmop" path="res://assets/UI/customization/arrow_right.png" id="6_arr"]
 [ext_resource type="Texture2D" uid="uid://b1m2v1x472l7h" path="res://assets/UI/customization/arrow_right_pressed.png" id="7_arrp"]
+[ext_resource type="PackedScene" uid="uid://bqvo7n17iuncy" path="res://scenes/ui/base_checkbox.tscn" id="8_cbx"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4kxuq"]
 texture = ExtResource("1_pnnco")
@@ -66,7 +67,7 @@ custom_minimum_size = Vector2(64, 96)
 layout_mode = 2
 
 [node name="TestPlayer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/CenterContainer/PlayerAnchor" unique_id=1257711427 instance=ExtResource("2_player")]
-position = Vector2(32, 34)
+position = Vector2(32, 60)
 scale = Vector2(2, 2)
 is_freeze = true
 
@@ -202,6 +203,11 @@ horizontal_alignment = 1
 layout_mode = 2
 texture_normal = ExtResource("6_arr")
 texture_pressed = ExtResource("7_arrp")
+
+[node name="SkipTutorial" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("8_cbx")]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Skip Tutorial"
 
 [node name="Buttons" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2

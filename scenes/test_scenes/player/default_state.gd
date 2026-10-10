@@ -5,6 +5,7 @@ extends NodeState
 @onready var player_buff_component: PlayerBuffComponent = $"../../PlayerBuffComponent"
 
 const FOOTSTEP_INTERVAL := 0.42
+const MELEE_SWING_TIME := 0.275
 const FOOTSTEP_BY_TERRAIN := {
 	"Grass": AudioManager.SFX_FOOTSTEP_GRASS,
 	"Concrete": AudioManager.SFX_FOOTSTEP_CONCRETE,
@@ -12,6 +13,7 @@ const FOOTSTEP_BY_TERRAIN := {
 }
 
 var is_playing = false
+var _meleeing := false
 var _footstep_timer := 0.0
 
 
@@ -31,11 +33,19 @@ func _on_physics_process(delta: float) -> void:
 		player.velocity = Vector2.ZERO
 		player.play_action("idle")
 		return
-	if Input.is_action_just_pressed("hit") and get_viewport().gui_get_hovered_control() == null and player.tool_layer.has_tool():
-		pass
-		is_playing = true
-		player.play_action(player.tool_layer.act())
-		return
+	if Input.is_action_just_pressed("hit") and get_viewport().gui_get_hovered_control() == null:
+		var item := Inventory.get_selected_item()
+		if item != null and item.item_type == DataTypes.ItemType.Melee:
+			is_playing = true
+			_meleeing = true
+			player.play_action("swing")
+			player.body.speed_scale = player.action_length() / MELEE_SWING_TIME * item.melee_speed
+			player.begin_melee(item)
+			return
+		if player.tool_layer.has_tool():
+			is_playing = true
+			player.play_action(player.tool_layer.act())
+			return
 	var input := Input.get_vector("walk_left", "walk_right", "walk_up", "walk_down")
 	if input == Vector2.ZERO:
 		player.velocity = Vector2.ZERO
@@ -62,5 +72,18 @@ func _on_animation_finished() -> void:
 	if not is_playing:
 		return
 	is_playing = false
+	player.body.speed_scale = 1.0
 	player.play_action("idle")
+	if _meleeing:
+		_meleeing = false
+		player.end_melee()
+		return
 	SignalBus.tool_used.emit(Inventory.get_selected_item())
+
+
+func _on_exit() -> void:
+	if _meleeing:
+		_meleeing = false
+		is_playing = false
+		player.body.speed_scale = 1.0
+		player.end_melee()

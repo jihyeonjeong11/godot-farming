@@ -132,11 +132,31 @@ func _ready() -> void:
 
 func interact(point: Vector2) -> void:
 	# search object to interact
-	var object := get_object(point)
+	var object := interact_target(point)
 	if object != null:
 		object.interact()
 	else:
 		player.consume_selected()
+
+
+func interact_target(point: Vector2) -> ObjectInstance:
+	var closest: ObjectInstance = null
+	var closest_distance := INF
+	var reach := float(GlobalVars.base_interaction_range)
+
+	for node in get_tree().get_nodes_in_group(OBJECT_GROUP):
+		var instance := node as ObjectInstance
+		if instance == null or instance.object == null or instance.is_queued_for_deletion():
+			continue
+
+		var distance := instance.global_position.distance_to(point)
+		if distance > reach or distance >= closest_distance:
+			continue
+
+		closest = instance
+		closest_distance = distance
+
+	return closest
 
 
 func is_tile_occupied(point: Vector2) -> bool:

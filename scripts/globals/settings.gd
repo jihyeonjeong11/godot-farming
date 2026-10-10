@@ -9,7 +9,12 @@ const DEFAULT_WINDOW_MODE := "windowed"
 const SAVE_DELAY := 0.4
 
 var master_volume: float = DEFAULT_MASTER_VOLUME
+var sfx_volume: float = DEFAULT_MASTER_VOLUME
+var music_volume: float = DEFAULT_MASTER_VOLUME
+
 var window_mode: String = DEFAULT_WINDOW_MODE
+
+
 
 var _config := ConfigFile.new()
 var _save_timer: Timer

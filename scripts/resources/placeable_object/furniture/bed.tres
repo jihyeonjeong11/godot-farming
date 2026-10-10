@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c0e27vd6vvrd3" path="res://scripts/resources/loot/loot.gd" id="1_wim17"]
 [ext_resource type="Script" uid="uid://bstiq6ulxip1a" path="res://scripts/resources/placeable_object/placeable_object.gd" id="2_p5kg2"]
+[ext_resource type="Script" uid="uid://c7xk2mvbqjy4n" path="res://scripts/resources/recipes/craft_recipe.gd" id="3_5t6v1"]
 [ext_resource type="Texture2D" uid="uid://dmej0tp32bpis" path="res://assets/craftland/Craftland Terrain/32x32/CL_Buildings.png" id="3_atlas"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_object"]

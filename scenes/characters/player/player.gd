@@ -18,6 +18,8 @@ const OUTFIT_PARTS := ["Hair", "Shirt", "Pants", "Shoes"]
 
 @onready var buff_component: PlayerBuffComponent = $PlayerBuffComponent
 @onready var needs_decay: NeedsDecayComponent = $NeedsDecayComponent
+@onready var hit_component: HitComponent = $HitComponent
+@onready var hit_shape: CollisionShape2D = $HitComponent/CollisionShape2D
 
 var stats: BaseCharacterStats
 
@@ -73,21 +75,12 @@ func _unhandled_input(event: InputEvent) -> void:
 	if slot >= 0:
 		Inventory.select_slot(slot)
 		get_viewport().set_input_as_handled()
-	if GameInputEvents.use_tool() == true:
-		var item = Inventory.get_selected_item()
-		if item == null:
-			return
-		match item.item_type:
-			# melee
-			8:
-				print('melee attack')
-				pass
-		pass
 
 
 func _equip_selected() -> void:
 	var item := Inventory.get_selected_item()
 	tool_layer.set_tool(String(item.item_id) if item != null else "")
+	tool_layer.set_melee(item.item_texture if item != null and item.item_type == DataTypes.ItemType.Melee else null)
 	hands_layer.held = tool_layer.is_held()
 	_sync_layers()
 
@@ -122,6 +115,37 @@ func play_action(action: String) -> void:
 	var directional := "%s_%s" % [action, DIR_SUFFIX[facing]]
 	body.play(directional if body.sprite_frames.has_animation(directional) else action)
 	_sync_layers()
+
+
+func begin_melee(item: Item) -> void:
+	hit_component.current_tool = item.tool_type
+	hit_component.hit_damage = item.melee_damage
+	hit_component.knockback_vector = facing
+	var shape := item.melee_shape
+	if shape == null:
+		var circle := CircleShape2D.new()
+		circle.radius = item.melee_radius
+		shape = circle
+	hit_shape.shape = shape
+	var hand: Vector2 = hit_component.to_local(body.to_global(tool_layer.melee_pivot()))
+	hit_shape.position = hand + facing * item.melee_reach
+	hit_shape.rotation = facing.angle()
+	hit_shape.set_deferred("disabled", false)
+
+
+func end_melee() -> void:
+	hit_shape.set_deferred("disabled", true)
+
+
+func action_length() -> float:
+	var frames := body.sprite_frames
+	var fps := frames.get_animation_speed(body.animation)
+	if fps <= 0.0:
+		return 0.0
+	var total := 0.0
+	for i in frames.get_frame_count(body.animation):
+		total += frames.get_frame_duration(body.animation, i)
+	return total / fps
 
 
 func _sync_layers() -> void:

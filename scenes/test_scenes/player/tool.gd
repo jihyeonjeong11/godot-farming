@@ -109,7 +109,20 @@ const POSE := {
 	],
 }
 
+const MELEE_ARC := {
+	&"swing_right": {from = -110.0, to = 60.0, z = 1},
+	&"swing_left": {from = -70.0, to = -240.0, z = 1},
+	&"swing_down": {from = -20.0, to = 200.0, z = 1},
+	&"swing_up": {from = 200.0, to = 340.0, z = -1},
+}
+const MELEE_PIVOT := Vector2(18, 23)
+const MELEE_RADIUS := Vector2(10, 5)
+const MELEE_GRIP := Vector2(4, 29)
+const MELEE_BLADE_ANGLE := -45.0
+const MELEE_SCALE := 0.5
+
 var tool_name := ""
+var melee_texture: Texture2D
 var _anim: StringName = &""
 var _frame := 0
 var _muzzle := Vector2.ZERO
@@ -122,6 +135,15 @@ var _rest_index := -1
 func set_tool(name: String) -> void:
 	tool_name = name if DEFS.has(name) else ""
 	sync(_anim, _frame)
+
+
+func set_melee(texture: Texture2D) -> void:
+	melee_texture = texture
+	sync(_anim, _frame)
+
+
+func is_melee() -> bool:
+	return melee_texture != null
 
 
 func has_tool() -> bool:
@@ -163,6 +185,9 @@ func _apply_recoil() -> void:
 func sync(anim: StringName, frame: int) -> void:
 	_anim = anim
 	_frame = frame
+	if is_melee():
+		_sync_melee()
+		return
 	if not has_tool():
 		visible = false
 		return
@@ -188,6 +213,7 @@ func sync(anim: StringName, frame: int) -> void:
 			flip = not flip
 	visible = true
 	texture = def.get("tex", TOOLS)
+	region_enabled = true
 	var w: int = def.get("w", 16)
 	region_rect = Rect2(d * w, def.y, w, def.h)
 	flip_h = flip != def.get("flip", false)
@@ -195,13 +221,63 @@ func sync(anim: StringName, frame: int) -> void:
 	_base_pos = (pose.p - ORIGIN) * PX
 	position = _base_pos
 	offset = -pose.o
-	var body := get_parent()
-	if _rest_index < 0:
-		_rest_index = get_index()
-	body.move_child(self, body.get_child_count() - 1 if pose.z > 0 else _rest_index)
-	show_behind_parent = pose.z < 0
+	_set_depth(pose.z)
 	if is_aimed():
 		_apply_recoil()
 	else:
 		rotation_degrees = pose.r
 		flip_v = false
+
+
+func _set_depth(z: int) -> void:
+	var body := get_parent()
+	if _rest_index < 0:
+		_rest_index = get_index()
+	body.move_child(self, body.get_child_count() - 1 if z > 0 else _rest_index)
+	show_behind_parent = z < 0
+
+
+func _process(_delta: float) -> void:
+	if is_melee() and visible:
+		_place_melee()
+
+
+func _sync_melee() -> void:
+	if not MELEE_ARC.has(_anim):
+		visible = false
+		return
+	visible = true
+	texture = melee_texture
+	region_enabled = false
+	flip_h = false
+	flip_v = false
+	scale = Vector2.ONE * MELEE_SCALE * PX
+	offset = -MELEE_GRIP
+	_set_depth(MELEE_ARC[_anim].z)
+	_place_melee()
+
+
+func melee_pivot() -> Vector2:
+	return (MELEE_PIVOT - ORIGIN) * PX
+
+
+func _place_melee() -> void:
+	var arc: Dictionary = MELEE_ARC[_anim]
+	var a := deg_to_rad(lerpf(arc.from, arc.to, _swing_progress()))
+	position = melee_pivot() + Vector2(cos(a) * MELEE_RADIUS.x, sin(a) * MELEE_RADIUS.y) * PX
+	rotation = a - deg_to_rad(MELEE_BLADE_ANGLE)
+
+
+func _swing_progress() -> float:
+	var body := get_parent() as AnimatedSprite2D
+	var frames := body.sprite_frames
+	var total := 0.0
+	var done := 0.0
+	for i in frames.get_frame_count(body.animation):
+		var d := frames.get_frame_duration(body.animation, i)
+		if i < body.frame:
+			done += d
+		elif i == body.frame:
+			done += d * body.frame_progress
+		total += d
+	return clampf(done / total, 0.0, 1.0) if total > 0.0 else 0.0

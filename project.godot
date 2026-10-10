@@ -30,6 +30,7 @@ Inventory="*uid://vycgnw0v4akr"
 SaveAndLoad="*uid://d0y42xiiply8f"
 SessionState="*uid://cii4hbh8opbpy"
 Settings="*res://scripts/globals/settings.gd"
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 
 [display]
 
@@ -45,6 +46,10 @@ window/stretch/scale_mode="integer"
 [dotnet]
 
 project/assembly_name="apo-farming"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 
 [global_group]
 

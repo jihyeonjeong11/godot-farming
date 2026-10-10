@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="Chest" format=3 uid="uid://dsretj77qca1e"]
+
+[ext_resource type="Script" uid="uid://c0e27vd6vvrd3" path="res://scripts/resources/loot/loot.gd" id="1_1kqdv"]
+[ext_resource type="Script" uid="uid://cysc7e4h5lbve" path="res://scripts/resources/placeable_object/chest.gd" id="1_object"]
+[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/item/item.gd" id="2_30gpc"]
+[ext_resource type="Texture2D" uid="uid://bqqfyrsavmsoh" path="res://assets/apo/safe_closed.png" id="2_tex"]
+[ext_resource type="Texture2D" uid="uid://bc4tgwodtnjqa" path="res://assets/apo/safe_open.png" id="3_open"]
+[ext_resource type="Script" uid="uid://c7xk2mvbqjy4n" path="res://scripts/resources/recipes/craft_recipe.gd" id="4_0i0dc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_safe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_tex")
+}],
+"loop": 0,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_open")
+}],
+"loop": 0,
+"name": &"open",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_object")
+slot_count = 6
+object_id = "tutorial_safe"
+object_name = "Safe"
+object_texture = ExtResource("2_tex")
+object_type = 1
+interactable_actions = 6
+object_max_health = -1
+offset = Vector2i(-32, -62)
+hurtbox_offset = Vector2i(0, -28)
+hurtbox_radius = 24
+scatter_radius = 36
+collision_offset = Vector2i(0, -10)
+collision_size = Vector2i(44, 20)
+sprite_frames = SubResource("SpriteFrames_safe")
+default_animation = &"closed"
+toggle_animation = &"open"
+metadata/_custom_type_script = "uid://cysc7e4h5lbve"

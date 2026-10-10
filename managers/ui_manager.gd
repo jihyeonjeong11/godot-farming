@@ -9,6 +9,8 @@ const SCENE_CONTAINER_INVENTORY_UI = preload("uid://b7xqk2mcnv0ug")
 const SHOP_UI = preload("uid://cdnvo7ichp0x8")
 const DIALOG = preload("uid://3p1327khsld7")
 
+const HIDEABLE_OVERLAY_NODES: Array[NodePath] = [^"PlayerStats", ^"Time"]
+
 
 var stack: Array[int] = []
 
@@ -92,10 +94,12 @@ func on_level_loaded() -> void:
 
 
 func _sync_ingame_overlay() -> void:
-	if SessionState.should_hide_ui():
-		close_ingame_overlay()
-	else:
-		open_ingame_overlay()
+	open_ingame_overlay()
+	var hide_ui := SessionState.should_hide_ui()
+	for path in HIDEABLE_OVERLAY_NODES:
+		var node := ingame_overlay.get_node_or_null(path) as CanvasItem
+		if node != null:
+			node.visible = not hide_ui
 
 
 func on_container_opened(slots: Array) -> void:

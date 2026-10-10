@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bstiq6ulxip1a" path="res://scripts/resources/placeable_object/placeable_object.gd" id="1_object"]
 [ext_resource type="Script" uid="uid://c0e27vd6vvrd3" path="res://scripts/resources/loot/loot.gd" id="1_upk2h"]
 [ext_resource type="Texture2D" uid="uid://dd2rbvkdlrgd6" path="res://assets/craftland/Craftland Town/32x32/CLT_Houses.png" id="2_atlas"]
+[ext_resource type="Script" uid="uid://c7xk2mvbqjy4n" path="res://scripts/resources/recipes/craft_recipe.gd" id="3_c3c77"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_object"]
 atlas = ExtResource("2_atlas")

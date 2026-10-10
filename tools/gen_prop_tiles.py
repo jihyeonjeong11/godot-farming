@@ -23,7 +23,6 @@ SOLID_MIN_H = 3    # 이보다 낮으면 납작한 잔해로 보고 콜리전을
 SOURCES = {
     1: ('assets/apo/terrain_props_2.png',  'TileSetAtlasSource_4ochj'),  # 바위
     2: ('assets/apo/terrain_props_1.png',  'TileSetAtlasSource_jersd'),  # 나무/덤불
-    3: ('assets/apo/32x32_dec_props.png',  'TileSetAtlasSource_7l7u8'),  # 도시 프롭
 }
 
 

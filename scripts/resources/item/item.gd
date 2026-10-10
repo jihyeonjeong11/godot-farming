@@ -22,6 +22,7 @@ class_name Item extends Resource
 
 @export var melee_damage: int
 @export var melee_knockback: int
+@export var melee_speed: float = 1.0
 
 @export var value: int
 

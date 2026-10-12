@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dmgfyhqwf11yh"]
+
+[ext_resource type="Script" uid="uid://beseyrcctrrkr" path="res://scripts/globals/dev_menus.gd" id="1_y340v"]
+
+[node name="DevMenus" type="CanvasLayer" unique_id=1651744189]
+script = ExtResource("1_y340v")

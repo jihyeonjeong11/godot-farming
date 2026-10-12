@@ -1,10 +1,5 @@
 extends Node
 
-var current_scene: DataTypes.Levels
+##TODO: 휘발성 스테이트.
 
-
-func should_hide_ui() -> bool:
-	match current_scene:
-		DataTypes.Levels.Tutorial:
-			return true
-	return false
+var did_open_inventory: bool = false

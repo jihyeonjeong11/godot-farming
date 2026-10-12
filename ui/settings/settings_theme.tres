@@ -1,0 +1,30 @@
+[gd_resource type="Theme" format=3 uid="uid://8bojdfk2dsmx"]
+
+[ext_resource type="Texture2D" uid="uid://dte0obv5jagx7" path="res://ui/settings/slider_grabber.svg" id="1_grabber"]
+[ext_resource type="Texture2D" uid="uid://bkovlsom7dct0" path="res://ui/settings/slider_grabber_highlight.svg" id="2_grabber_hl"]
+[ext_resource type="Texture2D" uid="uid://3mduwyk7yyfh" path="res://ui/settings/slider_tick.svg" id="3_tick"]
+[ext_resource type="Texture2D" uid="uid://dqhg5ujrd815q" path="res://ui/settings/slider_track.svg" id="4_track"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_area"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_area_hl"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_track"]
+texture = ExtResource("4_track")
+texture_margin_left = 8.0
+texture_margin_top = 15.0
+texture_margin_right = 8.0
+texture_margin_bottom = 15.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_label_focus"]
+
+[resource]
+HSlider/constants/tick_offset = -30
+HSlider/icons/grabber = ExtResource("1_grabber")
+HSlider/icons/grabber_highlight = ExtResource("2_grabber_hl")
+HSlider/icons/tick = ExtResource("3_tick")
+HSlider/styles/grabber_area = SubResource("StyleBoxEmpty_area")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxEmpty_area_hl")
+HSlider/styles/slider = SubResource("StyleBoxTexture_track")
+Label/font_sizes/font_size = 30
+Label/styles/focus = SubResource("StyleBoxEmpty_label_focus")

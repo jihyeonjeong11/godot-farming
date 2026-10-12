@@ -1,0 +1,191 @@
+[gd_scene format=3 uid="uid://l0h71pkmjuk"]
+
+[ext_resource type="PackedScene" uid="uid://ljcmq4ptlh86" path="res://ui/reusables/panel_anchor/panel_anchor.tscn" id="1_jwxja"]
+[ext_resource type="Script" uid="uid://br6wfpxnlwrcp" path="res://ui/reusables/menu/menu.gd" id="2_a66ha"]
+[ext_resource type="Texture2D" uid="uid://ct3d5abkpag8t" path="res://assets/UI/nine_slice_panel.png" id="3_panel"]
+[ext_resource type="PackedScene" uid="uid://b8hoteq1ehtj" path="res://ui/reusables/pointer/pointer.tscn" id="4_pointer"]
+[ext_resource type="AudioStream" uid="uid://jije14nvm0es" path="res://ui/reusables/menu/selection_changed.mp3" id="5_selchg"]
+[ext_resource type="Script" uid="uid://dqse4b32mgkui" path="res://ui/settings/settings_menu.gd" id="8_root"]
+[ext_resource type="PackedScene" uid="uid://bqvo7n17iuncy" path="res://ui/base_checkbox.tscn" id="9_checkbox"]
+[ext_resource type="Theme" uid="uid://8bojdfk2dsmx" path="res://ui/settings/settings_theme.tres" id="10_theme"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_settings"]
+content_margin_left = 40.0
+content_margin_top = 40.0
+content_margin_right = 40.0
+content_margin_bottom = 40.0
+texture = ExtResource("3_panel")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[node name="SettingsMenu" type="Control" unique_id=706808047]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_root")
+
+[node name="Underlay" type="ColorRect" parent="." unique_id=730165122]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="PanelAnchor" parent="Underlay" unique_id=1665557992 node_paths=PackedStringArray("underlay", "menu") instance=ExtResource("1_jwxja")]
+unique_name_in_owner = true
+position = Vector2(960, 540)
+underlay = NodePath("..")
+menu = NodePath("CenterContainer/SettingsPanel/SettingsMenu")
+
+[node name="CenterContainer" type="CenterContainer" parent="Underlay/PanelAnchor" unique_id=436445747]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettingsPanel" type="PanelContainer" parent="Underlay/PanelAnchor/CenterContainer" unique_id=249543439]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(800, 400)
+layout_mode = 2
+theme = ExtResource("10_theme")
+theme_override_styles/panel = SubResource("StyleBoxTexture_settings")
+
+[node name="SettingsMenu" type="VBoxContainer" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel" unique_id=1295632797 node_paths=PackedStringArray("pointer")]
+unique_name_in_owner = true
+layout_mode = 2
+script = ExtResource("2_a66ha")
+selection_changed_sound = ExtResource("5_selchg")
+actioned_sound = ExtResource("5_selchg")
+cancel_sound = ExtResource("5_selchg")
+pointer = NodePath("../../../Pointer")
+pointer_valign = 0.5
+metadata/_custom_type_script = "uid://br6wfpxnlwrcp"
+
+[node name="SoundsVolume" type="HBoxContainer" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu" unique_id=220768358]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu/SoundsVolume" unique_id=1930251991]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Sound Volume"
+
+[node name="SoundsVolumeSlider" type="HSlider" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu/SoundsVolume" unique_id=940592223]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.1
+scrollable = false
+tick_count = 11
+ticks_on_borders = true
+
+[node name="SoundsVolumeValue" type="Label" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu/SoundsVolume" unique_id=639184620]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "10"
+horizontal_alignment = 1
+
+[node name="UISoundsVolume" type="HBoxContainer" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu" unique_id=1565245368]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu/UISoundsVolume" unique_id=853844200]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "UI Sound Volume"
+
+[node name="UISoundsVolumeSlider" type="HSlider" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu/UISoundsVolume" unique_id=1144236968]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.1
+scrollable = false
+tick_count = 11
+ticks_on_borders = true
+
+[node name="UISoundsVolumeValue" type="Label" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu/UISoundsVolume" unique_id=1091037478]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "10"
+horizontal_alignment = 1
+
+[node name="MusicVolume" type="HBoxContainer" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu" unique_id=1648294476]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu/MusicVolume" unique_id=742359273]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Music Volume"
+
+[node name="MusicVolumeSlider" type="HSlider" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu/MusicVolume" unique_id=1505998756]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.1
+scrollable = false
+tick_count = 11
+ticks_on_borders = true
+
+[node name="MusicVolumeValue" type="Label" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu/MusicVolume" unique_id=401996909]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "5"
+horizontal_alignment = 1
+
+[node name="Divider" type="Control" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu" unique_id=733333887]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="FullScreen" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu" unique_id=1449174953 instance=ExtResource("9_checkbox")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "Full Screen"
+
+[node name="Label" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu/FullScreen" index="0"]
+theme_override_font_sizes/font_size = 30
+
+[node name="Divider3" type="Control" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu" unique_id=613687116]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Reset" type="Label" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu" unique_id=1012304160]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.658824, 0, 0, 1)
+text = "Reset all settings"
+vertical_alignment = 1
+
+[node name="Pointer" parent="Underlay/PanelAnchor" unique_id=1712345678 instance=ExtResource("4_pointer")]
+
+[connection signal="actioned" from="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu" to="." method="_on_settings_menu_actioned"]
+[connection signal="actioned" from="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu" to="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu" method="_on_menu_actioned"]
+[connection signal="cancelled" from="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu" to="." method="_on_settings_menu_cancelled"]
+[connection signal="cancelled" from="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu" to="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu" method="_on_cancelled"]
+[connection signal="selection_changed" from="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu" to="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu" method="_on_menu_selection_changed"]
+[connection signal="visibility_changed" from="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu" to="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu" method="_on_menu_visibility_changed"]
+[connection signal="gui_input" from="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu/SoundsVolume" to="." method="_on_sounds_volume_gui_input"]
+[connection signal="gui_input" from="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu/UISoundsVolume" to="." method="_on_ui_sounds_volume_gui_input"]
+[connection signal="gui_input" from="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu/MusicVolume" to="." method="_on_music_volume_gui_input"]
+[connection signal="toggled" from="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu/FullScreen" to="." method="_on_full_screen_toggled"]

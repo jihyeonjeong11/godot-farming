@@ -1,5 +1,7 @@
 extends Node
 
+signal settings_reset()
+
 const CONFIG_PATH := "user://config.cfg"
 const MASTER_BUS := "Master"
 
@@ -9,8 +11,35 @@ const DEFAULT_WINDOW_MODE := "windowed"
 const SAVE_DELAY := 0.4
 
 var master_volume: float = DEFAULT_MASTER_VOLUME
-var sfx_volume: float = DEFAULT_MASTER_VOLUME
-var music_volume: float = DEFAULT_MASTER_VOLUME
+
+var music_volume: float = 0.3:
+	set(value):
+		music_volume = value
+		SoundManager.set_music_volume(music_volume)
+	get:
+		return music_volume
+
+var sounds_volume: float = 0.5:
+	set(value):
+		sounds_volume = value
+		SoundManager.set_sound_volume(sounds_volume)
+	get:
+		return sounds_volume
+
+var ui_sounds_volume: float = 0.5:
+	set(value):
+		ui_sounds_volume = value
+		SoundManager.set_ui_sound_volume(ui_sounds_volume)
+	get:
+		return ui_sounds_volume
+
+var full_screen_is_on: bool:
+	set(value):
+		set_window_mode("fullscreen" if value else "windowed")
+	get:
+		return window_mode == "fullscreen"
+
+var assist_menu_animations_is_on: bool = true
 
 var window_mode: String = DEFAULT_WINDOW_MODE
 
@@ -37,12 +66,18 @@ func load_settings() -> void:
 		return
 
 	master_volume = float(_config.get_value("audio", "master_volume", DEFAULT_MASTER_VOLUME))
+	music_volume = float(_config.get_value("audio", "music_volume", music_volume))
+	sounds_volume = float(_config.get_value("audio", "sounds_volume", sounds_volume))
+	ui_sounds_volume = float(_config.get_value("audio", "ui_sounds_volume", ui_sounds_volume))
 	window_mode = String(_config.get_value("display", "mode", DEFAULT_WINDOW_MODE))
 	apply_all()
 
 
 func save_settings() -> void:
 	_config.set_value("audio", "master_volume", master_volume)
+	_config.set_value("audio", "music_volume", music_volume)
+	_config.set_value("audio", "sounds_volume", sounds_volume)
+	_config.set_value("audio", "ui_sounds_volume", ui_sounds_volume)
 	_config.set_value("display", "mode", window_mode)
 
 	var err := _config.save(CONFIG_PATH)
@@ -59,6 +94,15 @@ func set_window_mode(mode: String) -> void:
 	window_mode = mode
 	apply_window_mode()
 	_save_timer.start()
+
+
+func reset_all_settings() -> void:
+	music_volume = 0.3
+	sounds_volume = 0.5
+	ui_sounds_volume = 0.5
+	full_screen_is_on = false
+
+	settings_reset.emit()
 
 
 func apply_all() -> void:

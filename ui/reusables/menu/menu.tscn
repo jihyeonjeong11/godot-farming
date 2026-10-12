@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bbj748o40e3bt"]
+
+[ext_resource type="Script" uid="uid://br6wfpxnlwrcp" path="res://ui/reusables/menu/menu.gd" id="1_chwma"]
+
+[node name="Menu" type="VBoxContainer" unique_id=1681981472]
+script = ExtResource("1_chwma")
+metadata/_custom_type_script = "uid://cybojf2bpcp5"

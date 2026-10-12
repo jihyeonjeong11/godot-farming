@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bd3pd15t3k231"]
+
+[ext_resource type="Script" uid="uid://cybojf2bpcp5" path="res://ui/reusables/vertical_menu/vertical_menu.gd" id="1_bbr2b"]
+
+[node name="VerticalMenu" type="VBoxContainer" unique_id=1512758444]
+script = ExtResource("1_bbr2b")

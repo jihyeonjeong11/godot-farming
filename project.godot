@@ -19,30 +19,39 @@ boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/image="uid://cmc3tqcugvvas"
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="res://audio_layout.tres"
+
 [autoload]
 
-GlobalVars="*uid://dm0kyhg7vo3vn"
-ItemDB="*res://scripts/globals/item_db.gd"
-RecipeDB="*res://scripts/globals/recipe_db.gd"
-QuestDB="*res://scripts/globals/quest_db.gd"
+Platform="*uid://4p7xud7r7o0s"
+DevMenus="*uid://beseyrcctrrkr"
+SaveManager="*uid://bmrpo5yl7i5qi"
 SignalBus="*uid://c5yk62a6w1nji"
-Inventory="*uid://vycgnw0v4akr"
-SaveAndLoad="*uid://d0y42xiiply8f"
+GameState="*uid://cq6pffguy0kh"
 SessionState="*uid://cii4hbh8opbpy"
 Settings="*res://scripts/globals/settings.gd"
+SoundManager="*uid://6q1wagejt60k"
+InputHelper="*uid://cholww48njaeh"
+Inventory="*uid://vycgnw0v4akr"
+GlobalVars="*uid://dm0kyhg7vo3vn"
+TransitionManager="*uid://4wjoi1rpfp6y"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
-PersistentState="*uid://cq6pffguy0kh"
+SaveAndLoad="*uid://d0y42xiiply8f"
+QuestDB="*res://scripts/globals/quest_db.gd"
+RecipeDB="*res://scripts/globals/recipe_db.gd"
+ItemDB="*res://scripts/globals/item_db.gd"
 
 [display]
 
-window/size/viewport_width=640
-window/size/viewport_height=360
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/subwindows/embed_subwindows=false
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
-window/stretch/scale_mode="integer"
 
 [dotnet]
 
@@ -50,7 +59,13 @@ project/assembly_name="apo-farming"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/sound_manager/plugin.cfg", "res://addons/input_helper/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://ui/": "blue"
+}
 
 [global_group]
 

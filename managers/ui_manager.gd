@@ -34,8 +34,6 @@ func _ready() -> void:
 	SignalBus.level_loaded.connect(on_level_loaded)
 	SignalBus.dialogue_requested.connect(on_dialogue_requested)
 	
-func get_stack_length() -> int:
-	return stack.length
 	
 func on_dialogue_requested(key: String) -> void:
 	pass
@@ -102,11 +100,11 @@ func on_level_loaded() -> void:
 
 func _sync_ingame_overlay() -> void:
 	open_ingame_overlay()
-	var hide_ui := SessionState.should_hide_ui()
+	#var hide_ui := SessionState.should_hide_ui()
 	for path in HIDEABLE_OVERLAY_NODES:
 		var node := ingame_overlay.get_node_or_null(path) as CanvasItem
-		if node != null:
-			node.visible = not hide_ui
+	#	if node != null:
+	#		node.visible = not hide_ui
 
 
 func on_container_opened(slots: Array) -> void:

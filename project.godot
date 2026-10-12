@@ -31,6 +31,7 @@ SaveAndLoad="*uid://d0y42xiiply8f"
 SessionState="*uid://cii4hbh8opbpy"
 Settings="*res://scripts/globals/settings.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+PersistentState="*uid://cq6pffguy0kh"
 
 [display]
 

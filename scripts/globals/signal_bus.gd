@@ -54,3 +54,5 @@ signal enemy_killed(enemy_id: StringName)
 signal sound_requested(soundKey: String)
 
 signal level_loaded()
+
+signal dialogue_requested(key: String)

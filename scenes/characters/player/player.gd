@@ -27,7 +27,6 @@ var facing := Vector2.DOWN
 var ground_type: String = ""
 var _ground_layers: Array[TileMapLayer] = []
 
-@export var is_freeze: bool = false
 
 func _ready() -> void:
 	if Inventory.player_stats == null:
@@ -53,6 +52,10 @@ func _process(_delta: float) -> void:
 	if is_freeze:
 		return
 	tool_layer.aim_at(get_global_mouse_position())
+	
+func emitSound() -> void:
+	
+	pass
 
 func consume_selected() -> bool:
 	var item := Inventory.get_selected_item()

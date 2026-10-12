@@ -32,6 +32,13 @@ func _ready() -> void:
 	SignalBus.barter_opened.connect(on_barter_opened)
 	SignalBus.dialog.connect(on_dialog)
 	SignalBus.level_loaded.connect(on_level_loaded)
+	SignalBus.dialogue_requested.connect(on_dialogue_requested)
+	
+func get_stack_length() -> int:
+	return stack.length
+	
+func on_dialogue_requested(key: String) -> void:
+	pass
 	
 func on_dialog(text_keys: Array[StringName]) -> void:
 	if text_keys.is_empty():

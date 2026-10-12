@@ -36,9 +36,9 @@ func on_new_game_requested(slot: int) -> void:
 	SaveAndLoad.fresh_start = true
 	reset_quests()
 	reset_weather()
-	swap_level.call_deferred(DataTypes.Levels.Farm)
+	swap_level.call_deferred(DataTypes.Screens.CharacterCustomization)
 	SaveAndLoad.save_game.call_deferred()
-	_open_intro_dialog.call_deferred()
+	#_open_intro_dialog.call_deferred()
 	
 	
 

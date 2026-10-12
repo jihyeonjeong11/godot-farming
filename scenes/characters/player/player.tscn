@@ -32,7 +32,7 @@ base_stats = ExtResource("16_stats")
 
 [node name="HitComponent" parent="." unique_id=1946219791 instance=ExtResource("3_4kqyw")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitComponent"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitComponent" unique_id=1243708553]
 disabled = true
 
 [node name="HurtComponent" parent="." unique_id=1533014795 node_paths=PackedStringArray("follow_shape") instance=ExtResource("2_blysn")]

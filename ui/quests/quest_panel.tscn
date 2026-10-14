@@ -1,7 +1,7 @@
 [gd_scene format=3]
 
 [ext_resource type="Script" uid="uid://bef440jkjce7c" path="res://ui/quests/quest_panel.gd" id="1_qpnl"]
-[ext_resource type="PackedScene" uid="uid://deugupwqjk44e" path="res://ui/base_ui.tscn" id="2_baseui"]
+[ext_resource type="PackedScene" uid="uid://deugupwqjk44e" path="res://ui/reusables/bases/base_ui.tscn" id="2_baseui"]
 
 [node name="QuestPanel" type="Control"]
 layout_mode = 3

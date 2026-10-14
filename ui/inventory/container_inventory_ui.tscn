@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b7xqk2mcnv0ug"]
 
 [ext_resource type="Script" uid="uid://bimsyx630p20r" path="res://ui/inventory/container_inventory_ui.gd" id="2_ctnui"]
-[ext_resource type="PackedScene" uid="uid://deugupwqjk44e" path="res://ui/base_ui.tscn" id="3_baseui"]
+[ext_resource type="PackedScene" uid="uid://deugupwqjk44e" path="res://ui/reusables/bases/base_ui.tscn" id="3_baseui"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bare"]
 

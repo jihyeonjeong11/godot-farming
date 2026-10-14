@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bqvo7n17iuncy"]
 
-[ext_resource type="Script" uid="uid://clgw6f1xk8wug" path="res://ui/base_checkbox.gd" id="1_script"]
-[ext_resource type="PackedScene" uid="uid://deugupwqjk44e" path="res://ui/base_ui.tscn" id="2_baseui"]
+[ext_resource type="Script" uid="uid://clgw6f1xk8wug" path="res://ui/reusables/bases/base_checkbox.gd" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://deugupwqjk44e" path="res://ui/reusables/bases/base_ui.tscn" id="2_baseui"]
 [ext_resource type="Texture2D" uid="uid://dy73r1wj0nre0" path="res://assets/temp/cross.png" id="3_cross"]
 
 [node name="BaseCheckbox" type="HBoxContainer" unique_id=1973967585]

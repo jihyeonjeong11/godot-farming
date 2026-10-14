@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bprocslot0001"]
 
-[ext_resource type="PackedScene" uid="uid://deugupwqjk44e" path="res://ui/base_ui.tscn" id="1_baseui"]
+[ext_resource type="PackedScene" uid="uid://deugupwqjk44e" path="res://ui/reusables/bases/base_ui.tscn" id="1_baseui"]
 [ext_resource type="PackedScene" uid="uid://byt1lfm4vsyc4" path="res://ui/inventory/inventory-slot.tscn" id="2_slot"]
 [ext_resource type="Script" uid="uid://7x5ysbxxmxvl" path="res://ui/process_slot.gd" id="3_script"]
 

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dr4x4rp0j1rci"]
 
 [ext_resource type="Script" uid="uid://cot8ytmxuw7tl" path="res://ui/scene_overlay_menu_settings.gd" id="1_stgs0"]
-[ext_resource type="Theme" uid="uid://bkny51ahdetw" path="res://ui/game_theme.tres" id="2_fvhjs"]
+[ext_resource type="Theme" uid="uid://bkny51ahdetw" path="res://ui/themes/game_theme.tres" id="2_fvhjs"]
 
 [node name="Settings" type="Control" unique_id=2106012999]
 anchors_preset = 15

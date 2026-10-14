@@ -13,12 +13,12 @@ enum GameState {
 
 enum UI_Layer { PAUSE_MENU, INGAME_MENU, CONTAINER, SHOP, DIALOG }
 
-enum Screens {
-	MainMenu,
-	CharacterCustomization,
-}
 
 enum Levels {
+	MainMenu,
+	CharacterCustomization,
+	# 메인메뉴에서는 따로 씬이 아닌가? 아니면 지울것
+	Setting,
 	Farm,
 	RuinCity,
 	Tutorial

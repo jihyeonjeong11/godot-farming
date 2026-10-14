@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cwpugakipo362"]
 
-[ext_resource type="Theme" uid="uid://bkny51ahdetw" path="res://ui/game_theme.tres" id="1_dqrvi"]
-[ext_resource type="Script" uid="uid://dw2u1vri2siyj" path="res://ui/player_stats_menu.gd" id="2_dqrvi"]
+[ext_resource type="Theme" uid="uid://bkny51ahdetw" path="res://ui/themes/game_theme.tres" id="1_dqrvi"]
+[ext_resource type="Script" uid="uid://dw2u1vri2siyj" path="res://ui/hud/stats/player_stats_menu.gd" id="2_dqrvi"]
 [ext_resource type="Texture2D" uid="uid://bo5k8csiengg7" path="res://assets/Objects/items/items_atlas.png" id="4_m34xu"]
 [ext_resource type="Texture2D" uid="uid://o2uun2ogmxr5" path="res://assets/UI/stats/stats.png" id="4_m58ab"]
 
@@ -69,6 +69,7 @@ texture_progress = SubResource("AtlasTexture_hunger")
 texture_progress_offset = Vector2(1, 1)
 
 [node name="ThirstBar" type="TextureProgressBar" parent="MarginContainer/VBoxContainer" unique_id=439513397]
+visible = false
 custom_minimum_size = Vector2(20, 4)
 layout_mode = 2
 value = 100.0

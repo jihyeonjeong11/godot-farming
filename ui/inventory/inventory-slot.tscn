@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://byt1lfm4vsyc4"]
 
-[ext_resource type="Theme" uid="uid://bkny51ahdetw" path="res://ui/game_theme.tres" id="1_5rt7j"]
+[ext_resource type="Theme" uid="uid://bkny51ahdetw" path="res://ui/themes/game_theme.tres" id="1_5rt7j"]
 [ext_resource type="Script" uid="uid://2f6sxub6wvrn" path="res://ui/inventory/inventory_slot.gd" id="2_slot1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ammo_bg"]

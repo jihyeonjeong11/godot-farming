@@ -1,20 +1,19 @@
 [gd_scene format=3 uid="uid://p7t7asu1gdgy"]
 
-[ext_resource type="Theme" uid="uid://bkny51ahdetw" path="res://ui/game_theme.tres" id="1_60r20"]
-[ext_resource type="Script" uid="uid://dx8qq1k0q3scp" path="res://ui/time.gd" id="2_2xnna"]
-[ext_resource type="FontFile" uid="uid://croxjd7q24c1o" path="res://assets/fonts/DS-DIGI.TTF" id="3_dsdig"]
+[ext_resource type="Theme" uid="uid://bkny51ahdetw" path="res://ui/themes/game_theme.tres" id="1_upbi8"]
+[ext_resource type="Script" uid="uid://dx8qq1k0q3scp" path="res://ui/hud/time/time.gd" id="2_ck6o5"]
+[ext_resource type="FontFile" uid="uid://croxjd7q24c1o" path="res://assets/fonts/DS-DIGI.TTF" id="3_j6mca"]
 
 [node name="Time" type="PanelContainer" unique_id=870378732]
-anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
 size_flags_horizontal = 8
-theme = ExtResource("1_60r20")
+mouse_filter = 2
+theme = ExtResource("1_upbi8")
 theme_type_variation = &"GamePanelContainer"
-script = ExtResource("2_2xnna")
+script = ExtResource("2_ck6o5")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=842182854]
 layout_mode = 2
@@ -27,7 +26,7 @@ layout_mode = 2
 
 [node name="DayLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1432120527]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_dsdig")
+theme_override_fonts/font = ExtResource("3_j6mca")
 theme_override_font_sizes/font_size = 16
 text = "Day 0"
 horizontal_alignment = 1
@@ -37,7 +36,7 @@ layout_mode = 2
 
 [node name="TimeLabel" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer" unique_id=707203341]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_dsdig")
+theme_override_fonts/font = ExtResource("3_j6mca")
 theme_override_font_sizes/font_size = 16
 text = "09:00"
 horizontal_alignment = 1
@@ -59,7 +58,5 @@ layout_mode = 2
 text = "▶▶▶"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/SpeedButtons/NormalSpeedButton" to="." method="_on_normal_speed_button_pressed"]
-
 [connection signal="pressed" from="MarginContainer/VBoxContainer/SpeedButtons/FastSpeedButton" to="." method="_on_fast_speed_button_pressed"]
-
 [connection signal="pressed" from="MarginContainer/VBoxContainer/SpeedButtons/CheetahSpeedButton" to="." method="_on_cheetah_speed_button_pressed"]

@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b8hoteq1ehtj" path="res://ui/reusables/pointer/pointer.tscn" id="4_pointer"]
 [ext_resource type="AudioStream" uid="uid://jije14nvm0es" path="res://ui/reusables/menu/selection_changed.mp3" id="5_selchg"]
 [ext_resource type="Script" uid="uid://dqse4b32mgkui" path="res://ui/settings/settings_menu.gd" id="8_root"]
-[ext_resource type="PackedScene" uid="uid://bqvo7n17iuncy" path="res://ui/base_checkbox.tscn" id="9_checkbox"]
+[ext_resource type="PackedScene" uid="uid://bqvo7n17iuncy" path="res://ui/reusables/bases/base_checkbox.tscn" id="9_checkbox"]
 [ext_resource type="Theme" uid="uid://8bojdfk2dsmx" path="res://ui/settings/settings_theme.tres" id="10_theme"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_settings"]
@@ -162,9 +162,6 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 text = "Full Screen"
-
-[node name="Label" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu/FullScreen" index="0"]
-theme_override_font_sizes/font_size = 30
 
 [node name="Divider3" type="Control" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu" unique_id=613687116]
 custom_minimum_size = Vector2(0, 20)

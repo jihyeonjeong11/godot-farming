@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://3p1327khsld7"]
 
-[ext_resource type="PackedScene" uid="uid://deugupwqjk44e" path="res://ui/base_ui.tscn" id="1_2f6hm"]
+[ext_resource type="PackedScene" uid="uid://deugupwqjk44e" path="res://ui/reusables/bases/base_ui.tscn" id="1_2f6hm"]
 [ext_resource type="Texture2D" uid="uid://bo5k8csiengg7" path="res://assets/Objects/items/items_atlas.png" id="2_0e1gd"]
 [ext_resource type="Script" uid="uid://c0bwiw4mt7l6b" path="res://ui/dialog/dialog.gd" id="3_dlg0g"]
 

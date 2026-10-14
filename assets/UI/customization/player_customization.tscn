@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://diobn4m60xx2" path="res://assets/UI/customization/arrow_left_pressed.png" id="5_arlp"]
 [ext_resource type="Texture2D" uid="uid://b0g4hdo2mpmop" path="res://assets/UI/customization/arrow_right.png" id="6_arr"]
 [ext_resource type="Texture2D" uid="uid://b1m2v1x472l7h" path="res://assets/UI/customization/arrow_right_pressed.png" id="7_arrp"]
-[ext_resource type="PackedScene" uid="uid://bqvo7n17iuncy" path="res://ui/base_checkbox.tscn" id="8_cbx"]
+[ext_resource type="PackedScene" uid="uid://bqvo7n17iuncy" path="res://ui/reusables/bases/base_checkbox.tscn" id="8_cbx"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4kxuq"]
 texture = ExtResource("1_pnnco")

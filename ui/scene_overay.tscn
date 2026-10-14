@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cgv3nwfyr3n17"]
 
 [ext_resource type="PackedScene" uid="uid://d384q4vj3r24y" path="res://ui/inventory/quick_bar.tscn" id="2_uj2p4"]
-[ext_resource type="PackedScene" uid="uid://cwpugakipo362" path="res://ui/player_stats_menu.tscn" id="3_xqf54"]
-[ext_resource type="PackedScene" uid="uid://p7t7asu1gdgy" path="res://ui/time.tscn" id="4_7adw0"]
+[ext_resource type="PackedScene" uid="uid://cwpugakipo362" path="res://ui/hud/stats/player_stats_menu.tscn" id="3_xqf54"]
+[ext_resource type="PackedScene" uid="uid://p7t7asu1gdgy" path="res://ui/hud/time/time.tscn" id="4_7adw0"]
 [ext_resource type="PackedScene" uid="uid://857mx4r1yr3x" path="res://ui/toast/toast.tscn" id="5_aptss"]
 
 [node name="SceneOveray" type="CanvasLayer" unique_id=476376829]

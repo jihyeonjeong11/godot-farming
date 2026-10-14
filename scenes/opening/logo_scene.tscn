@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://bitwbxmljvpkp"]
+
+[ext_resource type="Script" uid="uid://dluuwkr0o6bl" path="res://scenes/opening/logo_scene.gd" id="1_oqcvj"]
+
+[sub_resource type="Animation" id="Animation_m6hfb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LazyGuy/Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_oqcvj"]
+resource_name = "appear_logo"
+length = 2.3666666
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LazyGuy/Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.06666668, 2.1666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jhbpi"]
+_data = {
+&"RESET": SubResource("Animation_m6hfb"),
+&"appear_logo": SubResource("Animation_oqcvj")
+}
+
+[node name="LogoScene" type="Node2D" unique_id=2139275119]
+script = ExtResource("1_oqcvj")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=649156819]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1427203789]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_jhbpi")
+
+[node name="LazyGuy" type="Node2D" parent="." unique_id=1228138480]
+
+[node name="Label" type="Label" parent="LazyGuy" unique_id=986808422]
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_font_sizes/font_size = 64
+text = "a Lazy Guy"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -43,7 +43,7 @@ color = Color(0, 0, 0, 0)
 unique_name_in_owner = true
 position = Vector2(960, 540)
 underlay = NodePath("..")
-menu = NodePath("CenterContainer/SettingsPanel/SettingsMenu")
+menu = NodePath("CenterContainer/SettingsPanel/Menu")
 
 [node name="CenterContainer" type="CenterContainer" parent="Underlay/PanelAnchor" unique_id=436445747]
 anchors_preset = 8
@@ -61,7 +61,7 @@ layout_mode = 2
 theme = ExtResource("10_theme")
 theme_override_styles/panel = SubResource("StyleBoxTexture_settings")
 
-[node name="SettingsMenu" type="VBoxContainer" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel" unique_id=1295632797 node_paths=PackedStringArray("pointer")]
+[node name="Menu" type="VBoxContainer" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel" unique_id=1295632797 node_paths=PackedStringArray("pointer")]
 unique_name_in_owner = true
 layout_mode = 2
 script = ExtResource("2_a66ha")
@@ -72,16 +72,16 @@ pointer = NodePath("../../../Pointer")
 pointer_valign = 0.5
 metadata/_custom_type_script = "uid://br6wfpxnlwrcp"
 
-[node name="SoundsVolume" type="HBoxContainer" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu" unique_id=220768358]
+[node name="SoundsVolume" type="HBoxContainer" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/Menu" unique_id=220768358]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu/SoundsVolume" unique_id=1930251991]
+[node name="Label" type="Label" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/Menu/SoundsVolume" unique_id=1930251991]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Sound Volume"
 
-[node name="SoundsVolumeSlider" type="HSlider" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu/SoundsVolume" unique_id=940592223]
+[node name="SoundsVolumeSlider" type="HSlider" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/Menu/SoundsVolume" unique_id=940592223]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
@@ -92,23 +92,23 @@ scrollable = false
 tick_count = 11
 ticks_on_borders = true
 
-[node name="SoundsVolumeValue" type="Label" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu/SoundsVolume" unique_id=639184620]
+[node name="SoundsVolumeValue" type="Label" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/Menu/SoundsVolume" unique_id=639184620]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 text = "10"
 horizontal_alignment = 1
 
-[node name="UISoundsVolume" type="HBoxContainer" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu" unique_id=1565245368]
+[node name="UISoundsVolume" type="HBoxContainer" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/Menu" unique_id=1565245368]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu/UISoundsVolume" unique_id=853844200]
+[node name="Label" type="Label" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/Menu/UISoundsVolume" unique_id=853844200]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "UI Sound Volume"
 
-[node name="UISoundsVolumeSlider" type="HSlider" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu/UISoundsVolume" unique_id=1144236968]
+[node name="UISoundsVolumeSlider" type="HSlider" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/Menu/UISoundsVolume" unique_id=1144236968]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
@@ -119,23 +119,23 @@ scrollable = false
 tick_count = 11
 ticks_on_borders = true
 
-[node name="UISoundsVolumeValue" type="Label" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu/UISoundsVolume" unique_id=1091037478]
+[node name="UISoundsVolumeValue" type="Label" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/Menu/UISoundsVolume" unique_id=1091037478]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 text = "10"
 horizontal_alignment = 1
 
-[node name="MusicVolume" type="HBoxContainer" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu" unique_id=1648294476]
+[node name="MusicVolume" type="HBoxContainer" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/Menu" unique_id=1648294476]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu/MusicVolume" unique_id=742359273]
+[node name="Label" type="Label" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/Menu/MusicVolume" unique_id=742359273]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Music Volume"
 
-[node name="MusicVolumeSlider" type="HSlider" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu/MusicVolume" unique_id=1505998756]
+[node name="MusicVolumeSlider" type="HSlider" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/Menu/MusicVolume" unique_id=1505998756]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
@@ -146,28 +146,28 @@ scrollable = false
 tick_count = 11
 ticks_on_borders = true
 
-[node name="MusicVolumeValue" type="Label" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu/MusicVolume" unique_id=401996909]
+[node name="MusicVolumeValue" type="Label" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/Menu/MusicVolume" unique_id=401996909]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 text = "5"
 horizontal_alignment = 1
 
-[node name="Divider" type="Control" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu" unique_id=733333887]
+[node name="Divider" type="Control" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/Menu" unique_id=733333887]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="FullScreen" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu" unique_id=1449174953 instance=ExtResource("9_checkbox")]
+[node name="FullScreen" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/Menu" unique_id=1449174953 instance=ExtResource("9_checkbox")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 text = "Full Screen"
 
-[node name="Divider3" type="Control" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu" unique_id=613687116]
+[node name="Divider3" type="Control" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/Menu" unique_id=613687116]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="Reset" type="Label" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu" unique_id=1012304160]
+[node name="Reset" type="Label" parent="Underlay/PanelAnchor/CenterContainer/SettingsPanel/Menu" unique_id=1012304160]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.658824, 0, 0, 1)
@@ -176,13 +176,13 @@ vertical_alignment = 1
 
 [node name="Pointer" parent="Underlay/PanelAnchor" unique_id=1712345678 instance=ExtResource("4_pointer")]
 
-[connection signal="actioned" from="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu" to="." method="_on_settings_menu_actioned"]
-[connection signal="actioned" from="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu" to="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu" method="_on_menu_actioned"]
-[connection signal="cancelled" from="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu" to="." method="_on_settings_menu_cancelled"]
-[connection signal="cancelled" from="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu" to="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu" method="_on_cancelled"]
-[connection signal="selection_changed" from="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu" to="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu" method="_on_menu_selection_changed"]
-[connection signal="visibility_changed" from="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu" to="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu" method="_on_menu_visibility_changed"]
-[connection signal="gui_input" from="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu/SoundsVolume" to="." method="_on_sounds_volume_gui_input"]
-[connection signal="gui_input" from="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu/UISoundsVolume" to="." method="_on_ui_sounds_volume_gui_input"]
-[connection signal="gui_input" from="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu/MusicVolume" to="." method="_on_music_volume_gui_input"]
-[connection signal="toggled" from="Underlay/PanelAnchor/CenterContainer/SettingsPanel/SettingsMenu/FullScreen" to="." method="_on_full_screen_toggled"]
+[connection signal="actioned" from="Underlay/PanelAnchor/CenterContainer/SettingsPanel/Menu" to="." method="_on_settings_menu_actioned"]
+[connection signal="actioned" from="Underlay/PanelAnchor/CenterContainer/SettingsPanel/Menu" to="Underlay/PanelAnchor/CenterContainer/SettingsPanel/Menu" method="_on_menu_actioned"]
+[connection signal="cancelled" from="Underlay/PanelAnchor/CenterContainer/SettingsPanel/Menu" to="." method="_on_settings_menu_cancelled"]
+[connection signal="cancelled" from="Underlay/PanelAnchor/CenterContainer/SettingsPanel/Menu" to="Underlay/PanelAnchor/CenterContainer/SettingsPanel/Menu" method="_on_cancelled"]
+[connection signal="selection_changed" from="Underlay/PanelAnchor/CenterContainer/SettingsPanel/Menu" to="Underlay/PanelAnchor/CenterContainer/SettingsPanel/Menu" method="_on_menu_selection_changed"]
+[connection signal="visibility_changed" from="Underlay/PanelAnchor/CenterContainer/SettingsPanel/Menu" to="Underlay/PanelAnchor/CenterContainer/SettingsPanel/Menu" method="_on_menu_visibility_changed"]
+[connection signal="gui_input" from="Underlay/PanelAnchor/CenterContainer/SettingsPanel/Menu/SoundsVolume" to="." method="_on_sounds_volume_gui_input"]
+[connection signal="gui_input" from="Underlay/PanelAnchor/CenterContainer/SettingsPanel/Menu/UISoundsVolume" to="." method="_on_ui_sounds_volume_gui_input"]
+[connection signal="gui_input" from="Underlay/PanelAnchor/CenterContainer/SettingsPanel/Menu/MusicVolume" to="." method="_on_music_volume_gui_input"]
+[connection signal="toggled" from="Underlay/PanelAnchor/CenterContainer/SettingsPanel/Menu/FullScreen" to="." method="_on_full_screen_toggled"]

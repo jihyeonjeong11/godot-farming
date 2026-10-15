@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://bysimeesc6fxa"]
+
+[ext_resource type="Script" uid="uid://cvyjpivt2t57h" path="res://ui/saves_menu/saves_menu.gd" id="1_quyx7"]
+[ext_resource type="PackedScene" uid="uid://ljcmq4ptlh86" path="res://ui/reusables/panel_anchor/panel_anchor.tscn" id="2_fa73q"]
+[ext_resource type="PackedScene" uid="uid://p5khtom1236l" path="res://scenes/levels/tutorial.tscn" id="2_ljnoj"]
+[ext_resource type="Texture2D" uid="uid://ct3d5abkpag8t" path="res://assets/UI/nine_slice_panel.png" id="3_ljnoj"]
+[ext_resource type="PackedScene" uid="uid://b8hoteq1ehtj" path="res://ui/reusables/pointer/pointer.tscn" id="3_nj8q2"]
+
+[sub_resource type="Theme" id="Theme_hhn14"]
+Panel/styles/panel = null
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mti6b"]
+texture = ExtResource("3_ljnoj")
+texture_margin_left = 50.0
+texture_margin_top = 50.0
+texture_margin_right = 50.0
+texture_margin_bottom = 50.0
+
+[node name="SavesMenu" type="Control" unique_id=1903242703]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_quyx7")
+new_game_scene = ExtResource("2_ljnoj")
+
+[node name="SavesUnderlay" type="ColorRect" parent="." unique_id=898200994]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="SavesAnchor" parent="SavesUnderlay" unique_id=1524483938 node_paths=PackedStringArray("underlay", "menu") instance=ExtResource("2_fa73q")]
+unique_name_in_owner = true
+position = Vector2(960, 540)
+underlay = NodePath("..")
+menu = NodePath("")
+
+[node name="CenterContainer" type="CenterContainer" parent="SavesUnderlay/SavesAnchor" unique_id=306934932]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_hhn14")
+theme_type_variation = &"BasePanel"
+
+[node name="PanelContainer" type="PanelContainer" parent="SavesUnderlay/SavesAnchor/CenterContainer" unique_id=79960568]
+custom_minimum_size = Vector2(1300, 860)
+layout_mode = 2
+theme_type_variation = &"GamePanelContainer"
+theme_override_styles/panel = SubResource("StyleBoxTexture_mti6b")
+
+[node name="Pointer" parent="SavesUnderlay/SavesAnchor" unique_id=70845489 instance=ExtResource("3_nj8q2")]
+visible = false

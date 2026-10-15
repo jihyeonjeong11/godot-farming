@@ -6,6 +6,7 @@ const PLAYER_STAT_BASE = preload("res://scenes/characters/player/player_stat.tre
 ## TODO: 다이얼로그 관련 여기로
 
 var is_demo: bool = false
+var has_seen_logos: bool = false
 
 
 func _ready() -> void:

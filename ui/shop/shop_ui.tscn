@@ -32,30 +32,18 @@ theme_override_constants/separation = 8
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/InventoryPanel" unique_id=1777641433]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 12
-theme_override_constants/margin_top = 12
-theme_override_constants/margin_right = 12
-theme_override_constants/margin_bottom = 12
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/InventoryPanel/MarginContainer" unique_id=311020401]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/InventoryPanel" unique_id=311020401]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/InventoryPanel/MarginContainer/VBoxContainer" unique_id=1866158721]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/InventoryPanel/VBoxContainer" unique_id=1866158721]
 custom_maximum_size = Vector2(15, 15)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 texture = SubResource("AtlasTexture_4kxuq")
 
-[node name="MyInventoryGrid" type="GridContainer" parent="HBoxContainer/InventoryPanel/MarginContainer/VBoxContainer" unique_id=156679186]
+[node name="MyInventoryGrid" type="GridContainer" parent="HBoxContainer/InventoryPanel/VBoxContainer" unique_id=156679186]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
@@ -68,30 +56,18 @@ columns = 6
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/BarterPanel" unique_id=1319885102]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 12
-theme_override_constants/margin_top = 12
-theme_override_constants/margin_right = 12
-theme_override_constants/margin_bottom = 12
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/BarterPanel/MarginContainer" unique_id=1662570985]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/BarterPanel" unique_id=1662570985]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/BarterPanel/MarginContainer/VBoxContainer" unique_id=1044892517]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/BarterPanel/VBoxContainer" unique_id=1044892517]
 custom_maximum_size = Vector2(15, 15)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 texture = SubResource("AtlasTexture_cash")
 
-[node name="BarterInventoryGrid" type="GridContainer" parent="HBoxContainer/BarterPanel/MarginContainer/VBoxContainer" unique_id=890531830]
+[node name="BarterInventoryGrid" type="GridContainer" parent="HBoxContainer/BarterPanel/VBoxContainer" unique_id=890531830]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
@@ -100,21 +76,21 @@ theme_override_constants/h_separation = 2
 theme_override_constants/v_separation = 2
 columns = 6
 
-[node name="Settle" type="HBoxContainer" parent="HBoxContainer/BarterPanel/MarginContainer/VBoxContainer"]
+[node name="Settle" type="HBoxContainer" parent="HBoxContainer/BarterPanel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_constants/separation = 12
 
-[node name="Amounts" type="VBoxContainer" parent="HBoxContainer/BarterPanel/MarginContainer/VBoxContainer/Settle"]
+[node name="Amounts" type="VBoxContainer" parent="HBoxContainer/BarterPanel/VBoxContainer/Settle"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 2
 
-[node name="GoldRow" type="HBoxContainer" parent="HBoxContainer/BarterPanel/MarginContainer/VBoxContainer/Settle/Amounts"]
+[node name="GoldRow" type="HBoxContainer" parent="HBoxContainer/BarterPanel/VBoxContainer/Settle/Amounts"]
 layout_mode = 2
 alignment = 2
 
-[node name="GoldLabel" type="Label" parent="HBoxContainer/BarterPanel/MarginContainer/VBoxContainer/Settle/Amounts/GoldRow"]
+[node name="GoldLabel" type="Label" parent="HBoxContainer/BarterPanel/VBoxContainer/Settle/Amounts/GoldRow"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_dsdig")
@@ -122,7 +98,7 @@ theme_override_font_sizes/font_size = 20
 text = "0"
 horizontal_alignment = 2
 
-[node name="GoldIcon" type="TextureRect" parent="HBoxContainer/BarterPanel/MarginContainer/VBoxContainer/Settle/Amounts/GoldRow"]
+[node name="GoldIcon" type="TextureRect" parent="HBoxContainer/BarterPanel/VBoxContainer/Settle/Amounts/GoldRow"]
 custom_minimum_size = Vector2(16, 16)
 custom_maximum_size = Vector2(16, 16)
 layout_mode = 2
@@ -131,11 +107,11 @@ texture = SubResource("AtlasTexture_cash")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="SlotRow" type="HBoxContainer" parent="HBoxContainer/BarterPanel/MarginContainer/VBoxContainer/Settle/Amounts"]
+[node name="SlotRow" type="HBoxContainer" parent="HBoxContainer/BarterPanel/VBoxContainer/Settle/Amounts"]
 layout_mode = 2
 alignment = 2
 
-[node name="SlotLabel" type="Label" parent="HBoxContainer/BarterPanel/MarginContainer/VBoxContainer/Settle/Amounts/SlotRow"]
+[node name="SlotLabel" type="Label" parent="HBoxContainer/BarterPanel/VBoxContainer/Settle/Amounts/SlotRow"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_dsdig")
@@ -143,7 +119,7 @@ theme_override_font_sizes/font_size = 20
 text = "0 / 30"
 horizontal_alignment = 2
 
-[node name="SlotIcon" type="TextureRect" parent="HBoxContainer/BarterPanel/MarginContainer/VBoxContainer/Settle/Amounts/SlotRow"]
+[node name="SlotIcon" type="TextureRect" parent="HBoxContainer/BarterPanel/VBoxContainer/Settle/Amounts/SlotRow"]
 custom_minimum_size = Vector2(16, 16)
 custom_maximum_size = Vector2(16, 16)
 layout_mode = 2
@@ -152,16 +128,16 @@ texture = SubResource("AtlasTexture_4kxuq")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Buttons" type="VBoxContainer" parent="HBoxContainer/BarterPanel/MarginContainer/VBoxContainer/Settle"]
+[node name="Buttons" type="VBoxContainer" parent="HBoxContainer/BarterPanel/VBoxContainer/Settle"]
 layout_mode = 2
 theme_override_constants/separation = 2
 
-[node name="ConfirmButton" type="Button" parent="HBoxContainer/BarterPanel/MarginContainer/VBoxContainer/Settle/Buttons"]
+[node name="ConfirmButton" type="Button" parent="HBoxContainer/BarterPanel/VBoxContainer/Settle/Buttons"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Confirm"
 
-[node name="CancelButton" type="Button" parent="HBoxContainer/BarterPanel/MarginContainer/VBoxContainer/Settle/Buttons"]
+[node name="CancelButton" type="Button" parent="HBoxContainer/BarterPanel/VBoxContainer/Settle/Buttons"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Cancel"
@@ -170,35 +146,23 @@ text = "Cancel"
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/ShopPanel" unique_id=759418733]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 12
-theme_override_constants/margin_top = 12
-theme_override_constants/margin_right = 12
-theme_override_constants/margin_bottom = 12
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/ShopPanel/MarginContainer" unique_id=1205334876]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/ShopPanel" unique_id=1205334876]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/ShopPanel/MarginContainer/VBoxContainer" unique_id=175248167]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/ShopPanel/VBoxContainer" unique_id=175248167]
 custom_maximum_size = Vector2(15, 15)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 texture = SubResource("AtlasTexture_gold")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/ShopPanel/MarginContainer/VBoxContainer" unique_id=868563294]
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/ShopPanel/VBoxContainer" unique_id=868563294]
 layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="ShopInventoryGrid" type="GridContainer" parent="HBoxContainer/ShopPanel/MarginContainer/VBoxContainer/ScrollContainer" unique_id=2053005673]
+[node name="ShopInventoryGrid" type="GridContainer" parent="HBoxContainer/ShopPanel/VBoxContainer/ScrollContainer" unique_id=2053005673]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3

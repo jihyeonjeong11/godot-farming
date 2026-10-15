@@ -1,3 +1,11 @@
 [gd_scene format=3 uid="uid://bbat45x42n5sq"]
 
-[node name="BaseButton" type="Node2D" unique_id=370084906]
+[ext_resource type="Theme" uid="uid://bkny51ahdetw" path="res://ui/themes/game_theme.tres" id="1_theme"]
+[ext_resource type="Script" uid="uid://dvlshddi7uotu" path="res://ui/reusables/bases/base_button.gd" id="2_w74gd"]
+
+[node name="BaseButton" type="Button" unique_id=370084906]
+custom_minimum_size = Vector2(64, 0)
+theme = ExtResource("1_theme")
+theme_type_variation = &"PanelButton"
+text = "Text"
+script = ExtResource("2_w74gd")

@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://dq41kkvh2lcnn"]
+
+[ext_resource type="PackedScene" uid="uid://bbat45x42n5sq" path="res://ui/reusables/bases/base_button.tscn" id="1_basebtn"]
+[ext_resource type="Script" uid="uid://b3wujdnlp2lgh" path="res://ui/main_menu/main_menu.gd" id="1_mu8pm"]
+[ext_resource type="PackedScene" uid="uid://l0h71pkmjuk" path="res://ui/settings/settings_menu.tscn" id="2_omy8q"]
+[ext_resource type="PackedScene" uid="uid://3ihneii567yc" path="res://assets/UI/customization/player_customization.tscn" id="3_i5wg5"]
+[ext_resource type="PackedScene" uid="uid://ddkhimlenwa4b" path="res://ui/saves_menu/save_slots.tscn" id="4_3c04x"]
+
+[node name="MainMenu" type="Control" unique_id=1586537910]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mu8pm")
+settings_scene = ExtResource("2_omy8q")
+character_customization_scene = ExtResource("3_i5wg5")
+continue_scene = ExtResource("4_3c04x")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=807098476]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -45.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer" unique_id=242239909]
+layout_mode = 2
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="HBoxContainer" parent="CenterContainer/MarginContainer" unique_id=665925432]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Play" parent="CenterContainer/MarginContainer/VBoxContainer" unique_id=14172634 instance=ExtResource("1_basebtn")]
+custom_minimum_size = Vector2(164, 0)
+layout_mode = 2
+text = "Play"
+
+[node name="Continue" parent="CenterContainer/MarginContainer/VBoxContainer" unique_id=1072226683 instance=ExtResource("1_basebtn")]
+custom_minimum_size = Vector2(164, 0)
+layout_mode = 2
+text = "Continue"
+
+[node name="Settings" parent="CenterContainer/MarginContainer/VBoxContainer" unique_id=844860379 instance=ExtResource("1_basebtn")]
+custom_minimum_size = Vector2(164, 0)
+layout_mode = 2
+text = "Settings"
+
+[node name="Exit" parent="CenterContainer/MarginContainer/VBoxContainer" unique_id=1365562665 instance=ExtResource("1_basebtn")]
+custom_minimum_size = Vector2(164, 0)
+layout_mode = 2
+text = "Exit"

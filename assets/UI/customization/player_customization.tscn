@@ -14,20 +14,16 @@ texture = ExtResource("1_pnnco")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p46oh"]
 
-[node name="PlayerCustomization" type="Control" unique_id=1620859284]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="PlayerCustomization" type="Node2D" unique_id=850991415]
+position = Vector2(960, 540)
 script = ExtResource("1_mivbm")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=39513373]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 8
@@ -69,7 +65,6 @@ layout_mode = 2
 [node name="TestPlayer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/CenterContainer/PlayerAnchor" unique_id=1257711427 instance=ExtResource("2_player")]
 position = Vector2(32, 60)
 scale = Vector2(2, 2)
-is_freeze = true
 
 [node name="Control" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=403426692]
 layout_mode = 2
@@ -204,20 +199,20 @@ layout_mode = 2
 texture_normal = ExtResource("6_arr")
 texture_pressed = ExtResource("7_arrp")
 
-[node name="SkipTutorial" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("8_cbx")]
+[node name="SkipTutorial" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1599739082 instance=ExtResource("8_cbx")]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Skip Tutorial"
 
-[node name="Buttons" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Buttons" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=624885016]
 layout_mode = 2
 size_flags_vertical = 10
 alignment = 1
 
-[node name="Back" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Buttons"]
+[node name="Back" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Buttons" unique_id=1269822045]
 layout_mode = 2
 text = "Back"
 
-[node name="Start" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Buttons"]
+[node name="Start" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Buttons" unique_id=1948048816]
 layout_mode = 2
 text = "Start"

@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://bkny51ahdetw" path="res://ui/themes/game_theme.tres" id="1_i3e23"]
 [ext_resource type="Script" uid="uid://bg2dpi4ax43gc" path="res://ui/scene_overlay_menu.gd" id="2_mnovl"]
 [ext_resource type="PackedScene" uid="uid://dr4x4rp0j1rci" path="res://ui/scene_overlay_menu_settings.tscn" id="3_stgs0"]
-[ext_resource type="PackedScene" uid="uid://ddkhimlenwa4b" path="res://ui/saves/save_slots.tscn" id="4_slots"]
+[ext_resource type="PackedScene" uid="uid://ddkhimlenwa4b" path="res://ui/saves_menu/save_slots.tscn" id="4_slots"]
 
 [node name="MenuOverlay" type="CanvasLayer" unique_id=2106012999]
 script = ExtResource("2_mnovl")

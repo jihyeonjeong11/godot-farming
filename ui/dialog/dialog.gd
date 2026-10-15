@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var _label: RichTextLabel = $MarginContainer/BaseUi/NinePatchRect/MarginContainer/HBoxContainer/RichTextLabel
+@onready var _label: RichTextLabel = $MarginContainer/BaseUi/HBoxContainer/RichTextLabel
 
 var _keys: Array[StringName] = []
 var _index := 0

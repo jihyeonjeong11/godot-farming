@@ -6,7 +6,6 @@
 
 [node name="BaseLevel" type="Node2D" unique_id=711204178]
 script = ExtResource("1_md458")
-level_key = null
 
 [node name="Player" parent="." unique_id=407296808 instance=ExtResource("2_player")]
 scale = Vector2(2, 2)

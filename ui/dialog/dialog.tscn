@@ -27,19 +27,17 @@ theme_override_constants/margin_bottom = 10
 [node name="BaseUi" parent="MarginContainer" unique_id=118001860 instance=ExtResource("1_2f6hm")]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/BaseUi/NinePatchRect/MarginContainer" parent_id_path=PackedInt32Array(118001860, 1967566677) index="0" unique_id=283597429]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/BaseUi" unique_id=283597429]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/BaseUi/NinePatchRect/MarginContainer/HBoxContainer" unique_id=1125909524]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/BaseUi/HBoxContainer" unique_id=1125909524]
 layout_mode = 2
 size_flags_vertical = 4
 texture = SubResource("AtlasTexture_mti6b")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/BaseUi/NinePatchRect/MarginContainer/HBoxContainer" unique_id=1687362815]
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/BaseUi/HBoxContainer" unique_id=1687362815]
 layout_mode = 2
 size_flags_horizontal = 3
 bbcode_enabled = true
 text = "DIALOG_ON_DEATH"
-
-[editable path="MarginContainer/BaseUi"]

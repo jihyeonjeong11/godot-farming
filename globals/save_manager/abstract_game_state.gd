@@ -6,7 +6,6 @@ var counters: Dictionary = {}
 var _node_properties: PackedStringArray = []
 
 func _enter_tree() -> void :
-	## TODO: 잠들떄마다 스테이트 추가 및 저장해야함.
 	SaveManager.register_state(self)
 
 

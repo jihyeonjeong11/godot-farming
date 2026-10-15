@@ -20,6 +20,8 @@ func _physics_process(delta: float) -> void :
 func register_state(state: AbstractGameState) -> void :
 	states[state.name.to_snake_case()] = state
 	_pristine_states[state.name.to_snake_case()] = state.to_serialized()
+	print(states)
+
 
 
 

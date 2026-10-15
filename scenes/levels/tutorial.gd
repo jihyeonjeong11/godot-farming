@@ -10,12 +10,12 @@ extends "res://scenes/levels/base_level.gd"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	SignalBus.level_loaded.connect(on_level_loaded)
+	#SignalBus.level_loaded.connect(on_level_loaded)
 	pass # Replace with function body.
-
-func on_level_loaded() -> void:
-	if PersistentState.is_tutorial == true:
-		dialogue("start")
+#
+#func on_level_loaded() -> void:
+	#if PersistentState.is_tutorial == true:
+		#dialogue("start")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

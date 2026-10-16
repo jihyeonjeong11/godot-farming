@@ -33,7 +33,10 @@ func quit_to_title() -> void :
 	#get_tree().paused = false
 
 func new_game() -> void :
-	pass
+	var stats: BaseCharacterStats = PLAYER_STAT_BASE.duplicate()
+	stats.setup_stats()
+	GameState.player_stat = stats
+	SaveManager.save_current_game()
 		#cinematic_stack_size = 0
 	#SaveManager.new_game(-1)
 	

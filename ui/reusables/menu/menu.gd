@@ -16,8 +16,18 @@ enum ActionEffects{
 @export var play_cancel_sound: bool = true
 @export var action_effect: ActionEffects = ActionEffects.None
 
+func _on_focus_entered(item: Control) -> void :
+	if play_actioned_sound and actioned_sound:
+		SoundManager.play_ui_sound(actioned_sound)
 
+	match action_effect:
+		ActionEffects.Flash:
+			lock()
+			pointer.select()
+			await get_tree().create_timer(0.5).timeout
+			unlock()
 
+	actioned_with_effect.emit(item)
 
 
 func _on_menu_actioned(item: Control) -> void :

@@ -7,7 +7,7 @@ signal closed()
 @onready var settings_anchor: PanelAnchor = %PanelAnchor
 
 @onready var settings_panel: PanelContainer = %SettingsPanel
-@onready var settings_menu: Menu = %SettingsMenu
+@onready var settings_menu: Menu = %Menu
 @onready var sounds_volume_slider: HSlider = %SoundsVolumeSlider
 @onready var sounds_volume_value: Label = %SoundsVolumeValue
 @onready var ui_sounds_volume_slider: HSlider = %UISoundsVolumeSlider

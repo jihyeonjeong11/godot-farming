@@ -64,6 +64,14 @@ func save_game(slot: int = -1) -> void :
 	file.close()
 
 
+func delete_game(slot: int) -> void:
+	var file_name: String = "user://slot_%d.save" % slot
+	if FileAccess.file_exists(file_name):
+		DirAccess.remove_absolute(ProjectSettings.globalize_path(file_name))
+	if current_slot == slot:
+		current_slot = -1
+
+
 func has_loadable_games() -> bool:
 	for i in range(0, SLOT_COUNT):
 		var data = get_load_data(i)

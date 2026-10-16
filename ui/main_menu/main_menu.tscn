@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bbat45x42n5sq" path="res://ui/reusables/bases/base_button.tscn" id="1_basebtn"]
 [ext_resource type="Script" uid="uid://b3wujdnlp2lgh" path="res://ui/main_menu/main_menu.gd" id="1_mu8pm"]
+[ext_resource type="PackedScene" uid="uid://bysimeesc6fxa" path="res://ui/saves_menu/saves_menu.tscn" id="2_joh67"]
 [ext_resource type="PackedScene" uid="uid://l0h71pkmjuk" path="res://ui/settings/settings_menu.tscn" id="2_omy8q"]
 [ext_resource type="PackedScene" uid="uid://3ihneii567yc" path="res://assets/UI/customization/player_customization.tscn" id="3_i5wg5"]
 [ext_resource type="PackedScene" uid="uid://ddkhimlenwa4b" path="res://ui/saves_menu/save_slots.tscn" id="4_3c04x"]
@@ -14,6 +15,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_mu8pm")
+save_slots_scene = ExtResource("2_joh67")
 settings_scene = ExtResource("2_omy8q")
 character_customization_scene = ExtResource("3_i5wg5")
 continue_scene = ExtResource("4_3c04x")

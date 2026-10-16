@@ -13,6 +13,10 @@ func _enter_tree() -> void :
 
 
 
+func _before_serialized() -> void :
+	pass
+
+
 func _after_deserialized() -> void :
 	pass
 
@@ -57,18 +61,27 @@ func from_serialized(string_or_data) -> void :
 	var data: Dictionary = string_or_data if string_or_data is Dictionary else JSON.parse_string(string_or_data)
 	for property in _get_unique_properties(self):
 		if data.has(property):
-			set(property, data.get(property))
+			set(property, _deserialize_property(property, data.get(property)))
 
 	_after_deserialized()
 
 
 
 func to_serialized() -> String:
+	_before_serialized()
 	var data = {}
 	for property in _get_unique_properties(self):
-		data[property] = get(property)
+		data[property] = _serialize_property(property, get(property))
 
 	return JSON.stringify(data)
+
+
+func _serialize_property(_property: String, value: Variant) -> Variant:
+	return value
+
+
+func _deserialize_property(_property: String, value: Variant) -> Variant:
+	return value
 
 
 func _get_unique_properties(node: Node) -> Array:

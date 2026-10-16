@@ -2,9 +2,15 @@
 
 [ext_resource type="Script" uid="uid://cvyjpivt2t57h" path="res://ui/saves_menu/saves_menu.gd" id="1_quyx7"]
 [ext_resource type="PackedScene" uid="uid://ljcmq4ptlh86" path="res://ui/reusables/panel_anchor/panel_anchor.tscn" id="2_fa73q"]
-[ext_resource type="PackedScene" uid="uid://p5khtom1236l" path="res://scenes/levels/tutorial.tscn" id="2_ljnoj"]
 [ext_resource type="Texture2D" uid="uid://ct3d5abkpag8t" path="res://assets/UI/nine_slice_panel.png" id="3_ljnoj"]
 [ext_resource type="PackedScene" uid="uid://b8hoteq1ehtj" path="res://ui/reusables/pointer/pointer.tscn" id="3_nj8q2"]
+[ext_resource type="PackedScene" uid="uid://bbj748o40e3bt" path="res://ui/reusables/menu/menu.tscn" id="5_hhn14"]
+[ext_resource type="PackedScene" uid="uid://diw4db0qvjs5m" path="res://ui/saves_menu/save_menu_item.tscn" id="6_5x6x6"]
+[ext_resource type="AudioStream" uid="uid://jije14nvm0es" path="res://ui/reusables/menu/selection_changed.mp3" id="7_selchg"]
+[ext_resource type="Theme" uid="uid://bkny51ahdetw" path="res://ui/themes/game_theme.tres" id="8_theme"]
+[ext_resource type="Script" uid="uid://dvlshddi7uotu" path="res://ui/reusables/bases/base_button.gd" id="9_button"]
+[ext_resource type="Texture2D" uid="uid://dy73r1wj0nre0" path="res://assets/temp/cross.png" id="10_cross"]
+[ext_resource type="Texture2D" uid="uid://b0cjur0klsv0n" path="res://assets/temp/circle.png" id="11_circle"]
 
 [sub_resource type="Theme" id="Theme_hhn14"]
 Panel/styles/panel = null
@@ -24,14 +30,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_quyx7")
-new_game_scene = ExtResource("2_ljnoj")
 
 [node name="SavesUnderlay" type="ColorRect" parent="." unique_id=898200994]
-custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -4.0
+offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
@@ -40,7 +46,7 @@ color = Color(0, 0, 0, 0)
 unique_name_in_owner = true
 position = Vector2(960, 540)
 underlay = NodePath("..")
-menu = NodePath("")
+menu = NodePath("CenterContainer/PanelContainer/Menu")
 
 [node name="CenterContainer" type="CenterContainer" parent="SavesUnderlay/SavesAnchor" unique_id=306934932]
 anchors_preset = 8
@@ -48,10 +54,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = -50.0
-offset_right = 50.0
-offset_bottom = 50.0
+offset_left = -650.0
+offset_top = -430.0
+offset_right = 650.0
+offset_bottom = 430.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_hhn14")
@@ -63,5 +69,102 @@ layout_mode = 2
 theme_type_variation = &"GamePanelContainer"
 theme_override_styles/panel = SubResource("StyleBoxTexture_mti6b")
 
+[node name="Menu" parent="SavesUnderlay/SavesAnchor/CenterContainer/PanelContainer" unique_id=1681981472 node_paths=PackedStringArray("pointer") instance=ExtResource("5_hhn14")]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 12
+selection_changed_sound = ExtResource("7_selchg")
+actioned_sound = ExtResource("7_selchg")
+cancel_sound = ExtResource("7_selchg")
+pointer = NodePath("../../../Pointer")
+pointer_valign = 0.5
+
+[node name="SaveMenuItem" parent="SavesUnderlay/SavesAnchor/CenterContainer/PanelContainer/Menu" unique_id=455417073 instance=ExtResource("6_5x6x6")]
+layout_mode = 2
+
+[node name="SaveMenuItem2" parent="SavesUnderlay/SavesAnchor/CenterContainer/PanelContainer/Menu" unique_id=57552389 instance=ExtResource("6_5x6x6")]
+layout_mode = 2
+
+[node name="SaveMenuItem3" parent="SavesUnderlay/SavesAnchor/CenterContainer/PanelContainer/Menu" unique_id=1980586175 instance=ExtResource("6_5x6x6")]
+layout_mode = 2
+
+[node name="SaveMenuItem4" parent="SavesUnderlay/SavesAnchor/CenterContainer/PanelContainer/Menu" unique_id=994485681 instance=ExtResource("6_5x6x6")]
+layout_mode = 2
+
 [node name="Pointer" parent="SavesUnderlay/SavesAnchor" unique_id=70845489 instance=ExtResource("3_nj8q2")]
+
+[node name="ConfirmDeleteContainer" type="ColorRect" parent="." unique_id=1734120601]
+unique_name_in_owner = true
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="ConfirmAnchor" parent="ConfirmDeleteContainer" unique_id=1734120602 node_paths=PackedStringArray("underlay") instance=ExtResource("2_fa73q")]
+unique_name_in_owner = true
+position = Vector2(960, 540)
+underlay = NodePath("..")
+
+[node name="CenterContainer" type="CenterContainer" parent="ConfirmDeleteContainer/ConfirmAnchor" unique_id=1734120603]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -231.0
+offset_top = -128.0
+offset_right = 231.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_theme")
+
+[node name="Panel" type="PanelContainer" parent="ConfirmDeleteContainer/ConfirmAnchor/CenterContainer" unique_id=1734120604]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_mti6b")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ConfirmDeleteContainer/ConfirmAnchor/CenterContainer/Panel" unique_id=1734120605]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="ConfirmDeleteContainer/ConfirmAnchor/CenterContainer/Panel/VBoxContainer" unique_id=1734120606]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Delete current save?"
+horizontal_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="ConfirmDeleteContainer/ConfirmAnchor/CenterContainer/Panel/VBoxContainer" unique_id=1734120607]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="ConfirmButton" type="Button" parent="ConfirmDeleteContainer/ConfirmAnchor/CenterContainer/Panel/VBoxContainer/Buttons" unique_id=1734120608]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+theme_type_variation = &"PanelButton"
+icon = ExtResource("11_circle")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("9_button")
+
+[node name="CancelButton" type="Button" parent="ConfirmDeleteContainer/ConfirmAnchor/CenterContainer/Panel/VBoxContainer/Buttons" unique_id=1734120609]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+theme_type_variation = &"PanelButton"
+icon = ExtResource("10_cross")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("9_button")
+
+[connection signal="actioned" from="SavesUnderlay/SavesAnchor/CenterContainer/PanelContainer/Menu" to="." method="_on_saves_menu_actioned"]
+[connection signal="actioned" from="SavesUnderlay/SavesAnchor/CenterContainer/PanelContainer/Menu" to="SavesUnderlay/SavesAnchor/CenterContainer/PanelContainer/Menu" method="_on_menu_actioned"]
+[connection signal="cancelled" from="SavesUnderlay/SavesAnchor/CenterContainer/PanelContainer/Menu" to="." method="_on_menu_cancelled"]
+[connection signal="cancelled" from="SavesUnderlay/SavesAnchor/CenterContainer/PanelContainer/Menu" to="SavesUnderlay/SavesAnchor/CenterContainer/PanelContainer/Menu" method="_on_cancelled"]
+[connection signal="selection_changed" from="SavesUnderlay/SavesAnchor/CenterContainer/PanelContainer/Menu" to="SavesUnderlay/SavesAnchor/CenterContainer/PanelContainer/Menu" method="_on_menu_selection_changed"]
+[connection signal="visibility_changed" from="SavesUnderlay/SavesAnchor/CenterContainer/PanelContainer/Menu" to="SavesUnderlay/SavesAnchor/CenterContainer/PanelContainer/Menu" method="_on_menu_visibility_changed"]

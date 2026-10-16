@@ -16,10 +16,6 @@ var selected_slot: int = -1
 var player_node: Node2D
 var world_scene_cache: Dictionary = {}
 
-# TODO: 나중에 옷 갈아입기, 머리 바꾸기 나오면 별개 파일로 클리닝
-# hair, shirt, pants, shoes
-var vanity_slots = [-1, -1, -1, -1]
-
 var player_stats: BaseCharacterStats
 
 func _ready():
@@ -29,12 +25,6 @@ func _ready():
 	armor.resize(EQUIPMENT_SLOT_LIMIT)
 	boots.resize(EQUIPMENT_SLOT_LIMIT)
 	
-func get_vanity(index: int) -> int:
-	return vanity_slots[index]
-
-func set_vanity(index: int, value: int) -> void:
-	vanity_slots[index] = value
-
 func get_item(i: int) -> ItemStack:
 	if i < 0 or i >= inventory.size():
 		return null

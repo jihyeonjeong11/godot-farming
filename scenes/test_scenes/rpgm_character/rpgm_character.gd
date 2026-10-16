@@ -54,7 +54,7 @@ func _ready() -> void:
 		_wear(layers["Bag"], bag_sheet)
 	if body_sheet:
 		for part in OUTFIT_PARTS.size():
-			equip(part, Inventory.get_vanity(part))
+			equip(part, GameState.player_vanity[part])
 	sprite.frame_changed.connect(_sync_parts)
 	sprite.animation_finished.connect(func() -> void: attacking = false)
 	_play("idle")
@@ -112,7 +112,6 @@ func equip(part: int, index: int) -> void:
 	else:
 		index = -1
 		layer.visible = false
-	Inventory.set_vanity(part, index)
 
 
 func _outfit_sheets(part: int) -> Array[Texture2D]:

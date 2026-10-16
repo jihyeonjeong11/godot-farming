@@ -15,7 +15,7 @@ extends Base_level
 
 
 
-var _slot_mode: SaveSlots.Mode = SaveSlots.Mode.NEW
+#var _slot_mode: SaveSlots.Mode = SaveSlots.Mode.NEW
 var _pending_slot := -1
 var _pan_tween: Tween
 var _pan_target: Vector2
@@ -78,11 +78,11 @@ func _finish_camera_pan() -> void:
 
 
 
-func _on_slot_selected(slot: int) -> void:
-	if _slot_mode == SaveSlots.Mode.LOAD or SaveAndLoad.has_save(slot):
-		SignalBus.load_game_requested.emit(slot)
-		return
-	_pending_slot = slot
+#func _on_slot_selected(slot: int) -> void:
+	#if _slot_mode == SaveSlots.Mode.LOAD or SaveAndLoad.has_save(slot):
+		#SignalBus.load_game_requested.emit(slot)
+		#return
+	#_pending_slot = slot
 
 
 

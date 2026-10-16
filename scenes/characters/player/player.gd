@@ -42,7 +42,7 @@ func _ready() -> void:
 	body.animation_changed.connect(_sync_layers)
 	body.animation_finished
 	for part in OUTFIT_PARTS.size():
-		equip(part, Inventory.get_vanity(part))
+		equip(part, GameState.player_vanity[part])
 	Inventory.selected_slot_changed.connect(_equip_selected.unbind(1))
 	Inventory.inventory_updated.connect(_equip_selected)
 	_equip_selected()
@@ -108,7 +108,6 @@ func equip(part: int, index: int) -> void:
 	layer.visible = index >= 0
 	if index >= 0:
 		layer.variant = index
-	Inventory.set_vanity(part, index)
 	_sync_layers()
 
 

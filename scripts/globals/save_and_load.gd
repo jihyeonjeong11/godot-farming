@@ -235,7 +235,7 @@ func save_inventory() -> void:
 		"armor": _capture_slots(Inventory.armor),
 		"boots": _capture_slots(Inventory.boots),
 		"selected_slot": Inventory.selected_slot,
-		"vanity": Inventory.vanity_slots.duplicate(),
+		"vanity": GameState.player_vanity.duplicate(),
 	})
 
 
@@ -251,8 +251,8 @@ func load_inventory() -> void:
 	_restore_slots(Inventory.boots, parsed.get("boots", []), Inventory.EQUIPMENT_SLOT_LIMIT)
 
 	var vanity: Variant = parsed.get("vanity", [])
-	for i in Inventory.vanity_slots.size():
-		Inventory.vanity_slots[i] = int(vanity[i]) if vanity is Array and i < vanity.size() else -1
+	for i in GameState.player_vanity.size():
+		GameState.player_vanity[i] = int(vanity[i]) if vanity is Array and i < vanity.size() else -1
 
 	Inventory.selected_slot = 0
 	Inventory.select_slot(parsed.get("selected_slot", 0))

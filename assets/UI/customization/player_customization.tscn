@@ -62,7 +62,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(64, 96)
 layout_mode = 2
 
-[node name="TestPlayer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/CenterContainer/PlayerAnchor" unique_id=1257711427 instance=ExtResource("2_player")]
+[node name="player" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/CenterContainer/PlayerAnchor" unique_id=1257711427 instance=ExtResource("2_player")]
 position = Vector2(32, 60)
 scale = Vector2(2, 2)
 

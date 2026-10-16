@@ -77,6 +77,28 @@ var equip_speed: int = 0
 ## 새 Player가 또 채워서 값을 날리지 않도록 부르는 쪽이 이 값을 본다.
 var is_initialized := false
 
+func to_dict() -> Dictionary:
+	return {
+		"experience": experience,
+		"health": health,
+		"stamina": stamina,
+		"hunger": hunger,
+		"thirst": thirst,
+		"gold": gold,
+	}
+
+
+func from_dict(data: Dictionary) -> void:
+	is_initialized = true
+	experience = int(data.get("experience", 0))
+	recalculate_stats()
+	health = int(data.get("health", current_max_health))
+	stamina = int(data.get("stamina", current_max_stamina))
+	hunger = int(data.get("hunger", current_max_hunger))
+	thirst = int(data.get("thirst", current_max_thirst))
+	gold = int(data.get("gold", base_gold))
+
+
 func setup_stats() -> void:
 	is_initialized = true
 	recalculate_stats()

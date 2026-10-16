@@ -2,39 +2,104 @@
 
 [ext_resource type="Theme" uid="uid://bkny51ahdetw" path="res://ui/themes/game_theme.tres" id="1_o36eu"]
 [ext_resource type="Script" uid="uid://cykhl2621ck86" path="res://ui/saves_menu/save_menu_item.gd" id="1_t2k2r"]
-[ext_resource type="Script" uid="uid://cbfkln4si60o0" path="res://scenes/characters/player/player.gd" id="3_t2k2r"]
+[ext_resource type="Texture2D" uid="uid://ct3d5abkpag8t" path="res://assets/UI/nine_slice_panel.png" id="3_t2k2r"]
+[ext_resource type="PackedScene" uid="uid://b3wdmejofhe0p" path="res://scenes/characters/player/player.tscn" id="4_player"]
+[ext_resource type="Texture2D" uid="uid://dy73r1wj0nre0" path="res://assets/temp/cross.png" id="5_ceesu"]
+[ext_resource type="Script" uid="uid://dvlshddi7uotu" path="res://ui/reusables/bases/base_button.gd" id="6_e2cig"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hhn14"]
+texture = ExtResource("3_t2k2r")
 
 [node name="SaveMenuItem" type="Control" unique_id=455417073]
+custom_minimum_size = Vector2(1200, 190)
 layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+script = ExtResource("1_t2k2r")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1758965568]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 200.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_o36eu")
+theme_override_constants/separation = 10
+
+[node name="PlayerContainer" type="PanelContainer" parent="HBoxContainer" unique_id=182528823]
+custom_minimum_size = Vector2(210, 0)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_hhn14")
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/PlayerContainer" unique_id=1734120591]
+layout_mode = 2
+
+[node name="PlayerAnchor" type="Control" parent="HBoxContainer/PlayerContainer/CenterContainer" unique_id=1734120592]
+custom_minimum_size = Vector2(64, 96)
+layout_mode = 2
+
+[node name="Player" parent="HBoxContainer/PlayerContainer/CenterContainer/PlayerAnchor" unique_id=1734120593 instance=ExtResource("4_player")]
+unique_name_in_owner = true
+position = Vector2(32, 89)
+scale = Vector2(4, 4)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=922688163]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer" unique_id=1287842066]
+layout_mode = 2
+theme_override_constants/separation = 800
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1062870359]
+layout_mode = 2
+
+[node name="Slot" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=833138426]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Slot X
+"
+
+[node name="Money" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=368531740]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Money"
+
+[node name="ElapsedTime" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1801692221]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Elapsed Time"
+
+[node name="DeleteButton" type="Button" parent="HBoxContainer" unique_id=1620978326]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("1_o36eu")
+theme_type_variation = &"PanelButton"
+icon = ExtResource("5_ceesu")
+expand_icon = true
+script = ExtResource("6_e2cig")
+metadata/_custom_type_script = "uid://dvlshddi7uotu"
+
+[node name="EmptyLabel" type="Label" parent="." unique_id=1734120594]
+visible = false
+modulate = Color(1, 1, 1, 0.5137255)
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_t2k2r")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1758965568]
-custom_minimum_size = Vector2(1920, 200)
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 24.0
-grow_horizontal = 2
 theme = ExtResource("1_o36eu")
-
-[node name="PlayerContainer" type="PanelContainer" parent="HBoxContainer" unique_id=182528823]
-custom_minimum_size = Vector2(210, 0)
-layout_mode = 2
-
-[node name="Player" type="CharacterBody2D" parent="HBoxContainer/PlayerContainer" unique_id=40487250]
-script = ExtResource("3_t2k2r")
-metadata/_custom_type_script = "uid://cbfkln4si60o0"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=922688163]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer" unique_id=1287842066]
-layout_mode = 2
-
-[node name="Money" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer" unique_id=368531740]
-layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Empty"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true

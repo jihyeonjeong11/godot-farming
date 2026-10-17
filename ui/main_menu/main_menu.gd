@@ -5,7 +5,8 @@ extends Control
 @onready var exit: ButtonBase = $CenterContainer/MarginContainer/VBoxContainer/Exit
 @onready var settings: ButtonBase = $CenterContainer/MarginContainer/VBoxContainer/Settings
 
-var new_game_scene = preload("uid://p5khtom1236l")
+var tutorial_scene = preload("uid://p5khtom1236l")
+var farm_scene = preload("uid://bmainfarm0001")
 
 @export var save_slots_scene: PackedScene
 @export var settings_scene: PackedScene
@@ -35,7 +36,7 @@ func _on_slot_chosen(slot: int, is_empty: bool, save_menu: Node) -> void:
 
 	if not is_empty:
 		SaveManager.load_game(selected_slot)
-		TransitionManager.go_to_scene(new_game_scene)
+		TransitionManager.go_to_scene(farm_scene)
 		return
 
 	var customization = character_customization_scene.instantiate()
@@ -49,7 +50,12 @@ func _on_customization_confirmed() -> void:
 	SaveManager.new_game(selected_slot)
 	GameState.player_vanity.assign(vanity)
 	SessionState.new_game()
-	TransitionManager.go_to_scene(new_game_scene)
+	if GameState.did_skip_tutorial:
+		TransitionManager.go_to_scene(tutorial_scene)
+	else:
+		# 튜토에서 얻는 아이템은 주고
+		TransitionManager.go_to_scene(farm_scene)
+
 
 
 func _on_customization_cancelled(customization: Node) -> void:

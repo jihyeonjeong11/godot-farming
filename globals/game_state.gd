@@ -1,6 +1,16 @@
 ## TODO: Savemanager 추가한다음에 abstract_class 추가 상속할
 extends AbstractGameState
 
+enum BaseLighting{
+	None, 
+	Day, 
+	Overcast, 
+	Night, 
+	House, 
+	Cave, 
+	Darkness
+}
+
 var current_scene: DataTypes.Levels = DataTypes.Levels.MainMenu
 ## TODO: 인벤토리와 버프는 딕셔너리 형태로 변환해야 세이브 가능하
 var inventory: Array[ItemStack] = []

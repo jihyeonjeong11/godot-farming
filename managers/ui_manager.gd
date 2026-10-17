@@ -46,6 +46,7 @@ func on_dialog(text_keys: Array[StringName]) -> void:
 
 
 func _input(event: InputEvent) -> void:
+	print('input')
 	if not is_open(DataTypes.UI_Layer.DIALOG):
 		return
 	if not (event is InputEventMouseButton and event.pressed):

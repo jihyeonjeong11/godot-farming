@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bqrbyohvqh031"]
+
+[ext_resource type="Script" uid="uid://cdqeocvn0vj7l" path="res://globals/ui_manager/ui_manager.gd" id="1_gomet"]
+[ext_resource type="PackedScene" uid="uid://do2sg8f6khxdl" path="res://ui/ingame_menu/ingame_menu.tscn" id="2_6ekmg"]
+
+[node name="UiManager" type="CanvasLayer" unique_id=1924915199]
+script = ExtResource("1_gomet")
+ingame_menu_scene = ExtResource("2_6ekmg")

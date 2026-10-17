@@ -56,3 +56,11 @@ signal sound_requested(soundKey: String)
 signal level_loaded()
 
 signal dialogue_requested(key: String)
+
+
+func pause_game(will_pause: bool = true) -> void:
+	if get_tree().paused == will_pause:
+		return
+
+	get_tree().paused = will_pause
+	game_paused.emit(will_pause)

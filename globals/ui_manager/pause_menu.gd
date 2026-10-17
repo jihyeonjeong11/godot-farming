@@ -48,10 +48,8 @@ func on_settings_closed() -> void:
 	setting_button.grab_focus()
 
 
-## 어느 슬롯에 넣을지 먼저 고르게 한다. 고르고 나면 저장은 SaveAndLoad가 통째로 한다.
 func on_save_pressed() -> void:
 	menu_panel.visible = false
-	save_slots.open(SaveSlots.Mode.SAVE)
 
 
 func on_save_slot_selected(slot: int) -> void:

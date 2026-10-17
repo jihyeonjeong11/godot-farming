@@ -9,11 +9,6 @@ signal toggled(toggled_on: bool)
 		if is_node_ready():
 			label.text = value
 
-@export var button_pressed: bool = false:
-	set(value):
-		button_pressed = value
-		if is_node_ready():
-			_sync_box()
 
 @onready var label: Label = $Label
 @onready var box: Button = $Box
@@ -27,10 +22,10 @@ func _ready() -> void:
 
 
 func _on_box_toggled(toggled_on: bool) -> void:
-	button_pressed = toggled_on
+	GameState.did_skip_tutorial = toggled_on
 	toggled.emit(toggled_on)
 
 
 func _sync_box() -> void:
-	box.set_pressed_no_signal(button_pressed)
-	cross.visible = button_pressed
+	box.set_pressed_no_signal(GameState.did_skip_tutorial)
+	cross.visible = GameState.did_skip_tutorial

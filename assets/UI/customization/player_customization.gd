@@ -1,23 +1,30 @@
-extends Node2D
+extends Control
 
 signal confirmed
 signal cancelled
 
-@onready var player: Player = $MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/CenterContainer/PlayerAnchor/TestPlayer
-@onready var part_rows: VBoxContainer = $MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/PartRows
-@onready var start_button: Button = $MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Buttons/Start
-@onready var back_button: Button = $MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Buttons/Back
+@onready var panel_anchor: PanelAnchor = %PanelAnchor
+@onready var player: Player = %Player
+@onready var part_rows: VBoxContainer = %PartRows
+@onready var start_button: Button = %Start
+@onready var back_button: Button = %Back
 
 
 func _ready() -> void:
 	player.is_freeze = true
 	start_button.pressed.connect(confirmed.emit)
-	back_button.pressed.connect(cancelled.emit)
+	back_button.pressed.connect(_on_back_pressed)
 	for part in player.OUTFIT_PARTS.size():
 		var row := _row(part)
 		row.get_node("Prev").pressed.connect(_step.bind(part, -1))
 		row.get_node("Next").pressed.connect(_step.bind(part, 1))
 		_refresh(part)
+	panel_anchor.appear()
+
+
+func _on_back_pressed() -> void:
+	await panel_anchor.disappear()
+	cancelled.emit()
 
 
 func _step(part: int, delta: int) -> void:

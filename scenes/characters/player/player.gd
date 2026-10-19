@@ -79,9 +79,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		match event.button_index:
 			MOUSE_BUTTON_WHEEL_DOWN:
-				InventoryActions.select(wrapi(GameState.selected_slot + 1, 0, InventoryManager.QUICKBAR_LIMIT))
+				InventoryActions.quickbar_select(wrapi(GameState.selected_slot + 1, 0, InventoryManager.QUICKBAR_LIMIT))
 			MOUSE_BUTTON_WHEEL_UP:
-				InventoryActions.select(wrapi(GameState.selected_slot - 1, 0, InventoryManager.QUICKBAR_LIMIT))
+				InventoryActions.quickbar_select(wrapi(GameState.selected_slot - 1, 0, InventoryManager.QUICKBAR_LIMIT))
 			_:
 				return
 		get_viewport().set_input_as_handled()
@@ -89,25 +89,25 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed:
 		match event.keycode:
 			KEY_1, KEY_KP_1:
-				InventoryActions.select(0)
+				InventoryActions.quickbar_select(0)
 			KEY_2, KEY_KP_2:
-				InventoryActions.select(1)
+				InventoryActions.quickbar_select(1)
 			KEY_3, KEY_KP_3:
-				InventoryActions.select(2)
+				InventoryActions.quickbar_select(2)
 			KEY_4, KEY_KP_4:
-				InventoryActions.select(3)
+				InventoryActions.quickbar_select(3)
 			KEY_5, KEY_KP_5:
-				InventoryActions.select(4)
+				InventoryActions.quickbar_select(4)
 			KEY_6, KEY_KP_6:
-				InventoryActions.select(5)
+				InventoryActions.quickbar_select(5)
 			KEY_7, KEY_KP_7:
-				InventoryActions.select(6)
+				InventoryActions.quickbar_select(6)
 			KEY_8, KEY_KP_8:
-				InventoryActions.select(7)
+				InventoryActions.quickbar_select(7)
 			KEY_9, KEY_KP_9:
-				InventoryActions.select(8)
+				InventoryActions.quickbar_select(8)
 			KEY_0, KEY_KP_0:
-				InventoryActions.select(9)
+				InventoryActions.quickbar_select(9)
 			_:
 				return
 		get_viewport().set_input_as_handled()

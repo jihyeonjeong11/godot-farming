@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ct3d5abkpag8t" path="res://assets/UI/nine_slice_panel.png" id="2_0g5aa"]
 [ext_resource type="Script" uid="uid://bnkgy884b2pbg" path="res://ui/ingame_menu/inventory_panel.gd" id="3_l7vxc"]
 [ext_resource type="PackedScene" uid="uid://dd23fdr6u45hq" path="res://ui/reusables/bases/base_inventory_slot.tscn" id="3_slot"]
+
 [sub_resource type="ButtonGroup" id="ButtonGroup_tabs"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g0yls"]

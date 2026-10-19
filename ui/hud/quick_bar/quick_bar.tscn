@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://d3yrr8n8xlaxj"]
+
+[ext_resource type="Script" uid="uid://bk6c75eogq05o" path="res://ui/hud/quick_bar/quick_bar.gd" id="1_0sgbk"]
+[ext_resource type="PackedScene" uid="uid://dd23fdr6u45hq" path="res://ui/reusables/bases/base_inventory_slot.tscn" id="1_slot"]
+
+[node name="QuickBar" type="Control" unique_id=273744350]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0sgbk")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=395766316]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer" unique_id=178066844]
+layout_mode = 2
+theme_override_constants/margin_bottom = 40
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/MarginContainer" unique_id=652033727]
+layout_mode = 2
+
+[node name="Slot0" parent="CenterContainer/MarginContainer/HBoxContainer" unique_id=562867940 instance=ExtResource("1_slot")]
+custom_minimum_size = Vector2(78, 78)
+layout_mode = 2
+
+[node name="Slot1" parent="CenterContainer/MarginContainer/HBoxContainer" unique_id=1301045816 instance=ExtResource("1_slot")]
+custom_minimum_size = Vector2(78, 78)
+layout_mode = 2
+
+[node name="Slot2" parent="CenterContainer/MarginContainer/HBoxContainer" unique_id=1570660844 instance=ExtResource("1_slot")]
+custom_minimum_size = Vector2(78, 78)
+layout_mode = 2
+
+[node name="Slot3" parent="CenterContainer/MarginContainer/HBoxContainer" unique_id=701285623 instance=ExtResource("1_slot")]
+custom_minimum_size = Vector2(78, 78)
+layout_mode = 2
+
+[node name="Slot4" parent="CenterContainer/MarginContainer/HBoxContainer" unique_id=1816762473 instance=ExtResource("1_slot")]
+custom_minimum_size = Vector2(78, 78)
+layout_mode = 2
+
+[node name="Slot5" parent="CenterContainer/MarginContainer/HBoxContainer" unique_id=600161289 instance=ExtResource("1_slot")]
+custom_minimum_size = Vector2(78, 78)
+layout_mode = 2
+
+[node name="Slot6" parent="CenterContainer/MarginContainer/HBoxContainer" unique_id=914130264 instance=ExtResource("1_slot")]
+custom_minimum_size = Vector2(78, 78)
+layout_mode = 2
+
+[node name="Slot7" parent="CenterContainer/MarginContainer/HBoxContainer" unique_id=242907512 instance=ExtResource("1_slot")]
+custom_minimum_size = Vector2(78, 78)
+layout_mode = 2
+
+[node name="Slot8" parent="CenterContainer/MarginContainer/HBoxContainer" unique_id=2073356755 instance=ExtResource("1_slot")]
+custom_minimum_size = Vector2(78, 78)
+layout_mode = 2
+
+[node name="Slot9" parent="CenterContainer/MarginContainer/HBoxContainer" unique_id=1937381086 instance=ExtResource("1_slot")]
+custom_minimum_size = Vector2(78, 78)
+layout_mode = 2

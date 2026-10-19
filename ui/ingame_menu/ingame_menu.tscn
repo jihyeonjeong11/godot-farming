@@ -1,48 +1,49 @@
 [gd_scene format=3 uid="uid://do2sg8f6khxdl"]
 
 [ext_resource type="Script" uid="uid://cduba5a1bqqyl" path="res://ui/ingame_menu/ingame_menu.gd" id="1_lngvq"]
-[ext_resource type="PackedScene" uid="uid://deugupwqjk44e" path="res://ui/reusables/bases/base_ui.tscn" id="2_baseui"]
-[ext_resource type="PackedScene" uid="uid://b8v85sm37h1qw" path="res://ui/inventory/inventory-description.tscn" id="4_s64m0"]
-[ext_resource type="PackedScene" uid="uid://dr4x4rp0j1rci" path="res://ui/scene_overlay_menu_settings.tscn" id="6_stgs0"]
-[ext_resource type="Script" uid="uid://v33xqm1r0ndn" path="res://ui/equipment_panel.gd" id="7_eomoy"]
-[ext_resource type="PackedScene" uid="uid://dowq4j5556c76" path="res://ui/inventory/equipment_slot.tscn" id="7_tab21"]
-[ext_resource type="PackedScene" path="res://ui/quests/quest_panel.tscn" id="10_qpnl"]
-[ext_resource type="Texture2D" uid="uid://bo5k8csiengg7" path="res://assets/Objects/items/items_atlas.png" id="atlas_items"]
+[ext_resource type="Texture2D" uid="uid://ct3d5abkpag8t" path="res://assets/UI/nine_slice_panel.png" id="2_0g5aa"]
+[ext_resource type="Script" uid="uid://bnkgy884b2pbg" path="res://ui/ingame_menu/inventory_panel.gd" id="3_l7vxc"]
+[ext_resource type="PackedScene" uid="uid://dd23fdr6u45hq" path="res://ui/reusables/bases/base_inventory_slot.tscn" id="3_slot"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_tabs"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_item36"]
-atlas = ExtResource("atlas_items")
-region = Rect2(160, 96, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_item50"]
-atlas = ExtResource("atlas_items")
-region = Rect2(288, 128, 32, 32)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g0yls"]
+texture = ExtResource("2_0g5aa")
+texture_margin_left = 50.0
+texture_margin_top = 50.0
+texture_margin_right = 50.0
+texture_margin_bottom = 50.0
 
 [node name="IngameMenu" type="CanvasLayer" unique_id=997795060]
+process_mode = 3
 script = ExtResource("1_lngvq")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1797856111]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=583374743]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 12
-theme_override_constants/margin_top = 12
-theme_override_constants/margin_right = 12
-theme_override_constants/margin_bottom = 12
+color = Color(1, 1, 1, 0)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1990916851]
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect" unique_id=783927418]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/CenterContainer" unique_id=1990916851]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="TabColumn" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=1489806692]
+[node name="TabColumn" type="VBoxContainer" parent="ColorRect/CenterContainer/HBoxContainer" unique_id=1489806692]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_constants/separation = 2
 
-[node name="InventoryTab" type="Button" parent="MarginContainer/HBoxContainer/TabColumn" unique_id=1365073889]
+[node name="InventoryTab" type="Button" parent="ColorRect/CenterContainer/HBoxContainer/TabColumn" unique_id=1365073889]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
@@ -52,7 +53,7 @@ button_pressed = true
 button_group = SubResource("ButtonGroup_tabs")
 text = "Inventory"
 
-[node name="CraftingTab" type="Button" parent="MarginContainer/HBoxContainer/TabColumn" unique_id=301082122]
+[node name="CraftingTab" type="Button" parent="ColorRect/CenterContainer/HBoxContainer/TabColumn" unique_id=301082122]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
@@ -61,7 +62,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_tabs")
 text = "Crafting"
 
-[node name="QuestTab" type="Button" parent="MarginContainer/HBoxContainer/TabColumn" unique_id=1868430367]
+[node name="QuestTab" type="Button" parent="ColorRect/CenterContainer/HBoxContainer/TabColumn" unique_id=1868430367]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
@@ -70,7 +71,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_tabs")
 text = "Quests"
 
-[node name="StatsTab" type="Button" parent="MarginContainer/HBoxContainer/TabColumn" unique_id=1844722630]
+[node name="StatsTab" type="Button" parent="ColorRect/CenterContainer/HBoxContainer/TabColumn" unique_id=1844722630]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
@@ -79,7 +80,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_tabs")
 text = "Stats"
 
-[node name="SettingsTab" type="Button" parent="MarginContainer/HBoxContainer/TabColumn" unique_id=2031582279]
+[node name="SettingsTab" type="Button" parent="ColorRect/CenterContainer/HBoxContainer/TabColumn" unique_id=2031582279]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
@@ -88,168 +89,165 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_tabs")
 text = "Settings"
 
-[node name="InventoryPanel" parent="MarginContainer/HBoxContainer" unique_id=927347673 instance=ExtResource("2_baseui")]
+[node name="InventoryPanel" type="PanelContainer" parent="ColorRect/CenterContainer/HBoxContainer" unique_id=851661324]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1080, 0)
+layout_mode = 2
+theme_type_variation = &"MenuContainer"
+theme_override_styles/panel = SubResource("StyleBoxTexture_g0yls")
+script = ExtResource("3_l7vxc")
+
+[node name="InventoryGrid" type="GridContainer" parent="ColorRect/CenterContainer/HBoxContainer/InventoryPanel" unique_id=581742594]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Rows" type="VBoxContainer" parent="MarginContainer/HBoxContainer/InventoryPanel" unique_id=754257361]
-layout_mode = 2
-theme_override_constants/separation = 4
-
-[node name="InventoryGrid" type="GridContainer" parent="MarginContainer/HBoxContainer/InventoryPanel/Rows" unique_id=1273650325]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 4
 size_flags_vertical = 0
-theme_override_constants/h_separation = 2
-theme_override_constants/v_separation = 2
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
 columns = 10
 
-[node name="InventoryDescription" parent="MarginContainer/HBoxContainer/InventoryPanel/Rows" unique_id=1629888154 instance=ExtResource("4_s64m0")]
+[node name="Slot0" parent="ColorRect/CenterContainer/HBoxContainer/InventoryPanel/InventoryGrid" unique_id=1683458506 instance=ExtResource("3_slot")]
+layout_mode = 2
+
+[node name="Slot1" parent="ColorRect/CenterContainer/HBoxContainer/InventoryPanel/InventoryGrid" unique_id=1774384698 instance=ExtResource("3_slot")]
+layout_mode = 2
+
+[node name="Slot2" parent="ColorRect/CenterContainer/HBoxContainer/InventoryPanel/InventoryGrid" unique_id=274443739 instance=ExtResource("3_slot")]
+layout_mode = 2
+
+[node name="Slot3" parent="ColorRect/CenterContainer/HBoxContainer/InventoryPanel/InventoryGrid" unique_id=1843479085 instance=ExtResource("3_slot")]
+layout_mode = 2
+
+[node name="Slot4" parent="ColorRect/CenterContainer/HBoxContainer/InventoryPanel/InventoryGrid" unique_id=1421042153 instance=ExtResource("3_slot")]
+layout_mode = 2
+
+[node name="Slot5" parent="ColorRect/CenterContainer/HBoxContainer/InventoryPanel/InventoryGrid" unique_id=263236934 instance=ExtResource("3_slot")]
+layout_mode = 2
+
+[node name="Slot6" parent="ColorRect/CenterContainer/HBoxContainer/InventoryPanel/InventoryGrid" unique_id=1901934096 instance=ExtResource("3_slot")]
+layout_mode = 2
+
+[node name="Slot7" parent="ColorRect/CenterContainer/HBoxContainer/InventoryPanel/InventoryGrid" unique_id=1234796471 instance=ExtResource("3_slot")]
+layout_mode = 2
+
+[node name="Slot8" parent="ColorRect/CenterContainer/HBoxContainer/InventoryPanel/InventoryGrid" unique_id=169141926 instance=ExtResource("3_slot")]
+layout_mode = 2
+
+[node name="Slot9" parent="ColorRect/CenterContainer/HBoxContainer/InventoryPanel/InventoryGrid" unique_id=564059166 instance=ExtResource("3_slot")]
+layout_mode = 2
+
+[node name="Slot10" parent="ColorRect/CenterContainer/HBoxContainer/InventoryPanel/InventoryGrid" unique_id=1821000788 instance=ExtResource("3_slot")]
+layout_mode = 2
+
+[node name="Slot11" parent="ColorRect/CenterContainer/HBoxContainer/InventoryPanel/InventoryGrid" unique_id=1648605156 instance=ExtResource("3_slot")]
+layout_mode = 2
+
+[node name="Slot12" parent="ColorRect/CenterContainer/HBoxContainer/InventoryPanel/InventoryGrid" unique_id=449982969 instance=ExtResource("3_slot")]
+layout_mode = 2
+
+[node name="Slot13" parent="ColorRect/CenterContainer/HBoxContainer/InventoryPanel/InventoryGrid" unique_id=1627531216 instance=ExtResource("3_slot")]
+layout_mode = 2
+
+[node name="Slot14" parent="ColorRect/CenterContainer/HBoxContainer/InventoryPanel/InventoryGrid" unique_id=786026729 instance=ExtResource("3_slot")]
+layout_mode = 2
+
+[node name="Slot15" parent="ColorRect/CenterContainer/HBoxContainer/InventoryPanel/InventoryGrid" unique_id=1422082227 instance=ExtResource("3_slot")]
+layout_mode = 2
+
+[node name="Slot16" parent="ColorRect/CenterContainer/HBoxContainer/InventoryPanel/InventoryGrid" unique_id=931241321 instance=ExtResource("3_slot")]
+layout_mode = 2
+
+[node name="Slot17" parent="ColorRect/CenterContainer/HBoxContainer/InventoryPanel/InventoryGrid" unique_id=1649647600 instance=ExtResource("3_slot")]
+layout_mode = 2
+
+[node name="Slot18" parent="ColorRect/CenterContainer/HBoxContainer/InventoryPanel/InventoryGrid" unique_id=2121709878 instance=ExtResource("3_slot")]
+layout_mode = 2
+
+[node name="Slot19" parent="ColorRect/CenterContainer/HBoxContainer/InventoryPanel/InventoryGrid" unique_id=269725436 instance=ExtResource("3_slot")]
+layout_mode = 2
+
+[node name="Slot20" parent="ColorRect/CenterContainer/HBoxContainer/InventoryPanel/InventoryGrid" unique_id=1891758367 instance=ExtResource("3_slot")]
+layout_mode = 2
+
+[node name="Slot21" parent="ColorRect/CenterContainer/HBoxContainer/InventoryPanel/InventoryGrid" unique_id=1789564404 instance=ExtResource("3_slot")]
+layout_mode = 2
+
+[node name="Slot22" parent="ColorRect/CenterContainer/HBoxContainer/InventoryPanel/InventoryGrid" unique_id=111925787 instance=ExtResource("3_slot")]
+layout_mode = 2
+
+[node name="Slot23" parent="ColorRect/CenterContainer/HBoxContainer/InventoryPanel/InventoryGrid" unique_id=1377742696 instance=ExtResource("3_slot")]
+layout_mode = 2
+
+[node name="Slot24" parent="ColorRect/CenterContainer/HBoxContainer/InventoryPanel/InventoryGrid" unique_id=1421588805 instance=ExtResource("3_slot")]
+layout_mode = 2
+
+[node name="Slot25" parent="ColorRect/CenterContainer/HBoxContainer/InventoryPanel/InventoryGrid" unique_id=336885814 instance=ExtResource("3_slot")]
+layout_mode = 2
+
+[node name="Slot26" parent="ColorRect/CenterContainer/HBoxContainer/InventoryPanel/InventoryGrid" unique_id=529092130 instance=ExtResource("3_slot")]
+layout_mode = 2
+
+[node name="Slot27" parent="ColorRect/CenterContainer/HBoxContainer/InventoryPanel/InventoryGrid" unique_id=1144398518 instance=ExtResource("3_slot")]
+layout_mode = 2
+
+[node name="Slot28" parent="ColorRect/CenterContainer/HBoxContainer/InventoryPanel/InventoryGrid" unique_id=1866401466 instance=ExtResource("3_slot")]
+layout_mode = 2
+
+[node name="Slot29" parent="ColorRect/CenterContainer/HBoxContainer/InventoryPanel/InventoryGrid" unique_id=1621276249 instance=ExtResource("3_slot")]
+layout_mode = 2
+
+[node name="CraftingPanel" type="PanelContainer" parent="ColorRect/CenterContainer/HBoxContainer" unique_id=682146701]
 unique_name_in_owner = true
 visible = false
-custom_minimum_size = Vector2(0, 40)
+custom_minimum_size = Vector2(1080, 0)
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 8
+theme_type_variation = &"MenuContainer"
+theme_override_styles/panel = SubResource("StyleBoxTexture_g0yls")
 
-[node name="EquipmentPanel" type="VBoxContainer" parent="MarginContainer/HBoxContainer/InventoryPanel/Rows" unique_id=488984290]
+[node name="Label" type="Label" parent="ColorRect/CenterContainer/HBoxContainer/CraftingPanel" unique_id=184274377]
 layout_mode = 2
-script = ExtResource("7_eomoy")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/InventoryPanel/Rows/EquipmentPanel" unique_id=2012841278]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/InventoryPanel/Rows/EquipmentPanel/HBoxContainer" unique_id=723819748]
-custom_minimum_size = Vector2(26, 26)
-layout_mode = 2
-size_flags_vertical = 4
-texture = SubResource("AtlasTexture_item36")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="EquipmentSlot" parent="MarginContainer/HBoxContainer/InventoryPanel/Rows/EquipmentPanel/HBoxContainer" unique_id=1656223806 instance=ExtResource("7_tab21")]
-layout_mode = 2
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/HBoxContainer/InventoryPanel/Rows/EquipmentPanel" unique_id=932861925]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/InventoryPanel/Rows/EquipmentPanel/HBoxContainer2" unique_id=1660333583]
-custom_minimum_size = Vector2(26, 26)
-layout_mode = 2
-size_flags_vertical = 4
-texture = SubResource("AtlasTexture_item50")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="EquipmentSlot" parent="MarginContainer/HBoxContainer/InventoryPanel/Rows/EquipmentPanel/HBoxContainer2" unique_id=379350201 instance=ExtResource("7_tab21")]
-layout_mode = 2
-
-[node name="CraftingPanel" parent="MarginContainer/HBoxContainer" unique_id=644144050 instance=ExtResource("2_baseui")]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Rows" type="VBoxContainer" parent="MarginContainer/HBoxContainer/CraftingPanel" unique_id=705583731]
-layout_mode = 2
-theme_override_constants/separation = 4
-
-[node name="Title" type="Label" parent="MarginContainer/HBoxContainer/CraftingPanel/Rows" unique_id=944760863]
-layout_mode = 2
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 32
 text = "CRAFTING"
+horizontal_alignment = 1
 
-[node name="CraftGrid" type="GridContainer" parent="MarginContainer/HBoxContainer/CraftingPanel/Rows" unique_id=82649683]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_constants/h_separation = 2
-theme_override_constants/v_separation = 2
-columns = 10
-
-[node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer/CraftingPanel/Rows" unique_id=1128512885]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="CraftInfo" type="Label" parent="MarginContainer/HBoxContainer/CraftingPanel/Rows" unique_id=1720170111]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-size_flags_vertical = 8
-theme_override_colors/font_color = Color(0.78431374, 0.78431374, 0.78431374, 1)
-theme_override_font_sizes/font_size = 8
-autowrap_mode = 3
-
-[node name="StatsPanel" parent="MarginContainer/HBoxContainer" unique_id=758540051 instance=ExtResource("2_baseui")]
+[node name="QuestPanel" type="PanelContainer" parent="ColorRect/CenterContainer/HBoxContainer" unique_id=509040644]
 unique_name_in_owner = true
 visible = false
+custom_minimum_size = Vector2(1080, 0)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+theme_type_variation = &"MenuContainer"
+theme_override_styles/panel = SubResource("StyleBoxTexture_g0yls")
 
-[node name="Rows" type="VBoxContainer" parent="MarginContainer/HBoxContainer/StatsPanel" unique_id=1002879425]
+[node name="Label" type="Label" parent="ColorRect/CenterContainer/HBoxContainer/QuestPanel" unique_id=953647060]
 layout_mode = 2
-theme_override_constants/separation = 4
+theme_override_font_sizes/font_size = 32
+text = "QUESTS"
+horizontal_alignment = 1
 
-[node name="Title" type="Label" parent="MarginContainer/HBoxContainer/StatsPanel/Rows" unique_id=670376404]
+[node name="StatsPanel" type="PanelContainer" parent="ColorRect/CenterContainer/HBoxContainer" unique_id=255927194]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(1080, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 10
+theme_type_variation = &"MenuContainer"
+theme_override_styles/panel = SubResource("StyleBoxTexture_g0yls")
+
+[node name="Label" type="Label" parent="ColorRect/CenterContainer/HBoxContainer/StatsPanel" unique_id=978924723]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "STATS"
+horizontal_alignment = 1
 
-[node name="StatsInfo" type="Label" parent="MarginContainer/HBoxContainer/StatsPanel/Rows" unique_id=980652500]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_colors/font_color = Color(0.78431374, 0.78431374, 0.78431374, 1)
-theme_override_font_sizes/font_size = 8
-autowrap_mode = 3
-
-[node name="QuestPanel" parent="MarginContainer/HBoxContainer" unique_id=118001860 instance=ExtResource("10_qpnl")]
+[node name="SettingsPanel" type="PanelContainer" parent="ColorRect/CenterContainer/HBoxContainer" unique_id=1403694643]
 unique_name_in_owner = true
 visible = false
+custom_minimum_size = Vector2(1080, 0)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+theme_type_variation = &"MenuContainer"
+theme_override_styles/panel = SubResource("StyleBoxTexture_g0yls")
 
-[node name="SettingsPanel" parent="MarginContainer/HBoxContainer" unique_id=1529285723 instance=ExtResource("2_baseui")]
-unique_name_in_owner = true
-visible = false
+[node name="Label" type="Label" parent="ColorRect/CenterContainer/HBoxContainer/SettingsPanel" unique_id=249189674]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Rows" type="VBoxContainer" parent="MarginContainer/HBoxContainer/SettingsPanel" unique_id=1048084680]
-layout_mode = 2
-theme_override_constants/separation = 4
-
-[node name="Title" type="Label" parent="MarginContainer/HBoxContainer/SettingsPanel/Rows" unique_id=126366419]
-layout_mode = 2
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 32
 text = "SETTINGS"
-
-[node name="OptionsButton" type="Button" parent="MarginContainer/HBoxContainer/SettingsPanel/Rows" unique_id=507395998]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 10
-text = "Options"
-
-[node name="QuitButton" type="Button" parent="MarginContainer/HBoxContainer/SettingsPanel/Rows" unique_id=903988710]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 10
-text = "Quit"
-
-[node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer/SettingsPanel/Rows" unique_id=77263779]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Settings" parent="." unique_id=1408890995 instance=ExtResource("6_stgs0")]
-visible = false
-layout_mode = 3
+horizontal_alignment = 1

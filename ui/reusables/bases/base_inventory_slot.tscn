@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://dd23fdr6u45hq"]
+
+[ext_resource type="Script" uid="uid://dkegrvyebj5go" path="res://ui/reusables/bases/base_inventory_slot.gd" id="1_xbews"]
+[ext_resource type="Theme" uid="uid://bkny51ahdetw" path="res://ui/themes/game_theme.tres" id="2_theme"]
+
+[node name="BaseInventorySlot" type="Button" unique_id=1776576726]
+custom_minimum_size = Vector2(88, 88)
+offset_right = 26.0
+offset_bottom = 26.0
+theme = ExtResource("2_theme")
+theme_type_variation = &"SlotButton"
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("1_xbews")
+
+[node name="AmountLabel" type="Label" parent="." unique_id=1259465140]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = -6.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 2
+vertical_alignment = 2

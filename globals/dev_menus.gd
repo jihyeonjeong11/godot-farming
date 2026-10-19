@@ -4,7 +4,8 @@ var activation_code: String = "0129"
 var activation_code_so_far: String = ""
 
 
-## TODO: cheat menus for developer.
+## TODO: cheat/dev codes for developer.
+
 var is_active: bool = true
 
 func _ready() -> void :
@@ -12,6 +13,16 @@ func _ready() -> void :
 		prints("Disabling OPs in non-debug build.")
 		process_mode = ProcessMode.PROCESS_MODE_DISABLED
 		return
+	dev_fill_inventory()
+
+
+func dev_fill_inventory() -> void:
+	var ids := ItemDB.all_ids()
+	ids.shuffle()
+	for id in ids.slice(0, 5):
+		var item := ItemDB.get_item(id)
+		var amount := randi_range(1, ItemStack.slot_capacity(item))
+		InventoryActions.obtain(ItemStack.new(item, amount))
 		
 func _input(event: InputEvent) -> void :
 	if not is_active and event.is_pressed() and not event.is_echo():

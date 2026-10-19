@@ -1,4 +1,4 @@
-extends Node
+class_name InventoryActions extends RefCounted
 
 # 공통: signal toast 표시
 
@@ -8,25 +8,45 @@ extends Node
 # inventory_manager.update or delete
 # stat_actions.update_stat 뭐 이런거고
 # 아무 event emit. 이걸로 토스트 띄우고 퀘스트 같은거 업데이트하고 소리 띄우
-func consume() -> void:
+static func consume() -> void:
 	pass
 	
 # 어케할지 생각해보기. 스타듀에서 어떻게하더라?
 # 플레이어 위치 확인. 해당 위치에 item_instance 생성
 # 인벤토리 해당 스택 delete
-func drop() -> void:
+static func drop() -> void:
 	pass
 	
-func pickup() -> void:
-	pass
+static func select(index: int) -> void:
+	if index < 0 or index >= InventoryManager.QUICKBAR_LIMIT:
+		return
+	if index == GameState.selected_slot:
+		return
+	GameState.selected_slot = index
+	InventoryManager.stack_selected.emit(index)
+	
+static func obtain(stack: ItemStack) -> bool:
+	if stack == null or not stack.is_valid():
+		return false
+
+	var left := InventoryManager.add_item_stack(stack)
+	var gained := stack.amount - left
+	if gained > 0:
+		SignalBus.toast_requested.emit(stack.item.item_texture, "+%d" % gained)
+	if left > 0:
+		SignalBus.toast_requested.emit(stack.item.item_texture, "인벤토리가 가득 찼다")
+	return left == 0
+	
+static func pickup(stack: ItemStack) -> bool:
+	return obtain(stack)
 	
 # 인벤토리 옮기기
-func move() -> void:
+static func move() -> void:
 	pass
 	
-func equip() -> void:
+static func equip() -> void:
 	pass
 	
-func unequip() -> void:
+static func unequip() -> void:
 	pass
 	

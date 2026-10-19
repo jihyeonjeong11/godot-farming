@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bu353in2lh0n0" path="res://assets/UI/Inventory/Inventory-Chosen.png" id="1_gchcn"]
 [ext_resource type="Texture2D" uid="uid://ct3d5abkpag8t" path="res://assets/UI/nine_slice_panel.png" id="2_panel"]
 [ext_resource type="Texture2D" uid="uid://bsc3oeao707bw" path="res://assets/UI/nine_slice_panel_pressed.png" id="3_panelp"]
+[ext_resource type="Texture2D" uid="uid://cn375lune3m22" path="res://assets/UI/nine_slice_slot_pressed.png" id="4_slotp"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_basepanel"]
 content_margin_left = 12.0
@@ -87,7 +88,7 @@ content_margin_left = 3.0
 content_margin_top = 4.0
 content_margin_right = 3.0
 content_margin_bottom = 2.0
-texture = ExtResource("3_panelp")
+texture = ExtResource("4_slotp")
 texture_margin_left = 8.0
 texture_margin_top = 8.0
 texture_margin_right = 8.0
@@ -126,3 +127,4 @@ SlotButton/styles/hover = SubResource("StyleBoxTexture_slot")
 SlotButton/styles/hover_pressed = SubResource("StyleBoxTexture_slotp")
 SlotButton/styles/normal = SubResource("StyleBoxTexture_slot")
 SlotButton/styles/pressed = SubResource("StyleBoxTexture_slotp")
+TooltipPanel/styles/panel = SubResource("StyleBoxTexture_basepanel")

@@ -43,8 +43,8 @@ func _ready() -> void:
 	body.animation_finished
 	for part in OUTFIT_PARTS.size():
 		equip(part, GameState.player_vanity[part])
-	Inventory.selected_slot_changed.connect(_equip_selected.unbind(1))
-	Inventory.inventory_updated.connect(_equip_selected)
+	InventoryManager.stack_selected.connect(_equip_selected.unbind(1))
+	InventoryManager.updated_inventory.connect(_equip_selected)
 	_equip_selected()
 		
 func get_terrain_type() -> String:
@@ -76,14 +76,47 @@ func consume_selected() -> bool:
 func _unhandled_input(event: InputEvent) -> void:
 	if is_freeze:
 		return
-	var slot := GameInputEvents.number_key_input(event)
-	if slot >= 0:
-		Inventory.select_slot(slot)
+	if event is InputEventMouseButton and event.pressed:
+		match event.button_index:
+			MOUSE_BUTTON_WHEEL_DOWN:
+				InventoryActions.select(wrapi(GameState.selected_slot + 1, 0, InventoryManager.QUICKBAR_LIMIT))
+			MOUSE_BUTTON_WHEEL_UP:
+				InventoryActions.select(wrapi(GameState.selected_slot - 1, 0, InventoryManager.QUICKBAR_LIMIT))
+			_:
+				return
+		get_viewport().set_input_as_handled()
+		return
+	if event is InputEventKey and event.pressed:
+		match event.keycode:
+			KEY_1, KEY_KP_1:
+				InventoryActions.select(0)
+			KEY_2, KEY_KP_2:
+				InventoryActions.select(1)
+			KEY_3, KEY_KP_3:
+				InventoryActions.select(2)
+			KEY_4, KEY_KP_4:
+				InventoryActions.select(3)
+			KEY_5, KEY_KP_5:
+				InventoryActions.select(4)
+			KEY_6, KEY_KP_6:
+				InventoryActions.select(5)
+			KEY_7, KEY_KP_7:
+				InventoryActions.select(6)
+			KEY_8, KEY_KP_8:
+				InventoryActions.select(7)
+			KEY_9, KEY_KP_9:
+				InventoryActions.select(8)
+			KEY_0, KEY_KP_0:
+				InventoryActions.select(9)
+			_:
+				return
 		get_viewport().set_input_as_handled()
 
 
+
 func _equip_selected() -> void:
-	var item := Inventory.get_selected_item()
+	var stack := InventoryManager.get_item_stack_by_index(GameState.selected_slot)
+	var item := stack.item if stack != null else null
 	tool_layer.set_tool(String(item.item_id) if item != null else "")
 	tool_layer.set_melee(item.item_texture if item != null and item.item_type == DataTypes.ItemType.Melee else null)
 	hands_layer.held = tool_layer.is_held()

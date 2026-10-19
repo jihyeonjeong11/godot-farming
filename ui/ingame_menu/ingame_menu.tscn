@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ct3d5abkpag8t" path="res://assets/UI/nine_slice_panel.png" id="2_0g5aa"]
 [ext_resource type="Script" uid="uid://bnkgy884b2pbg" path="res://ui/ingame_menu/inventory_panel.gd" id="3_l7vxc"]
 [ext_resource type="PackedScene" uid="uid://dd23fdr6u45hq" path="res://ui/reusables/bases/base_inventory_slot.tscn" id="3_slot"]
+[ext_resource type="Script" uid="uid://j4fpthd3r5ed" path="res://ui/ingame_menu/held_icon.gd" id="4_held"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_tabs"]
 
@@ -272,3 +273,31 @@ custom_minimum_size = Vector2(400, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Exit"
+
+[node name="HeldIcon" type="TextureRect" parent="." unique_id=1286982259]
+visible = false
+custom_minimum_size = Vector2(88, 88)
+offset_right = 88.0
+offset_bottom = 88.0
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("4_held")
+
+[node name="AmountLabel" type="Label" parent="HeldIcon" unique_id=1286982260]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = -6.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 2
+vertical_alignment = 2

@@ -5,7 +5,6 @@ extends Node
 ## 씬이 아니라 Item 리소스다. 씬을 만드는 일은 떨구는 쪽이 한다.
 
 const CARROT_SEED := preload("res://scripts/resources/item/seeds/carrot_seeds.tres")
-const CORN_SEED := preload("res://scripts/resources/item/seeds/corn_seeds.tres")
 const POTATO_SEED := preload("res://scripts/resources/item/seeds/potato_seeds.tres")
 const WHEAT_SEED := preload("res://scripts/resources/item/seeds/wheat_seeds.tres")
 

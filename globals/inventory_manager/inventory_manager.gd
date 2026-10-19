@@ -6,9 +6,12 @@ signal updated_equipment()
 signal consumed()
 signal stack_selected(index: int)
 signal half_stack_selected()
+signal held_changed()
 
 const BASE_INVENTORY_LIMIT = 30
 const QUICKBAR_LIMIT = 10
+
+var held_stack: ItemStack
 
 # TODO: 나중에 current_inventory = 10 추가하고 업그레이드할 수 있
 
@@ -80,8 +83,19 @@ func get_item_stack_by_index(index: int) -> ItemStack:
 		return null
 	return GameState.inventory[index]
 	
-func delete_stack() -> void:
-	pass
+func delete_stack(index: int) -> bool:
+	if get_item_stack_by_index(index) != null:
+		GameState.inventory[index] = null
+		return true
+	return false
+
+func place_stack(index: int, stack: ItemStack) -> bool:
+	if index < 0 or index >= GameState.inventory.size():
+		return false
+	if GameState.inventory[index] != null:
+		return false
+	GameState.inventory[index] = stack
+	return true
 
 func update_stack() -> void:
 	pass

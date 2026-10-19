@@ -40,6 +40,7 @@ func _input(event: InputEvent) -> void:
 		cancelled.emit()
 
 func on_menu_cancelled() -> void:
+	InventoryActions.return_held()
 	SignalBus.pause_game(false)
 	queue_free()
 
@@ -49,9 +50,11 @@ func refresh_inventory() -> void:
 		slot.set_stack(InventoryManager.get_item_stack_by_index(i))
 
 func on_tab_pressed(button: BaseButton) -> void:
+	InventoryActions.return_held()
 	show_tab(tab_buttons.find(button))
 	
 func on_settings_pressed() -> void:
+	InventoryActions.return_held()
 	settings_requested.emit()
 	queue_free()
 

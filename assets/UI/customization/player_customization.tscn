@@ -274,6 +274,7 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="SkipTutorial" parent="Underlay/PanelAnchor/CenterContainer/CustomizationPanel/MarginContainer/VBoxContainer" unique_id=1599739082 instance=ExtResource("8_cbx")]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 size_flags_horizontal = 4

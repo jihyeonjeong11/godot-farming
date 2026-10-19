@@ -4,10 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://do2sg8f6khxdl" path="res://ui/ingame_menu/ingame_menu.tscn" id="2_6ekmg"]
 [ext_resource type="PackedScene" uid="uid://cwpugakipo362" path="res://ui/hud/stats/player_stats_menu.tscn" id="3_ks7wv"]
 [ext_resource type="PackedScene" uid="uid://d3yrr8n8xlaxj" path="res://ui/hud/quick_bar/quick_bar.tscn" id="4_ks7wv"]
+[ext_resource type="PackedScene" uid="uid://l0h71pkmjuk" path="res://ui/settings/settings_menu.tscn" id="5_settings"]
 
 [node name="UiManager" type="CanvasLayer" unique_id=1924915199]
 script = ExtResource("1_gomet")
 ingame_menu_scene = ExtResource("2_6ekmg")
+settings_scene = ExtResource("5_settings")
 
 [node name="PlayerStats" parent="." unique_id=870378732 instance=ExtResource("3_ks7wv")]
 

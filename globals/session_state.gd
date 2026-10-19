@@ -2,6 +2,9 @@ extends Node
 
 const PLAYER_STAT_BASE = preload("res://scenes/characters/player/player_stat.tres")
 
+const INTRO = preload("uid://brefvirbtelnj")
+
+
 ##TODO: 휘발성 스테이트.
 ## TODO: 다이얼로그 관련 여기로
 # 현재는 true임
@@ -68,12 +71,14 @@ func set_all_monsters_paused(is_paused: bool) -> void :
 	#await get_tree().create_timer(0.4).timeout
 
 func quit_to_title() -> void :
-	pass
+	TransitionManager.go_to_scene(INTRO)
+	get_tree().paused = false
+
+	# 세션 스테이트 정
 	#SaveManager.save_current_game()
 	#Transitions.meanwhile_scene_path = ""
 	#Transitions.go_to_scene("res://scenes/opening_titles/opening_titles.tscn", Transitions.BLACK)
 	#await Transitions.changing_scene
-	#get_tree().paused = false
 	
 func disable_all_interactables() -> void:
 	pass

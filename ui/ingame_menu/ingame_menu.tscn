@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://ct3d5abkpag8t" path="res://assets/UI/nine_slice_panel.png" id="2_0g5aa"]
 [ext_resource type="Script" uid="uid://bnkgy884b2pbg" path="res://ui/ingame_menu/inventory_panel.gd" id="3_l7vxc"]
 [ext_resource type="PackedScene" uid="uid://dd23fdr6u45hq" path="res://ui/reusables/bases/base_inventory_slot.tscn" id="3_slot"]
-
 [sub_resource type="ButtonGroup" id="ButtonGroup_tabs"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g0yls"]
@@ -80,14 +79,14 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_tabs")
 text = "Stats"
 
-[node name="SettingsTab" type="Button" parent="ColorRect/CenterContainer/HBoxContainer/TabColumn" unique_id=2031582279]
+[node name="SystemTab" type="Button" parent="ColorRect/CenterContainer/HBoxContainer/TabColumn" unique_id=2031582279]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 toggle_mode = true
 button_group = SubResource("ButtonGroup_tabs")
-text = "Settings"
+text = "System"
 
 [node name="InventoryPanel" type="PanelContainer" parent="ColorRect/CenterContainer/HBoxContainer" unique_id=851661324]
 unique_name_in_owner = true
@@ -238,7 +237,7 @@ theme_override_font_sizes/font_size = 32
 text = "STATS"
 horizontal_alignment = 1
 
-[node name="SettingsPanel" type="PanelContainer" parent="ColorRect/CenterContainer/HBoxContainer" unique_id=1403694643]
+[node name="SystemPanel" type="PanelContainer" parent="ColorRect/CenterContainer/HBoxContainer" unique_id=1403694643]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(1080, 0)
@@ -246,8 +245,29 @@ layout_mode = 2
 theme_type_variation = &"MenuContainer"
 theme_override_styles/panel = SubResource("StyleBoxTexture_g0yls")
 
-[node name="Label" type="Label" parent="ColorRect/CenterContainer/HBoxContainer/SettingsPanel" unique_id=249189674]
+[node name="SystemButtons" type="VBoxContainer" parent="ColorRect/CenterContainer/HBoxContainer/SystemPanel" unique_id=249189674]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 16
+
+[node name="SettingsButton" type="Button" parent="ColorRect/CenterContainer/HBoxContainer/SystemPanel/SystemButtons" unique_id=1630452871]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "SETTINGS"
-horizontal_alignment = 1
+text = "Settings"
+
+[node name="TitleButton" type="Button" parent="ColorRect/CenterContainer/HBoxContainer/SystemPanel/SystemButtons" unique_id=1630452872]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Title"
+
+[node name="ExitButton" type="Button" parent="ColorRect/CenterContainer/HBoxContainer/SystemPanel/SystemButtons" unique_id=1630452873]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Exit"

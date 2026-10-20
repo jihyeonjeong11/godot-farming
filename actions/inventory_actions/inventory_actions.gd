@@ -80,6 +80,14 @@ static func return_held() -> void:
 		drop(held)
 	InventoryManager.held_changed.emit()
 
+static func trash_held() -> bool:
+	if InventoryManager.held_stack == null:
+		return false
+	InventoryManager.held_stack = null
+	InventoryManager.held_changed.emit()
+	SoundManager.play_ui_sound(AudioManager.SOUND_EFFECTS[AudioManager.SFX_TRASH])
+	return true
+
 static func quickbar_select(index: int) -> void:
 	if index < 0 or index >= InventoryManager.QUICKBAR_LIMIT:
 		return

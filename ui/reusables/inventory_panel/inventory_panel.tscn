@@ -6,9 +6,50 @@
 [ext_resource type="Texture2D" uid="uid://ba3btodlg7317" path="res://ui/reusables/inventory_panel/equip_helmet.svg" id="4_helmet"]
 [ext_resource type="Texture2D" uid="uid://t8it53w6f7af" path="res://ui/reusables/inventory_panel/equip_armor.svg" id="5_armor"]
 [ext_resource type="Texture2D" uid="uid://j2wehfy5iy30" path="res://ui/reusables/inventory_panel/equip_boots.svg" id="6_boots"]
+[ext_resource type="Script" uid="uid://ca1gsf0mxnwa8" path="res://ui/reusables/inventory_panel/dumpster.gd" id="7_dumpster"]
+[ext_resource type="Texture2D" uid="uid://dudmitqb3mies" path="res://assets/apo/anims/32x32_dumpster.png" id="8_dumpster"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8dy6o"]
 bg_color = Color(0.7372549, 0.57254905, 0.18039216, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dumpster0"]
+atlas = ExtResource("8_dumpster")
+region = Rect2(0, 0, 96, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dumpster1"]
+atlas = ExtResource("8_dumpster")
+region = Rect2(96, 0, 96, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dumpster2"]
+atlas = ExtResource("8_dumpster")
+region = Rect2(192, 0, 96, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dumpster3"]
+atlas = ExtResource("8_dumpster")
+region = Rect2(288, 0, 96, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dumpster"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dumpster0")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dumpster1")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dumpster2")
+},
+{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dumpster3")
+}],
+"loop": false,
+"name": &"open",
+"speed": 15.0
+}]
 
 [node name="InventoryPanel" type="PanelContainer" unique_id=2093308195]
 script = ExtResource("1_script")
@@ -210,8 +251,11 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/PanelContainer2" unique_id=436561486]
+[node name="Dumpster" type="Control" parent="VBoxContainer/HBoxContainer/PanelContainer2" unique_id=436561486]
+custom_minimum_size = Vector2(96, 160)
 layout_mode = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 24
-text = "Dumpster"
+script = ExtResource("7_dumpster")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="VBoxContainer/HBoxContainer/PanelContainer2/Dumpster" unique_id=436561487]
+sprite_frames = SubResource("SpriteFrames_dumpster")
+animation = &"open"

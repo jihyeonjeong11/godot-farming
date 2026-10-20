@@ -27,7 +27,7 @@ var facing := Vector2.DOWN
 var ground_type: String = ""
 var _ground_layers: Array[TileMapLayer] = []
 
-var is_freeze: bool = false
+@export var is_freeze: bool = false
 
 
 func _ready() -> void:

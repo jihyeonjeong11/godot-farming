@@ -15,7 +15,6 @@ extends CanvasLayer
 	%InventoryPanel, %CraftingPanel, %QuestPanel, %StatsPanel, %SystemPanel
 	]
 
-@onready var inventory_grid: GridContainer = %InventoryGrid
 @onready var settings_button: Button = %SettingsButton
 @onready var title_button: Button = %TitleButton
 @onready var exit_button: Button = %ExitButton
@@ -31,8 +30,6 @@ func _ready() -> void:
 	title_button.pressed.connect(on_title_pressed)
 	exit_button.pressed.connect(on_exit_pressed)
 	show_tab(0)
-	InventoryManager.updated_inventory.connect(refresh_inventory)
-	refresh_inventory()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause") or event.is_action_pressed("ingame_pause"):
@@ -43,11 +40,6 @@ func on_menu_cancelled() -> void:
 	InventoryActions.return_held()
 	SignalBus.pause_game(false)
 	queue_free()
-
-func refresh_inventory() -> void:
-	for i in inventory_grid.get_child_count():
-		var slot: BaseInventorySlot = inventory_grid.get_child(i)
-		slot.set_stack(InventoryManager.get_item_stack_by_index(i))
 
 func on_tab_pressed(button: BaseButton) -> void:
 	InventoryActions.return_held()

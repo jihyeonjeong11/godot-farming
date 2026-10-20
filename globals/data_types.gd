@@ -1,5 +1,12 @@
 class_name DataTypes
 
+enum Vanity {
+	Hair,
+	Shirt,
+	Pant,
+	Shoes
+}
+
 enum QuestGoal {
 	Gather,
 	Harvest,

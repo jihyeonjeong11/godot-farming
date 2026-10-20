@@ -16,8 +16,11 @@ func _ready() -> void :
 	dev_fill_inventory()
 	dev_shuffle_outfit()
 
+const VANITY_VARIANTS := [3, 2, 3, 2]
+
 func dev_shuffle_outfit() -> void:
-	GameState.player_vanity = [1,1,1,1]
+	for part in VANITY_VARIANTS.size():
+		GameState.player_vanity[part] = randi_range(0, VANITY_VARIANTS[part] - 1)
 
 
 func dev_fill_inventory() -> void:

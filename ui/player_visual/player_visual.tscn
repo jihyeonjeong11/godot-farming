@@ -2,6 +2,11 @@
 
 [ext_resource type="Script" uid="uid://ch40am7uh508c" path="res://ui/player_visual/player_visual.gd" id="1_fuvml"]
 [ext_resource type="Texture2D" uid="uid://cfs7ybi7k406j" path="res://assets/temp/rpgm_character/rpgm_body_sheet.png" id="2_body"]
+[ext_resource type="Script" uid="uid://d0ktpct8vvta2" path="res://ui/player_visual/vanity_sprite.gd" id="3_l4h13"]
+[ext_resource type="Texture2D" uid="uid://dxlgvrtbj5nu5" path="res://assets/character/vanities/pants.png" id="5_pants"]
+[ext_resource type="Texture2D" uid="uid://x71cfx5cn5in" path="res://assets/character/vanities/shirt.png" id="6_shirt"]
+[ext_resource type="Texture2D" uid="uid://db54a8635bdjq" path="res://assets/character/vanities/shoes.png" id="7_shoes"]
+[ext_resource type="Texture2D" uid="uid://cu55rsq07ycpb" path="res://assets/character/vanities/hair.png" id="4_3hc5h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r1c0"]
 atlas = ExtResource("2_body")
@@ -28,3 +33,22 @@ script = ExtResource("1_fuvml")
 sprite_frames = SubResource("SpriteFrames_visual")
 animation = &"idle"
 autoplay = "idle"
+
+[node name="Pants" type="Sprite2D" parent="AnimatedSprite2D" unique_id=1472093815]
+script = ExtResource("3_l4h13")
+part = 2
+part_sprite = ExtResource("5_pants")
+
+[node name="Shoes" type="Sprite2D" parent="AnimatedSprite2D" unique_id=826410397]
+script = ExtResource("3_l4h13")
+part = 3
+part_sprite = ExtResource("7_shoes")
+
+[node name="Shirt" type="Sprite2D" parent="AnimatedSprite2D" unique_id=1309584062]
+script = ExtResource("3_l4h13")
+part = 1
+part_sprite = ExtResource("6_shirt")
+
+[node name="Hair" type="Sprite2D" parent="AnimatedSprite2D" unique_id=939243554]
+script = ExtResource("3_l4h13")
+part_sprite = ExtResource("4_3hc5h")

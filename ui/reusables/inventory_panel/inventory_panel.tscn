@@ -2,7 +2,13 @@
 
 [ext_resource type="Script" uid="uid://bnkgy884b2pbg" path="res://ui/reusables/inventory_panel/inventory_panel.gd" id="1_script"]
 [ext_resource type="PackedScene" uid="uid://dd23fdr6u45hq" path="res://ui/reusables/bases/base_inventory_slot.tscn" id="2_slot"]
-[ext_resource type="PackedScene" uid="uid://b3wdmejofhe0p" path="res://scenes/characters/player/player.tscn" id="3_ijy0d"]
+[ext_resource type="PackedScene" uid="uid://bh0wn7ha8utou" path="res://ui/player_visual/player_visual.tscn" id="3_ijy0d"]
+[ext_resource type="Texture2D" uid="uid://ba3btodlg7317" path="res://ui/reusables/inventory_panel/equip_helmet.svg" id="4_helmet"]
+[ext_resource type="Texture2D" uid="uid://t8it53w6f7af" path="res://ui/reusables/inventory_panel/equip_armor.svg" id="5_armor"]
+[ext_resource type="Texture2D" uid="uid://j2wehfy5iy30" path="res://ui/reusables/inventory_panel/equip_boots.svg" id="6_boots"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8dy6o"]
+bg_color = Color(0.7372549, 0.57254905, 0.18039216, 0)
 
 [node name="InventoryPanel" type="PanelContainer" unique_id=2093308195]
 script = ExtResource("1_script")
@@ -121,18 +127,84 @@ size_flags_vertical = 3
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer" unique_id=832392103]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_8dy6o")
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/PanelContainer" unique_id=405700182]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/PanelContainer" unique_id=1229063345]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PlayerVisual" parent="VBoxContainer/HBoxContainer/PanelContainer/HBoxContainer" unique_id=1894035760 instance=ExtResource("3_ijy0d")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 7.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/PanelContainer/HBoxContainer" unique_id=1988250675]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="HelmetSlot" parent="VBoxContainer/HBoxContainer/PanelContainer/HBoxContainer/VBoxContainer" unique_id=211845882 instance=ExtResource("2_slot")]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 24
-text = "Equipment"
 
-[node name="Player" parent="VBoxContainer/HBoxContainer/PanelContainer" unique_id=407296808 instance=ExtResource("3_ijy0d")]
-unique_name_in_owner = true
-position = Vector2(96, 230)
-scale = Vector2(6, 6)
-is_freeze = true
+[node name="Placeholder" type="TextureRect" parent="VBoxContainer/HBoxContainer/PanelContainer/HBoxContainer/VBoxContainer/HelmetSlot" unique_id=1413282052]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = -14.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_helmet")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ArmorSlot" parent="VBoxContainer/HBoxContainer/PanelContainer/HBoxContainer/VBoxContainer" unique_id=1592240267 instance=ExtResource("2_slot")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Placeholder" type="TextureRect" parent="VBoxContainer/HBoxContainer/PanelContainer/HBoxContainer/VBoxContainer/ArmorSlot" unique_id=1901882172]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = -14.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("5_armor")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="BootSlot" parent="VBoxContainer/HBoxContainer/PanelContainer/HBoxContainer/VBoxContainer" unique_id=1995781167 instance=ExtResource("2_slot")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Placeholder" type="TextureRect" parent="VBoxContainer/HBoxContainer/PanelContainer/HBoxContainer/VBoxContainer/BootSlot" unique_id=107979633]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = -14.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("6_boots")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/HBoxContainer" unique_id=662223492]
 layout_mode = 2

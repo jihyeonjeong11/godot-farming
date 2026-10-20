@@ -10,6 +10,7 @@ signal held_changed()
 
 const BASE_INVENTORY_LIMIT = 30
 const QUICKBAR_LIMIT = 10
+const EQUIPMENT_SLOT_LIMIT = 1
 
 var held_stack: ItemStack
 
@@ -21,8 +22,6 @@ func _ready() -> void:
 # 아이템 스택 crud
 # 스택 이동
 
-func get_latest_index() -> int:
-	return -1
 
 func get_stacks() -> void:
 	pass

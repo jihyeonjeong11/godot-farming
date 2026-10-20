@@ -31,35 +31,26 @@ var player_buffs: Array[StatBuff] = []
 var player_vanity: Array[int] = [-1, -1, -1, -1]
 var level_data: Dictionary = {}
 
-
-
 var did_skip_tutorial: bool = false
 var did_kill_first_zombie: bool = false
 
 
-func _before_serialized() -> void:
-	inventory.assign(Inventory.inventory)
-	armor.assign(Inventory.armor)
-	boots.assign(Inventory.boots)
-	selected_slot = Inventory.selected_slot
+#func _after_deserialized() -> void:
+	#_restore_slots(InventoryManager.inventory, inventory, InventoryManager.BASE_INVENTORY_LIMIT)
+	#_restore_slots(InventoryManager.armor, armor, InventoryManager.EQUIPMENT_SLOT_LIMIT)
+	#_restore_slots(InventoryManager.boots, boots, InventoryManager.EQUIPMENT_SLOT_LIMIT)
+#
+	#InventoryManager.selected_slot = -1
+	#InventoryManager.select_slot(maxi(selected_slot, 0))
+	#InventoryManager.inventory_updated.emit()
+	#InventoryManager.equipment_updated.emit()
 
 
-func _after_deserialized() -> void:
-	_restore_slots(Inventory.inventory, inventory, Inventory.BASE_INVENTORY_LIMIT)
-	_restore_slots(Inventory.armor, armor, Inventory.EQUIPMENT_SLOT_LIMIT)
-	_restore_slots(Inventory.boots, boots, Inventory.EQUIPMENT_SLOT_LIMIT)
-
-	Inventory.selected_slot = -1
-	Inventory.select_slot(maxi(selected_slot, 0))
-	Inventory.inventory_updated.emit()
-	Inventory.equipment_updated.emit()
-
-
-func _restore_slots(target: Array[ItemStack], source: Array[ItemStack], size: int) -> void:
-	target.resize(size)
-	target.fill(null)
-	for i in mini(source.size(), size):
-		target[i] = source[i]
+#func _restore_slots(target: Array[ItemStack], source: Array[ItemStack], size: int) -> void:
+	#target.resize(size)
+	#target.fill(null)
+	#for i in mini(source.size(), size):
+		#target[i] = source[i]
 
 
 func _serialize_property(property: String, value: Variant) -> Variant:

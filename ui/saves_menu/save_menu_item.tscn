@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://bkny51ahdetw" path="res://ui/themes/game_theme.tres" id="1_o36eu"]
 [ext_resource type="Script" uid="uid://cykhl2621ck86" path="res://ui/saves_menu/save_menu_item.gd" id="1_t2k2r"]
 [ext_resource type="Texture2D" uid="uid://ct3d5abkpag8t" path="res://assets/UI/nine_slice_panel.png" id="3_t2k2r"]
-[ext_resource type="PackedScene" uid="uid://b3wdmejofhe0p" path="res://scenes/characters/player/player.tscn" id="4_player"]
+[ext_resource type="PackedScene" uid="uid://bh0wn7ha8utou" path="res://ui/player_visual/player_visual.tscn" id="4_ceesu"]
 [ext_resource type="Texture2D" uid="uid://dy73r1wj0nre0" path="res://assets/temp/cross.png" id="5_ceesu"]
 [ext_resource type="Script" uid="uid://dvlshddi7uotu" path="res://ui/reusables/bases/base_button.gd" id="6_e2cig"]
 
@@ -34,17 +34,8 @@ layout_mode = 2
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxTexture_hhn14")
 
-[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/PlayerContainer" unique_id=1734120591]
+[node name="PlayerVisual" parent="HBoxContainer/PlayerContainer" unique_id=1894035760 instance=ExtResource("4_ceesu")]
 layout_mode = 2
-
-[node name="PlayerAnchor" type="Control" parent="HBoxContainer/PlayerContainer/CenterContainer" unique_id=1734120592]
-custom_minimum_size = Vector2(64, 96)
-layout_mode = 2
-
-[node name="Player" parent="HBoxContainer/PlayerContainer/CenterContainer/PlayerAnchor" unique_id=1734120593 instance=ExtResource("4_player")]
-unique_name_in_owner = true
-position = Vector2(32, 89)
-scale = Vector2(4, 4)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=922688163]
 custom_minimum_size = Vector2(300, 0)

@@ -11,7 +11,6 @@ var farm_scene = preload("uid://bmainfarm0001")
 @export var save_slots_scene: PackedScene
 @export var settings_scene: PackedScene
 @export var character_customization_scene: PackedScene
-@export var continue_scene: PackedScene
 
 var selected_slot: int = -1
 

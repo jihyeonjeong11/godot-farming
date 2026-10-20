@@ -33,8 +33,8 @@ var slot: int = -1:
 		money_label.text = "%d G" % gold
 
 		var vanity: Variant = data.states.game_state.get("player_vanity")
-		for part in Player.OUTFIT_PARTS.size():
-			player.equip(part, int(vanity[part]) if vanity is Array and part < vanity.size() else -1)
+		#for part in Player.OUTFIT_PARTS.size():
+			#player.equip(part, int(vanity[part]) if vanity is Array and part < vanity.size() else -1)
 
 		var seconds: int = int(data.get("seconds_elapsed", 0))
 		@warning_ignore("integer_division")
@@ -42,5 +42,3 @@ var slot: int = -1:
 
 func _ready() -> void:
 	delete_button.pressed.connect(func() -> void: delete_requested.emit(self))
-	if player and player.is_freeze == false:
-		player.is_freeze = true

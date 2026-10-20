@@ -14,6 +14,10 @@ func _ready() -> void :
 		process_mode = ProcessMode.PROCESS_MODE_DISABLED
 		return
 	dev_fill_inventory()
+	dev_shuffle_outfit()
+
+func dev_shuffle_outfit() -> void:
+	GameState.player_vanity = [1,1,1,1]
 
 
 func dev_fill_inventory() -> void:

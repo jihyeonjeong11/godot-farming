@@ -34,23 +34,14 @@ var level_data: Dictionary = {}
 var did_skip_tutorial: bool = false
 var did_kill_first_zombie: bool = false
 
-
-#func _after_deserialized() -> void:
-	#_restore_slots(InventoryManager.inventory, inventory, InventoryManager.BASE_INVENTORY_LIMIT)
-	#_restore_slots(InventoryManager.armor, armor, InventoryManager.EQUIPMENT_SLOT_LIMIT)
-	#_restore_slots(InventoryManager.boots, boots, InventoryManager.EQUIPMENT_SLOT_LIMIT)
-#
-	#InventoryManager.selected_slot = -1
-	#InventoryManager.select_slot(maxi(selected_slot, 0))
-	#InventoryManager.inventory_updated.emit()
-	#InventoryManager.equipment_updated.emit()
-
-
-#func _restore_slots(target: Array[ItemStack], source: Array[ItemStack], size: int) -> void:
-	#target.resize(size)
-	#target.fill(null)
-	#for i in mini(source.size(), size):
-		#target[i] = source[i]
+func _ready() -> void:
+	_ensure_player_stat()
+	
+func _ensure_player_stat() -> void:
+	if player_stat != null:
+		return
+	player_stat = SessionState.PLAYER_STAT_BASE.duplicate()
+	player_stat.setup_stats()
 
 
 func _serialize_property(property: String, value: Variant) -> Variant:
@@ -63,6 +54,7 @@ func _serialize_property(property: String, value: Variant) -> Variant:
 
 
 func _deserialize_property(property: String, value: Variant) -> Variant:
+	_ensure_player_stat()
 	match property:
 		"player_stat":
 			if value is not Dictionary:

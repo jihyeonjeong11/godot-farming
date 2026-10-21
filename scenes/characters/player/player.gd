@@ -16,8 +16,8 @@ const OUTFIT_PARTS := ["Hair", "Shirt", "Pants", "Shoes"]
 
 @export var base_stats: BaseCharacterStats
 
-@onready var buff_component: PlayerBuffComponent = $PlayerBuffComponent
-@onready var needs_decay: NeedsDecayComponent = $NeedsDecayComponent
+#@onready var buff_component: PlayerBuffComponent = $PlayerBuffComponent
+#@onready var needs_decay: NeedsDecayComponent = $NeedsDecayComponent
 @onready var hit_component: HitComponent = $HitComponent
 @onready var hit_shape: CollisionShape2D = $HitComponent/CollisionShape2D
 
@@ -31,12 +31,10 @@ var _ground_layers: Array[TileMapLayer] = []
 
 
 func _ready() -> void:
-	if Inventory.player_stats == null:
-		Inventory.player_stats = base_stats.duplicate()
-		Inventory.player_stats.setup_stats()
-	stats = Inventory.player_stats
-	buff_component.bind(stats)
-	needs_decay.stats = stats
+	stats = GameState.player_stat
+	print(stats.current_max_health)
+	#buff_component.bind(stats)
+	#needs_decay.stats = stats
 	_ground_layers = TileUtils.ground_layers(owner)
 	body.frame_changed.connect(_sync_layers)
 	body.animation_changed.connect(_sync_layers)

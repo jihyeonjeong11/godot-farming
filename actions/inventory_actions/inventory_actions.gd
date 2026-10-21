@@ -9,13 +9,15 @@ class_name InventoryActions extends RefCounted
 # stat_actions.update_stat 뭐 이런거고
 # 아무 event emit. 이걸로 토스트 띄우고 퀘스트 같은거 업데이트하고 소리 띄우
 
-# happens only from quickslot
+const BULK_CRAFT_COUNT := 5
+
+
 static func consume(index: int) -> bool:
 	var stack := InventoryManager.get_item_stack_by_index(index)
 	if stack == null:
 		return false
 	if stack.item.item_type == DataTypes.ItemType.Consumable:
-		var stats := Inventory.player_stats
+		var stats := GameState.player_stat
 		if stats != null:
 			stats.health += stack.item.heal
 			stats.hunger += stack.item.hunger
@@ -33,7 +35,7 @@ static func consume(index: int) -> bool:
 static func drop(_stack: ItemStack) -> void:
 	pass
 	
-static func click_slot(index: int) -> void:
+static func select_stack(index: int) -> void:
 	if InventoryManager.held_stack != null:
 		_put_down(index)
 		return
@@ -43,6 +45,27 @@ static func click_slot(index: int) -> void:
 	InventoryManager.held_stack = stack
 	InventoryManager.held_changed.emit()
 	InventoryManager.updated_inventory.emit()
+	
+static func craft(recipe: CraftRecipe, times: int = 1) -> int:
+	if recipe == null:
+		return 0
+	var result := recipe.result_item()
+	var made := 0
+	while made < times and recipe.can_craft():
+		if not InventoryManager.has_room_for(result, recipe.result_amount):
+			SignalBus.toast_requested.emit(result.item_texture, "인벤토리가 가득 찼다")
+			break
+		for id in recipe.ingredients:
+			InventoryManager.remove_item(ItemDB.get_item(id), recipe.ingredients[id])
+		InventoryManager.add_item_stack(ItemStack.new(result, recipe.result_amount))
+		made += 1
+	if made > 0:
+		SignalBus.toast_requested.emit(result.item_texture, "+%d" % (made * recipe.result_amount))
+		SoundManager.play_ui_sound(AudioManager.SOUND_EFFECTS[AudioManager.SFX_CRAFT])
+	return made
+
+static func craft_bulk(recipe: CraftRecipe) -> int:
+	return craft(recipe, BULK_CRAFT_COUNT)
 
 static func _put_down(index: int) -> void:
 	var held := InventoryManager.held_stack
@@ -64,7 +87,7 @@ static func _put_down(index: int) -> void:
 	InventoryManager.held_changed.emit()
 	InventoryManager.updated_inventory.emit()
 		
-static func split_slot(index: int, half: bool) -> void:
+static func select_split_stack(index: int, half: bool) -> void:
 	var target := InventoryManager.get_item_stack_by_index(index)
 	if target == null:
 		return

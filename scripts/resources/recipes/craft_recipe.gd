@@ -44,6 +44,13 @@ func describe() -> String:
 	return "\n".join(lines)
 
 
+func can_craft() -> bool:
+	for id in ingredients:
+		if InventoryManager.count_item(ItemDB.get_item(id)) < ingredients[id]:
+			return false
+	return true
+
+
 ## id 가 전부 표에 있는지. 문자열로 적는 대가라 어딘가에서 한 번은 훑어야 한다.
 func validate() -> PackedStringArray:
 	var problems: PackedStringArray = []

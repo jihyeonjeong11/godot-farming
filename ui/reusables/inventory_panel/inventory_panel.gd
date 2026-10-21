@@ -17,6 +17,6 @@ func refresh_inventory() -> void:
 func on_inventory_slot_clicked(button: MouseButton, shift: bool, index: int) -> void:
 	match button:
 		MOUSE_BUTTON_LEFT:
-			InventoryActions.click_slot(index)
+			InventoryActions.select_stack(index)
 		MOUSE_BUTTON_RIGHT:
-			InventoryActions.split_slot(index, shift)
+			InventoryActions.select_split_stack(index, shift)

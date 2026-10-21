@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://ct3d5abkpag8t" path="res://assets/UI/nine_slice_panel.png" id="2_0g5aa"]
 [ext_resource type="PackedScene" uid="uid://d2860kg1t6hp2" path="res://ui/reusables/inventory_panel/inventory_panel.tscn" id="3_invpanel"]
 [ext_resource type="Script" uid="uid://j4fpthd3r5ed" path="res://ui/ingame_menu/held_icon.gd" id="4_held"]
+[ext_resource type="Script" uid="uid://i18walgoknqf" path="res://ui/ingame_menu/stats_panel.gd" id="4_vogn2"]
+[ext_resource type="PackedScene" uid="uid://caip4suvafyua" path="res://ui/reusables/craftings_panel/craftings_panel.tscn" id="4_ye1hr"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_tabs"]
 
@@ -96,19 +98,13 @@ layout_mode = 2
 theme_type_variation = &"MenuContainer"
 theme_override_styles/panel = SubResource("StyleBoxTexture_g0yls")
 
-[node name="CraftingPanel" type="PanelContainer" parent="ColorRect/CenterContainer/HBoxContainer" unique_id=682146701]
+[node name="CraftingPanel" parent="ColorRect/CenterContainer/HBoxContainer" unique_id=1114542676 instance=ExtResource("4_ye1hr")]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(1080, 0)
 layout_mode = 2
 theme_type_variation = &"MenuContainer"
 theme_override_styles/panel = SubResource("StyleBoxTexture_g0yls")
-
-[node name="Label" type="Label" parent="ColorRect/CenterContainer/HBoxContainer/CraftingPanel" unique_id=184274377]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "CRAFTING"
-horizontal_alignment = 1
 
 [node name="QuestPanel" type="PanelContainer" parent="ColorRect/CenterContainer/HBoxContainer" unique_id=509040644]
 unique_name_in_owner = true
@@ -131,12 +127,7 @@ custom_minimum_size = Vector2(1080, 0)
 layout_mode = 2
 theme_type_variation = &"MenuContainer"
 theme_override_styles/panel = SubResource("StyleBoxTexture_g0yls")
-
-[node name="Label" type="Label" parent="ColorRect/CenterContainer/HBoxContainer/StatsPanel" unique_id=978924723]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "STATS"
-horizontal_alignment = 1
+script = ExtResource("4_vogn2")
 
 [node name="SystemPanel" type="PanelContainer" parent="ColorRect/CenterContainer/HBoxContainer" unique_id=1403694643]
 unique_name_in_owner = true

@@ -2,7 +2,7 @@ extends NodeState
 
 @export var player: Player
 
-@onready var player_buff_component: PlayerBuffComponent = $"../../PlayerBuffComponent"
+#@onready var player_buff_component: PlayerBuffComponent = $"../../PlayerBuffComponent"
 
 const FOOTSTEP_INTERVAL := 0.42
 const MELEE_SWING_TIME := 0.275

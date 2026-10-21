@@ -1,0 +1,28 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://ui/reusables/craftings_panel/recipe_tooltip.gd" id="1_tip"]
+
+[node name="RecipeTooltip" type="VBoxContainer"]
+theme_override_constants/separation = 4
+script = ExtResource("1_tip")
+
+[node name="NameLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+
+[node name="DescriptionLabel" type="Label" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(420, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72, 0.72, 0.72, 1)
+theme_override_font_sizes/font_size = 22
+autowrap_mode = 3
+
+[node name="Separator" type="HSeparator" parent="."]
+layout_mode = 2
+
+[node name="IngredientList" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 6

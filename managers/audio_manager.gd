@@ -28,6 +28,7 @@ const SFX_PISTOL_FIRE := "PISTOL_FIRE"
 const SFX_PISTOL_RELOAD := "PISTOL_RELOAD"
 const SFX_UI_CLICK := "UI_CLICK"
 const SFX_TRASH := "TRASH"
+const SFX_CRAFT := "CRAFT"
 
 const SOUND_EFFECTS := {
 	SFX_TREE_SHAKING: preload("uid://cf5dkduwvar7f"),
@@ -48,6 +49,7 @@ const SOUND_EFFECTS := {
 	SFX_PISTOL_RELOAD: preload("uid://d2joe0nck87kj"),  # reloading_pistol.mp3
 	SFX_UI_CLICK: preload("uid://ce3nxrettamjh"),  # click.mp3
 	SFX_TRASH: preload("uid://b5kb4sdo2lq85"),  # trash_can.mp3
+	SFX_CRAFT: preload("uid://nb5vc5rkv7d0"),  # crafting_hammer.mp3
 }
 
 const SFX_POOL_SIZE := 12

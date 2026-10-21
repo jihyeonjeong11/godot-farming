@@ -98,3 +98,31 @@ func place_stack(index: int, stack: ItemStack) -> bool:
 
 func update_stack() -> void:
 	pass
+
+func remove_item(item: Item, amount: int) -> bool:
+	if item == null or amount <= 0 or count_item(item) < amount:
+		return false
+	var inventory := GameState.inventory
+	var left := amount
+	for i in inventory.size():
+		if left <= 0:
+			break
+		var slot := inventory[i]
+		if slot == null or not slot.is_same_kind(item):
+			continue
+		var take := mini(slot.amount, left)
+		slot.amount -= take
+		left -= take
+		if slot.amount <= 0:
+			inventory[i] = null
+	updated_inventory.emit()
+	return true
+
+func count_item(item: Item) -> int:
+	if item == null:
+		return 0
+	var total := 0
+	for slot in GameState.inventory:
+		if slot != null and slot.is_same_kind(item):
+			total += slot.amount
+	return total

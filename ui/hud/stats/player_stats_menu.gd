@@ -5,11 +5,21 @@ extends PanelContainer
 @onready var hunger_bar: TextureProgressBar = $MarginContainer/VBoxContainer/HungerBar
 @onready var thirst_bar: TextureProgressBar = $MarginContainer/VBoxContainer/ThirstBar
 
-@onready var gold_label: Label = $MarginContainer/VBoxContainer/HBoxContainer/GoldLabel
+@onready var gold_text: Control = $MarginContainer/VBoxContainer/HBoxContainer/GoldText
+@onready var gold_label: Label = $MarginContainer/VBoxContainer/HBoxContainer/GoldText/GoldLabel
+
+const BAR_NAMES := {
+	&"HealthBar": "체력",
+	&"StaminaBar": "기력",
+	&"HungerBar": "허기",
+	&"ThirstBar": "갈증",
+}
 
 var _stats: BaseCharacterStats
 
 func _ready() -> void:
+	gold_label.resized.connect(fit_gold_text)
+	fit_gold_text()
 	SignalBus.level_loaded.connect(bind_player)
 	bind_player()
 
@@ -45,29 +55,30 @@ func bind_stats(stats: BaseCharacterStats) -> void:
 	stats.gold_changed.connect(on_gold_changed)
 
 
+func fit_gold_text() -> void:
+	gold_text.custom_minimum_size = gold_label.size * gold_label.scale
+
+
 func setup_bar(bar: TextureProgressBar, value: int, max_value: int) -> void:
 	bar.max_value = max_value
 	bar.value = value
+	bar.tooltip_text = "%s %d / %d" % [BAR_NAMES[bar.name], value, max_value]
 
 
 func on_health_changed(new_health: int, max_health: int) -> void:
-	health_bar.max_value = max_health
-	health_bar.value = new_health
+	setup_bar(health_bar, new_health, max_health)
 
 
 func on_stamina_changed(new_stamina: int, max_stamina: int) -> void:
-	stamina_bar.max_value = max_stamina
-	stamina_bar.value = new_stamina
+	setup_bar(stamina_bar, new_stamina, max_stamina)
 
 
 func on_hunger_changed(new_hunger: int, max_hunger: int) -> void:
-	hunger_bar.max_value = max_hunger
-	hunger_bar.value = new_hunger
+	setup_bar(hunger_bar, new_hunger, max_hunger)
 
 
 func on_thirst_changed(new_thirst: int, max_thirst: int) -> void:
-	thirst_bar.max_value = max_thirst
-	thirst_bar.value = new_thirst
+	setup_bar(thirst_bar, new_thirst, max_thirst)
 
 
 func on_gold_changed(new_gold: int) -> void:

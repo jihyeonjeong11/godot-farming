@@ -1,12 +1,17 @@
-extends Node
+class_name StatActions extends RefCounted
 
 # game_state의 playerBuff, playerStat을 수정하는 액션
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+static func apply_equipment() -> void:
+	var stats := GameState.player_stat
+	if stats == null:
+		return
+	var defense := 0
+	var speed := 0
+	for stack in GameState.equipments:
+		if stack == null or stack.item == null:
+			continue
+		defense += stack.item.defense
+		speed += stack.item.speed
+	stats.apply_equipment(defense, speed)

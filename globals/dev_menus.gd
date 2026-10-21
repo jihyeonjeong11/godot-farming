@@ -14,6 +14,7 @@ func _ready() -> void :
 		process_mode = ProcessMode.PROCESS_MODE_DISABLED
 		return
 	dev_fill_inventory()
+	dev_give_wearables()
 	dev_shuffle_outfit()
 
 const VANITY_VARIANTS := [3, 2, 3, 2]
@@ -32,6 +33,12 @@ func dev_fill_inventory() -> void:
 		InventoryActions.obtain(ItemStack.new(item, amount))
 	var consumable = ItemDB.dev_get_random_item_by_type(DataTypes.ItemType.Consumable)
 	InventoryActions.obtain(ItemStack.new(consumable, 5))
+
+const DEV_WEARABLES := [&"gas_mask", &"bulletproof_vest", &"military_boots"]
+
+func dev_give_wearables() -> void:
+	for id in DEV_WEARABLES:
+		InventoryActions.obtain(ItemStack.new(ItemDB.get_item(id), 1))
 		
 func _input(event: InputEvent) -> void :
 	if not is_active and event.is_pressed() and not event.is_echo():

@@ -45,9 +45,10 @@ enum Tools {
 }
 
 enum WearSlot {
-	None,  # 0
-	Armor, # 1
-	Boots, # 2
+	None,
+	Helmet,
+	Armor, 
+	Boots,
 }
 enum ItemType {
 	Misc,       # 0  아직 분류 안 된 것

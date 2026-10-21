@@ -3,6 +3,8 @@ class_name Item extends Resource
 const STAT_COLOR_HEALTH := Color(0.9, 0.35, 0.35)
 const STAT_COLOR_HUNGER := Color(0.92, 0.65, 0.3)
 const STAT_COLOR_THIRST := Color(0.4, 0.7, 0.95)
+const STAT_COLOR_DEFENSE := Color(0.7, 0.75, 0.85)
+const STAT_COLOR_SPEED := Color(0.5, 0.85, 0.55)
 const STAT_COLOR_NEGATIVE := Color(0.75, 0.3, 0.3)
 
 ## 확졍 아님.
@@ -93,12 +95,6 @@ func describe(price_label: String = "가치") -> String:
 	if melee_damage > 0:
 		lines.append("공격력 %d" % melee_damage)
 
-	if defense > 0:
-		lines.append("방어 +%d" % defense)
-
-	if speed != 0:
-		lines.append("속도 %+d" % speed)
-
 	for stat in stat_lines():
 		lines.append(stat.text)
 
@@ -114,6 +110,8 @@ func stat_lines() -> Array[Dictionary]:
 		["체력", heal, STAT_COLOR_HEALTH],
 		["허기", hunger, STAT_COLOR_HUNGER],
 		["갈증", thirst, STAT_COLOR_THIRST],
+		["방어", defense, STAT_COLOR_DEFENSE],
+		["속도", speed, STAT_COLOR_SPEED],
 	]:
 		var amount: int = entry[1]
 		if amount == 0:

@@ -14,6 +14,11 @@ enum BaseLighting{
 var current_scene: DataTypes.Levels = DataTypes.Levels.MainMenu
 ## TODO: 인벤토리와 버프는 딕셔너리 형태로 변환해야 세이브 가능하
 var inventory: Array[ItemStack] = []
+var equipments: Array[ItemStack] = []
+var helmet: ItemStack
+#var armor: ItemStack
+#var boots: ItemStack
+
 var armor: Array[ItemStack] = []
 var boots: Array[ItemStack] = []
 # 0 ~ 9
@@ -36,7 +41,18 @@ var did_kill_first_zombie: bool = false
 
 func _ready() -> void:
 	_ensure_player_stat()
-	
+	_ensure_equipment_slots()
+
+
+func _after_deserialized() -> void:
+	_ensure_equipment_slots()
+	StatActions.apply_equipment()
+
+
+func _ensure_equipment_slots() -> void:
+	equipments.resize(3)
+
+
 func _ensure_player_stat() -> void:
 	if player_stat != null:
 		return
@@ -48,7 +64,7 @@ func _serialize_property(property: String, value: Variant) -> Variant:
 	match property:
 		"player_stat":
 			return value.to_dict() if value else null
-		"inventory", "armor", "boots":
+		"inventory", "armor", "boots", "equipments":
 			return value.map(func(stack: ItemStack) -> Variant: return stack.to_dict() if stack else null)
 	return value
 
@@ -62,7 +78,7 @@ func _deserialize_property(property: String, value: Variant) -> Variant:
 			var stats: BaseCharacterStats = SessionState.PLAYER_STAT_BASE.duplicate()
 			stats.from_dict(value)
 			return stats
-		"inventory", "armor", "boots":
+		"inventory", "armor", "boots", "equipments":
 			var stacks: Array[ItemStack] = []
 			for data in value:
 				stacks.append(ItemStack.from_dict(data))

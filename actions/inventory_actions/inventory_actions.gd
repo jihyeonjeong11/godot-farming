@@ -109,6 +109,19 @@ static func select_split_stack(index: int, half: bool) -> void:
 	InventoryManager.held_changed.emit()
 	InventoryManager.updated_inventory.emit()
 
+static func select_equipment(index: int, slot_type: DataTypes.WearSlot) -> void:
+	var held := InventoryManager.held_stack
+	if held != null and held.item.wear_slot != slot_type:
+		return
+	var worn := InventoryManager.get_equipment(index)
+	if held == null and worn == null:
+		return
+	if not InventoryManager.set_equipment(index, held):
+		return
+	StatActions.apply_equipment()
+	InventoryManager.held_stack = worn
+	InventoryManager.held_changed.emit()
+
 static func return_held() -> void:
 	var held := InventoryManager.held_stack
 	if held == null:

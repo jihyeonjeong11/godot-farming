@@ -96,6 +96,18 @@ func place_stack(index: int, stack: ItemStack) -> bool:
 	GameState.inventory[index] = stack
 	return true
 
+func get_equipment(index: int) -> ItemStack:
+	if index < 0 or index >= GameState.equipments.size():
+		return null
+	return GameState.equipments[index]
+
+func set_equipment(index: int, stack: ItemStack) -> bool:
+	if index < 0 or index >= GameState.equipments.size():
+		return false
+	GameState.equipments[index] = stack
+	updated_equipment.emit()
+	return true
+
 func update_stack() -> void:
 	pass
 

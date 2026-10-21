@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dq5581oqaksoi"]
+
+[ext_resource type="PackedScene" uid="uid://dd23fdr6u45hq" path="res://ui/reusables/bases/base_inventory_slot.tscn" id="1_jqqet"]
+[ext_resource type="Script" uid="uid://cqyehu2xkygu8" path="res://ui/reusables/inventory_panel/equipment_slot.gd" id="2_ksi20"]
+
+[node name="EquipmentSlot" unique_id=1776576726 instance=ExtResource("1_jqqet")]
+script = ExtResource("2_ksi20")
+
+[node name="Placeholder" type="TextureRect" parent="." unique_id=1413282053]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = -14.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5

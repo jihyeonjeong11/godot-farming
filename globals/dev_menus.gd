@@ -30,6 +30,8 @@ func dev_fill_inventory() -> void:
 		var item := ItemDB.get_item(id)
 		var amount := randi_range(1, ItemStack.slot_capacity(item))
 		InventoryActions.obtain(ItemStack.new(item, amount))
+	var consumable = ItemDB.dev_get_random_item_by_type(DataTypes.ItemType.Consumable)
+	InventoryActions.obtain(ItemStack.new(consumable, 5))
 		
 func _input(event: InputEvent) -> void :
 	if not is_active and event.is_pressed() and not event.is_echo():

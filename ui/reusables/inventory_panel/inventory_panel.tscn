@@ -33,20 +33,17 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dumpster0")
-},
-{
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dumpster1")
-},
-{
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dumpster2")
-},
-{
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dumpster3")
 }],
-"loop": false,
+"loop": 0,
 "name": &"open",
 "speed": 15.0
 }]

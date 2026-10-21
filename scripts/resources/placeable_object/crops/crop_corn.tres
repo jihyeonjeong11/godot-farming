@@ -1,14 +1,16 @@
 [gd_resource type="Resource" script_class="Crops" format=3 uid="uid://br508nhwc2ahw"]
 
 [ext_resource type="Script" uid="uid://c0e27vd6vvrd3" path="res://scripts/resources/loot/loot.gd" id="1_pioaa"]
-[ext_resource type="Resource" uid="uid://k16qjyvu865o" path="res://scripts/resources/item/junk/corn.tres" id="2_8vlp5"]
 [ext_resource type="Texture2D" uid="uid://dog4l2sx7u7cn" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png" id="2_w284c"]
 [ext_resource type="Script" uid="uid://dq7cbpl12dto7" path="res://scripts/resources/placeable_object/crops.gd" id="3_8vlp5"]
 [ext_resource type="Script" uid="uid://c7xk2mvbqjy4n" path="res://scripts/resources/recipes/craft_recipe.gd" id="4_8vlp5"]
 
+[sub_resource type="Resource" id="Resource_w284c"]
+metadata/__load_path__ = "res://scripts/resources/item/junk/corn.tres"
+
 [sub_resource type="Resource" id="Resource_e0bvm"]
 script = ExtResource("1_pioaa")
-item = ExtResource("2_8vlp5")
+item = SubResource("Resource_w284c")
 min = 2
 max = 5
 metadata/_custom_type_script = "uid://c0e27vd6vvrd3"

@@ -136,7 +136,7 @@ func interact(point: Vector2) -> void:
 	if object != null:
 		object.interact()
 	else:
-		player.consume_selected()
+		InventoryActions.consume(GameState.selected_slot)
 
 
 func interact_target(point: Vector2) -> ObjectInstance:

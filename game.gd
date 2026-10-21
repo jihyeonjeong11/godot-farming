@@ -1,5 +1,6 @@
 extends Node2D
 
+# 맨 마지막에 삭제할것
 @onready var dev_layer: CanvasLayer = $DevLayer
 
 @export var respawn_spawn: StringName = &""

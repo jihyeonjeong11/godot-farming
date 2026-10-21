@@ -59,25 +59,14 @@ func emitSound() -> void:
 	
 	pass
 
-func consume_selected() -> bool:
-	var item := Inventory.get_selected_item()
-	if item == null or item.item_type != DataTypes.ItemType.Consumable:
-		return false
-	if item.edible > 0:
-		stats.health += item.edible
-	if item.hunger > 0:
-		stats.hunger += item.hunger
-	if item.thirst > 0:
-		stats.thirst += item.thirst
-	SignalBus.sound_requested.emit(AudioManager.SFX_EATING)
-	Inventory.remove_item(Inventory.selected_slot, 1)
-	return true
-
 func _unhandled_input(event: InputEvent) -> void:
 	if is_freeze:
 		return
+	
 	if event is InputEventMouseButton and event.pressed:
 		match event.button_index:
+			MOUSE_BUTTON_RIGHT:
+				InventoryActions.consume(GameState.selected_slot)
 			MOUSE_BUTTON_WHEEL_DOWN:
 				InventoryActions.quickbar_select(wrapi(GameState.selected_slot + 1, 0, InventoryManager.QUICKBAR_LIMIT))
 			MOUSE_BUTTON_WHEEL_UP:

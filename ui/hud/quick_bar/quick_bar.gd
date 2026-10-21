@@ -18,6 +18,8 @@ func _ready() -> void:
 func on_slot_clicked(button: MouseButton, _shift: bool, index: int) -> void:
 	if button == MOUSE_BUTTON_LEFT:
 		InventoryActions.quickbar_select(index)
+	if button == MOUSE_BUTTON_RIGHT:
+		InventoryActions.consume(index)
 
 func show_selected(index: int) -> void:
 	if index < 0 or index >= slot_container.get_child_count():

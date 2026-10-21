@@ -1,6 +1,6 @@
 extends Control
 
-const GAME_THEME := preload("res://ui/game_theme.tres")
+const GAME_THEME := preload("res://ui/themes/game_theme.tres")
 const PANEL_TEX := preload("res://assets/UI/nine_slice_panel.png")
 
 const MAX_TOAST_LIMIT := 3

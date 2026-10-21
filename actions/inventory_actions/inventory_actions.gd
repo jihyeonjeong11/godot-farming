@@ -10,8 +10,25 @@ class_name InventoryActions extends RefCounted
 # 아무 event emit. 이걸로 토스트 띄우고 퀘스트 같은거 업데이트하고 소리 띄우
 
 # happens only from quickslot
-static func consume() -> void:
-	pass
+static func consume(index: int) -> bool:
+	var stack := InventoryManager.get_item_stack_by_index(index)
+	if stack == null:
+		return false
+	if stack.item.item_type == DataTypes.ItemType.Consumable:
+		var stats := Inventory.player_stats
+		if stats != null:
+			stats.health += stack.item.heal
+			stats.hunger += stack.item.hunger
+			stats.thirst += stack.item.thirst
+		if stack.amount > 1:
+			stack.amount -= 1
+		else:
+			InventoryManager.delete_stack(index)
+		InventoryManager.updated_inventory.emit()
+		SoundManager.play_ui_sound(AudioManager.SOUND_EFFECTS[AudioManager.SFX_EATING])
+		return true
+	else:
+		return false
 	
 static func drop(_stack: ItemStack) -> void:
 	pass
@@ -110,14 +127,3 @@ static func obtain(stack: ItemStack) -> bool:
 	
 static func pickup(stack: ItemStack) -> bool:
 	return obtain(stack)
-	
-# 인벤토리 옮기기
-static func move() -> void:
-	pass
-	
-static func equip() -> void:
-	pass
-	
-static func unequip() -> void:
-	pass
-	

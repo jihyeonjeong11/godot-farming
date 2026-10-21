@@ -8,9 +8,6 @@ var _by_id: Dictionary[StringName, Item] = {}
 func _ready() -> void:
 	_scan(ITEM_ROOT)
 
-
-## 못 찾으면 null. 세이브에서 읽은 낯선 id 가 들어올 수 있으니 못 찾는 것 자체는
-## 여기서 죽일 일이 아니다. 경고만 남기고 어떻게 할지는 부른 쪽이 정한다.
 func get_item(id: StringName) -> Item:
 	if id.is_empty():
 		return null
@@ -32,8 +29,6 @@ func all_ids() -> Array[StringName]:
 	ids.sort()
 	return ids
 
-
-## item_type 이 같은 것들. 상점 재고처럼 "잡동사니 아무거나"를 뽑는 쪽이 쓴다.
 func of_type(item_type: DataTypes.ItemType) -> Array[Item]:
 	var found: Array[Item] = []
 	for item in _by_id.values():
@@ -79,3 +74,6 @@ func _register(item: Item, res_path: String) -> void:
 		return
 
 	_by_id[id] = item
+	
+func dev_get_random_item_by_type(type: DataTypes.ItemType) -> Item:
+	return of_type(type).pick_random()

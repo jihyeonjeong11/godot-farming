@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://pmyxtchr0btw" path="res://assets/apo/anims/32x48_flag.png" id="8_phxg0"]
 [ext_resource type="PackedScene" uid="uid://dq41kkvh2lcnn" path="res://ui/main_menu/main_menu.tscn" id="10_u6me1"]
 [ext_resource type="PackedScene" uid="uid://ddm587a3eqy3i" path="res://ui/main_menu/title/title.tscn" id="12_2jm0y"]
-[ext_resource type="PackedScene" uid="uid://ddkhimlenwa4b" path="res://ui/saves_menu/save_slots.tscn" id="14_hxddt"]
 [ext_resource type="PackedScene" uid="uid://3ihneii567yc" path="res://assets/UI/customization/player_customization.tscn" id="15_3rt57"]
 [ext_resource type="PackedScene" uid="uid://b3wdmejofhe0p" path="res://scenes/characters/player/player.tscn" id="16_rjokj"]
 [ext_resource type="PackedScene" uid="uid://bitwbxmljvpkp" path="res://scenes/opening/logo_scene.tscn" id="17_logos"]
@@ -615,9 +614,6 @@ offset = Vector2(-6, -96)
 [node name="MainMenu" parent="CanvasLayer" unique_id=1586537910 instance=ExtResource("10_u6me1")]
 
 [node name="Title" parent="CanvasLayer" unique_id=585429334 instance=ExtResource("12_2jm0y")]
-
-[node name="SaveSlots" parent="CanvasLayer" unique_id=795320480 instance=ExtResource("14_hxddt")]
-visible = false
 
 [node name="PlayerCustomization" parent="CanvasLayer" unique_id=543722201 instance=ExtResource("15_3rt57")]
 visible = false

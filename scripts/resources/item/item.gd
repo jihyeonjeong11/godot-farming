@@ -1,5 +1,10 @@
 class_name Item extends Resource
 
+const STAT_COLOR_HEALTH := Color(0.9, 0.35, 0.35)
+const STAT_COLOR_HUNGER := Color(0.92, 0.65, 0.3)
+const STAT_COLOR_THIRST := Color(0.4, 0.7, 0.95)
+const STAT_COLOR_NEGATIVE := Color(0.75, 0.3, 0.3)
+
 ## 확졍 아님.
 
 @export var item_id = ""
@@ -11,8 +16,8 @@ class_name Item extends Resource
 @export var item_texture: Texture
 ## Execlusive for artifacts
 @export var item_effect = ""
-## 먹을 수 있다면 회복량. 아니면 -1
-@export var edible = -1
+## 사용했을 때 회복하는 체력. 0이면 체력에는 영향이 없다.
+@export var heal = 0
 ## 먹었을 때 채워주는 허기. 0이면 허기에는 영향이 없다.
 @export var hunger = 0
 ## 먹었을 때 채워주는 갈증. 0이면 갈증에는 영향이 없다.
@@ -94,16 +99,27 @@ func describe(price_label: String = "가치") -> String:
 	if speed != 0:
 		lines.append("속도 %+d" % speed)
 
-	if edible > 0:
-		lines.append("회복량 %d" % edible)
-
-	if hunger > 0:
-		lines.append("허기 +%d" % hunger)
-
-	if thirst > 0:
-		lines.append("갈증 +%d" % thirst)
+	for stat in stat_lines():
+		lines.append(stat.text)
 
 	if value > 0:
 		lines.append("%s %d" % [price_label, value])
 
 	return "\n".join(lines)
+
+
+func stat_lines() -> Array[Dictionary]:
+	var lines: Array[Dictionary] = []
+	for entry in [
+		["체력", heal, STAT_COLOR_HEALTH],
+		["허기", hunger, STAT_COLOR_HUNGER],
+		["갈증", thirst, STAT_COLOR_THIRST],
+	]:
+		var amount: int = entry[1]
+		if amount == 0:
+			continue
+		lines.append({
+			"text": "%s %+d" % [entry[0], amount],
+			"color": entry[2] if amount > 0 else STAT_COLOR_NEGATIVE,
+		})
+	return lines

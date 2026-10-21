@@ -50,8 +50,6 @@ func on_settings_pressed() -> void:
 	settings_requested.emit()
 	queue_free()
 
-
-
 func on_title_pressed() -> void:
 	on_menu_cancelled()
 	SessionState.has_seen_logos = true

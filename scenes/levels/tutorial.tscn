@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cdko42eau68xt" path="res://scenes/levels/base_level.tscn" id="0_base"]
 [ext_resource type="Script" uid="uid://c6ucr85ux6811" path="res://scenes/levels/tutorial.gd" id="1_u4f7j"]
 [ext_resource type="TileSet" uid="uid://dkw01fa84lera" path="res://tilesets/city_ruin.tres" id="2_ub0e1"]
+[ext_resource type="Resource" uid="uid://d1xcco2xdsm01" path="res://dialogue/tutorial.dialogue" id="3_84vya"]
 [ext_resource type="PackedScene" uid="uid://cs37xus6fdfc" path="res://scenes/objects/placables/object_instance.tscn" id="5_objin"]
 [ext_resource type="Texture2D" uid="uid://bomft32q0e1ku" path="res://assets/temp/corpse_soldier.png" id="6_3e81p"]
 [ext_resource type="PackedScene" uid="uid://dogc4aluyci8r" path="res://scenes/characters/enemy/zombie/zombie.tscn" id="6_iig34"]
@@ -23,6 +24,8 @@ region = Rect2(390, 159, 51, 108)
 [node name="Tutorial" unique_id=2075404296 instance=ExtResource("0_base")]
 y_sort_enabled = true
 script = ExtResource("1_u4f7j")
+dialogue_resource = ExtResource("3_84vya")
+level_key = 0
 
 [node name="Player" parent="." index="0" unique_id=407296808]
 position = Vector2(252, 109)

@@ -8,15 +8,10 @@ extends "res://scenes/levels/base_level.gd"
 # 3. 공격 안하는 좀비. 공격 키 안내
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func _enter() -> void:
 	#SignalBus.level_loaded.connect(on_level_loaded)
-	pass # Replace with function body.
+	dialogue("start")
 #
-#func on_level_loaded() -> void:
-	#if PersistentState.is_tutorial == true:
-		#dialogue("start")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

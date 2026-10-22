@@ -1,7 +1,9 @@
 class_name Base_level extends Node2D
 
+@export var dialogue_resource: DialogueResource
 @export var level_key: DataTypes.Levels
 const UI_MANAGER = preload("uid://bqrbyohvqh031")
+
 
 var interface: CanvasLayer
 func _ready() -> void :
@@ -12,13 +14,13 @@ func _ready() -> void :
 #
 	#if not has_interface:
 		#interface.hud.hide()
-
-
-
-
-func dialogue(key: String) -> void:
+	_enter()
+	
+func _enter() -> void:
 	pass
-	#SignalBus.dialogue_requested(key)
+
+func dialogue(key: String) -> void :
+	SignalBus.request_dialogue(dialogue_resource, key)
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_READY:

@@ -6,7 +6,13 @@ extends CanvasLayer
 var ingame_menu: CanvasLayer
 
 func _ready() -> void:
-	pass
+	SignalBus.dialogue_requested.connect(_on_dialogue_requested)
+
+func _on_dialogue_requested(resource: DialogueResource, key: String, from_node: Node) -> void:
+	var extra_states: Array = []
+	if is_instance_valid(from_node):
+		extra_states.append(from_node)
+	DialogueManager.show_dialogue_balloon(resource, key, extra_states)
 
 func _input(event: InputEvent) -> void :
 	if not TransitionManager.is_transitioning and event.is_action("pause") and event.is_pressed():

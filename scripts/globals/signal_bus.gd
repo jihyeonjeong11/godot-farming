@@ -55,8 +55,10 @@ signal sound_requested(soundKey: String)
 
 signal level_loaded()
 
-signal dialogue_requested(key: String)
+signal dialogue_requested(resource: DialogueResource, key: String, from_node: Node)
 
+func request_dialogue(resource: Resource, key: String, from_node: Node = null) -> void :
+	dialogue_requested.emit(resource, key, from_node)
 
 func pause_game(will_pause: bool = true) -> void:
 	if get_tree().paused == will_pause:

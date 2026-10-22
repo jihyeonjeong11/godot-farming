@@ -20,6 +20,7 @@ func _ready() -> void:
 	settings.pressed.connect(_on_pressed_settings)
 	play.pressed.connect(_on_pressed_play)
 	continue_menu.pressed.connect(_on_pressed_continue)
+	continue_menu.disabled = not SaveManager.has_loadable_games()
 
 func _on_pressed_play() -> void:
 	var save_menu = save_slots_scene.instantiate()
@@ -34,8 +35,7 @@ func _on_slot_chosen(slot: int, is_empty: bool, save_menu: Node) -> void:
 	save_menu.queue_free()
 
 	if not is_empty:
-		SaveManager.load_game(selected_slot)
-		TransitionManager.go_to_scene(farm_scene)
+		SaveManager.load_and_enter(selected_slot)
 		return
 
 	var customization = character_customization_scene.instantiate()
@@ -46,14 +46,19 @@ func _on_slot_chosen(slot: int, is_empty: bool, save_menu: Node) -> void:
 
 func _on_customization_confirmed() -> void:
 	var vanity := GameState.player_vanity.duplicate()
+	var player_name := GameState.player_name
+	var skip_tutorial := GameState.did_skip_tutorial
 	SaveManager.new_game(selected_slot)
 	GameState.player_vanity.assign(vanity)
+	GameState.player_name = player_name
+	GameState.did_skip_tutorial = skip_tutorial
+	SaveManager.save_current_game()
 	SessionState.new_game()
 	if GameState.did_skip_tutorial:
-		TransitionManager.go_to_scene(tutorial_scene)
-	else:
 		# 튜토에서 얻는 아이템은 주고
 		TransitionManager.go_to_scene(farm_scene)
+	else:
+		TransitionManager.go_to_scene(tutorial_scene)
 
 
 
@@ -64,8 +69,11 @@ func _on_customization_cancelled(customization: Node) -> void:
 
 
 func _on_pressed_continue() -> void:
-	# 세이브 저장한 것중 가장 최근껄로 로드함
-	pass
+	var slot := SaveManager.get_latest_slot()
+	if slot == -1:
+		return
+	SaveManager.load_and_enter(slot)
+
 
 	
 func _on_pressed_exit() -> void:

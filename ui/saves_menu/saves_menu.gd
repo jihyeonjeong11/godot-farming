@@ -18,7 +18,6 @@ func _ready() -> void:
 	confirm_button.pressed.connect(func() -> void: delete_answered.emit(true))
 	cancel_button.pressed.connect(func() -> void: delete_answered.emit(false))
 
-	# 세이브 가져오기
 	await get_tree().process_frame
 	
 	refresh_slots()

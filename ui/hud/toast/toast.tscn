@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://857mx4r1yr3x"]
 
-[ext_resource type="Script" uid="uid://c266qeih28wen" path="res://ui/toast/toast.gd" id="1_i3pra"]
+[ext_resource type="Script" uid="uid://c266qeih28wen" path="res://ui/hud/toast/toast.gd" id="1_3mhka"]
 
 [node name="Toast" type="Control" unique_id=910842577]
 layout_mode = 3
@@ -10,7 +10,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 8
-script = ExtResource("1_i3pra")
+script = ExtResource("1_3mhka")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=509137861]
 custom_minimum_size = Vector2(20, 10)

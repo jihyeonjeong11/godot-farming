@@ -7,6 +7,7 @@ signal delete_requested(item: SaveItem)
 @onready var item: HBoxContainer = $HBoxContainer
 @onready var empty_label: Label = $EmptyLabel
 @onready var slot_label: Label = %Slot
+@onready var player_name_label: Label = %PlayerName
 @onready var money_label: Label = %Money
 @onready var elapsed_time_label: Label = %ElapsedTime
 @onready var delete_button: ButtonBase = $HBoxContainer/DeleteButton
@@ -27,6 +28,7 @@ var slot: int = -1:
 		empty_label.hide()
 
 		slot_label.text = "Slot %d" % (slot + 1)
+		player_name_label.text = str(data.states.game_state.get("player_name", ""))
 
 		var stat: Variant = data.states.game_state.get("player_stat")
 		var gold: int = int(stat.get("gold", 0)) if stat is Dictionary else 0

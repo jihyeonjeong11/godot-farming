@@ -22,7 +22,8 @@ texture_margin_top = 8.0
 texture_margin_right = 8.0
 texture_margin_bottom = 8.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p46oh"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_player"]
+texture = ExtResource("1_pnnco")
 
 [node name="PlayerCustomization" type="Control" unique_id=850991415]
 layout_mode = 3
@@ -81,17 +82,11 @@ theme_override_constants/separation = 60
 [node name="PanelContainer" type="PanelContainer" parent="Underlay/PanelAnchor/CenterContainer/CustomizationPanel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=407947400]
 custom_minimum_size = Vector2(280, 320)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_p46oh")
+theme_override_styles/panel = SubResource("StyleBoxTexture_player")
 
-[node name="CenterContainer" type="CenterContainer" parent="Underlay/PanelAnchor/CenterContainer/CustomizationPanel/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer" unique_id=1873402615]
+[node name="PlayerVisual" parent="Underlay/PanelAnchor/CenterContainer/CustomizationPanel/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer" unique_id=1894035760 instance=ExtResource("5_r04xs")]
+unique_name_in_owner = true
 layout_mode = 2
-
-[node name="PlayerAnchor" type="Control" parent="Underlay/PanelAnchor/CenterContainer/CustomizationPanel/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/CenterContainer" unique_id=1290576344]
-custom_minimum_size = Vector2(192, 288)
-layout_mode = 2
-
-[node name="PlayerVisual" parent="Underlay/PanelAnchor/CenterContainer/CustomizationPanel/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/CenterContainer/PlayerAnchor" unique_id=1894035760 instance=ExtResource("5_r04xs")]
-layout_mode = 0
 
 [node name="Control" type="HBoxContainer" parent="Underlay/PanelAnchor/CenterContainer/CustomizationPanel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=403426692]
 layout_mode = 2
@@ -103,7 +98,8 @@ theme_override_constants/separation = 30
 layout_mode = 2
 text = "Player Name"
 
-[node name="LineEdit" type="LineEdit" parent="Underlay/PanelAnchor/CenterContainer/CustomizationPanel/MarginContainer/VBoxContainer/HBoxContainer/Control" unique_id=155687430]
+[node name="Name_edit" type="LineEdit" parent="Underlay/PanelAnchor/CenterContainer/CustomizationPanel/MarginContainer/VBoxContainer/HBoxContainer/Control" unique_id=155687430]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_horizontal = 3

@@ -8,12 +8,17 @@
 [ext_resource type="PackedScene" uid="uid://dogc4aluyci8r" path="res://scenes/characters/enemy/zombie/zombie.tscn" id="6_iig34"]
 [ext_resource type="Resource" uid="uid://bcrpsldr7lt2a" path="res://scripts/resources/placeable_object/props/corpse_soldier.tres" id="7_corpse"]
 [ext_resource type="Script" uid="uid://bccsgitdbh2tb" path="res://scenes/components/portal_component.gd" id="9_g7bfq"]
-[ext_resource type="PackedScene" uid="uid://hw03yyvlo6vg" path="res://scenes/objects/portals/door.tscn" id="11_door"]
-[ext_resource type="Script" uid="uid://cyg8x8ganehgt" path="res://scenes/components/spawn_point.gd" id="12_spawn"]
 [ext_resource type="NavigationPolygon" uid="uid://1hy0ix7jjq08" path="res://scenes/levels/tutorial_navigation.tres" id="10_nav"]
+[ext_resource type="PackedScene" uid="uid://hw03yyvlo6vg" path="res://scenes/objects/portals/door.tscn" id="11_door"]
+[ext_resource type="Texture2D" uid="uid://dmej0tp32bpis" path="res://assets/craftland/Craftland Terrain/32x32/CL_Buildings.png" id="11_irnc0"]
+[ext_resource type="Script" uid="uid://cyg8x8ganehgt" path="res://scenes/components/spawn_point.gd" id="12_spawn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4kxuq"]
 radius = 40.718548
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_door"]
+atlas = ExtResource("11_irnc0")
+region = Rect2(390, 159, 51, 108)
 
 [node name="Tutorial" unique_id=2075404296 instance=ExtResource("0_base")]
 y_sort_enabled = true
@@ -21,6 +26,9 @@ script = ExtResource("1_u4f7j")
 
 [node name="Player" parent="." index="0" unique_id=407296808]
 position = Vector2(252, 109)
+
+[node name="CameraComponent" parent="." index="1" unique_id=1459419885]
+zoom = Vector2(3, 3)
 
 [node name="Tilemap" type="TileMapLayer" parent="." index="2" unique_id=464009036]
 y_sort_enabled = true
@@ -87,20 +95,21 @@ navigation_polygon = ExtResource("10_nav")
 [node name="House" type="Node2D" parent="." index="12" unique_id=815302114]
 position = Vector2(1504, 832)
 
-[node name="Floors" type="TileMapLayer" parent="House" unique_id=815302115]
+[node name="Floors" type="TileMapLayer" parent="House" index="0" unique_id=815302115]
 tile_map_data = PackedByteArray("AAAEAPj/BQAFAAIAAAAEAPn/BQAFAAMAAAAEAPr/BQAFAAQAAAAEAPv/BQAFAAAAAAAEAPz/BQAFAAEAAAAEAP3/BQAFAAQAAAAEAP7/BQAFAAQAAAAEAP//BQAFAAQAAAAFAPj/BQAGAAIAAAAFAPn/BQAGAAMAAAAFAPr/BQAGAAQAAAAFAPv/BQAGAAAAAAAFAPz/BQAGAAEAAAAFAP3/BQAFAAQAAAAFAP7/BQAFAAQAAAAFAP//BQAFAAQAAAAGAPj/BQAHAAIAAAAGAPn/BQAHAAMAAAAGAPr/BQAHAAQAAAAGAPv/BQAHAAIAAAAGAPz/BQAFAAIAAAAGAP3/BQAFAAMAAAAGAP7/BQAFAAQAAAAGAP//BQAFAAQAAAAHAPj/BQAIAAIAAAAHAPn/BQAIAAMAAAAHAPr/BQAIAAQAAAAHAPv/BQAIAAIAAAAHAPz/BQAGAAIAAAAHAP3/BQAGAAMAAAAHAP7/BQAFAAQAAAAHAP//BQAFAAQAAAAIAPj/BQAJAAIAAAAIAPn/BQAJAAMAAAAIAPr/BQAJAAQAAAAIAPv/BQAJAAIAAAAIAPz/BQAHAAMAAAAIAP3/BQAHAAQAAAAIAP7/BQAFAAQAAAAIAP//BQAFAAQAAAAJAPj/BQAHAAEAAAAJAPn/BQAIAAAAAAAJAPr/BQAIAAAAAAAJAPv/BQAHAAIAAAAJAPz/BQAIAAMAAAAJAP3/BQAIAAQAAAAJAP7/BQAFAAQAAAAJAP//BQAFAAQAAAAKAPj/BQAIAAAAAAAKAPn/BQAIAAAAAAAKAPr/BQAIAAAAAAAKAPv/BQAIAAIAAAAKAPz/BQAJAAMAAAAKAP3/BQAJAAQAAAAKAP7/BQAFAAQAAAAKAP//BQAFAAQAAAALAPj/BQAIAAAAAAALAPn/BQAIAAAAAAALAPr/BQAIAAAAAAALAPv/BQAJAAIAAAALAPz/BQAFAAQAAAALAP3/BQAFAAQAAAALAP7/BQAFAAQAAAALAP//BQAFAAQAAAA=")
 tile_set = ExtResource("2_ub0e1")
 
-[node name="Walls" type="TileMapLayer" parent="House" unique_id=815302116]
+[node name="Walls" type="TileMapLayer" parent="House" index="1" unique_id=815302116]
 tile_map_data = PackedByteArray("AAADAPf/BAACAA8AAAADAPj/BAACAA8AAAADAPn/BAACAA8AAAADAPr/BAACAA8AAAADAPv/BAACAA8AAAADAPz/BAACAA0AAAADAP3/BAACAA4AAAADAP7/BAACAA8AAAADAP//BAACABAAAAAEAPf/BAAQAA0AAAAEAPz/BAADAA0AAAAEAP3/BAADAA4AAAAEAP7/BAADAA8AAAAEAP//BAADABAAAAAFAPf/BAAQAA0AAAAFAPz/BAAQAA0AAAAFAP3/BAAMAA4AAAAFAP7/BAAMAA8AAAAFAP//BAAMABAAAAAGAPf/BAAPAA0AAAAGAPz/BAAQAA0AAAAGAP3/BAANAA4AAAAGAP7/BAANAA8AAAAGAP//BAANABAAAAAHAPf/BAAQAA0AAAAHAPz/BAAQAA0AAAAHAP3/BAAOAA4AAAAHAP7/BAAOAA8AAAAHAP//BAAOABAAAAAIAPf/BAAQAA0AAAAIAPz/BAAfAAAAAAAIAP3/BAAfAAEAAAAIAP7/BAAfAAIAAAAIAP//BAAfAAMAAAAJAPf/BAAQAA0AAAAJAPz/BAAgAAAAAAAJAP3/BAAgAAEAAAAJAP7/BAAgAAIAAAAJAP//BAAgAAMAAAAKAPf/BAAQAA0AAAAKAPz/BAAXAA0AAAAKAP3/BAAXAA4AAAAKAP7/BAAXAA8AAAAKAP//BAAXABAAAAALAPf/BAAQAA0AAAALAPz/BAAYAA0AAAALAP3/BAAYAA4AAAALAP7/BAAYAA8AAAALAP//BAAYABAAAAAMAPf/BAAZAA4AAAAMAPj/BAAZAA4AAAAMAPn/BAAZAA4AAAAMAPr/BAAZAA4AAAAMAPv/BAAZAA4AAAAMAPz/BAAZAA0AAAAMAP3/BAAZAA4AAAAMAP7/BAAZAA8AAAAMAP//BAAZABAAAAA=")
 tile_set = ExtResource("2_ub0e1")
 
-[node name="Furnitures" type="TileMapLayer" parent="House" unique_id=815302117]
+[node name="Furnitures" type="TileMapLayer" parent="House" index="2" unique_id=815302117]
 tile_map_data = PackedByteArray("AAADAPX/BwAUAAkAAAADAPb/BwAUAAoAAAADAPf/BwAUAAoAAAADAPj/BwAUAAoAAAADAPn/BwAUAAoAAAADAPr/BwAUAAoAAAADAPv/BwAUAAwAAAADAPz/BwAUAA0AAAAEAPX/BwAVAAkAAAAEAPb/BwAVAAoAAAAEAPf/BwAVAAsAAAAEAPj/BwAVAAwAAAAEAPn/BwAVAAoAAAAEAPr/BwAVAAsAAAAEAPv/BwAVAAwAAAAEAPz/BwAVAA0AAAAEAP3/BgAMAB4AAAAEAP7/BgAMAB8AAAAFAPX/BwAWAAkAAAAFAPb/BwAWAAoAAAAFAPf/BwAWAAsAAAAFAPj/BwAWAAwAAAAFAPn/BwAWAAoAAAAFAPr/BwAWAAsAAAAFAPv/BwAWAAwAAAAFAPz/BwAWAA0AAAAFAP3/BgANAB4AAAAFAP7/BgANAB8AAAAGAPX/BwAXAAkAAAAGAPb/BwAXAAoAAAAGAPf/BwAXAAsAAAAGAPj/BwAXAAwAAAAGAPn/BwAXAAoAAAAGAPr/BwAXAAsAAAAGAPv/BwAXAAwAAAAGAPz/BwAXAA0AAAAGAP3/BgAOAB4AAAAGAP7/BgAOAB8AAAAHAPX/BwAVAAkAAAAHAPb/BwAVAAoAAAAHAPf/BwAVAAsAAAAHAPj/BwAVAAwAAAAHAPn/BwAVAAoAAAAHAPr/BwAVAAsAAAAHAPv/BwAVAAwAAAAHAPz/BwAVAA0AAAAIAPX/BwAWAAkAAAAIAPb/BwAWAAoAAAAIAPf/BwAWAAsAAAAIAPj/BwAWAAwAAAAIAPn/BwAWAAoAAAAIAPr/BwAWAAsAAAAIAPv/BwAWAAwAAAAIAPz/BwAWAA0AAAAJAPX/BwAVAAkAAAAJAPb/BwAXAAoAAAAJAPf/BwAXAAsAAAAJAPj/BwAXAAwAAAAJAPn/BwAXAAoAAAAJAPr/BwAXAAsAAAAJAPv/BwAXAAwAAAAJAPz/BwAXAA0AAAAKAPX/BwAWAAkAAAAKAPb/BwAWAAoAAAAKAPf/BwAWAAsAAAAKAPj/BwAWAAwAAAAKAPn/BwAWAAoAAAAKAPr/BwAWAAsAAAAKAPv/BwAWAAwAAAAKAPz/BwAVAA0AAAALAPX/BwAXAAkAAAALAPb/BwAXAAoAAAALAPf/BwAXAAsAAAALAPj/BwAXAAwAAAALAPn/BwAXAAoAAAALAPr/BwAXAAsAAAALAPv/BwAXAAwAAAALAPz/BwAWAA0AAAAMAPX/BwAYAAkAAAAMAPb/BwAYAAoAAAAMAPf/BwAYAAsAAAAMAPj/BwAYAAwAAAAMAPn/BwAYAAoAAAAMAPr/BwAYAAsAAAAMAPv/BwAYAAwAAAAMAPz/BwAYAA0AAAA=")
 tile_set = ExtResource("2_ub0e1")
 
-[node name="Door" parent="House" unique_id=815302118 instance=ExtResource("11_door")]
+[node name="Door" parent="House" index="3" unique_id=815302118 instance=ExtResource("11_door")]
 position = Vector2(288, 0)
+texture = SubResource("AtlasTexture_door")
 target_scene = "res://scenes/levels/tutorial_inside_house.tscn"
 target_spawn = &"house_entrance"
 

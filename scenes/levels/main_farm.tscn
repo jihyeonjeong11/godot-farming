@@ -36,6 +36,8 @@
 [ext_resource type="Resource" uid="uid://bfurnace00001" path="res://scripts/resources/placeable_object/furniture/furnace.tres" id="34_0klyg"]
 [ext_resource type="PackedScene" uid="uid://vlwn0vdyb13" path="res://managers/map_feature_manager.tscn" id="35_mapft"]
 [ext_resource type="PackedScene" uid="uid://j7kviqjw67tp" path="res://scenes/objects/helipad/helipad.tscn" id="37_b16xi"]
+[ext_resource type="PackedScene" uid="uid://cb65olukse4yu" path="res://scenes/objects/pickables/item_stack_instance.tscn" id="38_droptest"]
+[ext_resource type="Resource" uid="uid://f56b1jph4cua" path="res://scripts/resources/item/pickables/log.tres" id="39_logitem"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_door"]
 atlas = ExtResource("20_3dnpx")
@@ -526,3 +528,7 @@ position = Vector2(248, 351)
 position = Vector2(496, 144)
 script = ExtResource("15_spawn")
 spawn_id = &"from_tutorial"
+
+[node name="TestDropLog" parent="." index="12" unique_id=1093384790 instance=ExtResource("38_droptest")]
+position = Vector2(520, 270)
+item = ExtResource("39_logitem")

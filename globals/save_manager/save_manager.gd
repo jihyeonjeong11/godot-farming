@@ -3,6 +3,8 @@ extends Node
 
 const VERSION = 2
 const SLOT_COUNT = 10
+const TUTORIAL_SCENE = "uid://p5khtom1236l"
+const FARM_SCENE = "uid://bmainfarm0001"
 
 
 var current_slot: int = -1
@@ -80,6 +82,20 @@ func has_loadable_games() -> bool:
 	return false
 
 
+func get_latest_slot() -> int:
+	var latest_slot := -1
+	var latest_at := -1.0
+	for slot in SLOT_COUNT:
+		var data := get_load_data(slot)
+		if data.is_empty():
+			continue
+		var saved_at: float = data.get("saved_at", 0.0)
+		if saved_at > latest_at:
+			latest_at = saved_at
+			latest_slot = slot
+	return latest_slot
+
+
 
 func load_game(target_slot: int) -> void :
 	current_slot = target_slot
@@ -92,6 +108,14 @@ func load_game(target_slot: int) -> void :
 
 	for state_name in data.states.keys():
 		states.get(state_name).from_serialized(data.states.get(state_name, {}))
+
+
+func load_and_enter(slot: int) -> void:
+	load_game(slot)
+	if GameState.did_skip_tutorial:
+		TransitionManager.go_to_scene(FARM_SCENE)
+	else:
+		TransitionManager.go_to_scene(TUTORIAL_SCENE)
 
 
 

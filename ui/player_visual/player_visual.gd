@@ -19,3 +19,10 @@ func fit() -> void:
 	var s := maxf(floorf(minf(size.x, size.y) / CELL), 1.0)
 	animated_sprite_2d.scale = Vector2(s, s)
 	animated_sprite_2d.position = size / 2
+
+
+func vanity_sprite(part: int) -> VanitySprite:
+	for child in animated_sprite_2d.get_children():
+		if child is VanitySprite and child.part == part:
+			return child
+	return null

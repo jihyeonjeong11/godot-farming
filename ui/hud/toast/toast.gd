@@ -4,6 +4,9 @@ const GAME_THEME := preload("res://ui/themes/game_theme.tres")
 const PANEL_TEX := preload("res://assets/UI/nine_slice_panel.png")
 
 const MAX_TOAST_LIMIT := 3
+## 패널 전체 배율. 오른쪽 아래 모서리를 축으로 키운다.
+const TOAST_SCALE := 3.0
+## 아래 값들은 배율 적용 전 크기다.
 const TOAST_HEIGHT := 40.0
 const TOAST_GAP := 4.0
 const ICON_SIZE := 24.0
@@ -90,6 +93,8 @@ func _start(panel: Control) -> void:
 	if not is_instance_valid(panel):
 		return
 
+	panel.pivot_offset = panel.size
+	panel.scale = Vector2.ONE * TOAST_SCALE
 	panel.set_meta("base_y", panel.position.y)
 	_move_to_slot(panel, toasts.find(panel), true)
 
@@ -102,7 +107,7 @@ func _start(panel: Control) -> void:
 
 
 func _move_to_slot(panel: Control, index: int, rising: bool) -> void:
-	var target: float = panel.get_meta("base_y") - index * (TOAST_HEIGHT + TOAST_GAP)
+	var target: float = panel.get_meta("base_y") - index * (TOAST_HEIGHT + TOAST_GAP) * TOAST_SCALE
 
 	if panel.has_meta("move"):
 		var prev: Tween = panel.get_meta("move")
@@ -110,7 +115,7 @@ func _move_to_slot(panel: Control, index: int, rising: bool) -> void:
 			prev.kill()
 
 	if rising:
-		panel.position.y = target + RISE
+		panel.position.y = target + RISE * TOAST_SCALE
 
 	var move := panel.create_tween()
 	panel.set_meta("move", move)

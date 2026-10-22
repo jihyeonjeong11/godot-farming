@@ -15,13 +15,7 @@ var current_scene: DataTypes.Levels = DataTypes.Levels.MainMenu
 ## TODO: 인벤토리와 버프는 딕셔너리 형태로 변환해야 세이브 가능하
 var inventory: Array[ItemStack] = []
 var equipments: Array[ItemStack] = []
-var helmet: ItemStack
-#var armor: ItemStack
-#var boots: ItemStack
 
-var armor: Array[ItemStack] = []
-var boots: Array[ItemStack] = []
-# 0 ~ 9
 var selected_slot: int = 0
 ## TODO: 아직 계절이 없음
 var current_weather: DataTypes.WeatherType = DataTypes.WeatherType.Sunny
@@ -30,6 +24,8 @@ var current_time : Dictionary = {
 	"hour": 6,
 	"minute": 0
 }
+
+var player_name: String = ""
 
 var player_stat: BaseCharacterStats
 var player_buffs: Array[StatBuff] = []
@@ -42,7 +38,6 @@ var did_kill_first_zombie: bool = false
 func _ready() -> void:
 	_ensure_player_stat()
 	_ensure_equipment_slots()
-
 
 func _after_deserialized() -> void:
 	_ensure_equipment_slots()

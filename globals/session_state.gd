@@ -117,7 +117,4 @@ func new_game() -> void :
 	stats.setup_stats()
 	GameState.player_stat = stats
 	SaveManager.save_current_game()
-		#cinematic_stack_size = 0
-	#SaveManager.new_game(-1)
 	
-		#Transitions.go_to_scene(character_customization), Transitions.BLACK)

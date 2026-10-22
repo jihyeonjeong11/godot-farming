@@ -1,4 +1,4 @@
-extends Sprite2D
+class_name VanitySprite extends Sprite2D
 
 const CELL := 64
 const ROWS_PER_VARIANT := 4
@@ -28,3 +28,7 @@ func _apply() -> void:
 	visible = part_index >= 0 and part_index < vframes / ROWS_PER_VARIANT
 	if visible:
 		frame = (part_index * ROWS_PER_VARIANT + FRONT_ROW) * hframes
+
+
+func variant_count() -> int:
+	return vframes / ROWS_PER_VARIANT

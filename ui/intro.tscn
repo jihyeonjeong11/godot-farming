@@ -611,9 +611,9 @@ offset = Vector2(-6, -96)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1740263351]
 
-[node name="MainMenu" parent="CanvasLayer" unique_id=1586537910 instance=ExtResource("10_u6me1")]
-
 [node name="Title" parent="CanvasLayer" unique_id=585429334 instance=ExtResource("12_2jm0y")]
+
+[node name="MainMenu" parent="CanvasLayer" unique_id=1586537910 instance=ExtResource("10_u6me1")]
 
 [node name="PlayerCustomization" parent="CanvasLayer" unique_id=543722201 instance=ExtResource("15_3rt57")]
 visible = false

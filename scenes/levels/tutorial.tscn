@@ -25,7 +25,6 @@ region = Rect2(390, 159, 51, 108)
 y_sort_enabled = true
 script = ExtResource("1_u4f7j")
 dialogue_resource = ExtResource("3_84vya")
-level_key = 0
 
 [node name="Player" parent="." index="0" unique_id=407296808]
 position = Vector2(252, 109)

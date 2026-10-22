@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dponr2cxg8jdy"]
+
+[ext_resource type="Script" uid="uid://24k37ehmhk16" path="res://scenes/actionable/actionable.gd" id="1_fdkmu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_shape"]
+resource_local_to_scene = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_highlight"]
+radius = 105.0
+
+[node name="Actionable" type="Area2D" unique_id=2145735525]
+collision_layer = 256
+collision_mask = 0
+script = ExtResource("1_fdkmu")
+metadata/_custom_type_script = "uid://cqcur1rm7433g"
+
+[node name="Shape" type="CollisionShape2D" parent="." unique_id=1584718247]
+shape = SubResource("CircleShape2D_shape")
+debug_color = Color(1, 0, 0.732796, 0.42)
+
+[node name="HighlightDetector" type="Area2D" parent="." unique_id=1221601818]
+unique_name_in_owner = true
+visible = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HighlightDetector" unique_id=1295513031]
+shape = SubResource("CircleShape2D_highlight")

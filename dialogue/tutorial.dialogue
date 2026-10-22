@@ -10,3 +10,7 @@ Nathan: Here are some choices.
 - End the conversation => END
 Nathan: For more information see the online documentation.
 => END
+
+~ need_weapon
+You have to use everything to survive on frontier. Search that body and see what you can find.
+=> END

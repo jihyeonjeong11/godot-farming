@@ -13,16 +13,28 @@ const LONGSWORD = preload("uid://cc468nspnvreg")
 @onready var need_weapon: Actionable = %NeedWeapon
 @onready var weapon_gate_return: Marker2D = %WeaponGateReturn
 
+@onready var corpse_gate: Area2D = $CorpseGate
+@onready var check_corpse: Actionable = $CorpseGate/CheckCorpse
+
+var corpse_dialog_seen: bool = false
 
 func _enter() -> void:
-	#SignalBus.level_loaded.connect(on_level_loaded)
 	weapon_gate.body_entered.connect(_on_weapon_gate_body_entered)
+	corpse_gate.body_entered.connect(_on_corpse_gate_body_entered)
+
 	dialogue("start")
 #
 
 func _process(delta: float) -> void:
 	pass
-
+	
+	
+func _on_corpse_gate_body_entered(body: Node2D) -> void:
+	if not body is Player:
+		return
+	if corpse_dialog_seen == false:
+		check_corpse.action()
+		corpse_dialog_seen = true
 
 func _on_weapon_gate_body_entered(body: Node2D) -> void:
 	if not body is Player:

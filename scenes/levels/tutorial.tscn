@@ -18,12 +18,12 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_4kxuq"]
 radius = 40.718548
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gate"]
-size = Vector2(16, 320)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_door"]
 atlas = ExtResource("11_irnc0")
 region = Rect2(390, 159, 51, 108)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gate"]
+size = Vector2(16, 320)
 
 [node name="Tutorial" unique_id=2075404296 instance=ExtResource("0_base")]
 y_sort_enabled = true
@@ -124,22 +124,39 @@ position = Vector2(2304, 872)
 script = ExtResource("12_spawn")
 spawn_id = &"house_door"
 
-[node name="WeaponGate" type="Area2D" parent="." index="14"]
+[node name="WeaponGate" type="Area2D" parent="." index="14" unique_id=881880816]
 unique_name_in_owner = true
 position = Vector2(1100, 128)
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WeaponGate" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WeaponGate" index="0" unique_id=1263609178]
 shape = SubResource("RectangleShape2D_gate")
 
-[node name="NeedWeapon" parent="WeaponGate" index="1" instance=ExtResource("13_actionable")]
+[node name="NeedWeapon" parent="WeaponGate" index="1" unique_id=1555022836 instance=ExtResource("13_actionable")]
 unique_name_in_owner = true
 monitoring = false
 monitorable = false
 dialogue_resource = ExtResource("3_84vya")
 dialogue_cue = "need_weapon"
 
-[node name="WeaponGateReturn" type="Marker2D" parent="." index="15"]
+[node name="CorpseGate" type="Area2D" parent="." index="15" unique_id=130375297]
+unique_name_in_owner = true
+position = Vector2(2200, 256)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CorpseGate" index="0" unique_id=942518239]
+position = Vector2(-1522, -144)
+shape = SubResource("RectangleShape2D_gate")
+
+[node name="CheckCorpse" parent="CorpseGate" index="1" unique_id=2145735525 instance=ExtResource("13_actionable")]
+unique_name_in_owner = true
+monitoring = false
+monitorable = false
+dialogue_resource = ExtResource("3_84vya")
+dialogue_cue = "found_corpse"
+
+[node name="WeaponGateReturn" type="Marker2D" parent="." index="16" unique_id=256512412]
 unique_name_in_owner = true
 position = Vector2(1020, 128)

@@ -1,16 +1,69 @@
+
+#Nathan: Here are some choices.
+#- First one
+#	Nathan: You picked the first one.
+#- Second one
+#	Nathan: You picked the second one.
+#- Start again => start
+#- End the conversation => END
+#Nathan: For more information see the online documentation.
+
 ~ start
+# 레퍼런스: 바이오쇼크, 하프라이프, 폴아웃
+# 권위주의적인 정부가 국민을 프로그램의 실험체로 자랑스럽게 포장해서 내보내는 느낌
+# 정부: The State, 주인공을 부르는 호칭: HomeSteader
 do SoundManager.play_sound(load("res://assets/sounds/radio_noise.mp3"))
-The State: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => start
-- End the conversation => END
-Nathan: For more information see the online documentation.
+The State: [[Greetings|Hello|Salutations]], Citizen!
+The State: Congratulations! You have been selected as a Homesteader under Executive Order No. 7 — affectionately known as "The Seven." A plot of unpolluted farmland near {city_name} has been allocated to you.
+The State: You're almost there! Just a few more steps, and you'll reach your new home!
+The State: Proceed with caution — and pride!
+=> END
+
+~ found_corpse
+do SoundManager.play_sound(load("res://assets/sounds/radio_noise.mp3"))
+The State: Look ahead. A fresh corpse! As a fresh homesteader, you need to use everything to survive.
+The State: Press [E] or right click to search that body.
+
+
 => END
 
 ~ need_weapon
-You have to use everything to survive on frontier. Search that body and see what you can find.
+The State: Don't proceed just yet! Go back and check the corpse first!
 => END
+
+# 칼 획득
+~ obtained_sword
+The State: Now you`re on the right track! A decent sword! Do you see that zombie up ahead? 
+The State: Looks docile for now. Just use your new sword and kill it.
+=> END
+
+# 좀비 다섯마리
+~ zombie_horde
+The State: Looks like the path is blocked by zombies... 
+The State: You must take a detour to the south. Don't go near them. They can hear you.
+=> END
+
+# 아노말리.(밟으면 불기둥 나옴)
+The State: Do you see? These flames out of nowhere... Can you step on it?
+
+# 어노말리 밟음 데미지 입음.
+The State:Think we can do wonders studying them. All thanks to you. Homesteader.
+
+# 집 - 안으로 들어가기.
+The State: Go inside the house and see what you can find.
+
+# 집안 - 금고
+The State: Open that safe and see what's inside.
+
+# 약 총 획득
+The State: Splendid. You can treat your burn with the medicine. But be careful with the pistol. 
+The State: Ranged attack can be good, but that can lure neighboring zombies as well. Use it wisely.
+
+# 침뱉는 좀비 - 총으로 죽임
+
+The State: This one is called Spitter. Our researchers found they literally spit everything they had before: blood, internal organs...
+The State: You don't want to get shot by that. Use your pistol to kill it and proceed.
+
+# 농장 입구
+The State: Good. You arrived. 
+The State: Glory to the state.

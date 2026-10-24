@@ -25,6 +25,7 @@ extends Resource
 @export var collision_radius: int = 32
 ## 0 이 아니면 원 대신 이 크기의 사각형을 쓴다.
 @export var collision_size: Vector2i
+@export var interact_rect: Rect2
 
 
 @export_group("Shake")

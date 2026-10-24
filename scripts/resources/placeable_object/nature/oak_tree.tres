@@ -33,7 +33,7 @@ region = Rect2(176, 650, 68, 116)
 atlas = ExtResource("4_atlas")
 region = Rect2(262, 608, 84, 160)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_object"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1n6t6"]
 atlas = ExtResource("4_atlas")
 region = Rect2(258, 607, 90, 161)
 
@@ -43,7 +43,7 @@ growth_textures = Array[Texture2D]([SubResource("AtlasTexture_st0"), SubResource
 object_id = "oak_tree"
 object_name = "Oak Tree"
 destructible_tool = 1
-object_texture = SubResource("AtlasTexture_object")
+object_texture = SubResource("AtlasTexture_1n6t6")
 object_max_health = 3
 dropped_items = Array[ExtResource("1_loot")]([SubResource("Resource_drop")])
 offset = Vector2i(-45, -161)

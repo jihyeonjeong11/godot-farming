@@ -27,6 +27,10 @@ func _on_enter() -> void:
 	player.play_action("idle")
 
 func _on_physics_process(delta: float) -> void:
+	if SessionState.cinematic_stack_size > 0:
+		player.velocity = Vector2.ZERO
+		player.play_action("idle")
+		return
 	if is_playing:
 		return
 	if player.is_freeze:

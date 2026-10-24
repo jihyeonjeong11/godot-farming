@@ -27,8 +27,10 @@ var facing := Vector2.DOWN
 var ground_type: String = ""
 var _ground_layers: Array[TileMapLayer] = []
 
-@export var is_freeze: bool = false
+var target_cell: Vector2
 
+
+@export var is_freeze: bool = false
 
 func _ready() -> void:
 	stats = GameState.player_stat
@@ -52,6 +54,7 @@ func _process(_delta: float) -> void:
 	if is_freeze:
 		return
 	tool_layer.aim_at(get_global_mouse_position())
+	CursorActions.set_target_dict($CollisionShape2D.global_position)
 	
 func emitSound() -> void:
 	
@@ -63,7 +66,14 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	if event is InputEventMouseButton and event.pressed:
 		match event.button_index:
+			MOUSE_BUTTON_LEFT:
+				# left는 공격만.
+				pass
 			MOUSE_BUTTON_RIGHT:
+				# if object targeted
+				# interact and return
+				# elif selected_slot
+				# consume return
 				InventoryActions.consume(GameState.selected_slot)
 			MOUSE_BUTTON_WHEEL_DOWN:
 				InventoryActions.quickbar_select(wrapi(GameState.selected_slot + 1, 0, InventoryManager.QUICKBAR_LIMIT))

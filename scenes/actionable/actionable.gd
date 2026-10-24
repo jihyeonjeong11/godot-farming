@@ -13,7 +13,7 @@ func _exit_tree() -> void :
 
 func action() -> void :
 	if is_instance_valid(dialogue_resource) and not dialogue_cue.is_empty():
-		dialogue_balloon = start_dialogue.call(dialogue_resource, dialogue_cue, [{actionable = self}, owner])
+		SignalBus.request_dialogue(dialogue_resource, dialogue_cue, self)
 	actioned.emit()
 
 

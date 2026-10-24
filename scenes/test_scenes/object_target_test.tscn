@@ -1,0 +1,117 @@
+[gd_scene format=4 uid="uid://cubaef6cuqsdh"]
+
+[ext_resource type="PackedScene" uid="uid://cdko42eau68xt" path="res://scenes/levels/base_level.tscn" id="1_base"]
+[ext_resource type="TileSet" uid="uid://dkw01fa84lera" path="res://tilesets/city_ruin.tres" id="2_tiles"]
+[ext_resource type="PackedScene" uid="uid://cs37xus6fdfc" path="res://scenes/objects/placables/object_instance.tscn" id="3_obj"]
+[ext_resource type="Texture2D" uid="uid://mmovo8dlqfkt" path="res://assets/craftland/Craftland Mines/32x32/CLM_Mining_Vegetables.png" id="4_vlajy"]
+[ext_resource type="Texture2D" uid="uid://dx1ojuv03ikd1" path="res://assets/temp/coal_rock.png" id="6_ajcwy"]
+[ext_resource type="Texture2D" uid="uid://dog4l2sx7u7cn" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png" id="8_isq0v"]
+[ext_resource type="Texture2D" uid="uid://bomft32q0e1ku" path="res://assets/temp/corpse_soldier.png" id="10_giomy"]
+[ext_resource type="Texture2D" uid="uid://mloe6l4aphpg" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crafting.png" id="12_unh3i"]
+[ext_resource type="Texture2D" uid="uid://cd23fy8lk2tva" path="res://assets/apo/32x32_dec_props.png" id="14_qpapi"]
+[ext_resource type="Resource" uid="uid://b0mebugnhfw2t" path="res://scripts/resources/placeable_object/nature/rock.tres" id="o0"]
+[ext_resource type="Resource" uid="uid://b3062coieyhe3" path="res://scripts/resources/placeable_object/nature/coal_rock.tres" id="o1"]
+[ext_resource type="Resource" uid="uid://cwu5que5eyybe" path="res://scripts/resources/placeable_object/nature/oak_tree.tres" id="o2"]
+[ext_resource type="Resource" uid="uid://bcrpsldr7lt2a" path="res://scripts/resources/placeable_object/props/corpse_soldier.tres" id="o3"]
+[ext_resource type="Resource" uid="uid://clh75kbapjbke" path="res://scripts/resources/placeable_object/furniture/chest.tres" id="o4"]
+[ext_resource type="Resource" uid="uid://cc6er7qjkt4n8" path="res://scripts/resources/placeable_object/props/barrels.tres" id="o5"]
+[ext_resource type="Resource" uid="uid://ca458q48ofad6" path="res://scripts/resources/placeable_object/props/vending_machine.tres" id="o6"]
+[ext_resource type="Resource" uid="uid://dlh3mccpdus43" path="res://scripts/resources/placeable_object/nature/stone_small.tres" id="o7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_object"]
+atlas = ExtResource("4_vlajy")
+region = Rect2(264, 74, 52, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1n6t6"]
+atlas = ExtResource("8_isq0v")
+region = Rect2(258, 607, 90, 161)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b16xi"]
+atlas = ExtResource("12_unh3i")
+region = Rect2(392, 18, 48, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffh2i"]
+atlas = ExtResource("14_qpapi")
+region = Rect2(1002, 230, 40, 82)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g501c"]
+atlas = ExtResource("14_qpapi")
+region = Rect2(1444, 3, 57, 116)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qcsh"]
+atlas = ExtResource("8_isq0v")
+region = Rect2(544, 996, 28, 26)
+
+[node name="ObjectTargetTest" unique_id=240846831 instance=ExtResource("1_base")]
+y_sort_enabled = true
+
+[node name="Player" parent="." index="0" unique_id=407296808]
+position = Vector2(252, 176)
+
+[node name="CameraComponent" parent="." index="1" unique_id=1459419885]
+zoom = Vector2(3, 3)
+
+[node name="Tilemap" type="TileMapLayer" parent="." index="3" unique_id=1071926681]
+y_sort_enabled = true
+
+[node name="Land" type="TileMapLayer" parent="Tilemap" index="0" unique_id=1333602930]
+z_index = -1
+tile_map_data = PackedByteArray("AAAAAAAAAAAqAAoAAAABAAAAAAAqAAoAAAACAAAAAAAqAAoAAAADAAAAAAAqAAoAAAAEAAAAAAAqAAoAAAAFAAAAAAAqAAoAAAAGAAAAAAAqAAoAAAAHAAAAAAAqAAoAAAAIAAAAAAAqAAoAAAAJAAAAAAAqAAoAAAAKAAAAAAAqAAoAAAALAAAAAAAqAAoAAAAMAAAAAAAqAAoAAAANAAAAAAAqAAoAAAAOAAAAAAAqAAoAAAAPAAAAAAAqAAoAAAAQAAAAAAAqAAoAAAARAAAAAAAqAAoAAAASAAAAAAAqAAoAAAATAAAAAAAqAAoAAAAUAAAAAAAqAAoAAAAVAAAAAAAqAAoAAAAWAAAAAAAqAAoAAAAXAAAAAAAqAAoAAAAYAAAAAAAqAAoAAAAAAAEAAAAqAAoAAAABAAEAAAAqAAoAAAACAAEAAAAqAAoAAAADAAEAAAAqAAoAAAAEAAEAAAAqAAoAAAAFAAEAAAAqAAoAAAAGAAEAAAAqAAoAAAAHAAEAAAAqAAoAAAAIAAEAAAAqAAoAAAAJAAEAAAAqAAoAAAAKAAEAAAAqAAoAAAALAAEAAAAqAAoAAAAMAAEAAAAqAAoAAAANAAEAAAAqAAoAAAAOAAEAAAAqAAoAAAAPAAEAAAAqAAoAAAAQAAEAAAAqAAoAAAARAAEAAAAqAAoAAAASAAEAAAAqAAoAAAATAAEAAAAqAAoAAAAUAAEAAAAqAAoAAAAVAAEAAAAqAAoAAAAWAAEAAAAqAAoAAAAXAAEAAAAqAAoAAAAYAAEAAAAqAAoAAAAAAAIAAAAqAAoAAAABAAIAAAAqAAoAAAACAAIAAAAqAAoAAAADAAIAAAAqAAoAAAAEAAIAAAAqAAoAAAAFAAIAAAAqAAoAAAAGAAIAAAAqAAoAAAAHAAIAAAAqAAoAAAAIAAIAAAAqAAoAAAAJAAIAAAAqAAoAAAAKAAIAAAAqAAoAAAALAAIAAAAqAAoAAAAMAAIAAAAqAAoAAAANAAIAAAAqAAoAAAAOAAIAAAAqAAoAAAAPAAIAAAAqAAoAAAAQAAIAAAAqAAoAAAARAAIAAAAqAAoAAAASAAIAAAAqAAoAAAATAAIAAAAqAAoAAAAUAAIAAAAqAAoAAAAVAAIAAAAqAAoAAAAWAAIAAAAqAAoAAAAXAAIAAAAqAAoAAAAYAAIAAAAqAAoAAAAAAAMAAAAqAAoAAAABAAMAAAAqAAoAAAACAAMAAAAqAAoAAAADAAMAAAAqAAoAAAAEAAMAAAAqAAoAAAAFAAMAAAAqAAoAAAAGAAMAAAAqAAoAAAAHAAMAAAAqAAoAAAAIAAMAAAAqAAoAAAAJAAMAAAAqAAoAAAAKAAMAAAAqAAoAAAALAAMAAAAqAAoAAAAMAAMAAAAqAAoAAAANAAMAAAAqAAoAAAAOAAMAAAAqAAoAAAAPAAMAAAAqAAoAAAAQAAMAAAAqAAoAAAARAAMAAAAqAAoAAAASAAMAAAAqAAoAAAATAAMAAAAqAAoAAAAUAAMAAAAqAAoAAAAVAAMAAAAqAAoAAAAWAAMAAAAqAAoAAAAXAAMAAAAqAAoAAAAYAAMAAAAqAAoAAAAAAAQAAAAqAAoAAAABAAQAAAAqAAoAAAACAAQAAAAqAAoAAAADAAQAAAAqAAoAAAAEAAQAAAAqAAoAAAAFAAQAAAAqAAoAAAAGAAQAAAAqAAoAAAAHAAQAAAAqAAoAAAAIAAQAAAAqAAoAAAAJAAQAAAAqAAoAAAAKAAQAAAAqAAoAAAALAAQAAAAqAAoAAAAMAAQAAAAqAAoAAAANAAQAAAAqAAoAAAAOAAQAAAAqAAoAAAAPAAQAAAAqAAoAAAAQAAQAAAAqAAoAAAARAAQAAAAqAAoAAAASAAQAAAAqAAoAAAATAAQAAAAqAAoAAAAUAAQAAAAqAAoAAAAVAAQAAAAqAAoAAAAWAAQAAAAqAAoAAAAXAAQAAAAqAAoAAAAYAAQAAAAqAAoAAAAAAAUAAAAqAAoAAAABAAUAAAAqAAoAAAACAAUAAAAqAAoAAAADAAUAAAAqAAoAAAAEAAUAAAAqAAoAAAAFAAUAAAAqAAoAAAAGAAUAAAAqAAoAAAAHAAUAAAAqAAoAAAAIAAUAAAAqAAoAAAAJAAUAAAAqAAoAAAAKAAUAAAAqAAoAAAALAAUAAAAqAAoAAAAMAAUAAAAqAAoAAAANAAUAAAAqAAoAAAAOAAUAAAAqAAoAAAAPAAUAAAAqAAoAAAAQAAUAAAAqAAoAAAARAAUAAAAqAAoAAAASAAUAAAAqAAoAAAATAAUAAAAqAAoAAAAUAAUAAAAqAAoAAAAVAAUAAAAqAAoAAAAWAAUAAAAqAAoAAAAXAAUAAAAqAAoAAAAYAAUAAAAqAAoAAAAAAAYAAAAqAAoAAAABAAYAAAAqAAoAAAACAAYAAAAqAAoAAAADAAYAAAAqAAoAAAAEAAYAAAAqAAoAAAAFAAYAAAAqAAoAAAAGAAYAAAAqAAoAAAAHAAYAAAAqAAoAAAAIAAYAAAAqAAoAAAAJAAYAAAAqAAoAAAAKAAYAAAAqAAoAAAALAAYAAAAqAAoAAAAMAAYAAAAqAAoAAAANAAYAAAAqAAoAAAAOAAYAAAAqAAoAAAAPAAYAAAAqAAoAAAAQAAYAAAAqAAoAAAARAAYAAAAqAAoAAAASAAYAAAAqAAoAAAATAAYAAAAqAAoAAAAUAAYAAAAqAAoAAAAVAAYAAAAqAAoAAAAWAAYAAAAqAAoAAAAXAAYAAAAqAAoAAAAYAAYAAAAqAAoAAAAAAAcAAAAqAAoAAAABAAcAAAAqAAoAAAACAAcAAAAqAAoAAAADAAcAAAAqAAoAAAAEAAcAAAAqAAoAAAAFAAcAAAAqAAoAAAAGAAcAAAAqAAoAAAAHAAcAAAAqAAoAAAAIAAcAAAAqAAoAAAAJAAcAAAAqAAoAAAAKAAcAAAAqAAoAAAALAAcAAAAqAAoAAAAMAAcAAAAqAAoAAAANAAcAAAAqAAoAAAAOAAcAAAAqAAoAAAAPAAcAAAAqAAoAAAAQAAcAAAAqAAoAAAARAAcAAAAqAAoAAAASAAcAAAAqAAoAAAATAAcAAAAqAAoAAAAUAAcAAAAqAAoAAAAVAAcAAAAqAAoAAAAWAAcAAAAqAAoAAAAXAAcAAAAqAAoAAAAYAAcAAAAqAAoAAAAAAAgAAAAqAAoAAAABAAgAAAAqAAoAAAACAAgAAAAqAAoAAAADAAgAAAAqAAoAAAAEAAgAAAAqAAoAAAAFAAgAAAAqAAoAAAAGAAgAAAAqAAoAAAAHAAgAAAAqAAoAAAAIAAgAAAAqAAoAAAAJAAgAAAAqAAoAAAAKAAgAAAAqAAoAAAALAAgAAAAqAAoAAAAMAAgAAAAqAAoAAAANAAgAAAAqAAoAAAAOAAgAAAAqAAoAAAAPAAgAAAAqAAoAAAAQAAgAAAAqAAoAAAARAAgAAAAqAAoAAAASAAgAAAAqAAoAAAATAAgAAAAqAAoAAAAUAAgAAAAqAAoAAAAVAAgAAAAqAAoAAAAWAAgAAAAqAAoAAAAXAAgAAAAqAAoAAAAYAAgAAAAqAAoAAAAAAAkAAAAqAAoAAAABAAkAAAAqAAoAAAACAAkAAAAqAAoAAAADAAkAAAAqAAoAAAAEAAkAAAAqAAoAAAAFAAkAAAAqAAoAAAAGAAkAAAAqAAoAAAAHAAkAAAAqAAoAAAAIAAkAAAAqAAoAAAAJAAkAAAAqAAoAAAAKAAkAAAAqAAoAAAALAAkAAAAqAAoAAAAMAAkAAAAqAAoAAAANAAkAAAAqAAoAAAAOAAkAAAAqAAoAAAAPAAkAAAAqAAoAAAAQAAkAAAAqAAoAAAARAAkAAAAqAAoAAAASAAkAAAAqAAoAAAATAAkAAAAqAAoAAAAUAAkAAAAqAAoAAAAVAAkAAAAqAAoAAAAWAAkAAAAqAAoAAAAXAAkAAAAqAAoAAAAYAAkAAAAqAAoAAAAAAAoAAAAqAAoAAAABAAoAAAAqAAoAAAACAAoAAAAqAAoAAAADAAoAAAAqAAoAAAAEAAoAAAAqAAoAAAAFAAoAAAAqAAoAAAAGAAoAAAAqAAoAAAAHAAoAAAAqAAoAAAAIAAoAAAAqAAoAAAAJAAoAAAAqAAoAAAAKAAoAAAAqAAoAAAALAAoAAAAqAAoAAAAMAAoAAAAqAAoAAAANAAoAAAAqAAoAAAAOAAoAAAAqAAoAAAAPAAoAAAAqAAoAAAAQAAoAAAAqAAoAAAARAAoAAAAqAAoAAAASAAoAAAAqAAoAAAATAAoAAAAqAAoAAAAUAAoAAAAqAAoAAAAVAAoAAAAqAAoAAAAWAAoAAAAqAAoAAAAXAAoAAAAqAAoAAAAYAAoAAAAqAAoAAAAAAAsAAAAqAAoAAAABAAsAAAAqAAoAAAACAAsAAAAqAAoAAAADAAsAAAAqAAoAAAAEAAsAAAAqAAoAAAAFAAsAAAAqAAoAAAAGAAsAAAAqAAoAAAAHAAsAAAAqAAoAAAAIAAsAAAAqAAoAAAAJAAsAAAAqAAoAAAAKAAsAAAAqAAoAAAALAAsAAAAqAAoAAAAMAAsAAAAqAAoAAAANAAsAAAAqAAoAAAAOAAsAAAAqAAoAAAAPAAsAAAAqAAoAAAAQAAsAAAAqAAoAAAARAAsAAAAqAAoAAAASAAsAAAAqAAoAAAATAAsAAAAqAAoAAAAUAAsAAAAqAAoAAAAVAAsAAAAqAAoAAAAWAAsAAAAqAAoAAAAXAAsAAAAqAAoAAAAYAAsAAAAqAAoAAAAAAAwAAAAqAAoAAAABAAwAAAAqAAoAAAACAAwAAAAqAAoAAAADAAwAAAAqAAoAAAAEAAwAAAAqAAoAAAAFAAwAAAAqAAoAAAAGAAwAAAAqAAoAAAAHAAwAAAAqAAoAAAAIAAwAAAAqAAoAAAAJAAwAAAAqAAoAAAAKAAwAAAAqAAoAAAALAAwAAAAqAAoAAAAMAAwAAAAqAAoAAAANAAwAAAAqAAoAAAAOAAwAAAAqAAoAAAAPAAwAAAAqAAoAAAAQAAwAAAAqAAoAAAARAAwAAAAqAAoAAAASAAwAAAAqAAoAAAATAAwAAAAqAAoAAAAUAAwAAAAqAAoAAAAVAAwAAAAqAAoAAAAWAAwAAAAqAAoAAAAXAAwAAAAqAAoAAAAYAAwAAAAqAAoAAAAAAA0AAAAqAAoAAAABAA0AAAAqAAoAAAACAA0AAAAqAAoAAAADAA0AAAAqAAoAAAAEAA0AAAAqAAoAAAAFAA0AAAAqAAoAAAAGAA0AAAAqAAoAAAAHAA0AAAAqAAoAAAAIAA0AAAAqAAoAAAAJAA0AAAAqAAoAAAAKAA0AAAAqAAoAAAALAA0AAAAqAAoAAAAMAA0AAAAqAAoAAAANAA0AAAAqAAoAAAAOAA0AAAAqAAoAAAAPAA0AAAAqAAoAAAAQAA0AAAAqAAoAAAARAA0AAAAqAAoAAAASAA0AAAAqAAoAAAATAA0AAAAqAAoAAAAUAA0AAAAqAAoAAAAVAA0AAAAqAAoAAAAWAA0AAAAqAAoAAAAXAA0AAAAqAAoAAAAYAA0AAAAqAAoAAAAAAA4AAAAqAAoAAAABAA4AAAAqAAoAAAACAA4AAAAqAAoAAAADAA4AAAAqAAoAAAAEAA4AAAAqAAoAAAAFAA4AAAAqAAoAAAAGAA4AAAAqAAoAAAAHAA4AAAAqAAoAAAAIAA4AAAAqAAoAAAAJAA4AAAAqAAoAAAAKAA4AAAAqAAoAAAALAA4AAAAqAAoAAAAMAA4AAAAqAAoAAAANAA4AAAAqAAoAAAAOAA4AAAAqAAoAAAAPAA4AAAAqAAoAAAAQAA4AAAAqAAoAAAARAA4AAAAqAAoAAAASAA4AAAAqAAoAAAATAA4AAAAqAAoAAAAUAA4AAAAqAAoAAAAVAA4AAAAqAAoAAAAWAA4AAAAqAAoAAAAXAA4AAAAqAAoAAAAYAA4AAAAqAAoAAAA=")
+tile_set = ExtResource("2_tiles")
+
+[node name="Rock" parent="." index="4" unique_id=234568958 instance=ExtResource("3_obj")]
+position = Vector2(352, 112)
+texture = SubResource("AtlasTexture_object")
+centered = false
+offset = Vector2(-26, -46)
+object = ExtResource("o0")
+
+[node name="CoalRock" parent="." index="5" unique_id=2068294453 instance=ExtResource("3_obj")]
+position = Vector2(416, 112)
+texture = ExtResource("6_ajcwy")
+centered = false
+offset = Vector2(-26, -46)
+object = ExtResource("o1")
+
+[node name="OakTree" parent="." index="6" unique_id=823154233 instance=ExtResource("3_obj")]
+position = Vector2(544, 208)
+texture = SubResource("AtlasTexture_1n6t6")
+centered = false
+offset = Vector2(-45, -161)
+object = ExtResource("o2")
+
+[node name="CorpseSoldier" parent="." index="7" unique_id=1335449242 instance=ExtResource("3_obj")]
+position = Vector2(304, 256)
+scale = Vector2(2, 2)
+texture = ExtResource("10_giomy")
+centered = false
+offset = Vector2(-32, -46)
+object = ExtResource("o3")
+
+[node name="Chest" parent="." index="8" unique_id=1244533862 instance=ExtResource("3_obj")]
+position = Vector2(176, 208)
+texture = SubResource("AtlasTexture_b16xi")
+centered = false
+offset = Vector2(-24, -42)
+object = ExtResource("o4")
+
+[node name="Barrels" parent="." index="9" unique_id=175579574 instance=ExtResource("3_obj")]
+position = Vector2(112, 112)
+texture = SubResource("AtlasTexture_ffh2i")
+centered = false
+offset = Vector2(-20, -76)
+object = ExtResource("o5")
+
+[node name="VendingMachine" parent="." index="10" unique_id=197943614 instance=ExtResource("3_obj")]
+position = Vector2(432, 304)
+texture = SubResource("AtlasTexture_g501c")
+centered = false
+offset = Vector2(-28, -116)
+object = ExtResource("o6")
+
+[node name="StoneSmall" parent="." index="11" unique_id=1569170211 instance=ExtResource("3_obj")]
+position = Vector2(240, 336)
+texture = SubResource("AtlasTexture_7qcsh")
+centered = false
+offset = Vector2(-14, -26)
+object = ExtResource("o7")

@@ -3,6 +3,7 @@ extends Node
 const PLAYER_STAT_BASE = preload("res://scenes/characters/player/player_stat.tres")
 
 const INTRO = preload("uid://brefvirbtelnj")
+const BASE_INTERACTION_RANGE = 48
 
 
 ##TODO: 휘발성 스테이트.
@@ -25,8 +26,19 @@ var is_inventory_open: bool = false
 var current_lighting: GameState.BaseLighting = GameState.BaseLighting.Day
 
 
-# var target_tile
-# var nearest_object
+# 마우스 위치는 인터랙션 레인지에 안걸
+# 이전 꺼 지우기
+var mouse_pos
+# 플레이어 위치 기반 마우스가 타게팅하는 위치
+var target_dict: Dictionary = {
+	"pos": null,
+	"tile": null, # isSoil, isTilled, isWatered
+	"object": null,
+	"actionable": null # 나중에 오브젝트와 어떤 방식으로든 합칠것
+}
+# target_object와 actionalble이 있을때는 타겟 액션 수행하지 말것림
+## mouse_pos / interaction_range
+
 
 # 나중에 스프라이트같은게 추가되면 사용가능함. 마시기, 먹기, 리로드 등
 #var cinematic_actions_queue: Array[Callable] = []
@@ -51,6 +63,12 @@ func _ready() -> void:
 	#Platform.unlocked_all_achievements.connect(_on_platform_unlocked_all_achievements)
 #
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	
+func _process(_delta: float) -> void:
+	var viewport := get_viewport()
+	mouse_pos = viewport.get_canvas_transform().affine_inverse() * viewport.get_mouse_position()
+	
+
 
 	
 func pause_game() -> void:
@@ -58,7 +76,7 @@ func pause_game() -> void:
 	pass
 
 
-
+# possible performance issue
 func get_player() -> Player:
 	return get_tree().current_scene.find_child("Player")
 

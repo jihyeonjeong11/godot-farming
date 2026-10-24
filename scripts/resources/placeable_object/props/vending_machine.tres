@@ -26,7 +26,7 @@ item = ExtResource("3_water")
 min = 1
 max = 2
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_object"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_g501c"]
 atlas = ExtResource("4_atlas")
 region = Rect2(1444, 3, 57, 116)
 
@@ -35,7 +35,7 @@ script = ExtResource("2_object")
 object_id = "vending_machine"
 object_name = "Vending Machine"
 destructible_tool = 2
-object_texture = SubResource("AtlasTexture_object")
+object_texture = SubResource("AtlasTexture_g501c")
 object_type = 1
 object_max_health = 3
 dropped_items = Array[ExtResource("1_loot")]([SubResource("Resource_canned"), SubResource("Resource_choco"), SubResource("Resource_water")])

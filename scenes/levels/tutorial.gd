@@ -44,7 +44,8 @@ func _on_weapon_gate_body_entered(body: Node2D) -> void:
 		return
 	body.is_freeze = true
 	need_weapon.action()
-	var tween := create_tween()
-	tween.tween_property(body, "global_position:x", weapon_gate_return.global_position.x, 0.4)
-	await tween.finished
+	body.face(Vector2.LEFT)
+	#var tween := create_tween()
+	#tween.tween_property(body, "global_position:x", weapon_gate_return.global_position.x, 0.4)
+	#await tween.finished
 	body.is_freeze = false

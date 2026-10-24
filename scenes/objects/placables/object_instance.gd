@@ -11,6 +11,9 @@ const SCATTER_TIME := 0.25
 const SLEEP_FADE_DURATION := 0.4
 const SLEEP_DURATION := 1.5
 const WAKE_HOUR := 6
+const INTERACT_RECT_COLOR := Color(0.3, 1.0, 0.4, 0.9)
+
+static var _used_rect_cache: Dictionary = {}
 
 @export var object: PlaceableObject: set = set_object
 
@@ -43,6 +46,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
+		queue_redraw()
 		return
 	if object == null or object.sprite_frames == null or current_animation.is_empty():
 		return
@@ -66,6 +70,28 @@ func _process(delta: float) -> void:
 			_frame += 1
 		texture = frames.get_frame_texture(current_animation, _frame)
 		duration = frames.get_frame_duration(current_animation, _frame) / speed
+
+
+func _draw() -> void:
+	if Engine.is_editor_hint() and object != null:
+		draw_rect(interact_rect(), INTERACT_RECT_COLOR, false)
+
+
+func interact_rect() -> Rect2:
+	if object != null and object.interact_rect.has_area():
+		return object.interact_rect
+	var rect := get_rect()
+	if texture == null:
+		return rect
+	if not _used_rect_cache.has(texture):
+		var image := texture.get_image()
+		_used_rect_cache[texture] = Rect2(image.get_used_rect()) if image != null else Rect2(Vector2.ZERO, texture.get_size())
+	var used: Rect2 = _used_rect_cache[texture]
+	return Rect2(rect.position + used.position, used.size)
+
+
+func global_interact_rect() -> Rect2:
+	return global_transform * interact_rect()
 
 
 func set_object(value: PlaceableObject) -> void:

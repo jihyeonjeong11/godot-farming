@@ -7,12 +7,19 @@ var ingame_menu: CanvasLayer
 
 func _ready() -> void:
 	SignalBus.dialogue_requested.connect(_on_dialogue_requested)
+	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
+
 
 func _on_dialogue_requested(resource: DialogueResource, key: String, from_node: Node) -> void:
 	var extra_states: Array = []
 	if is_instance_valid(from_node):
 		extra_states.append(from_node)
+	SessionState.cinematic_stack_size += 1
 	DialogueManager.show_dialogue_balloon(resource, key, extra_states)
+	
+func _on_dialogue_ended(_resource: DialogueResource) -> void:
+	SessionState.cinematic_stack_size = maxi(SessionState.cinematic_stack_size - 1, 0)
+
 
 func _input(event: InputEvent) -> void :
 	if not TransitionManager.is_transitioning and event.is_action("pause") and event.is_pressed():

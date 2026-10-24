@@ -45,25 +45,32 @@ The State: You must take a detour to the south. Don't go near them. They can hea
 
 # 아노말리.(밟으면 불기둥 나옴)
 The State: Do you see? These flames out of nowhere... Can you step on it?
+=> END
 
 # 어노말리 밟음 데미지 입음.
 The State:Think we can do wonders studying them. All thanks to you. Homesteader.
+=> END
 
 # 집 - 안으로 들어가기.
 The State: Go inside the house and see what you can find.
+=> END
 
 # 집안 - 금고
 The State: Open that safe and see what's inside.
+=> END
 
 # 약 총 획득
 The State: Splendid. You can treat your burn with the medicine. But be careful with the pistol. 
 The State: Ranged attack can be good, but that can lure neighboring zombies as well. Use it wisely.
+=> END
 
 # 침뱉는 좀비 - 총으로 죽임
 
 The State: This one is called Spitter. Our researchers found they literally spit everything they had before: blood, internal organs...
 The State: You don't want to get shot by that. Use your pistol to kill it and proceed.
+=> END
 
 # 농장 입구
 The State: Good. You arrived. 
 The State: Glory to the state.
+=> END

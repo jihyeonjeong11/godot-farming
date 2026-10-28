@@ -5,6 +5,8 @@ extends Area2D
 @export var max_detection_range: int
 @export var sight_ray: RayCast2D
 
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

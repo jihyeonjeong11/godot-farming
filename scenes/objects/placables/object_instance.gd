@@ -227,11 +227,12 @@ func _collect_result() -> void:
 		return
 
 	var stack := ItemStack.new(recipe.result_item(), maxi(recipe.result_amount, 1))
-	if not Inventory.add_item(stack):
+	if not InventoryManager.has_room_for(stack.item, stack.amount):
 		SignalBus.toast_requested.emit(CROSS_ICON, "Inventory full")
 		return
 
-	SignalBus.sound_requested.emit("ITEM_PICKUP")
+	InventoryActions.pickup(stack)
+	SoundManager.play_sound(AudioManager.SOUND_EFFECTS[AudioManager.SFX_ITEM_PICKUP])
 	process_state = {}
 	process_slot.clear()
 

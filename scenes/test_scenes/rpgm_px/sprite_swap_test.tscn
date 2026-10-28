@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://bf32vn5kesmtj"]
+
+[ext_resource type="Script" uid="uid://dn2hf0xo07ogr" path="res://scenes/test_scenes/rpgm_px/sprite_swap_test.gd" id="1_swap"]
+[ext_resource type="PackedScene" uid="uid://b3wdmejofhe0p" path="res://scenes/characters/player/player.tscn" id="2_player"]
+[ext_resource type="Script" uid="uid://dxa1uvmq4urk" path="res://scenes/test_scenes/rpgm_px/px_character.gd" id="3_px"]
+[ext_resource type="SpriteFrames" path="res://scenes/characters/player/px_body_frames.tres" id="4_frames"]
+[ext_resource type="Script" uid="uid://dt6y3qm1wpx1q" path="res://scenes/characters/player/rpgm_layer.gd" id="5_layer"]
+[ext_resource type="Texture2D" uid="uid://cepkd0bd0rcu" path="res://assets/temp/rpgm_character_px/shadow.png" id="6_shadow"]
+[ext_resource type="Texture2D" uid="uid://dgijmqy3f65gu" path="res://assets/temp/rpgm_character_px/outfits/shoes.png" id="7_shoes"]
+[ext_resource type="Texture2D" uid="uid://6yqnhotalbu" path="res://assets/temp/rpgm_character_px/outfits/pants.png" id="8_pants"]
+[ext_resource type="Texture2D" uid="uid://cs4qcxe5l2dtt" path="res://assets/temp/rpgm_character_px/outfits/shirt.png" id="9_shirt"]
+[ext_resource type="Texture2D" uid="uid://dft5vbbutwxvh" path="res://assets/temp/rpgm_character_px/bag.png" id="10_bag"]
+[ext_resource type="Texture2D" uid="uid://cpjda5wiib5iy" path="res://assets/temp/rpgm_character_px/outfits/hair.png" id="11_hair"]
+[ext_resource type="Texture2D" uid="uid://ba1jlv50aw7bp" path="res://assets/temp/rpgm_character_px/fx.png" id="12_fx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_feet"]
+radius = 5.0
+
+[node name="SpriteSwapTest" type="Node2D" unique_id=1903595888]
+script = ExtResource("1_swap")
+
+[node name="Ground" type="ColorRect" parent="." unique_id=1612766762]
+offset_left = -400.0
+offset_top = -300.0
+offset_right = 400.0
+offset_bottom = 300.0
+color = Color(0.36, 0.45, 0.3, 1)
+
+[node name="Player" parent="." unique_id=1326455465 instance=ExtResource("2_player")]
+
+[node name="PxCharacter" type="CharacterBody2D" parent="." unique_id=2056427035]
+motion_mode = 1
+script = ExtResource("3_px")
+
+[node name="Body" type="AnimatedSprite2D" parent="PxCharacter" unique_id=1096525656]
+position = Vector2(0, -15)
+sprite_frames = ExtResource("4_frames")
+animation = &"idle_down"
+autoplay = "idle_down"
+
+[node name="Shadow" type="Sprite2D" parent="PxCharacter/Body" unique_id=1096525657]
+show_behind_parent = true
+texture = ExtResource("6_shadow")
+hframes = 21
+vframes = 4
+script = ExtResource("5_layer")
+
+[node name="Pants" type="Sprite2D" parent="PxCharacter/Body" unique_id=1096525658]
+texture = ExtResource("8_pants")
+hframes = 21
+vframes = 12
+script = ExtResource("5_layer")
+
+[node name="Shoes" type="Sprite2D" parent="PxCharacter/Body" unique_id=1096525659]
+texture = ExtResource("7_shoes")
+hframes = 21
+vframes = 8
+script = ExtResource("5_layer")
+
+[node name="Shirt" type="Sprite2D" parent="PxCharacter/Body" unique_id=1096525660]
+texture = ExtResource("9_shirt")
+hframes = 21
+vframes = 8
+script = ExtResource("5_layer")
+
+[node name="Bag" type="Sprite2D" parent="PxCharacter/Body" unique_id=1096525661]
+texture = ExtResource("10_bag")
+hframes = 21
+vframes = 4
+script = ExtResource("5_layer")
+
+[node name="Hair" type="Sprite2D" parent="PxCharacter/Body" unique_id=1096525662]
+texture = ExtResource("11_hair")
+hframes = 21
+vframes = 12
+script = ExtResource("5_layer")
+
+[node name="Fx" type="Sprite2D" parent="PxCharacter/Body" unique_id=1096525663]
+texture = ExtResource("12_fx")
+hframes = 21
+vframes = 4
+script = ExtResource("5_layer")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PxCharacter" unique_id=1585987373]
+shape = SubResource("CircleShape2D_feet")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=306062672]
+zoom = Vector2(4, 4)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1144902002]
+
+[node name="Info" type="Label" parent="CanvasLayer" unique_id=1415755764]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 800.0
+offset_bottom = 100.0

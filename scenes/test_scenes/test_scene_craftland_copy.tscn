@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://xa3x8xgn4jst"]
+[gd_scene format=4 uid="uid://d1e66838mouam"]
 
 [ext_resource type="TileSet" uid="uid://dia4o4d25a22o" path="res://tilesets/craftland_copy.tres" id="1_ts"]
 [ext_resource type="TileSet" uid="uid://cwaqnx3wjt35y" path="res://tilesets/craft.tres" id="1_xcpdh"]

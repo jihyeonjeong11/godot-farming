@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dn2lauurfm4ly" path="res://scenes/levels/base_level.gd" id="1_md458"]
 [ext_resource type="PackedScene" uid="uid://b3wdmejofhe0p" path="res://scenes/characters/player/player.tscn" id="2_player"]
-[ext_resource type="PackedScene" uid="uid://d1ev2ggjcjtk7" path="res://scenes/camera/camera_component.tscn" id="3_camera"]
+[ext_resource type="PackedScene" uid="uid://d1ev2ggjcjtk7" path="res://scenes/camera/camera.tscn" id="3_camera"]
 
 [node name="BaseLevel" type="Node2D" unique_id=711204178]
 script = ExtResource("1_md458")

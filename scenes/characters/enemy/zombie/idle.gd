@@ -24,8 +24,10 @@ func _on_physics_process(_delta: float) -> void:
 
 
 func _on_next_transitions() -> void:
-
+	if zombie.is_docile:
+		return
 	if detection_component.is_player_in_range():
+		zombie.found_player()
 		transition.emit("chase")
 		return
 

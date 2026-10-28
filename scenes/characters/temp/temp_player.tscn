@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://0u5q65ttd0pd"]
+
+[node name="TempPlayer" type="Node2D" unique_id=248950148]
+
+[node name="Node2D" type="Node2D" parent="." unique_id=2030383416]
+
+[node name="BaseSprite" type="AnimatedSprite2D" parent="Node2D" unique_id=655455713]
+
+[node name="HairSprite" type="AnimatedSprite2D" parent="Node2D" unique_id=1955694539]
+
+[node name="TorsoSprite" type="AnimatedSprite2D" parent="Node2D" unique_id=1993707119]
+
+[node name="LowerSprite" type="AnimatedSprite2D" parent="Node2D" unique_id=585722870]
+
+[node name="FeetSprite" type="AnimatedSprite2D" parent="Node2D" unique_id=26401810]

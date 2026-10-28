@@ -9,6 +9,10 @@ extends "res://scenes/levels/base_level.gd"
 
 const LONGSWORD = preload("uid://cc468nspnvreg")
 
+#TODO: 튜토리얼 좀비. 주인공 인식만하는걸로 수정하기
+@onready var zombie: CharacterBody2D = $Zombie
+@onready var zombie_2: CharacterBody2D = $Zombie2
+
 @onready var weapon_gate: Area2D = %WeaponGate
 @onready var need_weapon: Actionable = %NeedWeapon
 @onready var weapon_gate_return: Marker2D = %WeaponGateReturn
@@ -16,18 +20,30 @@ const LONGSWORD = preload("uid://cc468nspnvreg")
 @onready var corpse_gate: Area2D = $CorpseGate
 @onready var check_corpse: Actionable = $CorpseGate/CheckCorpse
 
+@onready var horde_gate: Area2D = $HordeGate
+
 var corpse_dialog_seen: bool = false
 
 func _enter() -> void:
+	SoundManager.play_ambient_sound(preload("uid://bdj6ooc1akmde"))
 	weapon_gate.body_entered.connect(_on_weapon_gate_body_entered)
 	corpse_gate.body_entered.connect(_on_corpse_gate_body_entered)
+	horde_gate.body_entered.connect(_on_horde_gate_body_entered)
+	InventoryManager.updated_inventory.connect(_check_weapon)
+	_check_weapon()
 
 	dialogue("start")
-#
 
-func _process(delta: float) -> void:
-	pass
-	
+
+func _on_horde_gate_body_entered(body: Node2D) -> void:
+	if not body is Player:
+		return
+	horde_gate.queue_free()
+	dialogue("zombie_horde")
+	SessionState.change_camera_target(zombie_2)
+	await DialogueManager.dialogue_ended
+	SessionState.change_camera_target($Player)
+
 	
 func _on_corpse_gate_body_entered(body: Node2D) -> void:
 	if not body is Player:
@@ -36,16 +52,22 @@ func _on_corpse_gate_body_entered(body: Node2D) -> void:
 		check_corpse.action()
 		corpse_dialog_seen = true
 
-func _on_weapon_gate_body_entered(body: Node2D) -> void:
-	if not body is Player:
+func _check_weapon() -> void:
+	if not is_instance_valid(weapon_gate):
 		return
 	if InventoryManager.count_item(LONGSWORD) > 0:
 		weapon_gate.queue_free()
+		dialogue("obtained_sword")
+		SessionState.change_camera_target(zombie)
+		await DialogueManager.dialogue_ended
+		SessionState.change_camera_target($Player)
+	
+
+func _on_weapon_gate_body_entered(body: Node2D) -> void:
+	if not body is Player:
 		return
 	body.is_freeze = true
-	need_weapon.action()
 	body.face(Vector2.LEFT)
-	#var tween := create_tween()
-	#tween.tween_property(body, "global_position:x", weapon_gate_return.global_position.x, 0.4)
-	#await tween.finished
+	need_weapon.action()
+	await need_weapon.dialogue_ended
 	body.is_freeze = false

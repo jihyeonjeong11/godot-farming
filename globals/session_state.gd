@@ -13,6 +13,7 @@ var is_demo: bool = true
 # 메인 메뉴로 돌아갔을떄 logo 보이지 않게 함.
 var has_seen_logos: bool = false
 
+
 # 레벨 매니저 - 레벨 id 핸들링
 #const Locations = preload("res://addons/location_manager/locations.gd")
 # 다이얼로그 리소스 - 대화창용
@@ -24,7 +25,6 @@ var is_inventory_open: bool = false
 
 # 라이팅 시스템
 var current_lighting: GameState.BaseLighting = GameState.BaseLighting.Day
-
 
 # 마우스 위치는 인터랙션 레인지에 안걸
 # 이전 꺼 지우기
@@ -44,6 +44,12 @@ var target_dict: Dictionary = {
 #var cinematic_actions_queue: Array[Callable] = []
 
 
+# TODO: 임시 값 나중에는 시야 소리를 나눠서 더 복잡하게 갈수있음
+#idle: 100
+#walk: 200
+#attack: 250
+ 
+var player_detection_range: int = 100
 
 func _ready() -> void:
 	is_demo = OS.has_feature("demo")
@@ -84,9 +90,9 @@ func get_player() -> Player:
 func set_all_monsters_paused(is_paused: bool) -> void :
 	pass
 	
-#func change_camera_target(node: Node2D) -> void :
-	#Camera.get_current().target = node
-	#await get_tree().create_timer(0.4).timeout
+func change_camera_target(node: Node2D) -> void :
+	Camera.get_current().target = node
+	await get_tree().create_timer(0.4).timeout
 
 func quit_to_title() -> void :
 	TransitionManager.go_to_scene(INTRO)

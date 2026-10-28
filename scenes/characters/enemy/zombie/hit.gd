@@ -18,6 +18,10 @@ func _on_next_transitions() -> void:
 	if zombie.knockback != Vector2.ZERO:
 		return
 
+	if zombie.is_docile:
+		transition.emit("idle")
+		return
+
 	if detection_component.is_player_in_range():
 		transition.emit("chase")
 	else:

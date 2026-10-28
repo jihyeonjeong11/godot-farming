@@ -1,10 +1,31 @@
 class_name CursorActions extends RefCounted
 
 const TILE_SIZE: int = 32
-const BASE_TILE_RANGE: int = TILE_SIZE
-const BASE_PLACEMENT_RANGE: int = BASE_TILE_RANGE * 2
+const BASE_TILE_RANGE: int = 2
+const BASE_PLACEMENT_RANGE: int = 4
+
+const CURSOR_DEFAULT := preload("res://assets/UI/cursor/cursor_default.png")
+const CURSOR_INTERACT := preload("res://assets/UI/cursor/cursor_interact.png")
+const CURSOR_DEFAULT_HOTSPOT := Vector2(2, 2)
+const CURSOR_INTERACT_HOTSPOT := Vector2(16, 16)
+
+static var _cursor: Texture2D
 
 static func set_target_dict(origin: Vector2) -> void:
+	set_target(origin)
+	update_cursor()
+
+
+static func update_cursor() -> void:
+	var interactable := is_instance_valid(SessionState.target_dict["object"])
+	var cursor: Texture2D = CURSOR_INTERACT if interactable else CURSOR_DEFAULT
+	if cursor == _cursor:
+		return
+	_cursor = cursor
+	Input.set_custom_mouse_cursor(cursor, Input.CURSOR_ARROW, CURSOR_INTERACT_HOTSPOT if interactable else CURSOR_DEFAULT_HOTSPOT)
+
+
+static func set_target(origin: Vector2) -> void:
 	var tilemap := current_land()
 	if tilemap == null:
 		SessionState.target_dict["pos"] = null

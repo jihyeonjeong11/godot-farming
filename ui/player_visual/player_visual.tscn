@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://bh0wn7ha8utou"]
 
 [ext_resource type="Script" uid="uid://ch40am7uh508c" path="res://ui/player_visual/player_visual.gd" id="1_fuvml"]
-[ext_resource type="Texture2D" uid="uid://cfs7ybi7k406j" path="res://assets/temp/rpgm_character/rpgm_body_sheet.png" id="2_body"]
+[ext_resource type="Texture2D" uid="uid://dsaemqt68ld4b" path="res://assets/temp/rpgm_character_px/body_naked.png" id="2_body"]
 [ext_resource type="Script" uid="uid://d0ktpct8vvta2" path="res://ui/player_visual/vanity_sprite.gd" id="3_l4h13"]
-[ext_resource type="Texture2D" uid="uid://dxlgvrtbj5nu5" path="res://assets/character/vanities/pants.png" id="5_pants"]
-[ext_resource type="Texture2D" uid="uid://x71cfx5cn5in" path="res://assets/character/vanities/shirt.png" id="6_shirt"]
-[ext_resource type="Texture2D" uid="uid://db54a8635bdjq" path="res://assets/character/vanities/shoes.png" id="7_shoes"]
-[ext_resource type="Texture2D" uid="uid://cu55rsq07ycpb" path="res://assets/character/vanities/hair.png" id="4_3hc5h"]
+[ext_resource type="Texture2D" uid="uid://6yqnhotalbu" path="res://assets/temp/rpgm_character_px/outfits/pants.png" id="5_pants"]
+[ext_resource type="Texture2D" uid="uid://cs4qcxe5l2dtt" path="res://assets/temp/rpgm_character_px/outfits/shirt.png" id="6_shirt"]
+[ext_resource type="Texture2D" uid="uid://dgijmqy3f65gu" path="res://assets/temp/rpgm_character_px/outfits/shoes.png" id="7_shoes"]
+[ext_resource type="Texture2D" uid="uid://dft5vbbutwxvh" path="res://assets/temp/rpgm_character_px/bag.png" id="8_bag"]
+[ext_resource type="Texture2D" uid="uid://cpjda5wiib5iy" path="res://assets/temp/rpgm_character_px/outfits/hair.png" id="4_3hc5h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r1c0"]
 atlas = ExtResource("2_body")
@@ -48,6 +49,12 @@ part_sprite = ExtResource("7_shoes")
 script = ExtResource("3_l4h13")
 part = 1
 part_sprite = ExtResource("6_shirt")
+
+[node name="Bag" type="Sprite2D" parent="AnimatedSprite2D" unique_id=1309584063]
+texture = ExtResource("8_bag")
+hframes = 21
+vframes = 4
+frame = 21
 
 [node name="Hair" type="Sprite2D" parent="AnimatedSprite2D" unique_id=939243554]
 script = ExtResource("3_l4h13")

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b3wdmejofhe0p"]
 
-[ext_resource type="SpriteFrames" uid="uid://dg4d1sv3fl8jg" path="res://scenes/characters/player/rpgm_body_frames.tres" id="1_body"]
+[ext_resource type="SpriteFrames" uid="uid://cugahjuohx640" path="res://scenes/characters/player/px_body_frames.tres" id="1_body"]
 [ext_resource type="PackedScene" uid="uid://bwn5t2ejgp0hr" path="res://scenes/components/hurt_component.tscn" id="2_blysn"]
 [ext_resource type="Script" uid="uid://cbfkln4si60o0" path="res://scenes/characters/player/player.gd" id="2_script"]
 [ext_resource type="PackedScene" uid="uid://0pe6fvow1o6b" path="res://scenes/components/hit_component.tscn" id="3_4kqyw"]
@@ -8,21 +8,24 @@
 [ext_resource type="Script" uid="uid://dt6y3qm1wpx1q" path="res://scenes/characters/player/rpgm_layer.gd" id="3_layer"]
 [ext_resource type="Script" uid="uid://2p2g8fexkyxo" path="res://scenes/test_scenes/player/tool.gd" id="4_tool"]
 [ext_resource type="PackedScene" uid="uid://bx810a2sxe5aa" path="res://scenes/components/characters/needs_decay_component.tscn" id="4_ykrpk"]
-[ext_resource type="Texture2D" uid="uid://dsx32jrpttgk1" path="res://assets/temp/rpgm_character/rpgm_shadow_sheet.png" id="5_shadow"]
-[ext_resource type="Texture2D" uid="uid://ifts8g3ri83v" path="res://assets/temp/rpgm_character/outfits/hair.png" id="6_hair"]
+[ext_resource type="Texture2D" uid="uid://cepkd0bd0rcu" path="res://assets/temp/rpgm_character_px/shadow.png" id="5_shadow"]
+[ext_resource type="Texture2D" uid="uid://cpjda5wiib5iy" path="res://assets/temp/rpgm_character_px/outfits/hair.png" id="6_hair"]
 [ext_resource type="Script" uid="uid://tk1ig2rubqvq" path="res://scenes/test_scenes/player/sheet_layer.gd" id="7_sheet"]
-[ext_resource type="Texture2D" uid="uid://btxat6blsdwoa" path="res://assets/temp/rpgm_character/outfits/pants.png" id="8_pants"]
-[ext_resource type="Texture2D" uid="uid://dsj32em1wr8dy" path="res://assets/temp/rpgm_character/outfits/shirt.png" id="9_shirt"]
-[ext_resource type="Texture2D" uid="uid://cr3gstsll56qq" path="res://assets/temp/rpgm_character/outfits/shoes.png" id="12_shoes"]
+[ext_resource type="Texture2D" uid="uid://6yqnhotalbu" path="res://assets/temp/rpgm_character_px/outfits/pants.png" id="8_pants"]
+[ext_resource type="Texture2D" uid="uid://cs4qcxe5l2dtt" path="res://assets/temp/rpgm_character_px/outfits/shirt.png" id="9_shirt"]
+[ext_resource type="Texture2D" uid="uid://dgijmqy3f65gu" path="res://assets/temp/rpgm_character_px/outfits/shoes.png" id="12_shoes"]
 [ext_resource type="Script" uid="uid://ddeeotva2srbc" path="res://scenes/test_scenes/player/default_state.gd" id="14_bym2u"]
 [ext_resource type="Script" uid="uid://bk7xvms3qnp8t" path="res://scripts/state_machine/node_state_machine.gd" id="15_nsm"]
 [ext_resource type="Resource" uid="uid://dv4stqyl5a6tf" path="res://scenes/characters/player/player_stat.tres" id="16_stats"]
+[ext_resource type="Texture2D" uid="uid://dft5vbbutwxvh" path="res://assets/temp/rpgm_character_px/bag.png" id="17_bag"]
+[ext_resource type="Texture2D" uid="uid://ba1jlv50aw7bp" path="res://assets/temp/rpgm_character_px/fx.png" id="18_fx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_feet"]
 radius = 6.0
 
 [node name="Player" type="CharacterBody2D" unique_id=407296808 node_paths=PackedStringArray("body", "tool_layer", "hands_layer") groups=["player"]]
 collision_layer = 2
+collision_mask = 385
 motion_mode = 1
 script = ExtResource("2_script")
 body = NodePath("Body")
@@ -45,13 +48,13 @@ follow_shape = NodePath("../CollisionShape2D")
 [node name="Body" type="AnimatedSprite2D" parent="." unique_id=407296809]
 position = Vector2(0, -15)
 sprite_frames = ExtResource("1_body")
-animation = &"walk_up"
+animation = &"swing_right"
 autoplay = "idle_down"
 
 [node name="Shadow" type="Sprite2D" parent="Body" unique_id=407296811]
 show_behind_parent = true
 texture = ExtResource("5_shadow")
-hframes = 14
+hframes = 21
 vframes = 4
 script = ExtResource("3_layer")
 
@@ -64,31 +67,44 @@ script = ExtResource("4_tool")
 
 [node name="Pants" type="Sprite2D" parent="Body" unique_id=1594259407]
 texture = ExtResource("8_pants")
-hframes = 14
+hframes = 21
 vframes = 12
 script = ExtResource("3_layer")
 
 [node name="Shoes" type="Sprite2D" parent="Body" unique_id=1930493842]
 texture = ExtResource("12_shoes")
-hframes = 14
+hframes = 21
 vframes = 8
 script = ExtResource("3_layer")
 
 [node name="Shirt" type="Sprite2D" parent="Body" unique_id=1544262425]
 texture = ExtResource("9_shirt")
-hframes = 14
+hframes = 21
 vframes = 8
+script = ExtResource("3_layer")
+
+[node name="Bag" type="Sprite2D" parent="Body" unique_id=1594259411]
+texture = ExtResource("17_bag")
+hframes = 21
+vframes = 4
 script = ExtResource("3_layer")
 
 [node name="Hair" type="Sprite2D" parent="Body" unique_id=600051656]
 texture = ExtResource("6_hair")
-hframes = 14
+hframes = 21
 vframes = 12
 script = ExtResource("3_layer")
 
 [node name="Hands" type="Sprite2D" parent="Body" unique_id=301758212]
 visible = false
 script = ExtResource("7_sheet")
+
+[node name="Fx" type="Sprite2D" parent="Body" unique_id=1096525664]
+visible = false
+texture = ExtResource("18_fx")
+hframes = 21
+vframes = 4
+script = ExtResource("3_layer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=407296810]
 shape = SubResource("CircleShape2D_feet")

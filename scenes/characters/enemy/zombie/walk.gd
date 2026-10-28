@@ -62,12 +62,13 @@ func on_safe_velocity_computed(safe_velocity: Vector2) -> void:
 		return
 
 	zombie.velocity = safe_velocity
-	zombie.move_and_slide()
+	#zombie.move_and_slide()
 
 
 func _on_next_transitions() -> void:
 
 	if detection_component.is_player_in_range():
+		zombie.found_player()
 		transition.emit("chase")
 		return
 

@@ -8,13 +8,14 @@
 [ext_resource type="Script" uid="uid://dxetuxxvesifv" path="res://scenes/characters/enemy/zombie/attack.gd" id="6_attack"]
 [ext_resource type="Script" uid="uid://b86a2q6j05osf" path="res://scenes/characters/enemy/zombie/hit.gd" id="7_hit"]
 [ext_resource type="Resource" uid="uid://dao3vpqhn0j8l" path="res://scenes/characters/enemy/zombie_stats.tres" id="8_stats"]
-[ext_resource type="SpriteFrames" uid="uid://b1s8hdh7uycg4" path="res://assets/temp/rpgm_character/rpgm_zombie_frames.tres" id="9_frames"]
+[ext_resource type="SpriteFrames" uid="uid://bq4n4x8p8la2d" path="res://assets/temp/rpgm_character_px/zombie_frames.tres" id="9_frames"]
 [ext_resource type="AudioStream" uid="uid://qtf30p316hh2" path="res://assets/sounds/enemy_die.wav" id="10_diesn"]
 [ext_resource type="PackedScene" uid="uid://b146rj5ge4pas" path="res://scenes/components/loot/loot_table_component.tscn" id="11_loot"]
 [ext_resource type="PackedScene" uid="uid://t4ivrw46xnoo" path="res://scenes/components/detection_component.tscn" id="12_detect"]
 [ext_resource type="PackedScene" uid="uid://bwn5t2ejgp0hr" path="res://scenes/components/hurt_component.tscn" id="13_hurt"]
 [ext_resource type="PackedScene" uid="uid://dk3jgaxq07bts" path="res://scenes/components/damage_component.tscn" id="14_dmg"]
 [ext_resource type="PackedScene" uid="uid://0pe6fvow1o6b" path="res://scenes/components/hit_component.tscn" id="15_hit"]
+[ext_resource type="AudioStream" uid="uid://baru1vysmpw4g" path="res://assets/sounds/monsters/growling_zombie.mp3" id="16_growl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_detect"]
 
@@ -24,11 +25,17 @@ radius = 8.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pyc8v"]
 size = Vector2(20, 38)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_growl"]
+random_pitch = 1.2
+streams_count = 1
+stream_0/stream = ExtResource("16_growl")
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_hitbox"]
 radius = 8.0
 
 [node name="Zombie" type="CharacterBody2D" unique_id=1619301887]
 collision_layer = 64
+collision_mask = 385
 script = ExtResource("2_zombie")
 stats = ExtResource("8_stats")
 
@@ -41,7 +48,7 @@ sight_ray = NodePath("RayCast2D")
 
 [node name="RayCast2D" type="RayCast2D" parent="DetectionComponent" unique_id=1505326987]
 enabled = false
-collision_mask = 3
+collision_mask = 258
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionComponent" unique_id=1393989046]
 shape = SubResource("CircleShape2D_detect")
@@ -69,6 +76,10 @@ max_damage = 3
 
 [node name="DieAudioStreamPlayer" type="AudioStreamPlayer2D" parent="." unique_id=367003999]
 stream = ExtResource("10_diesn")
+
+[node name="GrowlAudioStreamPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1823406517]
+stream = SubResource("AudioStreamRandomizer_growl")
+max_distance = 400.0
 
 [node name="HitComponent" parent="." unique_id=1946219791 instance=ExtResource("15_hit")]
 

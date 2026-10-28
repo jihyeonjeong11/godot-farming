@@ -20,6 +20,7 @@ const OUTFIT_PARTS := ["Hair", "Shirt", "Pants", "Shoes"]
 #@onready var needs_decay: NeedsDecayComponent = $NeedsDecayComponent
 @onready var hit_component: HitComponent = $HitComponent
 @onready var hit_shape: CollisionShape2D = $HitComponent/CollisionShape2D
+@onready var fx_layer: Sprite2D = $Body/Fx
 
 var stats: BaseCharacterStats
 
@@ -70,11 +71,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				# left는 공격만.
 				pass
 			MOUSE_BUTTON_RIGHT:
-				# if object targeted
-				# interact and return
-				# elif selected_slot
-				# consume return
-				InventoryActions.consume(GameState.selected_slot)
+				InteractActions.interact()
 			MOUSE_BUTTON_WHEEL_DOWN:
 				InventoryActions.quickbar_select(wrapi(GameState.selected_slot + 1, 0, InventoryManager.QUICKBAR_LIMIT))
 			MOUSE_BUTTON_WHEEL_UP:
@@ -115,7 +112,6 @@ func _equip_selected() -> void:
 	var stack := InventoryManager.get_item_stack_by_index(GameState.selected_slot)
 	var item := stack.item if stack != null else null
 	tool_layer.set_tool(String(item.item_id) if item != null else "")
-	tool_layer.set_melee(item.item_texture if item != null and item.item_type == DataTypes.ItemType.Melee else null)
 	hands_layer.held = tool_layer.is_held()
 	_sync_layers()
 
@@ -165,10 +161,12 @@ func begin_melee(item: Item) -> void:
 	hit_shape.position = hand + facing * item.melee_reach
 	hit_shape.rotation = facing.angle()
 	hit_shape.set_deferred("disabled", false)
+	fx_layer.visible = true
 
 
 func end_melee() -> void:
 	hit_shape.set_deferred("disabled", true)
+	fx_layer.visible = false
 
 
 func action_length() -> float:

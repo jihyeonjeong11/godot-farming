@@ -9,6 +9,7 @@ const ITEM_STACK_INSTANCE := preload("res://scenes/objects/pickables/item_stack_
 @onready var hit_component: HitComponent = $HitComponent
 @onready var state_machine: NodeStateMachine = $StateMachine
 @onready var root_table: Node = $RootTable
+@onready var growl_audio_stream_player: AudioStreamPlayer2D = $GrowlAudioStreamPlayer
 
 @export var stats: BaseCharacterStats
 @export var enemy_id: StringName = &"zombie"
@@ -33,17 +34,15 @@ var attack_ready: bool = true
 
 @onready var attack_cooldown_timer: Timer = Timer.new()
 
+@export var is_docile = false
 
 func _ready() -> void:
-	# 여러 마리가 같은 .tres를 공유하므로 각자 사본을 들어야 한다.
-	# duplicate()는 base_* 만 옮기므로 파생값은 setup_stats()가 채운다.
 	stats = stats.duplicate()
 	stats.setup_stats()
 
 	hit_component.hit_damage = 20
 	hurt_component.hurt.connect(on_hurt)
 	stats.health_depleted.connect(die)
-
 	walk_cycles = randi_range(min_walk_cycle, max_walk_cycle)
 
 	attack_cooldown_timer.one_shot = true
@@ -51,7 +50,6 @@ func _ready() -> void:
 	add_child(attack_cooldown_timer)
 
 
-## 8방향 벡터를 상하좌우 4방향 애니메이션으로 뭉갠다. 성분이 큰 축을 따른다.
 func face_towards(direction: Vector2) -> void:
 	if direction == Vector2.ZERO:
 		return
@@ -60,6 +58,12 @@ func face_towards(direction: Vector2) -> void:
 		npc_direction = Vector2.RIGHT if direction.x > 0.0 else Vector2.LEFT
 	else:
 		npc_direction = Vector2.DOWN if direction.y > 0.0 else Vector2.UP
+
+
+func found_player() -> void:
+	if is_dead:
+		return
+	growl_audio_stream_player.play()
 
 
 func start_attack_cooldown() -> void:
@@ -88,6 +92,7 @@ func die() -> void:
 	state_machine.set_process(false)
 	state_machine.set_physics_process(false)
 	velocity = Vector2.ZERO
+	growl_audio_stream_player.stop()
 
 	hurt_component.set_deferred("monitoring", false)
 	hit_component.set_deferred("monitoring", false)

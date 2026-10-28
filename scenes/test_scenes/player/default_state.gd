@@ -5,7 +5,7 @@ extends NodeState
 #@onready var player_buff_component: PlayerBuffComponent = $"../../PlayerBuffComponent"
 
 const FOOTSTEP_INTERVAL := 0.42
-const MELEE_SWING_TIME := 0.275
+const MELEE_SWING_TIME := 0.22
 const FOOTSTEP_BY_TERRAIN := {
 	"Grass": AudioManager.SFX_FOOTSTEP_GRASS,
 	"Concrete": AudioManager.SFX_FOOTSTEP_CONCRETE,
@@ -38,7 +38,8 @@ func _on_physics_process(delta: float) -> void:
 		player.play_action("idle")
 		return
 	if Input.is_action_just_pressed("hit") and get_viewport().gui_get_hovered_control() == null:
-		var item := Inventory.get_selected_item()
+		var itemstack := InventoryManager.get_item_stack_by_index(GameState.selected_slot)
+		var item = itemstack.item
 		if item != null and item.item_type == DataTypes.ItemType.Melee:
 			is_playing = true
 			_meleeing = true

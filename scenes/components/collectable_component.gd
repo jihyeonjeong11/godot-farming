@@ -84,11 +84,10 @@ func _physics_process(delta: float) -> void:
 
 
 func _collect() -> void:
-	if Inventory.add_item(stack) == true:
+	if InventoryManager.has_room_for(stack.item, stack.amount) and InventoryActions.obtain(stack):
 		_collected = true
 		set_physics_process(false)
-		# 부모가 곧 사라지므로 위치 기반 플레이어는 못 쓴다. 전역 SFX 풀로 낸다.
-		SignalBus.sound_requested.emit(AudioManager.SFX_ITEM_PICKUP)
+		SoundManager.play_sound(AudioManager.SOUND_EFFECTS[AudioManager.SFX_ITEM_PICKUP])
 		get_parent().queue_free()
 		return
 

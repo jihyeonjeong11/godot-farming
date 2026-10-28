@@ -8,17 +8,26 @@ extends NodeState
 @onready var animated_sprite_2d: AnimatedSprite2D = $"../../AnimatedSprite2D"
 
 var player: Player
+var sees_player: bool = false
+var last_known_position: Vector2
 
 
 func _on_enter() -> void:
 	player = detection_component.get_player()
+	if player != null:
+		last_known_position = player.global_position
+		sees_player = true
 
 
 func _on_physics_process(_delta: float) -> void:
 	if player == null:
 		return
 
-	navigation_agent_2d.target_position = player.global_position
+	sees_player = detection_component.is_player_in_range()
+	if sees_player:
+		last_known_position = player.global_position
+
+	navigation_agent_2d.target_position = last_known_position
 
 	if navigation_agent_2d.is_navigation_finished():
 		zombie.velocity = Vector2.ZERO
@@ -53,15 +62,14 @@ func _on_next_transitions() -> void:
 		return
 
 	## 사거리 안에 들어오고 쿨다운이 끝났으면 바로 휘두른다.
-	if zombie.attack_ready:
+	if sees_player and zombie.attack_ready:
 		var distance_to_target: float = zombie.global_position.distance_to(player.global_position)
 		if distance_to_target <= zombie.attack_range:
 			zombie.velocity = Vector2.ZERO
 			transition.emit("attack")
 			return
 
-	var distance_to_player: float = detection_component.global_position.distance_to(player.global_position)
-	if distance_to_player > detection_component.max_detection_range:
+	if not sees_player and navigation_agent_2d.is_navigation_finished():
 		zombie.velocity = Vector2.ZERO
 		transition.emit("idle")
 

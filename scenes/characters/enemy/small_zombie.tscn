@@ -621,6 +621,7 @@ autoplay = "idle_front"
 shape = SubResource("CircleShape2D_mti6b")
 
 [node name="HurtComponent" parent="." unique_id=1766220183 instance=ExtResource("3_hrt01")]
+hazard_vulnerable = true
 tool = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent" unique_id=566285358]

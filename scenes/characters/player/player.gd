@@ -35,7 +35,6 @@ var target_cell: Vector2
 
 func _ready() -> void:
 	stats = GameState.player_stat
-	print(stats.current_max_health)
 	#buff_component.bind(stats)
 	#needs_decay.stats = stats
 	_ground_layers = TileUtils.ground_layers(owner)

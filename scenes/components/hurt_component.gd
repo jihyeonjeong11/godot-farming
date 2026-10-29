@@ -18,6 +18,7 @@ const TOOL_SFX: Dictionary = {
 @onready var hit_audio_stream_player: AudioStreamPlayer2D = $HitAudioStreamPlayer
 @export var tool: DataTypes.Tools = DataTypes.Tools.None
 @export var follow_shape: CollisionShape2D
+@export var hazard_vulnerable: bool = false
 
 signal hurt(hit_damage: int)
 
@@ -49,7 +50,10 @@ func _on_area_entered(area: Area2D) -> void:
 
 
 func receive_hit(hit_tool: DataTypes.Tools, damage: int, knockback: Vector2) -> bool:
-	if hit_tool != tool:
+	if hit_tool == DataTypes.Tools.Hazard:
+		if not hazard_vulnerable:
+			return false
+	elif hit_tool != tool:
 		return false
 
 	play_hit_effect()

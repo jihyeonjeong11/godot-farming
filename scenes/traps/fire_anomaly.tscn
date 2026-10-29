@@ -1,0 +1,221 @@
+[gd_scene format=3 uid="uid://cyonqjxsa7xf5"]
+
+[ext_resource type="Script" uid="uid://4i84phyb80eh" path="res://scenes/traps/fire_anomaly.gd" id="1_fire"]
+[ext_resource type="Texture2D" uid="uid://dbewusgrjb6q3" path="res://scenes/traps/fire_anomaly.png" id="2_fire"]
+[ext_resource type="AudioStream" uid="uid://cluwpcp6k6vrc" path="res://assets/sounds/interactions/fire_on.mp3" id="3_fon"]
+[ext_resource type="AudioStream" uid="uid://by72sp3vkhet8" path="res://assets/sounds/interactions/fire_off.mp3" id="4_foff"]
+[ext_resource type="PackedScene" uid="uid://0pe6fvow1o6b" path="res://scenes/components/hit_component.tscn" id="5_hit"]
+
+[sub_resource type="Animation" id="Animation_reset"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HitComponent/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_burst"]
+resource_name = "burst"
+length = 2.08
+step = 0.02
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.16, 0.24, 0.32, 0.4, 0.48, 0.56, 0.64, 0.72, 0.8, 0.88, 0.96, 1.04, 1.12, 1.2, 1.28, 1.36, 1.44, 1.52, 1.6, 1.68, 1.76, 1.84, 1.92, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [12, 13, 14, 15, 16, 17, 18, 15, 16, 17, 18, 15, 16, 17, 18, 15, 16, 17, 18, 15, 16, 17, 18, 19, 20, 21]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HitComponent/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.16, 0.2, 0.41, 0.45, 0.66, 0.7, 0.91, 0.95, 1.16, 1.2, 1.41, 1.45, 1.66, 1.7, 1.84),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sounds")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_fon")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_foff")
+}],
+"times": PackedFloat32Array(0.16, 1.84)
+}
+tracks/2/use_blend = true
+
+[sub_resource type="Animation" id="Animation_cooldown"]
+resource_name = "cooldown"
+length = 0.1
+step = 0.02
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [22]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HitComponent/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_idle"]
+resource_name = "idle"
+length = 0.8
+loop_mode = 1
+step = 0.02
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HitComponent/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_windup"]
+resource_name = "windup"
+length = 0.4
+step = 0.02
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HitComponent/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fire"]
+_data = {
+&"RESET": SubResource("Animation_reset"),
+&"burst": SubResource("Animation_burst"),
+&"cooldown": SubResource("Animation_cooldown"),
+&"idle": SubResource("Animation_idle"),
+&"windup": SubResource("Animation_windup")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_detect"]
+radius = 14.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fire"]
+size = Vector2(20, 24)
+
+[node name="FireAnomaly" type="Node2D" unique_id=1238265399]
+texture_filter = 1
+script = ExtResource("1_fire")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=250490650]
+texture = ExtResource("2_fire")
+centered = false
+offset = Vector2(-16, -58)
+hframes = 23
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1848721980]
+libraries/ = SubResource("AnimationLibrary_fire")
+
+[node name="Detector" type="Area2D" parent="." unique_id=1622163987]
+collision_layer = 0
+collision_mask = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detector" unique_id=873693898]
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_detect")
+
+[node name="HitComponent" parent="." unique_id=1718201415 instance=ExtResource("5_hit")]
+current_tool = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitComponent" unique_id=655616058]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_fire")
+disabled = true
+
+[node name="CooldownTimer" type="Timer" parent="." unique_id=1511200892]
+one_shot = true
+
+[node name="Sounds" type="AudioStreamPlayer2D" parent="." unique_id=779662187]
+max_distance = 300.0
+bus = &"SFX"

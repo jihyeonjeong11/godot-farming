@@ -21,41 +21,92 @@ const LONGSWORD = preload("uid://cc468nspnvreg")
 @onready var check_corpse: Actionable = $CorpseGate/CheckCorpse
 
 @onready var horde_gate: Area2D = $HordeGate
-
-var corpse_dialog_seen: bool = false
+@onready var anomaly_gate: Area2D = $AnomalyGate
+@onready var anomaly_passed_gate: Area2D = $AnomalyPassedGate
+@onready var house_sighted_gate: Area2D = $HouseSightedGate
 
 func _enter() -> void:
 	SoundManager.play_ambient_sound(preload("uid://bdj6ooc1akmde"))
 	weapon_gate.body_entered.connect(_on_weapon_gate_body_entered)
 	corpse_gate.body_entered.connect(_on_corpse_gate_body_entered)
 	horde_gate.body_entered.connect(_on_horde_gate_body_entered)
+	anomaly_gate.body_entered.connect(_on_anomaly_gate_body_entered)
+	anomaly_passed_gate.body_entered.connect(_on_anomaly_passed_gate_body_entered)
+	house_sighted_gate.body_entered.connect(_on_house_sighted_gate_body_entered)
 	InventoryManager.updated_inventory.connect(_check_weapon)
 	_check_weapon()
+	_clear_passed_gates()
 
-	dialogue("start")
+	if not GameState.has_tutorial_flag("startup"):
+		GameState.set_tutorial_flag("startup")
+		dialogue("start")
+
+
+## 씬은 문을 지날 때마다 새로 뜬다. 이미 지나간 게이트는 플래그를 보고 다시 치운다.
+func _clear_passed_gates() -> void:
+	var gates := {
+		"sighted_horde": horde_gate,
+		"sighted_anomaly": anomaly_gate,
+		"passed_anomaly": anomaly_passed_gate,
+		"sighted_house": house_sighted_gate,
+	}
+	for flag in gates:
+		if GameState.has_tutorial_flag(flag):
+			gates[flag].queue_free()
+
+
+## 처음 지나갈 때만 true. 플래그를 세우고 게이트를 치운다.
+func _first_pass(body: Node2D, flag: String, gate: Area2D) -> bool:
+	if not body is Player or GameState.has_tutorial_flag(flag):
+		return false
+	GameState.set_tutorial_flag(flag)
+	gate.queue_free()
+	return true
 
 
 func _on_horde_gate_body_entered(body: Node2D) -> void:
-	if not body is Player:
+	if not _first_pass(body, "sighted_horde", horde_gate):
 		return
-	horde_gate.queue_free()
 	dialogue("zombie_horde")
 	SessionState.change_camera_target(zombie_2)
 	await DialogueManager.dialogue_ended
 	SessionState.change_camera_target($Player)
 
-	
-func _on_corpse_gate_body_entered(body: Node2D) -> void:
-	if not body is Player:
+
+func _on_anomaly_gate_body_entered(body: Node2D) -> void:
+	if not _first_pass(body, "sighted_anomaly", anomaly_gate):
 		return
-	if corpse_dialog_seen == false:
-		check_corpse.action()
-		corpse_dialog_seen = true
+	dialogue("anomaly")
+
+
+func _on_anomaly_passed_gate_body_entered(body: Node2D) -> void:
+	if not _first_pass(body, "passed_anomaly", anomaly_passed_gate):
+		return
+	dialogue("anomaly_passed")
+
+
+func _on_house_sighted_gate_body_entered(body: Node2D) -> void:
+	if not _first_pass(body, "sighted_house", house_sighted_gate):
+		return
+	dialogue("house_sighted")
+
+
+## 게이트 밑의 CheckCorpse 가 대화를 들고 있으므로 게이트는 지우지 않고 플래그로만 막는다.
+func _on_corpse_gate_body_entered(body: Node2D) -> void:
+	if not body is Player or GameState.has_tutorial_flag("sighted_corpse"):
+		return
+	GameState.set_tutorial_flag("sighted_corpse")
+	check_corpse.action()
+
 
 func _check_weapon() -> void:
 	if not is_instance_valid(weapon_gate):
 		return
+	if GameState.has_tutorial_flag("obtained_sword"):
+		weapon_gate.queue_free()
+		return
 	if InventoryManager.count_item(LONGSWORD) > 0:
+		GameState.set_tutorial_flag("obtained_sword")
 		weapon_gate.queue_free()
 		dialogue("obtained_sword")
 		SessionState.change_camera_target(zombie)

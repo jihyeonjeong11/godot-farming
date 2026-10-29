@@ -35,6 +35,30 @@ var level_data: Dictionary = {}
 var did_skip_tutorial: bool = false
 var did_kill_first_zombie: bool = false
 
+## Story flags for tutorial.
+var tutorial_flags: Dictionary = {
+	"startup": false,
+	"sighted_corpse": false,
+	"obtained_sword": false,
+	"sighted_horde": false,
+	"sighted_anomaly": false,
+	"passed_anomaly": false,
+	"sighted_house": false,
+	"obtained_medicine": false,
+	"ambushed": false,
+	"arrived_farm_entrance": false
+}
+
+
+func has_tutorial_flag(key: String) -> bool:
+	return tutorial_flags.get(key, false)
+
+
+func set_tutorial_flag(key: String) -> void:
+	if not tutorial_flags.has(key):
+		push_warning("모르는 튜토리얼 플래그: %s" % key)
+	tutorial_flags[key] = true
+
 func _ready() -> void:
 	_ensure_player_stat()
 	_ensure_equipment_slots()

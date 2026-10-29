@@ -40,6 +40,7 @@ disabled = true
 
 [node name="HurtComponent" parent="." unique_id=1533014795 node_paths=PackedStringArray("follow_shape") instance=ExtResource("2_blysn")]
 follow_shape = NodePath("../CollisionShape2D")
+hazard_vulnerable = true
 
 [node name="PlayerBuffComponent" parent="." unique_id=1924369797 instance=ExtResource("3_hv5x3")]
 

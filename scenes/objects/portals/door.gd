@@ -11,8 +11,8 @@ func interact() -> void:
 		push_warning("문에 target_scene 이 비어 있다: %s" % get_path())
 		return
 
-	SignalBus.sound_requested.emit(AudioManager.SFX_DOOR_OPENING)
-	SignalBus.scene_change_requested.emit(target_scene, target_spawn)
+	SoundManager.play_sound(AudioManager.SOUND_EFFECTS[AudioManager.SFX_DOOR_OPENING])
+	TransitionManager.go_to_scene(target_scene, target_spawn)
 
 
 func on_hurt(_hit_damage: int) -> void:

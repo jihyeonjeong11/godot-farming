@@ -23,7 +23,7 @@ func _ready() -> void :
 		prints("Disabling OPs in non-debug build.")
 		process_mode = ProcessMode.PROCESS_MODE_DISABLED
 		return
-	dev_fill_inventory()
+	#dev_fill_inventory()
 	dev_give_wearables()
 	dev_shuffle_outfit()
 	dev_build_grid()

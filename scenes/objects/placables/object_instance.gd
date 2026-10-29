@@ -2,6 +2,8 @@
 class_name ObjectInstance
 extends Sprite2D
 
+## TODO: Baseobjectinstsance 만들고 상자, 등 상속으로 짜기
+
 const ITEM_STACK_INSTANCE := preload("res://scenes/objects/pickables/item_stack_instance.tscn")
 const SHAKE_SHADER := preload("res://scenes/objects/placables/object_shake.gdshader")
 const CROSS_ICON := preload("res://assets/temp/cross.png")
@@ -131,7 +133,7 @@ func interact() -> void:
 		DataTypes.InteractableActions.Open:
 			if inventory != null:
 				play_animation(object.toggle_animation)
-				SignalBus.container_opened.emit(inventory.slots)
+				drop_inventory()
 		DataTypes.InteractableActions.Process:
 			process()
 		DataTypes.InteractableActions.Loot:
@@ -338,12 +340,27 @@ func roll_loot() -> Array[ItemStack]:
 
 
 func drop_loot() -> void:
+	_scatter(roll_loot())
+
+
+## 상자 안의 물건을 전부 바닥에 쏟는다. 쏟은 칸은 비워서 다시 열어도 또 나오지 않게 한다.
+func drop_inventory() -> void:
+	var stacks: Array[ItemStack] = []
+	for i in inventory.slots.size():
+		var stack := inventory.slots[i]
+		if stack != null and stack.item != null:
+			stacks.append(stack)
+		inventory.slots[i] = null
+	_scatter(stacks)
+
+
+func _scatter(stacks: Array[ItemStack]) -> void:
 	var host := get_parent()
 	if host == null or object == null:
 		return
 
 	var dropped: Array[Node2D] = []
-	for stack in roll_loot():
+	for stack in stacks:
 		for i in stack.amount:
 			var instance := ITEM_STACK_INSTANCE.instantiate() as ItemStackInstance
 			instance.stack = ItemStack.new(stack.item, 1)

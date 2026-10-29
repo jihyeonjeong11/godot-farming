@@ -42,6 +42,7 @@ enum Tools {
 	Ranged,      # 7
 	PlantWheat,  # 8
 	PlantCorn,   # 9
+	Hazard,      # 10
 }
 
 enum WearSlot {

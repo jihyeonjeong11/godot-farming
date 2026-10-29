@@ -1,0 +1,49 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/characters/enemy/zombie_spitter/acid_spit.gd" id="1_spit"]
+[ext_resource type="PackedScene" uid="uid://0pe6fvow1o6b" path="res://scenes/components/hit_component.tscn" id="2_hit"]
+
+[sub_resource type="Gradient" id="Gradient_shadow"]
+offsets = PackedFloat32Array(0, 0.7, 1)
+colors = PackedColorArray(0.15, 0.25, 0.05, 0.55, 0.15, 0.25, 0.05, 0.35, 0.15, 0.25, 0.05, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_shadow"]
+gradient = SubResource("Gradient_shadow")
+width = 24
+height = 12
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_glob"]
+offsets = PackedFloat32Array(0, 0.55, 0.8, 1)
+colors = PackedColorArray(0.85, 1, 0.5, 1, 0.5, 0.85, 0.15, 1, 0.3, 0.55, 0.05, 1, 0.3, 0.55, 0.05, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_glob"]
+gradient = SubResource("Gradient_glob")
+width = 10
+height = 10
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_impact"]
+radius = 12.0
+
+[node name="AcidSpit" type="Node2D"]
+script = ExtResource("1_spit")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+z_index = -1
+texture = SubResource("GradientTexture2D_shadow")
+
+[node name="Glob" type="Sprite2D" parent="."]
+z_index = 10
+texture = SubResource("GradientTexture2D_glob")
+
+[node name="HitComponent" parent="." instance=ExtResource("2_hit")]
+hit_damage = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitComponent"]
+shape = SubResource("CircleShape2D_impact")
+disabled = true

@@ -1,0 +1,919 @@
+id,sheet,x,y,w,h
+dp0,assets/apo/32x32_dec_props.png,0,0,64,128
+dp1,assets/apo/32x32_dec_props.png,70,20,84,92
+dp2,assets/apo/32x32_dec_props.png,166,20,84,92
+dp3,assets/apo/32x32_dec_props.png,196,8,182,298
+dp4,assets/apo/32x32_dec_props.png,256,0,64,128
+dp5,assets/apo/32x32_dec_props.png,386,8,56,174
+dp6,assets/apo/32x32_dec_props.png,450,10,60,172
+dp7,assets/apo/32x32_dec_props.png,516,10,48,140
+dp8,assets/apo/32x32_dec_props.png,614,2,52,48
+dp9,assets/apo/32x32_dec_props.png,676,28,52,64
+dp10,assets/apo/32x32_dec_props.png,736,8,30,40
+dp11,assets/apo/32x32_dec_props.png,800,0,128,82
+dp12,assets/apo/32x32_dec_props.png,940,20,42,62
+dp13,assets/apo/32x32_dec_props.png,998,20,42,62
+dp14,assets/apo/32x32_dec_props.png,1056,0,448,216
+dp15,assets/apo/32x32_dec_props.png,578,32,30,118
+dp16,assets/apo/32x32_dec_props.png,614,80,52,66
+dp17,assets/apo/32x32_dec_props.png,736,68,32,54
+dp18,assets/apo/32x32_dec_props.png,790,96,64,86
+dp19,assets/apo/32x32_dec_props.png,866,114,54,70
+dp20,assets/apo/32x32_dec_props.png,928,106,128,40
+dp21,assets/apo/32x32_dec_props.png,0,144,158,162
+dp22,assets/apo/32x32_dec_props.png,166,132,84,92
+dp23,assets/apo/32x32_dec_props.png,690,144,52,80
+dp24,assets/apo/32x32_dec_props.png,1056,128,104,88
+dp25,assets/apo/32x32_dec_props.png,1440,134,64,112
+dp26,assets/apo/32x32_dec_props.png,614,162,52,48
+dp27,assets/apo/32x32_dec_props.png,936,160,46,30
+dp28,assets/apo/32x32_dec_props.png,326,200,56,174
+dp29,assets/apo/32x32_dec_props.png,390,200,152,176
+dp30,assets/apo/32x32_dec_props.png,872,192,70,30
+dp31,assets/apo/32x32_dec_props.png,978,194,70,30
+dp32,assets/apo/32x32_dec_props.png,556,236,48,140
+dp33,assets/apo/32x32_dec_props.png,614,240,52,66
+dp34,assets/apo/32x32_dec_props.png,676,252,52,64
+dp35,assets/apo/32x32_dec_props.png,736,232,30,40
+dp36,assets/apo/32x32_dec_props.png,800,224,128,82
+dp37,assets/apo/32x32_dec_props.png,940,244,42,62
+dp38,assets/apo/32x32_dec_props.png,998,244,42,62
+dp39,assets/apo/32x32_dec_props.png,1056,224,448,216
+dp40,assets/apo/32x32_dec_props.png,166,256,20,46
+dp41,assets/apo/32x32_dec_props.png,266,296,42,102
+dp42,assets/apo/32x32_dec_props.png,736,292,32,54
+dp43,assets/apo/32x32_dec_props.png,10,332,52,32
+dp44,assets/apo/32x32_dec_props.png,98,320,60,48
+dp45,assets/apo/32x32_dec_props.png,194,320,62,60
+dp46,assets/apo/32x32_dec_props.png,614,336,52,80
+dp47,assets/apo/32x32_dec_props.png,790,320,64,86
+dp48,assets/apo/32x32_dec_props.png,866,338,54,70
+dp49,assets/apo/32x32_dec_props.png,928,330,128,40
+dp50,assets/apo/32x32_dec_props.png,672,358,64,34
+dp51,assets/apo/32x32_dec_props.png,1056,352,104,88
+dp52,assets/apo/32x32_dec_props.png,8,402,52,32
+dp53,assets/apo/32x32_dec_props.png,64,402,190,78
+dp54,assets/apo/32x32_dec_props.png,330,398,40,62
+dp55,assets/apo/32x32_dec_props.png,396,398,40,62
+dp56,assets/apo/32x32_dec_props.png,448,384,190,150
+dp57,assets/apo/32x32_dec_props.png,936,384,46,30
+dp58,assets/apo/32x32_dec_props.png,1282,390,222,140
+dp59,assets/apo/32x32_dec_props.png,268,424,42,102
+dp60,assets/apo/32x32_dec_props.png,642,434,60,30
+dp61,assets/apo/32x32_dec_props.png,718,416,40,32
+dp62,assets/apo/32x32_dec_props.png,872,416,70,30
+dp63,assets/apo/32x32_dec_props.png,896,418,158,112
+dp64,assets/apo/32x32_dec_props.png,712,462,50,38
+dp65,assets/apo/32x32_dec_props.png,780,448,104,58
+dp66,assets/apo/32x32_dec_props.png,1062,456,52,20
+dp67,assets/apo/32x32_dec_props.png,1136,450,130,60
+dp68,assets/apo/32x32_dec_props.png,320,490,128,76
+dp69,assets/apo/32x32_dec_props.png,516,510,122,104
+dp70,assets/apo/32x32_dec_props.png,640,484,30,16
+dp71,assets/apo/32x32_dec_props.png,678,496,26,16
+dp72,assets/apo/32x32_dec_props.png,1058,500,60,30
+dp73,assets/apo/32x32_dec_props.png,0,518,256,422
+dp74,assets/apo/32x32_dec_props.png,640,514,256,110
+dp75,assets/apo/32x32_dec_props.png,1126,516,104,58
+dp76,assets/apo/32x32_dec_props.png,896,558,66,34
+dp77,assets/apo/32x32_dec_props.png,970,544,40,32
+dp78,assets/apo/32x32_dec_props.png,1030,556,50,38
+dp79,assets/apo/32x32_dec_props.png,1248,550,52,20
+dp80,assets/apo/32x32_dec_props.png,1312,546,128,60
+dp81,assets/apo/32x32_dec_props.png,236,576,106,58
+dp82,assets/apo/32x32_dec_props.png,364,576,106,58
+dp83,assets/apo/32x32_dec_props.png,960,592,26,16
+dp84,assets/apo/32x32_dec_props.png,994,580,30,16
+dp85,assets/apo/32x32_dec_props.png,1098,592,70,40
+dp86,assets/apo/32x32_dec_props.png,1196,590,70,40
+dp87,assets/apo/32x32_dec_props.png,278,640,52,108
+dp88,assets/apo/32x32_dec_props.png,372,640,12,256
+dp89,assets/apo/32x32_dec_props.png,404,640,152,256
+dp90,assets/apo/32x32_dec_props.png,576,640,12,256
+dp91,assets/apo/32x32_dec_props.png,608,640,32,256
+dp92,assets/apo/32x32_dec_props.png,660,640,12,256
+dp93,assets/apo/32x32_dec_props.png,692,640,152,140
+dp94,assets/apo/32x32_dec_props.png,864,640,12,256
+dp95,assets/apo/32x32_dec_props.png,896,640,32,136
+dp96,assets/apo/32x32_dec_props.png,960,640,480,140
+dp97,assets/apo/32x32_dec_props.png,256,768,64,128
+dp98,assets/apo/32x32_dec_props.png,330,770,22,26
+dp99,assets/apo/32x32_dec_props.png,1094,786,82,136
+dp100,assets/apo/32x32_dec_props.png,1318,790,116,74
+dp101,assets/apo/32x32_dec_props.png,64,806,64,58
+dp102,assets/apo/32x32_dec_props.png,324,816,28,68
+dp103,assets/apo/32x32_dec_props.png,704,800,128,140
+dp104,assets/apo/32x32_dec_props.png,896,800,32,136
+dp105,assets/apo/32x32_dec_props.png,960,800,126,112
+dp106,assets/apo/32x32_dec_props.png,1186,804,126,112
+dp107,assets/apo/32x32_dec_props.png,1318,886,116,74
+fu0,assets/apo/32x32_buildings_furnitures.png,4,0,88,88
+fu1,assets/apo/32x32_buildings_furnitures.png,416,12,224,106
+fu2,assets/apo/32x32_buildings_furnitures.png,664,12,80,108
+fu3,assets/apo/32x32_buildings_furnitures.png,770,2,252,126
+fu4,assets/apo/32x32_buildings_furnitures.png,98,54,62,118
+fu5,assets/apo/32x32_buildings_furnitures.png,174,32,228,78
+fu6,assets/apo/32x32_buildings_furnitures.png,4,96,88,88
+fu7,assets/apo/32x32_buildings_furnitures.png,178,148,220,90
+fu8,assets/apo/32x32_buildings_furnitures.png,416,140,256,104
+fu9,assets/apo/32x32_buildings_furnitures.png,680,136,48,112
+fu10,assets/apo/32x32_buildings_furnitures.png,744,136,48,112
+fu11,assets/apo/32x32_buildings_furnitures.png,812,134,72,112
+fu12,assets/apo/32x32_buildings_furnitures.png,896,140,96,180
+fu13,assets/apo/32x32_buildings_furnitures.png,0,192,64,88
+fu14,assets/apo/32x32_buildings_furnitures.png,96,214,62,118
+fu15,assets/apo/32x32_buildings_furnitures.png,178,276,220,90
+fu16,assets/apo/32x32_buildings_furnitures.png,416,268,256,112
+fu17,assets/apo/32x32_buildings_furnitures.png,680,264,48,124
+fu18,assets/apo/32x32_buildings_furnitures.png,744,264,48,124
+fu19,assets/apo/32x32_buildings_furnitures.png,812,262,72,120
+fu20,assets/apo/32x32_buildings_furnitures.png,2,308,60,122
+fu21,assets/apo/32x32_buildings_furnitures.png,896,332,96,84
+fu22,assets/apo/32x32_buildings_furnitures.png,98,370,60,122
+fu23,assets/apo/32x32_buildings_furnitures.png,178,412,220,82
+fu24,assets/apo/32x32_buildings_furnitures.png,416,396,316,112
+fu25,assets/apo/32x32_buildings_furnitures.png,802,412,62,54
+fu26,assets/apo/32x32_buildings_furnitures.png,740,434,56,72
+fu27,assets/apo/32x32_buildings_furnitures.png,0,448,60,110
+fu28,assets/apo/32x32_buildings_furnitures.png,128,512,54,128
+fu29,assets/apo/32x32_buildings_furnitures.png,202,512,54,128
+fu30,assets/apo/32x32_buildings_furnitures.png,288,524,54,116
+fu31,assets/apo/32x32_buildings_furnitures.png,362,524,598,136
+fu32,assets/apo/32x32_buildings_furnitures.png,2,576,60,110
+fu33,assets/apo/32x32_buildings_furnitures.png,0,650,458,188
+fu34,assets/apo/32x32_buildings_furnitures.png,480,672,448,96
+fu35,assets/apo/32x32_buildings_furnitures.png,406,756,126,108
+fu36,assets/apo/32x32_buildings_furnitures.png,800,736,128,176
+fu37,assets/apo/32x32_buildings_furnitures.png,556,778,50,86
+fu38,assets/apo/32x32_buildings_furnitures.png,670,786,110,134
+fu39,assets/apo/32x32_buildings_furnitures.png,628,830,32,52
+fu40,assets/apo/32x32_buildings_furnitures.png,10,856,364,168
+fu41,assets/apo/32x32_buildings_furnitures.png,96,834,192,46
+fu42,assets/apo/32x32_buildings_furnitures.png,906,842,16,14
+fu43,assets/apo/32x32_buildings_furnitures.png,942,842,6,16
+fu44,assets/apo/32x32_buildings_furnitures.png,480,888,416,166
+fu45,assets/apo/32x32_buildings_furnitures.png,936,872,22,18
+fu46,assets/apo/32x32_buildings_furnitures.png,970,874,16,16
+fu47,assets/apo/32x32_buildings_furnitures.png,100,902,26,38
+fu48,assets/apo/32x32_buildings_furnitures.png,132,906,24,34
+fu49,assets/apo/32x32_buildings_furnitures.png,164,902,26,38
+fu50,assets/apo/32x32_buildings_furnitures.png,196,906,24,34
+fu51,assets/apo/32x32_buildings_furnitures.png,228,902,26,38
+fu52,assets/apo/32x32_buildings_furnitures.png,260,906,24,34
+fu53,assets/apo/32x32_buildings_furnitures.png,384,896,90,136
+fu54,assets/apo/32x32_buildings_furnitures.png,910,904,6,16
+fu55,assets/apo/32x32_buildings_furnitures.png,940,896,10,26
+fu56,assets/apo/32x32_buildings_furnitures.png,966,908,52,10
+fu57,assets/apo/32x32_buildings_furnitures.png,908,932,14,24
+fu58,assets/apo/32x32_buildings_furnitures.png,940,928,10,26
+fu59,assets/apo/32x32_buildings_furnitures.png,966,940,52,10
+fu60,assets/apo/32x32_buildings_furnitures.png,910,964,10,26
+fu61,assets/apo/32x32_buildings_furnitures.png,938,966,12,18
+fu62,assets/apo/32x32_buildings_furnitures.png,966,972,18,12
+fu63,assets/apo/32x32_buildings_furnitures.png,1000,972,18,12
+fu64,assets/apo/32x32_buildings_furnitures.png,910,1002,10,16
+fu65,assets/apo/32x32_buildings_furnitures.png,936,996,18,22
+fu66,assets/apo/32x32_buildings_furnitures.png,964,994,24,26
+fu67,assets/apo/32x32_buildings_furnitures.png,2,1062,190,82
+fu68,assets/apo/32x32_buildings_furnitures.png,192,1086,96,62
+fu69,assets/apo/32x32_buildings_furnitures.png,294,1064,144,80
+fu70,assets/apo/32x32_buildings_furnitures.png,448,1060,384,86
+fu71,assets/apo/32x32_buildings_furnitures.png,832,1084,96,62
+fu72,assets/apo/32x32_buildings_furnitures.png,202,1162,144,80
+fu73,assets/apo/32x32_buildings_furnitures.png,448,1160,384,82
+fu74,assets/apo/32x32_buildings_furnitures.png,842,1160,144,80
+fu75,assets/apo/32x32_buildings_furnitures.png,0,1188,192,56
+fu76,assets/apo/32x32_buildings_furnitures.png,352,1184,96,62
+fu77,assets/apo/32x32_buildings_furnitures.png,4,1254,190,82
+fu78,assets/apo/32x32_buildings_furnitures.png,194,1278,96,62
+fu79,assets/apo/32x32_buildings_furnitures.png,296,1256,144,80
+fu80,assets/apo/32x32_buildings_furnitures.png,450,1258,340,80
+fu81,assets/apo/32x32_buildings_furnitures.png,800,1284,192,56
+fu82,assets/apo/32x32_buildings_furnitures.png,204,1354,144,80
+fu83,assets/apo/32x32_buildings_furnitures.png,450,1352,190,82
+fu84,assets/apo/32x32_buildings_furnitures.png,800,1354,190,82
+fu85,assets/apo/32x32_buildings_furnitures.png,2,1380,192,56
+fu86,assets/apo/32x32_buildings_furnitures.png,354,1376,96,62
+fu87,assets/apo/32x32_buildings_furnitures.png,704,1378,96,62
+tpa0,assets/apo/terrain_props_1.png,12,0,268,448
+tpa1,assets/apo/terrain_props_1.png,292,42,278,396
+tpa2,assets/apo/terrain_props_1.png,594,80,286,354
+tpa3,assets/apo/terrain_props_1.png,616,448,268,448
+tpa4,assets/apo/terrain_props_1.png,326,490,278,396
+tpa5,assets/apo/terrain_props_1.png,16,528,286,354
+tpa6,assets/apo/terrain_props_1.png,8,914,234,324
+tpa7,assets/apo/terrain_props_1.png,264,910,234,330
+tpa8,assets/apo/terrain_props_1.png,616,918,46,98
+tpa9,assets/apo/terrain_props_1.png,774,918,46,98
+tpa10,assets/apo/terrain_props_1.png,548,940,60,72
+tpa11,assets/apo/terrain_props_1.png,672,928,96,128
+tpa12,assets/apo/terrain_props_1.png,512,1024,96,128
+tpa13,assets/apo/terrain_props_1.png,772,1038,26,28
+tpa14,assets/apo/terrain_props_1.png,640,1064,30,36
+tpa15,assets/apo/terrain_props_1.png,706,1068,60,72
+tpa16,assets/apo/terrain_props_1.png,672,1096,30,36
+tpa17,assets/apo/terrain_props_1.png,774,1088,46,48
+tpa18,assets/apo/terrain_props_1.png,524,1174,46,98
+tpa19,assets/apo/terrain_props_1.png,682,1174,46,98
+tpa20,assets/apo/terrain_props_1.png,576,1184,96,128
+tpa21,assets/apo/terrain_props_1.png,736,1196,60,72
+tpa22,assets/apo/terrain_props_1.png,8,1260,234,330
+tpa23,assets/apo/terrain_props_1.png,264,1264,234,324
+tpa24,assets/apo/terrain_props_1.png,546,1294,26,28
+tpa25,assets/apo/terrain_props_1.png,736,1280,96,128
+tpa26,assets/apo/terrain_props_1.png,578,1324,60,72
+tpa27,assets/apo/terrain_props_1.png,674,1320,30,36
+tpa28,assets/apo/terrain_props_1.png,524,1344,46,48
+tpa29,assets/apo/terrain_props_1.png,642,1352,30,36
+tpa30,assets/apo/terrain_props_1.png,518,1412,86,124
+tpa31,assets/apo/terrain_props_1.png,614,1412,86,124
+tpa32,assets/apo/terrain_props_1.png,768,1440,64,86
+tpa33,assets/apo/terrain_props_1.png,736,1476,32,60
+tpb0,assets/apo/terrain_props_2.png,8,2,368,574
+tpb1,assets/apo/terrain_props_2.png,426,6,422,568
+tpb2,assets/apo/terrain_props_2.png,864,24,326,424
+tpb3,assets/apo/terrain_props_2.png,1216,14,544,388
+tpb4,assets/apo/terrain_props_2.png,292,290,124,158
+tpb5,assets/apo/terrain_props_2.png,1188,386,206,188
+tpb6,assets/apo/terrain_props_2.png,1412,436,342,190
+tpb7,assets/apo/terrain_props_2.png,940,460,102,112
+tpb8,assets/apo/terrain_props_2.png,300,490,134,86
+tpb9,assets/apo/terrain_props_2.png,774,486,78,86
+tpb10,assets/apo/terrain_props_2.png,866,484,58,58
+tpb11,assets/apo/terrain_props_2.png,1066,490,104,70
+tpb12,assets/apo/terrain_props_2.png,450,524,94,52
+tpb13,assets/apo/terrain_props_2.png,514,512,28,20
+tpb14,assets/apo/terrain_props_2.png,552,522,52,48
+tpb15,assets/apo/terrain_props_2.png,10,584,238,134
+tpb16,assets/apo/terrain_props_2.png,262,586,244,206
+tpb17,assets/apo/terrain_props_2.png,740,594,406,230
+tpb18,assets/apo/terrain_props_2.png,524,626,194,132
+tpb19,assets/apo/terrain_props_2.png,0,846,544,388
+tpb20,assets/apo/terrain_props_2.png,570,856,326,424
+tpb21,assets/apo/terrain_props_2.png,912,838,422,568
+tpb22,assets/apo/terrain_props_2.png,1384,834,368,574
+tpb23,assets/apo/terrain_props_2.png,1344,1122,124,158
+tpb24,assets/apo/terrain_props_2.png,366,1218,206,188
+tpb25,assets/apo/terrain_props_2.png,6,1268,342,190
+tpb26,assets/apo/terrain_props_2.png,718,1292,102,112
+tpb27,assets/apo/terrain_props_2.png,590,1322,104,70
+tpb28,assets/apo/terrain_props_2.png,836,1316,58,58
+tpb29,assets/apo/terrain_props_2.png,908,1318,78,86
+tpb30,assets/apo/terrain_props_2.png,1326,1322,134,86
+tpb31,assets/apo/terrain_props_2.png,1156,1354,52,48
+tpb32,assets/apo/terrain_props_2.png,1216,1356,94,52
+tpb33,assets/apo/terrain_props_2.png,1218,1344,28,20
+tpb34,assets/apo/terrain_props_2.png,614,1426,406,230
+tpb35,assets/apo/terrain_props_2.png,1254,1418,244,206
+tpb36,assets/apo/terrain_props_2.png,1512,1416,238,134
+tpb37,assets/apo/terrain_props_2.png,1042,1458,194,132
+clm0,assets/craftland/Craftland Mines/32x32/CLM_Mining_Vegetables.png,0,0,160,512
+clm1,assets/craftland/Craftland Mines/32x32/CLM_Mining_Vegetables.png,40,10,14,14
+clm2,assets/craftland/Craftland Mines/32x32/CLM_Mining_Vegetables.png,320,0,256,382
+clm3,assets/craftland/Craftland Mines/32x32/CLM_Mining_Vegetables.png,360,8,14,16
+clm4,assets/craftland/Craftland Mines/32x32/CLM_Mining_Vegetables.png,384,0,32,64
+clm5,assets/craftland/Craftland Mines/32x32/CLM_Mining_Vegetables.png,424,8,14,16
+clm6,assets/craftland/Craftland Mines/32x32/CLM_Mining_Vegetables.png,40,42,14,14
+clm7,assets/craftland/Craftland Mines/32x32/CLM_Mining_Vegetables.png,360,40,14,16
+clm8,assets/craftland/Craftland Mines/32x32/CLM_Mining_Vegetables.png,424,40,14,16
+clm9,assets/craftland/Craftland Mines/32x32/CLM_Mining_Vegetables.png,104,74,52,46
+clm10,assets/craftland/Craftland Mines/32x32/CLM_Mining_Vegetables.png,160,64,96,128
+clm11,assets/craftland/Craftland Mines/32x32/CLM_Mining_Vegetables.png,264,74,52,46
+clm12,assets/craftland/Craftland Mines/32x32/CLM_Mining_Vegetables.png,350,64,32,32
+clm13,assets/craftland/Craftland Mines/32x32/CLM_Mining_Vegetables.png,478,64,32,32
+clm14,assets/craftland/Craftland Mines/32x32/CLM_Mining_Vegetables.png,104,138,52,46
+clm15,assets/craftland/Craftland Mines/32x32/CLM_Mining_Vegetables.png,264,138,52,46
+clm16,assets/craftland/Craftland Mines/32x32/CLM_Mining_Vegetables.png,38,200,20,18
+clm17,assets/craftland/Craftland Mines/32x32/CLM_Mining_Vegetables.png,102,200,20,18
+clm18,assets/craftland/Craftland Mines/32x32/CLM_Mining_Vegetables.png,38,232,20,18
+clm19,assets/craftland/Craftland Mines/32x32/CLM_Mining_Vegetables.png,102,232,20,18
+clm20,assets/craftland/Craftland Mines/32x32/CLM_Mining_Vegetables.png,164,258,52,54
+clm21,assets/craftland/Craftland Mines/32x32/CLM_Mining_Vegetables.png,130,296,22,18
+clm22,assets/craftland/Craftland Mines/32x32/CLM_Mining_Vegetables.png,164,322,52,54
+clm23,assets/craftland/Craftland Mines/32x32/CLM_Mining_Vegetables.png,356,328,22,50
+clm24,assets/craftland/Craftland Mines/32x32/CLM_Mining_Vegetables.png,390,322,22,60
+clm25,assets/craftland/Craftland Mines/32x32/CLM_Mining_Vegetables.png,422,324,16,24
+clm26,assets/craftland/Craftland Mines/32x32/CLM_Mining_Vegetables.png,486,324,20,20
+clm27,assets/craftland/Craftland Mines/32x32/CLM_Mining_Vegetables.png,130,360,22,18
+clm28,assets/craftland/Craftland Mines/32x32/CLM_Mining_Vegetables.png,422,358,18,24
+clm29,assets/craftland/Craftland Mines/32x32/CLM_Mining_Vegetables.png,456,354,18,28
+clm30,assets/craftland/Craftland Mines/32x32/CLM_Mining_Vegetables.png,488,356,16,22
+clm31,assets/craftland/Craftland Mines/32x32/CLM_Mining_Vegetables.png,164,386,52,54
+clm32,assets/craftland/Craftland Mines/32x32/CLM_Mining_Vegetables.png,130,424,22,18
+clm33,assets/craftland/Craftland Mines/32x32/CLM_Mining_Vegetables.png,164,450,52,54
+clm34,assets/craftland/Craftland Mines/32x32/CLM_Mining_Vegetables.png,130,488,22,18
+clc0,assets/craftland/Craftland Terrain/32x32/CL_Crafting.png,2,2,188,94
+clc1,assets/craftland/Craftland Terrain/32x32/CL_Crafting.png,224,0,96,32
+clc2,assets/craftland/Craftland Terrain/32x32/CL_Crafting.png,352,0,32,32
+clc3,assets/craftland/Craftland Terrain/32x32/CL_Crafting.png,352,0,576,276
+clc4,assets/craftland/Craftland Terrain/32x32/CL_Crafting.png,392,18,48,42
+clc5,assets/craftland/Craftland Terrain/32x32/CL_Crafting.png,512,0,32,32
+clc6,assets/craftland/Craftland Terrain/32x32/CL_Crafting.png,552,18,48,42
+clc7,assets/craftland/Craftland Terrain/32x32/CL_Crafting.png,96,64,224,192
+clc8,assets/craftland/Craftland Terrain/32x32/CL_Crafting.png,0,128,94,128
+clc9,assets/craftland/Craftland Terrain/32x32/CL_Crafting.png,320,128,64,64
+clc10,assets/craftland/Craftland Terrain/32x32/CL_Crafting.png,512,128,32,32
+clc11,assets/craftland/Craftland Terrain/32x32/CL_Crafting.png,682,128,76,148
+clc12,assets/craftland/Craftland Terrain/32x32/CL_Crafting.png,788,128,24,52
+clc13,assets/craftland/Craftland Terrain/32x32/CL_Crafting.png,874,128,12,84
+clc14,assets/craftland/Craftland Terrain/32x32/CL_Crafting.png,768,192,32,84
+clc15,assets/craftland/Craftland Terrain/32x32/CL_Crafting.png,832,192,32,84
+clc16,assets/craftland/Craftland Terrain/32x32/CL_Crafting.png,98,224,28,32
+clc17,assets/craftland/Craftland Terrain/32x32/CL_Crafting.png,0,276,52,76
+clc18,assets/craftland/Craftland Terrain/32x32/CL_Crafting.png,64,276,52,76
+clc19,assets/craftland/Craftland Terrain/32x32/CL_Crafting.png,128,276,64,76
+clc20,assets/craftland/Craftland Terrain/32x32/CL_Crafting.png,224,288,64,96
+clc21,assets/craftland/Craftland Terrain/32x32/CL_Crafting.png,292,290,24,92
+clc22,assets/craftland/Craftland Terrain/32x32/CL_Crafting.png,0,384,192,96
+clc23,assets/craftland/Craftland Terrain/32x32/CL_Crafting.png,226,384,222,64
+clc24,assets/craftland/Craftland Terrain/32x32/CL_Crafting.png,420,388,24,28
+clc25,assets/craftland/Craftland Terrain/32x32/CL_Crafting.png,452,384,24,62
+clc26,assets/craftland/Craftland Terrain/32x32/CL_Crafting.png,486,388,18,24
+clc27,assets/craftland/Craftland Terrain/32x32/CL_Crafting.png,518,390,22,22
+clc28,assets/craftland/Craftland Terrain/32x32/CL_Crafting.png,488,418,14,28
+clc29,assets/craftland/Craftland Terrain/32x32/CL_Crafting.png,224,456,62,20
+clc30,assets/craftland/Craftland Terrain/32x32/CL_Crafting.png,296,458,18,16
+clc31,assets/craftland/Craftland Terrain/32x32/CL_Crafting.png,326,454,20,22
+clc32,assets/craftland/Craftland Terrain/32x32/CL_Crafting.png,358,456,20,20
+clc33,assets/craftland/Craftland Terrain/32x32/CL_Crafting.png,388,454,24,24
+clc34,assets/craftland/Craftland Terrain/32x32/CL_Crafting.png,422,456,22,20
+clc35,assets/craftland/Craftland Terrain/32x32/CL_Crafting.png,450,452,60,26
+clcm0,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,2,0,28,62
+clcm1,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,36,4,16,20
+clcm2,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,180,16,58,110
+clcm3,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,268,0,74,128
+clcm4,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,362,0,76,128
+clcm5,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,458,0,76,128
+clcm6,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,558,0,70,128
+clcm7,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,640,4,32,56
+clcm8,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,704,0,222,96
+clcm9,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,934,10,18,14
+clcm10,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,964,24,22,36
+clcm11,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,994,0,478,192
+clcm12,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1194,2,12,54
+clcm13,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1224,2,16,54
+clcm14,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1256,2,18,54
+clcm15,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1286,2,22,54
+clcm16,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1314,2,158,58
+clcm17,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,32,58,30,64
+clcm18,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,92,36,40,88
+clcm19,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,834,44,92,80
+clcm20,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,838,32,20,32
+clcm21,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,936,38,16,22
+clcm22,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1414,36,16,26
+clcm23,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,2,70,24,52
+clcm24,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,640,80,32,108
+clcm25,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,744,76,16,10
+clcm26,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,774,92,22,26
+clcm27,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,806,84,22,34
+clcm28,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,936,70,16,14
+clcm29,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,964,82,24,38
+clcm30,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1194,66,12,54
+clcm31,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1222,66,22,54
+clcm32,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1252,66,22,54
+clcm33,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1284,66,22,54
+clcm34,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1314,64,26,56
+clcm35,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1346,64,26,56
+clcm36,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1378,64,24,56
+clcm37,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1408,68,64,56
+clcm38,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,714,104,12,14
+clcm39,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,742,100,22,18
+clcm40,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,836,102,22,20
+clcm41,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,904,102,14,18
+clcm42,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,934,96,18,24
+clcm43,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1092,102,22,22
+clcm44,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1414,98,18,26
+clcm45,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,2,128,28,62
+clcm46,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,38,134,16,20
+clcm47,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,182,148,54,106
+clcm48,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,264,138,84,436
+clcm49,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,358,138,86,436
+clcm50,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,454,138,86,436
+clcm51,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,552,138,120,436
+clcm52,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,706,128,28,32
+clcm53,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,744,138,16,10
+clcm54,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,774,152,22,28
+clcm55,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,804,144,26,38
+clcm56,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,836,136,20,18
+clcm57,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,864,128,62,60
+clcm58,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,934,140,20,12
+clcm59,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,964,150,24,34
+clcm60,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,994,140,26,44
+clcm61,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1026,140,26,44
+clcm62,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1060,140,24,44
+clcm63,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,32,188,28,62
+clcm64,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,92,168,38,84
+clcm65,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,714,168,12,12
+clcm66,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,748,162,14,18
+clcm67,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,838,164,20,24
+clcm68,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,906,168,14,16
+clcm69,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,936,160,18,24
+clcm70,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1094,162,20,28
+clcm71,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,2,200,24,50
+clcm72,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,640,210,32,46
+clcm73,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,706,192,28,32
+clcm74,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,744,202,16,10
+clcm75,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,776,218,18,26
+clcm76,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,806,212,20,34
+clcm77,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,836,200,20,18
+clcm78,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,864,192,62,60
+clcm79,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,932,202,24,14
+clcm80,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,936,222,18,24
+clcm81,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,964,212,24,34
+clcm82,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,996,200,26,46
+clcm83,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1030,200,56,46
+clcm84,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1090,192,92,60
+clcm85,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1192,200,16,16
+clcm86,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1248,196,192,188
+clcm87,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,714,232,12,12
+clcm88,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,748,224,14,20
+clcm89,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,836,228,20,24
+clcm90,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,906,230,14,16
+clcm91,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1094,226,20,28
+clcm92,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1162,234,14,14
+clcm93,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1188,234,20,16
+clcm94,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1218,232,26,20
+clcm95,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,176,280,68,134
+clcm96,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,706,256,28,32
+clcm97,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,742,266,18,14
+clcm98,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,774,284,22,26
+clcm99,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,806,282,22,28
+clcm100,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,834,256,92,126
+clcm101,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,934,268,20,12
+clcm102,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,964,278,24,34
+clcm103,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,994,268,26,44
+clcm104,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1026,268,26,44
+clcm105,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1060,268,24,44
+clcm106,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1092,256,90,60
+clcm107,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1188,268,18,16
+clcm108,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1220,282,24,36
+clcm109,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,2,288,28,62
+clcm110,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,38,290,20,20
+clcm111,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,86,306,54,106
+clcm112,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,640,296,32,52
+clcm113,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,710,294,20,16
+clcm114,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,742,290,20,20
+clcm115,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,906,296,14,16
+clcm116,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,936,288,18,24
+clcm117,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1090,302,92,78
+clcm118,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1094,290,20,28
+clcm119,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1192,292,18,24
+clcm120,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1382,294,20,20
+clcm121,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,34,344,28,66
+clcm122,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,706,320,28,54
+clcm123,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,742,328,18,14
+clcm124,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,774,346,20,28
+clcm125,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,806,342,20,32
+clcm126,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,836,328,22,18
+clcm127,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,932,334,16,8
+clcm128,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1188,334,26,12
+clcm129,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1252,346,24,38
+clcm130,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,4,356,24,54
+clcm131,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,640,362,32,52
+clcm132,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,742,352,18,22
+clcm133,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,906,358,14,16
+clcm134,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,932,358,22,18
+clcm135,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,960,354,128,30
+clcm136,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1092,356,22,26
+clcm137,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1158,364,20,16
+clcm138,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1188,362,26,20
+clcm139,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1220,354,24,28
+clcm140,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,706,384,28,32
+clcm141,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,742,384,184,60
+clcm142,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,936,396,14,10
+clcm143,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,968,414,16,22
+clcm144,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1002,410,16,26
+clcm145,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1032,402,16,34
+clcm146,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1064,396,16,10
+clcm147,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1120,390,32,54
+clcm148,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,714,422,12,16
+clcm149,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,904,424,16,12
+clcm150,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,936,420,16,16
+clcm151,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1056,416,30,32
+clcm152,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,2,448,28,62
+clcm153,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,38,452,20,20
+clcm154,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,174,452,68,122
+clcm155,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,706,448,28,32
+clcm156,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,834,448,92,60
+clcm157,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,934,462,18,10
+clcm158,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,964,452,188,122
+clcm159,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,96,492,32,80
+clcm160,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,710,486,14,16
+clcm161,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,740,488,22,18
+clcm162,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,768,482,90,26
+clcm163,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,906,492,12,12
+clcm164,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,934,488,22,16
+clcm165,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,4,528,24,40
+clcm166,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,34,512,28,56
+clcm167,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,640,522,30,50
+clcm168,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,708,514,22,26
+clcm169,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,742,518,20,20
+clcm170,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,776,516,16,22
+clcm171,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,808,518,18,20
+clcm172,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,840,516,16,22
+clcm173,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,870,514,18,22
+clcm174,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,902,514,20,28
+clcm175,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,934,516,22,22
+clcm176,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,968,514,14,24
+clcm177,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,998,518,18,22
+clcm178,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,714,546,12,24
+clcm179,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,740,548,22,24
+clcm180,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,774,546,20,24
+clcm181,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,804,550,22,22
+clcm182,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,840,544,20,30
+clcm183,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,872,550,16,20
+clcm184,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,902,548,18,24
+clcm185,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,936,554,20,20
+clcm186,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,964,548,24,24
+clcm187,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,994,552,28,20
+clcm188,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1124,548,24,26
+clcm189,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,2,608,28,32
+clcm190,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,38,616,20,16
+clcm191,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,262,608,84,160
+clcm192,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,678,620,84,306
+clcm193,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,832,608,384,192
+clcm194,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,176,650,68,116
+clcm195,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,418,640,28,32
+clcm196,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,454,644,20,16
+clcm197,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,588,640,72,126
+clcm198,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,1124,640,92,62
+clcm199,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,92,678,40,86
+clcm200,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,448,692,32,66
+clcm201,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,506,672,44,88
+clcm202,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,4,724,24,36
+clcm203,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,32,704,32,56
+clcm204,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,352,716,32,48
+clcm205,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,422,718,20,38
+clcm206,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,768,722,32,42
+clcm207,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,268,774,72,154
+clcm208,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,598,790,52,136
+clcm209,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,2,800,28,32
+clcm210,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,38,808,20,16
+clcm211,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,182,816,54,110
+clcm212,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,418,800,28,32
+clcm213,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,454,804,20,18
+clcm214,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,506,814,44,110
+clcm215,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,96,838,32,86
+clcm216,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,448,852,32,68
+clcm217,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,4,882,24,38
+clcm218,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,32,864,32,56
+clcm219,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,352,876,32,48
+clcm220,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,420,872,22,46
+clcm221,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,768,876,32,46
+clcm222,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,256,934,96,184
+clcm223,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,172,978,74,140
+clcm224,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,416,960,96,160
+clcm225,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,482,968,26,12
+clcm226,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,544,960,96,160
+clcm227,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,586,970,12,14
+clcm228,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,608,960,32,32
+clcm229,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,646,968,20,16
+clcm230,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,680,970,14,14
+clcm231,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,2,992,28,32
+clcm232,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,38,1000,20,16
+clcm233,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,612,1000,22,18
+clcm234,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,644,1000,58,52
+clcm235,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,96,1034,32,82
+clcm236,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,4,1072,24,40
+clcm237,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,34,1056,28,56
+clcm238,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,352,1062,32,52
+clcm239,assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png,646,1064,58,52
+cltr0,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,276,22,114,170
+cltr1,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,436,22,114,170
+cltr2,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,642,0,28,32
+cltr3,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,674,0,188,62
+cltr4,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,678,10,20,16
+cltr5,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,872,12,16,12
+cltr6,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,896,0,192,126
+cltr7,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,160,52,96,138
+cltr8,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,576,46,32,38
+cltr9,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,646,38,20,20
+cltr10,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,706,42,156,86
+cltr11,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,870,32,18,28
+cltr12,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,2,64,28,64
+cltr13,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,36,68,22,20
+cltr14,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,72,82,74,106
+cltr15,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,642,64,28,32
+cltr16,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,680,76,18,16
+cltr17,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,870,82,16,8
+cltr18,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,650,108,12,12
+cltr19,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,678,102,18,18
+cltr20,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,840,102,16,20
+cltr21,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,868,96,22,26
+cltr22,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,0,128,64,58
+cltr23,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,576,134,32,52
+cltr24,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,642,128,28,32
+cltr25,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,680,142,16,8
+cltr26,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,706,128,156,62
+cltr27,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,868,142,24,12
+cltr28,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,870,128,218,64
+cltr29,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,646,172,18,14
+cltr30,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,676,166,24,20
+cltr31,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,708,170,154,86
+cltr32,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,166,218,88,130
+cltr33,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,288,198,96,150
+cltr34,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,416,198,96,150
+cltr35,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,544,206,32,38
+cltr36,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,642,192,28,32
+cltr37,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,680,202,16,14
+cltr38,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,868,198,220,58
+cltr39,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,868,202,22,12
+cltr40,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,2,224,28,64
+cltr41,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,38,228,18,20
+cltr42,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,80,244,66,102
+cltr43,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,646,232,20,18
+cltr44,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,676,224,22,26
+cltr45,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,838,230,22,22
+cltr46,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,32,284,32,64
+cltr47,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,550,262,20,22
+cltr48,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,642,256,60,32
+cltr49,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,768,264,64,44
+cltr50,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,1056,272,32,36
+cltr51,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,2,306,28,110
+cltr52,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,544,292,32,52
+cltr53,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,642,294,18,16
+cltr54,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,662,288,106,24
+cltr55,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,774,290,20,58
+cltr56,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,512,320,256,78
+cltr57,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,642,322,28,28
+cltr58,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,676,324,22,24
+cltr59,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,742,324,20,22
+cltr60,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,806,322,20,28
+cltr61,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,864,320,160,160
+cltr62,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,928,320,32,32
+cltr63,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,970,330,12,14
+cltr64,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,1030,328,20,16
+cltr65,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,1064,330,14,14
+cltr66,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,38,354,20,22
+cltr67,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,270,372,68,100
+cltr68,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,366,372,68,100
+cltr69,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,448,366,32,38
+cltr70,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,934,360,22,18
+cltr71,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,1028,360,58,52
+cltr72,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,94,406,38,66
+cltr73,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,182,394,54,78
+cltr74,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,642,388,30,22
+cltr75,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,800,384,58,64
+cltr76,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,864,394,32,12
+cltr77,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,6,440,22,32
+cltr78,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,38,428,22,44
+cltr79,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,450,430,26,42
+cltr80,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,512,416,160,58
+cltr81,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,644,420,124,54
+cltr82,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,800,426,32,54
+cltr83,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,1026,424,58,52
+cltr84,assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png,832,458,32,18
+clb0,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,0,12,412,244
+clb1,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,384,52,32,44
+clb2,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,432,52,32,44
+clb3,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,496,32,96,122
+clb4,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,608,32,512,224
+clb5,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,1024,96,32,32
+clb6,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,1062,96,20,32
+clb7,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,436,132,24,24
+clb8,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,392,164,48,100
+clb9,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,472,164,48,100
+clb10,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,0,274,544,814
+clb11,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,138,268,172,180
+clb12,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,320,300,224,148
+clb13,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,480,288,640,544
+clb14,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,618,300,108,138
+clb15,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,746,300,76,138
+clb16,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,852,300,24,42
+clb17,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,906,300,12,74
+clb18,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,832,364,64,74
+clb19,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,928,384,32,22
+clb20,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,838,524,20,40
+clb21,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,880,524,32,40
+clb22,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,918,524,20,40
+clb23,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,208,552,32,48
+clb24,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,576,776,96,44
+clb25,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,576,840,192,86
+clb26,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,0,902,96,116
+clb27,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,514,904,28,56
+clb28,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,128,970,32,54
+clb29,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,576,962,256,318
+clb30,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,484,1024,22,60
+clb31,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,514,1032,28,56
+clb32,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,6,1104,24,38
+clb33,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,38,1112,20,30
+clb34,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,70,1104,24,38
+clb35,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,102,1112,20,30
+clb36,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,134,1104,24,38
+clb37,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,166,1112,20,30
+clb38,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,228,1110,24,64
+clb39,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,260,1110,24,64
+clb40,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,356,1110,24,64
+clb41,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,388,1110,24,64
+clb42,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,292,1126,24,46
+clb43,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,324,1126,24,46
+clb44,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,420,1126,24,46
+clb45,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,452,1126,24,46
+clb46,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,4,1174,24,34
+clb47,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,38,1176,20,32
+clb48,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,196,1174,24,34
+clb49,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,4,1206,88,68
+clb50,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,100,1188,24,20
+clb51,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,130,1186,28,20
+clb52,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,164,1184,24,24
+clb53,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,228,1206,24,64
+clb54,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,260,1206,24,64
+clb55,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,356,1206,24,64
+clb56,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,388,1206,24,64
+clb57,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,100,1220,24,20
+clb58,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,130,1218,28,20
+clb59,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,164,1216,24,24
+clb60,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,196,1238,24,34
+clb61,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,292,1222,24,46
+clb62,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,324,1222,24,46
+clb63,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,420,1222,24,46
+clb64,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,452,1222,24,46
+clb65,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,100,1252,24,20
+clb66,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,130,1250,28,20
+clb67,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,164,1248,24,24
+clb68,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,800,1250,32,30
+clb69,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,6,1284,16,18
+clb70,assets/craftland/Craftland Terrain/32x32/CL_Buildings.png,42,1284,12,18
+cltb0,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,0,0,896,736
+cltb1,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,16,10,352,350
+cltb2,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,896,12,64,20
+cltb3,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,998,0,372,522
+cltb4,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,1376,0,512,670
+cltb5,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,896,44,64,116
+cltb6,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,720,174,36,44
+cltb7,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,896,172,64,116
+cltb8,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,806,258,20,26
+cltb9,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,832,258,32,30
+cltb10,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,744,352,18,24
+cltb11,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,774,352,18,24
+cltb12,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,812,354,8,24
+cltb13,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,904,356,14,18
+cltb14,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,936,356,14,18
+cltb15,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,1380,368,24,42
+cltb16,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,1412,368,24,42
+cltb17,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,1444,368,24,42
+cltb18,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,1478,368,22,40
+cltb19,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,1510,368,22,40
+cltb20,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,1540,368,22,40
+cltb21,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,706,384,28,54
+cltb22,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,742,388,20,18
+cltb23,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,774,388,20,18
+cltb24,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,812,386,8,24
+cltb25,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,834,386,26,22
+cltb26,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,874,388,10,18
+cltb27,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,906,388,12,18
+cltb28,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,938,388,12,18
+cltb29,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,740,416,22,56
+cltb30,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,770,416,92,48
+cltb31,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,868,422,24,18
+cltb32,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,898,418,26,24
+cltb33,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,936,422,16,18
+cltb34,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,1384,416,16,24
+cltb35,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,484,456,24,46
+cltb36,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,580,456,24,46
+cltb37,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,676,456,24,46
+cltb38,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,778,448,12,28
+cltb39,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,870,470,22,34
+cltb40,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,902,470,22,34
+cltb41,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,934,470,22,34
+cltb42,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,1386,452,14,24
+cltb43,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,744,486,16,18
+cltb44,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,780,486,12,18
+cltb45,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,1384,486,16,22
+cltb46,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,1410,480,24,28
+cltb47,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,1636,498,26,38
+cltb48,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,1668,502,26,34
+cltb49,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,742,518,22,78
+cltb50,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,774,518,22,78
+cltb51,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,804,518,22,78
+cltb52,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,836,518,22,78
+cltb53,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,864,516,30,80
+cltb54,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,1416,516,18,22
+cltb55,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,1444,518,24,22
+cltb56,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,896,544,32,62
+cltb57,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,998,562,172,174
+cltb58,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,1190,562,172,192
+cltb59,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,1388,562,108,174
+cltb60,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,1516,562,108,192
+cltb61,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,1642,562,108,174
+cltb62,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,1856,576,96,94
+cltb63,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,342,620,168,110
+cltb64,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,536,612,80,106
+cltb65,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,664,608,80,128
+cltb66,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,858,632,38,104
+cltb67,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,136,642,48,94
+cltb68,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,256,650,42,78
+cltb69,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,768,642,38,94
+cltb70,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,928,648,38,88
+cltb71,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,1504,696,412,198
+cltb72,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,1864,696,88,102
+cltb73,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,24,750,80,96
+cltb74,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,152,748,80,116
+cltb75,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,258,736,380,122
+cltb76,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,652,746,104,86
+cltb77,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,868,756,22,108
+cltb78,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,922,744,38,88
+cltb79,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,1002,762,76,166
+cltb80,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,1098,762,76,184
+cltb81,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,1194,762,76,166
+cltb82,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,784,778,64,66
+cltb83,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,1284,774,120,154
+cltb84,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,1412,774,56,48
+cltb85,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,992,844,928,404
+cltb86,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,0,904,398,488
+cltb87,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,416,896,512,402
+cltb88,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,840,904,144,72
+cltb89,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,1892,898,24,60
+cltb90,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,1922,898,28,58
+cltb91,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,1890,966,24,50
+cltb92,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,840,1000,48,72
+cltb93,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,920,1000,48,72
+cltb94,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,930,1188,26,56
+cltb95,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,396,1216,40,122
+cltb96,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,460,1216,40,122
+cltb97,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,898,1216,26,26
+cltb98,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,772,1254,20,22
+cltb99,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,1006,1270,372,508
+cltb100,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,740,1304,22,32
+cltb101,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,768,1302,30,36
+cltb102,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,808,1292,14,42
+cltb103,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,840,1296,14,34
+cltb104,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,874,1304,42,32
+cltb105,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,516,1312,24,30
+cltb106,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,548,1312,24,30
+cltb107,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,582,1318,18,22
+cltb108,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,616,1318,18,22
+cltb109,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,644,1324,20,12
+cltb110,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,678,1324,20,12
+cltb111,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,710,1312,20,32
+cltb112,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,6,1360,52,112
+cltb113,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,70,1360,52,112
+cltb114,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,134,1360,52,112
+cltb115,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,198,1360,52,104
+cltb116,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,396,1344,40,122
+cltb117,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,460,1344,40,122
+cltb118,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,518,1362,52,102
+cltb119,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,582,1362,52,102
+cltb120,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,646,1362,52,102
+cltb121,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,742,1344,16,24
+cltb122,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,778,1344,14,24
+cltb123,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,806,1346,12,26
+cltb124,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,838,1348,14,22
+cltb125,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,872,1350,12,20
+cltb126,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,902,1348,14,22
+cltb127,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,704,1384,128,80
+cltb128,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,834,1376,28,32
+cltb129,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,882,1376,28,32
+cltb130,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,288,1408,124,96
+cltb131,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,850,1430,28,32
+cltb132,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,420,1472,24,32
+cltb133,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,452,1472,24,32
+cltb134,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,488,1472,16,32
+cltb135,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,520,1472,16,32
+cltb136,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,552,1472,16,32
+cltb137,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,582,1476,20,26
+cltb138,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,614,1476,20,26
+cltb139,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,646,1476,20,26
+cltb140,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,674,1480,92,16
+cltb141,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,778,1476,12,28
+cltb142,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,800,1474,62,28
+cltb143,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,14,1536,388,404
+cltb144,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,416,1536,544,506
+cltb145,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,912,1638,36,52
+cltb146,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,838,1768,20,18
+cltb147,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,772,1806,28,12
+cltb148,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,806,1800,20,18
+cltb149,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,832,1800,62,16
+cltb150,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,770,1834,22,54
+cltb151,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,804,1826,18,62
+cltb152,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,838,1830,14,58
+cltb153,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,866,1836,28,12
+cltb154,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,868,1866,28,14
+cltb155,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,850,1910,28,32
+cltb156,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,0,1952,576,244
+cltb157,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,134,1952,18,26
+cltb158,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,582,1990,44,58
+cltb159,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,804,2034,26,44
+cltb160,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,840,2042,22,36
+cltb161,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,872,2026,56,52
+cltb162,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,0,2054,926,266
+cltb163,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,578,2210,30,92
+cltb164,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,618,2208,18,94
+cltb165,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,646,2208,22,94
+cltb166,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,678,2208,26,94
+cltb167,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,710,2214,14,20
+cltb168,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,742,2210,16,26
+cltb169,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,710,2246,14,20
+cltb170,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,742,2242,16,26
+cltb171,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,710,2278,14,20
+cltb172,assets/craftland/Craftland Town/32x32/CLT_Buildings.png,742,2274,16,26
+one0,assets/apo/safe_closed.png,0,0,64,64
+one1,assets/apo/safe_open.png,0,0,64,64
+one2,assets/temp/coal_rock.png,0,0,52,46
+one3,assets/temp/corpse_soldier.png,0,0,64,64
+one4,assets/temp/furnace.png,0,0,448,80
+one5,assets/temp/helipad.png,0,0,96,96
+one6,assets/temp/radioactive_barrel.png,0,0,384,80
+one7,assets/temp/requisition_point.png,0,0,96,136
+one8,assets/temp/tv.png,0,0,240,48
+one9,assets/temp/desktop.png,0,0,240,48

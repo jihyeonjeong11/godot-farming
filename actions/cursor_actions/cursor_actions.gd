@@ -7,7 +7,7 @@ const BASE_PLACEMENT_RANGE: int = 4
 const CURSOR_DEFAULT := preload("res://assets/UI/cursor/cursor_default.png")
 const CURSOR_INTERACT := preload("res://assets/UI/cursor/cursor_interact.png")
 const CURSOR_DEFAULT_HOTSPOT := Vector2(2, 2)
-const CURSOR_INTERACT_HOTSPOT := Vector2(16, 16)
+const CURSOR_INTERACT_HOTSPOT := Vector2(11, 2)
 
 static var _cursor: Texture2D
 

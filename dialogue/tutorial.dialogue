@@ -62,29 +62,26 @@ The State: Go inside and check loots.
 => END
 
 # 집 - 안으로 들어가기.
-~ enter_house
 The State: Go inside the house and see what you can find.
 => END
 
 # 집안 - 금고
-~ safe
 The State: Open that safe and see what's inside.
 => END
 
 # 약 총 획득
-~ obtained_medicine
 The State: Splendid. You can treat your burn with the medicine. But be careful with the pistol. 
 The State: Ranged attack can be good, but that can lure neighboring zombies as well. Use it wisely.
 => END
 
 # 침뱉는 좀비 - 총으로 죽임
-~ spitter
-The State: This one is called Spitter. Our researchers found they literally spit everything they had before: blood, internal organs...
-The State: You don't want to get shot by that. Use your pistol to kill it and proceed.
-=> END
+#
+#The State: This one is called Spitter. Our researchers found they literally spit everything they had before: blood, internal organs...
+#The State: You don't want to get shot by that. Use your pistol to kill it and proceed.
+#=> END
 
 # 농장 입구
-~ farm_entrance
+~ entrance_arrived
 The State: Good. You arrived. 
 The State: Glory to the state.
 => END

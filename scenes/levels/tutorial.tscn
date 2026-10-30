@@ -47,6 +47,9 @@ size = Vector2(224, 64)
 atlas = ExtResource("16_l8ohl")
 region = Rect2(1002, 230, 40, 82)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_entrance_gate"]
+size = Vector2(64, 459)
+
 [node name="Tutorial" unique_id=2075404296 instance=ExtResource("0_base")]
 y_sort_enabled = true
 script = ExtResource("1_u4f7j")
@@ -253,3 +256,12 @@ texture = SubResource("AtlasTexture_ffh2i")
 centered = false
 offset = Vector2(-20, -76)
 object = ExtResource("16_barrels")
+
+[node name="EntranceGate" type="Area2D" parent="." index="26" unique_id=1473920586]
+position = Vector2(3820, 944)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EntranceGate" index="0" unique_id=627193845]
+position = Vector2(-208, 42.5)
+shape = SubResource("RectangleShape2D_entrance_gate")

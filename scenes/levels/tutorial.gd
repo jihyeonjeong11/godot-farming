@@ -24,6 +24,7 @@ const LONGSWORD = preload("uid://cc468nspnvreg")
 @onready var anomaly_gate: Area2D = $AnomalyGate
 @onready var anomaly_passed_gate: Area2D = $AnomalyPassedGate
 @onready var house_sighted_gate: Area2D = $HouseSightedGate
+@onready var entrance_gate: Area2D = $EntranceGate
 
 func _enter() -> void:
 	SoundManager.play_ambient_sound(preload("uid://bdj6ooc1akmde"))
@@ -33,6 +34,7 @@ func _enter() -> void:
 	anomaly_gate.body_entered.connect(_on_anomaly_gate_body_entered)
 	anomaly_passed_gate.body_entered.connect(_on_anomaly_passed_gate_body_entered)
 	house_sighted_gate.body_entered.connect(_on_house_sighted_gate_body_entered)
+	entrance_gate.body_entered.connect(_on_entrance_gate_body_entered)
 	InventoryManager.updated_inventory.connect(_check_weapon)
 	_check_weapon()
 	_clear_passed_gates()
@@ -49,6 +51,7 @@ func _clear_passed_gates() -> void:
 		"sighted_anomaly": anomaly_gate,
 		"passed_anomaly": anomaly_passed_gate,
 		"sighted_house": house_sighted_gate,
+		"arrived_farm_entrance": entrance_gate,
 	}
 	for flag in gates:
 		if GameState.has_tutorial_flag(flag):
@@ -89,6 +92,12 @@ func _on_house_sighted_gate_body_entered(body: Node2D) -> void:
 	if not _first_pass(body, "sighted_house", house_sighted_gate):
 		return
 	dialogue("house_sighted")
+
+
+func _on_entrance_gate_body_entered(body: Node2D) -> void:
+	if not _first_pass(body, "arrived_farm_entrance", entrance_gate):
+		return
+	dialogue("entrance_arrived")
 
 
 ## 게이트 밑의 CheckCorpse 가 대화를 들고 있으므로 게이트는 지우지 않고 플래그로만 막는다.

@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cs0vuhgxayf17"
+
+[deps]
+
+files=["res://scenes/test_scenes/prop_catalog_all.sheet.translation", "res://scenes/test_scenes/prop_catalog_all.x.translation", "res://scenes/test_scenes/prop_catalog_all.y.translation", "res://scenes/test_scenes/prop_catalog_all.w.translation", "res://scenes/test_scenes/prop_catalog_all.h.translation"]
+
+source_file="res://scenes/test_scenes/prop_catalog_all.csv"
+dest_files=["res://scenes/test_scenes/prop_catalog_all.sheet.translation", "res://scenes/test_scenes/prop_catalog_all.x.translation", "res://scenes/test_scenes/prop_catalog_all.y.translation", "res://scenes/test_scenes/prop_catalog_all.w.translation", "res://scenes/test_scenes/prop_catalog_all.h.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

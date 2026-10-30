@@ -1,0 +1,493 @@
+[gd_scene format=4 uid="uid://cpmvw05epca0n"]
+
+[ext_resource type="PackedScene" uid="uid://cdko42eau68xt" path="res://scenes/levels/base_level.tscn" id="1_base"]
+[ext_resource type="TileSet" uid="uid://dkw01fa84lera" path="res://tilesets/city_ruin.tres" id="2_tiles"]
+[ext_resource type="PackedScene" uid="uid://cs37xus6fdfc" path="res://scenes/objects/placables/object_instance.tscn" id="3_obj"]
+[ext_resource type="Texture2D" uid="uid://cd23fy8lk2tva" path="res://assets/apo/32x32_dec_props.png" id="4_decor"]
+[ext_resource type="Script" uid="uid://c0e27vd6vvrd3" path="res://scripts/resources/loot/loot.gd" id="6_loot"]
+[ext_resource type="Script" uid="uid://bstiq6ulxip1a" path="res://scripts/resources/placeable_object/placeable_object.gd" id="7_object"]
+[ext_resource type="Script" uid="uid://c7xk2mvbqjy4n" path="res://scripts/resources/recipes/craft_recipe.gd" id="8_0a510"]
+[ext_resource type="Resource" uid="uid://d1ybgcifdoahc" path="res://scripts/resources/item/pickables/scrap_metal.tres" id="8_scrap"]
+[ext_resource type="Texture2D" uid="uid://br8umlfqy14oc" path="res://assets/temp/salvage_sheet.png" id="9_salvage"]
+[ext_resource type="Resource" uid="uid://or8ktw44bifb" path="res://scripts/resources/item/junk/cloth.tres" id="10_cloth"]
+[ext_resource type="Resource" uid="uid://mopwae1syc51" path="res://scripts/resources/item/junk/plastic_water_bottle.tres" id="11_plastic"]
+[ext_resource type="Resource" uid="uid://c57yp0dkeit0x" path="res://scripts/resources/item/pickables/canned_food.tres" id="12_canned"]
+[ext_resource type="Resource" uid="uid://bouhn343yve2d" path="res://scripts/resources/item/pickables/water_bottle.tres" id="13_water"]
+
+[sub_resource type="AtlasTexture" id="Decor_tire_stack"]
+atlas = ExtResource("4_decor")
+region = Rect2(64, 402, 64, 78)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vnoqe"]
+load_path = "res://.godot/imported/scrap_objects.png-d2dcadffa7610df99c3a1bb9bb410ee0.ctex"
+
+[sub_resource type="AtlasTexture" id="Obj_tire_stack"]
+atlas = SubResource("CompressedTexture2D_vnoqe")
+region = Rect2(23, 16, 66, 80)
+
+[sub_resource type="Resource" id="Loot_scrap"]
+script = ExtResource("6_loot")
+item = ExtResource("8_scrap")
+min = 1
+max = 2
+
+[sub_resource type="Resource" id="Placeable_tire_stack"]
+script = ExtResource("7_object")
+object_id = "test_tire_stack"
+object_name = "tire_stack"
+destructible_tool = 2
+object_texture = SubResource("Obj_tire_stack")
+object_type = 1
+object_max_health = 3
+dropped_items = Array[ExtResource("6_loot")]([SubResource("Loot_scrap")])
+offset = Vector2i(-33, -80)
+hurtbox_offset = Vector2i(0, -40)
+hurtbox_radius = 33
+scatter_radius = 18
+collision_offset = Vector2i(0, -6)
+collision_size = Vector2i(56, 12)
+shake_intensity = 1.0
+
+[sub_resource type="AtlasTexture" id="Decor_tire_double"]
+atlas = ExtResource("4_decor")
+region = Rect2(194, 320, 62, 60)
+
+[sub_resource type="AtlasTexture" id="Obj_tire_double"]
+atlas = SubResource("CompressedTexture2D_vnoqe")
+region = Rect2(136, 34, 64, 62)
+
+[sub_resource type="Resource" id="Placeable_tire_double"]
+script = ExtResource("7_object")
+object_id = "test_tire_double"
+object_name = "tire_double"
+destructible_tool = 2
+object_texture = SubResource("Obj_tire_double")
+object_type = 1
+object_max_health = 3
+dropped_items = Array[ExtResource("6_loot")]([SubResource("Loot_scrap")])
+offset = Vector2i(-32, -62)
+hurtbox_offset = Vector2i(0, -31)
+hurtbox_radius = 31
+scatter_radius = 18
+collision_offset = Vector2i(0, -6)
+collision_size = Vector2i(54, 12)
+shake_intensity = 1.0
+
+[sub_resource type="AtlasTexture" id="Decor_crate"]
+atlas = ExtResource("4_decor")
+region = Rect2(614, 2, 52, 48)
+
+[sub_resource type="AtlasTexture" id="Obj_crate"]
+atlas = SubResource("CompressedTexture2D_vnoqe")
+region = Rect2(253, 46, 54, 50)
+
+[sub_resource type="Resource" id="Placeable_crate"]
+script = ExtResource("7_object")
+object_id = "test_crate"
+object_name = "crate"
+destructible_tool = 2
+object_texture = SubResource("Obj_crate")
+object_type = 1
+object_max_health = 3
+dropped_items = Array[ExtResource("6_loot")]([SubResource("Loot_scrap")])
+offset = Vector2i(-27, -50)
+hurtbox_offset = Vector2i(0, -25)
+hurtbox_radius = 25
+scatter_radius = 18
+collision_offset = Vector2i(0, -6)
+collision_size = Vector2i(44, 12)
+shake_intensity = 1.0
+
+[sub_resource type="AtlasTexture" id="Decor_server_box"]
+atlas = ExtResource("4_decor")
+region = Rect2(736, 8, 30, 40)
+
+[sub_resource type="AtlasTexture" id="Obj_server_box"]
+atlas = SubResource("CompressedTexture2D_vnoqe")
+region = Rect2(376, 54, 32, 42)
+
+[sub_resource type="Resource" id="Placeable_server_box"]
+script = ExtResource("7_object")
+object_id = "test_server_box"
+object_name = "server_box"
+destructible_tool = 2
+object_texture = SubResource("Obj_server_box")
+object_type = 1
+object_max_health = 3
+dropped_items = Array[ExtResource("6_loot")]([SubResource("Loot_scrap")])
+offset = Vector2i(-16, -42)
+hurtbox_offset = Vector2i(0, -21)
+hurtbox_radius = 16
+scatter_radius = 18
+collision_offset = Vector2i(0, -6)
+collision_size = Vector2i(22, 12)
+shake_intensity = 1.0
+
+[sub_resource type="AtlasTexture" id="Decor_scrap_pile"]
+atlas = ExtResource("4_decor")
+region = Rect2(780, 448, 104, 58)
+
+[sub_resource type="AtlasTexture" id="Obj_scrap_pile"]
+atlas = SubResource("CompressedTexture2D_vnoqe")
+region = Rect2(451, 36, 106, 60)
+
+[sub_resource type="Resource" id="Placeable_scrap_pile"]
+script = ExtResource("7_object")
+object_id = "test_scrap_pile"
+object_name = "scrap_pile"
+destructible_tool = 2
+object_texture = SubResource("Obj_scrap_pile")
+object_type = 1
+object_max_health = 3
+dropped_items = Array[ExtResource("6_loot")]([SubResource("Loot_scrap")])
+offset = Vector2i(-53, -60)
+hurtbox_offset = Vector2i(0, -30)
+hurtbox_radius = 30
+scatter_radius = 18
+collision_offset = Vector2i(0, -6)
+collision_size = Vector2i(96, 12)
+shake_intensity = 1.0
+
+[sub_resource type="AtlasTexture" id="Decor_scrap_small"]
+atlas = ExtResource("4_decor")
+region = Rect2(1098, 592, 70, 40)
+
+[sub_resource type="AtlasTexture" id="Obj_scrap_small"]
+atlas = SubResource("CompressedTexture2D_vnoqe")
+region = Rect2(580, 54, 72, 42)
+
+[sub_resource type="Resource" id="Placeable_scrap_small"]
+script = ExtResource("7_object")
+object_id = "test_scrap_small"
+object_name = "scrap_small"
+destructible_tool = 2
+object_texture = SubResource("Obj_scrap_small")
+object_type = 1
+object_max_health = 3
+dropped_items = Array[ExtResource("6_loot")]([SubResource("Loot_scrap")])
+offset = Vector2i(-36, -42)
+hurtbox_offset = Vector2i(0, -21)
+hurtbox_radius = 21
+scatter_radius = 18
+collision_offset = Vector2i(0, -6)
+collision_size = Vector2i(62, 12)
+shake_intensity = 1.0
+
+[sub_resource type="AtlasTexture" id="Obj_sedan"]
+atlas = ExtResource("9_salvage")
+region = Rect2(10, 47, 139, 81)
+
+[sub_resource type="Resource" id="Loot_sedan"]
+script = ExtResource("6_loot")
+item = ExtResource("8_scrap")
+min = 3
+max = 5
+
+[sub_resource type="Resource" id="Placeable_sedan"]
+script = ExtResource("7_object")
+object_id = "test_sedan"
+object_name = "sedan"
+destructible_tool = 2
+object_texture = SubResource("Obj_sedan")
+object_type = 1
+object_max_health = 6
+dropped_items = Array[ExtResource("6_loot")]([SubResource("Loot_sedan")])
+offset = Vector2i(-69, -81)
+hurtbox_offset = Vector2i(0, -38)
+hurtbox_radius = 30
+scatter_radius = 28
+collision_offset = Vector2i(0, -14)
+collision_size = Vector2i(120, 18)
+shake_intensity = 0.6
+
+[sub_resource type="AtlasTexture" id="Obj_curtain"]
+atlas = ExtResource("9_salvage")
+region = Rect2(210, 40, 60, 88)
+
+[sub_resource type="Resource" id="Loot_curtain"]
+script = ExtResource("6_loot")
+item = ExtResource("10_cloth")
+min = 2
+max = 3
+
+[sub_resource type="Resource" id="Placeable_curtain"]
+script = ExtResource("7_object")
+object_id = "test_curtain"
+object_name = "curtain"
+destructible_tool = 1
+object_texture = SubResource("Obj_curtain")
+object_type = 1
+object_max_health = 3
+dropped_items = Array[ExtResource("6_loot")]([SubResource("Loot_curtain")])
+offset = Vector2i(-30, -88)
+hurtbox_offset = Vector2i(0, -44)
+hurtbox_radius = 26
+scatter_radius = 18
+collision_offset = Vector2i(0, -6)
+collision_size = Vector2i(52, 12)
+shake_intensity = 1.0
+
+[sub_resource type="AtlasTexture" id="Obj_water_cooler"]
+atlas = ExtResource("9_salvage")
+region = Rect2(380, 49, 39, 79)
+
+[sub_resource type="Resource" id="Loot_water_cooler"]
+script = ExtResource("6_loot")
+item = ExtResource("11_plastic")
+min = 1
+max = 2
+
+[sub_resource type="Resource" id="Placeable_water_cooler"]
+script = ExtResource("7_object")
+object_id = "test_water_cooler"
+object_name = "water_cooler"
+destructible_tool = 1
+object_texture = SubResource("Obj_water_cooler")
+object_type = 1
+object_max_health = 3
+dropped_items = Array[ExtResource("6_loot")]([SubResource("Loot_water_cooler")])
+offset = Vector2i(-19, -79)
+hurtbox_offset = Vector2i(0, -39)
+hurtbox_radius = 15
+scatter_radius = 18
+collision_offset = Vector2i(0, -6)
+collision_size = Vector2i(30, 12)
+shake_intensity = 1.0
+
+[sub_resource type="AtlasTexture" id="Obj_vending_machine"]
+atlas = ExtResource("9_salvage")
+region = Rect2(535, 33, 50, 95)
+
+[sub_resource type="Resource" id="Loot_vending_machine"]
+script = ExtResource("6_loot")
+item = ExtResource("12_canned")
+min = 1
+max = 2
+
+[sub_resource type="Resource" id="Placeable_vending_machine"]
+script = ExtResource("7_object")
+object_id = "test_vending_machine"
+object_name = "vending_machine"
+destructible_tool = 2
+object_texture = SubResource("Obj_vending_machine")
+object_type = 1
+object_max_health = 5
+dropped_items = Array[ExtResource("6_loot")]([SubResource("Loot_vending_machine")])
+offset = Vector2i(-25, -95)
+hurtbox_offset = Vector2i(0, -47)
+hurtbox_radius = 21
+scatter_radius = 18
+collision_offset = Vector2i(0, -6)
+collision_size = Vector2i(42, 12)
+shake_intensity = 1.0
+
+[sub_resource type="AtlasTexture" id="Obj_flower_pot"]
+atlas = ExtResource("9_salvage")
+region = Rect2(699, 77, 42, 51)
+
+[sub_resource type="Resource" id="Placeable_flower_pot"]
+script = ExtResource("7_object")
+object_id = "test_flower_pot"
+object_name = "flower_pot"
+destructible_tool = 2
+object_texture = SubResource("Obj_flower_pot")
+object_type = 1
+object_max_health = 2
+offset = Vector2i(-21, -51)
+hurtbox_offset = Vector2i(0, -25)
+hurtbox_radius = 17
+scatter_radius = 18
+collision_offset = Vector2i(0, -6)
+collision_size = Vector2i(30, 12)
+shake_intensity = 1.0
+
+[sub_resource type="AtlasTexture" id="Obj_drink_machine"]
+atlas = ExtResource("9_salvage")
+region = Rect2(848, 16, 64, 112)
+
+[sub_resource type="Resource" id="Loot_drink_machine"]
+script = ExtResource("6_loot")
+item = ExtResource("13_water")
+min = 1
+max = 2
+
+[sub_resource type="Resource" id="Placeable_drink_machine"]
+script = ExtResource("7_object")
+object_id = "test_drink_machine"
+object_name = "drink_machine"
+destructible_tool = 2
+object_texture = SubResource("Obj_drink_machine")
+object_type = 1
+object_max_health = 5
+dropped_items = Array[ExtResource("6_loot")]([SubResource("Loot_drink_machine")])
+offset = Vector2i(-32, -112)
+hurtbox_offset = Vector2i(0, -56)
+hurtbox_radius = 26
+scatter_radius = 18
+collision_offset = Vector2i(0, -8)
+collision_size = Vector2i(52, 14)
+shake_intensity = 1.0
+
+[sub_resource type="AtlasTexture" id="Obj_trash_can"]
+atlas = ExtResource("9_salvage")
+region = Rect2(1024, 76, 32, 52)
+
+[sub_resource type="Resource" id="Placeable_trash_can"]
+script = ExtResource("7_object")
+object_id = "test_trash_can"
+object_name = "trash_can"
+destructible_tool = 2
+object_texture = SubResource("Obj_trash_can")
+object_type = 1
+object_max_health = 2
+offset = Vector2i(-16, -52)
+hurtbox_offset = Vector2i(0, -24)
+hurtbox_radius = 14
+scatter_radius = 18
+collision_offset = Vector2i(0, -6)
+collision_size = Vector2i(24, 10)
+shake_intensity = 1.0
+
+[node name="PropContrastTest" unique_id=1297791240 instance=ExtResource("1_base")]
+y_sort_enabled = true
+
+[node name="Player" parent="." index="0" unique_id=407296808]
+position = Vector2(400, 400)
+
+[node name="CameraComponent" parent="." index="1" unique_id=1459419885]
+zoom = Vector2(3, 3)
+
+[node name="Tilemap" type="TileMapLayer" parent="." index="3" unique_id=1846764794]
+y_sort_enabled = true
+
+[node name="Land" type="TileMapLayer" parent="Tilemap" index="0" unique_id=1150396692]
+z_index = -1
+tile_map_data = PackedByteArray("AAAAAAAAAAAqAAoAAAABAAAAAAAqAAoAAAACAAAAAAAqAAoAAAADAAAAAAAqAAoAAAAEAAAAAAAqAAoAAAAFAAAAAAAqAAoAAAAGAAAAAAAqAAoAAAAHAAAAAAAqAAoAAAAIAAAAAAAqAAoAAAAJAAAAAAAqAAoAAAAKAAAAAAAqAAoAAAALAAAAAAAqAAoAAAAMAAAAAAAqAAoAAAANAAAAAAAqAAoAAAAOAAAAAAAqAAoAAAAPAAAAAAAqAAoAAAAQAAAAAAAqAAoAAAARAAAAAAAqAAoAAAASAAAAAAAqAAoAAAATAAAAAAAqAAoAAAAUAAAAAAAqAAoAAAAVAAAAAAAqAAoAAAAWAAAAAAAqAAoAAAAXAAAAAAAqAAoAAAAYAAAAAAAqAAoAAAAAAAEAAAAqAAoAAAABAAEAAAAqAAoAAAACAAEAAAAqAAoAAAADAAEAAAAqAAoAAAAEAAEAAAAqAAoAAAAFAAEAAAAqAAoAAAAGAAEAAAAqAAoAAAAHAAEAAAAqAAoAAAAIAAEAAAAqAAoAAAAJAAEAAAAqAAoAAAAKAAEAAAAqAAoAAAALAAEAAAAqAAoAAAAMAAEAAAAqAAoAAAANAAEAAAAqAAoAAAAOAAEAAAAqAAoAAAAPAAEAAAAqAAoAAAAQAAEAAAAqAAoAAAARAAEAAAAqAAoAAAASAAEAAAAqAAoAAAATAAEAAAAqAAoAAAAUAAEAAAAqAAoAAAAVAAEAAAAqAAoAAAAWAAEAAAAqAAoAAAAXAAEAAAAqAAoAAAAYAAEAAAAqAAoAAAAAAAIAAAAqAAoAAAABAAIAAAAqAAoAAAACAAIAAAAqAAoAAAADAAIAAAAqAAoAAAAEAAIAAAAqAAoAAAAFAAIAAAAqAAoAAAAGAAIAAAAqAAoAAAAHAAIAAAAqAAoAAAAIAAIAAAAqAAoAAAAJAAIAAAAqAAoAAAAKAAIAAAAqAAoAAAALAAIAAAAqAAoAAAAMAAIAAAAqAAoAAAANAAIAAAAqAAoAAAAOAAIAAAAqAAoAAAAPAAIAAAAqAAoAAAAQAAIAAAAqAAoAAAARAAIAAAAqAAoAAAASAAIAAAAqAAoAAAATAAIAAAAqAAoAAAAUAAIAAAAqAAoAAAAVAAIAAAAqAAoAAAAWAAIAAAAqAAoAAAAXAAIAAAAqAAoAAAAYAAIAAAAqAAoAAAAAAAMAAAAqAAoAAAABAAMAAAAqAAoAAAACAAMAAAAqAAoAAAADAAMAAAAqAAoAAAAEAAMAAAAqAAoAAAAFAAMAAAAqAAoAAAAGAAMAAAAqAAoAAAAHAAMAAAAqAAoAAAAIAAMAAAAqAAoAAAAJAAMAAAAqAAoAAAAKAAMAAAAqAAoAAAALAAMAAAAqAAoAAAAMAAMAAAAqAAoAAAANAAMAAAAqAAoAAAAOAAMAAAAqAAoAAAAPAAMAAAAqAAoAAAAQAAMAAAAqAAoAAAARAAMAAAAqAAoAAAASAAMAAAAqAAoAAAATAAMAAAAqAAoAAAAUAAMAAAAqAAoAAAAVAAMAAAAqAAoAAAAWAAMAAAAqAAoAAAAXAAMAAAAqAAoAAAAYAAMAAAAqAAoAAAAAAAQAAAAqAAoAAAABAAQAAAAqAAoAAAACAAQAAAAqAAoAAAADAAQAAAAqAAoAAAAEAAQAAAAqAAoAAAAFAAQAAAAqAAoAAAAGAAQAAAAqAAoAAAAHAAQAAAAqAAoAAAAIAAQAAAAqAAoAAAAJAAQAAAAqAAoAAAAKAAQAAAAqAAoAAAALAAQAAAAqAAoAAAAMAAQAAAAqAAoAAAANAAQAAAAqAAoAAAAOAAQAAAAqAAoAAAAPAAQAAAAqAAoAAAAQAAQAAAAqAAoAAAARAAQAAAAqAAoAAAASAAQAAAAqAAoAAAATAAQAAAAqAAoAAAAUAAQAAAAqAAoAAAAVAAQAAAAqAAoAAAAWAAQAAAAqAAoAAAAXAAQAAAAqAAoAAAAYAAQAAAAqAAoAAAAAAAUAAAAqAAoAAAABAAUAAAAqAAoAAAACAAUAAAAqAAoAAAADAAUAAAAqAAoAAAAEAAUAAAAqAAoAAAAFAAUAAAAqAAoAAAAGAAUAAAAqAAoAAAAHAAUAAAAqAAoAAAAIAAUAAAAqAAoAAAAJAAUAAAAqAAoAAAAKAAUAAAAqAAoAAAALAAUAAAAqAAoAAAAMAAUAAAAqAAoAAAANAAUAAAAqAAoAAAAOAAUAAAAqAAoAAAAPAAUAAAAqAAoAAAAQAAUAAAAqAAoAAAARAAUAAAAqAAoAAAASAAUAAAAqAAoAAAATAAUAAAAqAAoAAAAUAAUAAAAqAAoAAAAVAAUAAAAqAAoAAAAWAAUAAAAqAAoAAAAXAAUAAAAqAAoAAAAYAAUAAAAqAAoAAAAAAAYAAAAqAAoAAAABAAYAAAAqAAoAAAACAAYAAAAqAAoAAAADAAYAAAAqAAoAAAAEAAYAAAAqAAoAAAAFAAYAAAAqAAoAAAAGAAYAAAAqAAoAAAAHAAYAAAAqAAoAAAAIAAYAAAAqAAoAAAAJAAYAAAAqAAoAAAAKAAYAAAAqAAoAAAALAAYAAAAqAAoAAAAMAAYAAAAqAAoAAAANAAYAAAAqAAoAAAAOAAYAAAAqAAoAAAAPAAYAAAAqAAoAAAAQAAYAAAAqAAoAAAARAAYAAAAqAAoAAAASAAYAAAAqAAoAAAATAAYAAAAqAAoAAAAUAAYAAAAqAAoAAAAVAAYAAAAqAAoAAAAWAAYAAAAqAAoAAAAXAAYAAAAqAAoAAAAYAAYAAAAqAAoAAAAAAAcAAAAqAAoAAAABAAcAAAAqAAoAAAACAAcAAAAqAAoAAAADAAcAAAAqAAoAAAAEAAcAAAAqAAoAAAAFAAcAAAAqAAoAAAAGAAcAAAAqAAoAAAAHAAcAAAAqAAoAAAAIAAcAAAAqAAoAAAAJAAcAAAAqAAoAAAAKAAcAAAAqAAoAAAALAAcAAAAqAAoAAAAMAAcAAAAqAAoAAAANAAcAAAAqAAoAAAAOAAcAAAAqAAoAAAAPAAcAAAAqAAoAAAAQAAcAAAAqAAoAAAARAAcAAAAqAAoAAAASAAcAAAAqAAoAAAATAAcAAAAqAAoAAAAUAAcAAAAqAAoAAAAVAAcAAAAqAAoAAAAWAAcAAAAqAAoAAAAXAAcAAAAqAAoAAAAYAAcAAAAqAAoAAAAAAAgAAAAqAAoAAAABAAgAAAAqAAoAAAACAAgAAAAqAAoAAAADAAgAAAAqAAoAAAAEAAgAAAAqAAoAAAAFAAgAAAAqAAoAAAAGAAgAAAAqAAoAAAAHAAgAAAAqAAoAAAAIAAgAAAAqAAoAAAAJAAgAAAAqAAoAAAAKAAgAAAAqAAoAAAALAAgAAAAqAAoAAAAMAAgAAAAqAAoAAAANAAgAAAAqAAoAAAAOAAgAAAAqAAoAAAAPAAgAAAAqAAoAAAAQAAgAAAAqAAoAAAARAAgAAAAqAAoAAAASAAgAAAAqAAoAAAATAAgAAAAqAAoAAAAUAAgAAAAqAAoAAAAVAAgAAAAqAAoAAAAWAAgAAAAqAAoAAAAXAAgAAAAqAAoAAAAYAAgAAAAqAAoAAAAAAAkAAAAqAAoAAAABAAkAAAAqAAoAAAACAAkAAAAqAAoAAAADAAkAAAAqAAoAAAAEAAkAAAAqAAoAAAAFAAkAAAAqAAoAAAAGAAkAAAAqAAoAAAAHAAkAAAAqAAoAAAAIAAkAAAAqAAoAAAAJAAkAAAAqAAoAAAAKAAkAAAAqAAoAAAALAAkAAAAqAAoAAAAMAAkAAAAqAAoAAAANAAkAAAAqAAoAAAAOAAkAAAAqAAoAAAAPAAkAAAAqAAoAAAAQAAkAAAAqAAoAAAARAAkAAAAqAAoAAAASAAkAAAAqAAoAAAATAAkAAAAqAAoAAAAUAAkAAAAqAAoAAAAVAAkAAAAqAAoAAAAWAAkAAAAqAAoAAAAXAAkAAAAqAAoAAAAYAAkAAAAqAAoAAAAAAAoAAAAqAAoAAAABAAoAAAAqAAoAAAACAAoAAAAqAAoAAAADAAoAAAAqAAoAAAAEAAoAAAAqAAoAAAAFAAoAAAAqAAoAAAAGAAoAAAAqAAoAAAAHAAoAAAAqAAoAAAAIAAoAAAAqAAoAAAAJAAoAAAAqAAoAAAAKAAoAAAAqAAoAAAALAAoAAAAqAAoAAAAMAAoAAAAqAAoAAAANAAoAAAAqAAoAAAAOAAoAAAAqAAoAAAAPAAoAAAAqAAoAAAAQAAoAAAAqAAoAAAARAAoAAAAqAAoAAAASAAoAAAAqAAoAAAATAAoAAAAqAAoAAAAUAAoAAAAqAAoAAAAVAAoAAAAqAAoAAAAWAAoAAAAqAAoAAAAXAAoAAAAqAAoAAAAYAAoAAAAqAAoAAAAAAAsAAAAqAAoAAAABAAsAAAAqAAoAAAACAAsAAAAqAAoAAAADAAsAAAAqAAoAAAAEAAsAAAAqAAoAAAAFAAsAAAAqAAoAAAAGAAsAAAAqAAoAAAAHAAsAAAAqAAoAAAAIAAsAAAAqAAoAAAAJAAsAAAAqAAoAAAAKAAsAAAAqAAoAAAALAAsAAAAqAAoAAAAMAAsAAAAqAAoAAAANAAsAAAAqAAoAAAAOAAsAAAAqAAoAAAAPAAsAAAAqAAoAAAAQAAsAAAAqAAoAAAARAAsAAAAqAAoAAAASAAsAAAAqAAoAAAATAAsAAAAqAAoAAAAUAAsAAAAqAAoAAAAVAAsAAAAqAAoAAAAWAAsAAAAqAAoAAAAXAAsAAAAqAAoAAAAYAAsAAAAqAAoAAAAAAAwAAAAqAAoAAAABAAwAAAAqAAoAAAACAAwAAAAqAAoAAAADAAwAAAAqAAoAAAAEAAwAAAAqAAoAAAAFAAwAAAAqAAoAAAAGAAwAAAAqAAoAAAAHAAwAAAAqAAoAAAAIAAwAAAAqAAoAAAAJAAwAAAAqAAoAAAAKAAwAAAAqAAoAAAALAAwAAAAqAAoAAAAMAAwAAAAqAAoAAAANAAwAAAAqAAoAAAAOAAwAAAAqAAoAAAAPAAwAAAAqAAoAAAAQAAwAAAAqAAoAAAARAAwAAAAqAAoAAAASAAwAAAAqAAoAAAATAAwAAAAqAAoAAAAUAAwAAAAqAAoAAAAVAAwAAAAqAAoAAAAWAAwAAAAqAAoAAAAXAAwAAAAqAAoAAAAYAAwAAAAqAAoAAAAAAA0AAAAqAAoAAAABAA0AAAAqAAoAAAACAA0AAAAqAAoAAAADAA0AAAAqAAoAAAAEAA0AAAAqAAoAAAAFAA0AAAAqAAoAAAAGAA0AAAAqAAoAAAAHAA0AAAAqAAoAAAAIAA0AAAAqAAoAAAAJAA0AAAAqAAoAAAAKAA0AAAAqAAoAAAALAA0AAAAqAAoAAAAMAA0AAAAqAAoAAAANAA0AAAAqAAoAAAAOAA0AAAAqAAoAAAAPAA0AAAAqAAoAAAAQAA0AAAAqAAoAAAARAA0AAAAqAAoAAAASAA0AAAAqAAoAAAATAA0AAAAqAAoAAAAUAA0AAAAqAAoAAAAVAA0AAAAqAAoAAAAWAA0AAAAqAAoAAAAXAA0AAAAqAAoAAAAYAA0AAAAqAAoAAAAAAA4AAAAqAAoAAAABAA4AAAAqAAoAAAACAA4AAAAqAAoAAAADAA4AAAAqAAoAAAAEAA4AAAAqAAoAAAAFAA4AAAAqAAoAAAAGAA4AAAAqAAoAAAAHAA4AAAAqAAoAAAAIAA4AAAAqAAoAAAAJAA4AAAAqAAoAAAAKAA4AAAAqAAoAAAALAA4AAAAqAAoAAAAMAA4AAAAqAAoAAAANAA4AAAAqAAoAAAAOAA4AAAAqAAoAAAAPAA4AAAAqAAoAAAAQAA4AAAAqAAoAAAARAA4AAAAqAAoAAAASAA4AAAAqAAoAAAATAA4AAAAqAAoAAAAUAA4AAAAqAAoAAAAVAA4AAAAqAAoAAAAWAA4AAAAqAAoAAAAXAA4AAAAqAAoAAAAYAA4AAAAqAAoAAAA=")
+tile_set = ExtResource("2_tiles")
+
+[node name="Decor_tire_stack" type="Sprite2D" parent="." index="4" unique_id=892208030]
+position = Vector2(80, 176)
+texture = SubResource("Decor_tire_stack")
+centered = false
+offset = Vector2(-32, -78)
+
+[node name="Obj_tire_stack" parent="." index="5" unique_id=1519429176 instance=ExtResource("3_obj")]
+position = Vector2(80, 304)
+texture = SubResource("Obj_tire_stack")
+centered = false
+offset = Vector2(-33, -80)
+object = SubResource("Placeable_tire_stack")
+
+[node name="Decor_tire_double" type="Sprite2D" parent="." index="6" unique_id=1130321751]
+position = Vector2(208, 176)
+texture = SubResource("Decor_tire_double")
+centered = false
+offset = Vector2(-31, -60)
+
+[node name="Obj_tire_double" parent="." index="7" unique_id=1441955861 instance=ExtResource("3_obj")]
+position = Vector2(208, 304)
+texture = SubResource("Obj_tire_double")
+centered = false
+offset = Vector2(-32, -62)
+object = SubResource("Placeable_tire_double")
+
+[node name="Decor_crate" type="Sprite2D" parent="." index="8" unique_id=1057247121]
+position = Vector2(336, 176)
+texture = SubResource("Decor_crate")
+centered = false
+offset = Vector2(-26, -48)
+
+[node name="Obj_crate" parent="." index="9" unique_id=1522496942 instance=ExtResource("3_obj")]
+position = Vector2(336, 304)
+texture = SubResource("Obj_crate")
+centered = false
+offset = Vector2(-27, -50)
+object = SubResource("Placeable_crate")
+
+[node name="Decor_server_box" type="Sprite2D" parent="." index="10" unique_id=1686282170]
+position = Vector2(464, 176)
+texture = SubResource("Decor_server_box")
+centered = false
+offset = Vector2(-15, -40)
+
+[node name="Obj_server_box" parent="." index="11" unique_id=1476056775 instance=ExtResource("3_obj")]
+position = Vector2(464, 304)
+texture = SubResource("Obj_server_box")
+centered = false
+offset = Vector2(-16, -42)
+object = SubResource("Placeable_server_box")
+
+[node name="Decor_scrap_pile" type="Sprite2D" parent="." index="12" unique_id=1935533016]
+position = Vector2(592, 176)
+texture = SubResource("Decor_scrap_pile")
+centered = false
+offset = Vector2(-52, -58)
+
+[node name="Obj_scrap_pile" parent="." index="13" unique_id=285111671 instance=ExtResource("3_obj")]
+position = Vector2(592, 304)
+texture = SubResource("Obj_scrap_pile")
+centered = false
+offset = Vector2(-53, -60)
+object = SubResource("Placeable_scrap_pile")
+
+[node name="Decor_scrap_small" type="Sprite2D" parent="." index="14" unique_id=1194167829]
+position = Vector2(720, 176)
+texture = SubResource("Decor_scrap_small")
+centered = false
+offset = Vector2(-35, -40)
+
+[node name="Obj_scrap_small" parent="." index="15" unique_id=1560706816 instance=ExtResource("3_obj")]
+position = Vector2(720, 304)
+texture = SubResource("Obj_scrap_small")
+centered = false
+offset = Vector2(-36, -42)
+object = SubResource("Placeable_scrap_small")
+
+[node name="Obj_sedan" parent="." index="16" unique_id=216954965 instance=ExtResource("3_obj")]
+position = Vector2(608, 440)
+texture = SubResource("Obj_sedan")
+centered = false
+offset = Vector2(-69, -81)
+object = SubResource("Placeable_sedan")
+
+[node name="Obj_curtain" parent="." index="17" unique_id=423522649 instance=ExtResource("3_obj")]
+position = Vector2(728, 440)
+texture = SubResource("Obj_curtain")
+centered = false
+offset = Vector2(-30, -88)
+object = SubResource("Placeable_curtain")
+
+[node name="Obj_water_cooler" parent="." index="18" unique_id=22694752 instance=ExtResource("3_obj")]
+position = Vector2(480, 440)
+texture = SubResource("Obj_water_cooler")
+centered = false
+offset = Vector2(-19, -79)
+object = SubResource("Placeable_water_cooler")
+
+[node name="Obj_vending_machine" parent="." index="19" unique_id=1946315219 instance=ExtResource("3_obj")]
+position = Vector2(320, 440)
+texture = SubResource("Obj_vending_machine")
+centered = false
+offset = Vector2(-25, -95)
+object = SubResource("Placeable_vending_machine")
+
+[node name="Obj_flower_pot" parent="." index="20" unique_id=1151352797 instance=ExtResource("3_obj")]
+position = Vector2(232, 440)
+texture = SubResource("Obj_flower_pot")
+centered = false
+offset = Vector2(-21, -51)
+object = SubResource("Placeable_flower_pot")
+
+[node name="Obj_drink_machine" parent="." index="21" unique_id=347483654 instance=ExtResource("3_obj")]
+position = Vector2(144, 440)
+texture = SubResource("Obj_drink_machine")
+centered = false
+offset = Vector2(-32, -112)
+object = SubResource("Placeable_drink_machine")
+
+[node name="Obj_trash_can" parent="." index="22" unique_id=1728482970 instance=ExtResource("3_obj")]
+position = Vector2(64, 440)
+texture = SubResource("Obj_trash_can")
+centered = false
+offset = Vector2(-16, -52)
+object = SubResource("Placeable_trash_can")

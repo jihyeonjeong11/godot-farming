@@ -5,7 +5,6 @@
 [ext_resource type="TileSet" uid="uid://dkw01fa84lera" path="res://tilesets/city_ruin.tres" id="3_1b5vr"]
 [ext_resource type="TileSet" uid="uid://ckuhhhib7q7w3" path="res://tilesets/tilled_soil.tres" id="4_or1vd"]
 [ext_resource type="TileSet" uid="uid://c8fnq2m4kvx3p" path="res://tilesets/fence.tres" id="5_0mooj"]
-[ext_resource type="Texture2D" uid="uid://j1o8v4xqk4ef" path="res://assets/Objects/crops/crops.png" id="6_1k3nl"]
 [ext_resource type="Texture2D" uid="uid://dog4l2sx7u7cn" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png" id="7_1k054"]
 [ext_resource type="Texture2D" uid="uid://pmyxtchr0btw" path="res://assets/apo/anims/32x48_flag.png" id="8_phxg0"]
 [ext_resource type="PackedScene" uid="uid://dq41kkvh2lcnn" path="res://ui/main_menu/main_menu.tscn" id="10_u6me1"]
@@ -15,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bitwbxmljvpkp" path="res://scenes/opening/logo_scene.tscn" id="17_logos"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wheat"]
-atlas = ExtResource("6_1k3nl")
+atlas = ExtResource("7_1k054")
 region = Rect2(800, 6, 32, 58)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_carrot"]
@@ -27,7 +26,7 @@ atlas = ExtResource("7_1k054")
 region = Rect2(806, 212, 20, 34)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_potato"]
-atlas = ExtResource("6_1k3nl")
+atlas = ExtResource("7_1k054")
 region = Rect2(806, 84, 22, 34)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_corn"]

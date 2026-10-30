@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://hw03yyvlo6vg" path="res://scenes/objects/portals/door.tscn" id="9_door"]
 [ext_resource type="Script" uid="uid://cyg8x8ganehgt" path="res://scenes/components/spawn_point.gd" id="10_1or2a"]
 [ext_resource type="PackedScene" uid="uid://vlwn0vdyb13" path="res://managers/map_feature_manager.tscn" id="11_u5fg7"]
-[ext_resource type="Script" path="res://scenes/levels/tutorial_inside_house.gd" id="12_script"]
+[ext_resource type="Script" uid="uid://br47u3kma4prd" path="res://scenes/levels/tutorial_inside_house.gd" id="12_script"]
 [ext_resource type="Resource" uid="uid://d1xcco2xdsm01" path="res://dialogue/tutorial.dialogue" id="13_dialogue"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_door"]

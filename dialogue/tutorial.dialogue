@@ -61,15 +61,11 @@ The State: Look! A intact house!
 The State: Go inside and check loots.
 => END
 
-# 집 - 안으로 들어가기.
-The State: Go inside the house and see what you can find.
-=> END
-
-# 집안 - 금고
+~ safe
 The State: Open that safe and see what's inside.
 => END
 
-# 약 총 획득
+~ obtained_medicine
 The State: Splendid. You can treat your burn with the medicine. But be careful with the pistol. 
 The State: Ranged attack can be good, but that can lure neighboring zombies as well. Use it wisely.
 => END

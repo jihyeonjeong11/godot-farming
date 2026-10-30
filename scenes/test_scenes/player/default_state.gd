@@ -39,6 +39,8 @@ func _on_physics_process(delta: float) -> void:
 		return
 	if Input.is_action_just_pressed("hit") and get_viewport().gui_get_hovered_control() == null:
 		var itemstack := InventoryManager.get_item_stack_by_index(GameState.selected_slot)
+		if itemstack == null:
+			return
 		var item = itemstack.item
 		if item != null and item.item_type == DataTypes.ItemType.Melee:
 			is_playing = true

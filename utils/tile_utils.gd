@@ -2,7 +2,7 @@ class_name TileUtils
 extends RefCounted
 
 const GROUND_LAYERS: Array[String] = [
-	"Road", "ConcretePath", "StonePath", "Walk", "Floors", "Land",
+	"Road", "ConcretePath", "StonePath", "Walk", "Floors", "Land", "Back",
 ]
 
 

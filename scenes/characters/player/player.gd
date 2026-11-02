@@ -21,6 +21,10 @@ const OUTFIT_PARTS := ["Hair", "Shirt", "Pants", "Shoes"]
 @onready var hit_component: HitComponent = $HitComponent
 @onready var hit_shape: CollisionShape2D = $HitComponent/CollisionShape2D
 @onready var fx_layer: Sprite2D = $Body/Fx
+@onready var stamina_regen_timer: Timer = $StaminaRegenTimer
+@onready var hurt_component: HurtComponent = $HurtComponent
+
+@export var stamina_regen_amount: int = 1
 
 var stats: BaseCharacterStats
 
@@ -46,6 +50,17 @@ func _ready() -> void:
 	InventoryManager.stack_selected.connect(_equip_selected.unbind(1))
 	InventoryManager.updated_inventory.connect(_equip_selected)
 	_equip_selected()
+	stamina_regen_timer.timeout.connect(_regen_stamina)
+	hurt_component.hurt.connect(on_hurt)
+	
+func on_hurt(hit_damage: int) -> void:
+	stats.health -= hit_damage
+	pass
+
+
+func _regen_stamina() -> void:
+	if stats.stamina < stats.current_max_stamina:
+		stats.stamina += stamina_regen_amount
 		
 func get_terrain_type() -> String:
 	return TileUtils.terrain_at(_ground_layers, global_position)
@@ -150,6 +165,8 @@ func begin_melee(item: Item) -> void:
 	hit_component.current_tool = item.tool_type
 	hit_component.hit_damage = item.melee_damage
 	hit_component.knockback_vector = facing
+	hit_component.hit_count = 0
+	hit_component.max_hits = 1
 	var shape := item.melee_shape
 	if shape == null:
 		var circle := CircleShape2D.new()

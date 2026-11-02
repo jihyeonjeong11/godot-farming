@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://wo1j2i8in07r"]
+
+[sub_resource type="GDScript" id="GDScript_q5ngf"]
+script/source = "extends Node
+
+# roots - 텍스쳐 파일
+
+# 헤어, 셔츠, 바지, 신발
+var vanity_slots = []
+
+func _ready() -> void:
+	# 로드 시 저장된 배열 불러오기
+	pass # Replace with function body.
+"
+
+[node name="AppearanceManager" type="Node" unique_id=1142076205]
+script = SubResource("GDScript_q5ngf")

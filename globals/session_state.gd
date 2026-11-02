@@ -32,8 +32,10 @@ var mouse_pos
 # 플레이어 위치 기반 마우스가 타게팅하는 위치
 var target_dict: Dictionary = {
 	"pos": null,
+	"is_blocked": false, # layer를 돌아서 land 이외의 레이어가 존재한다면 true 
 	"tile": null, # isSoil, isTilled, isWatered
 	"object": null,
+	"building": null,
 	"actionable": null # 나중에 오브젝트와 어떤 방식으로든 합칠것
 }
 # target_object와 actionalble이 있을때는 타겟 액션 수행하지 말것림

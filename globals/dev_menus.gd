@@ -12,6 +12,7 @@ const GRID_TOGGLE_KEY := KEY_F9
 const GRID_COLOR := Color(1, 1, 1, 0.25)
 const CURSOR_CELL_COLOR := Color(1, 0.85, 0.2, 0.35)
 const TARGET_OBJECT_COLOR := Color(0.3, 1.0, 0.4, 0.9)
+const TARGET_BUILDING_COLOR := Color(0.3, 0.7, 1.0, 0.9)
 const VANITY_VARIANTS := [3, 2, 3, 2]
 
 
@@ -24,7 +25,7 @@ func _ready() -> void :
 		process_mode = ProcessMode.PROCESS_MODE_DISABLED
 		return
 	#dev_fill_inventory()
-	dev_give_wearables()
+	#dev_give_wearables()
 	dev_shuffle_outfit()
 	dev_build_grid()
 	
@@ -69,6 +70,12 @@ func draw_grid() -> void:
 	var target_object = SessionState.target_dict["object"]
 	if is_instance_valid(target_object):
 		grid.draw_rect(world_to_grid * (target_object as ObjectInstance).global_interact_rect(), TARGET_OBJECT_COLOR, false)
+	var target_building = SessionState.target_dict["building"]
+	if is_instance_valid(target_building):
+		var building := target_building as Building
+		var footprint := world_to_grid * building.global_footprint_rect()
+		grid.draw_rect(footprint, TARGET_BUILDING_COLOR, false, 2.0)
+		grid.draw_string(ThemeDB.fallback_font, footprint.position + Vector2(2, -4), building.name, HORIZONTAL_ALIGNMENT_LEFT, -1, 12, TARGET_BUILDING_COLOR)
 	var target_pos = SessionState.target_dict["pos"]
 	if target_pos == null:
 		return

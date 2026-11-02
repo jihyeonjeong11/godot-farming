@@ -39,17 +39,17 @@ func _on_physics_process(delta: float) -> void:
 		return
 	if Input.is_action_just_pressed("hit") and get_viewport().gui_get_hovered_control() == null:
 		var itemstack := InventoryManager.get_item_stack_by_index(GameState.selected_slot)
-		if itemstack == null:
-			return
-		var item = itemstack.item
+		var item = itemstack.item if itemstack != null else null
 		if item != null and item.item_type == DataTypes.ItemType.Melee:
-			is_playing = true
-			_meleeing = true
-			player.play_action("swing")
-			player.body.speed_scale = player.action_length() / MELEE_SWING_TIME * item.melee_speed
-			player.begin_melee(item)
-			return
-		if player.tool_layer.has_tool():
+			if player.stats.stamina > 15:
+				is_playing = true
+				_meleeing = true
+				player.stats.stamina -= 15
+				player.play_action("swing")
+				player.body.speed_scale = player.action_length() / MELEE_SWING_TIME * item.melee_speed
+				player.begin_melee(item)
+				return
+		elif player.tool_layer.has_tool():
 			is_playing = true
 			player.play_action(player.tool_layer.act())
 			return

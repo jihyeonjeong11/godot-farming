@@ -1,6 +1,6 @@
 extends NodeState
 
-@export var chase_speed: float = 24.0
+@export var chase_speed: float = 80.0
 
 @onready var zombie: CharacterBody2D = $"../.."
 @onready var detection_component: DetectionComponent = $"../../DetectionComponent"

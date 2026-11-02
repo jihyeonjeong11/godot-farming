@@ -17,7 +17,7 @@ static func set_target_dict(origin: Vector2) -> void:
 
 
 static func update_cursor() -> void:
-	var interactable := is_instance_valid(SessionState.target_dict["object"])
+	var interactable := is_instance_valid(SessionState.target_dict["object"]) or is_at_door()
 	var cursor: Texture2D = CURSOR_INTERACT if interactable else CURSOR_DEFAULT
 	if cursor == _cursor:
 		return
@@ -31,6 +31,7 @@ static func set_target(origin: Vector2) -> void:
 		SessionState.target_dict["pos"] = null
 		SessionState.target_dict["tile"] = null
 		SessionState.target_dict["object"] = null
+		SessionState.target_dict["building"] = null
 		return
 	var mouse_pos: Vector2 = SessionState.mouse_pos
 	var reach := reach_of(Inventory.get_selected_item())
@@ -39,7 +40,10 @@ static func set_target(origin: Vector2) -> void:
 	var level := (Engine.get_main_loop() as SceneTree).current_scene
 	SessionState.target_dict["pos"] = pos
 	SessionState.target_dict["tile"] = TileUtils.terrain_at(TileUtils.ground_layers(level), pos)
-	SessionState.target_dict["object"] = object_at(cell_rect(tilemap, cell))
+	var rect := cell_rect(tilemap, cell)
+	SessionState.target_dict["object"] = object_at(rect)
+	SessionState.target_dict["building"] = building_at(rect)
+
 
 
 static func cell_rect(tilemap: TileMapLayer, cell: Vector2i) -> Rect2:
@@ -60,9 +64,40 @@ static func object_at(area: Rect2) -> ObjectInstance:
 	return found
 
 
+static func building_at(area: Rect2) -> Building:
+	var found: Building = null
+	for node in (Engine.get_main_loop() as SceneTree).get_nodes_in_group(Building.GROUP):
+		var building := node as Building
+		if building == null or building.is_queued_for_deletion():
+			continue
+		if not building.overlaps(area):
+			continue
+		if found == null or building.global_position.y > found.global_position.y:
+			found = building
+	return found
+
+
+static func is_at_door() -> bool:
+	var building = SessionState.target_dict["building"]
+	var pos = SessionState.target_dict["pos"]
+	if not is_instance_valid(building) or pos == null:
+		return false
+	var size := Vector2.ONE * GlobalVars.tile_size
+	return (building as Building).door_overlaps(Rect2(pos - size * 0.5, size))
+
+
 static func current_land() -> TileMapLayer:
 	var level := (Engine.get_main_loop() as SceneTree).current_scene
-	return level.get_node_or_null(^"Tilemap/Land") as TileMapLayer if level != null else null
+	var tilemap := level.get_node_or_null(^"Tilemap") if level != null else null
+	if tilemap == null:
+		return null
+	var land := tilemap.get_node_or_null(^"Land") as TileMapLayer
+	if land != null:
+		return land
+	for child in tilemap.get_children():
+		if child is TileMapLayer:
+			return child
+	return null
 
 
 static func cell_of(tilemap: TileMapLayer, point: Vector2) -> Vector2i:

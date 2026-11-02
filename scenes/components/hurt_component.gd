@@ -43,10 +43,11 @@ func _ready() -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	var hit_component := area as HitComponent
-	if hit_component == null or hit_component.owner == owner:
+	if hit_component == null or hit_component.owner == owner or hit_component.resolve_by_distance or not hit_component.can_hit():
 		return
 
-	receive_hit(hit_component.current_tool, hit_component.hit_damage, get_knockback_direction(hit_component))
+	if receive_hit(hit_component.current_tool, hit_component.hit_damage, get_knockback_direction(hit_component)):
+		hit_component.register_hit()
 
 
 func receive_hit(hit_tool: DataTypes.Tools, damage: int, knockback: Vector2) -> bool:

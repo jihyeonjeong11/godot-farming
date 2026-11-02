@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dmym0s7vlg4dv"]
+
+[ext_resource type="Script" uid="uid://c61g7n0vd55xj" path="res://buildings/farmhouses/farmhouse.gd" id="1_qbam0"]
+[ext_resource type="Texture2D" uid="uid://ywvctixkkm23" path="res://assets/apo/buildings/house.png" id="2_drlsr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kxuq"]
+size = Vector2(296, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mti6b"]
+size = Vector2(50, 97)
+
+[node name="Farmhouse" type="Node2D" unique_id=844149854 node_paths=PackedStringArray("footprint_shape", "door_shape")]
+texture_filter = 1
+script = ExtResource("1_qbam0")
+has_inside = true
+texture = ExtResource("2_drlsr")
+footprint_shape = NodePath("CollisionBody/CollisionShape2D")
+door_shape = NodePath("DoorArea/DoorShape")
+
+[node name="CollisionBody" type="StaticBody2D" parent="." unique_id=862649150]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionBody" unique_id=520792217]
+position = Vector2(0, -56)
+shape = SubResource("RectangleShape2D_4kxuq")
+
+[node name="DoorArea" type="Area2D" parent="." unique_id=1665560934]
+
+[node name="DoorShape" type="CollisionShape2D" parent="DoorArea" unique_id=1673644196]
+position = Vector2(32, -49.5)
+shape = SubResource("RectangleShape2D_mti6b")
+debug_color = Color(0.6322795, 0.52693933, 0.12770575, 0.41960785)

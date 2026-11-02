@@ -46,6 +46,10 @@ hazard_vulnerable = true
 
 [node name="NeedsDecayComponent" parent="." unique_id=1939453797 instance=ExtResource("4_ykrpk")]
 
+[node name="StaminaRegenTimer" type="Timer" parent="." unique_id=1739204551]
+wait_time = 0.1
+autostart = true
+
 [node name="Body" type="AnimatedSprite2D" parent="." unique_id=407296809]
 position = Vector2(0, -15)
 sprite_frames = ExtResource("1_body")

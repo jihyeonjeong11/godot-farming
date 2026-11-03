@@ -20,7 +20,7 @@ func global_collision_rect() -> Rect2:
 	return col.global_transform * col.shape.get_rect()
 
 
-func interact() -> void:
+func on_interact() -> void:
 	pass
 
 func _ready() -> void:

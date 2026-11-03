@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dt78phyv8yx5f"]
+
+[ext_resource type="PackedScene" uid="uid://cvle266g113el" path="res://world_objects/world_object.tscn" id="1_b4xn5"]
+[ext_resource type="Script" uid="uid://crx5fx1o5r8xd" path="res://world_objects/nature/tree_object.gd" id="2_b4xn5"]
+
+[node name="TreeObject" unique_id=412109625 instance=ExtResource("1_b4xn5")]
+script = ExtResource("2_b4xn5")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="1" unique_id=1104530651]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0" unique_id=1040619772]

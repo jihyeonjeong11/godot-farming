@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="WorldObjectData" format=3 uid="uid://bdv4lobjrgpj2"]
+
+[ext_resource type="Script" uid="uid://df33bawivqev2" path="res://world_objects/world_object_data.gd" id="1_6ghuj"]
+[ext_resource type="Texture2D" uid="uid://cgqkg1g5et36e" path="res://assets/apo/32x32_buildings_furnitures.png" id="2_tj13t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ghuj"]
+atlas = ExtResource("2_tj13t")
+region = Rect2(178, 278, 108, 89)
+
+[resource]
+script = ExtResource("1_6ghuj")
+id = &"bed_01"
+name = &"bed"
+description = "A bed to rest."
+texture = SubResource("AtlasTexture_6ghuj")
+metadata/_custom_type_script = "uid://df33bawivqev2"

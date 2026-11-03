@@ -73,7 +73,8 @@ const HAND_HELD_TYPES: Array[ItemType] = [
 enum ObjectType {
 	Nature,
 	Furniture,
-	Crops
+	Crops,
+	Spanwer
 }
 
 enum WeatherType {

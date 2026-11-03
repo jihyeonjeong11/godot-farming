@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="WorldObjectData" format=3 uid="uid://coc8y0m8dqqva"]
+
+[ext_resource type="Script" uid="uid://df33bawivqev2" path="res://world_objects/world_object_data.gd" id="2_rfmik"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("2_rfmik")
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
+is_interactable = true
+metadata/_custom_type_script = "uid://df33bawivqev2"

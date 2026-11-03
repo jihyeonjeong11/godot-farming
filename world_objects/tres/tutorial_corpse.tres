@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="WorldObjectData" format=3 uid="uid://c7dwt4qfnrj6i"]
+
+[ext_resource type="Script" uid="uid://df33bawivqev2" path="res://world_objects/world_object_data.gd" id="1_a5bhe"]
+[ext_resource type="Texture2D" uid="uid://bomft32q0e1ku" path="res://assets/temp/corpse_soldier.png" id="2_8tmqu"]
+
+[resource]
+script = ExtResource("1_a5bhe")
+id = &"tutorial_corpse"
+name = &"tutorial_corpse"
+description = "A corpse for tutorial"
+texture = ExtResource("2_8tmqu")
+type = 1
+metadata/_custom_type_script = "uid://df33bawivqev2"

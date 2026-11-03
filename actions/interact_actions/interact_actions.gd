@@ -4,6 +4,6 @@ class_name InteractActions extends RefCounted
 static func interact() -> void:
 	var instance = SessionState.target_dict["object"]
 	if is_instance_valid(instance):
-		instance.interact()
+		instance.on_interact()
 		return
 	InventoryActions.consume(GameState.selected_slot)

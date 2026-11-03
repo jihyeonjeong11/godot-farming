@@ -51,13 +51,14 @@ static func cell_rect(tilemap: TileMapLayer, cell: Vector2i) -> Rect2:
 	return tilemap.global_transform * Rect2(Vector2(cell) * size, size)
 
 
-static func object_at(area: Rect2) -> ObjectInstance:
-	var found: ObjectInstance = null
+static func object_at(area: Rect2) -> WorldObject:
+	var found: WorldObject = null
 	for node in (Engine.get_main_loop() as SceneTree).get_nodes_in_group(&"object"):
-		var instance := node as ObjectInstance
-		if instance == null or instance.object == null or instance.is_queued_for_deletion():
+		var instance := node as WorldObject
+		if instance == null or instance.data == null or instance.is_queued_for_deletion():
 			continue
-		if not instance.global_interact_rect().intersects(area):
+		var rect := instance.global_collision_rect()
+		if not rect.has_area() or not rect.intersects(area):
 			continue
 		if found == null or instance.global_position.y > found.global_position.y:
 			found = instance
@@ -127,3 +128,18 @@ static func placeable_of(item: Item) -> PlaceableObject:
 	if item == null or item.item_type != DataTypes.ItemType.Placeable or item.placeable_object_path.is_empty():
 		return null
 	return load(item.placeable_object_path) as PlaceableObject
+
+static func is_tillable() -> bool:
+	var t := SessionState.target_dict
+	# if pos blocked by an object, return false
+	if t["pos"] == null or is_instance_valid(t["object"]) or is_instance_valid(t["building"]):
+		return false
+	var level := (Engine.get_main_loop() as SceneTree).current_scene
+	# if pos cover by another layer or pos is not in terrain dirt, return false
+	return TileUtils.is_tillable(level, t["pos"])
+
+static func is_axeable() -> bool:
+	return false
+	
+static func is_piaxeable() -> bool:
+	return false

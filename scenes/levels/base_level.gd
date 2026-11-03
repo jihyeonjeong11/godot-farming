@@ -50,7 +50,7 @@ func limit_camera_to_land() -> void:
 func update_dev_info() -> void:
 	var tile = SessionState.target_dict["tile"]
 	var target_object = SessionState.target_dict["object"]
-	var object_name: String = target_object.object.object_name if is_instance_valid(target_object) else "-"
+	var object_name: String = String(target_object.data.name) if is_instance_valid(target_object) else "-"
 	var target_building = SessionState.target_dict["building"]
 	var building_name: String = target_building.name if is_instance_valid(target_building) else "-"
 	var door_name: String = "yes" if CursorActions.is_at_door() else "-"

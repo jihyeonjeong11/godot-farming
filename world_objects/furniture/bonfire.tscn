@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://c4uhqtokirwdn"]
+
+[ext_resource type="PackedScene" uid="uid://cvle266g113el" path="res://world_objects/world_object.tscn" id="1_base"]
+[ext_resource type="Script" uid="uid://bbu1ddfmo0mf0" path="res://world_objects/furniture/bonfire.gd" id="1_rokrl"]
+[ext_resource type="Resource" uid="uid://iy02ne8jlq8u" path="res://world_objects/tres/bonfire.tres" id="2_data"]
+[ext_resource type="Texture2D" uid="uid://cd4sr74a3nt6m" path="res://assets/apo/anims/32x32_bonfire.png" id="4_pkf5a"]
+
+[sub_resource type="Animation" id="Animation_reset"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_burn"]
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bonfire"]
+_data = {
+&"RESET": SubResource("Animation_reset"),
+&"burn": SubResource("Animation_burn")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kxuq"]
+size = Vector2(58, 48)
+
+[node name="Bonfire" unique_id=602239640 instance=ExtResource("1_base")]
+script = ExtResource("1_rokrl")
+data = ExtResource("2_data")
+
+[node name="Sprite2D" parent="." index="0" unique_id=999308787]
+texture = ExtResource("4_pkf5a")
+offset = Vector2(-32, -96)
+hframes = 4
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1" unique_id=1618326704]
+libraries/ = SubResource("AnimationLibrary_bonfire")
+autoplay = &"burn"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="2" unique_id=327611069]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0" unique_id=595384538]
+position = Vector2(1, -26)
+shape = SubResource("RectangleShape2D_4kxuq")

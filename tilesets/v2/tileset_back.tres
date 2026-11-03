@@ -2872,7 +2872,9 @@ texture_region_size = Vector2i(32, 32)
 8:7/0 = 0
 8:8/0 = 0
 33:6/0 = 0
+33:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 7.3285065, 16, 7.0098763, 16, 16, -16, 16)
 33:7/0 = 0
+33:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 0:0/0 = 0
 0:1/0 = 0
 0:2/0 = 0
@@ -2995,6 +2997,7 @@ texture_region_size = Vector2i(32, 32)
 
 [resource]
 tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Dirt"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)

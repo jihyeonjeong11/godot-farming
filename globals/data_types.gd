@@ -71,10 +71,9 @@ const HAND_HELD_TYPES: Array[ItemType] = [
 ]
 
 enum ObjectType {
-	Nature, # 자연물
-	Furniture, # 가구
+	Nature,
+	Furniture,
 	Crops
-	
 }
 
 enum WeatherType {

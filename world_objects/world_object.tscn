@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cvle266g113el"]
+
+[ext_resource type="Script" uid="uid://d1qantb03c4e2" path="res://world_objects/world_object.gd" id="1_16ptj"]
+
+[node name="WorldObject" type="Node2D" unique_id=412109625]
+script = ExtResource("1_16ptj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=999308787]
+centered = false

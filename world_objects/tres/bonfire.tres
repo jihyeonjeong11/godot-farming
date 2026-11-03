@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="WorldObjectData" format=3 uid="uid://iy02ne8jlq8u"]
+
+[ext_resource type="Script" uid="uid://df33bawivqev2" path="res://world_objects/world_object_data.gd" id="1_wgwfd"]
+[ext_resource type="Texture2D" uid="uid://cd4sr74a3nt6m" path="res://assets/apo/anims/32x32_bonfire.png" id="2_8vvho"]
+
+[resource]
+script = ExtResource("1_wgwfd")
+id = &"bonfire"
+name = &"bonfire"
+description = "It gives warmth."
+texture = ExtResource("2_8vvho")
+type = 1
+metadata/_custom_type_script = "uid://df33bawivqev2"

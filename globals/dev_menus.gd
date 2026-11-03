@@ -69,7 +69,7 @@ func draw_grid() -> void:
 		grid.draw_line(Vector2(first.x, y) * size, Vector2(last.x, y) * size, GRID_COLOR)
 	var target_object = SessionState.target_dict["object"]
 	if is_instance_valid(target_object):
-		grid.draw_rect(world_to_grid * (target_object as ObjectInstance).global_interact_rect(), TARGET_OBJECT_COLOR, false)
+		grid.draw_rect(world_to_grid * (target_object as WorldObject).global_collision_rect(), TARGET_OBJECT_COLOR, false)
 	var target_building = SessionState.target_dict["building"]
 	if is_instance_valid(target_building):
 		var building := target_building as Building

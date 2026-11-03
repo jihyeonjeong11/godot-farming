@@ -82,7 +82,11 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		match event.button_index:
 			MOUSE_BUTTON_LEFT:
-				# left는 공격만.
+				# if selected tool is not tool, return
+				# match tool
+				# if tool is DataTypes.tools.hoe
+				# CursorActions.isTillable 
+				print(CursorActions.is_tillable())
 				pass
 			MOUSE_BUTTON_RIGHT:
 				InteractActions.interact()

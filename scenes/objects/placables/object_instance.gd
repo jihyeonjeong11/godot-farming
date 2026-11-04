@@ -5,7 +5,7 @@ extends Sprite2D
 ## TODO: Baseobjectinstsance 만들고 상자, 등 상속으로 짜기
 
 const ITEM_STACK_INSTANCE := preload("res://scenes/objects/pickables/item_stack_instance.tscn")
-const SHAKE_SHADER := preload("res://scenes/objects/placables/object_shake.gdshader")
+const SHAKE_SHADER := preload("res://shaders/object_shake.gdshader")
 const CROSS_ICON := preload("res://assets/temp/cross.png")
 const PROCESS_SLOT := preload("res://ui/process_slot.tscn")
 const PROCESS_SLOT_GAP := 4.0

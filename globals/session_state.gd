@@ -13,6 +13,9 @@ var is_demo: bool = true
 # 메인 메뉴로 돌아갔을떄 logo 보이지 않게 함.
 var has_seen_logos: bool = false
 
+var cursor_freeze: bool = false
+
+
 
 # 레벨 매니저 - 레벨 id 핸들링
 #const Locations = preload("res://addons/location_manager/locations.gd")
@@ -32,8 +35,9 @@ var mouse_pos
 # 플레이어 위치 기반 마우스가 타게팅하는 위치
 var target_dict: Dictionary = {
 	"pos": null,
-	"is_blocked": false, # layer를 돌아서 land 이외의 레이어가 존재한다면 true 
-	"tile": null, # isSoil, isTilled, isWatered
+	"layers": [],
+	"tile": null,
+	"terrain": "",
 	"object": null,
 	"building": null,
 	"actionable": null # 나중에 오브젝트와 어떤 방식으로든 합칠것

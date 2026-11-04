@@ -4,12 +4,24 @@ const TILE_SIZE: int = 32
 const BASE_TILE_RANGE: int = 2
 const BASE_PLACEMENT_RANGE: int = 4
 
+const BACK_LAYER := &"Back"
+const TILLED_LAYER := &"TilledSoil"
+const TILE_LAYERS: Array[StringName] = [BACK_LAYER, TILLED_LAYER, &"WateredSoil", &"Floors", &"Buildings"]
+
 const CURSOR_DEFAULT := preload("res://assets/UI/cursor/cursor_default.png")
 const CURSOR_INTERACT := preload("res://assets/UI/cursor/cursor_interact.png")
 const CURSOR_DEFAULT_HOTSPOT := Vector2(2, 2)
 const CURSOR_INTERACT_HOTSPOT := Vector2(11, 2)
 
 static var _cursor: Texture2D
+
+const PICKAXE = preload("uid://boqllg37niafw")
+const AXE = preload("uid://dclgtskcouocj")
+const HOE = preload("uid://b5ll7oh7g02ah")
+const WATERING_CAN = preload("uid://s3cy4shkem8o")
+
+const CROP_OBJECT := preload("res://world_objects/crops/crop_object.tscn")
+const CROP_BASE_OFFSET := Vector2(0, 6)
 
 static func set_target_dict(origin: Vector2) -> void:
 	set_target(origin)
@@ -29,7 +41,9 @@ static func set_target(origin: Vector2) -> void:
 	var tilemap := current_land()
 	if tilemap == null:
 		SessionState.target_dict["pos"] = null
+		SessionState.target_dict["layers"] = []
 		SessionState.target_dict["tile"] = null
+		SessionState.target_dict["terrain"] = ""
 		SessionState.target_dict["object"] = null
 		SessionState.target_dict["building"] = null
 		return
@@ -37,13 +51,33 @@ static func set_target(origin: Vector2) -> void:
 	var reach := reach_of(Inventory.get_selected_item())
 	var cell := clamp_to_reach(cell_of(tilemap, mouse_pos), cell_of(tilemap, origin), reach)
 	var pos := cell_center(tilemap, cell)
-	var level := (Engine.get_main_loop() as SceneTree).current_scene
+	var layers := layers_at(pos)
 	SessionState.target_dict["pos"] = pos
-	SessionState.target_dict["tile"] = TileUtils.terrain_at(TileUtils.ground_layers(level), pos)
+	SessionState.target_dict["layers"] = layers
+	SessionState.target_dict["tile"] = null if layers.is_empty() else layers.back()
+	SessionState.target_dict["terrain"] = back_terrain(pos)
 	var rect := cell_rect(tilemap, cell)
 	SessionState.target_dict["object"] = object_at(rect)
 	SessionState.target_dict["building"] = building_at(rect)
 
+
+static func layers_at(pos: Vector2) -> Array[StringName]:
+	var found: Array[StringName] = []
+	for layer_name in TILE_LAYERS:
+		var layer := level_layer(NodePath("Tilemap/%s" % layer_name))
+		if layer != null and layer.get_cell_source_id(layer.local_to_map(layer.to_local(pos))) != -1:
+			found.append(layer_name)
+	if not found.has(BACK_LAYER):
+		found.clear()
+	return found
+
+
+static func back_terrain(pos: Vector2) -> String:
+	var back := level_layer(NodePath("Tilemap/%s" % BACK_LAYER))
+	if back == null:
+		return ""
+	var layers: Array[TileMapLayer] = [back]
+	return TileUtils.terrain_at(layers, pos)
 
 
 static func cell_rect(tilemap: TileMapLayer, cell: Vector2i) -> Rect2:
@@ -63,6 +97,16 @@ static func object_at(area: Rect2) -> WorldObject:
 		if found == null or instance.global_position.y > found.global_position.y:
 			found = instance
 	return found
+
+
+static func object_in_cell(tilemap: TileMapLayer, cell: Vector2i, except: Node = null) -> WorldObject:
+	for node in (Engine.get_main_loop() as SceneTree).get_nodes_in_group(&"object"):
+		var instance := node as WorldObject
+		if instance == null or instance == except or instance.is_queued_for_deletion():
+			continue
+		if cell_of(tilemap, instance.global_position) == cell:
+			return instance
+	return null
 
 
 static func building_at(area: Rect2) -> Building:
@@ -134,12 +178,97 @@ static func is_tillable() -> bool:
 	# if pos blocked by an object, return false
 	if t["pos"] == null or is_instance_valid(t["object"]) or is_instance_valid(t["building"]):
 		return false
-	var level := (Engine.get_main_loop() as SceneTree).current_scene
 	# if pos cover by another layer or pos is not in terrain dirt, return false
-	return TileUtils.is_tillable(level, t["pos"])
+	return t["tile"] == BACK_LAYER and t["terrain"] in TileUtils.TILLABLE_TERRAINS
 
 static func is_axeable() -> bool:
-	return false
-	
+	return target_accepts(DataTypes.Tools.AxeWood)
+
+
 static func is_piaxeable() -> bool:
+	return target_accepts(DataTypes.Tools.MineRock)
+
+
+static func use_tool(item: Item) -> bool:
+	if item == null or item.item_type != DataTypes.ItemType.Tool:
+		return false
+	match item.tool_type:
+		DataTypes.Tools.AxeWood:
+			if is_axeable():
+				hit_target(item)
+				SoundManager.play_sound(AXE)
+				return true
+		DataTypes.Tools.MineRock:
+			if is_piaxeable():
+				hit_target(item)
+				SoundManager.play_sound(PICKAXE)
+				return true
+		DataTypes.Tools.TillGround:
+			if is_tillable():
+				till_target()
+				SoundManager.play_sound(HOE)
+				return true
+		DataTypes.Tools.WaterCrops:
+			if is_waterable():
+				water_target()
+				SoundManager.play_sound(WATERING_CAN)
+				return true
+		DataTypes.Tools.Seed:
+			print('seed')
+			#if is_plantable():
+				#water_target()
+				#SoundManager.play_sound(WATERING_CAN)
+				# seed.reduce
+			return true
 	return false
+
+static func is_waterable() -> bool:
+	return SessionState.target_dict["tile"] == TILLED_LAYER
+
+static func is_plantable() -> bool:
+	var t := SessionState.target_dict
+	if t["pos"] == null or is_instance_valid(t["object"]) or is_instance_valid(t["building"]):
+		return false
+	return t["layers"].has(TILLED_LAYER)
+
+
+static func plant_seed(item: Item) -> void:
+	var data := item.crop_object.duplicate() as WorldObjectData
+	data.growth_stage = 0
+	var crop := CROP_OBJECT.instantiate() as CropObject
+	crop.data = data
+	(Engine.get_main_loop() as SceneTree).current_scene.add_child(crop)
+	crop.global_position = SessionState.target_dict["pos"] + CROP_BASE_OFFSET
+	InventoryManager.remove_item(item, 1)
+	SoundManager.play_sound(HOE)
+
+
+static func hit_target(item: Item) -> void:
+	(SessionState.target_dict["object"] as WorldObject).on_hit(item.tool_type, maxi(item.melee_damage, 1))
+
+
+static func till_target() -> void:
+	var soil := level_layer(^"Tilemap/TilledSoil")
+	if soil == null:
+		return
+	var cell := soil.local_to_map(soil.to_local(SessionState.target_dict["pos"]))
+	soil.set_cells_terrain_connect([cell], DataTypes.SOIL_TERRAIN_SET, DataTypes.SoilTerrains.TilledDirt, true)
+
+
+static func water_target() -> void:
+	var soil := level_layer(^"Tilemap/TilledSoil")
+	var watered := level_layer(^"Tilemap/WateredSoil") as WateredSoilLayer
+	watered.water_cell(soil.local_to_map(soil.to_local(SessionState.target_dict["pos"])), soil)
+
+
+static func level_layer(path: NodePath) -> TileMapLayer:
+	var level := (Engine.get_main_loop() as SceneTree).current_scene
+	return level.get_node_or_null(path) as TileMapLayer if level != null else null
+
+
+static func target_accepts(tool: DataTypes.Tools) -> bool:
+	var t := SessionState.target_dict
+	if t["pos"] == null or is_instance_valid(t["building"]):
+		return false
+	var object := t["object"] as WorldObject
+	return is_instance_valid(object) and object.accepts_tool(tool)

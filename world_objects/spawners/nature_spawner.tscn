@@ -3,8 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://cvle266g113el" path="res://world_objects/world_object.tscn" id="1_base"]
 [ext_resource type="Script" uid="uid://b65fark1xxlv" path="res://world_objects/spawners/nature_spawner.gd" id="2_script"]
 [ext_resource type="Script" uid="uid://df33bawivqev2" path="res://world_objects/world_object_data.gd" id="3_trj6y"]
+[ext_resource type="Resource" uid="uid://d1r52tj70yuyf" path="res://world_objects/tres/oak_tree.tres" id="4_w7e58"]
+[ext_resource type="Resource" uid="uid://j40mh6yf0x6i" path="res://world_objects/tres/pine_tree.tres" id="5_o2epk"]
+[ext_resource type="Resource" uid="uid://c0mhjregim588" path="res://world_objects/tres/grass.tres" id="6_hunim"]
+[ext_resource type="Resource" uid="uid://dhco6tc6c1vqc" path="res://world_objects/tres/rock.tres" id="7_irsmc"]
 
-[sub_resource type="Resource" id="Resource_8o8p2"]
+[sub_resource type="Resource" id="Resource_trj6y"]
 resource_local_to_scene = true
 script = ExtResource("3_trj6y")
 id = &"nature_spanwer"
@@ -15,4 +19,11 @@ metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [node name="NatureSpawner" unique_id=1703135462 instance=ExtResource("1_base")]
 script = ExtResource("2_script")
-data = SubResource("Resource_8o8p2")
+trees = Array[ExtResource("3_trj6y")]([ExtResource("4_w7e58"), ExtResource("5_o2epk")])
+grass = ExtResource("6_hunim")
+rock = ExtResource("7_irsmc")
+tree_weight = 1.0
+grass_weight = 3.0
+rock_weight = 1.0
+empty_weight = 1.0
+data = SubResource("Resource_trj6y")

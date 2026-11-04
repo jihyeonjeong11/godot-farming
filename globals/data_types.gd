@@ -43,6 +43,7 @@ enum Tools {
 	PlantWheat,  # 8
 	PlantCorn,   # 9
 	Hazard,      # 10
+	Seed,
 }
 
 enum WearSlot {
@@ -125,7 +126,7 @@ static func item_type_label(type: ItemType) -> String:
 const SOIL_TERRAIN_SET: int = 0
 
 enum SoilTerrains {
-	TilledDirt = 4,
+	TilledDirt = 3,
 	WateredDirt = 5,
 }
 

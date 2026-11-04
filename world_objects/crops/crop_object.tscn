@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dr0ltptx6kwby"]
+
+[ext_resource type="PackedScene" uid="uid://cvle266g113el" path="res://world_objects/world_object.tscn" id="1_j8vtu"]
+[ext_resource type="Script" uid="uid://554uhypoe10a" path="res://world_objects/crops/crop_object.gd" id="2_q1b6n"]
+
+[node name="Crop_object" unique_id=412109625 instance=ExtResource("1_j8vtu")]
+script = ExtResource("2_q1b6n")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="1" unique_id=852062368]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0" unique_id=1437883494]
+
+[node name="InteractArea" type="Area2D" parent="." index="2" unique_id=2098082197]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea" index="0" unique_id=1541977965]

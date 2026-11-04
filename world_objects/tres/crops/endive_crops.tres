@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="WorldObjectData" format=3 uid="uid://bavw8bmofrat1"]
+
+[ext_resource type="Script" uid="uid://df33bawivqev2" path="res://world_objects/world_object_data.gd" id="1_data"]
+[ext_resource type="Texture2D" uid="uid://gt2xyeubl5dh" path="res://assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png" id="2_atlas"]
+[ext_resource type="Resource" uid="uid://dec7xmtn1x8fk" path="res://scripts/resources/item/pickables/endive.tres" id="9_loot"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st0"]
+atlas = ExtResource("2_atlas")
+region = Rect2(674, 266, 28, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st1"]
+atlas = ExtResource("2_atlas")
+region = Rect2(642, 294, 28, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st2"]
+atlas = ExtResource("2_atlas")
+region = Rect2(672, 292, 32, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st3"]
+atlas = ExtResource("2_atlas")
+region = Rect2(704, 290, 32, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st4"]
+atlas = ExtResource("2_atlas")
+region = Rect2(736, 288, 32, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_strip"]
+atlas = ExtResource("2_atlas")
+region = Rect2(642, 266, 126, 46)
+
+[resource]
+script = ExtResource("1_data")
+id = &"endive_crop"
+name = &"endive_crop"
+description = "An endive crop."
+texture = SubResource("AtlasTexture_strip")
+type = 2
+loot = ExtResource("9_loot")
+max_growth_stage = 4
+growth_textures = Array[Texture]([SubResource("AtlasTexture_st0"), SubResource("AtlasTexture_st1"), SubResource("AtlasTexture_st2"), SubResource("AtlasTexture_st3"), SubResource("AtlasTexture_st4")])
+days_until_harvest = 6
+metadata/_custom_type_script = "uid://df33bawivqev2"

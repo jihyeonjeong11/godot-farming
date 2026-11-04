@@ -48,13 +48,16 @@ func limit_camera_to_land() -> void:
 	camera_component.limit_bottom = ceili(bottom_right.y)
 
 func update_dev_info() -> void:
+	var layers: Array = SessionState.target_dict["layers"]
+	var layers_text: String = ", ".join(PackedStringArray(layers)) if not layers.is_empty() else "-"
 	var tile = SessionState.target_dict["tile"]
+	var terrain: String = SessionState.target_dict["terrain"]
 	var target_object = SessionState.target_dict["object"]
 	var object_name: String = String(target_object.data.name) if is_instance_valid(target_object) else "-"
 	var target_building = SessionState.target_dict["building"]
 	var building_name: String = target_building.name if is_instance_valid(target_building) else "-"
 	var door_name: String = "yes" if CursorActions.is_at_door() else "-"
-	target_label.text = "tile: %s\nobject: %s\nbuilding: %s\ndoor: %s" % [tile if tile else "-", object_name, building_name, door_name]
+	target_label.text = "layers: %s\ntile: %s\nterrain: %s\nobject: %s\nbuilding: %s\ndoor: %s" % [layers_text, tile if tile else "-", terrain if terrain else "-", object_name, building_name, door_name]
 
 func dialogue(key: String) -> void :
 	SignalBus.request_dialogue(dialogue_resource, key)

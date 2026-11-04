@@ -1,0 +1,51 @@
+[gd_resource type="Resource" script_class="WorldObjectData" format=3 uid="uid://bh0spfxrheb70"]
+
+[ext_resource type="Script" uid="uid://df33bawivqev2" path="res://world_objects/world_object_data.gd" id="1_data"]
+[ext_resource type="Texture2D" uid="uid://dog4l2sx7u7cn" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png" id="2_atlas"]
+[ext_resource type="Resource" uid="uid://xefcatrcvj8py" path="res://scripts/resources/item/pickables/cucumber.tres" id="9_loot"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st0"]
+atlas = ExtResource("2_atlas")
+region = Rect2(932, 334, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st1"]
+atlas = ExtResource("2_atlas")
+region = Rect2(906, 358, 14, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st2"]
+atlas = ExtResource("2_atlas")
+region = Rect2(932, 358, 22, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st3"]
+atlas = ExtResource("2_atlas")
+region = Rect2(960, 356, 30, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st4"]
+atlas = ExtResource("2_atlas")
+region = Rect2(992, 354, 32, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st5"]
+atlas = ExtResource("2_atlas")
+region = Rect2(1024, 354, 32, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st6"]
+atlas = ExtResource("2_atlas")
+region = Rect2(1056, 356, 32, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_strip"]
+atlas = ExtResource("2_atlas")
+region = Rect2(906, 334, 182, 50)
+
+[resource]
+script = ExtResource("1_data")
+id = &"cucumber_crop"
+name = &"cucumber_crop"
+description = "A cucumber crop."
+texture = SubResource("AtlasTexture_strip")
+type = 2
+loot = ExtResource("9_loot")
+max_growth_stage = 5
+growth_textures = Array[Texture]([SubResource("AtlasTexture_st0"), SubResource("AtlasTexture_st1"), SubResource("AtlasTexture_st2"), SubResource("AtlasTexture_st3"), SubResource("AtlasTexture_st4"), SubResource("AtlasTexture_st5"), SubResource("AtlasTexture_st6")])
+days_until_harvest = 9
+regrow_days = 3
+metadata/_custom_type_script = "uid://df33bawivqev2"

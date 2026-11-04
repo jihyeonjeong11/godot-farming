@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="WorldObjectData" format=3 uid="uid://dhco6tc6c1vqc"]
+
+[ext_resource type="Script" uid="uid://df33bawivqev2" path="res://world_objects/world_object_data.gd" id="1_bd0h0"]
+[ext_resource type="Texture2D" uid="uid://dog4l2sx7u7cn" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png" id="2_6053s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4r8ui"]
+atlas = ExtResource("2_6053s")
+region = Rect2(539, 991, 108, 68)
+
+[resource]
+script = ExtResource("1_bd0h0")
+id = &"rock"
+name = &"rock"
+texture = SubResource("AtlasTexture_4r8ui")
+metadata/_custom_type_script = "uid://df33bawivqev2"

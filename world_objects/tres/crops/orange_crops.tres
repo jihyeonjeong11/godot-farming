@@ -1,0 +1,51 @@
+[gd_resource type="Resource" script_class="WorldObjectData" format=3 uid="uid://bvgngy5ic5dma"]
+
+[ext_resource type="Script" uid="uid://df33bawivqev2" path="res://world_objects/world_object_data.gd" id="1_data"]
+[ext_resource type="Texture2D" uid="uid://gt2xyeubl5dh" path="res://assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png" id="2_atlas"]
+[ext_resource type="Resource" uid="uid://crvhgucowaw52" path="res://scripts/resources/item/pickables/orange.tres" id="9_loot"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st0"]
+atlas = ExtResource("2_atlas")
+region = Rect2(870, 82, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st1"]
+atlas = ExtResource("2_atlas")
+region = Rect2(840, 102, 16, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st2"]
+atlas = ExtResource("2_atlas")
+region = Rect2(868, 96, 22, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st3"]
+atlas = ExtResource("2_atlas")
+region = Rect2(896, 76, 32, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st4"]
+atlas = ExtResource("2_atlas")
+region = Rect2(928, 64, 32, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st5"]
+atlas = ExtResource("2_atlas")
+region = Rect2(960, 64, 32, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st6"]
+atlas = ExtResource("2_atlas")
+region = Rect2(992, 64, 32, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_strip"]
+atlas = ExtResource("2_atlas")
+region = Rect2(840, 64, 184, 58)
+
+[resource]
+script = ExtResource("1_data")
+id = &"orange_crop"
+name = &"orange_crop"
+description = "An orange crop."
+texture = SubResource("AtlasTexture_strip")
+type = 2
+loot = ExtResource("9_loot")
+max_growth_stage = 5
+growth_textures = Array[Texture]([SubResource("AtlasTexture_st0"), SubResource("AtlasTexture_st1"), SubResource("AtlasTexture_st2"), SubResource("AtlasTexture_st3"), SubResource("AtlasTexture_st4"), SubResource("AtlasTexture_st5"), SubResource("AtlasTexture_st6")])
+days_until_harvest = 12
+regrow_days = 4
+metadata/_custom_type_script = "uid://df33bawivqev2"

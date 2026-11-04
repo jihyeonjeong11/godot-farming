@@ -26,6 +26,8 @@ func _ready() -> void :
 		return
 	#dev_fill_inventory()
 	#dev_give_wearables()
+	dev_give_tools()
+	dev_give_seed()
 	dev_shuffle_outfit()
 	dev_build_grid()
 	
@@ -99,6 +101,16 @@ func dev_fill_inventory() -> void:
 	InventoryActions.obtain(ItemStack.new(consumable, 5))
 
 const DEV_WEARABLES := [&"gas_mask", &"bulletproof_vest", &"military_boots"]
+
+func dev_give_tools() -> void:
+	for item in ItemDB.of_type(DataTypes.ItemType.Tool):
+		InventoryActions.obtain(ItemStack.new(item, 1))
+
+
+func dev_give_seed() -> void:
+	var seed_item = ItemDB.dev_get_random_item_by_type(DataTypes.ItemType.Seeds)
+	InventoryActions.obtain(ItemStack.new(seed_item, 5))
+
 
 func dev_give_wearables() -> void:
 	for id in DEV_WEARABLES:

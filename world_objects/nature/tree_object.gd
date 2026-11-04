@@ -5,7 +5,6 @@ const BASE_SIZE := Vector2(24, 12)
 
 @onready var collision_shape_2d: CollisionShape2D = $StaticBody2D/CollisionShape2D
 
-
 func _apply_data() -> void:
 	if not is_node_ready() or data == null:
 		return

@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="WorldObjectData" format=3 uid="uid://b6tjfq1637qku"]
+
+[ext_resource type="Script" uid="uid://df33bawivqev2" path="res://world_objects/world_object_data.gd" id="1_data"]
+[ext_resource type="Texture2D" uid="uid://dog4l2sx7u7cn" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png" id="2_atlas"]
+[ext_resource type="Resource" uid="uid://btyf8xaar7mat" path="res://scripts/resources/item/pickables/asparagus.tres" id="9_loot"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st0"]
+atlas = ExtResource("2_atlas")
+region = Rect2(936, 396, 14, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st1"]
+atlas = ExtResource("2_atlas")
+region = Rect2(904, 424, 16, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st2"]
+atlas = ExtResource("2_atlas")
+region = Rect2(936, 420, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st3"]
+atlas = ExtResource("2_atlas")
+region = Rect2(968, 414, 16, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st4"]
+atlas = ExtResource("2_atlas")
+region = Rect2(1002, 410, 16, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st5"]
+atlas = ExtResource("2_atlas")
+region = Rect2(1032, 402, 16, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_strip"]
+atlas = ExtResource("2_atlas")
+region = Rect2(904, 396, 144, 40)
+
+[resource]
+script = ExtResource("1_data")
+id = &"asparagus_crop"
+name = &"asparagus_crop"
+description = "An asparagus crop."
+texture = SubResource("AtlasTexture_strip")
+type = 2
+loot = ExtResource("9_loot")
+max_growth_stage = 5
+growth_textures = Array[Texture]([SubResource("AtlasTexture_st0"), SubResource("AtlasTexture_st1"), SubResource("AtlasTexture_st2"), SubResource("AtlasTexture_st3"), SubResource("AtlasTexture_st4"), SubResource("AtlasTexture_st5")])
+days_until_harvest = 6
+metadata/_custom_type_script = "uid://df33bawivqev2"

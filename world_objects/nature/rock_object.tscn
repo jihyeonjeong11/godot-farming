@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cjh8m4b762vw2"]
+
+[ext_resource type="PackedScene" uid="uid://cvle266g113el" path="res://world_objects/world_object.tscn" id="1_base"]
+[ext_resource type="Script" uid="uid://bcnthaxh8gakt" path="res://world_objects/nature/rock_object.gd" id="2_rock"]
+[ext_resource type="Resource" uid="uid://dhco6tc6c1vqc" path="res://world_objects/tres/rock.tres" id="3_data"]
+[ext_resource type="Texture2D" uid="uid://dog4l2sx7u7cn" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png" id="4_f64us"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ofi3x"]
+atlas = ExtResource("4_f64us")
+region = Rect2(546, 1026, 28, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_412de"]
+size = Vector2(24, 12)
+
+[node name="RockObject" unique_id=624303172 instance=ExtResource("1_base")]
+script = ExtResource("2_rock")
+variant = 3
+data = ExtResource("3_data")
+accepted_tools = Array[int]([2])
+
+[node name="Sprite2D" parent="." index="0" unique_id=999308787]
+texture = SubResource("AtlasTexture_ofi3x")
+offset = Vector2(-14, -30)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="1" unique_id=1223050523]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0" unique_id=136067728]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_412de")

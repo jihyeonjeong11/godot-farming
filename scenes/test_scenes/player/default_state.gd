@@ -6,10 +6,13 @@ extends NodeState
 
 const FOOTSTEP_INTERVAL := 0.42
 const MELEE_SWING_TIME := 0.22
+const FOOTSTEP = preload("uid://bhcyvr82bqnal")
+const FOOTSTEP_GRASS = preload("uid://d2ytgjedd650g")
+const FOOTSTEP_CONCRETE = preload("uid://igeuw168phye")
 const FOOTSTEP_BY_TERRAIN := {
-	"Grass": AudioManager.SFX_FOOTSTEP_GRASS,
-	"Concrete": AudioManager.SFX_FOOTSTEP_CONCRETE,
-	"Asphalt": AudioManager.SFX_FOOTSTEP_CONCRETE,
+	"Grass": FOOTSTEP_GRASS,
+	"Concrete": FOOTSTEP_CONCRETE,
+	"Asphalt": FOOTSTEP_CONCRETE,
 }
 
 var is_playing = false
@@ -42,6 +45,7 @@ func _on_physics_process(delta: float) -> void:
 		var item = itemstack.item if itemstack != null else null
 		if item != null and item.item_type == DataTypes.ItemType.Melee:
 			if player.stats.stamina > 15:
+				SessionState.cursor_freeze = true
 				is_playing = true
 				_meleeing = true
 				player.stats.stamina -= 15
@@ -50,6 +54,7 @@ func _on_physics_process(delta: float) -> void:
 				player.begin_melee(item)
 				return
 		elif player.tool_layer.has_tool():
+			SessionState.cursor_freeze = true
 			is_playing = true
 			player.play_action(player.tool_layer.act())
 			return
@@ -72,7 +77,7 @@ func _tick_footstep(delta: float) -> void:
 		return
 	_footstep_timer = FOOTSTEP_INTERVAL
 	player.ground_type = player.get_terrain_type()
-	SignalBus.sound_requested.emit(FOOTSTEP_BY_TERRAIN.get(player.ground_type, AudioManager.SFX_FOOTSTEP))
+	SoundManager.play_sound(FOOTSTEP_BY_TERRAIN.get(player.ground_type, FOOTSTEP))
 
 
 func _on_animation_finished() -> void:
@@ -84,11 +89,14 @@ func _on_animation_finished() -> void:
 	if _meleeing:
 		_meleeing = false
 		player.end_melee()
+		SessionState.cursor_freeze = false
 		return
-	SignalBus.tool_used.emit(Inventory.get_selected_item())
+	player.finish_tool_use()
+	SessionState.cursor_freeze = false
 
 
 func _on_exit() -> void:
+	SessionState.cursor_freeze = false
 	if _meleeing:
 		_meleeing = false
 		is_playing = false

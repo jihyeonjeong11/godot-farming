@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://71duv7y2gn2i"]
+
+[ext_resource type="PackedScene" uid="uid://cvle266g113el" path="res://world_objects/world_object.tscn" id="1_base"]
+[ext_resource type="Script" uid="uid://wd2iv8lmpcse" path="res://world_objects/nature/grass_object.gd" id="2_grass"]
+[ext_resource type="Texture2D" uid="uid://dog4l2sx7u7cn" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png" id="3_o8lfi"]
+[ext_resource type="Script" uid="uid://df33bawivqev2" path="res://world_objects/world_object_data.gd" id="4_28h8c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stage0"]
+atlas = ExtResource("3_o8lfi")
+region = Rect2(454, 644, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stage1"]
+atlas = ExtResource("3_o8lfi")
+region = Rect2(422, 718, 20, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stage2"]
+atlas = ExtResource("3_o8lfi")
+region = Rect2(448, 692, 32, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stage3"]
+atlas = ExtResource("3_o8lfi")
+region = Rect2(506, 672, 44, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stage4"]
+atlas = ExtResource("3_o8lfi")
+region = Rect2(588, 640, 72, 126)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stage5"]
+atlas = ExtResource("3_o8lfi")
+region = Rect2(678, 620, 84, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stage6"]
+atlas = ExtResource("3_o8lfi")
+region = Rect2(768, 722, 32, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywkkl"]
+atlas = ExtResource("3_o8lfi")
+region = Rect2(827, 608, 198, 97)
+
+[sub_resource type="Resource" id="Resource_y6p61"]
+resource_local_to_scene = true
+script = ExtResource("4_28h8c")
+id = &"grass"
+name = &"Grass"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+metadata/_custom_type_script = "uid://df33bawivqev2"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sil2f"]
+atlas = ExtResource("3_o8lfi")
+region = Rect2(960, 654, 64, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kxuq"]
+
+[node name="GrassObject" unique_id=698618136 instance=ExtResource("1_base")]
+script = ExtResource("2_grass")
+variant = 8
+data = SubResource("Resource_y6p61")
+accepted_tools = Array[int]([1, 2, 3])
+
+[node name="Sprite2D" parent="." index="0" unique_id=999308787]
+texture = SubResource("AtlasTexture_sil2f")
+offset = Vector2(-32, -50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="1" unique_id=784759747]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0" unique_id=701523059]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_4kxuq")

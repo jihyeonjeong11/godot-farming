@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://ejhy6hftvtjc"]
+
+[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/item/item.gd" id="1_item"]
+[ext_resource type="Texture2D" uid="uid://gt2xyeubl5dh" path="res://assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png" id="2_atlas"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_icon"]
+atlas = ExtResource("2_atlas")
+region = Rect2(772, 32, 26, 30)
+
+[resource]
+script = ExtResource("1_item")
+item_id = "rice"
+item_type = 2
+item_name = "Rice"
+item_texture = SubResource("AtlasTexture_icon")
+heal = 2
+hunger = 10
+thirst = 5
+description = "Harvested from a mature rice plant. 우클릭으로 먹는다."
+value = 40
+max_stack = 100
+world_scene_path = "uid://cb65olukse4yu"
+world_texture = SubResource("AtlasTexture_icon")
+metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

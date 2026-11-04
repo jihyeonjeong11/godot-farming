@@ -69,7 +69,8 @@ func _process(_delta: float) -> void:
 	if is_freeze:
 		return
 	tool_layer.aim_at(get_global_mouse_position())
-	CursorActions.set_target_dict($CollisionShape2D.global_position)
+	if SessionState.cursor_freeze == false:
+		CursorActions.set_target_dict($CollisionShape2D.global_position)
 	
 func emitSound() -> void:
 	
@@ -82,12 +83,11 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		match event.button_index:
 			MOUSE_BUTTON_LEFT:
-				# if selected tool is not tool, return
-				# match tool
-				# if tool is DataTypes.tools.hoe
-				# CursorActions.isTillable 
-				print(CursorActions.is_tillable())
-				pass
+				var stack := InventoryManager.get_item_stack_by_index(GameState.selected_slot)
+				if stack != null and stack.item.item_type == DataTypes.ItemType.Seeds and CursorActions.is_plantable():
+					CursorActions.plant_seed(stack.item)
+				else:
+					SessionState.cursor_freeze = true
 			MOUSE_BUTTON_RIGHT:
 				InteractActions.interact()
 			MOUSE_BUTTON_WHEEL_DOWN:
@@ -182,6 +182,11 @@ func begin_melee(item: Item) -> void:
 	hit_shape.rotation = facing.angle()
 	hit_shape.set_deferred("disabled", false)
 	fx_layer.visible = true
+
+
+func finish_tool_use() -> void:
+	var stack := InventoryManager.get_item_stack_by_index(GameState.selected_slot)
+	CursorActions.use_tool(stack.item if stack != null else null)
 
 
 func end_melee() -> void:

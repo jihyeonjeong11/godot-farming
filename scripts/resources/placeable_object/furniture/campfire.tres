@@ -13,27 +13,27 @@ max = 1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fire0"]
 atlas = ExtResource("4_atlas")
-region = Rect2(0, 0, 64, 96)
+region = Rect2(64, 0, 64, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fire1"]
 atlas = ExtResource("4_atlas")
-region = Rect2(64, 0, 64, 96)
+region = Rect2(128, 0, 64, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fire2"]
 atlas = ExtResource("4_atlas")
-region = Rect2(128, 0, 64, 96)
+region = Rect2(192, 0, 64, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fire3"]
 atlas = ExtResource("4_atlas")
-region = Rect2(192, 0, 64, 96)
+region = Rect2(0, 96, 64, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fire4"]
 atlas = ExtResource("4_atlas")
-region = Rect2(0, 96, 64, 96)
+region = Rect2(64, 96, 64, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fire5"]
 atlas = ExtResource("4_atlas")
-region = Rect2(64, 96, 64, 96)
+region = Rect2(128, 96, 64, 96)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_object"]
 animations = [{

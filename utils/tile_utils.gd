@@ -1,12 +1,15 @@
 class_name TileUtils
 extends RefCounted
 
+# Tile 변환 관련 utils
+
 const TILLABLE_TERRAINS: Array[String] = ["Dirt", "Dark Dirt", "Red_Dirt"]
 
 
 const GROUND_LAYERS: Array[String] = [
 	"Road", "ConcretePath", "StonePath", "Walk", "Floors", "Land", "Back",
 ]
+
 
 
 static func ground_layers(level: Node) -> Array[TileMapLayer]:

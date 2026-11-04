@@ -5,6 +5,7 @@
 
 [node name="TreeObject" unique_id=412109625 instance=ExtResource("1_b4xn5")]
 script = ExtResource("2_b4xn5")
+accepted_tools = Array[int]([1])
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." index="1" unique_id=1104530651]
 

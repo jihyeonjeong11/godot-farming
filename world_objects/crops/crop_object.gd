@@ -23,7 +23,7 @@ func _ready() -> void:
 		return
 	data = data.duplicate() as WorldObjectData
 	start_stage = data.growth_stage
-	SignalBus.time_tick_day.connect(on_time_tick_day)
+	TimeManager.day_passed.connect(on_day_passed)
 	$InteractArea.body_entered.connect(_on_body_entered)
 	$InteractArea.body_exited.connect(_on_body_exited)
 
@@ -41,12 +41,16 @@ func is_tile_watered() -> bool:
 	var watered := get_tree().get_first_node_in_group(WateredSoilLayer.GROUP) as WateredSoilLayer
 	if watered == null:
 		return false
+	
 	return watered.is_watered(watered.local_to_map(watered.to_local(global_position)))
 
 
-func on_time_tick_day(_day: int) -> void:
+func on_day_passed() -> void:
+	print('hello')
 	if not is_tile_watered():
+		print('not')
 		return
+	print('watered')
 	watered_days += 1
 	growth_states()
 

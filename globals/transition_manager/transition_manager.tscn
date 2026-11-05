@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://bkhcivjsmru7u"]
+
+[ext_resource type="Script" uid="uid://u58awf137ekr" path="res://globals/transition_manager/transition_manager.gd" id="1_5d3ia"]
+
+[sub_resource type="Animation" id="Animation_reset"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Color:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Color:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ujac3"]
+resource_name = "fade_through_color"
+length = 3.0
+step = 0.1
+markers = [{
+"color": Color(1, 1, 1, 1),
+"name": &"start",
+"time": 0.0
+}, {
+"color": Color(1, 1, 1, 1),
+"name": &"end",
+"time": 3.0
+}, {
+"color": Color(1, 1, 1, 1),
+"name": &"middle",
+"time": 1.6
+}]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Color:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Color:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h42bu"]
+_data = {
+&"RESET": SubResource("Animation_reset"),
+&"fade_through_color": SubResource("Animation_ujac3")
+}
+
+[node name="TransitionManager" type="CanvasLayer" unique_id=2132091684]
+process_mode = 3
+layer = 100
+script = ExtResource("1_5d3ia")
+
+[node name="Color" type="ColorRect" parent="." unique_id=1525697151]
+visible = false
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=783659205]
+libraries/ = SubResource("AnimationLibrary_h42bu")

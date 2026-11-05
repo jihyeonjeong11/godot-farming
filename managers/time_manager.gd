@@ -1,4 +1,3 @@
-class_name TimeManager
 extends Node
 
 # 작물 성장, 날씨, 플레이어 스탯 재조정

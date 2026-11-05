@@ -112,14 +112,15 @@ func load_game() -> void:
 
 ## 목록에 뿌릴 값만 담는다. 복원에 쓰이지 않으므로 형식이 바뀌어도 세이브는 멀쩡하다.
 func _save_meta(level: Node) -> void:
-	var tm := TimeManager.find(get_tree())
-
-	_write(_slot_file(META_FILE), {
-		# 목록에 그대로 뿌릴 현지 시각 문자열. 유닉스 초로 두면 읽는 쪽이 시간대를 다시 맞춰야 한다.
-		"saved_at": Time.get_datetime_string_from_system(),
-		"day": tm.today() if tm != null else 0,
-		"level": _level_id_of(level),
-	})
+	pass
+	#var tm := TimeManager.find(get_tree())
+#
+	#_write(_slot_file(META_FILE), {
+		## 목록에 그대로 뿌릴 현지 시각 문자열. 유닉스 초로 두면 읽는 쪽이 시간대를 다시 맞춰야 한다.
+		#"saved_at": Time.get_datetime_string_from_system(),
+		#"day": tm.today() if tm != null else 0,
+		#"level": _level_id_of(level),
+	#})
 
 
 ## 레벨 하나가 파일 하나. 그 안에 레이어별 상태가 통째로 들어간다.
@@ -306,15 +307,15 @@ func load_stats() -> Variant:
 ## 복원됐는데 날씨만 빠지는 반쪽 세이브가 생길 수 있다.
 func save_time() -> void:
 	var data := {}
-	var tm := TimeManager.find(get_tree())
-	if tm != null:
-		data["time"] = tm.current_time.duplicate()
-
-	var weather := WeatherManager.find(get_tree())
-	if weather != null:
-		data["weather"] = DataTypes.WeatherType.keys()[weather.current_weather]
-
-	_write(_slot_file(TIME_FILE), data)
+	#var tm := TimeManager.find(get_tree())
+	#if tm != null:
+		#data["time"] = tm.current_time.duplicate()
+#
+	#var weather := WeatherManager.find(get_tree())
+	#if weather != null:
+		#data["weather"] = DataTypes.WeatherType.keys()[weather.current_weather]
+#
+	#_write(_slot_file(TIME_FILE), data)
 
 
 func load_time() -> void:
@@ -322,12 +323,12 @@ func load_time() -> void:
 	if parsed is not Dictionary:
 		return
 
-	var tm := TimeManager.find(get_tree())
-	var saved_time: Variant = parsed.get("time")
-	if tm != null and saved_time is Dictionary:
-		tm.current_time = saved_time.duplicate()
-
-	_restore_weather(parsed.get("weather"))
+	#var tm := TimeManager.find(get_tree())
+	#var saved_time: Variant = parsed.get("time")
+	#if tm != null and saved_time is Dictionary:
+		#tm.current_time = saved_time.duplicate()
+#
+	#_restore_weather(parsed.get("weather"))
 
 
 ## 날씨 키가 없던 시절의 세이브나 모르는 이름이면 맑음으로 둔다.

@@ -13,6 +13,7 @@
 [ext_resource type="Resource" uid="uid://b3enn4nqxg7gb" path="res://world_objects/tres/crops/cabbage_crops.tres" id="12_gs3ke"]
 [ext_resource type="Script" uid="uid://rpepg711y8sv" path="res://scenes/components/tilemap/watered_soil_layer.gd" id="12_wsoil"]
 [ext_resource type="Script" uid="uid://c7ippim8o1ysv" path="res://world_objects/crops/crop_gallery.gd" id="13_gallery"]
+[ext_resource type="Script" uid="uid://cyg8x8ganehgt" path="res://scenes/components/spawn_point.gd" id="14_spawn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_stage0"]
 atlas = ExtResource("7_2ka5o")
@@ -2271,3 +2272,8 @@ data = ExtResource("12_gs3ke")
 y_sort_enabled = true
 position = Vector2(64, 96)
 script = ExtResource("13_gallery")
+
+[node name="SpawnFromHouse" type="Marker2D" parent="." index="12" unique_id=815302120]
+position = Vector2(1046, 840)
+script = ExtResource("14_spawn")
+spawn_id = &"house_door"

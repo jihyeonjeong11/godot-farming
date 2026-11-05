@@ -10,7 +10,6 @@ const CROSS_ICON := preload("res://assets/temp/cross.png")
 const PROCESS_SLOT := preload("res://ui/process_slot.tscn")
 const PROCESS_SLOT_GAP := 4.0
 const SCATTER_TIME := 0.25
-const SLEEP_FADE_DURATION := 0.4
 const SLEEP_DURATION := 1.5
 const WAKE_HOUR := 6
 const INTERACT_RECT_COLOR := Color(0.3, 1.0, 0.4, 0.9)
@@ -194,8 +193,9 @@ func _show_process_slot(recipe: CraftRecipe) -> void:
 
 
 func _now_minutes() -> int:
-	var tm := TimeManager.find(get_tree())
-	return tm.total_minutes() if tm != null else 0
+	return 1
+	#var tm := TimeManager.find(get_tree())
+	#return tm.total_minutes() if tm != null else 0
 
 
 func _process_done() -> bool:
@@ -315,17 +315,14 @@ func sleep() -> void:
 		return
 
 	_sleeping = true
-
-	await ScreenFade.fade_out(SLEEP_FADE_DURATION)
-	await get_tree().create_timer(SLEEP_DURATION).timeout
-
-	var tm := TimeManager.find(get_tree())
-	if tm != null:
-		tm.skip_to(tm.today() + 1, WAKE_HOUR)
-
-	await ScreenFade.fade_in(SLEEP_FADE_DURATION)
-
-	_sleeping = false
+#
+	#await get_tree().create_timer(SLEEP_DURATION).timeout
+#
+	#var tm := TimeManager.find(get_tree())
+	#if tm != null:
+		#tm.skip_to(tm.today() + 1, WAKE_HOUR)
+#
+	#_sleeping = false
 
 
 func roll_loot() -> Array[ItemStack]:

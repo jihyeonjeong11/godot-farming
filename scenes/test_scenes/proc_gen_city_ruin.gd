@@ -1198,7 +1198,7 @@ var _hud: Label
 func _setup_minimap() -> void:
 	var layer := CanvasLayer.new()
 	layer.name = "MinimapLayer"
-	# 화면 암전(ScreenFade, 100)보다 아래, 그 밖의 UI 위.
+	# 화면 암전(TransitionManager, 100)보다 아래, 그 밖의 UI 위.
 	layer.layer = 90
 	add_child(layer)
 

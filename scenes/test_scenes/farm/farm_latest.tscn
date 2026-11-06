@@ -2,17 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://cdko42eau68xt" path="res://scenes/levels/base_level.tscn" id="1_p7e0l"]
 [ext_resource type="TileSet" uid="uid://cgmxl6k3v47j5" path="res://tilesets/v2/tileset_back.tres" id="2_ni27w"]
+[ext_resource type="Script" uid="uid://cqmofl0d71fo0" path="res://scenes/test_scenes/farm/tilled_soil.gd" id="3_g7c01"]
 [ext_resource type="PackedScene" uid="uid://dmym0s7vlg4dv" path="res://buildings/farmhouses/farmhouse.tscn" id="3_mxo1t"]
-[ext_resource type="PackedScene" uid="uid://cply0plr3ojbk" path="res://world_objects/furniture/corpse.tscn" id="4_ltyks"]
-[ext_resource type="PackedScene" uid="uid://c4uhqtokirwdn" path="res://world_objects/furniture/bonfire.tscn" id="4_wyhrx"]
 [ext_resource type="Texture2D" uid="uid://dog4l2sx7u7cn" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png" id="7_2ka5o"]
-[ext_resource type="PackedScene" uid="uid://dipv4ygfa84fd" path="res://world_objects/furniture/bed.tscn" id="7_lfx04"]
 [ext_resource type="Script" uid="uid://df33bawivqev2" path="res://world_objects/world_object_data.gd" id="8_2ka5o"]
 [ext_resource type="PackedScene" uid="uid://sry2kiy0so5m" path="res://world_objects/spawners/nature_spawner.tscn" id="9_nspawn"]
-[ext_resource type="PackedScene" uid="uid://dr0ltptx6kwby" path="res://world_objects/crops/crop_object.tscn" id="11_gpec7"]
-[ext_resource type="Resource" uid="uid://b3enn4nqxg7gb" path="res://world_objects/tres/crops/cabbage_crops.tres" id="12_gs3ke"]
 [ext_resource type="Script" uid="uid://rpepg711y8sv" path="res://scenes/components/tilemap/watered_soil_layer.gd" id="12_wsoil"]
-[ext_resource type="Script" uid="uid://c7ippim8o1ysv" path="res://world_objects/crops/crop_gallery.gd" id="13_gallery"]
 [ext_resource type="Script" uid="uid://cyg8x8ganehgt" path="res://scenes/components/spawn_point.gd" id="14_spawn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_stage0"]
@@ -47,7 +42,7 @@ region = Rect2(352, 716, 32, 48)
 atlas = ExtResource("7_2ka5o")
 region = Rect2(0, 606, 390, 165)
 
-[sub_resource type="Resource" id="Resource_gs3ke"]
+[sub_resource type="Resource" id="Resource_gpec7"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
 id = &"oak_tree"
@@ -91,7 +86,7 @@ region = Rect2(768, 722, 32, 42)
 atlas = ExtResource("7_2ka5o")
 region = Rect2(416, 606, 390, 165)
 
-[sub_resource type="Resource" id="Resource_pwy0s"]
+[sub_resource type="Resource" id="Resource_gs3ke"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
 id = &"pine_tree"
@@ -101,1781 +96,1781 @@ texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
 growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+metadata/_custom_type_script = "uid://df33bawivqev2"
+
+[sub_resource type="Resource" id="Resource_pwy0s"]
+resource_local_to_scene = true
+script = ExtResource("8_2ka5o")
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_g7c01"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_a21qh"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_fwrq6"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_5paw8"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_8qow4"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_mqhdx"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_1aqbs"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_q8jpt"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_sbcy4"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_owc1q"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_xvcig"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_oydot"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_snehs"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_3jwdp"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_xe6x5"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_7jd8h"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_y5elk"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_tkpwy"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_tan7t"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_wkgux"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_tsybs"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_4mqn7"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_n0lyd"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_wmjrg"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_dmnst"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_5tlyv"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_aypi0"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_xfw7j"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_4xt1u"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_3bhhd"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_1mf6q"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_fjhnk"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_vfiqs"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_bowtj"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_t02kb"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_maw7m"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_uc6od"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_un7vq"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_gnp7t"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_g4h37"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_77fnj"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_8c7w1"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_idoe1"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_huaug"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_sh04j"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_gpidi"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_sfjub"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_qbd04"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_am573"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_qmk7w"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_ighig"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_qxn60"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_2ytpg"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_nrgol"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_aoy5u"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_jpuwx"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_1demv"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_dxj00"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_fvrcr"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_eqc7x"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_a4wov"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_vmpni"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_w6i4f"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_evh6x"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_vqxs1"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_npwr3"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_ovkh2"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_3l4u7"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_bhshv"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_2u8ny"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_tsubc"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_h70mt"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_eb5hl"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_djduc"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_7fjc3"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_k7e16"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_drwxv"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_twn4f"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_302rr"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_gu4p2"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_4xf1n"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_1s0d6"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_mibpi"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_hyp1c"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_5odu5"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_3htmg"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_s2kwu"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_pr2ip"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_6kgyq"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_8b0fj"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_k6kyh"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_bir2u"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_jt6et"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_7fg5q"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_0qorj"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_8ilxs"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_7slhg"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_vsn82"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_c5luy"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_bjim4"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_u4osn"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_o5pnp"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_84axe"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_chd35"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_18csy"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_lt44w"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_uipxf"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_dba7q"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_ixxqn"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_m2o46"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_tajl1"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_y2n1r"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_bpk8m"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_rwxl2"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_3vopj"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_6pexq"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_s1ldj"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_kgsfa"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_3fwu1"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_rchyk"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_ctdhk"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_af0kh"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_xnpu1"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_ouxog"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_jnxjn"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_mdrna"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_p5sv3"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_e8tlm"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_kxyjo"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_aockp"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_6uuj5"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_cd1rp"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_rtwv1"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_nsnqs"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_l2h7t"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_humve"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_nh5so"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_5a3sk"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_8cgba"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_ktp2w"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_qa5pk"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_wdg6p"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_44jxk"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_nurm5"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_yeyfd"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_og8i0"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_c1od2"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_c60mh"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_ekcfs"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_p6uu8"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_qogow"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_6re5k"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_33igl"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_trxg7"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_l5sqs"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_jiqmw"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_io8b6"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_yca2c"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
 max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_p4ncr"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"pine_tree"
-name = &"pine_tree"
-description = "A Pine tree."
-texture = SubResource("AtlasTexture_fwrq6")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
+id = &"nature_spanwer"
+name = &"nature_spanwer"
+description = "An nature spawner"
+type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_m0x8d"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"nature_spanwer"
-name = &"nature_spanwer"
-description = "An nature spawner"
-type = 3
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_dcvfk"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
-id = &"oak_tree"
-name = &"oak_tree"
-description = "An Oak tree."
-texture = SubResource("AtlasTexture_ywkkl")
-is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
-metadata/_custom_type_script = "uid://df33bawivqev2"
-
-[sub_resource type="Resource" id="Resource_mqbrf"]
-resource_local_to_scene = true
-script = ExtResource("8_2ka5o")
 id = &"pine_tree"
 name = &"pine_tree"
 description = "A Pine tree."
@@ -1885,7 +1880,7 @@ max_growth_stage = 7
 growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
-[sub_resource type="Resource" id="Resource_jxen8"]
+[sub_resource type="Resource" id="Resource_mqbrf"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
 id = &"nature_spanwer"
@@ -1894,7 +1889,7 @@ description = "An nature spawner"
 type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
-[sub_resource type="Resource" id="Resource_vblhi"]
+[sub_resource type="Resource" id="Resource_jxen8"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
 id = &"oak_tree"
@@ -1906,7 +1901,7 @@ max_growth_stage = 7
 growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
-[sub_resource type="Resource" id="Resource_dhecx"]
+[sub_resource type="Resource" id="Resource_vblhi"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
 id = &"pine_tree"
@@ -1918,7 +1913,7 @@ max_growth_stage = 7
 growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
-[sub_resource type="Resource" id="Resource_pnlmn"]
+[sub_resource type="Resource" id="Resource_dhecx"]
 resource_local_to_scene = true
 script = ExtResource("8_2ka5o")
 id = &"nature_spanwer"
@@ -1945,6 +1940,7 @@ tile_set = ExtResource("2_ni27w")
 
 [node name="TilledSoil" type="TileMapLayer" parent="Tilemap" index="1" unique_id=1762023719 groups=["tilled_soil"]]
 tile_set = ExtResource("2_ni27w")
+script = ExtResource("3_g7c01")
 
 [node name="WateredSoil" type="TileMapLayer" parent="Tilemap" index="2" unique_id=1500000123 groups=["watered_soil"]]
 tile_set = ExtResource("2_ni27w")
@@ -1963,317 +1959,290 @@ tile_set = ExtResource("2_ni27w")
 [node name="Farmhouse" parent="Tilemap" index="5" unique_id=844149854 instance=ExtResource("3_mxo1t")]
 position = Vector2(1014, 815)
 
-[node name="Bonfire" parent="." index="4" unique_id=602239640 instance=ExtResource("4_wyhrx")]
-position = Vector2(1235, 871)
-is_lit = true
-
-[node name="Bonfire2" parent="." index="5" unique_id=43189166 instance=ExtResource("4_wyhrx")]
-position = Vector2(805, 876)
-is_lit = true
-
-[node name="Bonfire3" parent="." index="6" unique_id=283420448 instance=ExtResource("4_wyhrx")]
-position = Vector2(1057, 983)
-is_lit = true
-
-[node name="Corpse" parent="." index="7" unique_id=1830006077 instance=ExtResource("4_ltyks")]
-position = Vector2(281, 979)
-
-[node name="Bed" parent="." index="8" unique_id=1354085843 instance=ExtResource("7_lfx04")]
-position = Vector2(296, 607)
-
-[node name="NatureSpawners" type="Node2D" parent="." index="9" unique_id=1800000000]
+[node name="NatureSpawners" type="Node2D" parent="." index="4" unique_id=1800000000]
 y_sort_enabled = true
 
 [node name="NatureSpawner000" parent="NatureSpawners" index="0" unique_id=1800000001 instance=ExtResource("9_nspawn")]
 position = Vector2(345, 785)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_gs3ke"), SubResource("Resource_pwy0s")])
-data = SubResource("Resource_g7c01")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_gpec7"), SubResource("Resource_gs3ke")])
+data = SubResource("Resource_pwy0s")
 
 [node name="NatureSpawner002" parent="NatureSpawners" index="1" unique_id=1800000003 instance=ExtResource("9_nspawn")]
 position = Vector2(1648, 92)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_a21qh"), SubResource("Resource_fwrq6")])
-data = SubResource("Resource_5paw8")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_g7c01"), SubResource("Resource_a21qh")])
+data = SubResource("Resource_fwrq6")
 
 [node name="NatureSpawner003" parent="NatureSpawners" index="2" unique_id=1800000004 instance=ExtResource("9_nspawn")]
 position = Vector2(1840, 92)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_8qow4"), SubResource("Resource_mqhdx")])
-data = SubResource("Resource_1aqbs")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_5paw8"), SubResource("Resource_8qow4")])
+data = SubResource("Resource_mqhdx")
 
 [node name="NatureSpawner006" parent="NatureSpawners" index="3" unique_id=1800000007 instance=ExtResource("9_nspawn")]
 position = Vector2(1712, 124)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_q8jpt"), SubResource("Resource_sbcy4")])
-data = SubResource("Resource_owc1q")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_1aqbs"), SubResource("Resource_q8jpt")])
+data = SubResource("Resource_sbcy4")
 
 [node name="NatureSpawner007" parent="NatureSpawners" index="4" unique_id=1800000008 instance=ExtResource("9_nspawn")]
 position = Vector2(1904, 124)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_xvcig"), SubResource("Resource_oydot")])
-data = SubResource("Resource_snehs")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_owc1q"), SubResource("Resource_xvcig")])
+data = SubResource("Resource_oydot")
 
 [node name="NatureSpawner012" parent="NatureSpawners" index="5" unique_id=1800000013 instance=ExtResource("9_nspawn")]
 position = Vector2(1808, 188)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_3jwdp"), SubResource("Resource_xe6x5")])
-data = SubResource("Resource_7jd8h")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_snehs"), SubResource("Resource_3jwdp")])
+data = SubResource("Resource_xe6x5")
 
 [node name="NatureSpawner013" parent="NatureSpawners" index="6" unique_id=1800000014 instance=ExtResource("9_nspawn")]
 position = Vector2(1872, 188)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_y5elk"), SubResource("Resource_tkpwy")])
-data = SubResource("Resource_tan7t")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_7jd8h"), SubResource("Resource_y5elk")])
+data = SubResource("Resource_tkpwy")
 
 [node name="NatureSpawner016" parent="NatureSpawners" index="7" unique_id=1800000017 instance=ExtResource("9_nspawn")]
 position = Vector2(1840, 252)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_wkgux"), SubResource("Resource_tsybs")])
-data = SubResource("Resource_4mqn7")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_tan7t"), SubResource("Resource_wkgux")])
+data = SubResource("Resource_tsybs")
 
 [node name="NatureSpawner017" parent="NatureSpawners" index="8" unique_id=1800000018 instance=ExtResource("9_nspawn")]
 position = Vector2(592, 284)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_n0lyd"), SubResource("Resource_wmjrg")])
-data = SubResource("Resource_dmnst")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_4mqn7"), SubResource("Resource_n0lyd")])
+data = SubResource("Resource_wmjrg")
 
 [node name="NatureSpawner019" parent="NatureSpawners" index="9" unique_id=1800000020 instance=ExtResource("9_nspawn")]
 position = Vector2(848, 316)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_5tlyv"), SubResource("Resource_aypi0")])
-data = SubResource("Resource_xfw7j")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_dmnst"), SubResource("Resource_5tlyv")])
+data = SubResource("Resource_aypi0")
 
 [node name="NatureSpawner020" parent="NatureSpawners" index="10" unique_id=1800000021 instance=ExtResource("9_nspawn")]
 position = Vector2(1104, 316)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_4xt1u"), SubResource("Resource_3bhhd")])
-data = SubResource("Resource_1mf6q")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_xfw7j"), SubResource("Resource_4xt1u")])
+data = SubResource("Resource_3bhhd")
 
 [node name="NatureSpawner021" parent="NatureSpawners" index="11" unique_id=1800000022 instance=ExtResource("9_nspawn")]
 position = Vector2(1296, 316)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_fjhnk"), SubResource("Resource_vfiqs")])
-data = SubResource("Resource_bowtj")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_1mf6q"), SubResource("Resource_fjhnk")])
+data = SubResource("Resource_vfiqs")
 
 [node name="NatureSpawner022" parent="NatureSpawners" index="12" unique_id=1800000023 instance=ExtResource("9_nspawn")]
 position = Vector2(1872, 316)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_t02kb"), SubResource("Resource_maw7m")])
-data = SubResource("Resource_uc6od")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_bowtj"), SubResource("Resource_t02kb")])
+data = SubResource("Resource_maw7m")
 
 [node name="NatureSpawner023" parent="NatureSpawners" index="13" unique_id=1800000024 instance=ExtResource("9_nspawn")]
 position = Vector2(560, 348)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_un7vq"), SubResource("Resource_gnp7t")])
-data = SubResource("Resource_g4h37")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_uc6od"), SubResource("Resource_un7vq")])
+data = SubResource("Resource_gnp7t")
 
 [node name="NatureSpawner024" parent="NatureSpawners" index="14" unique_id=1800000025 instance=ExtResource("9_nspawn")]
 position = Vector2(1040, 348)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_77fnj"), SubResource("Resource_8c7w1")])
-data = SubResource("Resource_idoe1")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_g4h37"), SubResource("Resource_77fnj")])
+data = SubResource("Resource_8c7w1")
 
 [node name="NatureSpawner025" parent="NatureSpawners" index="15" unique_id=1800000026 instance=ExtResource("9_nspawn")]
 position = Vector2(1776, 348)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_huaug"), SubResource("Resource_sh04j")])
-data = SubResource("Resource_gpidi")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_idoe1"), SubResource("Resource_huaug")])
+data = SubResource("Resource_sh04j")
 
 [node name="NatureSpawner026" parent="NatureSpawners" index="16" unique_id=1800000027 instance=ExtResource("9_nspawn")]
 position = Vector2(1200, 380)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_sfjub"), SubResource("Resource_qbd04")])
-data = SubResource("Resource_am573")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_gpidi"), SubResource("Resource_sfjub")])
+data = SubResource("Resource_qbd04")
 
 [node name="NatureSpawner027" parent="NatureSpawners" index="17" unique_id=1800000028 instance=ExtResource("9_nspawn")]
 position = Vector2(1456, 380)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_qmk7w"), SubResource("Resource_ighig")])
-data = SubResource("Resource_qxn60")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_am573"), SubResource("Resource_qmk7w")])
+data = SubResource("Resource_ighig")
 
 [node name="NatureSpawner028" parent="NatureSpawners" index="18" unique_id=1800000029 instance=ExtResource("9_nspawn")]
 position = Vector2(1136, 412)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_2ytpg"), SubResource("Resource_nrgol")])
-data = SubResource("Resource_aoy5u")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_qxn60"), SubResource("Resource_2ytpg")])
+data = SubResource("Resource_nrgol")
 
 [node name="NatureSpawner029" parent="NatureSpawners" index="19" unique_id=1800000030 instance=ExtResource("9_nspawn")]
 position = Vector2(1584, 412)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_jpuwx"), SubResource("Resource_1demv")])
-data = SubResource("Resource_dxj00")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_aoy5u"), SubResource("Resource_jpuwx")])
+data = SubResource("Resource_1demv")
 
 [node name="NatureSpawner030" parent="NatureSpawners" index="20" unique_id=1800000031 instance=ExtResource("9_nspawn")]
 position = Vector2(1648, 412)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_fvrcr"), SubResource("Resource_eqc7x")])
-data = SubResource("Resource_a4wov")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_dxj00"), SubResource("Resource_fvrcr")])
+data = SubResource("Resource_eqc7x")
 
 [node name="NatureSpawner031" parent="NatureSpawners" index="21" unique_id=1800000032 instance=ExtResource("9_nspawn")]
 position = Vector2(1808, 412)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_vmpni"), SubResource("Resource_w6i4f")])
-data = SubResource("Resource_evh6x")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_a4wov"), SubResource("Resource_vmpni")])
+data = SubResource("Resource_w6i4f")
 
 [node name="NatureSpawner032" parent="NatureSpawners" index="22" unique_id=1800000033 instance=ExtResource("9_nspawn")]
 position = Vector2(1328, 444)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_vqxs1"), SubResource("Resource_npwr3")])
-data = SubResource("Resource_ovkh2")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_evh6x"), SubResource("Resource_vqxs1")])
+data = SubResource("Resource_npwr3")
 
 [node name="NatureSpawner033" parent="NatureSpawners" index="23" unique_id=1800000034 instance=ExtResource("9_nspawn")]
 position = Vector2(1552, 476)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_3l4u7"), SubResource("Resource_bhshv")])
-data = SubResource("Resource_2u8ny")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_ovkh2"), SubResource("Resource_3l4u7")])
+data = SubResource("Resource_bhshv")
 
 [node name="NatureSpawner034" parent="NatureSpawners" index="24" unique_id=1800000035 instance=ExtResource("9_nspawn")]
 position = Vector2(1648, 476)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_tsubc"), SubResource("Resource_h70mt")])
-data = SubResource("Resource_eb5hl")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_2u8ny"), SubResource("Resource_tsubc")])
+data = SubResource("Resource_h70mt")
 
 [node name="NatureSpawner035" parent="NatureSpawners" index="25" unique_id=1800000036 instance=ExtResource("9_nspawn")]
 position = Vector2(112, 508)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_djduc"), SubResource("Resource_7fjc3")])
-data = SubResource("Resource_k7e16")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_eb5hl"), SubResource("Resource_djduc")])
+data = SubResource("Resource_7fjc3")
 
 [node name="NatureSpawner036" parent="NatureSpawners" index="26" unique_id=1800000037 instance=ExtResource("9_nspawn")]
 position = Vector2(272, 508)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_drwxv"), SubResource("Resource_twn4f")])
-data = SubResource("Resource_302rr")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_k7e16"), SubResource("Resource_drwxv")])
+data = SubResource("Resource_twn4f")
 
 [node name="NatureSpawner037" parent="NatureSpawners" index="27" unique_id=1800000038 instance=ExtResource("9_nspawn")]
 position = Vector2(464, 508)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_gu4p2"), SubResource("Resource_4xf1n")])
-data = SubResource("Resource_1s0d6")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_302rr"), SubResource("Resource_gu4p2")])
+data = SubResource("Resource_4xf1n")
 
 [node name="NatureSpawner038" parent="NatureSpawners" index="28" unique_id=1800000039 instance=ExtResource("9_nspawn")]
 position = Vector2(208, 540)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_mibpi"), SubResource("Resource_hyp1c")])
-data = SubResource("Resource_5odu5")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_1s0d6"), SubResource("Resource_mibpi")])
+data = SubResource("Resource_hyp1c")
 
 [node name="NatureSpawner039" parent="NatureSpawners" index="29" unique_id=1800000040 instance=ExtResource("9_nspawn")]
 position = Vector2(1264, 540)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_3htmg"), SubResource("Resource_s2kwu")])
-data = SubResource("Resource_pr2ip")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_5odu5"), SubResource("Resource_3htmg")])
+data = SubResource("Resource_s2kwu")
 
 [node name="NatureSpawner040" parent="NatureSpawners" index="30" unique_id=1800000041 instance=ExtResource("9_nspawn")]
 position = Vector2(1616, 540)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_6kgyq"), SubResource("Resource_8b0fj")])
-data = SubResource("Resource_k6kyh")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_pr2ip"), SubResource("Resource_6kgyq")])
+data = SubResource("Resource_8b0fj")
 
 [node name="NatureSpawner041" parent="NatureSpawners" index="31" unique_id=1800000042 instance=ExtResource("9_nspawn")]
 position = Vector2(1072, 572)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_bir2u"), SubResource("Resource_jt6et")])
-data = SubResource("Resource_7fg5q")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_k6kyh"), SubResource("Resource_bir2u")])
+data = SubResource("Resource_jt6et")
 
 [node name="NatureSpawner042" parent="NatureSpawners" index="32" unique_id=1800000043 instance=ExtResource("9_nspawn")]
 position = Vector2(80, 604)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_0qorj"), SubResource("Resource_8ilxs")])
-data = SubResource("Resource_7slhg")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_7fg5q"), SubResource("Resource_0qorj")])
+data = SubResource("Resource_8ilxs")
 
 [node name="NatureSpawner043" parent="NatureSpawners" index="33" unique_id=1800000044 instance=ExtResource("9_nspawn")]
 position = Vector2(176, 604)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_vsn82"), SubResource("Resource_c5luy")])
-data = SubResource("Resource_bjim4")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_7slhg"), SubResource("Resource_vsn82")])
+data = SubResource("Resource_c5luy")
 
 [node name="NatureSpawner044" parent="NatureSpawners" index="34" unique_id=1800000045 instance=ExtResource("9_nspawn")]
 position = Vector2(1328, 604)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_u4osn"), SubResource("Resource_o5pnp")])
-data = SubResource("Resource_84axe")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_bjim4"), SubResource("Resource_u4osn")])
+data = SubResource("Resource_o5pnp")
 
 [node name="NatureSpawner045" parent="NatureSpawners" index="35" unique_id=1800000046 instance=ExtResource("9_nspawn")]
 position = Vector2(1424, 604)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_chd35"), SubResource("Resource_18csy")])
-data = SubResource("Resource_lt44w")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_84axe"), SubResource("Resource_chd35")])
+data = SubResource("Resource_18csy")
 
 [node name="NatureSpawner046" parent="NatureSpawners" index="36" unique_id=1800000047 instance=ExtResource("9_nspawn")]
 position = Vector2(1712, 604)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_uipxf"), SubResource("Resource_dba7q")])
-data = SubResource("Resource_ixxqn")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_lt44w"), SubResource("Resource_uipxf")])
+data = SubResource("Resource_dba7q")
 
 [node name="NatureSpawner047" parent="NatureSpawners" index="37" unique_id=1800000048 instance=ExtResource("9_nspawn")]
 position = Vector2(1520, 636)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_m2o46"), SubResource("Resource_tajl1")])
-data = SubResource("Resource_y2n1r")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_ixxqn"), SubResource("Resource_m2o46")])
+data = SubResource("Resource_tajl1")
 
 [node name="NatureSpawner048" parent="NatureSpawners" index="38" unique_id=1800000049 instance=ExtResource("9_nspawn")]
 position = Vector2(1872, 636)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_bpk8m"), SubResource("Resource_rwxl2")])
-data = SubResource("Resource_3vopj")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_y2n1r"), SubResource("Resource_bpk8m")])
+data = SubResource("Resource_rwxl2")
 
 [node name="NatureSpawner049" parent="NatureSpawners" index="39" unique_id=1800000050 instance=ExtResource("9_nspawn")]
 position = Vector2(1616, 700)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_6pexq"), SubResource("Resource_s1ldj")])
-data = SubResource("Resource_kgsfa")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_3vopj"), SubResource("Resource_6pexq")])
+data = SubResource("Resource_s1ldj")
 
 [node name="NatureSpawner050" parent="NatureSpawners" index="40" unique_id=1800000051 instance=ExtResource("9_nspawn")]
 position = Vector2(336, 732)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_3fwu1"), SubResource("Resource_rchyk")])
-data = SubResource("Resource_ctdhk")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_kgsfa"), SubResource("Resource_3fwu1")])
+data = SubResource("Resource_rchyk")
 
 [node name="NatureSpawner051" parent="NatureSpawners" index="41" unique_id=1800000052 instance=ExtResource("9_nspawn")]
 position = Vector2(1680, 764)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_af0kh"), SubResource("Resource_xnpu1")])
-data = SubResource("Resource_ouxog")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_ctdhk"), SubResource("Resource_af0kh")])
+data = SubResource("Resource_xnpu1")
 
 [node name="NatureSpawner052" parent="NatureSpawners" index="42" unique_id=1800000053 instance=ExtResource("9_nspawn")]
 position = Vector2(1776, 764)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_jnxjn"), SubResource("Resource_mdrna")])
-data = SubResource("Resource_p5sv3")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_ouxog"), SubResource("Resource_jnxjn")])
+data = SubResource("Resource_mdrna")
 
 [node name="NatureSpawner053" parent="NatureSpawners" index="43" unique_id=1800000054 instance=ExtResource("9_nspawn")]
 position = Vector2(1840, 764)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_e8tlm"), SubResource("Resource_kxyjo")])
-data = SubResource("Resource_aockp")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_p5sv3"), SubResource("Resource_e8tlm")])
+data = SubResource("Resource_kxyjo")
 
 [node name="NatureSpawner054" parent="NatureSpawners" index="44" unique_id=1800000055 instance=ExtResource("9_nspawn")]
 position = Vector2(1552, 796)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_6uuj5"), SubResource("Resource_cd1rp")])
-data = SubResource("Resource_rtwv1")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_aockp"), SubResource("Resource_6uuj5")])
+data = SubResource("Resource_cd1rp")
 
 [node name="NatureSpawner055" parent="NatureSpawners" index="45" unique_id=1800000056 instance=ExtResource("9_nspawn")]
 position = Vector2(1904, 796)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_nsnqs"), SubResource("Resource_l2h7t")])
-data = SubResource("Resource_humve")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_rtwv1"), SubResource("Resource_nsnqs")])
+data = SubResource("Resource_l2h7t")
 
 [node name="NatureSpawner056" parent="NatureSpawners" index="46" unique_id=1800000057 instance=ExtResource("9_nspawn")]
 position = Vector2(144, 860)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_nh5so"), SubResource("Resource_5a3sk")])
-data = SubResource("Resource_8cgba")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_humve"), SubResource("Resource_nh5so")])
+data = SubResource("Resource_5a3sk")
 
 [node name="NatureSpawner057" parent="NatureSpawners" index="47" unique_id=1800000058 instance=ExtResource("9_nspawn")]
 position = Vector2(272, 860)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_ktp2w"), SubResource("Resource_qa5pk")])
-data = SubResource("Resource_wdg6p")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_8cgba"), SubResource("Resource_ktp2w")])
+data = SubResource("Resource_qa5pk")
 
 [node name="NatureSpawner059" parent="NatureSpawners" index="48" unique_id=1800000060 instance=ExtResource("9_nspawn")]
 position = Vector2(368, 956)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_44jxk"), SubResource("Resource_nurm5")])
-data = SubResource("Resource_yeyfd")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_wdg6p"), SubResource("Resource_44jxk")])
+data = SubResource("Resource_nurm5")
 
 [node name="NatureSpawner061" parent="NatureSpawners" index="49" unique_id=1800000062 instance=ExtResource("9_nspawn")]
 position = Vector2(656, 988)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_og8i0"), SubResource("Resource_c1od2")])
-data = SubResource("Resource_c60mh")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_yeyfd"), SubResource("Resource_og8i0")])
+data = SubResource("Resource_c1od2")
 
 [node name="NatureSpawner062" parent="NatureSpawners" index="50" unique_id=1800000063 instance=ExtResource("9_nspawn")]
 position = Vector2(176, 1020)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_ekcfs"), SubResource("Resource_p6uu8")])
-data = SubResource("Resource_qogow")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_c60mh"), SubResource("Resource_ekcfs")])
+data = SubResource("Resource_p6uu8")
 
 [node name="NatureSpawner063" parent="NatureSpawners" index="51" unique_id=1800000064 instance=ExtResource("9_nspawn")]
 position = Vector2(368, 1020)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_6re5k"), SubResource("Resource_33igl")])
-data = SubResource("Resource_trxg7")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_qogow"), SubResource("Resource_6re5k")])
+data = SubResource("Resource_33igl")
 
 [node name="NatureSpawner064" parent="NatureSpawners" index="52" unique_id=1800000065 instance=ExtResource("9_nspawn")]
 position = Vector2(432, 1020)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_l5sqs"), SubResource("Resource_jiqmw")])
-data = SubResource("Resource_io8b6")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_trxg7"), SubResource("Resource_l5sqs")])
+data = SubResource("Resource_jiqmw")
 
 [node name="NatureSpawner067" parent="NatureSpawners" index="53" unique_id=1800000068 instance=ExtResource("9_nspawn")]
 position = Vector2(272, 1052)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_yca2c"), SubResource("Resource_p4ncr")])
-data = SubResource("Resource_m0x8d")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_io8b6"), SubResource("Resource_yca2c")])
+data = SubResource("Resource_p4ncr")
 
 [node name="NatureSpawner068" parent="NatureSpawners" index="54" unique_id=1800000069 instance=ExtResource("9_nspawn")]
 position = Vector2(528, 1052)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_dcvfk"), SubResource("Resource_mqbrf")])
-data = SubResource("Resource_jxen8")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_m0x8d"), SubResource("Resource_dcvfk")])
+data = SubResource("Resource_mqbrf")
 
 [node name="NatureSpawner069" parent="NatureSpawners" index="55" unique_id=1800000070 instance=ExtResource("9_nspawn")]
 position = Vector2(1040, 1052)
-trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_vblhi"), SubResource("Resource_dhecx")])
-data = SubResource("Resource_pnlmn")
+trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_jxen8"), SubResource("Resource_vblhi")])
+data = SubResource("Resource_dhecx")
 
-[node name="Cabbage" parent="." index="10" unique_id=412109625 instance=ExtResource("11_gpec7")]
-position = Vector2(100, 761)
-data = ExtResource("12_gs3ke")
-
-[node name="CropGallery" type="Node2D" parent="." index="11" unique_id=480122455]
-y_sort_enabled = true
-position = Vector2(64, 96)
-script = ExtResource("13_gallery")
-
-[node name="SpawnFromHouse" type="Marker2D" parent="." index="12" unique_id=815302120]
+[node name="SpawnFromHouse" type="Marker2D" parent="." index="5" unique_id=815302120]
 position = Vector2(1046, 840)
 script = ExtResource("14_spawn")
 spawn_id = &"house_door"

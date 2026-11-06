@@ -4,7 +4,7 @@ extends Node
 const VERSION = 2
 const SLOT_COUNT = 10
 const TUTORIAL_SCENE = "uid://p5khtom1236l"
-const FARM_SCENE = "uid://bmainfarm0001"
+const FARM_SCENE = "uid://deds4mbi0mofn"
 
 
 var current_slot: int = -1

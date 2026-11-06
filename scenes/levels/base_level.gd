@@ -8,6 +8,7 @@ class_name Base_level extends Node2D
 @export var level_key: DataTypes.Levels
 @export var camera_land_inset := 1
 const UI_MANAGER = preload("uid://bqrbyohvqh031")
+const FARM_SCENE_PATH := "res://scenes/test_scenes/farm/farm_latest.tscn"
 
 var interface: CanvasLayer
 
@@ -27,13 +28,34 @@ func _ready() -> void :
 #
 	#if not has_interface:
 		#interface.hud.hide()
+	restore_snapshot_objects()
 	_enter()
-	
+
 func _enter() -> void:
 	pass
 
+
+func restore_snapshot_objects() -> void:
+	if get_tree().current_scene.scene_file_path != FARM_SCENE_PATH:
+		return
+	var occupied := {}
+	for node in get_tree().get_nodes_in_group(&"object"):
+		if node is not NatureSpawner:
+			occupied[SnapshotActions.get_cell_from_pos(node.global_position)] = true
+	for cell: Vector2i in GameState.farm_snapshot:
+		var id: String = GameState.farm_snapshot[cell].get("id", "")
+		if id.is_empty() or occupied.has(cell):
+			continue
+		var object := WorldObjectDB.create(id)
+		if object == null:
+			continue
+		object.position = SnapshotActions.get_pos_from_cell(cell)
+		add_child(object)
+
 func limit_camera_to_land() -> void:
 	var land := get_node_or_null(^"Tilemap/Land") as TileMapLayer
+	if land == null:
+		land = get_node_or_null(^"Tilemap/Back") as TileMapLayer
 	if land == null or land.tile_set == null:
 		return
 	var used := land.get_used_rect().grow(-camera_land_inset)

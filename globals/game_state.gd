@@ -1,6 +1,8 @@
 ## TODO: Savemanager 추가한다음에 abstract_class 추가 상속할
 extends AbstractGameState
 
+
+
 enum BaseLighting{
 	None, 
 	Day, 
@@ -35,6 +37,13 @@ var level_data: Dictionary = {}
 var did_skip_tutorial: bool = false
 var did_kill_first_zombie: bool = false
 
+# 현재 농장 맵만 적용함
+var farm_snapshot: Dictionary = {}:
+	get: 
+		return farm_snapshot 
+	set(value):
+		farm_snapshot = value
+
 ## Story flags for tutorial.
 var tutorial_flags: Dictionary = {
 	"startup": false,
@@ -49,7 +58,10 @@ var tutorial_flags: Dictionary = {
 	"arrived_farm_entrance": false
 }
 
-
+func _ready() -> void:
+	_ensure_player_stat()
+	_ensure_equipment_slots()
+	
 func has_tutorial_flag(key: String) -> bool:
 	return tutorial_flags.get(key, false)
 
@@ -59,11 +71,9 @@ func set_tutorial_flag(key: String) -> void:
 		push_warning("모르는 튜토리얼 플래그: %s" % key)
 	tutorial_flags[key] = true
 
-func _ready() -> void:
-	_ensure_player_stat()
-	_ensure_equipment_slots()
 
 func _after_deserialized() -> void:
+	inventory.resize(InventoryManager.BASE_INVENTORY_LIMIT)
 	_ensure_equipment_slots()
 	StatActions.apply_equipment()
 
@@ -111,4 +121,10 @@ func _deserialize_property(property: String, value: Variant) -> Variant:
 			for key in value:
 				time[key] = int(value[key])
 			return time
+		"farm_snapshot":
+			var snapshot: Dictionary = {}
+			for key: String in value:
+				var parts := key.trim_prefix("(").trim_suffix(")").split(",")
+				snapshot[Vector2i(parts[0].to_int(), parts[1].strip_edges().to_int())] = value[key]
+			return snapshot
 	return value

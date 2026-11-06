@@ -37,7 +37,7 @@ region = Rect2(768, 722, 32, 42)
 atlas = ExtResource("3_o8lfi")
 region = Rect2(827, 608, 198, 97)
 
-[sub_resource type="Resource" id="Resource_y6p61"]
+[sub_resource type="Resource" id="Resource_o8lfi"]
 resource_local_to_scene = true
 script = ExtResource("4_28h8c")
 id = &"grass"
@@ -49,7 +49,7 @@ max_growth_stage = 7
 growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sil2f"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_28h8c"]
 atlas = ExtResource("3_o8lfi")
 region = Rect2(960, 654, 64, 50)
 
@@ -58,11 +58,11 @@ region = Rect2(960, 654, 64, 50)
 [node name="GrassObject" unique_id=698618136 instance=ExtResource("1_base")]
 script = ExtResource("2_grass")
 variant = 8
-data = SubResource("Resource_y6p61")
+data = SubResource("Resource_o8lfi")
 accepted_tools = Array[int]([1, 2, 3])
 
 [node name="Sprite2D" parent="." index="0" unique_id=999308787]
-texture = SubResource("AtlasTexture_sil2f")
+texture = SubResource("AtlasTexture_28h8c")
 offset = Vector2(-32, -50)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." index="1" unique_id=784759747]

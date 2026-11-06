@@ -15,6 +15,14 @@ const BASE_SIZE := Vector2(24, 12)
 
 @onready var collision_shape_2d: CollisionShape2D = $StaticBody2D/CollisionShape2D
 
+var state: Dictionary = {
+	"health": 1
+}
+
+func _ready() -> void:
+	super()
+	state = SnapshotActions.populate(global_position, data.id, state)
+
 
 func _apply_data() -> void:
 	if not is_node_ready() or data == null or data.texture == null:

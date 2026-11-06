@@ -9,6 +9,9 @@ var activation_code_so_far: String = ""
 var is_active: bool = true
 
 const GRID_TOGGLE_KEY := KEY_F9
+const SNAPSHOT_KEY := KEY_F2
+const SNAPSHOT_VIEW_LAYER := 100
+const SNAPSHOT_VIEW_WIDTH := 960.0
 const GRID_COLOR := Color(1, 1, 1, 0.25)
 const CURSOR_CELL_COLOR := Color(1, 0.85, 0.2, 0.35)
 const TARGET_OBJECT_COLOR := Color(0.3, 1.0, 0.4, 0.9)
@@ -18,6 +21,8 @@ const VANITY_VARIANTS := [3, 2, 3, 2]
 
 var grid_layer: CanvasLayer
 var grid: Node2D
+var snapshot_layer: CanvasLayer
+var snapshot_view: TextEdit
 
 func _ready() -> void :
 	if not OS.is_debug_build():
@@ -28,9 +33,11 @@ func _ready() -> void :
 	#dev_give_wearables()
 	dev_give_tools()
 	dev_give_seed()
+	dev_give_campfire_materials()
 	dev_shuffle_outfit()
 	dev_build_grid()
-	
+	dev_build_snapshot_view()
+
 
 
 
@@ -55,6 +62,20 @@ func dev_build_grid() -> void:
 	grid = Node2D.new()
 	grid.draw.connect(draw_grid)
 	grid_layer.add_child(grid)
+
+
+func dev_build_snapshot_view() -> void:
+	snapshot_layer = CanvasLayer.new()
+	snapshot_layer.layer = SNAPSHOT_VIEW_LAYER
+	snapshot_layer.visible = false
+	add_child(snapshot_layer)
+	snapshot_view = TextEdit.new()
+	snapshot_view.editable = false
+	snapshot_view.focus_mode = Control.FOCUS_NONE
+	snapshot_view.wrap_mode = TextEdit.LINE_WRAPPING_BOUNDARY
+	snapshot_view.set_anchors_preset(Control.PRESET_LEFT_WIDE)
+	snapshot_view.custom_minimum_size.x = SNAPSHOT_VIEW_WIDTH
+	snapshot_layer.add_child(snapshot_view)
 
 
 func draw_grid() -> void:
@@ -112,13 +133,38 @@ func dev_give_seed() -> void:
 	InventoryActions.obtain(ItemStack.new(seed_item, 5))
 
 
+func dev_give_campfire_materials() -> void:
+	for recipe in RecipeDB.for_result(&"campfire"):
+		for id in recipe.ingredients:
+			InventoryActions.obtain(ItemStack.new(ItemDB.get_item(id), recipe.ingredients[id]))
+
+
 func dev_give_wearables() -> void:
 	for id in DEV_WEARABLES:
 		InventoryActions.obtain(ItemStack.new(ItemDB.get_item(id), 1))
 		
+
+## 농장 밖에서는 snapshot()이 빈 값을 돌려준다. 그대로 넣으면 저장해둔 농장 상태가 지워진다.
+func dev_save_snapshot() -> void:
+	var snapshot := GameState.farm_snapshot
+	if snapshot.is_empty():
+		prints("[dev] 스냅샷 건너뜀: 저장할 농장 상태가 없다")
+	else:
+		GameState.farm_snapshot = snapshot
+		prints("[dev] 스냅샷 저장:", snapshot.size(), "칸")
+	snapshot_view.text = str(snapshot)
+	snapshot_layer.visible = true
+
+
 func _input(event: InputEvent) -> void :
 	if is_active and event is InputEventKey and event.pressed and not event.echo and event.keycode == GRID_TOGGLE_KEY:
 		grid_layer.visible = not grid_layer.visible
+		return
+	if is_active and event is InputEventKey and event.pressed and not event.echo and event.keycode == SNAPSHOT_KEY:
+		if snapshot_layer.visible:
+			snapshot_layer.visible = false
+		else:
+			dev_save_snapshot()
 		return
 	if not is_active and event.is_pressed() and not event.is_echo():
 		if event is InputEventKey:

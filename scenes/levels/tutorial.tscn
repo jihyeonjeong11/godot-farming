@@ -97,7 +97,7 @@ is_docile = true
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("9_g7bfq")
-target_scene = "uid://bmainfarm0001"
+target_scene = "uid://deds4mbi0mofn"
 target_spawn = &"from_tutorial"
 metadata/_custom_type_script = "uid://bccsgitdbh2tb"
 

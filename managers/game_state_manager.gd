@@ -1,5 +1,8 @@
 class_name GameStateManager
 extends Node
+
+# 이제 게임맵(메인 맵 타일 저장)만 하면 됨
+
 var game_state: DataTypes.GameState = DataTypes.GameState.MainMenu
 
 var _announced := false

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/item/item.gd" id="1_items"]
 [ext_resource type="Texture2D" uid="uid://cd4sr74a3nt6m" path="res://assets/apo/anims/32x32_bonfire.png" id="2_tex"]
+[ext_resource type="PackedScene" uid="uid://c4uhqtokirwdn" path="res://world_objects/furniture/bonfire.tscn" id="3_scene"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_campfire"]
 atlas = ExtResource("2_tex")
@@ -16,5 +17,6 @@ item_texture = SubResource("AtlasTexture_campfire")
 description = "돌로 두르고 장작을 쌓은 모닥불. 땅에 놓으면 계속 탄다."
 max_stack = 99
 placeable_object_path = "res://scripts/resources/placeable_object/furniture/campfire.tres"
+placed_scene = ExtResource("3_scene")
 world_scene_path = "uid://cb65olukse4yu"
 metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

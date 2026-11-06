@@ -10,7 +10,7 @@ bg_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bar_fill"]
 bg_color = Color(0.26, 0.76, 0.32, 1)
 
-[node name="ProcessSlot" type="Control"]
+[node name="ProcessSlot" type="Control" unique_id=802977379]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 34.0
@@ -18,7 +18,7 @@ offset_bottom = 42.0
 mouse_filter = 2
 script = ExtResource("3_script")
 
-[node name="BaseUi" parent="." instance=ExtResource("1_baseui")]
+[node name="BaseUi" parent="." unique_id=529151017 instance=ExtResource("1_baseui")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,17 +28,17 @@ grow_vertical = 2
 mouse_filter = 2
 theme_type_variation = &"BasePanelSlim"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="BaseUi"]
+[node name="VBoxContainer" type="VBoxContainer" parent="BaseUi" unique_id=140951556]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 2
 
-[node name="Slot" parent="BaseUi/VBoxContainer" instance=ExtResource("2_slot")]
+[node name="Slot" parent="BaseUi/VBoxContainer" unique_id=948267448 instance=ExtResource("2_slot")]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Bar" type="ProgressBar" parent="BaseUi/VBoxContainer"]
+[node name="Bar" type="ProgressBar" parent="BaseUi/VBoxContainer" unique_id=2124366843]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 6)
 layout_mode = 2

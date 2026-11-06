@@ -7,6 +7,9 @@ const PROPS_GROUP := &"props"
 const CROP_INSTANCE := preload("res://scenes/objects/placables/crop_instance.tscn")
 const OBJECT_INSTANCE := preload("res://scenes/objects/placables/object_instance.tscn")
 
+# placemenet 로직 추가하면 삭제 가능
+
+
 var tilemap: TileMapLayer
 # props - 지금 울타리만 박아둠. 모든 액션 불가가
 # tilled_soil - 모든 행동 가능. seed 사용 가능. 물주면 watered_soil로 변경. place 시 사라짐 곡괭이 사용 시 dirt로 돌아감

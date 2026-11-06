@@ -16,6 +16,13 @@ const ROCK_OBJECT := preload("res://world_objects/nature/rock_object.tscn")
 @export var empty_weight := 1.0
 
 
+func _ready() -> void:
+	super()
+	TimeManager.day_passed.connect(advance_day)
+	if GameState.once("nature_seeded_%s" % name):
+		advance_day.call_deferred()
+
+
 func advance_day() -> void:
 	var land := CursorActions.current_land()
 	if land == null or CursorActions.layers_at(self.global_position).size() != 1:
@@ -39,8 +46,8 @@ func _spawn_tree() -> void:
 	tree_data.growth_stage = randi_range(0, tree_data.growth_textures.size() - 1)
 	var tree := TREE_OBJECT.instantiate() as TreeObject
 	tree.data = tree_data
+	tree.position = position
 	get_parent().add_child(tree)
-	tree.global_position = global_position
 
 
 func _spawn_grass() -> void:
@@ -48,8 +55,8 @@ func _spawn_grass() -> void:
 		return
 	var grass_object := GRASS_OBJECT.instantiate() as GrassObject
 	grass_object.data = grass
+	grass_object.position = position
 	get_parent().add_child(grass_object)
-	grass_object.global_position = global_position
 
 
 func _spawn_rock() -> void:
@@ -57,5 +64,5 @@ func _spawn_rock() -> void:
 		return
 	var rock_object := ROCK_OBJECT.instantiate() as RockObject
 	rock_object.data = rock
+	rock_object.position = position
 	get_parent().add_child(rock_object)
-	rock_object.global_position = global_position

@@ -22,6 +22,7 @@ const WATERING_CAN = preload("uid://s3cy4shkem8o")
 
 const CROP_OBJECT := preload("res://world_objects/crops/crop_object.tscn")
 const CROP_BASE_OFFSET := Vector2(0, 6)
+const PLACED_BASE_OFFSET := Vector2(0, 12)
 
 static func set_target_dict(origin: Vector2) -> void:
 	set_target(origin)
@@ -213,13 +214,6 @@ static func use_tool(item: Item) -> bool:
 				water_target()
 				SoundManager.play_sound(WATERING_CAN)
 				return true
-		DataTypes.Tools.Seed:
-			print('seed')
-			#if is_plantable():
-				#water_target()
-				#SoundManager.play_sound(WATERING_CAN)
-				# seed.reduce
-			return true
 	return false
 
 static func is_waterable() -> bool:
@@ -232,15 +226,43 @@ static func is_plantable() -> bool:
 	return t["layers"].has(TILLED_LAYER)
 
 
-static func plant_seed(item: Item) -> void:
-	var data := item.crop_object.duplicate() as WorldObjectData
-	data.growth_stage = 0
-	var crop := CROP_OBJECT.instantiate() as CropObject
-	crop.data = data
-	(Engine.get_main_loop() as SceneTree).current_scene.add_child(crop)
-	crop.global_position = SessionState.target_dict["pos"] + CROP_BASE_OFFSET
+static func plant_seed(item: Item) -> bool:
+	if is_plantable():
+		var data := item.crop_object.duplicate() as WorldObjectData
+		data.growth_stage = 0
+		var crop := CROP_OBJECT.instantiate() as CropObject
+		crop.data = data
+		(Engine.get_main_loop() as SceneTree).current_scene.add_child(crop)
+		crop.global_position = SessionState.target_dict["pos"] + CROP_BASE_OFFSET
+		InventoryManager.remove_item(item, 1)
+		SoundManager.play_sound(HOE)
+	else:
+		return false
+	return false
+
+
+## 스냅샷은 칸마다 오브젝트를 하나만 담으므로 이미 오브젝트가 있는 칸에는 놓지 않는다.
+static func is_placeable() -> bool:
+	var t := SessionState.target_dict
+	if t["pos"] == null or is_instance_valid(t["object"]) or is_instance_valid(t["building"]):
+		return false
+	if t["tile"] != BACK_LAYER:
+		return false
+	var land := current_land()
+	var cell := cell_of(land, t["pos"])
+	return object_in_cell(land, cell) == null and cell_of(land, SessionState.get_player().global_position) != cell
+
+
+## _ready에서 위치를 읽는 오브젝트가 있으므로 add_child 전에 위치를 잡는다.
+static func place_object(item: Item) -> bool:
+	if item.placed_scene == null or not is_placeable():
+		return false
+	var object := item.placed_scene.instantiate() as WorldObject
+	object.position = SessionState.target_dict["pos"] + PLACED_BASE_OFFSET
+	(Engine.get_main_loop() as SceneTree).current_scene.add_child(object)
 	InventoryManager.remove_item(item, 1)
 	SoundManager.play_sound(HOE)
+	return true
 
 
 static func hit_target(item: Item) -> void:
@@ -265,10 +287,13 @@ static func level_layer(path: NodePath) -> TileMapLayer:
 	var level := (Engine.get_main_loop() as SceneTree).current_scene
 	return level.get_node_or_null(path) as TileMapLayer if level != null else null
 
-
 static func target_accepts(tool: DataTypes.Tools) -> bool:
 	var t := SessionState.target_dict
 	if t["pos"] == null or is_instance_valid(t["building"]):
 		return false
 	var object := t["object"] as WorldObject
 	return is_instance_valid(object) and object.accepts_tool(tool)
+	
+static func update_farm_tilemap() -> void:
+	
+	return

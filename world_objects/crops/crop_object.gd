@@ -12,7 +12,7 @@ const SHAKE_AREA_MARGIN := Vector2(8, 8)
 @onready var interact_shape_2d: CollisionShape2D = $InteractArea/CollisionShape2D
 
 var watered_days := 0
-var start_stage := 0
+var start_stage := -1
 var shake_tween: Tween
 
 const FOOTSTEP_VEGETATION = preload("uid://ca2x0yqyi8ltc")
@@ -22,11 +22,21 @@ func _ready() -> void:
 	if Engine.is_editor_hint() or data == null:
 		return
 	data = data.duplicate() as WorldObjectData
-	start_stage = data.growth_stage
+	if start_stage < 0:
+		start_stage = data.growth_stage
 	TimeManager.day_passed.connect(on_day_passed)
 	$InteractArea.body_entered.connect(_on_body_entered)
 	$InteractArea.body_exited.connect(_on_body_exited)
 
+
+
+func capture_state() -> Dictionary:
+	return {"watered_days": watered_days, "start_stage": start_stage}
+
+
+func apply_state(state: Dictionary) -> void:
+	watered_days = state["watered_days"]
+	start_stage = state["start_stage"]
 
 
 func is_harvestable() -> bool:

@@ -1,6 +1,8 @@
 class_name AudioManager
 extends Node
 
+# 음악 재생 ui 필요. 아마 시간 계절표시에서 간단히 플레이어 ui를 만들면 될듯?
+
 const MUSIC_MAIN_MENU = preload("uid://d0tck7y58df7h")
 
 const MUSIC_INGAME = [

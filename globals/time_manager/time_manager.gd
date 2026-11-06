@@ -16,8 +16,7 @@ func advance_day() -> void:
 	if TransitionManager.is_transitioning:
 		return
 	await TransitionManager.fade_to_color(Color.BLACK)
-	# 작물 성장 # 추후에 세이브 추가되면 game_state에서 할것
-	# 네이처 스포너. 스타듀밸리 껄 베껴볼것.,
+
 	day_passed.emit()
 	get_tree().call_group(WateredSoilLayer.GROUP, &"dry_all")
 	

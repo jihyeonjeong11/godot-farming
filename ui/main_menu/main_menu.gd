@@ -6,7 +6,7 @@ extends Control
 @onready var settings: ButtonBase = $CenterContainer/MarginContainer/VBoxContainer/Settings
 
 var tutorial_scene = preload("uid://p5khtom1236l")
-var farm_scene = preload("uid://bmainfarm0001")
+var farm_scene = preload("uid://deds4mbi0mofn")
 
 @export var save_slots_scene: PackedScene
 @export var settings_scene: PackedScene

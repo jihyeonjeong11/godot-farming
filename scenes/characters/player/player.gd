@@ -84,8 +84,13 @@ func _unhandled_input(event: InputEvent) -> void:
 		match event.button_index:
 			MOUSE_BUTTON_LEFT:
 				var stack := InventoryManager.get_item_stack_by_index(GameState.selected_slot)
-				if stack != null and stack.item.item_type == DataTypes.ItemType.Seeds and CursorActions.is_plantable():
-					CursorActions.plant_seed(stack.item)
+				if stack != null and stack.item.item_type == DataTypes.ItemType.Seeds:
+					var used = CursorActions.plant_seed(stack.item)
+					if used:
+						CursorActions.update_farm_tilemap()
+						pass
+				elif stack != null and stack.item.item_type == DataTypes.ItemType.Placeable:
+					CursorActions.place_object(stack.item)
 				else:
 					SessionState.cursor_freeze = true
 			MOUSE_BUTTON_RIGHT:
@@ -186,7 +191,9 @@ func begin_melee(item: Item) -> void:
 
 func finish_tool_use() -> void:
 	var stack := InventoryManager.get_item_stack_by_index(GameState.selected_slot)
-	CursorActions.use_tool(stack.item if stack != null else null)
+	var used = CursorActions.use_tool(stack.item if stack != null else null)
+	if used:
+		CursorActions.update_farm_tilemap()
 
 
 func end_melee() -> void:

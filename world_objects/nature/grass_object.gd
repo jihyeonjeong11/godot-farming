@@ -15,6 +15,22 @@ const CLUMPS := [
 
 @export var variant: int = -1
 
+var state: Dictionary = {
+	"health": 1
+}
+
+func _ready() -> void:
+	super()
+	state = SnapshotActions.populate(global_position, data.id, state)
+
+
+func capture_state() -> Dictionary:
+	return {"variant": variant}
+
+
+func apply_state(state: Dictionary) -> void:
+	variant = state["variant"]
+
 
 func _apply_data() -> void:
 	if not is_node_ready() or data == null or data.texture == null:

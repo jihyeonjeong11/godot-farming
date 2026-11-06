@@ -3,12 +3,99 @@
 [ext_resource type="PackedScene" uid="uid://cvle266g113el" path="res://world_objects/world_object.tscn" id="1_base"]
 [ext_resource type="Script" uid="uid://b65fark1xxlv" path="res://world_objects/spawners/nature_spawner.gd" id="2_script"]
 [ext_resource type="Script" uid="uid://df33bawivqev2" path="res://world_objects/world_object_data.gd" id="3_trj6y"]
-[ext_resource type="Resource" uid="uid://d1r52tj70yuyf" path="res://world_objects/tres/oak_tree.tres" id="4_w7e58"]
-[ext_resource type="Resource" uid="uid://j40mh6yf0x6i" path="res://world_objects/tres/pine_tree.tres" id="5_o2epk"]
+[ext_resource type="Texture2D" uid="uid://dog4l2sx7u7cn" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png" id="4_sp08d"]
 [ext_resource type="Resource" uid="uid://c0mhjregim588" path="res://world_objects/tres/grass.tres" id="6_hunim"]
 [ext_resource type="Resource" uid="uid://dhco6tc6c1vqc" path="res://world_objects/tres/rock.tres" id="7_irsmc"]
 
-[sub_resource type="Resource" id="Resource_trj6y"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_stage0"]
+atlas = ExtResource("4_sp08d")
+region = Rect2(38, 616, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stage1"]
+atlas = ExtResource("4_sp08d")
+region = Rect2(4, 724, 24, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stage2"]
+atlas = ExtResource("4_sp08d")
+region = Rect2(32, 704, 32, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stage3"]
+atlas = ExtResource("4_sp08d")
+region = Rect2(92, 678, 40, 86)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stage4"]
+atlas = ExtResource("4_sp08d")
+region = Rect2(176, 650, 68, 116)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stage5"]
+atlas = ExtResource("4_sp08d")
+region = Rect2(262, 608, 84, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stage6"]
+atlas = ExtResource("4_sp08d")
+region = Rect2(352, 716, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywkkl"]
+atlas = ExtResource("4_sp08d")
+region = Rect2(0, 606, 390, 165)
+
+[sub_resource type="Resource" id="Resource_sp08d"]
+resource_local_to_scene = true
+script = ExtResource("3_trj6y")
+id = &"oak_tree"
+name = &"oak_tree"
+description = "An Oak tree."
+texture = SubResource("AtlasTexture_ywkkl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
+metadata/_custom_type_script = "uid://df33bawivqev2"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2epk"]
+atlas = ExtResource("4_sp08d")
+region = Rect2(454, 644, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hunim"]
+atlas = ExtResource("4_sp08d")
+region = Rect2(422, 718, 20, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_irsmc"]
+atlas = ExtResource("4_sp08d")
+region = Rect2(448, 692, 32, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_16fn7"]
+atlas = ExtResource("4_sp08d")
+region = Rect2(506, 672, 44, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vbwv"]
+atlas = ExtResource("4_sp08d")
+region = Rect2(588, 640, 72, 126)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1tpxe"]
+atlas = ExtResource("4_sp08d")
+region = Rect2(678, 620, 84, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dcjtf"]
+atlas = ExtResource("4_sp08d")
+region = Rect2(768, 722, 32, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ketl"]
+atlas = ExtResource("4_sp08d")
+region = Rect2(416, 606, 390, 165)
+
+[sub_resource type="Resource" id="Resource_w7e58"]
+resource_local_to_scene = true
+script = ExtResource("3_trj6y")
+id = &"pine_tree"
+name = &"pine_tree"
+description = "A Pine tree."
+texture = SubResource("AtlasTexture_2ketl")
+is_interactable = true
+max_growth_stage = 7
+growth_textures = Array[Texture]([SubResource("AtlasTexture_o2epk"), SubResource("AtlasTexture_hunim"), SubResource("AtlasTexture_irsmc"), SubResource("AtlasTexture_16fn7"), SubResource("AtlasTexture_5vbwv"), SubResource("AtlasTexture_1tpxe"), SubResource("AtlasTexture_dcjtf")])
+metadata/_custom_type_script = "uid://df33bawivqev2"
+
+[sub_resource type="Resource" id="Resource_o2epk"]
 resource_local_to_scene = true
 script = ExtResource("3_trj6y")
 id = &"nature_spanwer"
@@ -19,11 +106,11 @@ metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [node name="NatureSpawner" unique_id=1703135462 instance=ExtResource("1_base")]
 script = ExtResource("2_script")
-trees = Array[ExtResource("3_trj6y")]([ExtResource("4_w7e58"), ExtResource("5_o2epk")])
+trees = Array[ExtResource("3_trj6y")]([SubResource("Resource_sp08d"), SubResource("Resource_w7e58")])
 grass = ExtResource("6_hunim")
 rock = ExtResource("7_irsmc")
 tree_weight = 1.0
 grass_weight = 3.0
 rock_weight = 1.0
 empty_weight = 1.0
-data = SubResource("Resource_trj6y")
+data = SubResource("Resource_o2epk")

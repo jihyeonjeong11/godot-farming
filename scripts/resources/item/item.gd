@@ -56,6 +56,9 @@ const STAT_COLOR_NEGATIVE := Color(0.75, 0.3, 0.3)
 ## placeable일 때 땅에 놓으면 세워질 PlaceableObject 리소스 경로. crop_object와 같은 이유로 여기 둔다.
 @export_file("*.tres") var placeable_object_path: String = ""
 
+## placeable일 때 땅에 놓으면 생성할 WorldObject 씬. 씬에 WorldObjectData가 이미 들어 있다.
+@export var placed_scene: PackedScene
+
 ## 손에 들었을 때 재생할 장비 스프라이트 애니메이션 접두사.
 ## "axe" → axe_idle_front / axe_attack_front. 비어 있으면 손에 아무것도 안 그린다.
 @export var anim_prefix: StringName = &""

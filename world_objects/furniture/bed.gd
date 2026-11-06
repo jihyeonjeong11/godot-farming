@@ -1,4 +1,5 @@
 extends WorldObject
 
 func on_interact() -> void:
-	TimeManager.advance_day()
+	await TimeManager.advance_day()
+	SaveManager.save_current_game()

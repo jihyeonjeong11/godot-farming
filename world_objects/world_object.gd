@@ -25,10 +25,19 @@ func accepts_tool(tool: DataTypes.Tools) -> bool:
 	return tool in accepted_tools
 
 
+func capture_state() -> Dictionary:
+	return {}
+
+
+func apply_state(_state: Dictionary) -> void:
+	pass
+
+
 func on_interact() -> void:
 	pass
 	
 func on_hit(tool: DataTypes.Tools, damage: int) -> void:
+	SnapshotActions.remove(global_position)
 	queue_free()
 
 func _ready() -> void:

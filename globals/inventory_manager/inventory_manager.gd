@@ -77,6 +77,10 @@ func has_room_for(item: Item, amount: int = 1) -> bool:
 			return true
 	return false
 
+func get_selected_item() -> Item:
+	var stack := get_item_stack_by_index(GameState.selected_slot)
+	return stack.item if stack != null else null
+
 func get_item_stack_by_index(index: int) -> ItemStack:
 	if index < 0 or index >= GameState.inventory.size():
 		return null

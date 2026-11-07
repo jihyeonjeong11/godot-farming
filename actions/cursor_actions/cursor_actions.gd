@@ -48,7 +48,7 @@ static func set_target(origin: Vector2) -> void:
 		SessionState.target_dict["building"] = null
 		return
 	var mouse_pos: Vector2 = SessionState.mouse_pos
-	var reach := reach_of(Inventory.get_selected_item())
+	var reach := reach_of(InventoryManager.get_selected_item())
 	var cell := clamp_to_reach(cell_of(tilemap, mouse_pos), cell_of(tilemap, origin), reach)
 	var pos := cell_center(tilemap, cell)
 	var layers := layers_at(pos)

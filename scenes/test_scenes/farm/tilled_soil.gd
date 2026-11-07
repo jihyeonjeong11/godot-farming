@@ -1,10 +1,10 @@
 extends TileMapLayer
 
-const GROUP := &"tilled_soil"
 
 
 func _ready() -> void:
-	add_to_group(GROUP)
+	print('made')
+	SnapshotActions.populate(global_position, 'tilled_soil', {})
 	_restore_snapshot.call_deferred()
 
 

@@ -153,7 +153,7 @@ func process() -> void:
 			_collect_result()
 		return
 
-	var held := Inventory.get_selected_item()
+	var held := InventoryManager.get_selected_item()
 	if held == null:
 		return
 
@@ -168,7 +168,7 @@ func process() -> void:
 		return
 
 	for id in recipe.ingredients:
-		Inventory.consume_item(ItemDB.get_item(id), recipe.ingredients[id])
+		InventoryManager.remove_item(ItemDB.get_item(id), recipe.ingredients[id])
 
 	var now := _now_minutes()
 	process_state = {
@@ -253,7 +253,7 @@ func _missing_ingredients(recipe: CraftRecipe) -> Dictionary[Item, int]:
 		var need := ItemDB.get_item(id)
 		if need == null:
 			continue
-		var short: int = recipe.ingredients[id] - Inventory.count_item(need)
+		var short: int = recipe.ingredients[id] - InventoryManager.count_item(need)
 		if short > 0:
 			missing[need] = short
 	return missing

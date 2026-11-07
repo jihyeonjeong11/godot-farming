@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://df33bawivqev2" path="res://world_objects/world_object_data.gd" id="8_2ka5o"]
 [ext_resource type="Script" uid="uid://cu6u0yvr4eaxi" path="res://items/loot/loot.gd" id="9_2ka5o"]
 [ext_resource type="PackedScene" uid="uid://sry2kiy0so5m" path="res://world_objects/spawners/nature_spawner.tscn" id="9_nspawn"]
-[ext_resource type="Script" uid="uid://rpepg711y8sv" path="res://scenes/components/tilemap/watered_soil_layer.gd" id="12_wsoil"]
+[ext_resource type="Script" uid="uid://rpepg711y8sv" path="res://scenes/test_scenes/farm/watered_soil.gd" id="12_wsoil"]
 [ext_resource type="Script" uid="uid://cyg8x8ganehgt" path="res://scenes/components/spawn_point.gd" id="14_spawn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_stage0"]

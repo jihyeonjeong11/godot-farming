@@ -71,13 +71,10 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	from_source[from_index] = to_source[slot_index]
 	to_source[slot_index] = moved
 
-	# 양쪽 격자를 한 신호로 다시 그린다. 상자 UI도 이걸 듣는다.
-	Inventory.inventory_updated.emit()
+	InventoryManager.updated_inventory.emit()
 
-	# 입든 벗든 배열 하나가 장비 칸이면 장비가 바뀐 것이다. 벗을 때는 이 _drop_data가
-	# 인벤토리 칸 쪽에서 도므로, EquipmentSlot 에만 걸어두면 벗기를 놓친다.
-	if Inventory.is_equipment_source(from_source) or Inventory.is_equipment_source(to_source):
-		Inventory.equipment_updated.emit()
+	if is_same(from_source, GameState.equipments) or is_same(to_source, GameState.equipments):
+		InventoryManager.updated_equipment.emit()
 
 
 func set_slot(stack: ItemStack) -> void:

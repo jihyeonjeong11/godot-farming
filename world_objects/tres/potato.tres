@@ -1,7 +1,9 @@
 [gd_resource type="Resource" script_class="WorldObjectData" format=3 uid="uid://dxq5xfewbwnwu"]
 
+[ext_resource type="Script" uid="uid://cu6u0yvr4eaxi" path="res://items/loot/loot.gd" id="1_0apn1"]
 [ext_resource type="Script" uid="uid://df33bawivqev2" path="res://world_objects/world_object_data.gd" id="1_m73lt"]
 
 [resource]
 script = ExtResource("1_m73lt")
+id = &"potato"
 metadata/_custom_type_script = "uid://df33bawivqev2"

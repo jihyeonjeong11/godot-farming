@@ -28,12 +28,15 @@ func _ready() -> void :
 #
 	#if not has_interface:
 		#interface.hud.hide()
+	restore_snapshot_tiles
 	restore_snapshot_objects()
 	_enter()
 
 func _enter() -> void:
 	pass
 
+func restore_snapshot_tiles() -> void:
+	pass
 
 func restore_snapshot_objects() -> void:
 	if get_tree().current_scene.scene_file_path != FARM_SCENE_PATH:

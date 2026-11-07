@@ -39,7 +39,7 @@ func describe() -> String:
 		var need := ItemDB.get_item(id)
 		if need == null:
 			continue
-		lines.append("%s %d/%d" % [need.item_name, Inventory.count_item(need), ingredients[id]])
+		lines.append("%s %d/%d" % [need.item_name, InventoryManager.count_item(need), ingredients[id]])
 
 	return "\n".join(lines)
 

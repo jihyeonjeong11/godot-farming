@@ -18,7 +18,6 @@ item_type = 5
 item_name = "Scrap metal"
 item_texture = SubResource("AtlasTexture_d8xnv")
 description = "고철 한 덩어리"
-max_stack = 100
 world_scene_path = "uid://cb65olukse4yu"
 world_texture = SubResource("AtlasTexture_lpbap")
 metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

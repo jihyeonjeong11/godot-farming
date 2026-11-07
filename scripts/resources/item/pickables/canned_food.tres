@@ -16,6 +16,5 @@ item_texture = SubResource("AtlasTexture_item97")
 hunger = 20
 description = "녹슨 통조림. 아직 부풀지는 않았다. 우클릭으로 먹는다."
 value = 45
-max_stack = 100
 world_scene_path = "uid://cb65olukse4yu"
 metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

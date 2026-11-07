@@ -16,6 +16,5 @@ item_texture = SubResource("AtlasTexture_item98")
 hunger = 10
 description = "유통기한이 한참 지났지만 초콜릿은 잘 안 상한다. 우클릭으로 먹는다."
 value = 25
-max_stack = 100
 world_scene_path = "uid://cb65olukse4yu"
 metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

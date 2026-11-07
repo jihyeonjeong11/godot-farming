@@ -16,6 +16,5 @@ item_texture = SubResource("AtlasTexture_item95")
 thirst = 30
 description = "뚜껑이 아직 닫혀 있는 생수병. 우클릭으로 마신다."
 value = 35
-max_stack = 100
 world_scene_path = "uid://cb65olukse4yu"
 metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

@@ -18,7 +18,6 @@ item_type = 5
 item_name = "Log"
 item_texture = SubResource("AtlasTexture_jg2iq")
 description = "나무를 베어 얻는다."
-max_stack = 100
 world_scene_path = "uid://cb65olukse4yu"
 world_texture = SubResource("AtlasTexture_lbxfm")
 metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

@@ -87,7 +87,7 @@ func _collect() -> void:
 	if InventoryManager.has_room_for(stack.item, stack.amount) and InventoryActions.obtain(stack):
 		_collected = true
 		set_physics_process(false)
-		SoundManager.play_sound(AudioManager.SOUND_EFFECTS[AudioManager.SFX_ITEM_PICKUP])
+		SoundManager.play_sound(preload("res://assets/sounds/interactions/bloop.mp3"))
 		get_parent().queue_free()
 		return
 

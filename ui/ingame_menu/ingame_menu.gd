@@ -9,10 +9,10 @@ extends CanvasLayer
 ## 세팅 - ui stack 생각해야 함.
 ## 세팅 - 그대로 사용 가능할지?
 @onready var tab_buttons: Array[Button] = [
-	%InventoryTab, %CraftingTab, %QuestTab, %StatsTab, %SystemTab
+	%InventoryTab, %CraftingTab, %QuestTab, %StatsTab, %RadioTab, %SystemTab
 ]
 @onready var tab_panels: Array[Control] = [
-	%InventoryPanel, %CraftingPanel, %QuestPanel, %StatsPanel, %SystemPanel
+	%InventoryPanel, %CraftingPanel, %QuestPanel, %StatsPanel, %RadioPanel, %SystemPanel
 	]
 
 @onready var settings_button: Button = %SettingsButton

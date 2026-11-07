@@ -234,7 +234,7 @@ func _collect_result() -> void:
 		return
 
 	InventoryActions.pickup(stack)
-	SoundManager.play_sound(AudioManager.SOUND_EFFECTS[AudioManager.SFX_ITEM_PICKUP])
+	SoundManager.play_sound(preload("res://assets/sounds/interactions/bloop.mp3"))
 	process_state = {}
 	process_slot.clear()
 

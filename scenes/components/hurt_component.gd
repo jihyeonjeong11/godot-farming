@@ -1,17 +1,17 @@
 class_name HurtComponent
 extends Area2D
 
-## 도구별 타격음. 스트림 표는 AudioManager 하나만 두고 여기선 키만 가리킨다.
+## 도구별 타격음.
 ## 여기 없는 도구(Melee, None)는 씬에 박힌 HitAudioStreamPlayer 의 소리를 그대로 쓴다.
 const TOOL_SFX: Dictionary = {
-	DataTypes.Tools.AxeWood: AudioManager.SFX_TREE_HITTING,
-	DataTypes.Tools.MineRock: AudioManager.SFX_MINING_ROCK,
-	DataTypes.Tools.TillGround: AudioManager.SFX_TILLING_GROUND,
-	DataTypes.Tools.WaterCrops: AudioManager.SFX_WATERING_CROPS,
+	DataTypes.Tools.AxeWood: preload("res://assets/sounds/interactions/axe.mp3"),
+	DataTypes.Tools.MineRock: preload("res://assets/sounds/interactions/pickaxe.mp3"),
+	DataTypes.Tools.TillGround: preload("res://assets/sounds/interactions/hoe.mp3"),
+	DataTypes.Tools.WaterCrops: preload("res://assets/sounds/interactions/watering_can.mp3"),
 	# TODO: 심는 소리가 아직 없다. 흙 소리로 임시로 때운다.
-	DataTypes.Tools.PlantPotato: AudioManager.SFX_TILLING_GROUND,
-	DataTypes.Tools.PlantWheat: AudioManager.SFX_TILLING_GROUND,
-	DataTypes.Tools.PlantCorn: AudioManager.SFX_TILLING_GROUND,
+	DataTypes.Tools.PlantPotato: preload("res://assets/sounds/interactions/hoe.mp3"),
+	DataTypes.Tools.PlantWheat: preload("res://assets/sounds/interactions/hoe.mp3"),
+	DataTypes.Tools.PlantCorn: preload("res://assets/sounds/interactions/hoe.mp3"),
 }
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -81,7 +81,7 @@ func tool_hit_sound() -> AudioStream:
 	if not TOOL_SFX.has(tool):
 		return null
 
-	return AudioManager.SOUND_EFFECTS.get(TOOL_SFX[tool])
+	return TOOL_SFX[tool]
 
 
 func on_hit_effect_finished() -> void:

@@ -27,7 +27,7 @@ static func consume(index: int) -> bool:
 		else:
 			InventoryManager.delete_stack(index)
 		InventoryManager.updated_inventory.emit()
-		SoundManager.play_ui_sound(AudioManager.SOUND_EFFECTS[AudioManager.SFX_EATING])
+		SoundManager.play_ui_sound(preload("res://assets/sounds/interactions/eating.mp3"))
 		return true
 	else:
 		return false
@@ -61,7 +61,7 @@ static func craft(recipe: CraftRecipe, times: int = 1) -> int:
 		made += 1
 	if made > 0:
 		SignalBus.toast_requested.emit(result.item_texture, "+%d" % (made * recipe.result_amount))
-		SoundManager.play_ui_sound(AudioManager.SOUND_EFFECTS[AudioManager.SFX_CRAFT])
+		SoundManager.play_ui_sound(preload("res://assets/sounds/interactions/crafting_hammer.mp3"))
 	return made
 
 static func craft_bulk(recipe: CraftRecipe) -> int:
@@ -138,7 +138,7 @@ static func trash_held() -> bool:
 		return false
 	InventoryManager.held_stack = null
 	InventoryManager.held_changed.emit()
-	SoundManager.play_ui_sound(AudioManager.SOUND_EFFECTS[AudioManager.SFX_TRASH])
+	SoundManager.play_ui_sound(preload("res://assets/sounds/interactions/trash_can.mp3"))
 	return true
 
 static func quickbar_select(index: int) -> void:

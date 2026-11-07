@@ -11,7 +11,7 @@ func interact() -> void:
 		push_warning("문에 target_scene 이 비어 있다: %s" % get_path())
 		return
 
-	SoundManager.play_sound(AudioManager.SOUND_EFFECTS[AudioManager.SFX_DOOR_OPENING])
+	SoundManager.play_sound(preload("res://assets/sounds/interactions/opening_door.mp3"))
 	TransitionManager.go_to_scene(target_scene, target_spawn)
 
 

@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://d2860kg1t6hp2" path="res://ui/reusables/inventory_panel/inventory_panel.tscn" id="3_invpanel"]
 [ext_resource type="Script" uid="uid://j4fpthd3r5ed" path="res://ui/ingame_menu/held_icon.gd" id="4_held"]
 [ext_resource type="Script" uid="uid://i18walgoknqf" path="res://ui/ingame_menu/stats_panel.gd" id="4_vogn2"]
+[ext_resource type="Script" path="res://ui/radio_panel/radio_panel.gd" id="5_radio"]
 [ext_resource type="PackedScene" uid="uid://caip4suvafyua" path="res://ui/reusables/craftings_panel/craftings_panel.tscn" id="4_ye1hr"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_tabs"]
@@ -82,6 +83,15 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_tabs")
 text = "Stats"
 
+[node name="RadioTab" type="Button" parent="ColorRect/CenterContainer/HBoxContainer/TabColumn" unique_id=2031582290]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+toggle_mode = true
+button_group = SubResource("ButtonGroup_tabs")
+text = "Radio"
+
 [node name="SystemTab" type="Button" parent="ColorRect/CenterContainer/HBoxContainer/TabColumn" unique_id=2031582279]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 150)
@@ -128,6 +138,15 @@ layout_mode = 2
 theme_type_variation = &"MenuContainer"
 theme_override_styles/panel = SubResource("StyleBoxTexture_g0yls")
 script = ExtResource("4_vogn2")
+
+[node name="RadioPanel" type="PanelContainer" parent="ColorRect/CenterContainer/HBoxContainer" unique_id=1403694650]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(1080, 0)
+layout_mode = 2
+theme_type_variation = &"MenuContainer"
+theme_override_styles/panel = SubResource("StyleBoxTexture_g0yls")
+script = ExtResource("5_radio")
 
 [node name="SystemPanel" type="PanelContainer" parent="ColorRect/CenterContainer/HBoxContainer" unique_id=1403694643]
 unique_name_in_owner = true

@@ -10,20 +10,20 @@ atlas = ExtResource("4_f64us")
 region = Rect2(546, 1026, 28, 30)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ofi3x"]
-size = Vector2(24, 12)
+size = Vector2(32, 32)
 
 [node name="RockObject" unique_id=624303172 instance=ExtResource("1_base")]
 script = ExtResource("2_rock")
-variant = 3
 data = ExtResource("3_data")
 accepted_tools = Array[int]([2])
 
 [node name="Sprite2D" parent="." index="0" unique_id=999308787]
+position = Vector2(0, 4)
 texture = SubResource("AtlasTexture_f64us")
 offset = Vector2(-14, -30)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." index="1" unique_id=1223050523]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0" unique_id=136067728]
-position = Vector2(0, -6)
+position = Vector2(0, -12)
 shape = SubResource("RectangleShape2D_ofi3x")

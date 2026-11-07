@@ -9,26 +9,38 @@ const VARIANTS := [
 	Rect2(35, 33, 34, 32),
 	Rect2(69, 33, 30, 28),
 ]
-const BASE_SIZE := Vector2(24, 12)
-
-@export var variant: int = -1
-
-@onready var collision_shape_2d: CollisionShape2D = $StaticBody2D/CollisionShape2D
 
 var state: Dictionary = {
-	"health": 1
+	"health": 1,
+	"variant": -1
 }
 
 func _ready() -> void:
+	if not Engine.is_editor_hint():
+		state["health"] = data.max_health
+		state = SnapshotActions.populate(global_position, data.id, state)
 	super()
-	state = SnapshotActions.populate(global_position, data.id, state)
+
+
+func on_hit(tool: DataTypes.Tools, damage: int) -> void:
+	if damage >= state["health"]:
+		destroy()
+	else:
+		state["health"] -= damage
+
+
+func destroy() -> void:
+	LootActions.drop_loot(data.loot_pool, global_position)
+	SnapshotActions.remove(global_position)
+	queue_free()
 
 
 func _apply_data() -> void:
 	if not is_node_ready() or data == null or data.texture == null:
 		return
-	if variant < 0 or variant >= VARIANTS.size():
-		variant = randi() % VARIANTS.size()
+	if state.get("variant", -1) < 0:
+		state["variant"] = randi() % VARIANTS.size()
+	var rect: Rect2 = VARIANTS[int(state["variant"])]
 	var sheet := data.texture
 	var origin := Vector2.ZERO
 	if sheet is AtlasTexture:
@@ -36,15 +48,6 @@ func _apply_data() -> void:
 		sheet = sheet.atlas
 	var rock := AtlasTexture.new()
 	rock.atlas = sheet
-	rock.region = Rect2(origin + VARIANTS[variant].position, VARIANTS[variant].size)
+	rock.region = Rect2(origin + rect.position, rect.size)
 	sprite.texture = rock
 	sprite.offset = Vector2(-rock.get_width() / 2.0, -rock.get_height())
-	_apply_collision(rock)
-
-
-func _apply_collision(tex: Texture2D) -> void:
-	var size := BASE_SIZE.min(tex.get_size())
-	var shape := RectangleShape2D.new()
-	shape.size = size
-	collision_shape_2d.shape = shape
-	collision_shape_2d.position = Vector2(0, -size.y / 2.0)

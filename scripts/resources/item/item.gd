@@ -47,7 +47,7 @@ const STAT_COLOR_NEGATIVE := Color(0.75, 0.3, 0.3)
 ## 근접 판정과는 별개 축이다. 괭이는 때리는 범위가 아니라 닿는 칸이 중요하다.
 @export var use_range: float = 20.0
 
-@export var max_stack: int
+@export var max_stack: int = 100
 
 ## 씨앗일 때 CursorComponent 가 crop_instance 에 꽂을 작물 리소스. 씨앗 종류마다
 ## 작물이 다르므로 커서 쪽에 if문을 늘리지 않고 아이템 리소스가 직접 들고 있는다.

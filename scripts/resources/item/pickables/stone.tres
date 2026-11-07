@@ -18,7 +18,6 @@ item_name = "Stone"
 item_texture = SubResource("AtlasTexture_gbxoi")
 description = "Mined from rocks."
 value = 1
-max_stack = 100
 world_scene_path = "uid://cb65olukse4yu"
 world_texture = SubResource("Resource_yj2yt")
 metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

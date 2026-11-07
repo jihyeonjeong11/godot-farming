@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://df33bawivqev2" path="res://world_objects/world_object_data.gd" id="1_data"]
 [ext_resource type="Texture2D" uid="uid://dog4l2sx7u7cn" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png" id="2_atlas"]
-[ext_resource type="Resource" uid="uid://c8onion0pick1" path="res://scripts/resources/item/pickables/onion.tres" id="9_loot"]
+[ext_resource type="Script" uid="uid://cu6u0yvr4eaxi" path="res://items/loot/loot.gd" id="2_qrs4m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_st0"]
 atlas = ExtResource("2_atlas")
@@ -35,7 +35,6 @@ name = &"onion_crop"
 description = "An onion crop."
 texture = SubResource("AtlasTexture_strip")
 type = 2
-loot = ExtResource("9_loot")
 max_growth_stage = 4
 growth_textures = Array[Texture]([SubResource("AtlasTexture_st0"), SubResource("AtlasTexture_st1"), SubResource("AtlasTexture_st2"), SubResource("AtlasTexture_st3"), SubResource("AtlasTexture_st4")])
 days_until_harvest = 4

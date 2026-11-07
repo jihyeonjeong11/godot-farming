@@ -7,7 +7,9 @@ extends Resource
 @export var texture: Texture2D
 @export var type: DataTypes.ObjectType
 @export var is_interactable: bool = false
-@export var loot: Item
+@export var loot_pool: Array[LootData]
+
+@export var max_health: int = 1
 
 # nature
 @export var growth_stage: int = 0

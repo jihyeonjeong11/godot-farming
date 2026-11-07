@@ -17,6 +17,6 @@ item_name = "Melon Seeds"
 item_texture = SubResource("AtlasTexture_seed")
 description = "Canned melon seeds"
 max_stack = 100
-world_scene_path = "uid://cb65olukse4yu"
 crop_object = ExtResource("9_crop")
+world_scene_path = "uid://cb65olukse4yu"
 metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

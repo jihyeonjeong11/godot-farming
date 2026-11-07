@@ -79,7 +79,7 @@ func dev_build_snapshot_view() -> void:
 
 
 func draw_grid() -> void:
-	var size := float(GlobalVars.tile_size)
+	var size := float(Constants.tile_size)
 	var viewport := get_viewport()
 	var world_to_grid := grid.global_transform.affine_inverse()
 	var screen_to_grid := world_to_grid * viewport.get_canvas_transform().affine_inverse()

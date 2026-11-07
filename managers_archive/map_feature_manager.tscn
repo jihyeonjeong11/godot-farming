@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://vlwn0vdyb13"]
 
-[ext_resource type="Script" uid="uid://coyfellivqf1w" path="res://managers/map_feature_manager.gd" id="1_2hrce"]
+[ext_resource type="Script" uid="uid://coyfellivqf1w" path="res://managers_archive/map_feature_manager.gd" id="1_2hrce"]
 [ext_resource type="AudioStream" uid="uid://cd1m2fk4p6lv4" path="res://assets/sounds/ambients/geiger_counter.mp3" id="2_geiger"]
 
 [node name="MapFeatureManager" type="Node" unique_id=1436543621]

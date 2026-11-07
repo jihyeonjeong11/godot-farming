@@ -10,7 +10,7 @@
 [ext_resource type="Resource" uid="uid://txf3sdnp05dp" path="res://scripts/resources/placeable_object/furniture/bed_house.tres" id="7_bed"]
 [ext_resource type="Script" uid="uid://cn7l4yqx8mkr2" path="res://scenes/components/persistent/level_layer.gd" id="8_layer"]
 [ext_resource type="Resource" uid="uid://btv0000000001" path="res://scripts/resources/placeable_object/furniture/tv.tres" id="9_tv"]
-[ext_resource type="PackedScene" uid="uid://vlwn0vdyb13" path="res://managers/map_feature_manager.tscn" id="10_mapft"]
+[ext_resource type="PackedScene" uid="uid://vlwn0vdyb13" path="res://managers_archive/map_feature_manager.tscn" id="10_mapft"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_object"]
 atlas = ExtResource("5_kq8jo")

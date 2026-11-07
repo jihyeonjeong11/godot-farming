@@ -1,6 +1,5 @@
 class_name CursorActions extends RefCounted
 
-const TILE_SIZE: int = 32
 const BASE_TILE_RANGE: int = 2
 const BASE_PLACEMENT_RANGE: int = 4
 
@@ -82,7 +81,7 @@ static func back_terrain(pos: Vector2) -> String:
 
 
 static func cell_rect(tilemap: TileMapLayer, cell: Vector2i) -> Rect2:
-	var size := Vector2.ONE * GlobalVars.tile_size
+	var size := Vector2.ONE * Constants.tile_size
 	return tilemap.global_transform * Rect2(Vector2(cell) * size, size)
 
 
@@ -128,7 +127,7 @@ static func is_at_door() -> bool:
 	var pos = SessionState.target_dict["pos"]
 	if not is_instance_valid(building) or pos == null:
 		return false
-	var size := Vector2.ONE * GlobalVars.tile_size
+	var size := Vector2.ONE * Constants.tile_size
 	return (building as Building).door_overlaps(Rect2(pos - size * 0.5, size))
 
 
@@ -147,11 +146,11 @@ static func current_land() -> TileMapLayer:
 
 
 static func cell_of(tilemap: TileMapLayer, point: Vector2) -> Vector2i:
-	return Vector2i((tilemap.to_local(point) / GlobalVars.tile_size).floor())
+	return Vector2i((tilemap.to_local(point) / Constants.tile_size).floor())
 
 
 static func cell_center(tilemap: TileMapLayer, cell: Vector2i) -> Vector2:
-	return tilemap.to_global((Vector2(cell) + Vector2(0.5, 0.5)) * GlobalVars.tile_size)
+	return tilemap.to_global((Vector2(cell) + Vector2(0.5, 0.5)) * Constants.tile_size)
 
 
 static func clamp_to_reach(cell: Vector2i, origin: Vector2i, reach_tiles: int) -> Vector2i:

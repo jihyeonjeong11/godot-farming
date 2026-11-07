@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://br26lxwsmljo4"]
 
-[ext_resource type="Script" uid="uid://csxtuxtmelrm7" path="res://managers/quest_manager.gd" id="1_quest"]
+[ext_resource type="Script" uid="uid://csxtuxtmelrm7" path="res://managers_archive/quest_manager.gd" id="1_quest"]
 
 [node name="QuestManager" type="Node" unique_id=585881470]
 script = ExtResource("1_quest")

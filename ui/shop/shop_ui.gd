@@ -17,7 +17,7 @@ const COLOR_BAD := Color(0.9, 0.35, 0.3)
 @onready var confirm_button: Button = %ConfirmButton
 @onready var cancel_button: Button = %CancelButton
 
-var sell_multiplier: float = GlobalVars.default_sell_multiplier
+var sell_multiplier: float = Constants.default_sell_multiplier
 
 var sell_slots: Array[ItemStack] = []
 var buy_slots: Array[ItemStack] = []

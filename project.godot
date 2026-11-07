@@ -25,6 +25,7 @@ buses/default_bus_layout="res://audio_layout.tres"
 
 [autoload]
 
+Constants="*uid://cymd1pg1sovv1"
 Platform="*uid://4p7xud7r7o0s"
 SaveManager="*uid://bdfum4odxmwvh"
 SignalBus="*uid://c5yk62a6w1nji"
@@ -36,7 +37,6 @@ SoundManager="*uid://6q1wagejt60k"
 InputHelper="*uid://cholww48njaeh"
 Inventory="*uid://vycgnw0v4akr"
 InventoryManager="*uid://du6awfm7ith4b"
-GlobalVars="*uid://dm0kyhg7vo3vn"
 TransitionManager="*uid://bkhcivjsmru7u"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 TimeManager="*uid://cvu3ptui3xgbu"
@@ -72,10 +72,12 @@ enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://add
 [file_customization]
 
 folder_colors={
+"res://actions/": "teal",
 "res://buildings/": "gray",
 "res://dialogues/": "yellow",
 "res://globals/": "orange",
 "res://items/": "green",
+"res://managers_archive/": "gray",
 "res://monsters/": "red",
 "res://ui/": "blue",
 "res://world_objects/": "pink"

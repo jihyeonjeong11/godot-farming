@@ -11,7 +11,6 @@
 [ext_resource type="Resource" uid="uid://dn1oxfy01wq4k" path="res://scripts/resources/placeable_object/furniture/bed.tres" id="91_bed"]
 [ext_resource type="Resource" uid="uid://dv80lbs85tnag" path="res://scripts/resources/placeable_object/furniture/campfire.tres" id="93_camp"]
 [ext_resource type="Resource" uid="uid://clh75kbapjbke" path="res://scripts/resources/placeable_object/furniture/chest.tres" id="94_chest"]
-[ext_resource type="Resource" uid="uid://cwu5que5eyybe" path="res://scripts/resources/placeable_object/nature/oak_tree.tres" id="96_oak"]
 [ext_resource type="Resource" uid="uid://d0o000jgyh5ci" path="res://scripts/resources/placeable_object/nature/apple_tree.tres" id="97_apple"]
 [ext_resource type="Resource" uid="uid://cc6er7qjkt4n8" path="res://scripts/resources/placeable_object/props/barrels.tres" id="100_barrel"]
 [ext_resource type="Resource" uid="uid://ca458q48ofad6" path="res://scripts/resources/placeable_object/props/vending_machine.tres" id="99_vend"]
@@ -33,10 +32,6 @@ position = Vector2(450, 880)
 
 [node name="Camera2D" type="Camera2D" parent="Level/Player" unique_id=80018064]
 zoom = Vector2(2, 2)
-
-[node name="OakTree" parent="Level" unique_id=741127026 instance=ExtResource("90_objin")]
-position = Vector2(120, 200)
-object = ExtResource("96_oak")
 
 [node name="AppleTree" parent="Level" unique_id=1805575475 instance=ExtResource("90_objin")]
 position = Vector2(420, 200)

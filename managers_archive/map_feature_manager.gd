@@ -1,13 +1,5 @@
 extends Node
 
-# 타일의 방사능, 어떤 오브젝트의 방사능 수치를 조회하기 위해 저장하는 역할임.
-# feature = 방사능이나 화염 피해 같은 그거 자체임.
-
-# swap_scene불릴때 각종 타일, 오브젝트 루프 다 돌아서 radiation같은 프로퍼티 있는거
-# 다 여기 리스트에서 가짐.
-# 지금은 crop이랑 플레이어만 영향을 받음
-# 오브젝트 레이어 변경, 타일 변경이 일어날 시 여기 업데이트
-
 # 지금은 radiation_barrel 하나뿐임
 var object_list: Array[ObjectInstance] = []: set = _on_object_list_set, get = _get_object_list
 

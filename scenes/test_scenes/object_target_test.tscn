@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://cd23fy8lk2tva" path="res://assets/apo/32x32_dec_props.png" id="14_qpapi"]
 [ext_resource type="Resource" uid="uid://b0mebugnhfw2t" path="res://scripts/resources/placeable_object/nature/rock.tres" id="o0"]
 [ext_resource type="Resource" uid="uid://b3062coieyhe3" path="res://scripts/resources/placeable_object/nature/coal_rock.tres" id="o1"]
-[ext_resource type="Resource" uid="uid://cwu5que5eyybe" path="res://scripts/resources/placeable_object/nature/oak_tree.tres" id="o2"]
 [ext_resource type="Resource" uid="uid://bcrpsldr7lt2a" path="res://scripts/resources/placeable_object/props/corpse_soldier.tres" id="o3"]
 [ext_resource type="Resource" uid="uid://clh75kbapjbke" path="res://scripts/resources/placeable_object/furniture/chest.tres" id="o4"]
 [ext_resource type="Resource" uid="uid://cc6er7qjkt4n8" path="res://scripts/resources/placeable_object/props/barrels.tres" id="o5"]
@@ -21,10 +20,6 @@
 [sub_resource type="AtlasTexture" id="AtlasTexture_object"]
 atlas = ExtResource("4_vlajy")
 region = Rect2(264, 74, 52, 46)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1n6t6"]
-atlas = ExtResource("8_isq0v")
-region = Rect2(258, 607, 90, 161)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b16xi"]
 atlas = ExtResource("12_unh3i")
@@ -72,13 +67,6 @@ texture = ExtResource("6_ajcwy")
 centered = false
 offset = Vector2(-26, -46)
 object = ExtResource("o1")
-
-[node name="OakTree" parent="." index="6" unique_id=823154233 instance=ExtResource("3_obj")]
-position = Vector2(544, 208)
-texture = SubResource("AtlasTexture_1n6t6")
-centered = false
-offset = Vector2(-45, -161)
-object = ExtResource("o2")
 
 [node name="CorpseSoldier" parent="." index="7" unique_id=1335449242 instance=ExtResource("3_obj")]
 position = Vector2(304, 256)

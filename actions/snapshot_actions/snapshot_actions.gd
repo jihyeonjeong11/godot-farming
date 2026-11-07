@@ -1,6 +1,5 @@
 class_name SnapshotActions extends Node
 
-const TILE_SIZE = 32
 
 static func populate(object_pos: Vector2, id: String, state: Dictionary) -> Dictionary:
 	var key := get_cell_from_pos(object_pos)
@@ -22,8 +21,8 @@ static func remove(pos: Vector2) -> void:
 
 
 static func get_cell_from_pos(pos: Vector2) -> Vector2i:
-	return Vector2i((pos / GlobalVars.tile_size).floor())
+	return Vector2i((pos / Constants.tile_size).floor())
 
 
 static func get_pos_from_cell(cell: Vector2i) -> Vector2:
-	return (Vector2(cell) + Vector2(0.5, 0.5)) * GlobalVars.tile_size + CursorActions.PLACED_BASE_OFFSET
+	return (Vector2(cell) + Vector2(0.5, 0.5)) * Constants.tile_size + CursorActions.PLACED_BASE_OFFSET

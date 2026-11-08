@@ -274,12 +274,17 @@ static func till_target() -> void:
 		return
 	var cell := soil.local_to_map(soil.to_local(SessionState.target_dict["pos"]))
 	soil.set_cells_terrain_connect([cell], DataTypes.SOIL_TERRAIN_SET, DataTypes.SoilTerrains.TilledDirt, true)
+	SnapshotActions.till(cell)
 
 
 static func water_target() -> void:
 	var soil := level_layer(^"Tilemap/TilledSoil")
 	var watered := level_layer(^"Tilemap/WateredSoil") as WateredSoilLayer
-	watered.water_cell(soil.local_to_map(soil.to_local(SessionState.target_dict["pos"])), soil)
+	var cell := soil.local_to_map(soil.to_local(SessionState.target_dict["pos"]))
+	if soil.get_cell_source_id(cell) == -1:
+		return
+	watered.water_cell(cell, soil)
+	SnapshotActions.water(cell)
 
 
 static func level_layer(path: NodePath) -> TileMapLayer:

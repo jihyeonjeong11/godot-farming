@@ -52,6 +52,7 @@ func advance_day() -> void:
 	await TransitionManager.fade_to_color(Color.BLACK)
 
 	day_passed.emit()
+	SnapshotActions.dry_all_soil()
 	get_tree().call_group(WateredSoilLayer.GROUP, &"dry_all")
 	
 	await get_tree().create_timer(SLEEP_HOLD_DURATION).timeout

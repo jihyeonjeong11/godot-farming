@@ -56,11 +56,8 @@ func is_tile_watered() -> bool:
 
 
 func on_day_passed() -> void:
-	print('hello')
 	if not is_tile_watered():
-		print('not')
 		return
-	print('watered')
 	watered_days += 1
 	growth_states()
 

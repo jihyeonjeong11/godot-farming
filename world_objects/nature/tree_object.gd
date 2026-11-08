@@ -11,6 +11,7 @@ const FALL_ANGLE := PI / 2.0
 const FALL_DURATION := 0.7
 const FADE_DURATION := 0.25
 
+
 var state: Dictionary = {
 	"health": 1,
 	"growth_stage": 0

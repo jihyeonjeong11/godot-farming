@@ -43,6 +43,7 @@ var farm_snapshot: Dictionary = {}:
 		return farm_snapshot 
 	set(value):
 		farm_snapshot = value
+var farm_soil_seeded: bool = false
 
 ## Story flags for tutorial.
 var tutorial_flags: Dictionary = {

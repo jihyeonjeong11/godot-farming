@@ -18,6 +18,7 @@ const FOOTSTEP_BY_TERRAIN := {
 var is_playing = false
 var _meleeing := false
 var _footstep_timer := 0.0
+var _footstep_stream: AudioStream
 
 
 func _ready() -> void:
@@ -32,12 +33,14 @@ func _on_enter() -> void:
 func _on_physics_process(delta: float) -> void:
 	if SessionState.cinematic_stack_size > 0:
 		player.velocity = Vector2.ZERO
+		_stop_footstep()
 		player.play_action("idle")
 		return
 	if is_playing:
 		return
 	if player.is_freeze:
 		player.velocity = Vector2.ZERO
+		_stop_footstep()
 		player.play_action("idle")
 		return
 	if Input.is_action_just_pressed("hit") and get_viewport().gui_get_hovered_control() == null:
@@ -62,6 +65,7 @@ func _on_physics_process(delta: float) -> void:
 	if input == Vector2.ZERO:
 		player.velocity = Vector2.ZERO
 		_footstep_timer = 0.0
+		_stop_footstep()
 		player.play_action("idle")
 		return
 	player.face(input)
@@ -77,7 +81,15 @@ func _tick_footstep(delta: float) -> void:
 		return
 	_footstep_timer = FOOTSTEP_INTERVAL
 	player.ground_type = player.get_terrain_type()
-	SoundManager.play_sound(FOOTSTEP_BY_TERRAIN.get(player.ground_type, FOOTSTEP))
+	_footstep_stream = FOOTSTEP_BY_TERRAIN.get(player.ground_type, FOOTSTEP)
+	SoundManager.play_sound(_footstep_stream)
+
+
+func _stop_footstep() -> void:
+	if _footstep_stream == null:
+		return
+	SoundManager.stop_sound(_footstep_stream)
+	_footstep_stream = null
 
 
 func _on_animation_finished() -> void:
@@ -97,6 +109,7 @@ func _on_animation_finished() -> void:
 
 func _on_exit() -> void:
 	SessionState.cursor_freeze = false
+	_stop_footstep()
 	if _meleeing:
 		_meleeing = false
 		is_playing = false

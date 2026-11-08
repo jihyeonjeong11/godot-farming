@@ -8,7 +8,6 @@ class_name Base_level extends Node2D
 @export var level_key: DataTypes.Levels
 @export var camera_land_inset := 1
 const UI_MANAGER = preload("uid://bqrbyohvqh031")
-const FARM_SCENE_PATH := "res://scenes/test_scenes/farm/farm_latest.tscn"
 
 var interface: CanvasLayer
 
@@ -28,7 +27,7 @@ func _ready() -> void :
 #
 	#if not has_interface:
 		#interface.hud.hide()
-	restore_snapshot_tiles
+	restore_snapshot_tiles()
 	restore_snapshot_objects()
 	_enter()
 
@@ -36,17 +35,33 @@ func _enter() -> void:
 	pass
 
 func restore_snapshot_tiles() -> void:
-	pass
+	if not SnapshotActions.is_farm():
+		return
+	var tilled := get_node_or_null(^"Tilemap/TilledSoil") as TileMapLayer
+	var watered := get_node_or_null(^"Tilemap/WateredSoil") as WateredSoilLayer
+	if tilled == null or watered == null:
+		return
+	if not GameState.farm_soil_seeded:
+		for cell in tilled.get_used_cells():
+			SnapshotActions.till(cell)
+		GameState.farm_soil_seeded = true
+		return
+	tilled.clear()
+	var soil_cells := SnapshotActions.cells_with(SnapshotActions.SOIL)
+	tilled.set_cells_terrain_connect(soil_cells, DataTypes.SOIL_TERRAIN_SET, DataTypes.SoilTerrains.TilledDirt, true)
+	for cell in soil_cells:
+		if SnapshotActions.get_slot(cell, SnapshotActions.SOIL).get("watered", false):
+			watered.water_cell(cell, tilled)
 
 func restore_snapshot_objects() -> void:
-	if get_tree().current_scene.scene_file_path != FARM_SCENE_PATH:
+	if not SnapshotActions.is_farm():
 		return
 	var occupied := {}
 	for node in get_tree().get_nodes_in_group(&"object"):
 		if node is not NatureSpawner:
 			occupied[SnapshotActions.get_cell_from_pos(node.global_position)] = true
-	for cell: Vector2i in GameState.farm_snapshot:
-		var id: String = GameState.farm_snapshot[cell].get("id", "")
+	for cell: Vector2i in SnapshotActions.cells_with(SnapshotActions.OBJECT):
+		var id: String = SnapshotActions.get_slot(cell, SnapshotActions.OBJECT).get("id", "")
 		if id.is_empty() or occupied.has(cell):
 			continue
 		var object := WorldObjectDB.create(id)

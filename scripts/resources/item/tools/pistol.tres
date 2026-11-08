@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_bxvu5")
 item_id = "pistol"
-item_type = 9
+item_type = 10
 tool_type = 7
 item_name = "pistol"
 item_texture = ExtResource("2_icon")

@@ -239,6 +239,26 @@ static func plant_seed(item: Item) -> bool:
 	return false
 
 
+static func is_wild_seed_plantable() -> bool:
+	var t := SessionState.target_dict
+	if t["pos"] == null or is_instance_valid(t["object"]) or is_instance_valid(t["building"]):
+		return false
+	return t["tile"] == BACK_LAYER and t["terrain"] in TileUtils.TILLABLE_TERRAINS
+
+
+static func plant_wild_seed(item: Item) -> bool:
+	if item.world_object_id.is_empty() or not is_wild_seed_plantable():
+		return false
+	var tree := WorldObjectDB.create(item.world_object_id)
+	if tree == null:
+		return false
+	tree.position = SessionState.target_dict["pos"] + PLACED_BASE_OFFSET
+	(Engine.get_main_loop() as SceneTree).current_scene.add_child(tree)
+	InventoryManager.remove_item(item, 1)
+	SoundManager.play_sound(HOE)
+	return true
+
+
 ## 스냅샷은 칸마다 오브젝트를 하나만 담으므로 이미 오브젝트가 있는 칸에는 놓지 않는다.
 static func is_placeable() -> bool:
 	var t := SessionState.target_dict

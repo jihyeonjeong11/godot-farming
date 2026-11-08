@@ -10,7 +10,7 @@ region = Rect2(34, 35, 25, 26)
 [resource]
 script = ExtResource("2_1ylc8")
 item_id = "iron_ore"
-item_type = 5
+item_type = 6
 item_name = "Iron ore"
 item_texture = SubResource("AtlasTexture_3p86d")
 description = "붉은 기가 도는 철광석. 철 바위를 캐면 나온다. 용광로에 넣어야 쓸 수 있다."

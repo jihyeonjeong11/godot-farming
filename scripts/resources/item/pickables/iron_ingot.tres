@@ -10,7 +10,7 @@ region = Rect2(99, 35, 29, 26)
 [resource]
 script = ExtResource("2_n3ktp")
 item_id = "iron_ingot"
-item_type = 5
+item_type = 6
 item_name = "Iron ingot"
 item_texture = SubResource("AtlasTexture_3p86d")
 description = "용광로에서 제련한 철괴."

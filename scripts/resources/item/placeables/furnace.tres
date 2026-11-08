@@ -10,7 +10,7 @@ region = Rect2(0, 0, 64, 80)
 [resource]
 script = ExtResource("1_items")
 item_id = "furnace"
-item_type = 6
+item_type = 7
 item_name = "furnace"
 item_texture = SubResource("AtlasTexture_furnace")
 description = "돌을 쌓아 만든 화로. 우클릭하면 불을 켜고 끈다."

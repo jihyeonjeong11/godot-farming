@@ -89,6 +89,8 @@ func _unhandled_input(event: InputEvent) -> void:
 					if used:
 						CursorActions.update_farm_tilemap()
 						pass
+				elif stack != null and stack.item.item_type == DataTypes.ItemType.WildSeeds:
+					CursorActions.plant_wild_seed(stack.item)
 				elif stack != null and stack.item.item_type == DataTypes.ItemType.Placeable:
 					CursorActions.place_object(stack.item)
 				else:

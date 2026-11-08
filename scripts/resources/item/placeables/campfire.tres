@@ -11,7 +11,7 @@ region = Rect2(64, 32, 64, 64)
 [resource]
 script = ExtResource("1_items")
 item_id = "campfire"
-item_type = 6
+item_type = 7
 item_name = "campfire"
 item_texture = SubResource("AtlasTexture_campfire")
 description = "돌로 두르고 장작을 쌓은 모닥불. 땅에 놓으면 계속 탄다."

@@ -10,10 +10,11 @@ region = Rect2(2, 608, 28, 32)
 [resource]
 script = ExtResource("2_item")
 item_id = "oak_seeds"
-item_type = 3
+item_type = 4
 tool_type = 11
 item_name = "Oak Seeds"
 item_texture = SubResource("AtlasTexture_bag")
 description = "Oak tree seeds"
+world_object_id = &"oak_tree"
 world_scene_path = "uid://cb65olukse4yu"
 metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

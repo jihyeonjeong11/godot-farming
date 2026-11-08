@@ -10,7 +10,7 @@ region = Rect2(0, 0, 48, 48)
 [resource]
 script = ExtResource("1_items")
 item_id = "tv"
-item_type = 6
+item_type = 7
 item_name = "TV"
 item_texture = SubResource("AtlasTexture_tv")
 description = "낡은 브라운관 TV. 우클릭하면 켜고 끈다. 나오는 건 지직거리는 노이즈뿐이다."

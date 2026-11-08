@@ -57,11 +57,12 @@ enum ItemType {
 	Junk,       # 1  주워서 팔거나 분해하는 잡동사니
 	Consumable, # 2  먹거나 써서 없어지는 것
 	Seeds,      # 3
-	Tool,       # 4  tool_type 을 가진 도구
-	Material,   # 5  제작 재료 (옛 "material" + "resource")
-	Placeable,  # 6  땅에 놓는 것 (모닥불·가구 등)
-	Wearable,   # 7  입는 것
-	Melee,      # 8  근접 무기
+	WildSeeds,  # 4
+	Tool,       # 5  tool_type 을 가진 도구
+	Material,   # 6  제작 재료 (옛 "material" + "resource")
+	Placeable,  # 7  땅에 놓는 것 (모닥불·가구 등)
+	Wearable,   # 8  입는 것
+	Melee,      # 9  근접 무기
 	Ranged
 }
 
@@ -115,6 +116,7 @@ static func item_type_label(type: ItemType) -> String:
 		ItemType.Junk: return "junk"
 		ItemType.Consumable: return "consumable"
 		ItemType.Seeds: return "seeds"
+		ItemType.WildSeeds: return "wild seeds"
 		ItemType.Tool: return "tool"
 		ItemType.Material: return "material"
 		ItemType.Placeable: return "placeable"

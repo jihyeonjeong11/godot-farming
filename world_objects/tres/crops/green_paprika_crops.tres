@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://df33bawivqev2" path="res://world_objects/world_object_data.gd" id="1_data"]
 [ext_resource type="Texture2D" uid="uid://dog4l2sx7u7cn" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png" id="2_atlas"]
 [ext_resource type="Script" uid="uid://cu6u0yvr4eaxi" path="res://items/loot/loot.gd" id="2_gk588"]
+[ext_resource type="Resource" uid="uid://birrweo86kad4" path="res://scripts/resources/item/pickables/green_paprika.tres" id="9_harvest"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_st0"]
 atlas = ExtResource("2_atlas")
@@ -36,6 +37,11 @@ region = Rect2(1060, 268, 24, 44)
 atlas = ExtResource("2_atlas")
 region = Rect2(906, 268, 178, 44)
 
+[sub_resource type="Resource" id="Loot_harvest"]
+script = ExtResource("2_gk588")
+item = ExtResource("9_harvest")
+metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
+
 [resource]
 script = ExtResource("1_data")
 id = &"green_paprika_crop"
@@ -47,4 +53,5 @@ max_growth_stage = 5
 growth_textures = Array[Texture]([SubResource("AtlasTexture_st0"), SubResource("AtlasTexture_st1"), SubResource("AtlasTexture_st2"), SubResource("AtlasTexture_st3"), SubResource("AtlasTexture_st4"), SubResource("AtlasTexture_st5"), SubResource("AtlasTexture_st6")])
 days_until_harvest = 5
 regrow_days = 3
+loot_pool = Array[ExtResource("2_gk588")]([SubResource("Loot_harvest")])
 metadata/_custom_type_script = "uid://df33bawivqev2"

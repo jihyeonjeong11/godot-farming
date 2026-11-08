@@ -10,7 +10,7 @@ region = Rect2(288, 128, 32, 32)
 [resource]
 script = ExtResource("2_r6an4")
 item_id = "military_boots"
-item_type = 7
+item_type = 8
 item_name = "Military boots"
 item_texture = SubResource("AtlasTexture_item50")
 description = "A pair of military issued walkers."

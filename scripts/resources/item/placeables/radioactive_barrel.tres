@@ -10,7 +10,7 @@ region = Rect2(0, 0, 64, 80)
 [resource]
 script = ExtResource("1_items")
 item_id = "radioactive_barrel"
-item_type = 6
+item_type = 7
 item_name = "Radioactive Barrel"
 item_texture = SubResource("AtlasTexture_barrel")
 description = "방사능 폐기물이 든 드럼통. 땅에 놓으면 주변에 방사능을 뿜는다."

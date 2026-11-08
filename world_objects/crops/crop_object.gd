@@ -79,9 +79,11 @@ func _apply_data() -> void:
 func on_interact() -> void:
 	play_shake()
 	if is_harvestable():
-		if data.loot:
+		if not data.loot_pool.is_empty():
 			SoundManager.play_sound(preload("uid://dtkma6bmtb12v"))
-			InventoryActions.obtain(ItemStack.new(data.loot))
+		for entry in data.loot_pool:
+			if randf() < entry.chance:
+				InventoryActions.obtain(ItemStack.new(entry.item, entry.amount))
 		if data.regrow_days > 0:
 			state["growth_stage"] = data.max_growth_stage + 1
 			state["days_until_harvest"] = data.regrow_days

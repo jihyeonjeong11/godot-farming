@@ -13,7 +13,7 @@ size = Vector2(16, 16)
 [resource]
 script = ExtResource("1_items")
 item_id = "pickaxe"
-item_type = 4
+item_type = 5
 tool_type = 2
 item_name = "pickaxe"
 item_texture = SubResource("AtlasTexture_1818b")

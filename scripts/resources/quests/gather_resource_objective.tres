@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_oww2a")
 objective_id = "obj_gather_material"
-target_type = 5
+target_type = 6
 amount_min = 5
 amount_max = 25
 amount_step = 5

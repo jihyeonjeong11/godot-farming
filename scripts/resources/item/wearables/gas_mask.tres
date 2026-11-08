@@ -10,7 +10,7 @@ region = Rect2(224, 0, 32, 32)
 [resource]
 script = ExtResource("1_item")
 item_id = "gas_mask"
-item_type = 7
+item_type = 8
 item_name = "Gas mask"
 item_texture = SubResource("AtlasTexture_gas_mask")
 description = "필터가 아직 살아 있는 방독면."

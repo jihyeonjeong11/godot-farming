@@ -10,7 +10,7 @@ region = Rect2(2, 50, 60, 46)
 [resource]
 script = ExtResource("1_items")
 item_id = "crafting_table"
-item_type = 6
+item_type = 7
 item_name = "Crafting Table"
 item_texture = SubResource("AtlasTexture_table")
 description = "톱과 망치가 놓인 작업대. 땅에 놓고 다가가면 조합할 수 있다."

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://df33bawivqev2" path="res://world_objects/world_object_data.gd" id="1_data"]
 [ext_resource type="Texture2D" uid="uid://dog4l2sx7u7cn" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png" id="2_atlas"]
 [ext_resource type="Script" uid="uid://cu6u0yvr4eaxi" path="res://items/loot/loot.gd" id="2_dj85w"]
+[ext_resource type="Resource" uid="uid://cowhepeu2ype2" path="res://scripts/resources/item/pickables/grape.tres" id="9_harvest"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_st0"]
 atlas = ExtResource("2_atlas")
@@ -36,6 +37,11 @@ region = Rect2(1378, 2, 28, 54)
 atlas = ExtResource("2_atlas")
 region = Rect2(1194, 2, 212, 54)
 
+[sub_resource type="Resource" id="Loot_harvest"]
+script = ExtResource("2_dj85w")
+item = ExtResource("9_harvest")
+metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
+
 [resource]
 script = ExtResource("1_data")
 id = &"grape_crop"
@@ -48,4 +54,5 @@ growth_textures = Array[Texture]([SubResource("AtlasTexture_st0"), SubResource("
 days_until_harvest = 10
 regrow_days = 3
 is_raised = true
+loot_pool = Array[ExtResource("2_dj85w")]([SubResource("Loot_harvest")])
 metadata/_custom_type_script = "uid://df33bawivqev2"

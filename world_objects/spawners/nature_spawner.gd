@@ -42,10 +42,8 @@ func advance_day() -> void:
 func _spawn_tree() -> void:
 	if trees.is_empty():
 		return
-	var tree_data: WorldObjectData = WorldObjectDB.get_data(trees.pick_random().id).duplicate()
-	tree_data.growth_stage = randi_range(0, tree_data.growth_textures.size() - 1)
 	var tree := TREE_OBJECT.instantiate() as TreeObject
-	tree.data = tree_data
+	tree.data = WorldObjectDB.get_data(trees.pick_random().id)
 	tree.position = position
 	get_parent().add_child(tree)
 

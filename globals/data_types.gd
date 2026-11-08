@@ -75,7 +75,7 @@ enum ObjectType {
 	Nature,
 	Furniture,
 	Crops,
-	Spanwer
+	Spanwer,
 }
 
 enum WeatherType {

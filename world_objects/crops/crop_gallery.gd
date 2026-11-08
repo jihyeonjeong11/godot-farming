@@ -22,10 +22,9 @@ func _ready() -> void:
 
 
 func _add_stage(data: WorldObjectData, stage: int, at: Vector2) -> void:
-	var stage_data := data.duplicate() as WorldObjectData
-	stage_data.growth_stage = stage
 	var crop := CROP_OBJECT.instantiate() as CropObject
-	crop.data = stage_data
+	crop.data = data
+	crop.state["growth_stage"] = stage
 	crop.position = at
 	add_child(crop)
 

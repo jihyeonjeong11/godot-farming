@@ -35,7 +35,6 @@ name = &"carrot_crop"
 description = "A carrot crop."
 texture = SubResource("AtlasTexture_strip")
 type = 2
-growth_stage = 3
 max_growth_stage = 4
 growth_textures = Array[Texture]([SubResource("AtlasTexture_st0"), SubResource("AtlasTexture_st1"), SubResource("AtlasTexture_st2"), SubResource("AtlasTexture_st3"), SubResource("AtlasTexture_st4")])
 days_until_harvest = 3

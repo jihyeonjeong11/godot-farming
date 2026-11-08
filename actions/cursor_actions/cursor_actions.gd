@@ -228,11 +228,10 @@ static func is_plantable() -> bool:
 static func plant_seed(item: Item) -> bool:
 	if is_plantable():
 		var data := item.crop_object.duplicate() as WorldObjectData
-		data.growth_stage = 0
 		var crop := CROP_OBJECT.instantiate() as CropObject
 		crop.data = data
+		crop.position = SessionState.target_dict["pos"] + CROP_BASE_OFFSET
 		(Engine.get_main_loop() as SceneTree).current_scene.add_child(crop)
-		crop.global_position = SessionState.target_dict["pos"] + CROP_BASE_OFFSET
 		InventoryManager.remove_item(item, 1)
 		SoundManager.play_sound(HOE)
 	else:

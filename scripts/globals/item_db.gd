@@ -1,12 +1,13 @@
 extends Node
 
-const ITEM_ROOT := "res://scripts/resources/item"
+const ITEM_ROOTS: Array[String] = ["res://items", "res://scripts/resources/item"]
 
 var _by_id: Dictionary[StringName, Item] = {}
 
 
 func _ready() -> void:
-	_scan(ITEM_ROOT)
+	for root in ITEM_ROOTS:
+		_scan(root)
 
 func get_item(id: StringName) -> Item:
 	if id.is_empty():

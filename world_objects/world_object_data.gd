@@ -12,7 +12,6 @@ extends Resource
 @export var max_health: int = 1
 
 # nature
-@export var growth_stage: int = 0
 @export var max_growth_stage: int
 @export var growth_textures: Array[Texture]
 

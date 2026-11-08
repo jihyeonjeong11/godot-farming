@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d15crheyop0r6"
-path="res://.godot/imported/rain_shot_zoom.png-8006428041c1283451f1334c698e098e.ctex"
+uid="uid://2w8m1a8nx7sj"
+path="res://.godot/imported/items_atlas.png-e0a71c9b4509466f6235e991e8d8c07a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tools/_tmp/rain_shot_zoom.png"
-dest_files=["res://.godot/imported/rain_shot_zoom.png-8006428041c1283451f1334c698e098e.ctex"]
+source_file="res://assets/ai_generated/items/items_atlas.png"
+dest_files=["res://.godot/imported/items_atlas.png-e0a71c9b4509466f6235e991e8d8c07a.ctex"]
 
 [params]
 

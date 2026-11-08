@@ -39,6 +39,20 @@ static func dry_all_soil() -> void:
 			soil["watered"] = false
 
 
+static func grow_objects() -> void:
+	for cell: Vector2i in cells_with(OBJECT):
+		var slot := get_slot(cell, OBJECT)
+		var id: StringName = slot.get("id", "")
+		var data := WorldObjectDB.get_data(id)
+		if data == null or not slot.has("state"):
+			continue
+		if data.type == DataTypes.ObjectType.Crops:
+			if get_slot(cell, SOIL).get("watered", false):
+				CropObject.grow(slot["state"], data)
+		elif data is TreeObjectData:
+			TreeObject.grow(slot["state"], data)
+
+
 static func cells_with(slot: String) -> Array[Vector2i]:
 	var cells: Array[Vector2i] = []
 	for cell: Vector2i in GameState.farm_snapshot:

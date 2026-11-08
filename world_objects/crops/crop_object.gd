@@ -11,76 +11,64 @@ const SHAKE_AREA_MARGIN := Vector2(8, 8)
 @onready var collision_shape_2d: CollisionShape2D = $StaticBody2D/CollisionShape2D
 @onready var interact_shape_2d: CollisionShape2D = $InteractArea/CollisionShape2D
 
-var watered_days := 0
-var start_stage := -1
 var shake_tween: Tween
+
+var state: Dictionary = {
+	"growth_stage": 0,
+	"days_until_harvest": 0,
+}
+
 
 const FOOTSTEP_VEGETATION = preload("uid://ca2x0yqyi8ltc")
 
 func _ready() -> void:
+	if data != null and not Engine.is_editor_hint():
+		state["days_until_harvest"] = data.days_until_harvest
+		state = SnapshotActions.populate(global_position, data.id, state)
 	super()
 	if Engine.is_editor_hint() or data == null:
 		return
-	data = data.duplicate() as WorldObjectData
-	if start_stage < 0:
-		start_stage = data.growth_stage
 	TimeManager.day_passed.connect(on_day_passed)
 	$InteractArea.body_entered.connect(_on_body_entered)
 	$InteractArea.body_exited.connect(_on_body_exited)
 
 
-
-func capture_state() -> Dictionary:
-	return {"watered_days": watered_days, "start_stage": start_stage}
-
-
-func apply_state(state: Dictionary) -> void:
-	watered_days = state["watered_days"]
-	start_stage = state["start_stage"]
+func get_stage() -> int:
+	return int(state["growth_stage"])
 
 
 func is_harvestable() -> bool:
-	return data != null and data.growth_stage == data.max_growth_stage
+	return data != null and get_stage() == data.max_growth_stage
 
 
 func is_regrowing() -> bool:
-	return data != null and data.growth_stage > data.max_growth_stage
+	return data != null and get_stage() > data.max_growth_stage
 
 
-func is_tile_watered() -> bool:
-	var watered := get_tree().get_first_node_in_group(WateredSoilLayer.GROUP) as WateredSoilLayer
-	if watered == null:
-		return false
-	
-	return watered.is_watered(watered.local_to_map(watered.to_local(global_position)))
+static func grow(crop_state: Dictionary, crop_data: WorldObjectData) -> void:
+	var final_stage := crop_data.max_growth_stage
+	var current := int(crop_state["growth_stage"])
+	if current == final_stage:
+		return
+	var days_left := maxi(int(crop_state["days_until_harvest"]) - 1, 0)
+	crop_state["days_until_harvest"] = days_left
+	if current > final_stage:
+		if days_left == 0:
+			crop_state["growth_stage"] = final_stage
+		return
+	var total := maxi(crop_data.days_until_harvest, 1)
+	var stage := roundi(float(total - days_left) * final_stage / total)
+	crop_state["growth_stage"] = clampi(stage, current + 1, final_stage)
 
 
 func on_day_passed() -> void:
-	if not is_tile_watered():
-		return
-	watered_days += 1
-	growth_states()
-
-
-func growth_states() -> void:
-	if is_harvestable():
-		return
-	var final_stage := data.max_growth_stage
-	if is_regrowing():
-		if watered_days >= data.regrow_days:
-			data.growth_stage = final_stage
-			_apply_data()
-		return
-	var span := final_stage - start_stage
-	var stage := start_stage + roundi(float(watered_days) * span / maxi(data.days_until_harvest, 1))
-	data.growth_stage = clampi(stage, mini(start_stage + 1, final_stage), final_stage)
 	_apply_data()
 
 
 func _apply_data() -> void:
 	if not is_node_ready() or data == null:
 		return
-	var stage := data.growth_stage
+	var stage := get_stage()
 	var tex: Texture2D = data.growth_textures[stage] if stage < data.growth_textures.size() else null
 	sprite.texture = tex
 	sprite.offset = Vector2(-tex.get_width() / 2.0, -tex.get_height()) if tex else Vector2.ZERO
@@ -95,12 +83,11 @@ func on_interact() -> void:
 			SoundManager.play_sound(preload("uid://dtkma6bmtb12v"))
 			InventoryActions.obtain(ItemStack.new(data.loot))
 		if data.regrow_days > 0:
-			# go to last stage and wait for regrow
-			watered_days = 0
-			data.growth_stage = data.max_growth_stage + 1
+			state["growth_stage"] = data.max_growth_stage + 1
+			state["days_until_harvest"] = data.regrow_days
 			_apply_data()
 		else:
-			# loot generation
+			SnapshotActions.remove(global_position)
 			queue_free()
 	
 

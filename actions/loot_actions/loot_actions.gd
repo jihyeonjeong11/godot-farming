@@ -12,4 +12,3 @@ static func drop_loot(loot: Array[LootData], position: Vector2) -> void:
 		drop.stack = ItemStack.new(entry.item, entry.amount)
 		level.add_child(drop)
 		drop.global_position = position
-		return

@@ -11,10 +11,10 @@ const FALL_ANGLE := PI / 2.0
 const FALL_DURATION := 0.7
 const FADE_DURATION := 0.25
 
-
 var state: Dictionary = {
 	"health": 1,
-	"growth_stage": 0
+	"growth_stage": 0,
+	"days_until_harvest": 0,
 }
 var shake_tween: Tween
 var is_falling := false
@@ -23,12 +23,38 @@ var is_falling := false
 
 func _ready() -> void:
 	if data != null and not Engine.is_editor_hint():
-		state["health"] = data.max_health
-		state["growth_stage"] = data.growth_stage
+		state["health"] = tree_data().health_at(0)
+		state["days_until_harvest"] = data.days_until_harvest
 		state = SnapshotActions.populate(global_position, data.id, state)
 	super()
-	if Engine.is_editor_hint():
+	if Engine.is_editor_hint() or data == null:
 		return
+	_setup_shake()
+	TimeManager.day_passed.connect(on_day_passed)
+
+
+func tree_data() -> TreeObjectData:
+	return data as TreeObjectData
+
+
+static func grow(tree_state: Dictionary, tree_data: TreeObjectData) -> void:
+	var final_stage := tree_data.max_growth_stage
+	var current := int(tree_state["growth_stage"])
+	if current >= final_stage:
+		return
+	var days_left := maxi(int(tree_state.get("days_until_harvest", 0)) - 1, 0)
+	tree_state["days_until_harvest"] = days_left
+	var total := maxi(tree_data.days_until_harvest, 1)
+	var stage := roundi(float(total - days_left) * final_stage / total)
+	stage = clampi(stage, current + 1, final_stage)
+	tree_state["growth_stage"] = stage
+	tree_state["health"] = tree_data.health_at(stage)
+
+
+func on_day_passed() -> void:
+	if is_falling:
+		return
+	_apply_data()
 	_setup_shake()
 
 
@@ -43,7 +69,7 @@ func on_hit(tool: DataTypes.Tools, damage: int) -> void:
 
 
 func destroy() -> void:
-	LootActions.drop_loot(data.loot_pool, global_position)
+	LootActions.drop_loot(tree_data().loot_at(int(state["growth_stage"])), global_position)
 	SnapshotActions.remove(global_position)
 	remove_from_group(&"object")
 	collision_shape_2d.set_deferred("disabled", true)
@@ -92,7 +118,7 @@ func _setup_shake() -> void:
 func _apply_data() -> void:
 	if not is_node_ready() or data == null:
 		return
-	var stage: int = data.growth_stage if Engine.is_editor_hint() else int(state["growth_stage"])
+	var stage := int(state["growth_stage"])
 	var tex: Texture2D = data.growth_textures[stage] if stage < data.growth_textures.size() else null
 	sprite.texture = tex
 	sprite.offset = Vector2(-tex.get_width() / 2.0, -tex.get_height()) if tex else Vector2.ZERO
@@ -100,7 +126,7 @@ func _apply_data() -> void:
 
 
 func _apply_collision(stage: int, tex: Texture2D) -> void:
-	if stage == 0 or tex == null:
+	if tex == null:
 		collision_shape_2d.shape = null
 		collision_shape_2d.disabled = true
 		return
@@ -110,4 +136,4 @@ func _apply_collision(stage: int, tex: Texture2D) -> void:
 	shape.size = rect.size
 	collision_shape_2d.shape = shape
 	collision_shape_2d.position = rect.get_center()
-	collision_shape_2d.disabled = false
+	collision_shape_2d.disabled = stage == 0

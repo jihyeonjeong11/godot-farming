@@ -11,34 +11,6 @@
 [ext_resource type="Script" uid="uid://rpepg711y8sv" path="res://scenes/test_scenes/farm/watered_soil.gd" id="12_wsoil"]
 [ext_resource type="Script" uid="uid://cyg8x8ganehgt" path="res://scenes/components/spawn_point.gd" id="14_spawn"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_stage0"]
-atlas = ExtResource("7_2ka5o")
-region = Rect2(38, 616, 20, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_stage1"]
-atlas = ExtResource("7_2ka5o")
-region = Rect2(4, 724, 24, 36)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_stage2"]
-atlas = ExtResource("7_2ka5o")
-region = Rect2(32, 704, 32, 56)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_stage3"]
-atlas = ExtResource("7_2ka5o")
-region = Rect2(92, 678, 40, 86)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_stage4"]
-atlas = ExtResource("7_2ka5o")
-region = Rect2(176, 650, 68, 116)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_stage5"]
-atlas = ExtResource("7_2ka5o")
-region = Rect2(262, 608, 84, 160)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_stage6"]
-atlas = ExtResource("7_2ka5o")
-region = Rect2(352, 716, 32, 48)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_ywkkl"]
 atlas = ExtResource("7_2ka5o")
 region = Rect2(0, 606, 390, 165)
@@ -51,37 +23,7 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2ka5o"]
-atlas = ExtResource("7_2ka5o")
-region = Rect2(454, 644, 20, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_asp6y"]
-atlas = ExtResource("7_2ka5o")
-region = Rect2(422, 718, 20, 38)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gpec7"]
-atlas = ExtResource("7_2ka5o")
-region = Rect2(448, 692, 32, 66)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gs3ke"]
-atlas = ExtResource("7_2ka5o")
-region = Rect2(506, 672, 44, 88)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pwy0s"]
-atlas = ExtResource("7_2ka5o")
-region = Rect2(588, 640, 72, 126)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g7c01"]
-atlas = ExtResource("7_2ka5o")
-region = Rect2(678, 620, 84, 150)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a21qh"]
-atlas = ExtResource("7_2ka5o")
-region = Rect2(768, 722, 32, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fwrq6"]
 atlas = ExtResource("7_2ka5o")
@@ -95,8 +37,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_gpec7"]
@@ -116,8 +56,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_pwy0s"]
@@ -128,8 +66,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_g7c01"]
@@ -149,8 +85,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_fwrq6"]
@@ -161,8 +95,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_5paw8"]
@@ -182,8 +114,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_mqhdx"]
@@ -194,8 +124,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_1aqbs"]
@@ -215,8 +143,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_sbcy4"]
@@ -227,8 +153,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_owc1q"]
@@ -248,8 +172,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_oydot"]
@@ -260,8 +182,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_snehs"]
@@ -281,8 +201,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_xe6x5"]
@@ -293,8 +211,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_7jd8h"]
@@ -314,8 +230,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_tkpwy"]
@@ -326,8 +240,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_tan7t"]
@@ -347,8 +259,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_tsybs"]
@@ -359,8 +269,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_4mqn7"]
@@ -380,8 +288,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_wmjrg"]
@@ -392,8 +298,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_dmnst"]
@@ -413,8 +317,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_aypi0"]
@@ -425,8 +327,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_xfw7j"]
@@ -446,8 +346,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_3bhhd"]
@@ -458,8 +356,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_1mf6q"]
@@ -479,8 +375,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_vfiqs"]
@@ -491,8 +385,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_bowtj"]
@@ -512,8 +404,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_maw7m"]
@@ -524,8 +414,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_uc6od"]
@@ -545,8 +433,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_gnp7t"]
@@ -557,8 +443,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_g4h37"]
@@ -578,8 +462,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_8c7w1"]
@@ -590,8 +472,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_idoe1"]
@@ -611,8 +491,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_sh04j"]
@@ -623,8 +501,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_gpidi"]
@@ -644,8 +520,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_qbd04"]
@@ -656,8 +530,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_am573"]
@@ -677,8 +549,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_ighig"]
@@ -689,8 +559,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_qxn60"]
@@ -710,8 +578,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_nrgol"]
@@ -722,8 +588,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_aoy5u"]
@@ -743,8 +607,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_1demv"]
@@ -755,8 +617,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_dxj00"]
@@ -776,8 +636,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_eqc7x"]
@@ -788,8 +646,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_a4wov"]
@@ -809,8 +665,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_w6i4f"]
@@ -821,8 +675,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_evh6x"]
@@ -842,8 +694,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_npwr3"]
@@ -854,8 +704,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_ovkh2"]
@@ -875,8 +723,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_bhshv"]
@@ -887,8 +733,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_2u8ny"]
@@ -908,8 +752,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_h70mt"]
@@ -920,8 +762,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_eb5hl"]
@@ -941,8 +781,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_7fjc3"]
@@ -953,8 +791,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_k7e16"]
@@ -974,8 +810,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_twn4f"]
@@ -986,8 +820,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_302rr"]
@@ -1007,8 +839,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_4xf1n"]
@@ -1019,8 +849,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_1s0d6"]
@@ -1040,8 +868,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_hyp1c"]
@@ -1052,8 +878,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_5odu5"]
@@ -1073,8 +897,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_s2kwu"]
@@ -1085,8 +907,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_pr2ip"]
@@ -1106,8 +926,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_8b0fj"]
@@ -1118,8 +936,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_k6kyh"]
@@ -1139,8 +955,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_jt6et"]
@@ -1151,8 +965,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_7fg5q"]
@@ -1172,8 +984,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_8ilxs"]
@@ -1184,8 +994,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_7slhg"]
@@ -1205,8 +1013,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_c5luy"]
@@ -1217,8 +1023,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_bjim4"]
@@ -1238,8 +1042,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_o5pnp"]
@@ -1250,8 +1052,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_84axe"]
@@ -1271,8 +1071,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_18csy"]
@@ -1283,8 +1081,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_lt44w"]
@@ -1304,8 +1100,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_dba7q"]
@@ -1316,8 +1110,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_ixxqn"]
@@ -1337,8 +1129,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_tajl1"]
@@ -1349,8 +1139,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_y2n1r"]
@@ -1370,8 +1158,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_rwxl2"]
@@ -1382,8 +1168,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_3vopj"]
@@ -1403,8 +1187,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_s1ldj"]
@@ -1415,8 +1197,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_kgsfa"]
@@ -1436,8 +1216,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_rchyk"]
@@ -1448,8 +1226,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_ctdhk"]
@@ -1469,8 +1245,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_xnpu1"]
@@ -1481,8 +1255,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_ouxog"]
@@ -1502,8 +1274,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_mdrna"]
@@ -1514,8 +1284,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_p5sv3"]
@@ -1535,8 +1303,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_kxyjo"]
@@ -1547,8 +1313,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_aockp"]
@@ -1568,8 +1332,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_cd1rp"]
@@ -1580,8 +1342,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_rtwv1"]
@@ -1601,8 +1361,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_l2h7t"]
@@ -1613,8 +1371,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_humve"]
@@ -1634,8 +1390,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_5a3sk"]
@@ -1646,8 +1400,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_8cgba"]
@@ -1667,8 +1419,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_qa5pk"]
@@ -1679,8 +1429,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_wdg6p"]
@@ -1700,8 +1448,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_nurm5"]
@@ -1712,8 +1458,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_yeyfd"]
@@ -1733,8 +1477,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_c1od2"]
@@ -1745,8 +1487,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_c60mh"]
@@ -1766,8 +1506,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_p6uu8"]
@@ -1778,8 +1516,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_qogow"]
@@ -1799,8 +1535,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_33igl"]
@@ -1811,8 +1545,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_trxg7"]
@@ -1832,8 +1564,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_jiqmw"]
@@ -1844,8 +1574,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_io8b6"]
@@ -1865,8 +1593,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_p4ncr"]
@@ -1877,8 +1603,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_m0x8d"]
@@ -1898,8 +1622,6 @@ name = &"oak_tree"
 description = "An Oak tree."
 texture = SubResource("AtlasTexture_ywkkl")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_stage0"), SubResource("AtlasTexture_stage1"), SubResource("AtlasTexture_stage2"), SubResource("AtlasTexture_stage3"), SubResource("AtlasTexture_stage4"), SubResource("AtlasTexture_stage5"), SubResource("AtlasTexture_stage6")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_mqbrf"]
@@ -1910,8 +1632,6 @@ name = &"pine_tree"
 description = "A Pine tree."
 texture = SubResource("AtlasTexture_fwrq6")
 is_interactable = true
-max_growth_stage = 7
-growth_textures = Array[Texture]([SubResource("AtlasTexture_2ka5o"), SubResource("AtlasTexture_asp6y"), SubResource("AtlasTexture_gpec7"), SubResource("AtlasTexture_gs3ke"), SubResource("AtlasTexture_pwy0s"), SubResource("AtlasTexture_g7c01"), SubResource("AtlasTexture_a21qh")])
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="Resource" id="Resource_jxen8"]

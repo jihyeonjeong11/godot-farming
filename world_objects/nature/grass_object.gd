@@ -93,4 +93,4 @@ func _on_body_entered(_body: Node2D) -> void:
 
 
 func _on_body_exited(_body: Node2D) -> void:
-	SoundManager.play_ambient_sound(FOOTSTEP_VEGETATION)
+	SoundManager.stop_ambient_sound(FOOTSTEP_VEGETATION)

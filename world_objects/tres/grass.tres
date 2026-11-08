@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dog4l2sx7u7cn" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png" id="1_tiurs"]
 [ext_resource type="Script" uid="uid://df33bawivqev2" path="res://world_objects/world_object_data.gd" id="2_k1t8s"]
 [ext_resource type="Script" uid="uid://cu6u0yvr4eaxi" path="res://items/loot/loot.gd" id="2_qcuux"]
-[ext_resource type="Resource" uid="uid://dmk0yav24rdm0" path="res://items/materials/fiber.tres" id="3_qcuux"]
+[ext_resource type="Resource" uid="uid://dmk0yav24rdm0" path="res://items/tres/materials/fiber.tres" id="3_qcuux"]
 [ext_resource type="Resource" uid="uid://bjdtfssekjw74" path="res://scripts/resources/item/seeds/artichoke_seeds.tres" id="seed_artichoke_seeds"]
 [ext_resource type="Resource" uid="uid://b4brnm1lw75dk" path="res://scripts/resources/item/seeds/asparagus_seeds.tres" id="seed_asparagus_seeds"]
 [ext_resource type="Resource" uid="uid://bo2yfmfuljsnw" path="res://scripts/resources/item/seeds/beet_seeds.tres" id="seed_beet_seeds"]

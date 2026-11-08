@@ -3,11 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://cdko42eau68xt" path="res://scenes/levels/base_level.tscn" id="1_g4ymt"]
 [ext_resource type="TileSet" uid="uid://6ani2jke3lyo" path="res://tilesets/shady_sands.tres" id="2_hnvoi"]
 [ext_resource type="PackedScene" uid="uid://dponr2cxg8jdy" path="res://scenes/actionable/actionable.tscn" id="v3_actionable"]
-[ext_resource type="Resource" uid="uid://bcrpsldr7lt2a" path="res://scripts/resources/placeable_object/props/corpse_soldier.tres" id="v3_corpse"]
-[ext_resource type="Texture2D" uid="uid://bomft32q0e1ku" path="res://assets/temp/corpse_soldier.png" id="v3_corpse_tex"]
+[ext_resource type="PackedScene" uid="uid://cply0plr3ojbk" path="res://world_objects/furniture/corpse.tscn" id="v3_corpse_obj"]
 [ext_resource type="Resource" uid="uid://d1xcco2xdsm01" path="res://dialogues/tutorial.dialogue" id="v3_dialogue"]
 [ext_resource type="PackedScene" uid="uid://cyonqjxsa7xf5" path="res://scenes/traps/fire_anomaly.tscn" id="v3_fire"]
-[ext_resource type="PackedScene" uid="uid://cs37xus6fdfc" path="res://scenes/objects/placables/object_instance.tscn" id="v3_object"]
 [ext_resource type="Script" uid="uid://bccsgitdbh2tb" path="res://scenes/components/portal_component.gd" id="v3_portal"]
 [ext_resource type="Script" uid="uid://cnxciolw85sno" path="res://scenes/levels/tutorial_v3.gd" id="v3_script"]
 [ext_resource type="PackedScene" uid="uid://dogc4aluyci8r" path="res://scenes/characters/enemy/zombie/zombie.tscn" id="v3_zombie"]
@@ -101,13 +99,9 @@ tile_set = ExtResource("2_hnvoi")
 visible = false
 navigation_polygon = SubResource("v3_nav")
 
-[node name="CorpseSoldier" parent="." index="5" unique_id=252209863 instance=ExtResource("v3_object")]
+[node name="CorpseSoldier" parent="." index="5" unique_id=252209863 instance=ExtResource("v3_corpse_obj")]
 position = Vector2(976, 3792)
 scale = Vector2(2, 2)
-texture = ExtResource("v3_corpse_tex")
-centered = false
-offset = Vector2(-32, -46)
-object = ExtResource("v3_corpse")
 
 [node name="PenZombie" parent="." index="6" unique_id=185757766 instance=ExtResource("v3_zombie")]
 position = Vector2(1648, 2896)

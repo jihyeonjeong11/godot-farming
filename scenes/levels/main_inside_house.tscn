@@ -3,22 +3,9 @@
 [ext_resource type="TileSet" uid="uid://cq7h2m4x0kw8v" path="res://tilesets/house_interior.tres" id="1_tiles"]
 [ext_resource type="Script" uid="uid://cyg8x8ganehgt" path="res://scenes/components/spawn_point.gd" id="3_spawn"]
 [ext_resource type="PackedScene" uid="uid://b3wdmejofhe0p" path="res://scenes/characters/player/player.tscn" id="4_player"]
-[ext_resource type="Texture2D" uid="uid://dd2rbvkdlrgd6" path="res://assets/craftland/Craftland Town/32x32/CLT_Houses.png" id="5_kq8jo"]
 [ext_resource type="PackedScene" uid="uid://y27b0nq34315" path="res://scenes/components/portal_component.tscn" id="5_portal"]
-[ext_resource type="PackedScene" uid="uid://cs37xus6fdfc" path="res://scenes/objects/placables/object_instance.tscn" id="6_objin"]
-[ext_resource type="Texture2D" uid="uid://cafjukjy7dmsm" path="res://assets/temp/tv.png" id="7_3djy0"]
-[ext_resource type="Resource" uid="uid://txf3sdnp05dp" path="res://scripts/resources/placeable_object/furniture/bed_house.tres" id="7_bed"]
 [ext_resource type="Script" uid="uid://cn7l4yqx8mkr2" path="res://scenes/components/persistent/level_layer.gd" id="8_layer"]
-[ext_resource type="Resource" uid="uid://btv0000000001" path="res://scripts/resources/placeable_object/furniture/tv.tres" id="9_tv"]
 [ext_resource type="PackedScene" uid="uid://vlwn0vdyb13" path="res://managers_archive/map_feature_manager.tscn" id="10_mapft"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_object"]
-atlas = ExtResource("5_kq8jo")
-region = Rect2(1536, 1184, 64, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tv0"]
-atlas = ExtResource("7_3djy0")
-region = Rect2(0, 0, 48, 48)
 
 [node name="MainInsideHouse" type="Node2D" unique_id=545508750]
 y_sort_enabled = true
@@ -64,20 +51,6 @@ scale = Vector2(2, 2)
 [node name="Objects" type="Node2D" parent="Level" unique_id=1431034486]
 y_sort_enabled = true
 script = ExtResource("8_layer")
-
-[node name="Bed" parent="Level/Objects" unique_id=1917527810 instance=ExtResource("6_objin")]
-position = Vector2(448, 192)
-texture = SubResource("AtlasTexture_object")
-centered = false
-offset = Vector2(-32, -96)
-object = ExtResource("7_bed")
-
-[node name="TV" parent="Level/Objects" unique_id=1917527811 instance=ExtResource("6_objin")]
-position = Vector2(384, 161)
-texture = SubResource("AtlasTexture_tv0")
-centered = false
-offset = Vector2(-24, -80)
-object = ExtResource("9_tv")
 
 [node name="PortalToFarm" parent="." unique_id=866850514 instance=ExtResource("5_portal")]
 position = Vector2(256, 444)

@@ -8,10 +8,6 @@
 [ext_resource type="TileSet" uid="uid://ckuhhhib7q7w3" path="res://tilesets/tilled_soil.tres" id="3_tilled"]
 [ext_resource type="TileSet" uid="uid://c4wtrsoil2m7q" path="res://tilesets/watered_soil.tres" id="3_watered"]
 [ext_resource type="PackedScene" uid="uid://c3pfwawj3dwx" path="res://scenes/prefabs/farm/farm_house.tscn" id="4_mc1tk"]
-[ext_resource type="PackedScene" uid="uid://cs37xus6fdfc" path="res://scenes/objects/placables/object_instance.tscn" id="4_objin"]
-[ext_resource type="Resource" uid="uid://decb1xhh1uabh" path="res://scripts/resources/placeable_object/nature/grass.tres" id="5_grass"]
-[ext_resource type="Resource" uid="uid://dlh3mccpdus43" path="res://scripts/resources/placeable_object/nature/stone_small.tres" id="6_stone"]
-[ext_resource type="Resource" uid="uid://ct83jw4dsjyds" path="res://scripts/resources/placeable_object/nature/twig.tres" id="7_twig"]
 [ext_resource type="PackedScene" uid="uid://ctree1nst4nce" path="res://scenes/objects/placables/tree_instance.tscn" id="9_tree"]
 [ext_resource type="PackedScene" uid="uid://hw03yyvlo6vg" path="res://scenes/objects/portals/door.tscn" id="14_door"]
 [ext_resource type="Script" uid="uid://cyg8x8ganehgt" path="res://scenes/components/spawn_point.gd" id="15_spawn"]
@@ -20,15 +16,9 @@
 [ext_resource type="Script" uid="uid://rpepg711y8sv" path="res://scenes/test_scenes/farm/watered_soil.gd" id="18_wtile"]
 [ext_resource type="Texture2D" uid="uid://dmej0tp32bpis" path="res://assets/craftland/Craftland Terrain/32x32/CL_Buildings.png" id="20_3dnpx"]
 [ext_resource type="Texture2D" uid="uid://dog4l2sx7u7cn" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png" id="21_fwtqb"]
-[ext_resource type="Resource" uid="uid://clh75kbapjbke" path="res://scripts/resources/placeable_object/furniture/chest.tres" id="23_34mxf"]
 [ext_resource type="PackedScene" uid="uid://m70mkxtn3dt5" path="res://scenes/objects/for_dev_purpose/merchant_terminal.tscn" id="24_hguhx"]
-[ext_resource type="Texture2D" uid="uid://mloe6l4aphpg" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crafting.png" id="26_d53tr"]
-[ext_resource type="Resource" uid="uid://bradbarrel001" path="res://scripts/resources/placeable_object/props/radioactive_barrel.tres" id="26_radbarrel"]
 [ext_resource type="PackedScene" uid="uid://bnjt4x85c5afn" path="res://scenes/components/weather/weathers.tscn" id="27_weathers"]
-[ext_resource type="Texture2D" uid="uid://bo0h4hqpc84i2" path="res://assets/temp/radioactive_barrel.png" id="28_8nd6f"]
 [ext_resource type="Texture2D" uid="uid://cgqkg1g5et36e" path="res://assets/apo/32x32_buildings_furnitures.png" id="32_b16xi"]
-[ext_resource type="Texture2D" uid="uid://bp43eq45cg36y" path="res://assets/temp/furnace.png" id="33_3dnpx"]
-[ext_resource type="Resource" uid="uid://bfurnace00001" path="res://scripts/resources/placeable_object/furniture/furnace.tres" id="34_0klyg"]
 [ext_resource type="PackedScene" uid="uid://vlwn0vdyb13" path="res://managers_archive/map_feature_manager.tscn" id="35_mapft"]
 [ext_resource type="PackedScene" uid="uid://j7kviqjw67tp" path="res://scenes/objects/helipad/helipad.tscn" id="37_b16xi"]
 [ext_resource type="PackedScene" uid="uid://cb65olukse4yu" path="res://scenes/objects/pickables/item_stack_instance.tscn" id="38_droptest"]
@@ -46,33 +36,9 @@ region = Rect2(262, 608, 84, 160)
 atlas = ExtResource("21_fwtqb")
 region = Rect2(32, 704, 32, 56)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_blbij"]
-atlas = ExtResource("21_fwtqb")
-region = Rect2(991, 747, 36, 45)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7qcsh"]
-atlas = ExtResource("21_fwtqb")
-region = Rect2(544, 996, 28, 26)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8nd6f"]
-atlas = ExtResource("21_fwtqb")
-region = Rect2(416, 996, 30, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_b16xi"]
-atlas = ExtResource("26_d53tr")
-region = Rect2(392, 18, 48, 42)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_barrel0"]
-atlas = ExtResource("28_8nd6f")
-region = Rect2(0, 0, 64, 80)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_terminal"]
 atlas = ExtResource("32_b16xi")
 region = Rect2(3, 706, 60, 113)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_furnace0"]
-atlas = ExtResource("33_3dnpx")
-region = Rect2(0, 0, 64, 80)
 
 [node name="MainFarm" unique_id=457676691 instance=ExtResource("0_base")]
 script = ExtResource("1_65wv7")
@@ -176,307 +142,6 @@ centered = false
 offset = Vector2(-16, -56)
 script = null
 
-[node name="grass_27_24" parent="Level/Objects" index="7" unique_id=1584900395 instance=ExtResource("4_objin")]
-position = Vector2(880, 784)
-texture = SubResource("AtlasTexture_blbij")
-centered = false
-offset = Vector2(-18, -45)
-object = ExtResource("5_grass")
-
-[node name="grass_35_17" parent="Level/Objects" index="8" unique_id=813667926 instance=ExtResource("4_objin")]
-position = Vector2(1136, 560)
-texture = SubResource("AtlasTexture_blbij")
-centered = false
-offset = Vector2(-18, -45)
-object = ExtResource("5_grass")
-
-[node name="grass_40_23" parent="Level/Objects" index="9" unique_id=363595586 instance=ExtResource("4_objin")]
-position = Vector2(1296, 752)
-texture = SubResource("AtlasTexture_blbij")
-centered = false
-offset = Vector2(-18, -45)
-object = ExtResource("5_grass")
-
-[node name="grass_42_12" parent="Level/Objects" index="10" unique_id=1744927996 instance=ExtResource("4_objin")]
-position = Vector2(1360, 400)
-texture = SubResource("AtlasTexture_blbij")
-centered = false
-offset = Vector2(-18, -45)
-object = ExtResource("5_grass")
-
-[node name="grass_30_20" parent="Level/Objects" index="11" unique_id=1045995957 instance=ExtResource("4_objin")]
-position = Vector2(976, 656)
-texture = SubResource("AtlasTexture_blbij")
-centered = false
-offset = Vector2(-18, -45)
-object = ExtResource("5_grass")
-
-[node name="grass_32_20" parent="Level/Objects" index="12" unique_id=924700320 instance=ExtResource("4_objin")]
-position = Vector2(1040, 656)
-texture = SubResource("AtlasTexture_blbij")
-centered = false
-offset = Vector2(-18, -45)
-object = ExtResource("5_grass")
-
-[node name="grass_27_12" parent="Level/Objects" index="13" unique_id=1839229066 instance=ExtResource("4_objin")]
-position = Vector2(880, 400)
-texture = SubResource("AtlasTexture_blbij")
-centered = false
-offset = Vector2(-18, -45)
-object = ExtResource("5_grass")
-
-[node name="grass_36_19" parent="Level/Objects" index="14" unique_id=785950933 instance=ExtResource("4_objin")]
-position = Vector2(1168, 624)
-texture = SubResource("AtlasTexture_blbij")
-centered = false
-offset = Vector2(-18, -45)
-object = ExtResource("5_grass")
-
-[node name="grass_37_24" parent="Level/Objects" index="15" unique_id=677805510 instance=ExtResource("4_objin")]
-position = Vector2(1200, 784)
-texture = SubResource("AtlasTexture_blbij")
-centered = false
-offset = Vector2(-18, -45)
-object = ExtResource("5_grass")
-
-[node name="grass_16_19" parent="Level/Objects" index="16" unique_id=2059385460 instance=ExtResource("4_objin")]
-position = Vector2(528, 624)
-texture = SubResource("AtlasTexture_blbij")
-centered = false
-offset = Vector2(-18, -45)
-object = ExtResource("5_grass")
-
-[node name="grass_35_13" parent="Level/Objects" index="17" unique_id=1994861908 instance=ExtResource("4_objin")]
-position = Vector2(1136, 432)
-texture = SubResource("AtlasTexture_blbij")
-centered = false
-offset = Vector2(-18, -45)
-object = ExtResource("5_grass")
-
-[node name="grass_41_23" parent="Level/Objects" index="18" unique_id=839950582 instance=ExtResource("4_objin")]
-position = Vector2(1328, 752)
-texture = SubResource("AtlasTexture_blbij")
-centered = false
-offset = Vector2(-18, -45)
-object = ExtResource("5_grass")
-
-[node name="grass_34_23" parent="Level/Objects" index="19" unique_id=1106032250 instance=ExtResource("4_objin")]
-position = Vector2(1104, 752)
-texture = SubResource("AtlasTexture_blbij")
-centered = false
-offset = Vector2(-18, -45)
-object = ExtResource("5_grass")
-
-[node name="grass_41_19" parent="Level/Objects" index="20" unique_id=412158019 instance=ExtResource("4_objin")]
-position = Vector2(1328, 624)
-texture = SubResource("AtlasTexture_blbij")
-centered = false
-offset = Vector2(-18, -45)
-object = ExtResource("5_grass")
-
-[node name="grass_43_22" parent="Level/Objects" index="21" unique_id=466210700 instance=ExtResource("4_objin")]
-position = Vector2(1392, 720)
-texture = SubResource("AtlasTexture_blbij")
-centered = false
-offset = Vector2(-18, -45)
-object = ExtResource("5_grass")
-
-[node name="grass_17_15" parent="Level/Objects" index="22" unique_id=182754469 instance=ExtResource("4_objin")]
-position = Vector2(560, 496)
-texture = SubResource("AtlasTexture_blbij")
-centered = false
-offset = Vector2(-18, -45)
-object = ExtResource("5_grass")
-
-[node name="grass_38_10" parent="Level/Objects" index="23" unique_id=1996262231 instance=ExtResource("4_objin")]
-position = Vector2(1232, 336)
-texture = SubResource("AtlasTexture_blbij")
-centered = false
-offset = Vector2(-18, -45)
-object = ExtResource("5_grass")
-
-[node name="grass_33_15" parent="Level/Objects" index="24" unique_id=2111633279 instance=ExtResource("4_objin")]
-position = Vector2(1072, 496)
-texture = SubResource("AtlasTexture_blbij")
-centered = false
-offset = Vector2(-18, -45)
-object = ExtResource("5_grass")
-
-[node name="grass_22_12" parent="Level/Objects" index="25" unique_id=842887652 instance=ExtResource("4_objin")]
-position = Vector2(720, 400)
-texture = SubResource("AtlasTexture_blbij")
-centered = false
-offset = Vector2(-18, -45)
-object = ExtResource("5_grass")
-
-[node name="grass_43_24" parent="Level/Objects" index="26" unique_id=365398867 instance=ExtResource("4_objin")]
-position = Vector2(1392, 784)
-texture = SubResource("AtlasTexture_blbij")
-centered = false
-offset = Vector2(-18, -45)
-object = ExtResource("5_grass")
-
-[node name="grass_34_12" parent="Level/Objects" index="27" unique_id=253685743 instance=ExtResource("4_objin")]
-position = Vector2(1104, 400)
-texture = SubResource("AtlasTexture_blbij")
-centered = false
-offset = Vector2(-18, -45)
-object = ExtResource("5_grass")
-
-[node name="grass_44_19" parent="Level/Objects" index="28" unique_id=721236365 instance=ExtResource("4_objin")]
-position = Vector2(1424, 624)
-texture = SubResource("AtlasTexture_blbij")
-centered = false
-offset = Vector2(-18, -45)
-object = ExtResource("5_grass")
-
-[node name="grass_29_12" parent="Level/Objects" index="29" unique_id=1565976594 instance=ExtResource("4_objin")]
-position = Vector2(944, 400)
-texture = SubResource("AtlasTexture_blbij")
-centered = false
-offset = Vector2(-18, -45)
-object = ExtResource("5_grass")
-
-[node name="stone_small_22_10" parent="Level/Objects" index="30" unique_id=1787319874 instance=ExtResource("4_objin")]
-position = Vector2(720, 336)
-texture = SubResource("AtlasTexture_7qcsh")
-centered = false
-offset = Vector2(-14, -26)
-object = ExtResource("6_stone")
-
-[node name="stone_small_39_5" parent="Level/Objects" index="31" unique_id=1647226417 instance=ExtResource("4_objin")]
-position = Vector2(1264, 176)
-texture = SubResource("AtlasTexture_7qcsh")
-centered = false
-offset = Vector2(-14, -26)
-object = ExtResource("6_stone")
-
-[node name="stone_small_34_19" parent="Level/Objects" index="32" unique_id=138439958 instance=ExtResource("4_objin")]
-position = Vector2(1104, 624)
-texture = SubResource("AtlasTexture_7qcsh")
-centered = false
-offset = Vector2(-14, -26)
-object = ExtResource("6_stone")
-
-[node name="stone_small_40_30" parent="Level/Objects" index="33" unique_id=1445271510 instance=ExtResource("4_objin")]
-position = Vector2(1296, 976)
-texture = SubResource("AtlasTexture_7qcsh")
-centered = false
-offset = Vector2(-14, -26)
-object = ExtResource("6_stone")
-
-[node name="stone_small_33_16" parent="Level/Objects" index="34" unique_id=1218911140 instance=ExtResource("4_objin")]
-position = Vector2(1072, 528)
-texture = SubResource("AtlasTexture_7qcsh")
-centered = false
-offset = Vector2(-14, -26)
-object = ExtResource("6_stone")
-
-[node name="stone_small_41_9" parent="Level/Objects" index="35" unique_id=2108056677 instance=ExtResource("4_objin")]
-position = Vector2(1328, 304)
-texture = SubResource("AtlasTexture_7qcsh")
-centered = false
-offset = Vector2(-14, -26)
-object = ExtResource("6_stone")
-
-[node name="stone_small_18_21" parent="Level/Objects" index="36" unique_id=1057446546 instance=ExtResource("4_objin")]
-position = Vector2(592, 688)
-texture = SubResource("AtlasTexture_7qcsh")
-centered = false
-offset = Vector2(-14, -26)
-object = ExtResource("6_stone")
-
-[node name="stone_small_19_30" parent="Level/Objects" index="37" unique_id=2121438461 instance=ExtResource("4_objin")]
-position = Vector2(624, 976)
-texture = SubResource("AtlasTexture_7qcsh")
-centered = false
-offset = Vector2(-14, -26)
-object = ExtResource("6_stone")
-
-[node name="stone_small_19_17" parent="Level/Objects" index="38" unique_id=333119507 instance=ExtResource("4_objin")]
-position = Vector2(624, 560)
-texture = SubResource("AtlasTexture_7qcsh")
-centered = false
-offset = Vector2(-14, -26)
-object = ExtResource("6_stone")
-
-[node name="twig_24_21" parent="Level/Objects" index="39" unique_id=210409652 instance=ExtResource("4_objin")]
-position = Vector2(784, 688)
-texture = SubResource("AtlasTexture_8nd6f")
-centered = false
-offset = Vector2(-15, -24)
-object = ExtResource("7_twig")
-
-[node name="twig_14_12" parent="Level/Objects" index="40" unique_id=126915088 instance=ExtResource("4_objin")]
-position = Vector2(464, 400)
-texture = SubResource("AtlasTexture_8nd6f")
-centered = false
-offset = Vector2(-15, -24)
-object = ExtResource("7_twig")
-
-[node name="twig_26_16" parent="Level/Objects" index="41" unique_id=1751268514 instance=ExtResource("4_objin")]
-position = Vector2(848, 528)
-texture = SubResource("AtlasTexture_8nd6f")
-centered = false
-offset = Vector2(-15, -24)
-object = ExtResource("7_twig")
-
-[node name="twig_34_10" parent="Level/Objects" index="42" unique_id=1756086711 instance=ExtResource("4_objin")]
-position = Vector2(1104, 336)
-texture = SubResource("AtlasTexture_8nd6f")
-centered = false
-offset = Vector2(-15, -24)
-object = ExtResource("7_twig")
-
-[node name="twig_18_24" parent="Level/Objects" index="43" unique_id=2091528340 instance=ExtResource("4_objin")]
-position = Vector2(592, 784)
-texture = SubResource("AtlasTexture_8nd6f")
-centered = false
-offset = Vector2(-15, -24)
-object = ExtResource("7_twig")
-
-[node name="twig_33_25" parent="Level/Objects" index="44" unique_id=1892830643 instance=ExtResource("4_objin")]
-position = Vector2(1072, 816)
-texture = SubResource("AtlasTexture_8nd6f")
-centered = false
-offset = Vector2(-15, -24)
-object = ExtResource("7_twig")
-
-[node name="twig_35_11" parent="Level/Objects" index="45" unique_id=2063900256 instance=ExtResource("4_objin")]
-position = Vector2(1136, 368)
-texture = SubResource("AtlasTexture_8nd6f")
-centered = false
-offset = Vector2(-15, -24)
-object = ExtResource("7_twig")
-
-[node name="twig_38_17" parent="Level/Objects" index="46" unique_id=1176429850 instance=ExtResource("4_objin")]
-position = Vector2(1232, 560)
-texture = SubResource("AtlasTexture_8nd6f")
-centered = false
-offset = Vector2(-15, -24)
-object = ExtResource("7_twig")
-
-[node name="twig_31_21" parent="Level/Objects" index="47" unique_id=1472655375 instance=ExtResource("4_objin")]
-position = Vector2(1008, 688)
-texture = SubResource("AtlasTexture_8nd6f")
-centered = false
-offset = Vector2(-15, -24)
-object = ExtResource("7_twig")
-
-[node name="Chest" parent="Level" index="2" unique_id=1701553048 instance=ExtResource("4_objin")]
-position = Vector2(378, 280)
-texture = SubResource("AtlasTexture_b16xi")
-centered = false
-offset = Vector2(-24, -42)
-object = ExtResource("23_34mxf")
-
-[node name="RadioactiveBarrel" parent="Level" index="3" unique_id=1332077516 instance=ExtResource("4_objin")]
-position = Vector2(944, 465)
-texture = SubResource("AtlasTexture_barrel0")
-centered = false
-offset = Vector2(-32, -74)
-object = ExtResource("26_radbarrel")
-
 [node name="SpawnFromHouse" type="Marker2D" parent="." index="6" unique_id=249535749]
 position = Vector2(307, 310)
 script = ExtResource("15_spawn")
@@ -487,13 +152,6 @@ position = Vector2(178, 226)
 texture = SubResource("AtlasTexture_terminal")
 centered = false
 offset = Vector2(-30, -113)
-
-[node name="ObjectInstance" parent="." index="8" unique_id=2036863808 instance=ExtResource("4_objin")]
-position = Vector2(195, 311)
-texture = SubResource("AtlasTexture_furnace0")
-centered = false
-offset = Vector2(-32, -78)
-object = ExtResource("34_0klyg")
 
 [node name="MapFeatureManager" parent="." index="9" unique_id=1362108147 instance=ExtResource("35_mapft")]
 

@@ -5,25 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://dmej0tp32bpis" path="res://assets/craftland/Craftland Terrain/32x32/CL_Buildings.png" id="3_ur0cw"]
 [ext_resource type="PackedScene" uid="uid://b3wdmejofhe0p" path="res://scenes/characters/player/player.tscn" id="4_player"]
 [ext_resource type="PackedScene" uid="uid://hw03yyvlo6vg" path="res://scenes/objects/portals/door.tscn" id="5_door"]
-[ext_resource type="Texture2D" uid="uid://mloe6l4aphpg" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crafting.png" id="5_gg2m3"]
-[ext_resource type="Texture2D" uid="uid://dlbdfiq133kcc" path="res://assets/apo/anims/32x32_trash_can_fire.png" id="7_5vn5h"]
-[ext_resource type="PackedScene" uid="uid://cs37xus6fdfc" path="res://scenes/objects/placables/object_instance.tscn" id="90_objin"]
-[ext_resource type="Resource" uid="uid://dn1oxfy01wq4k" path="res://scripts/resources/placeable_object/furniture/bed.tres" id="91_bed"]
-[ext_resource type="Resource" uid="uid://dw62tg57ndkqt" path="res://scripts/resources/placeable_object/furniture/fire_trash_can.tres" id="92_trash"]
-[ext_resource type="Resource" uid="uid://clh75kbapjbke" path="res://scripts/resources/placeable_object/furniture/chest.tres" id="94_chest"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_object"]
-atlas = ExtResource("3_ur0cw")
-region = Rect2(259, 993, 60, 86)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_b16xi"]
-atlas = ExtResource("5_gg2m3")
-region = Rect2(392, 18, 48, 42)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_trash0"]
-atlas = ExtResource("7_5vn5h")
-region = Rect2(192, 0, 32, 96)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_door"]
 atlas = ExtResource("3_ur0cw")
 region = Rect2(390, 159, 51, 108)
@@ -55,27 +36,6 @@ tile_set = ExtResource("1_tiles")
 y_sort_enabled = true
 tile_map_data = PackedByteArray("AAABAAQABgAVAAQAAAABAAUABgAVAAUAAAABAAYABgAVAAYAAAABAAcABgAVAAcAAAABAAwABgADABoAAAABAA0ABgADABsAAAACAAQABgAWAAQAAAACAAUABgAWAAUAAAACAAYABgAWAAYAAAACAAcABgAWAAcAAAACAAkABgATABUAAAACAAoABgATABYAAAACAAsABgATABcAAAACAAwABgAFABoAAAACAA0ABgAFABsAAAADAAQABgAcAAQAAAADAAUABgAcAAUAAAADAAYABgAcAAYAAAADAAcABgAcAAcAAAADAAkABgAUABUAAAADAAoABgAUABYAAAADAAsABgAUABcAAAAEAAQABgAdAAQAAAAEAAUABgAdAAUAAAAEAAYABgAdAAYAAAAEAAcABgAdAAcAAAAEAAkABgAVABUAAAAEAAoABgAVABYAAAAEAAsABgAVABcAAAAFAAQABgAeAAQAAAAFAAUABgAeAAUAAAAFAAYABgAeAAYAAAAFAAcABgAeAAcAAAAFAAkABgAPABUAAAAFAAoABgAPABYAAAAFAAsABgAPABcAAAAFAAwABgAMABUAAAAFAA0ABgAMABYAAAAGAAEABgAMAB4AAAAGAAIABgAMAB8AAAAGAAUABgAVAA0AAAAGAAYABgAVAA4AAAAGAAcABgAVAA8AAAAGAAkABgAQABUAAAAGAAoABgAQABYAAAAGAAsABgAQABcAAAAGAAwABgANABUAAAAGAA0ABgANABYAAAAHAAEABgANAB4AAAAHAAIABgANAB8AAAAHAAUABgAWAA0AAAAHAAYABgAWAA4AAAAHAAcABgAWAA8AAAAIAAEABgAOAB4AAAAIAAIABgAOAB8AAAAIAAQABgASABEAAAAIAAUABgASABIAAAAIAAYABgASABMAAAAIAAcABgASABQAAAAJAAQABgATABEAAAAJAAUABgATABIAAAAJAAYABgATABMAAAAJAAcABgATABQAAAAJAAkABgAMABwAAAAJAAoABgAMAB0AAAAKAAQABgAUABEAAAAKAAUABgAUABIAAAAKAAYABgAUABMAAAAKAAcABgAUABQAAAAKAAgABgAEABoAAAAKAAkABgAEABsAAAAKAAoABgANAB0AAAAMAAQABgAZAAQAAAAMAAUABgAZAAUAAAAMAAYABgAZAAYAAAAMAAcABgAZAAcAAAAMAAwABgAMABUAAAAMAA0ABgAMABYAAAANAAIABgASAB4AAAANAAMABgASAB8AAAANAAQABgAaAAQAAAANAAUABgAaAAUAAAANAAYABgAaAAYAAAANAAcABgAaAAcAAAANAAwABgANABUAAAANAA0ABgANABYAAAAOAAIABgATAB4AAAAOAAMABgATAB8AAAAOAAQABgAbAAQAAAAOAAUABgAbAAUAAAAOAAYABgAbAAYAAAAOAAcABgAbAAcAAAA=")
 tile_set = ExtResource("1_tiles")
-
-[node name="Bed" parent="." unique_id=673820690 instance=ExtResource("90_objin")]
-position = Vector2(432, 384)
-texture = SubResource("AtlasTexture_object")
-centered = false
-offset = Vector2(-29, -86)
-object = ExtResource("91_bed")
-
-[node name="Chest" parent="." unique_id=1745415872 instance=ExtResource("90_objin")]
-position = Vector2(404, 424)
-texture = SubResource("AtlasTexture_b16xi")
-centered = false
-offset = Vector2(-24, -42)
-object = ExtResource("94_chest")
-
-[node name="FireTrashCan" parent="." unique_id=1641401947 instance=ExtResource("90_objin")]
-position = Vector2(80, 416)
-texture = SubResource("AtlasTexture_trash0")
-centered = false
-offset = Vector2(-16, -96)
-object = ExtResource("92_trash")
 
 [node name="Door" parent="." unique_id=1652588638 instance=ExtResource("5_door")]
 position = Vector2(257, 485)

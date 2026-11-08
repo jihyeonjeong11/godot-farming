@@ -6,16 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://b3wdmejofhe0p" path="res://scenes/characters/player/player.tscn" id="4_player"]
 [ext_resource type="PackedScene" uid="uid://m70mkxtn3dt5" path="res://scenes/objects/for_dev_purpose/merchant_terminal.tscn" id="15_prop"]
 [ext_resource type="PackedScene" uid="uid://hw03yyvlo6vg" path="res://scenes/objects/portals/door.tscn" id="19_prop"]
-[ext_resource type="PackedScene" uid="uid://cs37xus6fdfc" path="res://scenes/objects/placables/object_instance.tscn" id="90_objin"]
-[ext_resource type="Resource" uid="uid://dw62tg57ndkqt" path="res://scripts/resources/placeable_object/furniture/fire_trash_can.tres" id="92_trash"]
-[ext_resource type="Resource" uid="uid://dn1oxfy01wq4k" path="res://scripts/resources/placeable_object/furniture/bed.tres" id="91_bed"]
-[ext_resource type="Resource" uid="uid://dv80lbs85tnag" path="res://scripts/resources/placeable_object/furniture/campfire.tres" id="93_camp"]
-[ext_resource type="Resource" uid="uid://clh75kbapjbke" path="res://scripts/resources/placeable_object/furniture/chest.tres" id="94_chest"]
-[ext_resource type="Resource" uid="uid://d0o000jgyh5ci" path="res://scripts/resources/placeable_object/nature/apple_tree.tres" id="97_apple"]
-[ext_resource type="Resource" uid="uid://cc6er7qjkt4n8" path="res://scripts/resources/placeable_object/props/barrels.tres" id="100_barrel"]
-[ext_resource type="Resource" uid="uid://ca458q48ofad6" path="res://scripts/resources/placeable_object/props/vending_machine.tres" id="99_vend"]
-[ext_resource type="Resource" uid="uid://b0mebugnhfw2t" path="res://scripts/resources/placeable_object/nature/rock.tres" id="98_rock"]
-
 [node name="YSortTest" type="Node2D" unique_id=1061428786]
 script = ExtResource("1_root")
 
@@ -33,43 +23,11 @@ position = Vector2(450, 880)
 [node name="Camera2D" type="Camera2D" parent="Level/Player" unique_id=80018064]
 zoom = Vector2(2, 2)
 
-[node name="AppleTree" parent="Level" unique_id=1805575475 instance=ExtResource("90_objin")]
-position = Vector2(420, 200)
-object = ExtResource("97_apple")
-
-[node name="Barrels" parent="Level" unique_id=1248806076 instance=ExtResource("90_objin")]
-position = Vector2(570, 200)
-object = ExtResource("100_barrel")
-
-[node name="VendingMachine1" parent="Level" unique_id=113468024 instance=ExtResource("90_objin")]
-position = Vector2(720, 200)
-object = ExtResource("99_vend")
-
 [node name="MerchantTerminal" parent="Level" unique_id=224144230 instance=ExtResource("15_prop")]
 position = Vector2(120, 460)
 
-[node name="Rock" parent="Level" unique_id=936548043 instance=ExtResource("90_objin")]
-position = Vector2(270, 460)
-object = ExtResource("98_rock")
-
-[node name="Chest" parent="Level" unique_id=59569775 instance=ExtResource("90_objin")]
-position = Vector2(420, 460)
-object = ExtResource("94_chest")
-
-[node name="FireTrashCan" parent="Level" unique_id=1177565870 instance=ExtResource("90_objin")]
-position = Vector2(570, 460)
-object = ExtResource("92_trash")
-
 [node name="Door" parent="Level" unique_id=1669286081 instance=ExtResource("19_prop")]
 position = Vector2(720, 460)
-
-[node name="Bed" parent="Level" unique_id=390053842 instance=ExtResource("90_objin")]
-position = Vector2(120, 720)
-object = ExtResource("91_bed")
-
-[node name="Campfire" parent="Level" unique_id=2018690748 instance=ExtResource("90_objin")]
-position = Vector2(270, 720)
-object = ExtResource("93_camp")
 
 [node name="DebugOverlay" type="Node2D" parent="." unique_id=101984607 node_paths=PackedStringArray("target")]
 z_index = 4096

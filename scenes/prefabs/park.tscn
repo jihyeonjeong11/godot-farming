@@ -1,9 +1,6 @@
 [gd_scene format=4 uid="uid://5eoffqdgig8q"]
 
 [ext_resource type="TileSet" uid="uid://dkw01fa84lera" path="res://tilesets/city_ruin.tres" id="1_tiles"]
-[ext_resource type="PackedScene" uid="uid://cs37xus6fdfc" path="res://scenes/objects/placables/object_instance.tscn" id="90_objin"]
-[ext_resource type="Resource" uid="uid://d0o000jgyh5ci" path="res://scripts/resources/placeable_object/nature/apple_tree.tres" id="97_apple"]
-
 [node name="Park" type="Node2D" unique_id=1129775154]
 
 [node name="Ground" type="TileMapLayer" parent="." unique_id=521767934]
@@ -20,19 +17,3 @@ tile_set = ExtResource("1_tiles")
 
 [node name="Objects" type="Node2D" parent="." unique_id=1298987822]
 y_sort_enabled = true
-
-[node name="AppleTree1" parent="Objects" unique_id=918257299 instance=ExtResource("90_objin")]
-position = Vector2(390, 150)
-object = ExtResource("97_apple")
-
-[node name="AppleTree2" parent="Objects" unique_id=884818209 instance=ExtResource("90_objin")]
-position = Vector2(472, 176)
-object = ExtResource("97_apple")
-
-[node name="AppleTree3" parent="Objects" unique_id=33939665 instance=ExtResource("90_objin")]
-position = Vector2(330, 470)
-object = ExtResource("97_apple")
-
-[node name="AppleTree4" parent="Objects" unique_id=1145120559 instance=ExtResource("90_objin")]
-position = Vector2(70, 478)
-object = ExtResource("97_apple")

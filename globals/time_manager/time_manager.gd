@@ -9,6 +9,8 @@ const MINUTES_PER_HOUR := 60
 const HOURS_PER_DAY := 24
 const MINUTES_PER_DAY := HOURS_PER_DAY * MINUTES_PER_HOUR
 const SECONDS_PER_GAME_MINUTE := 0.7
+const MINUTES_PER_TICK := 10
+const SECONDS_PER_TICK := SECONDS_PER_GAME_MINUTE * MINUTES_PER_TICK
 
 const INITIAL_TIME: Dictionary = {
 	"day": 0,
@@ -93,18 +95,18 @@ func _process(delta: float) -> void:
 		return
 
 	_elapsed += delta * game_speed
-	while _elapsed >= SECONDS_PER_GAME_MINUTE:
-		_elapsed -= SECONDS_PER_GAME_MINUTE
-		_tick_minute()
+	while _elapsed >= SECONDS_PER_TICK:
+		_elapsed -= SECONDS_PER_TICK
+		_advance_minutes(MINUTES_PER_TICK)
 
 
-func _tick_minute() -> void:
-	current_time["minute"] += 1
-	if current_time["minute"] >= MINUTES_PER_HOUR:
-		current_time["minute"] = 0
+func _advance_minutes(minutes: int) -> void:
+	current_time["minute"] += minutes
+	while current_time["minute"] >= MINUTES_PER_HOUR:
+		current_time["minute"] -= MINUTES_PER_HOUR
 		current_time["hour"] += 1
 	if current_time["hour"] >= HOURS_PER_DAY:
-		current_time["hour"] = 0
+		current_time["hour"] -= HOURS_PER_DAY
 		current_time["day"] += 1
 		SignalBus.time_tick_day.emit(today())
 	_emit_tick()

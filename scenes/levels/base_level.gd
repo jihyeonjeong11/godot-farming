@@ -21,9 +21,11 @@ func _ready() -> void :
 
 	interface = UI_MANAGER.instantiate()
 	add_child(interface)
-	dev_info.visible = OS.is_debug_build()
+	dev_info.visible = false
 	if dev_info.visible:
 		get_tree().process_frame.connect(update_dev_info)
+	if not TimeManager.is_running:
+		TimeManager.start_time_advance()
 #
 	#if not has_interface:
 		#interface.hud.hide()

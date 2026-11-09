@@ -1691,12 +1691,12 @@ trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_asp6y"), SubResourc
 data = SubResource("Resource_gs3ke")
 
 [node name="NatureSpawner002" parent="NatureSpawners" index="1" unique_id=1800000003 instance=ExtResource("9_nspawn")]
-position = Vector2(1648, 92)
+position = Vector2(1414, 506)
 trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_pwy0s"), SubResource("Resource_g7c01")])
 data = SubResource("Resource_a21qh")
 
 [node name="NatureSpawner003" parent="NatureSpawners" index="2" unique_id=1800000004 instance=ExtResource("9_nspawn")]
-position = Vector2(1840, 92)
+position = Vector2(1537, 285)
 trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_fwrq6"), SubResource("Resource_5paw8")])
 data = SubResource("Resource_8qow4")
 
@@ -1706,22 +1706,22 @@ trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_mqhdx"), SubResourc
 data = SubResource("Resource_q8jpt")
 
 [node name="NatureSpawner007" parent="NatureSpawners" index="4" unique_id=1800000008 instance=ExtResource("9_nspawn")]
-position = Vector2(1904, 124)
+position = Vector2(1387, 238)
 trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_sbcy4"), SubResource("Resource_owc1q")])
 data = SubResource("Resource_xvcig")
 
 [node name="NatureSpawner012" parent="NatureSpawners" index="5" unique_id=1800000013 instance=ExtResource("9_nspawn")]
-position = Vector2(1808, 188)
+position = Vector2(1554, 151)
 trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_oydot"), SubResource("Resource_snehs")])
 data = SubResource("Resource_3jwdp")
 
 [node name="NatureSpawner013" parent="NatureSpawners" index="6" unique_id=1800000014 instance=ExtResource("9_nspawn")]
-position = Vector2(1872, 188)
+position = Vector2(1618, 235)
 trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_xe6x5"), SubResource("Resource_7jd8h")])
 data = SubResource("Resource_y5elk")
 
 [node name="NatureSpawner016" parent="NatureSpawners" index="7" unique_id=1800000017 instance=ExtResource("9_nspawn")]
-position = Vector2(1840, 252)
+position = Vector2(1627, 109)
 trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_tkpwy"), SubResource("Resource_tan7t")])
 data = SubResource("Resource_wkgux")
 
@@ -1746,7 +1746,7 @@ trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_3bhhd"), SubResourc
 data = SubResource("Resource_fjhnk")
 
 [node name="NatureSpawner022" parent="NatureSpawners" index="12" unique_id=1800000023 instance=ExtResource("9_nspawn")]
-position = Vector2(1872, 316)
+position = Vector2(1735, 516)
 trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_vfiqs"), SubResource("Resource_bowtj")])
 data = SubResource("Resource_t02kb")
 
@@ -1791,7 +1791,7 @@ trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_1demv"), SubResourc
 data = SubResource("Resource_fvrcr")
 
 [node name="NatureSpawner031" parent="NatureSpawners" index="21" unique_id=1800000032 instance=ExtResource("9_nspawn")]
-position = Vector2(1808, 412)
+position = Vector2(1391, 1026)
 trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_eqc7x"), SubResource("Resource_a4wov")])
 data = SubResource("Resource_vmpni")
 
@@ -1911,7 +1911,7 @@ trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_kxyjo"), SubResourc
 data = SubResource("Resource_6uuj5")
 
 [node name="NatureSpawner055" parent="NatureSpawners" index="45" unique_id=1800000056 instance=ExtResource("9_nspawn")]
-position = Vector2(1904, 796)
+position = Vector2(1737, 696)
 trees = Array[ExtResource("8_2ka5o")]([SubResource("Resource_cd1rp"), SubResource("Resource_rtwv1")])
 data = SubResource("Resource_nsnqs")
 

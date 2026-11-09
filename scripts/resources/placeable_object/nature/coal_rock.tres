@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://c0e27vd6vvrd3" path="res://scripts/resources/loot/loot.gd" id="1_loot"]
 [ext_resource type="Script" uid="uid://bstiq6ulxip1a" path="res://scripts/resources/placeable_object/placeable_object.gd" id="2_object"]
-[ext_resource type="Resource" uid="uid://qwqme2a421kw" path="res://scripts/resources/item/pickables/coal.tres" id="3_coal"]
-[ext_resource type="Resource" uid="uid://bvp0rivu0hk48" path="res://scripts/resources/item/pickables/stone.tres" id="4_stone"]
+[ext_resource type="Resource" uid="uid://qwqme2a421kw" path="res://items/tres/item/pickables/coal.tres" id="3_coal"]
+[ext_resource type="Resource" uid="uid://bvp0rivu0hk48" path="res://items/tres/item/pickables/stone.tres" id="4_stone"]
 [ext_resource type="Script" uid="uid://c7xk2mvbqjy4n" path="res://scripts/resources/recipes/craft_recipe.gd" id="5_h725i"]
 [ext_resource type="Texture2D" uid="uid://dx1ojuv03ikd1" path="res://assets/temp/coal_rock.png" id="5_tex"]
 

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://b7ncxvq4td2ma"]
+
+[ext_resource type="Texture2D" uid="uid://dog4l2sx7u7cn" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png" id="1_yxo38"]
+[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://items/item.gd" id="2_ewrj7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ebsy2"]
+atlas = ExtResource("1_yxo38")
+region = Rect2(899, 3, 27, 30)
+
+[resource]
+script = ExtResource("2_ewrj7")
+item_id = "corn_seeds"
+item_type = 3
+tool_type = 11
+item_name = "Corn Seeds"
+item_texture = SubResource("AtlasTexture_ebsy2")
+description = "Canned corn seeds"
+world_object_id = &"corn_crop"
+world_scene_path = "uid://cb65olukse4yu"
+metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

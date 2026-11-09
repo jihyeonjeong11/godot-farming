@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://bn77oashejowm"]
+
+[ext_resource type="Texture2D" uid="uid://gt2xyeubl5dh" path="res://assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png" id="1_uikxw"]
+[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://items/item.gd" id="2_5i05w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_seed"]
+atlas = ExtResource("1_uikxw")
+region = Rect2(642, 128, 28, 32)
+
+[resource]
+script = ExtResource("2_5i05w")
+item_id = "fennel_seeds"
+item_type = 3
+tool_type = 11
+item_name = "Fennel Seeds"
+item_texture = SubResource("AtlasTexture_seed")
+description = "Canned fennel seeds"
+world_object_id = &"fennel_crop"
+world_scene_path = "uid://cb65olukse4yu"
+metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

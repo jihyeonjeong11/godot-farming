@@ -1,0 +1,121 @@
+class_name Item extends Resource
+
+const STAT_COLOR_HEALTH := Color(0.9, 0.35, 0.35)
+const STAT_COLOR_HUNGER := Color(0.92, 0.65, 0.3)
+const STAT_COLOR_THIRST := Color(0.4, 0.7, 0.95)
+const STAT_COLOR_DEFENSE := Color(0.7, 0.75, 0.85)
+const STAT_COLOR_SPEED := Color(0.5, 0.85, 0.55)
+const STAT_COLOR_NEGATIVE := Color(0.75, 0.3, 0.3)
+
+## 확졍 아님.
+
+@export var item_id = ""
+## 아이템의 큰 갈래. 문자열이던 시절엔 주석의 목록과 .tres 의 실제 값이
+## 따로 놀았다(주석은 "seed", 데이터는 "seeds").
+@export var item_type: DataTypes.ItemType = DataTypes.ItemType.Misc
+@export var tool_type: DataTypes.Tools = DataTypes.Tools.None
+@export var item_name = ""
+@export var item_texture: Texture
+## Execlusive for artifacts
+@export var item_effect = ""
+## 사용했을 때 회복하는 체력. 0이면 체력에는 영향이 없다.
+@export var heal = 0
+## 먹었을 때 채워주는 허기. 0이면 허기에는 영향이 없다.
+@export var hunger = 0
+## 먹었을 때 채워주는 갈증. 0이면 갈증에는 영향이 없다.
+@export var thirst = 0
+## todo: i18n
+@export var description = ""
+
+@export var melee_damage: int
+@export var melee_knockback: int
+@export var melee_speed: float = 1.0
+
+@export var value: int
+
+## 근접 판정을 몸에서 얼마나 밀어낼지(px). 리치가 긴 무기일수록 크다.
+@export var melee_reach: float = 18.0
+## 근접 판정 원의 반지름(px). melee_shape가 비어 있을 때만 쓴다.
+@export var melee_radius: float = 14.0
+
+## 근접 판정 모양. 비워두면 melee_radius짜리 원을 코드가 만들어 붙인다.
+## 도끼처럼 "앞 칸"을 찍는 툴은 여기에 RectangleShape2D를 넣는다.
+## 원이 아닌 모양은 바라보는 방향에 따라 회전한다 — x축이 앞쪽이다.
+@export var melee_shape: Shape2D
+
+## 대상 칸까지 닿는 거리(px). 밭갈기·심기 같은 타일 조작을 이걸로 자른다.
+## 근접 판정과는 별개 축이다. 괭이는 때리는 범위가 아니라 닿는 칸이 중요하다.
+@export var use_range: float = 20.0
+
+@export var max_stack: int = 100
+
+@export var world_object_id: StringName = &""
+
+## placeable일 때 땅에 놓으면 세워질 PlaceableObject 리소스 경로.
+@export_file("*.tres") var placeable_object_path: String = ""
+
+## 손에 들었을 때 재생할 장비 스프라이트 애니메이션 접두사.
+## "axe" → axe_idle_front / axe_attack_front. 비어 있으면 손에 아무것도 안 그린다.
+@export var anim_prefix: StringName = &""
+## droppable
+@export_file("*.tscn") var world_scene_path: String = ""
+
+## 땅에 떨어졌을 때 쓸 그림. 비워두면 item_texture를 쓴다.
+## 인벤토리 아이콘과 월드 그림이 다른 것들(돌·통나무·당근)만 채우면 된다.
+@export var world_texture: Texture2D
+
+@export var max_ammo: int
+@export var current_ammo: int
+
+## wearables
+## 착용 부위. None 이면 장비 칸에 넣을 수 없다.
+@export var wear_slot: DataTypes.WearSlot = DataTypes.WearSlot.None
+## 입었을 때 더해주는 방어력.
+@export var defense: int
+## 입었을 때 더해주는 이동 속도. base_speed 에 더해지므로 100 기준으로 읽는다.
+@export var speed: int
+
+@export var tool_action: String
+
+
+
+
+## TODO: Make theme as a file for localization support
+func describe(price_label: String = "가치") -> String:
+	var lines: PackedStringArray = [tr(item_name)]
+
+	if item_type != DataTypes.ItemType.Misc:
+		lines.append("[%s]" % DataTypes.item_type_label(item_type))
+
+	if not description.is_empty():
+		lines.append(description)
+
+	if melee_damage > 0:
+		lines.append("공격력 %d" % melee_damage)
+
+	for stat in stat_lines():
+		lines.append(stat.text)
+
+	if value > 0:
+		lines.append("%s %d" % [price_label, value])
+
+	return "\n".join(lines)
+
+
+func stat_lines() -> Array[Dictionary]:
+	var lines: Array[Dictionary] = []
+	for entry in [
+		["체력", heal, STAT_COLOR_HEALTH],
+		["허기", hunger, STAT_COLOR_HUNGER],
+		["갈증", thirst, STAT_COLOR_THIRST],
+		["방어", defense, STAT_COLOR_DEFENSE],
+		["속도", speed, STAT_COLOR_SPEED],
+	]:
+		var amount: int = entry[1]
+		if amount == 0:
+			continue
+		lines.append({
+			"text": "%s %+d" % [entry[0], amount],
+			"color": entry[2] if amount > 0 else STAT_COLOR_NEGATIVE,
+		})
+	return lines

@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ContainerObject" format=3 uid="uid://v6nk106jkk6q"]
+
+[ext_resource type="Script" uid="uid://ce80mtciwao25" path="res://world_objects/furniture/container/container.gd" id="1_cont"]
+[ext_resource type="Script" uid="uid://cu6u0yvr4eaxi" path="res://items/loot/loot.gd" id="1_s5j8o"]
+[ext_resource type="Texture2D" uid="uid://mloe6l4aphpg" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crafting.png" id="2_tex"]
+[ext_resource type="Resource" uid="uid://bch5t2qw8n1kd" path="res://items/tres/item/placeables/chest.tres" id="3_item"]
+
+[sub_resource type="Resource" id="Loot_chest"]
+script = ExtResource("1_s5j8o")
+item = ExtResource("3_item")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chest"]
+atlas = ExtResource("2_tex")
+region = Rect2(391, 16, 50, 41)
+
+[resource]
+script = ExtResource("1_cont")
+id = &"chest"
+name = &"chest"
+description = "A chest to contain items."
+texture = SubResource("AtlasTexture_chest")
+type = 1
+is_interactable = true
+loot_pool = Array[ExtResource("1_s5j8o")]([SubResource("Loot_chest")])

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c0e27vd6vvrd3" path="res://scripts/resources/loot/loot.gd" id="1_loot"]
 [ext_resource type="Script" uid="uid://bstiq6ulxip1a" path="res://scripts/resources/placeable_object/placeable_object.gd" id="2_object"]
-[ext_resource type="Resource" uid="uid://bfurnace00002" path="res://scripts/resources/item/placeables/furnace.tres" id="3_drop"]
+[ext_resource type="Resource" uid="uid://bfurnace00002" path="res://items/tres/item/placeables/furnace.tres" id="3_drop"]
 [ext_resource type="Texture2D" uid="uid://bp43eq45cg36y" path="res://assets/temp/furnace.png" id="4_atlas"]
 [ext_resource type="Script" uid="uid://c7xk2mvbqjy4n" path="res://scripts/resources/recipes/craft_recipe.gd" id="4_g6g56"]
 [ext_resource type="Resource" uid="uid://d4lxl2856qk5e" path="res://scripts/resources/recipes/furnace/iron_ingot_recipe.tres" id="5_gyh2j"]

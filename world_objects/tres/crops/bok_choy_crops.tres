@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://df33bawivqev2" path="res://world_objects/world_object_data.gd" id="1_data"]
 [ext_resource type="Script" uid="uid://cu6u0yvr4eaxi" path="res://items/loot/loot.gd" id="2_4fj6k"]
 [ext_resource type="Texture2D" uid="uid://gt2xyeubl5dh" path="res://assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png" id="2_atlas"]
-[ext_resource type="Resource" uid="uid://k74obilin17u" path="res://scripts/resources/item/pickables/bok_choy.tres" id="9_harvest"]
+[ext_resource type="Resource" uid="uid://k74obilin17u" path="res://items/tres/item/pickables/bok_choy.tres" id="9_harvest"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_st0"]
 atlas = ExtResource("2_atlas")

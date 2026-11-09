@@ -94,7 +94,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				elif stack != null and stack.item.item_type == DataTypes.ItemType.Placeable:
 					CursorActions.place_object(stack.item)
 				else:
-					SessionState.cursor_freeze = true
+					pass
 			MOUSE_BUTTON_RIGHT:
 				InteractActions.interact()
 			MOUSE_BUTTON_WHEEL_DOWN:

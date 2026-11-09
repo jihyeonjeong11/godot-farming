@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://s3ye070bqhv3"]
+
+[ext_resource type="Texture2D" uid="uid://dog4l2sx7u7cn" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png" id="1_jqlp2"]
+[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://items/item.gd" id="2_dfnvc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5wjh"]
+atlas = ExtResource("1_jqlp2")
+region = Rect2(706, 320, 28, 32)
+
+[resource]
+script = ExtResource("2_dfnvc")
+item_id = "carrot_seeds"
+item_type = 3
+tool_type = 11
+item_name = "Carrot Seeds"
+item_texture = SubResource("AtlasTexture_j5wjh")
+description = "Canned carrot seeds"
+world_object_id = &"carrot_crop"
+world_scene_path = "uid://cb65olukse4yu"
+metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

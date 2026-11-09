@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="Item" format=3 uid="uid://dmk0yav24rdm0"]
 
-[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/item/item.gd" id="1_1dng0"]
 [ext_resource type="Texture2D" uid="uid://dog4l2sx7u7cn" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png" id="1_oftbe"]
+[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://items/item.gd" id="2_jx5ju"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oftbe"]
 atlas = ExtResource("1_oftbe")
 region = Rect2(866, 610, 29, 29)
 
 [resource]
-script = ExtResource("1_1dng0")
+script = ExtResource("2_jx5ju")
 item_id = "fiber"
 item_type = 6
 item_name = "Fiber"

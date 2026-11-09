@@ -109,6 +109,53 @@ static func select_split_stack(index: int, half: bool) -> void:
 	InventoryManager.held_changed.emit()
 	InventoryManager.updated_inventory.emit()
 
+static func select_stack_in(slots: Array, index: int) -> void:
+	if index < 0 or index >= slots.size():
+		return
+	var held := InventoryManager.held_stack
+	var target: ItemStack = slots[index]
+	if held == null:
+		if target == null:
+			return
+		slots[index] = null
+		InventoryManager.held_stack = target
+	elif target == null:
+		slots[index] = held
+		InventoryManager.held_stack = null
+	elif held.is_same_kind(target.item) and target.free_space() > 0:
+		var put := mini(target.free_space(), held.amount)
+		target.amount += put
+		held.amount -= put
+		if held.amount <= 0:
+			InventoryManager.held_stack = null
+	else:
+		slots[index] = held
+		InventoryManager.held_stack = target
+	InventoryManager.held_changed.emit()
+
+static func select_split_stack_in(slots: Array, index: int, half: bool) -> void:
+	if index < 0 or index >= slots.size():
+		return
+	var target: ItemStack = slots[index]
+	if target == null:
+		return
+	var held := InventoryManager.held_stack
+	if held != null and not held.is_same_kind(target.item):
+		return
+	var take := maxi(target.amount / 2, 1) if half else 1
+	if held != null:
+		take = mini(take, held.free_space())
+		if take <= 0:
+			return
+	target.amount -= take
+	if target.amount <= 0:
+		slots[index] = null
+	if held == null:
+		InventoryManager.held_stack = ItemStack.new(target.item, take)
+	else:
+		held.amount += take
+	InventoryManager.held_changed.emit()
+
 static func select_equipment(index: int, slot_type: DataTypes.WearSlot) -> void:
 	var held := InventoryManager.held_stack
 	if held != null and held.item.wear_slot != slot_type:

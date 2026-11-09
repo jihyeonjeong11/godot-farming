@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://dxpte50bcvps2"]
+
+[ext_resource type="PackedScene" uid="uid://cvle266g113el" path="res://world_objects/world_object.tscn" id="1_base"]
+[ext_resource type="Resource" uid="uid://v6nk106jkk6q" path="res://world_objects/tres/container/chest.tres" id="2_data"]
+[ext_resource type="Script" uid="uid://clvljkup7nto8" path="res://world_objects/furniture/container/chest.gd" id="2_script"]
+[ext_resource type="Texture2D" uid="uid://mloe6l4aphpg" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crafting.png" id="3_p1vof"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chest"]
+atlas = ExtResource("3_p1vof")
+region = Rect2(391, 16, 50, 41)
+
+[sub_resource type="Animation" id="Animation_reset"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("AtlasTexture_chest")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(-25, -41)]
+}
+
+[sub_resource type="Animation" id="Animation_closed"]
+resource_name = "closed"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("AtlasTexture_chest")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(-25, -41)]
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chest_open"]
+atlas = ExtResource("3_p1vof")
+region = Rect2(455, 2, 50, 55)
+
+[sub_resource type="Animation" id="Animation_open"]
+resource_name = "open"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("AtlasTexture_chest_open")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(-25, -55)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_chest"]
+_data = {
+&"RESET": SubResource("Animation_reset"),
+&"closed": SubResource("Animation_closed"),
+&"open": SubResource("Animation_open")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_chest"]
+size = Vector2(48, 28)
+
+[node name="Chest" unique_id=412109625 instance=ExtResource("1_base")]
+script = ExtResource("2_script")
+data = ExtResource("2_data")
+accepted_tools = Array[int]([1, 2])
+
+[node name="Sprite2D" parent="." index="0" unique_id=999308787]
+texture = SubResource("AtlasTexture_chest")
+offset = Vector2(-25, -41)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1" unique_id=644876418]
+libraries/ = SubResource("AnimationLibrary_chest")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="2" unique_id=375532938]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0" unique_id=101985898]
+position = Vector2(0, -15)
+shape = SubResource("RectangleShape2D_chest")

@@ -34,6 +34,7 @@ func _ready() -> void :
 	dev_give_tools()
 	dev_give_seed()
 	dev_give_campfire_materials()
+	dev_give_chest()
 	dev_shuffle_outfit()
 	dev_build_grid()
 	dev_build_snapshot_view()
@@ -137,6 +138,10 @@ func dev_give_campfire_materials() -> void:
 	for recipe in RecipeDB.for_result(&"campfire"):
 		for id in recipe.ingredients:
 			InventoryActions.obtain(ItemStack.new(ItemDB.get_item(id), recipe.ingredients[id]))
+
+
+func dev_give_chest() -> void:
+	InventoryActions.obtain(ItemStack.new(ItemDB.get_item(&"chest"), 1))
 
 
 func dev_give_wearables() -> void:

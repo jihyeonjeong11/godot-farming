@@ -1,20 +1,20 @@
 [gd_resource type="Resource" script_class="WorldObjectData" format=3 uid="uid://dhco6tc6c1vqc"]
 
 [ext_resource type="Script" uid="uid://df33bawivqev2" path="res://world_objects/world_object_data.gd" id="1_bd0h0"]
+[ext_resource type="Resource" uid="uid://bvp0rivu0hk48" path="res://items/tres/item/pickables/stone.tres" id="2_2866d"]
 [ext_resource type="Texture2D" uid="uid://dog4l2sx7u7cn" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png" id="2_6053s"]
+[ext_resource type="Resource" uid="uid://qwqme2a421kw" path="res://items/tres/item/pickables/coal.tres" id="3_flpnu"]
 [ext_resource type="Script" uid="uid://cu6u0yvr4eaxi" path="res://items/loot/loot.gd" id="3_loot"]
-[ext_resource type="Resource" uid="uid://bvp0rivu0hk48" path="res://scripts/resources/item/pickables/stone.tres" id="4_stone"]
-[ext_resource type="Resource" uid="uid://qwqme2a421kw" path="res://scripts/resources/item/pickables/coal.tres" id="5_coal"]
 
 [sub_resource type="Resource" id="Loot_stone"]
 script = ExtResource("3_loot")
-item = ExtResource("4_stone")
+item = ExtResource("2_2866d")
 chance = 0.7
 metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
 
 [sub_resource type="Resource" id="Loot_coal"]
 script = ExtResource("3_loot")
-item = ExtResource("5_coal")
+item = ExtResource("3_flpnu")
 chance = 0.1667
 metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
 

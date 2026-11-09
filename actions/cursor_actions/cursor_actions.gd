@@ -269,9 +269,11 @@ static func is_placeable() -> bool:
 
 
 static func place_object(item: Item) -> bool:
-	if item.placed_scene == null or not is_placeable():
+	if item.world_object_id.is_empty() or not is_placeable():
 		return false
-	var object := item.placed_scene.instantiate() as WorldObject
+	var object := WorldObjectDB.create(item.world_object_id)
+	if object == null:
+		return false
 	object.position = SessionState.target_dict["pos"] + PLACED_BASE_OFFSET
 	(Engine.get_main_loop() as SceneTree).current_scene.add_child(object)
 	InventoryManager.remove_item(item, 1)

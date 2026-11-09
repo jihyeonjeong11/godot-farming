@@ -6,11 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://d3yrr8n8xlaxj" path="res://ui/hud/quick_bar/quick_bar.tscn" id="4_ks7wv"]
 [ext_resource type="PackedScene" uid="uid://l0h71pkmjuk" path="res://ui/settings/settings_menu.tscn" id="5_settings"]
 [ext_resource type="PackedScene" uid="uid://857mx4r1yr3x" path="res://ui/hud/toast/toast.tscn" id="6_toast"]
+[ext_resource type="PackedScene" path="res://ui/container_inventory/container_inventory_ui.tscn" id="7_container"]
 
 [node name="UiManager" type="CanvasLayer" unique_id=1924915199]
 script = ExtResource("1_gomet")
 ingame_menu_scene = ExtResource("2_6ekmg")
 settings_scene = ExtResource("5_settings")
+container_scene = ExtResource("7_container")
 
 [node name="PlayerStats" parent="." unique_id=870378732 instance=ExtResource("3_ks7wv")]
 

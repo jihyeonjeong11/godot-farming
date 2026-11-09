@@ -4,37 +4,37 @@
 [ext_resource type="Script" uid="uid://df33bawivqev2" path="res://world_objects/world_object_data.gd" id="2_k1t8s"]
 [ext_resource type="Script" uid="uid://cu6u0yvr4eaxi" path="res://items/loot/loot.gd" id="2_qcuux"]
 [ext_resource type="Resource" uid="uid://dmk0yav24rdm0" path="res://items/tres/materials/fiber.tres" id="3_qcuux"]
-[ext_resource type="Resource" uid="uid://bjdtfssekjw74" path="res://scripts/resources/item/seeds/artichoke_seeds.tres" id="seed_artichoke_seeds"]
-[ext_resource type="Resource" uid="uid://b4brnm1lw75dk" path="res://scripts/resources/item/seeds/asparagus_seeds.tres" id="seed_asparagus_seeds"]
-[ext_resource type="Resource" uid="uid://bo2yfmfuljsnw" path="res://scripts/resources/item/seeds/beet_seeds.tres" id="seed_beet_seeds"]
-[ext_resource type="Resource" uid="uid://bpumtqxnopcxm" path="res://scripts/resources/item/seeds/blueberry_seeds.tres" id="seed_blueberry_seeds"]
-[ext_resource type="Resource" uid="uid://bn4086366xgqc" path="res://scripts/resources/item/seeds/bok_choy_seeds.tres" id="seed_bok_choy_seeds"]
-[ext_resource type="Resource" uid="uid://btu10sf1nr1ua" path="res://scripts/resources/item/seeds/cabbage_seeds.tres" id="seed_cabbage_seeds"]
-[ext_resource type="Resource" uid="uid://s3ye070bqhv3" path="res://scripts/resources/item/seeds/carrot_seeds.tres" id="seed_carrot_seeds"]
-[ext_resource type="Resource" uid="uid://bswhy3t66fdkj" path="res://scripts/resources/item/seeds/cauliflower_seeds.tres" id="seed_cauliflower_seeds"]
-[ext_resource type="Resource" uid="uid://b7ncxvq4td2ma" path="res://scripts/resources/item/seeds/corn_seeds.tres" id="seed_corn_seeds"]
-[ext_resource type="Resource" uid="uid://bl0w6fkh6ggla" path="res://scripts/resources/item/seeds/cucumber_seeds.tres" id="seed_cucumber_seeds"]
-[ext_resource type="Resource" uid="uid://bx3g3oggelq82" path="res://scripts/resources/item/seeds/eggplant_seeds.tres" id="seed_eggplant_seeds"]
-[ext_resource type="Resource" uid="uid://bpwbeq7wv4skq" path="res://scripts/resources/item/seeds/endive_seeds.tres" id="seed_endive_seeds"]
-[ext_resource type="Resource" uid="uid://bn77oashejowm" path="res://scripts/resources/item/seeds/fennel_seeds.tres" id="seed_fennel_seeds"]
-[ext_resource type="Resource" uid="uid://bevs7xrqo1mgw" path="res://scripts/resources/item/seeds/grape_seeds.tres" id="seed_grape_seeds"]
-[ext_resource type="Resource" uid="uid://by26c57ssd8kf" path="res://scripts/resources/item/seeds/green_bean_seeds.tres" id="seed_green_bean_seeds"]
-[ext_resource type="Resource" uid="uid://bbq7r77g8h6xe" path="res://scripts/resources/item/seeds/green_paprika_seeds.tres" id="seed_green_paprika_seeds"]
-[ext_resource type="Resource" uid="uid://b2b1o2i4gcvif" path="res://scripts/resources/item/seeds/lemon_seeds.tres" id="seed_lemon_seeds"]
-[ext_resource type="Resource" uid="uid://byisflwocs6bv" path="res://scripts/resources/item/seeds/melon_seeds.tres" id="seed_melon_seeds"]
-[ext_resource type="Resource" uid="uid://b5wq78uf5bfq5" path="res://scripts/resources/item/seeds/onion_seeds.tres" id="seed_onion_seeds"]
-[ext_resource type="Resource" uid="uid://bt875ra82t04u" path="res://scripts/resources/item/seeds/orange_seeds.tres" id="seed_orange_seeds"]
-[ext_resource type="Resource" uid="uid://bo70ax8vvjxqd" path="res://scripts/resources/item/seeds/pea_seeds.tres" id="seed_pea_seeds"]
-[ext_resource type="Resource" uid="uid://bx4086kgr07s4" path="res://scripts/resources/item/seeds/pineapple_seeds.tres" id="seed_pineapple_seeds"]
-[ext_resource type="Resource" uid="uid://cn8vrpxa2yl4e" path="res://scripts/resources/item/seeds/potato_seeds.tres" id="seed_potato_seeds"]
-[ext_resource type="Resource" uid="uid://bdk0sadanhp2y" path="res://scripts/resources/item/seeds/red_paprika_seeds.tres" id="seed_red_paprika_seeds"]
-[ext_resource type="Resource" uid="uid://boxx2khlwydjk" path="res://scripts/resources/item/seeds/rice_seeds.tres" id="seed_rice_seeds"]
-[ext_resource type="Resource" uid="uid://bbf3xhnvg63el" path="res://scripts/resources/item/seeds/strawberry_seeds.tres" id="seed_strawberry_seeds"]
-[ext_resource type="Resource" uid="uid://b1scu25cbwbi2" path="res://scripts/resources/item/seeds/sugarcane_seeds.tres" id="seed_sugarcane_seeds"]
-[ext_resource type="Resource" uid="uid://bp1m57gco07id" path="res://scripts/resources/item/seeds/tomato_seeds.tres" id="seed_tomato_seeds"]
-[ext_resource type="Resource" uid="uid://cieiynkfsydfb" path="res://scripts/resources/item/seeds/wheat_seeds.tres" id="seed_wheat_seeds"]
-[ext_resource type="Resource" uid="uid://bi2relsybosy7" path="res://scripts/resources/item/seeds/yellow_onion_seeds.tres" id="seed_yellow_onion_seeds"]
-[ext_resource type="Resource" uid="uid://bmndmuro8l2lk" path="res://scripts/resources/item/seeds/yellow_paprika_seeds.tres" id="seed_yellow_paprika_seeds"]
+[ext_resource type="Resource" uid="uid://bjdtfssekjw74" path="res://items/tres/item/seeds/artichoke_seeds.tres" id="4_doop5"]
+[ext_resource type="Resource" uid="uid://b4brnm1lw75dk" path="res://items/tres/item/seeds/asparagus_seeds.tres" id="5_ectys"]
+[ext_resource type="Resource" uid="uid://bo2yfmfuljsnw" path="res://items/tres/item/seeds/beet_seeds.tres" id="6_rc7qd"]
+[ext_resource type="Resource" uid="uid://bpumtqxnopcxm" path="res://items/tres/item/seeds/blueberry_seeds.tres" id="7_jgh06"]
+[ext_resource type="Resource" uid="uid://bn4086366xgqc" path="res://items/tres/item/seeds/bok_choy_seeds.tres" id="8_5v200"]
+[ext_resource type="Resource" uid="uid://btu10sf1nr1ua" path="res://items/tres/item/seeds/cabbage_seeds.tres" id="9_h8oud"]
+[ext_resource type="Resource" uid="uid://s3ye070bqhv3" path="res://items/tres/item/seeds/carrot_seeds.tres" id="10_48gwq"]
+[ext_resource type="Resource" uid="uid://bswhy3t66fdkj" path="res://items/tres/item/seeds/cauliflower_seeds.tres" id="11_3qkk1"]
+[ext_resource type="Resource" uid="uid://b7ncxvq4td2ma" path="res://items/tres/item/seeds/corn_seeds.tres" id="12_4e3nb"]
+[ext_resource type="Resource" uid="uid://bl0w6fkh6ggla" path="res://items/tres/item/seeds/cucumber_seeds.tres" id="13_xp7qd"]
+[ext_resource type="Resource" uid="uid://bx3g3oggelq82" path="res://items/tres/item/seeds/eggplant_seeds.tres" id="14_5wmj0"]
+[ext_resource type="Resource" uid="uid://bpwbeq7wv4skq" path="res://items/tres/item/seeds/endive_seeds.tres" id="15_m72r3"]
+[ext_resource type="Resource" uid="uid://bn77oashejowm" path="res://items/tres/item/seeds/fennel_seeds.tres" id="16_5idme"]
+[ext_resource type="Resource" uid="uid://bevs7xrqo1mgw" path="res://items/tres/item/seeds/grape_seeds.tres" id="17_1qn0q"]
+[ext_resource type="Resource" uid="uid://by26c57ssd8kf" path="res://items/tres/item/seeds/green_bean_seeds.tres" id="18_6ev81"]
+[ext_resource type="Resource" uid="uid://bbq7r77g8h6xe" path="res://items/tres/item/seeds/green_paprika_seeds.tres" id="19_bbffv"]
+[ext_resource type="Resource" uid="uid://b2b1o2i4gcvif" path="res://items/tres/item/seeds/lemon_seeds.tres" id="20_wxssk"]
+[ext_resource type="Resource" uid="uid://byisflwocs6bv" path="res://items/tres/item/seeds/melon_seeds.tres" id="21_4v0xq"]
+[ext_resource type="Resource" uid="uid://b5wq78uf5bfq5" path="res://items/tres/item/seeds/onion_seeds.tres" id="22_uav8a"]
+[ext_resource type="Resource" uid="uid://bt875ra82t04u" path="res://items/tres/item/seeds/orange_seeds.tres" id="23_tux4j"]
+[ext_resource type="Resource" uid="uid://bo70ax8vvjxqd" path="res://items/tres/item/seeds/pea_seeds.tres" id="24_ni5pb"]
+[ext_resource type="Resource" uid="uid://bx4086kgr07s4" path="res://items/tres/item/seeds/pineapple_seeds.tres" id="25_eqfnr"]
+[ext_resource type="Resource" uid="uid://cn8vrpxa2yl4e" path="res://items/tres/item/seeds/potato_seeds.tres" id="26_dyms5"]
+[ext_resource type="Resource" uid="uid://bdk0sadanhp2y" path="res://items/tres/item/seeds/red_paprika_seeds.tres" id="27_veomy"]
+[ext_resource type="Resource" uid="uid://boxx2khlwydjk" path="res://items/tres/item/seeds/rice_seeds.tres" id="28_ws6tt"]
+[ext_resource type="Resource" uid="uid://bbf3xhnvg63el" path="res://items/tres/item/seeds/strawberry_seeds.tres" id="29_kxrkf"]
+[ext_resource type="Resource" uid="uid://b1scu25cbwbi2" path="res://items/tres/item/seeds/sugarcane_seeds.tres" id="30_3xb57"]
+[ext_resource type="Resource" uid="uid://bp1m57gco07id" path="res://items/tres/item/seeds/tomato_seeds.tres" id="31_31i70"]
+[ext_resource type="Resource" uid="uid://cieiynkfsydfb" path="res://items/tres/item/seeds/wheat_seeds.tres" id="32_a8pe3"]
+[ext_resource type="Resource" uid="uid://bi2relsybosy7" path="res://items/tres/item/seeds/yellow_onion_seeds.tres" id="33_rsdo3"]
+[ext_resource type="Resource" uid="uid://bmndmuro8l2lk" path="res://items/tres/item/seeds/yellow_paprika_seeds.tres" id="34_w7mpk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_stage0"]
 atlas = ExtResource("1_tiurs")
@@ -72,187 +72,187 @@ metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
 
 [sub_resource type="Resource" id="Loot_artichoke_seeds"]
 script = ExtResource("2_qcuux")
-item = ExtResource("seed_artichoke_seeds")
+item = ExtResource("4_doop5")
 chance = 0.0028
 metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
 
 [sub_resource type="Resource" id="Loot_asparagus_seeds"]
 script = ExtResource("2_qcuux")
-item = ExtResource("seed_asparagus_seeds")
+item = ExtResource("5_ectys")
 chance = 0.0028
 metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
 
 [sub_resource type="Resource" id="Loot_beet_seeds"]
 script = ExtResource("2_qcuux")
-item = ExtResource("seed_beet_seeds")
+item = ExtResource("6_rc7qd")
 chance = 0.0028
 metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
 
 [sub_resource type="Resource" id="Loot_blueberry_seeds"]
 script = ExtResource("2_qcuux")
-item = ExtResource("seed_blueberry_seeds")
+item = ExtResource("7_jgh06")
 chance = 0.0028
 metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
 
 [sub_resource type="Resource" id="Loot_bok_choy_seeds"]
 script = ExtResource("2_qcuux")
-item = ExtResource("seed_bok_choy_seeds")
+item = ExtResource("8_5v200")
 chance = 0.0028
 metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
 
 [sub_resource type="Resource" id="Loot_cabbage_seeds"]
 script = ExtResource("2_qcuux")
-item = ExtResource("seed_cabbage_seeds")
+item = ExtResource("9_h8oud")
 chance = 0.0028
 metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
 
 [sub_resource type="Resource" id="Loot_carrot_seeds"]
 script = ExtResource("2_qcuux")
-item = ExtResource("seed_carrot_seeds")
+item = ExtResource("10_48gwq")
 chance = 0.0028
 metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
 
 [sub_resource type="Resource" id="Loot_cauliflower_seeds"]
 script = ExtResource("2_qcuux")
-item = ExtResource("seed_cauliflower_seeds")
+item = ExtResource("11_3qkk1")
 chance = 0.0028
 metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
 
 [sub_resource type="Resource" id="Loot_corn_seeds"]
 script = ExtResource("2_qcuux")
-item = ExtResource("seed_corn_seeds")
+item = ExtResource("12_4e3nb")
 chance = 0.0028
 metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
 
 [sub_resource type="Resource" id="Loot_cucumber_seeds"]
 script = ExtResource("2_qcuux")
-item = ExtResource("seed_cucumber_seeds")
+item = ExtResource("13_xp7qd")
 chance = 0.0028
 metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
 
 [sub_resource type="Resource" id="Loot_eggplant_seeds"]
 script = ExtResource("2_qcuux")
-item = ExtResource("seed_eggplant_seeds")
+item = ExtResource("14_5wmj0")
 chance = 0.0028
 metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
 
 [sub_resource type="Resource" id="Loot_endive_seeds"]
 script = ExtResource("2_qcuux")
-item = ExtResource("seed_endive_seeds")
+item = ExtResource("15_m72r3")
 chance = 0.0028
 metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
 
 [sub_resource type="Resource" id="Loot_fennel_seeds"]
 script = ExtResource("2_qcuux")
-item = ExtResource("seed_fennel_seeds")
+item = ExtResource("16_5idme")
 chance = 0.0028
 metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
 
 [sub_resource type="Resource" id="Loot_grape_seeds"]
 script = ExtResource("2_qcuux")
-item = ExtResource("seed_grape_seeds")
+item = ExtResource("17_1qn0q")
 chance = 0.0028
 metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
 
 [sub_resource type="Resource" id="Loot_green_bean_seeds"]
 script = ExtResource("2_qcuux")
-item = ExtResource("seed_green_bean_seeds")
+item = ExtResource("18_6ev81")
 chance = 0.0028
 metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
 
 [sub_resource type="Resource" id="Loot_green_paprika_seeds"]
 script = ExtResource("2_qcuux")
-item = ExtResource("seed_green_paprika_seeds")
+item = ExtResource("19_bbffv")
 chance = 0.0028
 metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
 
 [sub_resource type="Resource" id="Loot_lemon_seeds"]
 script = ExtResource("2_qcuux")
-item = ExtResource("seed_lemon_seeds")
+item = ExtResource("20_wxssk")
 chance = 0.0028
 metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
 
 [sub_resource type="Resource" id="Loot_melon_seeds"]
 script = ExtResource("2_qcuux")
-item = ExtResource("seed_melon_seeds")
+item = ExtResource("21_4v0xq")
 chance = 0.0028
 metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
 
 [sub_resource type="Resource" id="Loot_onion_seeds"]
 script = ExtResource("2_qcuux")
-item = ExtResource("seed_onion_seeds")
+item = ExtResource("22_uav8a")
 chance = 0.0028
 metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
 
 [sub_resource type="Resource" id="Loot_orange_seeds"]
 script = ExtResource("2_qcuux")
-item = ExtResource("seed_orange_seeds")
+item = ExtResource("23_tux4j")
 chance = 0.0028
 metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
 
 [sub_resource type="Resource" id="Loot_pea_seeds"]
 script = ExtResource("2_qcuux")
-item = ExtResource("seed_pea_seeds")
+item = ExtResource("24_ni5pb")
 chance = 0.0028
 metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
 
 [sub_resource type="Resource" id="Loot_pineapple_seeds"]
 script = ExtResource("2_qcuux")
-item = ExtResource("seed_pineapple_seeds")
+item = ExtResource("25_eqfnr")
 chance = 0.0028
 metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
 
 [sub_resource type="Resource" id="Loot_potato_seeds"]
 script = ExtResource("2_qcuux")
-item = ExtResource("seed_potato_seeds")
+item = ExtResource("26_dyms5")
 chance = 0.0028
 metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
 
 [sub_resource type="Resource" id="Loot_red_paprika_seeds"]
 script = ExtResource("2_qcuux")
-item = ExtResource("seed_red_paprika_seeds")
+item = ExtResource("27_veomy")
 chance = 0.0028
 metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
 
 [sub_resource type="Resource" id="Loot_rice_seeds"]
 script = ExtResource("2_qcuux")
-item = ExtResource("seed_rice_seeds")
+item = ExtResource("28_ws6tt")
 chance = 0.0028
 metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
 
 [sub_resource type="Resource" id="Loot_strawberry_seeds"]
 script = ExtResource("2_qcuux")
-item = ExtResource("seed_strawberry_seeds")
+item = ExtResource("29_kxrkf")
 chance = 0.0028
 metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
 
 [sub_resource type="Resource" id="Loot_sugarcane_seeds"]
 script = ExtResource("2_qcuux")
-item = ExtResource("seed_sugarcane_seeds")
+item = ExtResource("30_3xb57")
 chance = 0.0028
 metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
 
 [sub_resource type="Resource" id="Loot_tomato_seeds"]
 script = ExtResource("2_qcuux")
-item = ExtResource("seed_tomato_seeds")
+item = ExtResource("31_31i70")
 chance = 0.0028
 metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
 
 [sub_resource type="Resource" id="Loot_wheat_seeds"]
 script = ExtResource("2_qcuux")
-item = ExtResource("seed_wheat_seeds")
+item = ExtResource("32_a8pe3")
 chance = 0.0028
 metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
 
 [sub_resource type="Resource" id="Loot_yellow_onion_seeds"]
 script = ExtResource("2_qcuux")
-item = ExtResource("seed_yellow_onion_seeds")
+item = ExtResource("33_rsdo3")
 chance = 0.0028
 metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
 
 [sub_resource type="Resource" id="Loot_yellow_paprika_seeds"]
 script = ExtResource("2_qcuux")
-item = ExtResource("seed_yellow_paprika_seeds")
+item = ExtResource("34_w7mpk")
 chance = 0.0028
 metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
 

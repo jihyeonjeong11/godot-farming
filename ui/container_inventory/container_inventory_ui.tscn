@@ -1,0 +1,96 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://ui/container_inventory/container_inventory_ui.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://ct3d5abkpag8t" path="res://assets/UI/nine_slice_panel.png" id="2_panel"]
+[ext_resource type="PackedScene" uid="uid://d2860kg1t6hp2" path="res://ui/reusables/inventory_panel/inventory_panel.tscn" id="3_invpanel"]
+[ext_resource type="Script" uid="uid://j4fpthd3r5ed" path="res://ui/ingame_menu/held_icon.gd" id="4_held"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_panel"]
+texture = ExtResource("2_panel")
+texture_margin_left = 50.0
+texture_margin_top = 50.0
+texture_margin_right = 50.0
+texture_margin_bottom = 50.0
+
+[node name="ContainerInventoryUI" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_script")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.35)
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Rows" type="VBoxContainer" parent="ColorRect/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="ContainerPanel" type="PanelContainer" parent="ColorRect/CenterContainer/Rows"]
+custom_minimum_size = Vector2(1080, 0)
+layout_mode = 2
+theme_type_variation = &"MenuContainer"
+theme_override_styles/panel = SubResource("StyleBoxTexture_panel")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CenterContainer/Rows/ContainerPanel"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 8
+
+[node name="TitleLabel" type="Label" parent="ColorRect/CenterContainer/Rows/ContainerPanel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "상자"
+
+[node name="ContainerGrid" type="GridContainer" parent="ColorRect/CenterContainer/Rows/ContainerPanel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 10
+
+[node name="InventoryPanel" parent="ColorRect/CenterContainer/Rows" instance=ExtResource("3_invpanel")]
+custom_minimum_size = Vector2(1080, 0)
+layout_mode = 2
+theme_type_variation = &"MenuContainer"
+theme_override_styles/panel = SubResource("StyleBoxTexture_panel")
+
+[node name="HeldIcon" type="TextureRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(88, 88)
+offset_right = 88.0
+offset_bottom = 88.0
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("4_held")
+
+[node name="AmountLabel" type="Label" parent="HeldIcon"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = -6.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 2
+vertical_alignment = 2

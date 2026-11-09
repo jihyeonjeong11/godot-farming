@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://bpt4ohgnvxqy2"]
+
+[ext_resource type="Texture2D" uid="uid://dog4l2sx7u7cn" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png" id="1_o12vs"]
+[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://items/item.gd" id="2_f3tp8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_potato"]
+atlas = ExtResource("1_o12vs")
+region = Rect2(836, 100, 23, 23)
+
+[resource]
+script = ExtResource("2_f3tp8")
+item_id = "potato"
+item_type = 2
+item_name = "Potato"
+item_texture = SubResource("AtlasTexture_potato")
+heal = 2
+description = "Harvested from a mature potato plant. 우클릭으로 먹는다."
+value = 40
+world_scene_path = "uid://cb65olukse4yu"
+metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

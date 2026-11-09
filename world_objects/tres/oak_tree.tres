@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://tvxtsiwblcji" path="res://world_objects/tree_object_data.gd" id="1_07mj7"]
 [ext_resource type="Script" uid="uid://cu6u0yvr4eaxi" path="res://items/loot/loot.gd" id="2_7pdmw"]
 [ext_resource type="Texture2D" uid="uid://dog4l2sx7u7cn" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png" id="2_ywkkl"]
-[ext_resource type="Resource" uid="uid://f56b1jph4cua" path="res://scripts/resources/item/pickables/log.tres" id="loot_log"]
+[ext_resource type="Resource" uid="uid://f56b1jph4cua" path="res://items/tres/item/pickables/log.tres" id="5_1yeek"]
 [ext_resource type="Resource" uid="uid://dgvtcqx3ehkqe" path="res://items/tres/tools/seeds/oak_seeds.tres" id="loot_seed"]
 [ext_resource type="Script" uid="uid://65g3cvf0oetp" path="res://world_objects/growth_stage_loot.gd" id="stage_loot"]
 
@@ -42,7 +42,7 @@ loot = Array[ExtResource("2_7pdmw")]([SubResource("Loot_seed")])
 
 [sub_resource type="Resource" id="Loot_log1"]
 script = ExtResource("2_7pdmw")
-item = ExtResource("loot_log")
+item = ExtResource("5_1yeek")
 metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
 
 [sub_resource type="Resource" id="StageLoot_1"]
@@ -51,7 +51,7 @@ loot = Array[ExtResource("2_7pdmw")]([SubResource("Loot_log1")])
 
 [sub_resource type="Resource" id="Loot_log2"]
 script = ExtResource("2_7pdmw")
-item = ExtResource("loot_log")
+item = ExtResource("5_1yeek")
 amount = 2
 metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
 
@@ -61,7 +61,7 @@ loot = Array[ExtResource("2_7pdmw")]([SubResource("Loot_log2")])
 
 [sub_resource type="Resource" id="Loot_log3"]
 script = ExtResource("2_7pdmw")
-item = ExtResource("loot_log")
+item = ExtResource("5_1yeek")
 amount = 3
 metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
 
@@ -71,7 +71,7 @@ loot = Array[ExtResource("2_7pdmw")]([SubResource("Loot_log3")])
 
 [sub_resource type="Resource" id="Loot_log4"]
 script = ExtResource("2_7pdmw")
-item = ExtResource("loot_log")
+item = ExtResource("5_1yeek")
 amount = 4
 metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
 
@@ -81,7 +81,7 @@ loot = Array[ExtResource("2_7pdmw")]([SubResource("Loot_log4")])
 
 [sub_resource type="Resource" id="Loot_log5"]
 script = ExtResource("2_7pdmw")
-item = ExtResource("loot_log")
+item = ExtResource("5_1yeek")
 amount = 5
 metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
 

@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="Item" format=3 uid="uid://ds547lgqgdlls"]
 
 [ext_resource type="Texture2D" uid="uid://dog4l2sx7u7cn" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png" id="1_atlas"]
-[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/item/item.gd" id="2_item"]
+[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://items/item.gd" id="2_cr005"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bag"]
 atlas = ExtResource("1_atlas")
 region = Rect2(418, 640, 28, 32)
 
 [resource]
-script = ExtResource("2_item")
+script = ExtResource("2_cr005")
 item_id = "pine_seeds"
 item_type = 4
 tool_type = 11

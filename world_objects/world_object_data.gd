@@ -9,6 +9,8 @@ extends Resource
 @export var is_interactable: bool = false
 @export var loot_pool: Array[LootData]
 
+@export var item_id: StringName
+
 @export var max_health: int = 1
 
 # nature

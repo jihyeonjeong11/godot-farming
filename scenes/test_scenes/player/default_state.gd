@@ -43,7 +43,7 @@ func _on_physics_process(delta: float) -> void:
 		_stop_footstep()
 		player.play_action("idle")
 		return
-	if Input.is_action_just_pressed("hit") and get_viewport().gui_get_hovered_control() == null:
+	if Input.is_action_pressed("hit") and get_viewport().gui_get_hovered_control() == null:
 		var itemstack := InventoryManager.get_item_stack_by_index(GameState.selected_slot)
 		var item = itemstack.item if itemstack != null else null
 		if item != null and item.item_type == DataTypes.ItemType.Melee:

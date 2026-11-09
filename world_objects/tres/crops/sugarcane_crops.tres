@@ -33,14 +33,14 @@ region = Rect2(1282, 330, 28, 54)
 atlas = ExtResource("2_atlas")
 region = Rect2(1312, 322, 32, 62)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_strip"]
-atlas = ExtResource("2_atlas")
-region = Rect2(1158, 322, 186, 62)
-
 [sub_resource type="Resource" id="Loot_harvest"]
 script = ExtResource("2_usjc6")
 item = ExtResource("9_harvest")
 metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_strip"]
+atlas = ExtResource("2_atlas")
+region = Rect2(1158, 322, 186, 62)
 
 [resource]
 script = ExtResource("1_data")
@@ -49,8 +49,8 @@ name = &"sugarcane_crop"
 description = "A sugarcane crop."
 texture = SubResource("AtlasTexture_strip")
 type = 2
+loot_pool = Array[ExtResource("2_usjc6")]([SubResource("Loot_harvest")])
 max_growth_stage = 6
 growth_textures = Array[Texture]([SubResource("AtlasTexture_st0"), SubResource("AtlasTexture_st1"), SubResource("AtlasTexture_st2"), SubResource("AtlasTexture_st3"), SubResource("AtlasTexture_st4"), SubResource("AtlasTexture_st5"), SubResource("AtlasTexture_st6")])
 days_until_harvest = 10
-loot_pool = Array[ExtResource("2_usjc6")]([SubResource("Loot_harvest")])
 metadata/_custom_type_script = "uid://df33bawivqev2"

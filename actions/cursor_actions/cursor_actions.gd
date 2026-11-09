@@ -19,7 +19,6 @@ const AXE = preload("uid://dclgtskcouocj")
 const HOE = preload("uid://b5ll7oh7g02ah")
 const WATERING_CAN = preload("uid://s3cy4shkem8o")
 
-const CROP_OBJECT := preload("res://world_objects/crops/crop_object.tscn")
 const CROP_BASE_OFFSET := Vector2(0, 6)
 const PLACED_BASE_OFFSET := Vector2(0, 12)
 
@@ -226,16 +225,15 @@ static func is_plantable() -> bool:
 
 
 static func plant_seed(item: Item) -> bool:
-	if is_plantable():
-		var data := item.crop_object.duplicate() as WorldObjectData
-		var crop := CROP_OBJECT.instantiate() as CropObject
-		crop.data = data
-		crop.position = SessionState.target_dict["pos"] + CROP_BASE_OFFSET
-		(Engine.get_main_loop() as SceneTree).current_scene.add_child(crop)
-		InventoryManager.remove_item(item, 1)
-		SoundManager.play_sound(HOE)
-	else:
+	if item.world_object_id.is_empty() or not is_plantable():
 		return false
+	var crop := WorldObjectDB.create(item.world_object_id)
+	if crop == null:
+		return false
+	crop.position = SessionState.target_dict["pos"] + CROP_BASE_OFFSET
+	(Engine.get_main_loop() as SceneTree).current_scene.add_child(crop)
+	InventoryManager.remove_item(item, 1)
+	SoundManager.play_sound(HOE)
 	return false
 
 
@@ -259,7 +257,6 @@ static func plant_wild_seed(item: Item) -> bool:
 	return true
 
 
-## 스냅샷은 칸마다 오브젝트를 하나만 담으므로 이미 오브젝트가 있는 칸에는 놓지 않는다.
 static func is_placeable() -> bool:
 	var t := SessionState.target_dict
 	if t["pos"] == null or is_instance_valid(t["object"]) or is_instance_valid(t["building"]):
@@ -271,7 +268,6 @@ static func is_placeable() -> bool:
 	return object_in_cell(land, cell) == null and cell_of(land, SessionState.get_player().global_position) != cell
 
 
-## _ready에서 위치를 읽는 오브젝트가 있으므로 add_child 전에 위치를 잡는다.
 static func place_object(item: Item) -> bool:
 	if item.placed_scene == null or not is_placeable():
 		return false

@@ -25,14 +25,14 @@ region = Rect2(768, 420, 30, 22)
 atlas = ExtResource("2_atlas")
 region = Rect2(800, 418, 32, 26)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_strip"]
-atlas = ExtResource("2_atlas")
-region = Rect2(714, 396, 118, 48)
-
 [sub_resource type="Resource" id="Loot_harvest"]
 script = ExtResource("2_wya7k")
 item = ExtResource("9_harvest")
 metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_strip"]
+atlas = ExtResource("2_atlas")
+region = Rect2(714, 396, 118, 48)
 
 [resource]
 script = ExtResource("1_data")
@@ -41,8 +41,8 @@ name = &"cauliflower_crop"
 description = "A cauliflower crop."
 texture = SubResource("AtlasTexture_strip")
 type = 2
+loot_pool = Array[ExtResource("2_wya7k")]([SubResource("Loot_harvest")])
 max_growth_stage = 4
 growth_textures = Array[Texture]([SubResource("AtlasTexture_st0"), SubResource("AtlasTexture_st1"), SubResource("AtlasTexture_st2"), SubResource("AtlasTexture_st3"), SubResource("AtlasTexture_st4")])
 days_until_harvest = 12
-loot_pool = Array[ExtResource("2_wya7k")]([SubResource("Loot_harvest")])
 metadata/_custom_type_script = "uid://df33bawivqev2"

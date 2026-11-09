@@ -37,6 +37,9 @@ var level_data: Dictionary = {}
 var did_skip_tutorial: bool = false
 var did_kill_first_zombie: bool = false
 
+# 네이처 성장용. 타일 레이어 + 빌딩 정보 가지고 성장 막는 역할.
+var farm_map: Dictionary = {}
+
 # 현재 농장 맵만 적용함
 var farm_snapshot: Dictionary = {}:
 	get: 
@@ -122,7 +125,7 @@ func _deserialize_property(property: String, value: Variant) -> Variant:
 			for key in value:
 				time[key] = int(value[key])
 			return time
-		"farm_snapshot":
+		"farm_snapshot", "farm_map":
 			var snapshot: Dictionary = {}
 			for key: String in value:
 				var parts := key.trim_prefix("(").trim_suffix(")").split(",")

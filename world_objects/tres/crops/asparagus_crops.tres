@@ -29,14 +29,14 @@ region = Rect2(1002, 410, 16, 26)
 atlas = ExtResource("2_atlas")
 region = Rect2(1032, 402, 16, 34)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_strip"]
-atlas = ExtResource("2_atlas")
-region = Rect2(904, 396, 144, 40)
-
 [sub_resource type="Resource" id="Loot_harvest"]
 script = ExtResource("2_nutc1")
 item = ExtResource("9_harvest")
 metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_strip"]
+atlas = ExtResource("2_atlas")
+region = Rect2(904, 396, 144, 40)
 
 [resource]
 script = ExtResource("1_data")
@@ -45,8 +45,8 @@ name = &"asparagus_crop"
 description = "An asparagus crop."
 texture = SubResource("AtlasTexture_strip")
 type = 2
+loot_pool = Array[ExtResource("2_nutc1")]([SubResource("Loot_harvest")])
 max_growth_stage = 5
 growth_textures = Array[Texture]([SubResource("AtlasTexture_st0"), SubResource("AtlasTexture_st1"), SubResource("AtlasTexture_st2"), SubResource("AtlasTexture_st3"), SubResource("AtlasTexture_st4"), SubResource("AtlasTexture_st5")])
 days_until_harvest = 6
-loot_pool = Array[ExtResource("2_nutc1")]([SubResource("Loot_harvest")])
 metadata/_custom_type_script = "uid://df33bawivqev2"

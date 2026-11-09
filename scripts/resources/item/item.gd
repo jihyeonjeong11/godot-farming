@@ -49,13 +49,9 @@ const STAT_COLOR_NEGATIVE := Color(0.75, 0.3, 0.3)
 
 @export var max_stack: int = 100
 
-## 씨앗일 때 CursorComponent 가 crop_instance 에 꽂을 작물 리소스. 씨앗 종류마다
-## 작물이 다르므로 커서 쪽에 if문을 늘리지 않고 아이템 리소스가 직접 들고 있는다.
-@export var crop_object: WorldObjectData
-
 @export var world_object_id: StringName = &""
 
-## placeable일 때 땅에 놓으면 세워질 PlaceableObject 리소스 경로. crop_object와 같은 이유로 여기 둔다.
+## placeable일 때 땅에 놓으면 세워질 PlaceableObject 리소스 경로.
 @export_file("*.tres") var placeable_object_path: String = ""
 
 ## placeable일 때 땅에 놓으면 생성할 WorldObject 씬. 씬에 WorldObjectData가 이미 들어 있다.

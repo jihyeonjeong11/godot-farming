@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://df33bawivqev2" path="res://world_objects/world_object_data.gd" id="1_data"]
 [ext_resource type="Script" uid="uid://cu6u0yvr4eaxi" path="res://items/loot/loot.gd" id="2_0ycgv"]
-[ext_resource type="Resource" uid="uid://rfm1ayo03yai" path="res://scripts/resources/item/consumables/corn.tres" id="9_harvest"]
 [ext_resource type="Texture2D" uid="uid://dog4l2sx7u7cn" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png" id="2_atlas"]
+[ext_resource type="Resource" uid="uid://rfm1ayo03yai" path="res://scripts/resources/item/consumables/corn.tres" id="9_harvest"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_st0"]
 atlas = ExtResource("2_atlas")
@@ -33,14 +33,14 @@ region = Rect2(1024, 0, 32, 60)
 atlas = ExtResource("2_atlas")
 region = Rect2(1056, 0, 32, 60)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_strip"]
-atlas = ExtResource("2_atlas")
-region = Rect2(904, 0, 184, 62)
-
 [sub_resource type="Resource" id="Loot_harvest"]
 script = ExtResource("2_0ycgv")
 item = ExtResource("9_harvest")
 metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_strip"]
+atlas = ExtResource("2_atlas")
+region = Rect2(904, 0, 184, 62)
 
 [resource]
 script = ExtResource("1_data")
@@ -49,9 +49,9 @@ name = &"corn_crop"
 description = "A corn crop."
 texture = SubResource("AtlasTexture_strip")
 type = 2
+loot_pool = Array[ExtResource("2_0ycgv")]([SubResource("Loot_harvest")])
 max_growth_stage = 5
 growth_textures = Array[Texture]([SubResource("AtlasTexture_st0"), SubResource("AtlasTexture_st1"), SubResource("AtlasTexture_st2"), SubResource("AtlasTexture_st3"), SubResource("AtlasTexture_st4"), SubResource("AtlasTexture_st5"), SubResource("AtlasTexture_st6")])
 days_until_harvest = 12
 regrow_days = 6
-loot_pool = Array[ExtResource("2_0ycgv")]([SubResource("Loot_harvest")])
 metadata/_custom_type_script = "uid://df33bawivqev2"

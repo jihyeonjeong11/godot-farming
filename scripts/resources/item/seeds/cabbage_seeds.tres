@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://scripts/resources/item/item.gd" id="1_item"]
 [ext_resource type="Texture2D" uid="uid://dog4l2sx7u7cn" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png" id="2_atlas"]
-[ext_resource type="Resource" uid="uid://b3enn4nqxg7gb" path="res://world_objects/tres/crops/cabbage_crops.tres" id="9_crop"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_seed"]
 atlas = ExtResource("2_atlas")
@@ -16,6 +15,6 @@ tool_type = 11
 item_name = "Cabbage Seeds"
 item_texture = SubResource("AtlasTexture_seed")
 description = "Canned cabbage seeds"
-crop_object = ExtResource("9_crop")
+world_object_id = &"cabbage_crop"
 world_scene_path = "uid://cb65olukse4yu"
 metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

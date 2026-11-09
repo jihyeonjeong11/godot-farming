@@ -33,14 +33,14 @@ region = Rect2(1344, 130, 32, 58)
 atlas = ExtResource("2_atlas")
 region = Rect2(1376, 130, 32, 58)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_strip"]
-atlas = ExtResource("2_atlas")
-region = Rect2(1184, 130, 224, 58)
-
 [sub_resource type="Resource" id="Loot_harvest"]
 script = ExtResource("2_bmo04")
 item = ExtResource("9_harvest")
 metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_strip"]
+atlas = ExtResource("2_atlas")
+region = Rect2(1184, 130, 224, 58)
 
 [resource]
 script = ExtResource("1_data")
@@ -49,10 +49,10 @@ name = &"pea_crop"
 description = "A pea crop."
 texture = SubResource("AtlasTexture_strip")
 type = 2
+loot_pool = Array[ExtResource("2_bmo04")]([SubResource("Loot_harvest")])
 max_growth_stage = 5
 growth_textures = Array[Texture]([SubResource("AtlasTexture_st0"), SubResource("AtlasTexture_st1"), SubResource("AtlasTexture_st2"), SubResource("AtlasTexture_st3"), SubResource("AtlasTexture_st4"), SubResource("AtlasTexture_st5"), SubResource("AtlasTexture_st6")])
 days_until_harvest = 10
 regrow_days = 3
 is_raised = true
-loot_pool = Array[ExtResource("2_bmo04")]([SubResource("Loot_harvest")])
 metadata/_custom_type_script = "uid://df33bawivqev2"

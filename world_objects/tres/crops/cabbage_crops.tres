@@ -25,14 +25,14 @@ region = Rect2(768, 486, 30, 22)
 atlas = ExtResource("2_atlas")
 region = Rect2(802, 482, 30, 26)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_strip"]
-atlas = ExtResource("2_atlas")
-region = Rect2(710, 462, 122, 46)
-
 [sub_resource type="Resource" id="Loot_harvest"]
 script = ExtResource("2_wegyj")
 item = ExtResource("9_harvest")
 metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_strip"]
+atlas = ExtResource("2_atlas")
+region = Rect2(710, 462, 122, 46)
 
 [resource]
 script = ExtResource("1_data")
@@ -41,8 +41,8 @@ name = &"cabbage_crop"
 description = "A cabbage crop."
 texture = SubResource("AtlasTexture_strip")
 type = 2
+loot_pool = Array[ExtResource("2_wegyj")]([SubResource("Loot_harvest")])
 max_growth_stage = 4
 growth_textures = Array[Texture]([SubResource("AtlasTexture_st0"), SubResource("AtlasTexture_st1"), SubResource("AtlasTexture_st2"), SubResource("AtlasTexture_st3"), SubResource("AtlasTexture_st4")])
 days_until_harvest = 9
-loot_pool = Array[ExtResource("2_wegyj")]([SubResource("Loot_harvest")])
 metadata/_custom_type_script = "uid://df33bawivqev2"

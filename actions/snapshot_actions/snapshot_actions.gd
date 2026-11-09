@@ -37,6 +37,80 @@ static func dry_all_soil() -> void:
 		var soil := get_slot(cell, SOIL)
 		if not soil.is_empty():
 			soil["watered"] = false
+			
+static func spread() -> void:
+	for cell: Vector2i in cells_with(OBJECT):
+		var slot := get_slot(cell, OBJECT)
+		var data := WorldObjectDB.get_data(slot.get("id", &""))
+		print(data.id)
+		if data == null or data.type != DataTypes.ObjectType.Nature or not slot.has("state"):
+			continue
+		if data is TreeObjectData:
+			spread_tree(cell, slot, data)
+			continue
+		match data.id:
+			&"grass", &"rock":
+				spread_to_neighbors(cell, slot)
+
+const SPREAD_CHANCE := 0.65
+const NEIGHBOR_CHANCE := 0.25
+const NEIGHBORS_4: Array[Vector2i] = [Vector2i.LEFT, Vector2i.RIGHT, Vector2i.DOWN, Vector2i.UP]
+
+
+static func spread_to_neighbors(cell: Vector2i, slot: Dictionary) -> void:
+	if randf() >= SPREAD_CHANCE:
+		return
+	var data := WorldObjectDB.get_data(slot["id"])
+	for dir in NEIGHBORS_4:
+		var target := cell + dir
+		if not is_spawnable(target) or randf() >= NEIGHBOR_CHANCE:
+			continue
+		set_slot(target, OBJECT, {"id": slot["id"], "state": {
+			"health": data.max_health,
+			"variant": -1,
+		}})
+
+
+const TREE_SEED_CHANCE := 0.15
+const TREE_SEED_RADIUS := 3
+const NEIGHBORS_8: Array[Vector2i] = [
+	Vector2i(-1, -1), Vector2i(0, -1), Vector2i(1, -1),
+	Vector2i(-1, 0), Vector2i(1, 0),
+	Vector2i(-1, 1), Vector2i(0, 1), Vector2i(1, 1),
+]
+
+
+static func spread_tree(cell: Vector2i, slot: Dictionary, data: TreeObjectData) -> void:
+	if int(slot["state"].get("growth_stage", 0)) < data.max_growth_stage or randf() >= TREE_SEED_CHANCE:
+		return
+	var r := TREE_SEED_RADIUS
+	var target := cell + Vector2i(randi_range(-r, r), randi_range(-r, r))
+	if not is_spawnable(target):
+		return
+	set_slot(target, OBJECT, {"id": slot["id"], "state": {
+		"health": data.health_at(0),
+		"growth_stage": 0,
+		"days_until_harvest": data.days_until_harvest,
+	}})
+
+
+static func has_mature_tree_near(cell: Vector2i) -> bool:
+	for dir in NEIGHBORS_8:
+		var slot := get_slot(cell + dir, OBJECT)
+		var data := WorldObjectDB.get_data(slot.get("id", &""))
+		if data is TreeObjectData and int(slot.get("state", {}).get("growth_stage", 0)) >= data.max_growth_stage:
+			return true
+	return false
+
+
+static func is_spawnable(cell: Vector2i) -> bool:
+	if not GameState.farm_snapshot.get(cell, {}).is_empty():
+		return false
+	var tile: Dictionary = GameState.farm_map.get(cell, {})
+	if tile.is_empty() or tile["building"]:
+		return false
+	var layers: Array = tile["layers"]
+	return layers.size() == 1 and layers[0] == String(CursorActions.BACK_LAYER) and tile["terrain"] in TileUtils.TILLABLE_TERRAINS
 
 
 static func grow_objects() -> void:
@@ -50,7 +124,7 @@ static func grow_objects() -> void:
 			if get_slot(cell, SOIL).get("watered", false):
 				CropObject.grow(slot["state"], data)
 		elif data is TreeObjectData:
-			TreeObject.grow(slot["state"], data)
+			TreeObject.grow(slot["state"], data, not has_mature_tree_near(cell))
 
 
 static func cells_with(slot: String) -> Array[Vector2i]:

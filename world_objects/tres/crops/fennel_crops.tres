@@ -25,14 +25,14 @@ region = Rect2(706, 158, 28, 28)
 atlas = ExtResource("2_atlas")
 region = Rect2(736, 148, 32, 38)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_strip"]
-atlas = ExtResource("2_atlas")
-region = Rect2(646, 142, 122, 44)
-
 [sub_resource type="Resource" id="Loot_harvest"]
 script = ExtResource("2_nnh8n")
 item = ExtResource("9_harvest")
 metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_strip"]
+atlas = ExtResource("2_atlas")
+region = Rect2(646, 142, 122, 44)
 
 [resource]
 script = ExtResource("1_data")
@@ -41,8 +41,8 @@ name = &"fennel_crop"
 description = "A fennel crop."
 texture = SubResource("AtlasTexture_strip")
 type = 2
+loot_pool = Array[ExtResource("2_nnh8n")]([SubResource("Loot_harvest")])
 max_growth_stage = 4
 growth_textures = Array[Texture]([SubResource("AtlasTexture_st0"), SubResource("AtlasTexture_st1"), SubResource("AtlasTexture_st2"), SubResource("AtlasTexture_st3"), SubResource("AtlasTexture_st4")])
 days_until_harvest = 6
-loot_pool = Array[ExtResource("2_nnh8n")]([SubResource("Loot_harvest")])
 metadata/_custom_type_script = "uid://df33bawivqev2"

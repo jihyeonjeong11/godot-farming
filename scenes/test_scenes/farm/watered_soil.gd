@@ -25,8 +25,6 @@ func is_watered(cell: Vector2i) -> bool:
 	return get_cell_source_id(cell) != -1
 
 
-func on_time_tick_day(_day: int) -> void:
-	dry_all.call_deferred()
 
 
 func dry_all() -> void:

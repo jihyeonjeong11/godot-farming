@@ -23,7 +23,7 @@ var is_falling := false
 
 func _ready() -> void:
 	if data != null and not Engine.is_editor_hint():
-		state["health"] = tree_data().health_at(0)
+		state["health"] = tree_data().health_at(int(state["growth_stage"]))
 		state["days_until_harvest"] = data.days_until_harvest
 		state = SnapshotActions.populate(global_position, data.id, state)
 	super()
@@ -37,18 +37,20 @@ func tree_data() -> TreeObjectData:
 	return data as TreeObjectData
 
 
-static func grow(tree_state: Dictionary, tree_data: TreeObjectData) -> void:
+const GROW_CHANCE := 0.2
+
+
+static func grow(tree_state: Dictionary, tree_data: TreeObjectData, can_mature: bool) -> void:
 	var final_stage := tree_data.max_growth_stage
 	var current := int(tree_state["growth_stage"])
 	if current >= final_stage:
 		return
-	var days_left := maxi(int(tree_state.get("days_until_harvest", 0)) - 1, 0)
-	tree_state["days_until_harvest"] = days_left
-	var total := maxi(tree_data.days_until_harvest, 1)
-	var stage := roundi(float(total - days_left) * final_stage / total)
-	stage = clampi(stage, current + 1, final_stage)
-	tree_state["growth_stage"] = stage
-	tree_state["health"] = tree_data.health_at(stage)
+	if current == final_stage - 1 and not can_mature:
+		return
+	if randf() >= GROW_CHANCE:
+		return
+	tree_state["growth_stage"] = current + 1
+	tree_state["health"] = tree_data.health_at(current + 1)
 
 
 func on_day_passed() -> void:

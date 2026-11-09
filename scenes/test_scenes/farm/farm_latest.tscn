@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://deds4mbi0mofn"]
 
 [ext_resource type="PackedScene" uid="uid://cdko42eau68xt" path="res://scenes/levels/base_level.tscn" id="1_p7e0l"]
+[ext_resource type="Script" uid="uid://clk7p47igvsdm" path="res://scenes/test_scenes/farm/farm_latest.gd" id="2_asp6y"]
 [ext_resource type="TileSet" uid="uid://cgmxl6k3v47j5" path="res://tilesets/v2/tileset_back.tres" id="2_ni27w"]
 [ext_resource type="Script" uid="uid://cqmofl0d71fo0" path="res://scenes/test_scenes/farm/tilled_soil.gd" id="3_g7c01"]
 [ext_resource type="PackedScene" uid="uid://dmym0s7vlg4dv" path="res://buildings/farmhouses/farmhouse.tscn" id="3_mxo1t"]
@@ -1643,8 +1644,9 @@ description = "An nature spawner"
 type = 3
 metadata/_custom_type_script = "uid://df33bawivqev2"
 
-[node name="BaseLevel" unique_id=711204178 instance=ExtResource("1_p7e0l")]
+[node name="Farm_latest" unique_id=711204178 instance=ExtResource("1_p7e0l")]
 y_sort_enabled = true
+script = ExtResource("2_asp6y")
 
 [node name="Player" parent="." index="0" unique_id=407296808]
 position = Vector2(489, 961)

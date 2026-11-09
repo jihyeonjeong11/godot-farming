@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://df33bawivqev2" path="res://world_objects/world_object_data.gd" id="1_data"]
 [ext_resource type="Script" uid="uid://cu6u0yvr4eaxi" path="res://items/loot/loot.gd" id="2_5qrum"]
-[ext_resource type="Resource" uid="uid://lh8idgp5oj0n" path="res://scripts/resources/item/pickables/pineapple.tres" id="9_harvest"]
 [ext_resource type="Texture2D" uid="uid://gt2xyeubl5dh" path="res://assets/craftland/Craftland Tropical Terrain/32x32/CL_Tropical_Crops_Mining.png" id="2_atlas"]
+[ext_resource type="Resource" uid="uid://lh8idgp5oj0n" path="res://scripts/resources/item/pickables/pineapple.tres" id="9_harvest"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_st0"]
 atlas = ExtResource("2_atlas")
@@ -33,14 +33,14 @@ region = Rect2(960, 206, 32, 46)
 atlas = ExtResource("2_atlas")
 region = Rect2(992, 224, 32, 28)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_strip"]
-atlas = ExtResource("2_atlas")
-region = Rect2(838, 202, 186, 50)
-
 [sub_resource type="Resource" id="Loot_harvest"]
 script = ExtResource("2_5qrum")
 item = ExtResource("9_harvest")
 metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_strip"]
+atlas = ExtResource("2_atlas")
+region = Rect2(838, 202, 186, 50)
 
 [resource]
 script = ExtResource("1_data")
@@ -49,9 +49,9 @@ name = &"pineapple_crop"
 description = "A pineapple crop."
 texture = SubResource("AtlasTexture_strip")
 type = 2
+loot_pool = Array[ExtResource("2_5qrum")]([SubResource("Loot_harvest")])
 max_growth_stage = 5
 growth_textures = Array[Texture]([SubResource("AtlasTexture_st0"), SubResource("AtlasTexture_st1"), SubResource("AtlasTexture_st2"), SubResource("AtlasTexture_st3"), SubResource("AtlasTexture_st4"), SubResource("AtlasTexture_st5"), SubResource("AtlasTexture_st6")])
 days_until_harvest = 14
 regrow_days = 7
-loot_pool = Array[ExtResource("2_5qrum")]([SubResource("Loot_harvest")])
 metadata/_custom_type_script = "uid://df33bawivqev2"

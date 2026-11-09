@@ -50,7 +50,12 @@ func advance_day() -> void:
 	if TransitionManager.is_transitioning:
 		return
 	await TransitionManager.fade_to_color(Color.BLACK)
-
+	
+	# 풀 확산
+	SnapshotActions.spread()
+	# 빈 tilled_soil 제거
+	# 나무 확산
+	# 돌 확산 - 깔아놓은 오브젝트 제거
 	SnapshotActions.grow_objects()
 	day_passed.emit()
 	SnapshotActions.dry_all_soil()

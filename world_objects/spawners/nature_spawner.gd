@@ -15,15 +15,20 @@ const ROCK_OBJECT := preload("res://world_objects/nature/rock_object.tscn")
 @export var rock_weight := 1.0
 @export var empty_weight := 1.0
 
+var first_day := false
+
 
 func _ready() -> void:
 	super()
 	TimeManager.day_passed.connect(advance_day)
 	if GameState.once("nature_seeded_%s" % name):
+		first_day = true
 		advance_day.call_deferred()
 
 
 func advance_day() -> void:
+	var mature := first_day
+	first_day = false
 	var land := CursorActions.current_land()
 	if land == null or CursorActions.layers_at(self.global_position).size() != 1:
 		return
@@ -32,18 +37,20 @@ func advance_day() -> void:
 	var rng := RandomNumberGenerator.new()
 	match rng.rand_weighted(PackedFloat32Array([tree_weight, grass_weight, rock_weight, empty_weight])):
 		0:
-			_spawn_tree()
+			_spawn_tree(mature)
 		1:
 			_spawn_grass()
 		2:
 			_spawn_rock()
 
 
-func _spawn_tree() -> void:
+func _spawn_tree(mature: bool) -> void:
 	if trees.is_empty():
 		return
 	var tree := TREE_OBJECT.instantiate() as TreeObject
 	tree.data = WorldObjectDB.get_data(trees.pick_random().id)
+	if mature:
+		tree.state["growth_stage"] = tree.data.max_growth_stage
 	tree.position = position
 	get_parent().add_child(tree)
 

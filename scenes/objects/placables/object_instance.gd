@@ -40,7 +40,7 @@ func _ready() -> void:
 		return
 
 	hurt_component.hurt.connect(on_hurt)
-	SignalBus.time_tick.connect(_on_time_tick)
+	TimeManager.time_tick.connect(_on_time_tick)
 	_refresh()
 	add_to_group("object")
 

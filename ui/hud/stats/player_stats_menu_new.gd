@@ -1,7 +1,9 @@
 extends MarginContainer
 
-@onready var health_bar: ProgressBar = $HBoxContainer/HealthBar
-@onready var health_label: Label = $HBoxContainer/HealthBar/HealthLabel
+@onready var health_bar: TextureProgressBar = $HBoxContainer/Bars/HealthBar/Frame/Fill
+@onready var health_label: Label = $HBoxContainer/Bars/HealthBar/HealthLabel
+@onready var stamina_bar: TextureProgressBar = $HBoxContainer/Bars/StaminaBar/Frame/Fill
+@onready var stamina_label: Label = $HBoxContainer/Bars/StaminaBar/StaminaLabel
 @onready var hunger_icon: TextureProgressBar = $HBoxContainer/HungerIcon
 @onready var thirst_icon: TextureProgressBar = $HBoxContainer/ThirstIcon
 @onready var gold_label: Label = $HBoxContainer/GoldLabel
@@ -13,7 +15,7 @@ var _stats: BaseCharacterStats
 
 func _ready() -> void:
 	SignalBus.level_loaded.connect(bind_player)
-	SignalBus.time_tick.connect(on_time_tick)
+	TimeManager.time_tick.connect(on_time_tick)
 	bind_player()
 	var tm := TimeManager.find(get_tree())
 	if tm != null:
@@ -31,16 +33,19 @@ func bind_stats(stats: BaseCharacterStats) -> void:
 
 	if _stats != null:
 		_stats.health_changed.disconnect(on_health_changed)
+		_stats.stamina_changed.disconnect(on_stamina_changed)
 		_stats.hunger_changed.disconnect(on_hunger_changed)
 		_stats.thirst_changed.disconnect(on_thirst_changed)
 		_stats.gold_changed.disconnect(on_gold_changed)
 	_stats = stats
 
 	on_health_changed(stats.health, stats.current_max_health)
+	on_stamina_changed(stats.stamina, stats.current_max_stamina)
 	on_hunger_changed(stats.hunger, stats.current_max_hunger)
 	on_thirst_changed(stats.thirst, stats.current_max_thirst)
 	on_gold_changed(stats.gold)
 	stats.health_changed.connect(on_health_changed)
+	stats.stamina_changed.connect(on_stamina_changed)
 	stats.hunger_changed.connect(on_hunger_changed)
 	stats.thirst_changed.connect(on_thirst_changed)
 	stats.gold_changed.connect(on_gold_changed)
@@ -50,6 +55,12 @@ func on_health_changed(new_health: int, max_health: int) -> void:
 	health_bar.max_value = max_health
 	health_bar.value = new_health
 	health_label.text = "%d / %d" % [new_health, max_health]
+
+
+func on_stamina_changed(new_stamina: int, max_stamina: int) -> void:
+	stamina_bar.max_value = max_stamina
+	stamina_bar.value = new_stamina
+	stamina_label.text = "%d / %d" % [new_stamina, max_stamina]
 
 
 func on_hunger_changed(new_hunger: int, max_hunger: int) -> void:

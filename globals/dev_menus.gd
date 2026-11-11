@@ -10,6 +10,7 @@ var is_active: bool = true
 
 const GRID_TOGGLE_KEY := KEY_F9
 const SNAPSHOT_KEY := KEY_F2
+const RANDOM_NEEDS_KEY := KEY_F3
 const SNAPSHOT_VIEW_LAYER := 100
 const SNAPSHOT_VIEW_WIDTH := 960.0
 const GRID_COLOR := Color(1, 1, 1, 0.25)
@@ -161,6 +162,15 @@ func dev_save_snapshot() -> void:
 	snapshot_layer.visible = true
 
 
+func dev_randomize_needs() -> void:
+	var stats := GameState.player_stat
+	if stats == null:
+		return
+	stats.hunger = randi_range(0, stats.current_max_hunger)
+	stats.thirst = randi_range(0, stats.current_max_thirst)
+	prints("[dev] 허기/갈증:", stats.hunger, stats.thirst)
+
+
 func _input(event: InputEvent) -> void :
 	if is_active and event is InputEventKey and event.pressed and not event.echo and event.keycode == GRID_TOGGLE_KEY:
 		grid_layer.visible = not grid_layer.visible
@@ -170,6 +180,9 @@ func _input(event: InputEvent) -> void :
 			snapshot_layer.visible = false
 		else:
 			dev_save_snapshot()
+		return
+	if is_active and event is InputEventKey and event.pressed and not event.echo and event.keycode == RANDOM_NEEDS_KEY:
+		dev_randomize_needs()
 		return
 	if not is_active and event.is_pressed() and not event.is_echo():
 		if event is InputEventKey:

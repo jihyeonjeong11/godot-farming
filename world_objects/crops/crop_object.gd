@@ -61,7 +61,7 @@ static func grow(crop_state: Dictionary, crop_data: WorldObjectData) -> void:
 	crop_state["growth_stage"] = clampi(stage, current + 1, final_stage)
 
 
-func on_day_passed() -> void:
+func on_day_passed(_day: int) -> void:
 	_apply_data()
 
 

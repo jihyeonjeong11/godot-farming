@@ -11,7 +11,7 @@ var current_weather: DataTypes.WeatherType = DataTypes.WeatherType.Sunny
 
 func _ready() -> void:
 	add_to_group(GROUP)
-	SignalBus.time_tick_day.connect(determine_weather)
+	TimeManager.day_passed.connect(determine_weather)
 
 
 static func find(tree: SceneTree) -> WeatherManager:

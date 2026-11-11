@@ -1,10 +1,14 @@
 extends Node
 
 signal hour_passed
-signal day_passed
+signal day_passed(day: int)
+signal time_tick(day: int, hour: int, minute: int)
 
 const GROUP: StringName = &"time_manager"
 const SLEEP_HOLD_DURATION: float = 1.5
+const WAKE_HOUR := 6
+const DUSK_HOUR := 17
+const NIGHT_HOUR := 20
 const MINUTES_PER_HOUR := 60
 const HOURS_PER_DAY := 24
 const MINUTES_PER_DAY := HOURS_PER_DAY * MINUTES_PER_HOUR
@@ -52,6 +56,11 @@ func advance_day() -> void:
 	if TransitionManager.is_transitioning:
 		return
 	await TransitionManager.fade_to_color(Color.BLACK)
+	if int(current_time["hour"]) >= WAKE_HOUR:
+		current_time["day"] = today() + 1
+	current_time["hour"] = WAKE_HOUR
+	current_time["minute"] = 0
+	_elapsed = 0.0
 	
 	# 풀 확산
 	SnapshotActions.spread()
@@ -59,9 +68,10 @@ func advance_day() -> void:
 	# 나무 확산
 	# 돌 확산 - 깔아놓은 오브젝트 제거
 	SnapshotActions.grow_objects()
-	day_passed.emit()
+	day_passed.emit(today())
 	SnapshotActions.dry_all_soil()
 	get_tree().call_group(WateredSoilLayer.GROUP, &"dry_all")
+	_emit_tick()
 	
 	await get_tree().create_timer(SLEEP_HOLD_DURATION).timeout
 	await TransitionManager.clear_fade()
@@ -108,7 +118,6 @@ func _advance_minutes(minutes: int) -> void:
 	if current_time["hour"] >= HOURS_PER_DAY:
 		current_time["hour"] -= HOURS_PER_DAY
 		current_time["day"] += 1
-		SignalBus.time_tick_day.emit(today())
 	_emit_tick()
 
 
@@ -125,15 +134,21 @@ func total_minutes() -> int:
 
 
 func skip_to(day: int, hour: int, minute: int = 0) -> void:
-	var day_changed: bool = day != today()
 	current_time["day"] = day
 	current_time["hour"] = hour
 	current_time["minute"] = minute
 	_elapsed = 0.0
-	if day_changed:
-		SignalBus.time_tick_day.emit(day)
 	_emit_tick()
 
 
+func lighting_for_hour(hour: int) -> GameState.BaseLighting:
+	if hour >= WAKE_HOUR and hour < DUSK_HOUR:
+		return GameState.BaseLighting.Day
+	if hour >= DUSK_HOUR and hour < NIGHT_HOUR:
+		return GameState.BaseLighting.Dusk
+	return GameState.BaseLighting.Night
+
+
 func _emit_tick() -> void:
-	SignalBus.time_tick.emit(today(), int(current_time["hour"]), int(current_time["minute"]))
+	GameState.base_lighting = lighting_for_hour(int(current_time["hour"]))
+	time_tick.emit(today(), int(current_time["hour"]), int(current_time["minute"]))

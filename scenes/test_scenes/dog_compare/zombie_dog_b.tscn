@@ -1,0 +1,74 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/ai_generated/idlezombiedog.png" id="1_tex"]
+[ext_resource type="Script" path="res://scenes/test_scenes/dog_compare/dog_preview.gd" id="2_prev"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0_0"]
+atlas = ExtResource("1_tex")
+region = Rect2(0, 0, 60, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64_0"]
+atlas = ExtResource("1_tex")
+region = Rect2(64, 0, 60, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_127_0"]
+atlas = ExtResource("1_tex")
+region = Rect2(127, 0, 60, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_191_0"]
+atlas = ExtResource("1_tex")
+region = Rect2(191, 0, 60, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_255_0"]
+atlas = ExtResource("1_tex")
+region = Rect2(255, 0, 60, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_319_0"]
+atlas = ExtResource("1_tex")
+region = Rect2(319, 0, 60, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dog"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_127_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_191_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_255_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_319_0")
+}],
+"loop": true,
+"name": &"idle_right",
+"speed": 8.0
+}]
+
+[node name="ZombieDogB" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("label")]
+sprite_frames = SubResource("SpriteFrames_dog")
+animation = &"idle_right"
+centered = false
+offset = Vector2(-30, -63)
+script = ExtResource("2_prev")
+cycle = PackedStringArray("idle_right")
+hold = 2.0
+label = NodePath("../Label")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -40.0
+offset_top = -48.0
+offset_right = 40.0
+offset_bottom = -30.0
+theme_override_font_sizes/font_size = 6
+horizontal_alignment = 1

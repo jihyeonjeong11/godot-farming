@@ -24,7 +24,7 @@ func _ready() -> void:
 	watering_particles.emitting = false
 	flowering_particles.emitting = false
 	growth_cycle_component.crop_maturity.connect(on_crop_maturity)
-	SignalBus.time_tick_day.connect(_on_time_tick_day)
+	TimeManager.day_passed.connect(_on_time_tick_day)
 	_configure_growth()
 	growth_state = growth_cycle_component.get_current_growth_state()
 	apply_growth_texture(growth_state)

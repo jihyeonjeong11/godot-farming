@@ -26,7 +26,7 @@ func _ready() -> void:
 		advance_day.call_deferred()
 
 
-func advance_day() -> void:
+func advance_day(_day: int = 0) -> void:
 	var mature := first_day
 	first_day = false
 	var land := CursorActions.current_land()

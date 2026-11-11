@@ -19,7 +19,7 @@ var _tilled_soil: TileMapLayer
 var _watered_soil: WateredSoilLayer
 
 func _ready() -> void:
-	SignalBus.time_tick_day.connect(on_time_tick_day)
+	TimeManager.day_passed.connect(on_time_tick_day)
 	last_day = _today()
 
 func get_planted_tile() -> TileData:

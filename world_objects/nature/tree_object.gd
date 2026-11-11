@@ -53,7 +53,7 @@ static func grow(tree_state: Dictionary, tree_data: TreeObjectData, can_mature: 
 	tree_state["health"] = tree_data.health_at(current + 1)
 
 
-func on_day_passed() -> void:
+func on_day_passed(_day: int) -> void:
 	if is_falling:
 		return
 	_apply_data()

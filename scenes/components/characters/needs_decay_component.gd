@@ -10,7 +10,7 @@ extends Node
 #var last_decay_hour: int = -1
 #
 #func _ready() -> void:
-	#SignalBus.time_tick.connect(on_time_tick)
+	#TimeManager.time_tick.connect(on_time_tick)
 #
 #func on_time_tick(_day: int, hour: int, _minute: int) -> void:
 	#if hour == last_decay_hour:

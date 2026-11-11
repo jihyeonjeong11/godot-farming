@@ -8,7 +8,7 @@ var _in_game := false
 
 
 func _ready() -> void:
-	SignalBus.time_tick.connect(on_time_tick)
+	TimeManager.time_tick.connect(on_time_tick)
 	SignalBus.game_state_changed.connect(on_game_state_changed)
 
 

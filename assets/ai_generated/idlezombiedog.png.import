@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://o2uun2ogmxr5"
-path="res://.godot/imported/stats.png-1a42bb91fb060eaabebb0aa5a7ddb8da.ctex"
+uid="uid://co0ofm8khts7m"
+path="res://.godot/imported/idlezombiedog.png-b33e7f7f178b8b4ed586263c3807db67.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/UI/stats/stats.png"
-dest_files=["res://.godot/imported/stats.png-1a42bb91fb060eaabebb0aa5a7ddb8da.ctex"]
+source_file="res://assets/ai_generated/idlezombiedog.png"
+dest_files=["res://.godot/imported/idlezombiedog.png-b33e7f7f178b8b4ed586263c3807db67.ctex"]
 
 [params]
 

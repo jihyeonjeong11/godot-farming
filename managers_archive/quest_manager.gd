@@ -20,8 +20,8 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	add_to_group(GROUP)
 	reload()
-	Inventory.item_gained.connect(on_item_gained)
-	SignalBus.time_tick_day.connect(on_tick_day)
+	InventoryManager.item_gained.connect(on_item_gained)
+	TimeManager.day_passed.connect(on_tick_day)
 	SignalBus.enemy_killed.connect(on_enemy_killed)
 	
 

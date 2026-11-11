@@ -1,17 +1,26 @@
 ## TODO: Savemanager 추가한다음에 abstract_class 추가 상속할
 extends AbstractGameState
 
-
+signal lighting_changed()
 
 enum BaseLighting{
 	None, 
 	Day, 
+	Dusk, 
 	Overcast, 
 	Night, 
 	House, 
 	Cave, 
 	Darkness
 }
+
+var base_lighting: BaseLighting = BaseLighting.Day:
+	set(value):
+		if base_lighting != value:
+			base_lighting = value
+			lighting_changed.emit()
+	get:
+		return base_lighting
 
 var current_scene: DataTypes.Levels = DataTypes.Levels.MainMenu
 ## TODO: 인벤토리와 버프는 딕셔너리 형태로 변환해야 세이브 가능하
@@ -36,6 +45,8 @@ var level_data: Dictionary = {}
 
 var did_skip_tutorial: bool = false
 var did_kill_first_zombie: bool = false
+
+
 
 # 네이처 성장용. 타일 레이어 + 빌딩 정보 가지고 성장 막는 역할.
 var farm_map: Dictionary = {}

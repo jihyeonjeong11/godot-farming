@@ -8,11 +8,20 @@ class_name Base_level extends Node2D
 @export var level_key: DataTypes.Levels
 @export var camera_land_inset := 1
 const UI_MANAGER = preload("uid://bqrbyohvqh031")
+const LIGHTING_COLORS := {
+	GameState.BaseLighting.Day: Color("#ffffff"),
+	GameState.BaseLighting.Dusk: Color("#e8846c"),
+	GameState.BaseLighting.Night: Color("#2a3658"),
+}
+const LIGHTING_FADE_SECONDS := 5.0
 
 var interface: CanvasLayer
 
 @onready var dev_info: CanvasLayer = $DevInfo
 @onready var target_label: Label = $DevInfo/TargetLabel
+@onready var canvas_modulate: CanvasModulate = %CanvasModulate
+
+var _lighting_tween: Tween
 
 func _ready() -> void :
 	camera_component.zoom = camera_zoom
@@ -26,6 +35,8 @@ func _ready() -> void :
 		get_tree().process_frame.connect(update_dev_info)
 	if not TimeManager.is_running:
 		TimeManager.start_time_advance()
+	canvas_modulate.color = LIGHTING_COLORS[GameState.base_lighting]
+	GameState.lighting_changed.connect(_on_lighting_changed)
 #
 	#if not has_interface:
 		#interface.hud.hide()
@@ -33,6 +44,13 @@ func _ready() -> void :
 
 func _enter() -> void:
 	pass
+
+
+func _on_lighting_changed() -> void:
+	if _lighting_tween != null:
+		_lighting_tween.kill()
+	_lighting_tween = create_tween()
+	_lighting_tween.tween_property(canvas_modulate, ^"color", LIGHTING_COLORS[GameState.base_lighting], LIGHTING_FADE_SECONDS)
 
 func limit_camera_to_land() -> void:
 	var land := get_node_or_null(^"Tilemap/Land") as TileMapLayer

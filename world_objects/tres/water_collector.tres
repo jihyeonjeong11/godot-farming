@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="WorldObjectData" format=3]
+
+[ext_resource type="Script" uid="uid://df33bawivqev2" path="res://world_objects/world_object_data.gd" id="1_data"]
+[ext_resource type="Texture2D" uid="uid://p8iogtdktgfx" path="res://assets/furniture/water_collector.png" id="2_tex"]
+
+[resource]
+script = ExtResource("1_data")
+id = &"water_collector"
+name = &"water collector"
+description = "Collects rainwater into a drum."
+texture = ExtResource("2_tex")
+type = 1
+metadata/_custom_type_script = "uid://df33bawivqev2"

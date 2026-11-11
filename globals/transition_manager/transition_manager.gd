@@ -42,9 +42,6 @@ func go_to_scene(next_scene: Variant, spawn_id: StringName = &"") -> void:
 		return
 	scene_path = next_scene if next_scene is String else next_scene.resource_path
 	next_spawn_id = spawn_id
-	var player := get_tree().get_first_node_in_group(&"player")
-	if player != null:
-		player.is_freeze = true
 	await fade_to_color(Color.BLACK)
 	swap_scene()
 	await clear_fade()

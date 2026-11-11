@@ -52,7 +52,10 @@ func _ready() -> void:
 	_equip_selected()
 	stamina_regen_timer.timeout.connect(_regen_stamina)
 	hurt_component.hurt.connect(on_hurt)
-	
+	is_freeze = TransitionManager.is_transitioning
+	TransitionManager.transition_started.connect(func(): is_freeze = true)
+	TransitionManager.transition_finished.connect(func(): is_freeze = false)
+
 func on_hurt(hit_damage: int) -> void:
 	stats.health -= hit_damage
 	pass
@@ -193,7 +196,15 @@ func begin_melee(item: Item) -> void:
 
 func finish_tool_use() -> void:
 	var stack := InventoryManager.get_item_stack_by_index(GameState.selected_slot)
+	if stack.current_ammo > 0:
+		stack.current_ammo -= 1
+		InventoryManager.updated_inventory.emit()
+		var used = CursorActions.use_tool(stack.item if stack != null else null)
+		if used:
+			CursorActions.update_farm_tilemap()
+
 	var used = CursorActions.use_tool(stack.item if stack != null else null)
+
 	if used:
 		CursorActions.update_farm_tilemap()
 

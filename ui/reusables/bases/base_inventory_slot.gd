@@ -8,6 +8,7 @@ var stack: ItemStack
 signal clicked(button: MouseButton, shift: bool)
 
 @onready var amount_label: Label = $AmountLabel
+@onready var ammo_bar: ProgressBar = $AmmoBar
 
 
 func set_stack(value: ItemStack) -> void:
@@ -16,6 +17,16 @@ func set_stack(value: ItemStack) -> void:
 	tooltip_text = stack.item.item_name if stack != null else ""
 	amount_label.text = str(stack.amount) if stack != null else ""
 	amount_label.visible = stack != null and stack.amount > 1
+	_show_ammo()
+
+
+func _show_ammo() -> void:
+	if stack == null or stack.item.max_ammo <= 0:
+		ammo_bar.hide()
+		return
+	ammo_bar.max_value = stack.item.max_ammo
+	ammo_bar.value = clampi(stack.current_ammo, 0, stack.item.max_ammo)
+	ammo_bar.show()
 
 
 func _make_custom_tooltip(_for_text: String) -> Object:

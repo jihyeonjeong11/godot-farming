@@ -2,11 +2,14 @@ class_name ItemStack extends RefCounted
 
 var item: Item
 var amount: int = 1
+var current_ammo = 0
 
 ## TODO: 임시 값들: max_ammo로 파생되는 current_ammo 혹은 durability 등이 있다면 여기
 func _init(p_item: Item = null, p_amount: int = 1) -> void:
 	item = p_item
 	amount = p_amount
+	if p_item.max_ammo > 0:
+		current_ammo = p_item.max_ammo
 
 
 ## item_id 는 String 이라 절대 null 이 아니다. 빈 문자열이 "없음"이다.

@@ -1,13 +1,21 @@
 [gd_scene format=3 uid="uid://b6yqh72mdodqe"]
 
 [ext_resource type="PackedScene" uid="uid://cvle266g113el" path="res://world_objects/world_object.tscn" id="1_base"]
-[ext_resource type="Resource" path="res://world_objects/tres/water_collector.tres" id="2_data"]
+[ext_resource type="Resource" uid="uid://dywm6q1lctoyt" path="res://world_objects/tres/water_collector.tres" id="2_data"]
+[ext_resource type="Script" uid="uid://dhtsmgfhe48mr" path="res://world_objects/furniture/water_collector.gd" id="2_qip6u"]
 [ext_resource type="Texture2D" uid="uid://p8iogtdktgfx" path="res://assets/furniture/water_collector.png" id="3_tex"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_barrel"]
 size = Vector2(28, 12)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_water_bg"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_water_fill"]
+bg_color = Color(0.26, 0.76, 0.32, 1)
+
 [node name="WaterCollector" unique_id=2022727674 instance=ExtResource("1_base")]
+script = ExtResource("2_qip6u")
 data = ExtResource("2_data")
 
 [node name="Sprite2D" parent="." index="0" unique_id=999308787]
@@ -19,3 +27,16 @@ offset = Vector2(-16, -110)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0" unique_id=1000469843]
 position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_barrel")
+
+[node name="WaterBar" type="ProgressBar" parent="." index="2" unique_id=1734920561]
+z_index = 1
+offset_left = -12.0
+offset_top = -97.0
+offset_right = 12.0
+offset_bottom = -94.0
+mouse_filter = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_water_bg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_water_fill")
+max_value = 30.0
+value = 30.0
+show_percentage = false

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cy6iw22t2utou"
-path="res://.godot/imported/reference.png-d731b3563d6b11be25c760ba373af371.ctex"
+uid="uid://bq4qkgp8cwldg"
+path="res://.godot/imported/vending_machine_rusty_yellow.png-2ca5f1f3f476aab5633c554579dcd1cb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/test_scenes/ou8cny_reference/reference.png"
-dest_files=["res://.godot/imported/reference.png-d731b3563d6b11be25c760ba373af371.ctex"]
+source_file="res://assets/ai_generated/vending_machine_rusty_yellow.png"
+dest_files=["res://.godot/imported/vending_machine_rusty_yellow.png-2ca5f1f3f476aab5633c554579dcd1cb.ctex"]
 
 [params]
 

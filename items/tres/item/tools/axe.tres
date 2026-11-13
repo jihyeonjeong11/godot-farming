@@ -15,6 +15,7 @@ script = ExtResource("1_8qw6j")
 item_id = "axe"
 item_type = 5
 tool_type = 1
+current_ammo = -1
 item_name = "axe"
 item_texture = SubResource("AtlasTexture_e2a05")
 melee_damage = 1

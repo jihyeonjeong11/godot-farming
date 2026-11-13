@@ -46,7 +46,6 @@ var level_data: Dictionary = {}
 var did_skip_tutorial: bool = false
 var did_kill_first_zombie: bool = false
 
-# 네이처 성장용. 타일 레이어 + 빌딩 정보 가지고 성장 막는 역할.
 var farm_map: Dictionary = {}
 
 # 현재 농장 맵만 적용함
@@ -56,7 +55,6 @@ var farm_snapshot: Dictionary = {}:
 	set(value):
 		farm_snapshot = value
 
-## Story flags for tutorial.
 var tutorial_flags: Dictionary = {
 	"startup": false,
 	"sighted_corpse": false,

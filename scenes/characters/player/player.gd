@@ -37,6 +37,9 @@ var target_cell: Vector2
 
 @export var is_freeze: bool = false
 
+const THIRST = preload("uid://mewgpqlifgrg")
+
+
 func _ready() -> void:
 	stats = GameState.player_stat
 	#buff_component.bind(stats)
@@ -196,17 +199,12 @@ func begin_melee(item: Item) -> void:
 
 func finish_tool_use() -> void:
 	var stack := InventoryManager.get_item_stack_by_index(GameState.selected_slot)
-	if stack.current_ammo > 0:
-		stack.current_ammo -= 1
-		InventoryManager.updated_inventory.emit()
-		var used = CursorActions.use_tool(stack.item if stack != null else null)
-		if used:
-			CursorActions.update_farm_tilemap()
-
 	var used = CursorActions.use_tool(stack.item if stack != null else null)
-
 	if used:
 		CursorActions.update_farm_tilemap()
+	else:
+		return
+
 
 
 func end_melee() -> void:

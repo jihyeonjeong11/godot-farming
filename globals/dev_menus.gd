@@ -34,7 +34,8 @@ func _ready() -> void :
 	#dev_give_wearables()
 	dev_give_tools()
 	dev_give_seed()
-	dev_give_campfire_materials()
+	dev_give_recipe_materials(&"campfire")
+	dev_give_recipe_materials(&"water_collector")
 	dev_give_chest()
 	dev_shuffle_outfit()
 	dev_build_grid()
@@ -135,8 +136,8 @@ func dev_give_seed() -> void:
 	InventoryActions.obtain(ItemStack.new(seed_item, 5))
 
 
-func dev_give_campfire_materials() -> void:
-	for recipe in RecipeDB.for_result(&"campfire"):
+func dev_give_recipe_materials(result_id: StringName) -> void:
+	for recipe in RecipeDB.for_result(result_id):
 		for id in recipe.ingredients:
 			InventoryActions.obtain(ItemStack.new(ItemDB.get_item(id), recipe.ingredients[id]))
 

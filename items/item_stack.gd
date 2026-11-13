@@ -8,11 +8,11 @@ var current_ammo = 0
 func _init(p_item: Item = null, p_amount: int = 1) -> void:
 	item = p_item
 	amount = p_amount
-	if p_item.max_ammo > 0:
-		current_ammo = p_item.max_ammo
+	if p_item == null:
+		return
+	current_ammo = p_item.max_ammo if p_item.max_ammo > 0 else p_item.current_ammo
 
 
-## item_id 는 String 이라 절대 null 이 아니다. 빈 문자열이 "없음"이다.
 func is_valid() -> bool:
 	return item != null and not item.item_id.is_empty() and amount > 0
 
@@ -34,14 +34,12 @@ func can_stack(other: ItemStack) -> bool:
 	return amount < item.max_stack
 
 
-## 이 칸에 더 들어갈 수 있는 여유. 쌓이지 않는 물건은 0.
 func free_space() -> int:
 	if item == null or item.max_stack <= 0:
 		return 0
 	return maxi(item.max_stack - amount, 0)
 
 
-## 한 칸에 최대 몇 개까지 담기는가. 쌓이지 않는 물건은 칸당 하나다.
 static func slot_capacity(spec: Item) -> int:
 	if spec == null:
 		return 0
@@ -51,8 +49,6 @@ func to_dict() -> Variant:
 	if item == null:
 		return null
 
-	# 경로가 아니라 id 로 적는다. 경로로 적으면 .tres 를 옮기는 순간 세이브가 끊긴다.
-	# 코드로 만든 임시 Item 은 id 가 없어 되찾을 방법이 없다.
 	if item.item_id.is_empty():
 		push_warning("item_id가 없어 저장할 수 없다: %s" % item.item_name)
 		return null
@@ -60,6 +56,7 @@ func to_dict() -> Variant:
 	return {
 		"item_id": item.item_id,
 		"amount": amount,
+		"current_ammo": current_ammo,
 	}
 
 
@@ -71,9 +68,11 @@ static func from_dict(data: Variant) -> ItemStack:
 	if id.is_empty():
 		return null
 
-	# 모르는 id 면 ItemDB 가 경고를 남긴다. 여기서는 조용히 접는다.
 	var spec := ItemDB.get_item(id)
 	if spec == null:
 		return null
 
-	return ItemStack.new(spec, maxi(int(data.get("amount", 1)), 1))
+	var stack := ItemStack.new(spec, maxi(int(data.get("amount", 1)), 1))
+	if data.has("current_ammo"):
+		stack.current_ammo = int(data["current_ammo"])
+	return stack

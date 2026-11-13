@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="WorldObjectData" format=3 uid="uid://cxpwpsa4f1lw7"]
+
+[ext_resource type="Script" uid="uid://cu6u0yvr4eaxi" path="res://items/loot/loot.gd" id="1_7l7ly"]
+[ext_resource type="Script" uid="uid://df33bawivqev2" path="res://world_objects/world_object_data.gd" id="2_fnr7b"]
+[ext_resource type="Texture2D" uid="uid://bq4qkgp8cwldg" path="res://assets/ai_generated/vending_machine_rusty_yellow.png" id="3_fnr7b"]
+[ext_resource type="Resource" uid="uid://cicfeodk46qye" path="res://items/tres/materials/scrap_metal.tres" id="4_scrap"]
+[ext_resource type="Resource" uid="uid://bgsu7y5y32lk5" path="res://items/tres/materials/plastic.tres" id="5_plastic"]
+[ext_resource type="Resource" uid="uid://dfkva7lyy414u" path="res://items/tres/materials/cloth.tres" id="6_cloth"]
+
+[sub_resource type="Resource" id="Loot_scrap"]
+script = ExtResource("1_7l7ly")
+item = ExtResource("4_scrap")
+amount = 2
+metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
+
+[sub_resource type="Resource" id="Loot_plastic"]
+script = ExtResource("1_7l7ly")
+item = ExtResource("5_plastic")
+amount = 2
+chance = 0.8
+metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
+
+[sub_resource type="Resource" id="Loot_cloth"]
+script = ExtResource("1_7l7ly")
+item = ExtResource("6_cloth")
+chance = 0.5
+metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
+
+[resource]
+script = ExtResource("2_fnr7b")
+id = &"vending_machine"
+name = &"Vending Machine"
+description = "A simple coin-operarted vending machine."
+texture = ExtResource("3_fnr7b")
+type = 1
+loot_pool = Array[ExtResource("1_7l7ly")]([SubResource("Loot_scrap"), SubResource("Loot_plastic"), SubResource("Loot_cloth")])
+max_health = 3
+metadata/_custom_type_script = "uid://df33bawivqev2"

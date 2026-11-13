@@ -15,6 +15,7 @@ script = ExtResource("1_items")
 item_id = "pickaxe"
 item_type = 5
 tool_type = 2
+current_ammo = -1
 item_name = "pickaxe"
 item_texture = SubResource("AtlasTexture_1818b")
 description = "Breaks rocks apart."

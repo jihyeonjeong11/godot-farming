@@ -24,13 +24,13 @@ func global_collision_rect() -> Rect2:
 func accepts_tool(tool: DataTypes.Tools) -> bool:
 	return tool in accepted_tools
 
-
-func capture_state() -> Dictionary:
-	return {}
-
-
-func apply_state(_state: Dictionary) -> void:
-	pass
+#
+#func capture_state() -> Dictionary:
+	#return {}
+#
+#
+#func apply_state(_state: Dictionary) -> void:
+	#pass
 
 
 func on_interact() -> void:

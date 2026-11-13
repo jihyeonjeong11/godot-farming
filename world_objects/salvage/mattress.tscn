@@ -1,0 +1,24 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" uid="uid://cvle266g113el" path="res://world_objects/world_object.tscn" id="1_base"]
+[ext_resource type="Script" path="res://world_objects/salvage/salvage_object.gd" id="2_script"]
+[ext_resource type="Resource" path="res://world_objects/tres/salvage/mattress.tres" id="3_data"]
+[ext_resource type="Texture2D" uid="uid://c2jvt1fjvudgi" path="res://assets/ai_generated/mattress_yellow.png" id="4_tex"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mat"]
+size = Vector2(64, 48)
+
+[node name="Mattress" unique_id=1731820501 instance=ExtResource("1_base")]
+script = ExtResource("2_script")
+data = ExtResource("3_data")
+accepted_tools = Array[int]([6, 2])
+
+[node name="Sprite2D" parent="." index="0" unique_id=999308787]
+texture = ExtResource("4_tex")
+offset = Vector2(-49, -84)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="1" unique_id=1731820502]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0" unique_id=1731820503]
+position = Vector2(0, -30)
+shape = SubResource("RectangleShape2D_mat")

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://bgsu7y5y32lk5"]
+
+[ext_resource type="Texture2D" uid="uid://cgqkg1g5et36e" path="res://assets/apo/32x32_buildings_furnitures.png" id="1_djiv8"]
+[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://items/item.gd" id="1_qskee"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_djiv8"]
+atlas = ExtResource("1_djiv8")
+region = Rect2(964, 967, 22, 20)
+
+[resource]
+script = ExtResource("1_qskee")
+item_id = "plastic"
+item_type = 6
+item_name = "Plastic"
+item_texture = SubResource("AtlasTexture_djiv8")
+description = "A hunk of plastic."
+metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

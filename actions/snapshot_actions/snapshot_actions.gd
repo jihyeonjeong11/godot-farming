@@ -4,6 +4,17 @@ const OBJECT := "object"
 const SOIL := "soil"
 const FARM_SCENE_PATH := "res://scenes/test_scenes/farm/farm_latest.tscn"
 
+const WATER_COLLECTOR_ID := &"water_collector"
+const WATER_PER_DAY := 10
+const MAX_WATER := 30
+
+static func collect_water() -> void:
+	for cell: Vector2i in cells_with(OBJECT):
+		var slot := get_slot(cell, OBJECT)
+		if slot.get("id", &"") != WATER_COLLECTOR_ID or not slot.has("state"):
+			continue
+		var state: Dictionary = slot["state"]
+		state["water_deposit"] = mini(int(state.get("water_deposit", 0)) + WATER_PER_DAY, MAX_WATER)
 
 static func populate(object_pos: Vector2, id: String, state: Dictionary) -> Dictionary:
 	var cell := get_cell_from_pos(object_pos)

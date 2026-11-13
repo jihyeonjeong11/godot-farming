@@ -61,6 +61,7 @@ func advance_day() -> void:
 	current_time["hour"] = WAKE_HOUR
 	current_time["minute"] = 0
 	_elapsed = 0.0
+	SnapshotActions.collect_water()
 	SnapshotActions.spread()
 	SnapshotActions.grow_objects()
 	SnapshotActions.spawn_nature(false)

@@ -13,5 +13,5 @@ item_id = "Scrap_Metal"
 item_type = 6
 item_name = "Scarp Metal"
 item_texture = SubResource("AtlasTexture_fgvt3")
-item_effect = "It is a pile of everything, mostly junk, but they may include a hydropressurization pump, electro-fibrous coil wire, magnetic vacuum seal, power strip and three-pin to three-pin adapters."
+description = "It is a pile of everything, mostly junk, but they may include a hydropressurization pump, electro-fibrous coil wire, magnetic vacuum seal, power strip and three-pin to three-pin adapters."
 metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

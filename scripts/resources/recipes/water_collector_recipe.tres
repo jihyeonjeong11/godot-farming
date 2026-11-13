@@ -6,6 +6,10 @@
 script = ExtResource("1_recipe")
 result_id = &"water_collector"
 result_amount = 1
-ingredients = Dictionary[StringName, int]({})
+ingredients = Dictionary[StringName, int]({
+&"cloth": 5,
+&"Scrap_Metal": 10,
+&"plastic": 2
+})
 recipe_name = "빗물 수집기"
 metadata/_custom_type_script = "uid://c7xk2mvbqjy4n"

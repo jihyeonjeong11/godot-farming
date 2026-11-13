@@ -14,8 +14,10 @@ const MARGIN := 20.0
 const RISE := 24.0
 const FADE := 0.2
 const HOLD := 2.0
+const THROTTLE_MS := int((FADE + HOLD + FADE) * 1000)
 
 var toasts: Array[Control] = []
+var _last_shown := {}
 
 
 func _ready() -> void:
@@ -24,6 +26,11 @@ func _ready() -> void:
 
 
 func show_toast(icon: Texture2D, text: String) -> void:
+	var now := Time.get_ticks_msec()
+	if now - int(_last_shown.get(text, -THROTTLE_MS)) < THROTTLE_MS:
+		return
+	_last_shown[text] = now
+
 	if toasts.size() >= MAX_TOAST_LIMIT:
 		_dismiss(toasts[0])
 

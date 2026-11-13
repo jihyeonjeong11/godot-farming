@@ -51,6 +51,7 @@ func _on_physics_process(delta: float) -> void:
 			if GameState.player_stat.stamina < 1:
 				SignalBus.toast_requested.emit(THIRST, "You need stamina!")
 				return
+
 			StatActions.change_stamina(-1)
 			SessionState.cursor_freeze = true
 			is_playing = true
@@ -63,13 +64,19 @@ func _on_physics_process(delta: float) -> void:
 			if GameState.player_stat.stamina < 1:
 				SignalBus.toast_requested.emit(THIRST, "You need stamina!")
 				return
-			StatActions.change_stamina(-1)
-			
-			
-			SessionState.cursor_freeze = true
-			is_playing = true
-			player.play_action(player.tool_layer.act())
-			return
+			var current_stack := InventoryManager.get_item_stack_by_index(GameState.selected_slot)
+			if current_stack.current_ammo == 0:
+				SignalBus.toast_requested.emit(THIRST, "No water")
+				return
+			else:
+				if current_stack.current_ammo > 0:
+					current_stack.current_ammo -= 1
+					InventoryManager.updated_inventory.emit()
+				StatActions.change_stamina(-1)
+				SessionState.cursor_freeze = true
+				is_playing = true
+				player.play_action(player.tool_layer.act())
+				return
 	var input := Input.get_vector("walk_left", "walk_right", "walk_up", "walk_down")
 	if input == Vector2.ZERO:
 		player.velocity = Vector2.ZERO

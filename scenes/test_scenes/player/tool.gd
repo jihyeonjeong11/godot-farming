@@ -20,18 +20,24 @@ const POSE := {
 	&"swing_left": [
 		{d = 2, p = Vector2(10, 25), o = Vector2(8, 29), r = 60, z = -1, flip = false},
 		{d = 2, p = Vector2(17, 7), o = Vector2(8, 24), r = 25, z = -1, flip = false},
+		{d = 2, p = Vector2(12, 12), o = Vector2(8, 23), r = -30, z = 1, flip = false},
+		{d = 2, p = Vector2(8, 21), o = Vector2(8, 22), r = -85, z = 1, flip = false},
 		{d = 2, p = Vector2(7, 31), o = Vector2(8, 22), r = -135, z = 1, flip = false},
 		{d = 2, p = Vector2(7, 32), o = Vector2(8, 22), r = -140, z = 1, flip = false},
 	],
 	&"swing_right": [
 		{d = 2, p = Vector2(22, 25), o = Vector2(8, 29), r = -60, z = -1, flip = true},
 		{d = 2, p = Vector2(15, 7), o = Vector2(8, 24), r = -25, z = -1, flip = true},
+		{d = 2, p = Vector2(20, 12), o = Vector2(8, 23), r = 30, z = 1, flip = true},
+		{d = 2, p = Vector2(24, 21), o = Vector2(8, 22), r = 85, z = 1, flip = true},
 		{d = 2, p = Vector2(25, 31), o = Vector2(8, 22), r = 135, z = 1, flip = true},
 		{d = 2, p = Vector2(25, 32), o = Vector2(8, 22), r = 140, z = 1, flip = true},
 	],
 	&"swing_down": [
 		{d = 0, p = Vector2(15, 12), o = Vector2(8, 26), r = 0, z = -1, flip = false},
 		{d = 0, p = Vector2(15, 6), o = Vector2(8, 26), r = -10, z = -1, flip = false},
+		{d = 0, p = Vector2(15, 12), o = Vector2(8, 26), r = 0, z = -1, flip = false},
+		{d = 3, p = Vector2(15, 19), o = Vector2(8, 10), r = 0, z = 1, flip = false},
 		{d = 3, p = Vector2(15, 26), o = Vector2(8, 6), r = 0, z = 1, flip = false},
 		{d = 3, p = Vector2(15, 30), o = Vector2(8, 10), r = 0, z = 1, flip = false},
 		{d = 0, p = Vector2(10, 26), o = Vector2(8, 26), r = 0, z = -1, flip = false},
@@ -39,6 +45,8 @@ const POSE := {
 	&"swing_up": [
 		{d = 4, p = Vector2(20, 26), o = Vector2(8, 26), r = 0, z = -1, flip = false},
 		{d = 4, p = Vector2(19, 24), o = Vector2(8, 26), r = 10, z = -1, flip = false},
+		{d = 2, p = Vector2(20, 23), o = Vector2(8, 22), r = 50, z = -1, flip = false},
+		{d = 2, p = Vector2(21, 27), o = Vector2(8, 21), r = 95, z = -1, flip = false},
 		{d = 2, p = Vector2(21, 30), o = Vector2(8, 20), r = 135, z = -1, flip = false},
 		{d = 2, p = Vector2(22, 32), o = Vector2(8, 20), r = 140, z = -1, flip = false},
 		{d = 4, p = Vector2(20, 26), o = Vector2(8, 26), r = 0, z = -1, flip = false},

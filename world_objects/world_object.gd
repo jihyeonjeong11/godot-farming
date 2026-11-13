@@ -34,6 +34,8 @@ func apply_state(_state: Dictionary) -> void:
 
 
 func on_interact() -> void:
+	var player = get_tree().get_first_node_in_group(&"player")
+	player.stats.stamina += 30
 	pass
 	
 func on_hit(tool: DataTypes.Tools, damage: int) -> void:

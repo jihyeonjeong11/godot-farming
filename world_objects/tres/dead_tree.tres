@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="TreeObjectData" format=3 uid="uid://biehkaify6ygm"]
+
+[ext_resource type="Script" uid="uid://tvxtsiwblcji" path="res://world_objects/tree_object_data.gd" id="1_tree"]
+[ext_resource type="Script" uid="uid://cu6u0yvr4eaxi" path="res://items/loot/loot.gd" id="2_loot"]
+[ext_resource type="Texture2D" uid="uid://vtyt0sa36qf3" path="res://assets/apo/dead_pine_tree.png" id="3_props"]
+[ext_resource type="Resource" uid="uid://f56b1jph4cua" path="res://items/tres/item/pickables/log.tres" id="4_log"]
+[ext_resource type="Script" uid="uid://65g3cvf0oetp" path="res://world_objects/growth_stage_loot.gd" id="5_stage_loot"]
+
+[sub_resource type="Resource" id="Loot_log"]
+script = ExtResource("2_loot")
+item = ExtResource("4_log")
+amount = 3
+metadata/_custom_type_script = "uid://cu6u0yvr4eaxi"
+
+[sub_resource type="Resource" id="StageLoot_0"]
+script = ExtResource("5_stage_loot")
+loot = Array[ExtResource("2_loot")]([SubResource("Loot_log")])
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_tree")
+health_per_growth_stage = Array[int]([8])
+loot_per_growth_stage = Array[ExtResource("5_stage_loot")]([SubResource("StageLoot_0")])
+id = &"dead_tree"
+name = &"dead_tree"
+description = "A dead tree."
+texture = ExtResource("3_props")
+is_interactable = true
+max_health = 8
+growth_textures = Array[Texture]([ExtResource("3_props")])
+metadata/_custom_type_script = "uid://tvxtsiwblcji"

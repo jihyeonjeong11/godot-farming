@@ -138,4 +138,4 @@ func _apply_collision(stage: int, tex: Texture2D) -> void:
 	shape.size = rect.size
 	collision_shape_2d.shape = shape
 	collision_shape_2d.position = rect.get_center()
-	collision_shape_2d.disabled = stage == 0
+	collision_shape_2d.disabled = stage == 0 and data.max_growth_stage > 0

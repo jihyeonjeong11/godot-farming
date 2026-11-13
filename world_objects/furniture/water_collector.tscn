@@ -1,4 +1,4 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://b6yqh72mdodqe"]
 
 [ext_resource type="PackedScene" uid="uid://cvle266g113el" path="res://world_objects/world_object.tscn" id="1_base"]
 [ext_resource type="Resource" path="res://world_objects/tres/water_collector.tres" id="2_data"]
@@ -7,15 +7,15 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_barrel"]
 size = Vector2(28, 12)
 
-[node name="WaterCollector" instance=ExtResource("1_base")]
+[node name="WaterCollector" unique_id=2022727674 instance=ExtResource("1_base")]
 data = ExtResource("2_data")
 
-[node name="Sprite2D" parent="." index="0"]
+[node name="Sprite2D" parent="." index="0" unique_id=999308787]
 texture = ExtResource("3_tex")
 offset = Vector2(-16, -110)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." index="1"]
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="1" unique_id=1983490553]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0" unique_id=1000469843]
 position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_barrel")

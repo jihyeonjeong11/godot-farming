@@ -50,7 +50,7 @@ func _ready() -> void:
 	InventoryManager.stack_selected.connect(_equip_selected.unbind(1))
 	InventoryManager.updated_inventory.connect(_equip_selected)
 	_equip_selected()
-	stamina_regen_timer.timeout.connect(_regen_stamina)
+	#stamina_regen_timer.timeout.connect(_regen_stamina)
 	hurt_component.hurt.connect(on_hurt)
 	is_freeze = TransitionManager.is_transitioning
 	TransitionManager.transition_started.connect(func(): is_freeze = true)

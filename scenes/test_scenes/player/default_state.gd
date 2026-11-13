@@ -1,6 +1,7 @@
 extends NodeState
 
 @export var player: Player
+const THIRST = preload("uid://mewgpqlifgrg")
 
 #@onready var player_buff_component: PlayerBuffComponent = $"../../PlayerBuffComponent"
 
@@ -47,16 +48,24 @@ func _on_physics_process(delta: float) -> void:
 		var itemstack := InventoryManager.get_item_stack_by_index(GameState.selected_slot)
 		var item = itemstack.item if itemstack != null else null
 		if item != null and item.item_type == DataTypes.ItemType.Melee:
-			if player.stats.stamina > 15:
-				SessionState.cursor_freeze = true
-				is_playing = true
-				_meleeing = true
-				player.stats.stamina -= 15
-				player.play_action("swing")
-				player.body.speed_scale = player.action_length() / MELEE_SWING_TIME * item.melee_speed
-				player.begin_melee(item)
+			if GameState.player_stat.stamina < 1:
+				SignalBus.toast_requested.emit(THIRST, "You need stamina!")
 				return
+			StatActions.change_stamina(-1)
+			SessionState.cursor_freeze = true
+			is_playing = true
+			_meleeing = true
+			player.play_action("swing")
+			player.body.speed_scale = player.action_length() / MELEE_SWING_TIME * item.melee_speed
+			player.begin_melee(item)
+			return
 		elif player.tool_layer.has_tool():
+			if GameState.player_stat.stamina < 1:
+				SignalBus.toast_requested.emit(THIRST, "You need stamina!")
+				return
+			StatActions.change_stamina(-1)
+			
+			
 			SessionState.cursor_freeze = true
 			is_playing = true
 			player.play_action(player.tool_layer.act())
@@ -69,7 +78,7 @@ func _on_physics_process(delta: float) -> void:
 		player.play_action("idle")
 		return
 	player.face(input)
-	player.velocity = input * player.stats.current_speed
+	player.velocity = input * GameState.player_stat.current_speed
 	player.move_and_slide()
 	player.play_action("walk")
 	_tick_footstep(delta)

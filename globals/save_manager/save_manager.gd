@@ -32,6 +32,7 @@ func new_game(slot: int) -> void :
 	seconds_elapsed = 0
 	for state_name in _pristine_states.keys():
 		states.get(state_name).from_serialized(_pristine_states.get(state_name, {}))
+	MapManager.seed_farm()
 	save_current_game()
 
 

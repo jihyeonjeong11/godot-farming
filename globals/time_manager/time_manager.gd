@@ -61,13 +61,9 @@ func advance_day() -> void:
 	current_time["hour"] = WAKE_HOUR
 	current_time["minute"] = 0
 	_elapsed = 0.0
-	
-	# 풀 확산
 	SnapshotActions.spread()
-	# 빈 tilled_soil 제거
-	# 나무 확산
-	# 돌 확산 - 깔아놓은 오브젝트 제거
 	SnapshotActions.grow_objects()
+	SnapshotActions.spawn_nature(false)
 	day_passed.emit(today())
 	SnapshotActions.dry_all_soil()
 	get_tree().call_group(WateredSoilLayer.GROUP, &"dry_all")

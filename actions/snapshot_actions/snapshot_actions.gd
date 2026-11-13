@@ -42,7 +42,6 @@ static func spread() -> void:
 	for cell: Vector2i in cells_with(OBJECT):
 		var slot := get_slot(cell, OBJECT)
 		var data := WorldObjectDB.get_data(slot.get("id", &""))
-		print(data.id)
 		if data == null or data.type != DataTypes.ObjectType.Nature or not slot.has("state"):
 			continue
 		if data is TreeObjectData:
@@ -60,15 +59,11 @@ const NEIGHBORS_4: Array[Vector2i] = [Vector2i.LEFT, Vector2i.RIGHT, Vector2i.DO
 static func spread_to_neighbors(cell: Vector2i, slot: Dictionary) -> void:
 	if randf() >= SPREAD_CHANCE:
 		return
-	var data := WorldObjectDB.get_data(slot["id"])
 	for dir in NEIGHBORS_4:
 		var target := cell + dir
 		if not is_spawnable(target) or randf() >= NEIGHBOR_CHANCE:
 			continue
-		set_slot(target, OBJECT, {"id": slot["id"], "state": {
-			"health": data.max_health,
-			"variant": -1,
-		}})
+		set_slot(target, OBJECT, nature_entry(slot["id"]))
 
 
 const TREE_SEED_CHANCE := 0.15
@@ -81,17 +76,57 @@ const NEIGHBORS_8: Array[Vector2i] = [
 
 
 static func spread_tree(cell: Vector2i, slot: Dictionary, data: TreeObjectData) -> void:
-	if int(slot["state"].get("growth_stage", 0)) < data.max_growth_stage or randf() >= TREE_SEED_CHANCE:
+	if data.max_growth_stage == 0 or int(slot["state"].get("growth_stage", 0)) < data.max_growth_stage or randf() >= TREE_SEED_CHANCE:
 		return
 	var r := TREE_SEED_RADIUS
 	var target := cell + Vector2i(randi_range(-r, r), randi_range(-r, r))
 	if not is_spawnable(target):
 		return
-	set_slot(target, OBJECT, {"id": slot["id"], "state": {
-		"health": data.health_at(0),
-		"growth_stage": 0,
+	set_slot(target, OBJECT, tree_entry(slot["id"], false))
+
+
+static func spawn_nature(mature: bool) -> void:
+	for cell: Vector2i in GameState.farm_map:
+		var table: Dictionary = GameState.farm_map[cell].get("spawner", {})
+		if table.is_empty() or not is_spawnable(cell):
+			continue
+		var entry := roll_nature(table, mature)
+		if not entry.is_empty():
+			set_slot(cell, OBJECT, entry)
+
+
+static func roll_nature(table: Dictionary, mature: bool) -> Dictionary:
+	match RandomNumberGenerator.new().rand_weighted(PackedFloat32Array(table["weights"])):
+		0:
+			var trees: Array = table["trees"]
+			return {} if trees.is_empty() else tree_entry(trees.pick_random(), mature)
+		1:
+			return nature_entry(table["grass"])
+		2:
+			return nature_entry(table["rock"])
+	return {}
+
+
+static func tree_entry(id: StringName, mature: bool) -> Dictionary:
+	var data := WorldObjectDB.get_data(id) as TreeObjectData
+	if data == null:
+		return {}
+	var stage := data.max_growth_stage if mature else 0
+	return {"id": id, "state": {
+		"health": data.health_at(stage),
+		"growth_stage": stage,
 		"days_until_harvest": data.days_until_harvest,
-	}})
+	}}
+
+
+static func nature_entry(id: StringName) -> Dictionary:
+	var data := WorldObjectDB.get_data(id)
+	if data == null:
+		return {}
+	return {"id": id, "state": {
+		"health": data.max_health,
+		"variant": -1,
+	}}
 
 
 static func has_mature_tree_near(cell: Vector2i) -> bool:

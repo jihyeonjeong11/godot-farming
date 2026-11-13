@@ -2,6 +2,11 @@ class_name StatActions extends RefCounted
 
 # game_state의 playerBuff, playerStat을 수정하는 액션
 
+static func change_stamina(amount: int) -> void:
+	var stats := GameState.player_stat
+	if stats == null:
+		return
+	stats.stamina += amount
 
 static func apply_equipment() -> void:
 	var stats := GameState.player_stat

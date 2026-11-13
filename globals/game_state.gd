@@ -46,8 +46,6 @@ var level_data: Dictionary = {}
 var did_skip_tutorial: bool = false
 var did_kill_first_zombie: bool = false
 
-
-
 # 네이처 성장용. 타일 레이어 + 빌딩 정보 가지고 성장 막는 역할.
 var farm_map: Dictionary = {}
 
@@ -57,7 +55,6 @@ var farm_snapshot: Dictionary = {}:
 		return farm_snapshot 
 	set(value):
 		farm_snapshot = value
-var farm_soil_seeded: bool = false
 
 ## Story flags for tutorial.
 var tutorial_flags: Dictionary = {
@@ -85,6 +82,12 @@ func set_tutorial_flag(key: String) -> void:
 	if not tutorial_flags.has(key):
 		push_warning("모르는 튜토리얼 플래그: %s" % key)
 	tutorial_flags[key] = true
+
+
+func _get_unique_properties(node: Node) -> Array:
+	var properties := super(node)
+	properties.erase("farm_map")
+	return properties
 
 
 func _after_deserialized() -> void:
@@ -136,7 +139,7 @@ func _deserialize_property(property: String, value: Variant) -> Variant:
 			for key in value:
 				time[key] = int(value[key])
 			return time
-		"farm_snapshot", "farm_map":
+		"farm_snapshot":
 			var snapshot: Dictionary = {}
 			for key: String in value:
 				var parts := key.trim_prefix("(").trim_suffix(")").split(",")

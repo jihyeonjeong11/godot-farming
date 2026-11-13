@@ -17,12 +17,16 @@ const CLUMPS := [
 	Rect2(105, 66, 26, 28),
 	Rect2(133, 46, 64, 50),
 ]
+const WIDE_CLUMPS := [0, 4, 6, 7]
+const BLADE_SLOTS := [Vector2(-7, -3), Vector2(7, -3), Vector2(-7, 10), Vector2(7, 10)]
+const BLADE_JITTER := 3
 
 var state: Dictionary = {
 	"health": 1,
 	"variant": -1
 }
 var shake_tween: Tween
+var blades: Array[Sprite2D] = []
 
 func _ready() -> void:
 	if not Engine.is_editor_hint():
@@ -40,18 +44,36 @@ func _apply_data() -> void:
 	if not is_node_ready() or data == null or data.texture == null:
 		return
 	if state["variant"] < 0:
-		state["variant"] = randi() % CLUMPS.size()
-	var rect: Rect2 = CLUMPS[int(state["variant"])]
+		state["variant"] = WIDE_CLUMPS.pick_random()
 	var sheet := data.texture
 	var origin := Vector2.ZERO
 	if sheet is AtlasTexture:
 		origin = sheet.region.position
 		sheet = sheet.atlas
-	var clump := AtlasTexture.new()
-	clump.atlas = sheet
-	clump.region = Rect2(origin + rect.position, rect.size)
-	sprite.texture = clump
-	sprite.offset = Vector2(floorf(-clump.get_width() / 2.0), -clump.get_height())
+	_ensure_blades()
+	y_sort_enabled = true
+	var rng := RandomNumberGenerator.new()
+	rng.seed = hash(Vector2i(global_position.round()))
+	for i in BLADE_SLOTS.size():
+		var blade := sprite if i == 0 else blades[i - 1]
+		var variant := int(state["variant"]) if i == 0 else int(WIDE_CLUMPS[rng.randi() % WIDE_CLUMPS.size()])
+		var rect: Rect2 = CLUMPS[variant]
+		var clump := AtlasTexture.new()
+		clump.atlas = sheet
+		clump.region = Rect2(origin + rect.position, rect.size)
+		blade.texture = clump
+		blade.offset = Vector2(floorf(-clump.get_width() / 2.0), -clump.get_height())
+		blade.flip_h = rng.randf() < 0.5
+		blade.position = BLADE_SLOTS[i] + Vector2(rng.randi_range(-BLADE_JITTER, BLADE_JITTER), rng.randi_range(-BLADE_JITTER, BLADE_JITTER))
+
+
+func _ensure_blades() -> void:
+	while blades.size() < BLADE_SLOTS.size() - 1:
+		var blade := Sprite2D.new()
+		blade.centered = false
+		blade.material = sprite.material
+		add_child(blade)
+		blades.append(blade)
 
 
 func _setup_shake() -> void:
@@ -62,6 +84,8 @@ func _setup_shake() -> void:
 	shake_material.set_shader_parameter("shake_speed", SHAKE_SPEED)
 	shake_material.set_shader_parameter("shake_intensity", 0.0)
 	sprite.material = shake_material
+	for blade in blades:
+		blade.material = shake_material
 
 
 func play_shake() -> void:

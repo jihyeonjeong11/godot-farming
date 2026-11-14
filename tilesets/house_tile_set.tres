@@ -1,13 +1,6 @@
 [gd_resource type="TileSet" format=3 uid="uid://bfjfke80cfmmc"]
 
-[ext_resource type="Texture2D" uid="uid://uol45vvi30h6" path="res://assets/Tiles/Buildings/Buildings_beige_TileSet.png" id="1_tdm17"]
-[ext_resource type="Texture2D" uid="uid://c7pdmwuof4t0l" path="res://assets/Objects/Refrigerator.png" id="2_ara4b"]
-[ext_resource type="Texture2D" uid="uid://d2fge5rwshx15" path="res://assets/Objects/Bench_1_down.png" id="3_eacdb"]
-[ext_resource type="Texture2D" uid="uid://pop5qsdnkg6l" path="res://assets/Objects/Container/Container_1_Gray_Vertical.png" id="4_xecul"]
-[ext_resource type="Texture2D" uid="uid://cyvecn8rkybne" path="res://assets/Tiles/Buildings/Buildings_gray_TileSet.png" id="5_eacdb"]
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k42tw"]
-texture = ExtResource("1_tdm17")
 1:1/0 = 0
 1:2/0 = 0
 1:3/0 = 0
@@ -61,19 +54,15 @@ texture = ExtResource("1_tdm17")
 8:5/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pclcf"]
-texture = ExtResource("2_ara4b")
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8m71b"]
-texture = ExtResource("3_eacdb")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pjkri"]
-texture = ExtResource("4_xecul")
 0:0/0 = 0
 0:1/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xecul"]
-texture = ExtResource("5_eacdb")
 6:0/0 = 0
 6:1/0 = 0
 7:1/0 = 0

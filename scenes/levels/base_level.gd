@@ -31,7 +31,7 @@ func _ready() -> void :
 	interface = UI_MANAGER.instantiate()
 	add_child(interface)
 	dev_info.visible = false
-	if dev_info.visible:
+	if OS.is_debug_build():
 		get_tree().process_frame.connect(update_dev_info)
 	if not TimeManager.is_running:
 		TimeManager.start_time_advance()
@@ -70,6 +70,9 @@ func limit_camera_to_land() -> void:
 	camera_component.limit_bottom = ceili(bottom_right.y)
 
 func update_dev_info() -> void:
+	dev_info.visible = DevMenus.show_target_info
+	if not dev_info.visible:
+		return
 	var layers: Array = SessionState.target_dict["layers"]
 	var layers_text: String = ", ".join(PackedStringArray(layers)) if not layers.is_empty() else "-"
 	var tile = SessionState.target_dict["tile"]

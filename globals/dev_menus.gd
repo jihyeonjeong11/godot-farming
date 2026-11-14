@@ -7,10 +7,12 @@ var activation_code_so_far: String = ""
 ## TODO: cheat/dev codes for developer.
 
 var is_active: bool = true
+var show_target_info: bool = true
 
 const GRID_TOGGLE_KEY := KEY_F9
 const SNAPSHOT_KEY := KEY_F2
 const RANDOM_NEEDS_KEY := KEY_F3
+const TARGET_INFO_KEY := KEY_F10
 const SNAPSHOT_VIEW_LAYER := 100
 const SNAPSHOT_VIEW_WIDTH := 960.0
 const GRID_COLOR := Color(1, 1, 1, 0.25)
@@ -184,6 +186,9 @@ func _input(event: InputEvent) -> void :
 		return
 	if is_active and event is InputEventKey and event.pressed and not event.echo and event.keycode == RANDOM_NEEDS_KEY:
 		dev_randomize_needs()
+		return
+	if is_active and event is InputEventKey and event.pressed and not event.echo and event.keycode == TARGET_INFO_KEY:
+		show_target_info = not show_target_info
 		return
 	if not is_active and event.is_pressed() and not event.is_echo():
 		if event is InputEventKey:

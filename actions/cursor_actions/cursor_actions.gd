@@ -310,7 +310,7 @@ static func level_layer(path: NodePath) -> TileMapLayer:
 
 static func target_accepts(tool: DataTypes.Tools) -> bool:
 	var t := SessionState.target_dict
-	if t["pos"] == null or is_instance_valid(t["building"]):
+	if t["pos"] == null:
 		return false
 	var object := t["object"] as WorldObject
 	return is_instance_valid(object) and object.accepts_tool(tool)

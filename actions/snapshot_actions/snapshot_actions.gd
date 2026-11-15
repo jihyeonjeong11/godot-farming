@@ -17,6 +17,8 @@ static func collect_water() -> void:
 		state["water_deposit"] = mini(int(state.get("water_deposit", 0)) + WATER_PER_DAY, MAX_WATER)
 
 static func populate(object_pos: Vector2, id: String, state: Dictionary) -> Dictionary:
+	if not is_farm():
+		return state
 	var cell := get_cell_from_pos(object_pos)
 	var slot := get_slot(cell, OBJECT)
 	if slot.has("state"):
@@ -26,6 +28,8 @@ static func populate(object_pos: Vector2, id: String, state: Dictionary) -> Dict
 
 
 static func remove(pos: Vector2) -> void:
+	if not is_farm():
+		return
 	clear_slot(get_cell_from_pos(pos), OBJECT)
 
 

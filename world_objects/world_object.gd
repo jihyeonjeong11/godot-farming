@@ -5,9 +5,19 @@ class_name WorldObject extends Node2D
 	set(value):
 		data = value
 		_apply_data()
+		
 @export var accepted_tools: Array[DataTypes.Tools] = []
 
 @onready var sprite: Sprite2D = $Sprite2D
+
+func _ready() -> void:
+	self.add_to_group(&"object")
+	call_deferred("populate")
+	#call_deferred(populate)
+	call_deferred("_apply_data")
+
+func populate() -> void:
+	pass
 
 func get_collision_shape() -> CollisionShape2D:
 	var shape = get_node_or_null(^"StaticBody2D/CollisionShape2D")
@@ -24,15 +34,6 @@ func global_collision_rect() -> Rect2:
 func accepts_tool(tool: DataTypes.Tools) -> bool:
 	return tool in accepted_tools
 
-#
-#func capture_state() -> Dictionary:
-	#return {}
-#
-#
-#func apply_state(_state: Dictionary) -> void:
-	#pass
-
-
 func on_interact() -> void:
 	var player = get_tree().get_first_node_in_group(&"player")
 	player.stats.stamina += 30
@@ -41,10 +42,6 @@ func on_interact() -> void:
 func on_hit(tool: DataTypes.Tools, damage: int) -> void:
 	SnapshotActions.remove(global_position)
 	queue_free()
-
-func _ready() -> void:
-	self.add_to_group(&"object")
-	_apply_data()
 
 
 func _apply_data() -> void:

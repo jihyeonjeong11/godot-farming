@@ -8,13 +8,15 @@ var state: Dictionary = {
 
 
 func _ready() -> void:
+	super()
+
+func populate() -> void:
 	if not Engine.is_editor_hint():
 		state["health"] = data.max_health
 		state = SnapshotActions.populate(global_position, data.id, state)
 		if state.get("destroyed", false):
 			queue_free()
 			return
-	super()
 
 
 func on_interact() -> void:

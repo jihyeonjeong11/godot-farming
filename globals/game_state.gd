@@ -14,6 +14,8 @@ enum BaseLighting{
 	Darkness
 }
 
+var current_level : DataTypes.Levels = 0
+
 var base_lighting: BaseLighting = BaseLighting.Day:
 	set(value):
 		if base_lighting != value:

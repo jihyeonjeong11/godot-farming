@@ -22,15 +22,18 @@ var state: Dictionary = {
 const FOOTSTEP_VEGETATION = preload("uid://ca2x0yqyi8ltc")
 
 func _ready() -> void:
-	if data != null and not Engine.is_editor_hint():
-		state["days_until_harvest"] = data.days_until_harvest
-		state = SnapshotActions.populate(global_position, data.id, state)
 	super()
-	if Engine.is_editor_hint() or data == null:
-		return
+
 	TimeManager.day_passed.connect(on_day_passed)
 	$InteractArea.body_entered.connect(_on_body_entered)
 	$InteractArea.body_exited.connect(_on_body_exited)
+	
+func populate() -> void:
+	if Engine.is_editor_hint() or data == null or SnapshotActions.is_farm() == false:
+		return
+	state["days_until_harvest"] = data.days_until_harvest
+	state = SnapshotActions.populate(global_position, data.id, state)
+	_apply_data()
 
 
 func get_stage() -> int:

@@ -2,6 +2,7 @@ extends Base_level
 
 
 func _enter() -> void:
+	GameState.current_scene = DataTypes.Levels.Farm
 	restore_snapshot_tiles()
 	restore_snapshot_objects()
 

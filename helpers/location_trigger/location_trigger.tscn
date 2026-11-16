@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cmohgq1ifasls"]
+
+[ext_resource type="Script" uid="uid://w75n8jsws5kc" path="res://helpers/location_trigger/location_trigger.gd" id="1_gbr0v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_trigger"]
+size = Vector2(32, 96)
+
+[node name="LocationTrigger" type="Area2D" unique_id=957397014]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_gbr0v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=957397015]
+shape = SubResource("RectangleShape2D_trigger")

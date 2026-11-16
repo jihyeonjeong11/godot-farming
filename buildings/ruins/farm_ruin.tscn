@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://yw8oi3bhqi8x"]
 
 [ext_resource type="TileSet" uid="uid://cgmxl6k3v47j5" path="res://tilesets/v2/tileset_back.tres" id="1_nlicx"]
-[ext_resource type="Script" uid="uid://biw7joul68ue0" path="res://scenes/buildings/ruin/farm_ruin.gd" id="1_tx3pw"]
+[ext_resource type="Script" uid="uid://biw7joul68ue0" path="res://buildings/ruins/farm_ruin.gd" id="1_tx3pw"]
 [ext_resource type="PackedScene" path="res://world_objects/crops/static_crops.tscn" id="3_qyqkj"]
 [ext_resource type="Resource" uid="uid://bvemxmpd77l03" path="res://world_objects/tres/crops/onion_crops.tres" id="4_5oosl"]
 [ext_resource type="Script" uid="uid://df33bawivqev2" path="res://world_objects/world_object_data.gd" id="4_expub"]

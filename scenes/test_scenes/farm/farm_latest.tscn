@@ -16,8 +16,8 @@
 [ext_resource type="Script" uid="uid://rpepg711y8sv" path="res://scenes/test_scenes/farm/watered_soil.gd" id="12_wsoil"]
 [ext_resource type="Script" uid="uid://tvxtsiwblcji" path="res://world_objects/tree_object_data.gd" id="13_mqhdx"]
 [ext_resource type="Script" uid="uid://cyg8x8ganehgt" path="res://scenes/components/spawn_point.gd" id="14_spawn"]
-[ext_resource type="PackedScene" uid="uid://wt1f7abku3au" path="res://world_objects/salvage/vending_machine.tscn" id="20_vending"]
-[ext_resource type="PackedScene" path="res://world_objects/salvage/mattress.tscn" id="21_mattress"]
+[ext_resource type="PackedScene" uid="uid://cmohgq1ifasls" path="res://helpers/location_trigger/location_trigger.tscn" id="22_loctrig"]
+[ext_resource type="PackedScene" uid="uid://bd6v6f5ql6ux1" path="res://helpers/spawn_point/spawn_point.tscn" id="23_spawnpt"]
 
 [sub_resource type="Resource" id="Loot_log"]
 script = ExtResource("11_5paw8")
@@ -6737,12 +6737,6 @@ tile_set = ExtResource("2_ni27w")
 [node name="Farmhouse" parent="Tilemap" index="6" unique_id=844149854 instance=ExtResource("3_mxo1t")]
 position = Vector2(1014, 815)
 
-[node name="VendingMachine" parent="Tilemap" index="7" unique_id=1731820400 instance=ExtResource("20_vending")]
-position = Vector2(1198, 815)
-
-[node name="Mattress" parent="Tilemap" index="8" unique_id=1731820500 instance=ExtResource("21_mattress")]
-position = Vector2(1284, 815)
-
 [node name="NatureSpawners" type="Node2D" parent="." index="4" unique_id=1800000000]
 y_sort_enabled = true
 
@@ -11510,3 +11504,12 @@ empty_weight = 1.0
 position = Vector2(1046, 840)
 script = ExtResource("14_spawn")
 spawn_id = &"house_door"
+
+[node name="ToRuin" parent="." index="6" unique_id=957397100 instance=ExtResource("22_loctrig")]
+position = Vector2(28, 556)
+target_scene = "uid://c5wflq7603a71"
+target_spawn = &"from_farm"
+
+[node name="SpawnFromRuin" parent="." index="7" unique_id=957397101 instance=ExtResource("23_spawnpt")]
+position = Vector2(80, 560)
+spawn_id = &"from_ruin"

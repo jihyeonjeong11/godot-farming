@@ -8,6 +8,7 @@
 [node name="RuinBuildingInside2" unique_id=748833425 instance=ExtResource("1_base")]
 y_sort_enabled = true
 position = Vector2(0, 1)
+level_id = &"inside_ruin_2"
 
 [node name="Player" parent="." index="0" unique_id=407296808]
 position = Vector2(367.3554, 497.83246)

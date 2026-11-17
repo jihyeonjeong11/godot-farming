@@ -1,5 +1,5 @@
 
-extends Base_level
+extends BaseLevel
 
 const GRASS_SCENE := preload("res://world_objects/nature/grass_object.tscn")
 const DEAD_CROPS_SCENE := preload("res://world_objects/salvage/dead_crops.tscn")
@@ -17,7 +17,7 @@ const DIRT_TERRAIN := 1
 
 func _ready() -> void:
 	super()
-	_scatter()
+	#_scatter()
 
 
 func _process(delta: float) -> void:

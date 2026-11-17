@@ -21,17 +21,13 @@ const WIDE_CLUMPS := [0, 4, 6, 7]
 const BLADE_SLOTS := [Vector2(-7, -3), Vector2(7, -3), Vector2(-7, 10), Vector2(7, 10)]
 const BLADE_JITTER := 3
 
-var state: Dictionary = {
-	"health": 1,
-	"variant": -1
-}
 var shake_tween: Tween
 var blades: Array[Sprite2D] = []
 
+func default_state() -> Dictionary:
+	return {"health": data.max_health, "variant": -1}
+
 func _ready() -> void:
-	if not Engine.is_editor_hint():
-		state["health"] = data.max_health
-		state = SnapshotActions.populate(global_position, data.id, state)
 	super()
 	if Engine.is_editor_hint():
 		return
@@ -106,7 +102,7 @@ func on_hit(tool: DataTypes.Tools, damage: int) -> void:
 	
 func destroy() -> void:
 	LootActions.drop_loot(data.loot_pool, global_position)
-	SnapshotActions.remove(global_position)
+	SnapshotActions.remove(self)
 	queue_free()
 	
 

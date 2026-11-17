@@ -14,7 +14,9 @@ const SNAPSHOT_KEY := KEY_F2
 const RANDOM_NEEDS_KEY := KEY_F3
 const TARGET_INFO_KEY := KEY_F10
 const SNAPSHOT_VIEW_LAYER := 100
-const SNAPSHOT_VIEW_WIDTH := 960.0
+const SNAPSHOT_VIEW_WIDTH := 1200.0
+const SNAPSHOT_FONT_SIZE := 22
+const SNAPSHOT_BG_COLOR := Color(0.08, 0.08, 0.1, 0.95)
 const GRID_COLOR := Color(1, 1, 1, 0.25)
 const CURSOR_CELL_COLOR := Color(1, 0.85, 0.2, 0.35)
 const TARGET_OBJECT_COLOR := Color(0.3, 1.0, 0.4, 0.9)
@@ -26,6 +28,9 @@ var grid_layer: CanvasLayer
 var grid: Node2D
 var snapshot_layer: CanvasLayer
 var snapshot_view: TextEdit
+var snapshot_key: String = ""
+var snapshot_tabs: HFlowContainer
+var level_ids: Array[String] = []
 
 func _ready() -> void :
 	if not OS.is_debug_build():
@@ -39,6 +44,7 @@ func _ready() -> void :
 	#dev_give_recipe_materials(&"campfire")
 	#dev_give_recipe_materials(&"water_collector")
 	dev_give_chest()
+	dev_give_sword()
 	dev_shuffle_outfit()
 	dev_build_grid()
 	dev_build_snapshot_view()
@@ -74,13 +80,25 @@ func dev_build_snapshot_view() -> void:
 	snapshot_layer.layer = SNAPSHOT_VIEW_LAYER
 	snapshot_layer.visible = false
 	add_child(snapshot_layer)
+	var panel := VBoxContainer.new()
+	panel.set_anchors_preset(Control.PRESET_LEFT_WIDE)
+	panel.custom_minimum_size.x = SNAPSHOT_VIEW_WIDTH
+	snapshot_layer.add_child(panel)
+	snapshot_tabs = HFlowContainer.new()
+	panel.add_child(snapshot_tabs)
 	snapshot_view = TextEdit.new()
 	snapshot_view.editable = false
 	snapshot_view.focus_mode = Control.FOCUS_NONE
 	snapshot_view.wrap_mode = TextEdit.LINE_WRAPPING_BOUNDARY
-	snapshot_view.set_anchors_preset(Control.PRESET_LEFT_WIDE)
-	snapshot_view.custom_minimum_size.x = SNAPSHOT_VIEW_WIDTH
-	snapshot_layer.add_child(snapshot_view)
+	snapshot_view.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	snapshot_view.add_theme_font_size_override(&"font_size", SNAPSHOT_FONT_SIZE)
+	snapshot_view.add_theme_color_override(&"font_readonly_color", Color(0.9, 0.9, 0.9))
+	var background := StyleBoxFlat.new()
+	background.bg_color = SNAPSHOT_BG_COLOR
+	background.set_content_margin_all(8)
+	snapshot_view.add_theme_stylebox_override(&"normal", background)
+	snapshot_view.add_theme_stylebox_override(&"read_only", background)
+	panel.add_child(snapshot_view)
 
 
 func draw_grid() -> void:
@@ -148,21 +166,83 @@ func dev_give_chest() -> void:
 	InventoryActions.obtain(ItemStack.new(ItemDB.get_item(&"chest"), 1))
 
 
+func dev_give_sword() -> void:
+	InventoryActions.obtain(ItemStack.new(ItemDB.get_item(&"longsword"), 1))
+
+
 func dev_give_wearables() -> void:
 	for id in DEV_WEARABLES:
 		InventoryActions.obtain(ItemStack.new(ItemDB.get_item(id), 1))
 		
 
-## 농장 밖에서는 snapshot()이 빈 값을 돌려준다. 그대로 넣으면 저장해둔 농장 상태가 지워진다.
-func dev_save_snapshot() -> void:
-	var snapshot := GameState.farm_snapshot
-	if snapshot.is_empty():
-		prints("[dev] 스냅샷 건너뜀: 저장할 농장 상태가 없다")
-	else:
-		GameState.farm_snapshot = snapshot
-		prints("[dev] 스냅샷 저장:", snapshot.size(), "칸")
-	snapshot_view.text = str(snapshot)
+func dev_open_snapshot() -> void:
+	var level := get_tree().current_scene as BaseLevel
+	snapshot_key = String(level.level_id) if level != null else ""
+	dev_show_snapshot()
 	snapshot_layer.visible = true
+
+
+func dev_cycle_snapshot(step: int) -> void:
+	var keys := dev_snapshot_keys()
+	var index := keys.find(snapshot_key)
+	snapshot_key = keys[wrapi(index + step, 0, keys.size())]
+	dev_show_snapshot()
+
+
+func dev_snapshot_keys() -> Array[String]:
+	if level_ids.is_empty():
+		dev_scan_level_ids("res://levels")
+	var keys: Array[String] = level_ids.duplicate()
+	for key: String in GameState.snapshots:
+		if key not in keys:
+			keys.append(key)
+	keys.sort()
+	return keys if not keys.is_empty() else [""]
+
+
+func dev_scan_level_ids(dir_path: String) -> void:
+	var regex := RegEx.create_from_string("(?m)^level_id = &\"([^\"]+)\"")
+	for file in DirAccess.get_files_at(dir_path):
+		if not file.ends_with(".tscn"):
+			continue
+		var found := regex.search(FileAccess.get_file_as_string(dir_path.path_join(file)))
+		if found != null and found.get_string(1) not in level_ids:
+			level_ids.append(found.get_string(1))
+	for dir in DirAccess.get_directories_at(dir_path):
+		dev_scan_level_ids(dir_path.path_join(dir))
+
+
+func dev_select_snapshot(key: String) -> void:
+	snapshot_key = key
+	dev_show_snapshot()
+
+
+func dev_build_snapshot_tabs(keys: Array[String]) -> void:
+	for child in snapshot_tabs.get_children():
+		child.queue_free()
+	for key in keys:
+		var button := Button.new()
+		button.text = "%s (%d)" % [key if not key.is_empty() else "-", GameState.snapshots.get(key, {}).size()]
+		button.toggle_mode = true
+		button.button_pressed = key == snapshot_key
+		button.focus_mode = Control.FOCUS_NONE
+		button.add_theme_font_size_override(&"font_size", SNAPSHOT_FONT_SIZE)
+		button.pressed.connect(dev_select_snapshot.bind(key))
+		snapshot_tabs.add_child(button)
+
+
+func dev_show_snapshot() -> void:
+	var keys := dev_snapshot_keys()
+	dev_build_snapshot_tabs(keys)
+	var snapshot: Dictionary = GameState.snapshots.get(snapshot_key, {})
+	var lines := PackedStringArray()
+	lines.append("%s  (%d칸)   PgUp/PgDn: 키 변경" % [snapshot_key if not snapshot_key.is_empty() else "-", snapshot.size()])
+	lines.append("")
+	var cells := snapshot.keys()
+	cells.sort()
+	for cell in cells:
+		lines.append("%s  %s" % [cell, snapshot[cell]])
+	snapshot_view.text = "\n".join(lines)
 
 
 func dev_randomize_needs() -> void:
@@ -182,7 +262,11 @@ func _input(event: InputEvent) -> void :
 		if snapshot_layer.visible:
 			snapshot_layer.visible = false
 		else:
-			dev_save_snapshot()
+			dev_open_snapshot()
+		return
+	if is_active and snapshot_layer.visible and event is InputEventKey and event.pressed and not event.echo and event.keycode in [KEY_PAGEUP, KEY_PAGEDOWN]:
+		dev_cycle_snapshot(-1 if event.keycode == KEY_PAGEUP else 1)
+		get_viewport().set_input_as_handled()
 		return
 	if is_active and event is InputEventKey and event.pressed and not event.echo and event.keycode == RANDOM_NEEDS_KEY:
 		dev_randomize_needs()

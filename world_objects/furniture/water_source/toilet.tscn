@@ -2,6 +2,39 @@
 
 [ext_resource type="PackedScene" uid="uid://cvle266g113el" path="res://world_objects/world_object.tscn" id="1_ihgf6"]
 [ext_resource type="Script" uid="uid://bjfmtshlpcdu" path="res://world_objects/furniture/water_source/toilet.gd" id="2_jc14f"]
+[ext_resource type="Resource" uid="uid://dywm6q1lctoyt" path="res://world_objects/tres/toilet.tres" id="3_fsx8d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_toilet"]
+size = Vector2(24, 12)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_water_bg"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_water_fill"]
+bg_color = Color(0.26, 0.76, 0.32, 1)
 
 [node name="Toilet" unique_id=412109625 instance=ExtResource("1_ihgf6")]
 script = ExtResource("2_jc14f")
+data = ExtResource("3_fsx8d")
+
+[node name="Sprite2D" parent="." index="0" unique_id=999308787]
+offset = Vector2(-16, -53)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="1" unique_id=1583029311]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0" unique_id=1583029312]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_toilet")
+
+[node name="WaterBar" type="ProgressBar" parent="." index="2" unique_id=1583029313]
+z_index = 1
+offset_left = -12.0
+offset_top = -60.0
+offset_right = 12.0
+offset_bottom = -57.0
+mouse_filter = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_water_bg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_water_fill")
+max_value = 10.0
+value = 10.0
+show_percentage = false

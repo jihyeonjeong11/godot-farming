@@ -9,9 +9,8 @@ const FILL_SOUND = preload("res://assets/sounds/interactions/watering_can.mp3")
 
 @onready var water_bar: ProgressBar = $WaterBar
 
-var state = {
-	"water_deposit": 30
-}
+func default_state() -> Dictionary:
+	return {"water_deposit": MAX_WATER}
 
 func _ready() -> void:
 	super()

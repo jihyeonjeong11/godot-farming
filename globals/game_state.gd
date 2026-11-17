@@ -50,12 +50,15 @@ var did_kill_first_zombie: bool = false
 
 var farm_map: Dictionary = {}
 
-# 현재 농장 맵만 적용함
-var farm_snapshot: Dictionary = {}:
-	get: 
-		return farm_snapshot 
+const FARM_LEVEL_ID := "farm"
+
+var snapshots: Dictionary = {}
+
+var farm_snapshot: Dictionary:
+	get:
+		return snapshots.get_or_add(FARM_LEVEL_ID, {})
 	set(value):
-		farm_snapshot = value
+		snapshots[FARM_LEVEL_ID] = value
 
 var tutorial_flags: Dictionary = {
 	"startup": false,
@@ -87,6 +90,7 @@ func set_tutorial_flag(key: String) -> void:
 func _get_unique_properties(node: Node) -> Array:
 	var properties := super(node)
 	properties.erase("farm_map")
+	properties.erase("farm_snapshot")
 	return properties
 
 
@@ -139,10 +143,17 @@ func _deserialize_property(property: String, value: Variant) -> Variant:
 			for key in value:
 				time[key] = int(value[key])
 			return time
-		"farm_snapshot":
-			var snapshot: Dictionary = {}
-			for key: String in value:
-				var parts := key.trim_prefix("(").trim_suffix(")").split(",")
-				snapshot[Vector2i(parts[0].to_int(), parts[1].strip_edges().to_int())] = value[key]
-			return snapshot
+		"snapshots":
+			var levels: Dictionary = {}
+			for level_id: String in value:
+				levels[level_id] = _deserialize_cells(value[level_id])
+			return levels
 	return value
+
+
+func _deserialize_cells(value: Dictionary) -> Dictionary:
+	var snapshot: Dictionary = {}
+	for key: String in value:
+		var parts := key.trim_prefix("(").trim_suffix(")").split(",")
+		snapshot[Vector2i(parts[0].to_int(), parts[1].strip_edges().to_int())] = value[key]
+	return snapshot

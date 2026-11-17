@@ -1,4 +1,4 @@
-extends Base_level
+extends BaseLevel
 
 
 func _enter() -> void:

@@ -34,6 +34,7 @@ dead_crops_threshold = 0.25
 grass_density = 0.55
 dead_crops_density = 0.7
 clearance = 64.0
+level_id = &"ruin"
 level_key = 4
 
 [node name="Player" parent="." index="0" unique_id=407296808]

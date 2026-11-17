@@ -1,4 +1,7 @@
-class_name Base_level extends Node2D
+class_name BaseLevel extends Node2D
+
+@export var level_id: StringName
+@export var level_key: DataTypes.Levels
 
 @onready var camera_component: Camera = $CameraComponent
 
@@ -7,7 +10,6 @@ class_name Base_level extends Node2D
 @export var is_radiant: bool
 
 @export var dialogue_resource: DialogueResource
-@export var level_key: DataTypes.Levels
 @export var camera_land_inset := 1
 const UI_MANAGER = preload("uid://bqrbyohvqh031")
 const LIGHTING_COLORS := {

@@ -3,9 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://cdko42eau68xt" path="res://levels/base_level.tscn" id="1_base"]
 [ext_resource type="TileSet" uid="uid://cgmxl6k3v47j5" path="res://tilesets/v2/tileset_back.tres" id="1_f4xkh"]
 [ext_resource type="PackedScene" uid="uid://cmohgq1ifasls" path="res://helpers/location_trigger/location_trigger.tscn" id="2_exit"]
+[ext_resource type="PackedScene" uid="uid://dsxc1uijofnhl" path="res://world_objects/furniture/water_source/toilet.tscn" id="4_toilet"]
 
 [node name="RuinBuildingInside3" unique_id=510150892 instance=ExtResource("1_base")]
 y_sort_enabled = true
+level_id = &"inside_ruin_3"
 
 [node name="Player" parent="." index="0" unique_id=407296808]
 position = Vector2(95, 655)
@@ -24,3 +26,6 @@ tile_set = ExtResource("1_f4xkh")
 position = Vector2(95, 718)
 target_scene = "uid://c5wflq7603a71"
 target_spawn = &"from_ruin_building_3"
+
+[node name="Toilet" parent="." unique_id=1583029403 instance=ExtResource("4_toilet")]
+position = Vector2(80, 604)

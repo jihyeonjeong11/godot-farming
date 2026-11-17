@@ -13,13 +13,11 @@ const SHAKE_AREA_MARGIN := Vector2(8, 8)
 
 var shake_tween: Tween
 
-var state: Dictionary = {
-	"growth_stage": 0,
-	"days_until_harvest": 0,
-}
-
 
 const FOOTSTEP_VEGETATION = preload("uid://ca2x0yqyi8ltc")
+
+func default_state() -> Dictionary:
+	return {"growth_stage": 0, "days_until_harvest": data.days_until_harvest}
 
 func _ready() -> void:
 	super()
@@ -27,13 +25,6 @@ func _ready() -> void:
 	TimeManager.day_passed.connect(on_day_passed)
 	$InteractArea.body_entered.connect(_on_body_entered)
 	$InteractArea.body_exited.connect(_on_body_exited)
-	
-func populate() -> void:
-	if Engine.is_editor_hint() or data == null or SnapshotActions.is_farm() == false:
-		return
-	state["days_until_harvest"] = data.days_until_harvest
-	state = SnapshotActions.populate(global_position, data.id, state)
-	_apply_data()
 
 
 func get_stage() -> int:
@@ -92,7 +83,7 @@ func on_interact() -> void:
 			state["days_until_harvest"] = data.regrow_days
 			_apply_data()
 		else:
-			SnapshotActions.remove(global_position)
+			SnapshotActions.remove(self)
 			queue_free()
 	
 

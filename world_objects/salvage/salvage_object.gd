@@ -12,16 +12,12 @@ const VARIANTS := {
 	],
 }
 
-var state: Dictionary = {
-	"health": 1,
-	"destroyed": false,
-	"variant": -1,
-}
+func default_state() -> Dictionary:
+	return {"health": 1, "destroyed": false, "variant": -1}
 
 
 func _ready() -> void:
 	super()
-
 
 
 func _apply_data() -> void:

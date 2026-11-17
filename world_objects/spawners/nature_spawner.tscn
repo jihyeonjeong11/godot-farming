@@ -15,3 +15,4 @@ metadata/_custom_type_script = "uid://df33bawivqev2"
 [node name="NatureSpawner" unique_id=1703135462 instance=ExtResource("1_base")]
 script = ExtResource("2_script")
 data = SubResource("Resource_irsmc")
+persistent = false

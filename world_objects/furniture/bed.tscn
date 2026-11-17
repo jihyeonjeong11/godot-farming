@@ -15,6 +15,7 @@ size = Vector2(109, 88)
 [node name="Bed" unique_id=412109625 instance=ExtResource("1_7sdml")]
 script = ExtResource("2_wnq41")
 data = ExtResource("3_1sncs")
+persistent = false
 
 [node name="Sprite2D" parent="." index="0" unique_id=999308787]
 texture = SubResource("AtlasTexture_6ghuj")

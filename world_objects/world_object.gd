@@ -7,17 +7,22 @@ class_name WorldObject extends Node2D
 		_apply_data()
 		
 @export var accepted_tools: Array[DataTypes.Tools] = []
+@export var persistent := true
 
 @onready var sprite: Sprite2D = $Sprite2D
 
+var state: Dictionary = {}
+
 func _ready() -> void:
 	self.add_to_group(&"object")
-	call_deferred("populate")
-	#call_deferred(populate)
+	if data != null:
+		state = default_state()
+		if persistent and not Engine.is_editor_hint():
+			state = SnapshotActions.populate(self, state)
 	call_deferred("_apply_data")
 
-func populate() -> void:
-	pass
+func default_state() -> Dictionary:
+	return {}
 
 func get_collision_shape() -> CollisionShape2D:
 	var shape = get_node_or_null(^"StaticBody2D/CollisionShape2D")
@@ -40,7 +45,7 @@ func on_interact() -> void:
 	pass
 	
 func on_hit(tool: DataTypes.Tools, damage: int) -> void:
-	SnapshotActions.remove(global_position)
+	SnapshotActions.remove(self)
 	queue_free()
 
 

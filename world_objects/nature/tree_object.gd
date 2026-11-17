@@ -11,21 +11,19 @@ const FALL_ANGLE := PI / 2.0
 const FALL_DURATION := 0.7
 const FADE_DURATION := 0.25
 
-var state: Dictionary = {
-	"health": 1,
-	"growth_stage": 0,
-	"days_until_harvest": 0,
-}
 var shake_tween: Tween
 var is_falling := false
 
 @onready var collision_shape_2d: CollisionShape2D = $StaticBody2D/CollisionShape2D
 
+func default_state() -> Dictionary:
+	return {
+		"health": tree_data().health_at(0),
+		"growth_stage": 0,
+		"days_until_harvest": data.days_until_harvest,
+	}
+
 func _ready() -> void:
-	if data != null and not Engine.is_editor_hint():
-		state["health"] = tree_data().health_at(int(state["growth_stage"]))
-		state["days_until_harvest"] = data.days_until_harvest
-		state = SnapshotActions.populate(global_position, data.id, state)
 	super()
 	if Engine.is_editor_hint() or data == null:
 		return
@@ -72,7 +70,7 @@ func on_hit(tool: DataTypes.Tools, damage: int) -> void:
 
 func destroy() -> void:
 	LootActions.drop_loot(tree_data().loot_at(int(state["growth_stage"])), global_position)
-	SnapshotActions.remove(global_position)
+	SnapshotActions.remove(self)
 	remove_from_group(&"object")
 	collision_shape_2d.set_deferred("disabled", true)
 	play_fall()

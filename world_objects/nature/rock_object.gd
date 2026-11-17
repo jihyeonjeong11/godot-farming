@@ -10,16 +10,8 @@ const VARIANTS := [
 	Rect2(69, 33, 30, 28),
 ]
 
-var state: Dictionary = {
-	"health": 1,
-	"variant": -1
-}
-
-func _ready() -> void:
-	if not Engine.is_editor_hint():
-		state["health"] = data.max_health
-		state = SnapshotActions.populate(global_position, data.id, state)
-	super()
+func default_state() -> Dictionary:
+	return {"health": data.max_health, "variant": -1}
 
 
 func on_hit(tool: DataTypes.Tools, damage: int) -> void:
@@ -31,7 +23,7 @@ func on_hit(tool: DataTypes.Tools, damage: int) -> void:
 
 func destroy() -> void:
 	LootActions.drop_loot(data.loot_pool, global_position)
-	SnapshotActions.remove(global_position)
+	SnapshotActions.remove(self)
 	queue_free()
 
 

@@ -3,14 +3,11 @@ extends WorldObject
 
 @onready var anim: AnimationPlayer = $AnimationPlayer
 
-var state: Dictionary = {
-	"is_open": false,
-	"inventory": []
-}
+func default_state() -> Dictionary:
+	return {"is_open": false, "inventory": []}
 
 func _ready() -> void:
 	super()
-	state = SnapshotActions.populate(global_position, data.id, state)
 	state.is_open = false
 	_apply_open()
 

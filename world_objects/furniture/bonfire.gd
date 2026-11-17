@@ -3,13 +3,11 @@ extends WorldObject
 
 @onready var anim: AnimationPlayer = $AnimationPlayer
 
-var state: Dictionary = {
-	"is_on": true
-}
+func default_state() -> Dictionary:
+	return {"is_on": true}
 
 func _ready() -> void:
 	super()
-	state = SnapshotActions.populate(global_position, data.id, state)
 	_apply_lit()
 
 func on_interact() -> void:

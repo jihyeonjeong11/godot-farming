@@ -16,21 +16,36 @@ static func collect_water() -> void:
 		var state: Dictionary = slot["state"]
 		state["water_deposit"] = mini(int(state.get("water_deposit", 0)) + WATER_PER_DAY, MAX_WATER)
 
-static func populate(object_pos: Vector2, id: String, state: Dictionary) -> Dictionary:
-	if not is_farm():
+static func populate(obj: WorldObject, state: Dictionary) -> Dictionary:
+	var level_id := level_id_of(obj)
+	if level_id.is_empty():
 		return state
-	var cell := get_cell_from_pos(object_pos)
-	var slot := get_slot(cell, OBJECT)
+	var snapshot: Dictionary = GameState.snapshots.get_or_add(level_id, {})
+	var cell := get_cell_from_pos(obj.global_position)
+	var slot: Dictionary = snapshot.get(cell, {}).get(OBJECT, {})
 	if slot.has("state"):
 		return slot["state"]
-	set_slot(cell, OBJECT, {"id": id, "state": state})
+	snapshot.get_or_add(cell, {})[OBJECT] = {"id": obj.data.id, "state": state}
 	return state
 
 
-static func remove(pos: Vector2) -> void:
-	if not is_farm():
+static func remove(obj: WorldObject) -> void:
+	var level_id := level_id_of(obj)
+	if level_id.is_empty() or not obj.persistent:
 		return
-	clear_slot(get_cell_from_pos(pos), OBJECT)
+	var snapshot: Dictionary = GameState.snapshots.get(level_id, {})
+	var cell := get_cell_from_pos(obj.global_position)
+	var entry: Dictionary = snapshot.get(cell, {})
+	entry.erase(OBJECT)
+	if entry.is_empty():
+		snapshot.erase(cell)
+
+
+static func level_id_of(node: Node) -> String:
+	var n := node
+	while n != null and n is not BaseLevel:
+		n = n.get_parent()
+	return "" if n == null else String((n as BaseLevel).level_id)
 
 
 static func till(cell: Vector2i) -> void:

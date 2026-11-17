@@ -1,7 +1,0 @@
-[gd_scene format=3]
-
-[ext_resource type="PackedScene" uid="uid://dr0ltptx6kwby" path="res://world_objects/crops/crop_object.tscn" id="1_crop"]
-[ext_resource type="Script" path="res://world_objects/crops/static_crop_object.gd" id="2_static"]
-
-[node name="StaticCrop" instance=ExtResource("1_crop")]
-script = ExtResource("2_static")

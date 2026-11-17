@@ -89,16 +89,13 @@ tile_map_data = PackedByteArray("AAAAAAgACAAOAA8AAAAAAAkACAAOABAAAAABAAgACAAPAA8
 tile_set = ExtResource("1_nlicx")
 
 [node name="GrassObject" parent="." unique_id=698618136 instance=ExtResource("5_4i8qt")]
-y_sort_enabled = true
 position = Vector2(112, 155)
 data = SubResource("Resource_cgsic")
 
 [node name="GrassObject2" parent="." unique_id=733221892 instance=ExtResource("5_4i8qt")]
-y_sort_enabled = true
 position = Vector2(112, 91)
 data = SubResource("Resource_w8g12")
 
 [node name="GrassObject3" parent="." unique_id=1612762411 instance=ExtResource("5_4i8qt")]
-y_sort_enabled = true
 position = Vector2(175, 92)
 data = SubResource("Resource_vbfs4")

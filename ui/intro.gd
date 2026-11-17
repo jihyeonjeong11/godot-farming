@@ -1,4 +1,4 @@
-extends Base_level
+extends BaseLevel
 
 @export var title_scene: PackedScene
 @export var logos_scene: PackedScene

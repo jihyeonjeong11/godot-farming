@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dsxc1uijofnhl"]
+
+[ext_resource type="PackedScene" uid="uid://cvle266g113el" path="res://world_objects/world_object.tscn" id="1_ihgf6"]
+[ext_resource type="Script" uid="uid://bjfmtshlpcdu" path="res://world_objects/furniture/water_source/toilet.gd" id="2_jc14f"]
+
+[node name="Toilet" unique_id=412109625 instance=ExtResource("1_ihgf6")]
+script = ExtResource("2_jc14f")

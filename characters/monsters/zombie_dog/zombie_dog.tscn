@@ -1,0 +1,131 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" uid="uid://bk7xvms3qnp8t" path="res://scripts/state_machine/node_state_machine.gd" id="1_machine"]
+[ext_resource type="Script" path="res://characters/monsters/zombie_dog/zombie_dog.gd" id="2_zombie"]
+[ext_resource type="Script" uid="uid://cfe72lkvoosiv" path="res://scenes/characters/enemy/zombie/idle.gd" id="3_idle"]
+[ext_resource type="Script" uid="uid://hsvanw5dgvam" path="res://scenes/characters/enemy/zombie/walk.gd" id="4_walk"]
+[ext_resource type="Script" path="res://characters/monsters/zombie_dog/chase.gd" id="5_chase"]
+[ext_resource type="Script" uid="uid://dxetuxxvesifv" path="res://scenes/characters/enemy/zombie/attack.gd" id="6_attack"]
+[ext_resource type="Script" uid="uid://b86a2q6j05osf" path="res://scenes/characters/enemy/zombie/hit.gd" id="7_hit"]
+[ext_resource type="Resource" path="res://characters/monsters/tres/zombie_dog_stats.tres" id="8_stats"]
+[ext_resource type="SpriteFrames" path="res://characters/monsters/zombie_dog/zombie_dog_frames.tres" id="9_frames"]
+[ext_resource type="AudioStream" uid="uid://qtf30p316hh2" path="res://assets/sounds/enemy_die.wav" id="10_diesn"]
+[ext_resource type="PackedScene" uid="uid://b146rj5ge4pas" path="res://scenes/components/loot/loot_table_component.tscn" id="11_loot"]
+[ext_resource type="PackedScene" uid="uid://t4ivrw46xnoo" path="res://scenes/components/detection_component.tscn" id="12_detect"]
+[ext_resource type="PackedScene" uid="uid://bwn5t2ejgp0hr" path="res://scenes/components/hurt_component.tscn" id="13_hurt"]
+[ext_resource type="PackedScene" uid="uid://dk3jgaxq07bts" path="res://scenes/components/damage_component.tscn" id="14_dmg"]
+[ext_resource type="PackedScene" uid="uid://0pe6fvow1o6b" path="res://scenes/components/hit_component.tscn" id="15_hit"]
+[ext_resource type="AudioStream" uid="uid://baru1vysmpw4g" path="res://assets/sounds/monsters/growling_zombie.mp3" id="16_growl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_detect"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_body"]
+radius = 8.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pyc8v"]
+size = Vector2(44, 22)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_growl"]
+random_pitch = 1.2
+streams_count = 1
+stream_0/stream = ExtResource("16_growl")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hitbox"]
+radius = 8.0
+
+[node name="ZombieDog" type="CharacterBody2D" unique_id=1619301887]
+collision_layer = 64
+collision_mask = 385
+script = ExtResource("2_zombie")
+stats = ExtResource("8_stats")
+enemy_id = &"zombie_dog"
+attack_range = 24.0
+attack_cooldown = 1.0
+knockback_speed = 150.0
+
+[node name="RootTable" parent="." unique_id=1120760073 instance=ExtResource("11_loot")]
+
+[node name="DetectionComponent" parent="." unique_id=411700426 node_paths=PackedStringArray("sight_ray") instance=ExtResource("12_detect")]
+min_detection_range = 8
+max_detection_range = 250
+sight_ray = NodePath("RayCast2D")
+
+[node name="RayCast2D" type="RayCast2D" parent="DetectionComponent" unique_id=1505326987]
+enabled = false
+collision_mask = 258
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionComponent" unique_id=1393989046]
+shape = SubResource("CircleShape2D_detect")
+debug_color = Color(0.2886576, 0.6303976, 0, 0.41960785)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=668477312]
+sprite_frames = ExtResource("9_frames")
+animation = &"idle_right"
+autoplay = "idle_right"
+offset = Vector2(0, -32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=642710402]
+shape = SubResource("CircleShape2D_body")
+
+[node name="HurtComponent" parent="." unique_id=1766220183 instance=ExtResource("13_hurt")]
+tool = 6
+hazard_vulnerable = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent" unique_id=566285358]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_pyc8v")
+debug_color = Color(0.65893734, 0.5122168, 0.1647709, 0.41960785)
+
+[node name="DamageComponent" parent="." unique_id=367003998 instance=ExtResource("14_dmg")]
+max_damage = 3
+
+[node name="DieAudioStreamPlayer" type="AudioStreamPlayer2D" parent="." unique_id=367003999]
+stream = ExtResource("10_diesn")
+
+[node name="GrowlAudioStreamPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1823406517]
+stream = SubResource("AudioStreamRandomizer_growl")
+max_distance = 400.0
+
+[node name="HitComponent" parent="." unique_id=1946219791 instance=ExtResource("15_hit")]
+
+[node name="ZombieHitComponent" type="CollisionShape2D" parent="HitComponent" unique_id=211314736]
+position = Vector2(20, -8)
+shape = SubResource("CircleShape2D_hitbox")
+disabled = true
+debug_color = Color(0.3921463, 0.4789884, 0.9797148, 0.41960785)
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1692622098]
+path_desired_distance = 10.0
+path_postprocessing = 1
+avoidance_enabled = true
+radius = 8.0
+
+[node name="StateMachine" type="Node" parent="." unique_id=1466109409 node_paths=PackedStringArray("initial_node_state")]
+script = ExtResource("1_machine")
+initial_node_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=1665731819 node_paths=PackedStringArray("zombie", "animated_sprite_2d")]
+script = ExtResource("3_idle")
+zombie = NodePath("../..")
+animated_sprite_2d = NodePath("../../AnimatedSprite2D")
+
+[node name="Walk" type="Node" parent="StateMachine" unique_id=1295752632 node_paths=PackedStringArray("zombie", "animated_sprite_2d", "navigation_agent_2d")]
+script = ExtResource("4_walk")
+zombie = NodePath("../..")
+animated_sprite_2d = NodePath("../../AnimatedSprite2D")
+navigation_agent_2d = NodePath("../../NavigationAgent2D")
+min_speed = 12.0
+max_speed = 24.0
+
+[node name="Chase" type="Node" parent="StateMachine" unique_id=2081555087]
+script = ExtResource("5_chase")
+chase_speed = 115.0
+
+[node name="Attack" type="Node" parent="StateMachine" unique_id=1477203311]
+script = ExtResource("6_attack")
+hit_reach = 20.0
+hit_start_frame = 6
+hit_end_frame = 9
+
+[node name="Hit" type="Node" parent="StateMachine" unique_id=858954922]
+script = ExtResource("7_hit")

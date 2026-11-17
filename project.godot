@@ -72,11 +72,12 @@ enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://add
 folder_colors={
 "res://actions/": "teal",
 "res://buildings/": "gray",
+"res://characters/": "red",
 "res://dialogues/": "yellow",
 "res://globals/": "orange",
 "res://items/": "green",
+"res://levels/": "purple",
 "res://managers_archive/": "gray",
-"res://monsters/": "red",
 "res://ui/": "blue",
 "res://world_objects/": "pink"
 }

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="BaseCharacterStats" format=3]
+
+[ext_resource type="Script" uid="uid://b22i1gh4wbolw" path="res://scripts/resources/character/character_stats.gd" id="1_sdmmn"]
+
+[resource]
+script = ExtResource("1_sdmmn")
+base_max_health = 8
+metadata/_custom_type_script = "uid://b22i1gh4wbolw"

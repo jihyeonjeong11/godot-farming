@@ -4,6 +4,8 @@ class_name Base_level extends Node2D
 
 @export var camera_zoom: Vector2 = Vector2(3, 3)
 
+@export var is_radiant: bool
+
 @export var dialogue_resource: DialogueResource
 @export var level_key: DataTypes.Levels
 @export var camera_land_inset := 1

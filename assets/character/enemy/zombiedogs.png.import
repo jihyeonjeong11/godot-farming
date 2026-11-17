@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://iw0wd31qi66x"
-path="res://.godot/imported/monster.svg-cb5162a25c1ab94cbfd042157e81adf9.ctex"
+uid="uid://1onjcy4vtubi"
+path="res://.godot/imported/zombiedogs.png-99b58cc3e3de9e6c0b9f05ba16ef8943.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://monsters/monster.svg"
-dest_files=["res://.godot/imported/monster.svg-cb5162a25c1ab94cbfd042157e81adf9.ctex"]
+source_file="res://assets/character/enemy/zombiedogs.png"
+dest_files=["res://.godot/imported/zombiedogs.png-99b58cc3e3de9e6c0b9f05ba16ef8943.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

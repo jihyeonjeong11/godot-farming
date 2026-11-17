@@ -1,0 +1,21 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" uid="uid://cvle266g113el" path="res://world_objects/world_object.tscn" id="1_base"]
+[ext_resource type="Script" uid="uid://sywog6ttemig" path="res://world_objects/salvage/salvage_object.gd" id="2_script"]
+[ext_resource type="Resource" uid="uid://clnpv4w83pjeh" path="res://world_objects/tres/salvage/dead_crops.tres" id="3_data"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dc"]
+size = Vector2(24, 16)
+
+[node name="DeadCrops" instance=ExtResource("1_base")]
+script = ExtResource("2_script")
+data = ExtResource("3_data")
+accepted_tools = Array[int]([6, 2])
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="1"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_dc")

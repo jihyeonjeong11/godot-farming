@@ -5,6 +5,7 @@ extends Node2D
 const GROUP := &"building"
 
 @export var has_inside: bool = false
+@export var inside_scene: PackedScene
 @export var texture: Texture2D:
 	set(value):
 		texture = value
@@ -24,6 +25,7 @@ func _draw() -> void:
 		return
 	var size := texture.get_size()
 	draw_texture(texture, Vector2(-size.x * 0.5, -size.y))
+	
 
 
 func global_footprint_rect() -> Rect2:

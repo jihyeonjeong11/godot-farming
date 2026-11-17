@@ -14,6 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://bv47whbqish4n" path="res://buildings/ruins/ruin_building_5.tscn" id="b5_ruin"]
 [ext_resource type="PackedScene" path="res://world_objects/salvage/pile_of_plastic.tscn" id="pop_salvage"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tofarm"]
+size = Vector2(49, 160)
+
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ruin"]
 vertices = PackedVector2Array(824, 744, 824, 792, 696, 792, 392, 744, 392, 1000, 696, 1016, 168, 1016, 168, 1000, 2168, 808, 2168, 1016, 2024, 1016, 2024, 856, 1640, 808, 1784, 856, 1640, 1016, 1784, 1016, 1848, 72, 1848, 312, 1784, 312, 1032, 72, 1784, 344, 1624, 344, 1624, 376, 1576, 376, 1576, 344, 1480, 312, 1480, 344, 1240, 312, 1032, 344, 1240, 344, 664, 168, 664, 376, 296, 376, 296, 248, 104, 168, 104, 248, 588, 1272, 972, 1224, 1976, 1160, 2216, 1160, 2056, 1432, 1624, 1432, 1192, 1368, 1768, 584, 2216, 664, 1592, 664, 1340, 648, 1340, 620, 1688, 584, 2232, -24, 2232, 2008, 916, 1224, 588, 1244, 1484, 1068, 1428, 1068, 872, 936, 1284, 648, 984, 24, 984, 552, 956, 424, 956, 396, 2056, 1800, 8, 2008, 1624, 1800, 1592, 1160, 1484, 1096, 1896, 520, 1896, 24, 8, -24, 872, 600, 712, 520, 900, 424, 712, 24, 900, 396, 1624, 1576, 1389.0781, 1496, 1369.5, 1464, 1325.0781, 1720, 1624, 1592, 1308.7578, 1751.8828, 1284, 620, 972, 1196, 1832, 1160, 1352, 1528.1016, 1352, 1527.0469, 1372.7578, 1527.8828, 1369.5, 1592, 1352, 1656.1016, 1352, 1655.0469, 1372.7578, 1655.8828, 1128, 1752.1016, 1128, 1751.0469, 1148.7578, 1751.8828, 1288, 1752.1016, 1288, 1751.0469, 56, 392, 248, 392, 248, 464, 179, 464, 179, 500, 248, 500, 248, 520, 120, 856, 1288, 552, 1288, 520, 1432, 520, 1432, 552, 1528, 552, 1528, 584, 1672, 584, 1672, 552, 1688, 552, 1768, 552, 1832, 552, 1832, 520, 344, 600, 344, 856, 916, 1196, 744, 1160, 744, 936, 1428, 1096, 1832, 1000, 1976, 1000, 1209.1094, 1400, 1192, 1400, 1144, 1368, 1144, 1400, 1115.0938, 1400, 1672, 1576, 1672, 1512, 2008, 1512, 2008, 1720, 1672, 1720, 1672, 1592, 1316.5703, 1464, 1316.2578, 1496, 1314.1328, 1496, 1213.7734, 1464.6172, 1316.5703, 1592, 1316.2578, 1624, 1314.1328, 1624, 1092.5703, 1688, 1092.2578, 1720, 1090.1328, 1720, 1252.5703, 1688, 1252.2578, 1720, 1250.1328, 1720, 1165.0781, 1720, 1145.5, 1688, 1243.7109, 1751.5625, 1215, 1432, 1209.75, 1432, 1307.7109, 1527.5625, 1192, 1466.3125, 1192, 1465.5625, 120, 1160, 532, 1244, 56, 24, 1389.0781, 1624, 1375.5469, 1624, 1375.5469, 1496, 1311.5469, 1720, 1305.5, 1688, 1151.5469, 1720, 1083.7109, 1751.5625, 532, 1272, 1149.8281, 1480, 1153.5, 1465.9219, 1101.1797, 1427.3672, 1096.9609, 1432, 1092.25, 1432, 1089.8594, 1480, 1307.7109, 1655.5625)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2, 5), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(12, 8, 11, 13), PackedInt32Array(14, 12, 13, 15), PackedInt32Array(16, 17, 18, 19), PackedInt32Array(18, 20, 21, 19), PackedInt32Array(21, 22, 23, 24), PackedInt32Array(19, 21, 24, 25), PackedInt32Array(24, 26, 25), PackedInt32Array(19, 25, 27), PackedInt32Array(28, 19, 27, 29), PackedInt32Array(30, 31, 32, 33), PackedInt32Array(34, 30, 33, 35), PackedInt32Array(36, 37, 38, 39, 40, 41, 42), PackedInt32Array(43, 44, 45, 46, 47, 48), PackedInt32Array(49, 50, 39, 44), PackedInt32Array(51, 37, 36, 52), PackedInt32Array(53, 54, 55, 56, 46, 45), PackedInt32Array(57, 58, 59, 60), PackedInt32Array(39, 50, 61, 40), PackedInt32Array(61, 50, 62, 63), PackedInt32Array(45, 64, 65, 53), PackedInt32Array(49, 44, 66, 67), PackedInt32Array(68, 49, 67, 57), PackedInt32Array(59, 58, 69, 70, 71), PackedInt32Array(71, 70, 72, 73), PackedInt32Array(41, 74, 75, 76), PackedInt32Array(77, 78, 63, 79), PackedInt32Array(80, 56, 55, 69, 58), PackedInt32Array(38, 37, 81, 82), PackedInt32Array(83, 84, 85, 86), PackedInt32Array(87, 88, 89), PackedInt32Array(90, 91, 92), PackedInt32Array(93, 94, 79), PackedInt32Array(95, 96, 97, 98), PackedInt32Array(99, 100, 101, 102), PackedInt32Array(103, 104, 105, 106, 47), PackedInt32Array(106, 107, 108, 47), PackedInt32Array(109, 110, 111, 48), PackedInt32Array(43, 112, 113, 44), PackedInt32Array(113, 114, 66, 44), PackedInt32Array(115, 116, 102, 101), PackedInt32Array(81, 117, 118, 119, 55, 54, 120), PackedInt32Array(82, 121, 122, 38), PackedInt32Array(64, 82, 81), PackedInt32Array(65, 64, 81, 120), PackedInt32Array(123, 124, 42), PackedInt32Array(125, 126, 127, 36), PackedInt32Array(128, 129, 130, 131), PackedInt32Array(131, 132, 133), PackedInt32Array(128, 131, 133), PackedInt32Array(74, 128, 133, 78), PackedInt32Array(134, 135, 136, 137), PackedInt32Array(138, 139, 140), PackedInt32Array(141, 142, 143), PackedInt32Array(144, 145, 146), PackedInt32Array(147, 148, 144, 146, 149), PackedInt32Array(150, 151, 123), PackedInt32Array(137, 150, 41, 134), PackedInt32Array(152, 153, 154, 137, 136), PackedInt32Array(155, 118, 117, 51, 52, 156), PackedInt32Array(57, 60, 73, 72), PackedInt32Array(68, 57, 72), PackedInt32Array(68, 72, 157), PackedInt32Array(62, 68, 157, 95), PackedInt32Array(92, 147, 149), PackedInt32Array(158, 74, 78, 89), PackedInt32Array(85, 75, 74, 158, 159, 86), PackedInt32Array(83, 86, 138, 152), PackedInt32Array(41, 150, 123), PackedInt32Array(75, 160, 76), PackedInt32Array(78, 77, 161, 162, 89), PackedInt32Array(147, 163, 148), PackedInt32Array(79, 63, 62, 93), PackedInt32Array(92, 149, 93, 62, 90), PackedInt32Array(164, 90, 62), PackedInt32Array(155, 156, 165), PackedInt32Array(166, 167, 153, 152), PackedInt32Array(141, 143, 164, 62, 155, 165), PackedInt32Array(95, 98, 99, 102), PackedInt32Array(41, 123, 42), PackedInt32Array(36, 42, 125), PackedInt32Array(36, 127, 168, 169, 170), PackedInt32Array(36, 170, 171), PackedInt32Array(87, 89, 162), PackedInt32Array(172, 87, 162, 144), PackedInt32Array(138, 140, 172, 144, 148, 152), PackedInt32Array(152, 148, 141, 171, 166), PackedInt32Array(109, 48, 47), PackedInt32Array(108, 109, 47), PackedInt32Array(103, 47, 80, 58), PackedInt32Array(70, 69, 115, 101), PackedInt32Array(62, 95, 102, 155), PackedInt32Array(141, 165, 36, 171), PackedInt32Array(134, 41, 76)])
@@ -23,12 +26,14 @@ source_geometry_mode = 1
 source_geometry_group_name = &"nav_source"
 agent_radius = 8.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tofarm"]
-size = Vector2(49, 160)
-
 [node name="Ruin" unique_id=609713710 instance=ExtResource("1_eafu5")]
 y_sort_enabled = true
 script = ExtResource("2_ki6bm")
+grass_threshold = 0.0
+dead_crops_threshold = 0.25
+grass_density = 0.55
+dead_crops_density = 0.7
+clearance = 64.0
 level_key = 4
 
 [node name="Player" parent="." index="0" unique_id=407296808]
@@ -36,8 +41,15 @@ position = Vector2(1216, 896)
 
 [node name="CameraComponent" parent="." index="1" unique_id=1459419885]
 zoom = Vector2(3, 3)
+limit_left = 32
+limit_top = 0
+limit_right = 2208
+limit_bottom = 1984
 
-[node name="Tilemap" type="Node2D" parent="." index="5" unique_id=1852122459 groups=["nav_source"]]
+[node name="DevInfo" parent="." index="2" unique_id=1116166252]
+visible = false
+
+[node name="Tilemap" type="Node2D" parent="." index="3" unique_id=1852122459 groups=["nav_source"]]
 y_sort_enabled = true
 
 [node name="Back" type="TileMapLayer" parent="Tilemap" index="0" unique_id=707788080]
@@ -71,7 +83,7 @@ tile_set = ExtResource("2_qjuua")
 [node name="FarmRuin" parent="Tilemap" index="4" unique_id=240502156 instance=ExtResource("8_7cv64")]
 position = Vector2(1088, 1440)
 
-[node name="ToFarm" parent="." index="6" unique_id=957397200 instance=ExtResource("12_loctrig")]
+[node name="ToFarm" parent="." index="4" unique_id=957397200 instance=ExtResource("12_loctrig")]
 position = Vector2(2224, 592)
 target_scene = "uid://deds4mbi0mofn"
 target_spawn = &"from_ruin"
@@ -82,15 +94,19 @@ shape = SubResource("RectangleShape2D_tofarm")
 
 [node name="Zombie" parent="ToFarm" index="1" unique_id=1619301887 instance=ExtResource("11_1qkdd")]
 position = Vector2(-1298, 104)
+scale = Vector2(3, 3)
 
 [node name="Zombie2" parent="ToFarm" index="2" unique_id=137317486 instance=ExtResource("11_1qkdd")]
 position = Vector2(-1277, 258)
+scale = Vector2(3, 3)
 
 [node name="Zombie3" parent="ToFarm" index="3" unique_id=11154368 instance=ExtResource("11_1qkdd")]
 position = Vector2(-1378, -47)
+scale = Vector2(3, 3)
 
 [node name="Zombie4" parent="ToFarm" index="4" unique_id=1614505408 instance=ExtResource("11_1qkdd")]
 position = Vector2(-1340, -183)
+scale = Vector2(3, 3)
 
 [node name="Zombie5" parent="ToFarm" index="5" unique_id=2104929354 instance=ExtResource("11_1qkdd")]
 position = Vector2(-508, 644)
@@ -104,30 +120,46 @@ position = Vector2(-1216, 904)
 [node name="Zombie8" parent="ToFarm" index="8" unique_id=1641302160 instance=ExtResource("11_1qkdd")]
 position = Vector2(-1566, 900)
 
-[node name="SpawnFromFarm" parent="." index="7" unique_id=957397201 instance=ExtResource("13_spawnpt")]
+[node name="SpawnFromFarm" parent="." index="5" unique_id=957397201 instance=ExtResource("13_spawnpt")]
 position = Vector2(2107, 592)
 spawn_id = &"from_farm"
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1731820620]
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." index="6" unique_id=1731820620]
 visible = false
 navigation_polygon = SubResource("NavigationPolygon_ruin")
 
-[node name="Salvage" type="Node2D" parent="." unique_id=1731820610 groups=["nav_source"]]
+[node name="Salvage" type="Node2D" parent="." index="7" unique_id=1731820610 groups=["nav_source"]]
 y_sort_enabled = true
 
-[node name="PileOfPlastic1" parent="Salvage" unique_id=1731820611 instance=ExtResource("pop_salvage")]
+[node name="PileOfPlastic1" parent="Salvage" index="0" unique_id=1731820611 instance=ExtResource("pop_salvage")]
 position = Vector2(928, 416)
 
-[node name="PileOfPlastic2" parent="Salvage" unique_id=1731820612 instance=ExtResource("pop_salvage")]
+[node name="PileOfPlastic2" parent="Salvage" index="1" unique_id=1731820612 instance=ExtResource("pop_salvage")]
 position = Vector2(1312, 640)
 
-[node name="PileOfPlastic3" parent="Salvage" unique_id=1731820613 instance=ExtResource("pop_salvage")]
+[node name="PileOfPlastic3" parent="Salvage" index="2" unique_id=1731820613 instance=ExtResource("pop_salvage")]
 position = Vector2(1456, 1088)
 
-[node name="PileOfPlastic4" parent="Salvage" unique_id=1731820614 instance=ExtResource("pop_salvage")]
+[node name="PileOfPlastic4" parent="Salvage" index="3" unique_id=1731820614 instance=ExtResource("pop_salvage")]
 position = Vector2(560, 1264)
 
-[node name="PileOfPlastic5" parent="Salvage" unique_id=1731820615 instance=ExtResource("pop_salvage")]
+[node name="PileOfPlastic5" parent="Salvage" index="4" unique_id=1731820615 instance=ExtResource("pop_salvage")]
 position = Vector2(944, 1216)
 
 [editable path="ToFarm"]
+
+[node name="SpawnFromRuinBuilding1" parent="." instance=ExtResource("13_spawnpt")]
+position = Vector2(546, 530)
+spawn_id = &"from_ruin_building_1"
+
+[node name="SpawnFromRuinBuilding2" parent="." instance=ExtResource("13_spawnpt")]
+position = Vector2(1359, 500)
+spawn_id = &"from_ruin_building_2"
+
+[node name="SpawnFromRuinBuilding3" parent="." instance=ExtResource("13_spawnpt")]
+position = Vector2(224, 1170)
+spawn_id = &"from_ruin_building_3"
+
+[node name="SpawnFromRuinBuilding4" parent="." instance=ExtResource("13_spawnpt")]
+position = Vector2(1887, 1010)
+spawn_id = &"from_ruin_building_4"

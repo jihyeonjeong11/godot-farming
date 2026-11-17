@@ -1,6 +1,6 @@
 extends WorldObject
 
-const MAX_WATER = SnapshotActions.MAX_WATER
+const MAX_WATER = 12
 
 const DRINKING_SOUND = preload("uid://bl3e32fyj134f")
 const THIRST = preload("uid://mewgpqlifgrg")
@@ -10,15 +10,17 @@ const FILL_SOUND = preload("res://assets/sounds/interactions/watering_can.mp3")
 @onready var water_bar: ProgressBar = $WaterBar
 
 var state = {
-	"water_deposit": 30
+	"water_deposit": 12
 }
 
 func _ready() -> void:
 	super()
-	state = SnapshotActions.populate(global_position, data.id, state)
 	TimeManager.day_passed.connect(_on_advance_day)
 	water_bar.max_value = MAX_WATER
 	_update_bar()
+	
+func populate() -> void:
+	
 
 func _update_bar() -> void:
 	water_bar.value = state["water_deposit"]

@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://cubaef6cuqsdh"]
 
-[ext_resource type="PackedScene" uid="uid://cdko42eau68xt" path="res://scenes/levels/base_level.tscn" id="1_base"]
+[ext_resource type="PackedScene" uid="uid://cdko42eau68xt" path="res://levels/base_level.tscn" id="1_base"]
 [ext_resource type="TileSet" uid="uid://dkw01fa84lera" path="res://tilesets/city_ruin.tres" id="2_tiles"]
 [node name="ObjectTargetTest" unique_id=240846831 instance=ExtResource("1_base")]
 y_sort_enabled = true

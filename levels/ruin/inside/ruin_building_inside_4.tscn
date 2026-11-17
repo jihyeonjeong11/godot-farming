@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://cgaqth58fgvvb"]
 
-[ext_resource type="PackedScene" uid="uid://cdko42eau68xt" path="res://scenes/levels/base_level.tscn" id="1_base"]
+[ext_resource type="PackedScene" uid="uid://cdko42eau68xt" path="res://levels/base_level.tscn" id="1_base"]
 [ext_resource type="TileSet" uid="uid://cgmxl6k3v47j5" path="res://tilesets/v2/tileset_back.tres" id="1_f4xkh"]
 [ext_resource type="PackedScene" uid="uid://cmohgq1ifasls" path="res://helpers/location_trigger/location_trigger.tscn" id="2_exit"]
 

@@ -20,7 +20,7 @@ const is_dev = true
 # 근데 튜토리얼 ui 숨기는 역할만이라면? 그냥 gameState에 플래그 하나만 있으면되긴함.
 const SCENE_MAINMENU := "res://scenes/mainmenu.tscn"
 const LEVEL_SCENES := {
-	DataTypes.Levels.Farm: "res://scenes/levels/main_farm.tscn",
+	DataTypes.Levels.Farm: "res://levels/main_farm/main_farm.tscn",
 	DataTypes.Levels.RuinCity: "res://scenes/test_scenes/proc_gen_city_ruin.tscn",
-	DataTypes.Levels.Tutorial: "res://scenes/levels/tutorial.tscn",
+	DataTypes.Levels.Tutorial: "res://levels/tutorial/tutorial.tscn",
 }

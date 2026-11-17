@@ -54,7 +54,7 @@ script = ExtResource("8_layer")
 
 [node name="PortalToFarm" parent="." unique_id=866850514 instance=ExtResource("5_portal")]
 position = Vector2(256, 444)
-target_scene = "res://scenes/levels/main_farm.tscn"
+target_scene = "res://levels/main_farm/main_farm.tscn"
 target_spawn = &"house_door"
 
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=783472678]

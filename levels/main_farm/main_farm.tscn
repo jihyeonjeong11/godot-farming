@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://bmainfarm0001"]
 
-[ext_resource type="PackedScene" uid="uid://cdko42eau68xt" path="res://scenes/levels/base_level.tscn" id="0_base"]
-[ext_resource type="Script" uid="uid://dktfp1j0y0nax" path="res://scenes/levels/main_farm.gd" id="1_65wv7"]
+[ext_resource type="PackedScene" uid="uid://cdko42eau68xt" path="res://levels/base_level.tscn" id="0_base"]
+[ext_resource type="Script" uid="uid://dktfp1j0y0nax" path="res://levels/main_farm/main_farm.gd" id="1_65wv7"]
 [ext_resource type="TileSet" uid="uid://1kprd2nysueh" path="res://tilesets/land.tres" id="1_land"]
 [ext_resource type="TileSet" uid="uid://sprbaxmhi3h1" path="res://tilesets/water.tres" id="2_water"]
 [ext_resource type="TileSet" uid="uid://c8fnq2m4kvx3p" path="res://tilesets/fence.tres" id="3_fence"]
@@ -13,7 +13,7 @@
 [ext_resource type="Script" uid="uid://cyg8x8ganehgt" path="res://scenes/components/spawn_point.gd" id="15_spawn"]
 [ext_resource type="Script" path="res://scenes/components/persistent/level_layer.gd" id="16_layer"]
 [ext_resource type="Script" path="res://scenes/components/persistent/level_tile_map_layer.gd" id="17_ltile"]
-[ext_resource type="Script" uid="uid://rpepg711y8sv" path="res://scenes/test_scenes/farm/watered_soil.gd" id="18_wtile"]
+[ext_resource type="Script" uid="uid://rpepg711y8sv" path="res://levels/farm/watered_soil.gd" id="18_wtile"]
 [ext_resource type="Texture2D" uid="uid://dmej0tp32bpis" path="res://assets/craftland/Craftland Terrain/32x32/CL_Buildings.png" id="20_3dnpx"]
 [ext_resource type="Texture2D" uid="uid://dog4l2sx7u7cn" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png" id="21_fwtqb"]
 [ext_resource type="PackedScene" uid="uid://m70mkxtn3dt5" path="res://scenes/objects/for_dev_purpose/merchant_terminal.tscn" id="24_hguhx"]
@@ -86,7 +86,7 @@ y_sort_enabled = true
 [node name="Door" parent="Level" index="0" unique_id=997741542 instance=ExtResource("14_door")]
 position = Vector2(307, 266)
 texture = SubResource("AtlasTexture_door")
-target_scene = "res://scenes/levels/main_inside_house.tscn"
+target_scene = "res://levels/main_farm/inside/main_inside_house.tscn"
 target_spawn = &"house_entrance"
 
 [node name="Objects" type="Node2D" parent="Level" index="1" unique_id=11167709]

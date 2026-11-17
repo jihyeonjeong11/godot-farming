@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://cq4txmwljasry"]
 
-[ext_resource type="PackedScene" uid="uid://cdko42eau68xt" path="res://scenes/levels/base_level.tscn" id="1_base"]
+[ext_resource type="PackedScene" uid="uid://cdko42eau68xt" path="res://levels/base_level.tscn" id="1_base"]
 [ext_resource type="TileSet" uid="uid://cq7h2m4x0kw8v" path="res://tilesets/house_interior.tres" id="2_tiles"]
 [ext_resource type="PackedScene" uid="uid://dipv4ygfa84fd" path="res://world_objects/furniture/bed.tscn" id="3_bed"]
 [ext_resource type="Script" uid="uid://csjpeg2hlogkw" path="res://buildings/farmhouses/exit.gd" id="4_5hby5"]

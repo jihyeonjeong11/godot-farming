@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c61g7n0vd55xj" path="res://buildings/farmhouses/farmhouse.gd" id="1_qbam0"]
 [ext_resource type="Texture2D" uid="uid://ywvctixkkm23" path="res://assets/apo/buildings/house.png" id="2_drlsr"]
-[ext_resource type="PackedScene" uid="uid://cq4txmwljasry" path="res://buildings/farmhouses/farmhouse_inside.tscn" id="3_inside"]
+[ext_resource type="PackedScene" uid="uid://cq4txmwljasry" path="res://levels/farm/inside/farmhouse_inside.tscn" id="3_inside"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4kxuq"]
 size = Vector2(296, 112)

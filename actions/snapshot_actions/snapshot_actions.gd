@@ -2,7 +2,7 @@ class_name SnapshotActions extends Node
 
 const OBJECT := "object"
 const SOIL := "soil"
-const FARM_SCENE_PATH := "res://scenes/test_scenes/farm/farm_latest.tscn"
+const FARM_SCENE_PATH := "res://levels/farm/farm_latest.tscn"
 
 const WATER_COLLECTOR_ID := &"water_collector"
 const WATER_PER_DAY := 10

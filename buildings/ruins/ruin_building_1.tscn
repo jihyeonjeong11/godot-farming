@@ -2,7 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://cgmxl6k3v47j5" path="res://tilesets/v2/tileset_back.tres" id="1_tiles"]
 [ext_resource type="Script" uid="uid://cx6psbuyhd7b1" path="res://buildings/ruins/ruin_building.gd" id="2_script"]
-[ext_resource type="PackedScene" uid="uid://52qiq7ndrgsa" path="res://buildings/ruins/inside/ruin_building_inside_1.tscn" id="9_inside"]
+[ext_resource type="PackedScene" uid="uid://52qiq7ndrgsa" path="res://levels/ruin/inside/ruin_building_inside_1.tscn" id="9_inside"]
 [ext_resource type="PackedScene" uid="uid://wt1f7abku3au" path="res://world_objects/salvage/vending_machine.tscn" id="3_vending"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_footprint"]

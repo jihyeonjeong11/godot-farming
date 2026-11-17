@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://cpmvw05epca0n"]
 
-[ext_resource type="PackedScene" uid="uid://cdko42eau68xt" path="res://scenes/levels/base_level.tscn" id="1_base"]
+[ext_resource type="PackedScene" uid="uid://cdko42eau68xt" path="res://levels/base_level.tscn" id="1_base"]
 [ext_resource type="TileSet" uid="uid://dkw01fa84lera" path="res://tilesets/city_ruin.tres" id="2_tiles"]
 [ext_resource type="Texture2D" uid="uid://cd23fy8lk2tva" path="res://assets/apo/32x32_dec_props.png" id="4_decor"]
 [sub_resource type="AtlasTexture" id="Decor_tire_stack"]

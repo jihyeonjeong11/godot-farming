@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://c5wflq7603a71"]
 
-[ext_resource type="PackedScene" uid="uid://cdko42eau68xt" path="res://scenes/levels/base_level.tscn" id="1_eafu5"]
-[ext_resource type="Script" uid="uid://bcd88yv5exrdk" path="res://scenes/test_scenes/ruin/ruin_latest.gd" id="2_ki6bm"]
+[ext_resource type="PackedScene" uid="uid://cdko42eau68xt" path="res://levels/base_level.tscn" id="1_eafu5"]
+[ext_resource type="Script" uid="uid://bcd88yv5exrdk" path="res://levels/ruin/ruin_latest.gd" id="2_ki6bm"]
 [ext_resource type="TileSet" uid="uid://cgmxl6k3v47j5" path="res://tilesets/v2/tileset_back.tres" id="2_qjuua"]
 [ext_resource type="PackedScene" uid="uid://yw8oi3bhqi8x" path="res://buildings/ruins/farm_ruin.tscn" id="8_7cv64"]
 [ext_resource type="PackedScene" uid="uid://dogc4aluyci8r" path="res://scenes/characters/enemy/zombie/zombie.tscn" id="11_1qkdd"]
@@ -146,20 +146,20 @@ position = Vector2(560, 1264)
 [node name="PileOfPlastic5" parent="Salvage" index="4" unique_id=1731820615 instance=ExtResource("pop_salvage")]
 position = Vector2(944, 1216)
 
-[editable path="ToFarm"]
-
-[node name="SpawnFromRuinBuilding1" parent="." instance=ExtResource("13_spawnpt")]
+[node name="SpawnFromRuinBuilding1" parent="." index="10" unique_id=1291767157 instance=ExtResource("13_spawnpt")]
 position = Vector2(546, 530)
 spawn_id = &"from_ruin_building_1"
 
-[node name="SpawnFromRuinBuilding2" parent="." instance=ExtResource("13_spawnpt")]
+[node name="SpawnFromRuinBuilding2" parent="." index="11" unique_id=1346394282 instance=ExtResource("13_spawnpt")]
 position = Vector2(1359, 500)
 spawn_id = &"from_ruin_building_2"
 
-[node name="SpawnFromRuinBuilding3" parent="." instance=ExtResource("13_spawnpt")]
+[node name="SpawnFromRuinBuilding3" parent="." index="12" unique_id=1197041799 instance=ExtResource("13_spawnpt")]
 position = Vector2(224, 1170)
 spawn_id = &"from_ruin_building_3"
 
-[node name="SpawnFromRuinBuilding4" parent="." instance=ExtResource("13_spawnpt")]
+[node name="SpawnFromRuinBuilding4" parent="." index="13" unique_id=50181330 instance=ExtResource("13_spawnpt")]
 position = Vector2(1887, 1010)
 spawn_id = &"from_ruin_building_4"
+
+[editable path="ToFarm"]

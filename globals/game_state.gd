@@ -48,6 +48,7 @@ var level_data: Dictionary = {}
 var did_skip_tutorial: bool = false
 var did_kill_first_zombie: bool = false
 
+var farm_map: Dictionary = {}
 
 # 현재 농장 맵만 적용함
 var farm_snapshot: Dictionary = {}:
@@ -55,11 +56,6 @@ var farm_snapshot: Dictionary = {}:
 		return farm_snapshot 
 	set(value):
 		farm_snapshot = value
-
-# 폐허 맵에서 populate 돌리고, 날짜 지나면 리셋하는 부분떄문에 필요함
-# map_snapshot['farm']
-# map_snapshot['ruin']
-var map_snapshot: Dictionary
 
 var tutorial_flags: Dictionary = {
 	"startup": false,

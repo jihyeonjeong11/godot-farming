@@ -1,4 +1,4 @@
-extends "res://scenes/levels/base_level.gd"
+extends "res://levels/base_level.gd"
 
 const LONGSWORD = preload("uid://cc468nspnvreg")
 const ARROW_MARGIN := 56.0

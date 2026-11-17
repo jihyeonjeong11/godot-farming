@@ -1,6 +1,6 @@
 extends Node
 
-const FARM_SCENE := "res://scenes/test_scenes/farm/farm_latest.tscn"
+const FARM_SCENE := "res://levels/farm/farm_latest.tscn"
 
 
 func _ready() -> void:

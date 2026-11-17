@@ -1,4 +1,4 @@
-extends "res://scenes/levels/base_level.gd"
+extends "res://levels/base_level.gd"
 
 const FIRST_AID_KIT = preload("uid://kyf60ga4v2nt")
 

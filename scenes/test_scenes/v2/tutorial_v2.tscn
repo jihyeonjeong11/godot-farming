@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://cbl4lcpc1etvq"]
 
-[ext_resource type="PackedScene" uid="uid://cdko42eau68xt" path="res://scenes/levels/base_level.tscn" id="1_g4ymt"]
+[ext_resource type="PackedScene" uid="uid://cdko42eau68xt" path="res://levels/base_level.tscn" id="1_g4ymt"]
 [ext_resource type="TileSet" uid="uid://6ani2jke3lyo" path="res://tilesets/shady_sands.tres" id="2_hnvoi"]
 [ext_resource type="TileSet" uid="uid://c2e26uvs7lxqs" path="res://tilesets/arroyo.tres" id="3_4fw0s"]
 

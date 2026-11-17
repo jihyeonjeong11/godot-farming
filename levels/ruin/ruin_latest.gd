@@ -3,7 +3,7 @@ extends Base_level
 
 const GRASS_SCENE := preload("res://world_objects/nature/grass_object.tscn")
 const DEAD_CROPS_SCENE := preload("res://world_objects/salvage/dead_crops.tscn")
-const NOISE := preload("res://scenes/test_scenes/ruin/ruin_noise.tres")
+const NOISE := preload("res://levels/ruin/ruin_noise.tres")
 const DIRT_TERRAIN := 1
 
 @export var grass_threshold := 0.0

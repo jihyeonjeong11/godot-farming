@@ -1,6 +1,6 @@
 extends Node
 
-const RECIPE_ROOT := "res://scripts/resources/recipes"
+const RECIPE_ROOT := "res://recipes"
 
 var _recipes: Array[CraftRecipe] = []
 

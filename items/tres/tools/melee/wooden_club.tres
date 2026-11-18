@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://c0ueu3nm1l1r5"]
+
+[ext_resource type="Texture2D" uid="uid://vx5tjdr8rr5g" path="res://assets/temp/tools.png" id="1_pbn4s"]
+[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://items/item.gd" id="1_votln"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbn4s"]
+atlas = ExtResource("1_pbn4s")
+region = Rect2(0, 0, 31, 32)
+
+[resource]
+script = ExtResource("1_votln")
+item_id = "wooden_club"
+item_type = 9
+tool_type = 6
+item_name = "Wooden Club"
+item_texture = SubResource("AtlasTexture_pbn4s")
+melee_damage = 2
+melee_knockback = 1
+metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

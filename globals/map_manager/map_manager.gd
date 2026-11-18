@@ -2,6 +2,8 @@ extends Node
 
 const FARM_SCENE := "res://levels/farm/farm_latest.tscn"
 
+var farm_map: Dictionary = {}
+
 
 func _ready() -> void:
 	build_farm_map()
@@ -11,7 +13,7 @@ func _ready() -> void:
 func build_farm_map() -> void:
 	var root := (load(FARM_SCENE) as PackedScene).instantiate()
 	var back := root.get_node_or_null(NodePath("Tilemap/%s" % CursorActions.BACK_LAYER)) as TileMapLayer
-	GameState.farm_map.clear()
+	farm_map.clear()
 	if back == null:
 		root.free()
 		return
@@ -37,22 +39,22 @@ func build_farm_map() -> void:
 				layers.append(String(layer.name))
 		var map_cell := SnapshotActions.get_cell_from_pos(pos)
 		var area := Rect2(Vector2(map_cell) * Constants.tile_size, size)
-		GameState.farm_map[map_cell] = {
+		farm_map[map_cell] = {
 			"terrain": _terrain_name(back, cell),
 			"layers": layers,
 			"building": building_rects.any(func(rect: Rect2) -> bool: return rect.intersects(area)),
 		}
 	for spawner in spawners:
 		var cell := SnapshotActions.get_cell_from_pos(_to_root(spawner, root).origin)
-		if GameState.farm_map.has(cell):
-			GameState.farm_map[cell]["spawner"] = spawner.spawn_table()
+		if farm_map.has(cell):
+			farm_map[cell]["spawner"] = spawner.spawn_table()
 	root.free()
 
 
 func seed_farm() -> void:
-	GameState.farm_snapshot = {}
-	for cell: Vector2i in GameState.farm_map:
-		if String(CursorActions.TILLED_LAYER) in GameState.farm_map[cell]["layers"]:
+	GameState.snapshots[GameState.FARM_LEVEL_ID] = {}
+	for cell: Vector2i in farm_map:
+		if String(CursorActions.TILLED_LAYER) in farm_map[cell]["layers"]:
 			SnapshotActions.set_slot(cell, SnapshotActions.SOIL, {"watered": false})
 	SnapshotActions.spawn_nature(true)
 

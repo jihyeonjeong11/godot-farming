@@ -78,6 +78,7 @@ folder_colors={
 "res://items/": "green",
 "res://levels/": "purple",
 "res://managers_archive/": "gray",
+"res://recipes/": "green",
 "res://ui/": "blue",
 "res://world_objects/": "pink"
 }

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bstiq6ulxip1a" path="res://scripts/resources/placeable_object/placeable_object.gd" id="1_object"]
 [ext_resource type="Script" uid="uid://c0e27vd6vvrd3" path="res://scripts/resources/loot/loot.gd" id="1_tx77k"]
 [ext_resource type="Texture2D" uid="uid://cgqkg1g5et36e" path="res://assets/apo/32x32_buildings_furnitures.png" id="2_atlas"]
-[ext_resource type="Script" uid="uid://c7xk2mvbqjy4n" path="res://scripts/resources/recipes/craft_recipe.gd" id="3_turj7"]
+[ext_resource type="Script" uid="uid://c7xk2mvbqjy4n" path="res://recipes/craft_recipe.gd" id="3_turj7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_terminal"]
 atlas = ExtResource("2_atlas")

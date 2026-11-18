@@ -63,7 +63,7 @@ static func water(cell: Vector2i) -> void:
 
 
 static func dry_all_soil() -> void:
-	for cell: Vector2i in GameState.farm_snapshot:
+	for cell: Vector2i in farm_snapshot():
 		var soil := get_slot(cell, SOIL)
 		if not soil.is_empty():
 			soil["watered"] = false
@@ -116,8 +116,8 @@ static func spread_tree(cell: Vector2i, slot: Dictionary, data: TreeObjectData) 
 
 
 static func spawn_nature(mature: bool) -> void:
-	for cell: Vector2i in GameState.farm_map:
-		var table: Dictionary = GameState.farm_map[cell].get("spawner", {})
+	for cell: Vector2i in MapManager.farm_map:
+		var table: Dictionary = MapManager.farm_map[cell].get("spawner", {})
 		if table.is_empty() or not is_spawnable(cell):
 			continue
 		var entry := roll_nature(table, mature)
@@ -169,9 +169,9 @@ static func has_mature_tree_near(cell: Vector2i) -> bool:
 
 
 static func is_spawnable(cell: Vector2i) -> bool:
-	if not GameState.farm_snapshot.get(cell, {}).is_empty():
+	if not farm_snapshot().get(cell, {}).is_empty():
 		return false
-	var tile: Dictionary = GameState.farm_map.get(cell, {})
+	var tile: Dictionary = MapManager.farm_map.get(cell, {})
 	if tile.is_empty() or tile["building"]:
 		return false
 	var layers: Array = tile["layers"]
@@ -194,25 +194,25 @@ static func grow_objects() -> void:
 
 static func cells_with(slot: String) -> Array[Vector2i]:
 	var cells: Array[Vector2i] = []
-	for cell: Vector2i in GameState.farm_snapshot:
-		if GameState.farm_snapshot[cell].has(slot):
+	for cell: Vector2i in farm_snapshot():
+		if farm_snapshot()[cell].has(slot):
 			cells.append(cell)
 	return cells
 
 
 static func get_slot(cell: Vector2i, slot: String) -> Dictionary:
-	return GameState.farm_snapshot.get(cell, {}).get(slot, {})
+	return farm_snapshot().get(cell, {}).get(slot, {})
 
 
 static func set_slot(cell: Vector2i, slot: String, value: Dictionary) -> void:
-	GameState.farm_snapshot.get_or_add(cell, {})[slot] = value
+	farm_snapshot().get_or_add(cell, {})[slot] = value
 
 
 static func clear_slot(cell: Vector2i, slot: String) -> void:
-	var entry: Dictionary = GameState.farm_snapshot.get(cell, {})
+	var entry: Dictionary = farm_snapshot().get(cell, {})
 	entry.erase(slot)
 	if entry.is_empty():
-		GameState.farm_snapshot.erase(cell)
+		farm_snapshot().erase(cell)
 
 
 static func is_farm() -> bool:
@@ -226,3 +226,7 @@ static func get_cell_from_pos(pos: Vector2) -> Vector2i:
 
 static func get_pos_from_cell(cell: Vector2i) -> Vector2:
 	return (Vector2(cell) + Vector2(0.5, 0.5)) * Constants.tile_size + CursorActions.PLACED_BASE_OFFSET
+
+
+static func farm_snapshot() -> Dictionary:
+	return GameState.snapshots.get_or_add(GameState.FARM_LEVEL_ID, {})

@@ -48,17 +48,10 @@ var level_data: Dictionary = {}
 var did_skip_tutorial: bool = false
 var did_kill_first_zombie: bool = false
 
-var farm_map: Dictionary = {}
-
 const FARM_LEVEL_ID := "farm"
 
 var snapshots: Dictionary = {}
 
-var farm_snapshot: Dictionary:
-	get:
-		return snapshots.get_or_add(FARM_LEVEL_ID, {})
-	set(value):
-		snapshots[FARM_LEVEL_ID] = value
 
 var tutorial_flags: Dictionary = {
 	"startup": false,
@@ -85,13 +78,6 @@ func set_tutorial_flag(key: String) -> void:
 	if not tutorial_flags.has(key):
 		push_warning("모르는 튜토리얼 플래그: %s" % key)
 	tutorial_flags[key] = true
-
-
-func _get_unique_properties(node: Node) -> Array:
-	var properties := super(node)
-	properties.erase("farm_map")
-	properties.erase("farm_snapshot")
-	return properties
 
 
 func _after_deserialized() -> void:

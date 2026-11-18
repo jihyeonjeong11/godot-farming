@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bqqfyrsavmsoh" path="res://assets/apo/safe_closed.png" id="2_tex"]
 [ext_resource type="Resource" uid="uid://kyf60ga4v2nt" path="res://items/tres/item/consumables/first_aid_kit.tres" id="3_30gpc"]
 [ext_resource type="Texture2D" uid="uid://bc4tgwodtnjqa" path="res://assets/apo/safe_open.png" id="3_open"]
-[ext_resource type="Script" uid="uid://c7xk2mvbqjy4n" path="res://scripts/resources/recipes/craft_recipe.gd" id="4_0i0dc"]
+[ext_resource type="Script" uid="uid://c7xk2mvbqjy4n" path="res://recipes/craft_recipe.gd" id="4_0i0dc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_safe"]
 animations = [{

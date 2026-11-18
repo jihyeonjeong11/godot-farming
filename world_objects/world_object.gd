@@ -19,7 +19,9 @@ func _ready() -> void:
 		state = default_state()
 		if persistent and not Engine.is_editor_hint():
 			state = SnapshotActions.populate(self, state)
-	call_deferred("_apply_data")
+	_apply_data()
+
+			
 
 func default_state() -> Dictionary:
 	return {}

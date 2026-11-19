@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="WorldObjectData" format=3 uid="uid://cd72mbio16oow"]
+
+[ext_resource type="Script" uid="uid://cu6u0yvr4eaxi" path="res://items/loot/loot.gd" id="1_2j4yi"]
+[ext_resource type="Script" uid="uid://df33bawivqev2" path="res://world_objects/world_object_data.gd" id="2_frc5n"]
+[ext_resource type="Texture2D" uid="uid://bpn0m6yyoglsh" path="res://assets/temp/requisition_point.png" id="3_frc5n"]
+
+[resource]
+script = ExtResource("2_frc5n")
+id = &"drone_landing_pad"
+name = &"Drone landing pad"
+description = "Landing pad and chest for drone."
+texture = ExtResource("3_frc5n")
+type = 1
+is_interactable = true
+metadata/_custom_type_script = "uid://df33bawivqev2"

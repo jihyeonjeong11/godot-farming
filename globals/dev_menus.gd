@@ -7,7 +7,7 @@ var activation_code_so_far: String = ""
 ## TODO: cheat/dev codes for developer.
 
 var is_active: bool = true
-var show_target_info: bool = true
+var show_target_info: bool = false
 
 const GRID_TOGGLE_KEY := KEY_F9
 const SNAPSHOT_KEY := KEY_F2
@@ -45,6 +45,7 @@ func _ready() -> void :
 	#dev_give_recipe_materials(&"water_collector")
 	dev_give_chest()
 	dev_give_sword()
+	dev_give_stone()
 	dev_shuffle_outfit()
 	dev_build_grid()
 	dev_build_snapshot_view()
@@ -168,6 +169,10 @@ func dev_give_chest() -> void:
 
 func dev_give_sword() -> void:
 	InventoryActions.obtain(ItemStack.new(ItemDB.get_item(&"longsword"), 1))
+
+
+func dev_give_stone() -> void:
+	InventoryActions.obtain(ItemStack.new(ItemDB.get_item(&"stone"), 10))
 
 
 func dev_give_wearables() -> void:

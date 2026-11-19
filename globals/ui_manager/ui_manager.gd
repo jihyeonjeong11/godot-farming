@@ -3,12 +3,15 @@ extends CanvasLayer
 @export var ingame_menu_scene: PackedScene
 @export var settings_scene: PackedScene
 @export var container_scene: PackedScene
+@export var shop_scene: PackedScene
 
 var ingame_menu: CanvasLayer
 var container_ui: ContainerInventoryUI
+var shop_ui: ShopUI
 
 func _ready() -> void:
 	SignalBus.container_opened.connect(show_container)
+	SignalBus.barter_opened.connect(show_shop)
 	SignalBus.dialogue_requested.connect(_on_dialogue_requested)
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 
@@ -43,6 +46,12 @@ func show_container(slots: Array) -> void:
 	container_ui = container_scene.instantiate()
 	add_child(container_ui)
 	container_ui.setup(slots)
+
+func show_shop(_slots: Array) -> void:
+	if is_instance_valid(shop_ui):
+		return
+	shop_ui = shop_scene.instantiate()
+	add_child(shop_ui)
 
 func show_settings() -> void:
 	var settings_menu: SettingsMenu = settings_scene.instantiate()

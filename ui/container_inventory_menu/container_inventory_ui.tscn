@@ -1,6 +1,6 @@
 [gd_scene format=3]
 
-[ext_resource type="Script" path="res://ui/container_inventory/container_inventory_ui.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://0m30lkw2yxmu" path="res://ui/container_inventory_menu/container_inventory_ui.gd" id="1_script"]
 [ext_resource type="Texture2D" uid="uid://ct3d5abkpag8t" path="res://assets/UI/nine_slice_panel.png" id="2_panel"]
 [ext_resource type="PackedScene" uid="uid://d2860kg1t6hp2" path="res://ui/reusables/inventory_panel/inventory_panel.tscn" id="3_invpanel"]
 [ext_resource type="Script" uid="uid://j4fpthd3r5ed" path="res://ui/ingame_menu/held_icon.gd" id="4_held"]

@@ -195,12 +195,10 @@ static func use_tool(item: Item) -> bool:
 		DataTypes.Tools.AxeWood:
 			if is_axeable():
 				hit_target(item)
-				SoundManager.play_sound(AXE)
 				return true
 		DataTypes.Tools.MineRock:
 			if is_piaxeable():
 				hit_target(item)
-				SoundManager.play_sound(PICKAXE)
 				return true
 		DataTypes.Tools.TillGround:
 			if is_tillable():

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CraftRecipe" format=3 uid="uid://bqiag4hqnw7as"]
+
+[ext_resource type="Script" uid="uid://c7xk2mvbqjy4n" path="res://recipes/craft_recipe.gd" id="1_dc8va"]
+
+[resource]
+script = ExtResource("1_dc8va")
+result_id = &"drone_landing_pad"
+ingredients = Dictionary[StringName, int]({
+&"stone": 10
+})
+recipe_name = "Drone landing pad"
+metadata/_custom_type_script = "uid://c7xk2mvbqjy4n"

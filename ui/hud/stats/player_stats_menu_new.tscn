@@ -1,15 +1,11 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://cof8fqlawo8w"]
 
-[ext_resource type="Script" path="res://ui/hud/stats/player_stats_menu_new.gd" id="1_script"]
-[ext_resource type="FontFile" path="res://assets/fonts/gmarket/GmarketSansTTFBold.ttf" id="2_font"]
+[ext_resource type="Script" uid="uid://dtci15ouu00bu" path="res://ui/hud/stats/player_stats_menu_new.gd" id="1_script"]
+[ext_resource type="FontFile" uid="uid://dbqpd5n6rxc5h" path="res://assets/fonts/gmarket/GmarketSansTTFBold.ttf" id="2_font"]
 [ext_resource type="Texture2D" uid="uid://bo5k8csiengg7" path="res://assets/Objects/items/items_atlas.png" id="3_atlas"]
-[ext_resource type="Texture2D" path="res://ui/hud/stats/icons/hunger.svg" id="4_hunger"]
-[ext_resource type="Texture2D" path="res://ui/hud/stats/icons/thirst.svg" id="5_thirst"]
+[ext_resource type="Texture2D" uid="uid://bt0sy7rpjnkqd" path="res://ui/hud/stats/icons/hunger.svg" id="4_hunger"]
+[ext_resource type="Texture2D" uid="uid://mewgpqlifgrg" path="res://ui/hud/stats/icons/thirst.svg" id="5_thirst"]
 [ext_resource type="Texture2D" uid="uid://o2uun2ogmxr5" path="res://ui/hud/stats/icons/stats.png" id="6_bars"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gold"]
-atlas = ExtResource("3_atlas")
-region = Rect2(102, 265, 20, 17)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_frame"]
 atlas = ExtResource("6_bars")
@@ -23,7 +19,11 @@ region = Rect2(3, 11, 26, 4)
 atlas = ExtResource("6_bars")
 region = Rect2(3, 16, 26, 4)
 
-[node name="PlayerStats" type="MarginContainer"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_gold"]
+atlas = ExtResource("3_atlas")
+region = Rect2(102, 265, 20, 17)
+
+[node name="PlayerStats" type="MarginContainer" unique_id=136076363]
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 144.0
@@ -35,35 +35,34 @@ theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 script = ExtResource("1_script")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=144555797]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 16
 
-[node name="Bars" type="VBoxContainer" parent="HBoxContainer"]
+[node name="Bars" type="VBoxContainer" parent="HBoxContainer" unique_id=1855937236]
 layout_mode = 2
 size_flags_vertical = 4
 mouse_filter = 2
 theme_override_constants/separation = 6
 
-[node name="HealthBar" type="Control" parent="HBoxContainer/Bars"]
+[node name="HealthBar" type="Control" parent="HBoxContainer/Bars" unique_id=1404420049]
 custom_minimum_size = Vector2(480, 36)
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Frame" type="NinePatchRect" parent="HBoxContainer/Bars/HealthBar"]
+[node name="Frame" type="NinePatchRect" parent="HBoxContainer/Bars/HealthBar" unique_id=1349004430]
 layout_mode = 0
 offset_right = 80.0
 offset_bottom = 6.0
 scale = Vector2(6, 6)
-mouse_filter = 2
 texture = SubResource("AtlasTexture_frame")
 patch_margin_left = 1
 patch_margin_top = 1
 patch_margin_right = 1
 patch_margin_bottom = 1
 
-[node name="Fill" type="TextureProgressBar" parent="HBoxContainer/Bars/HealthBar/Frame"]
+[node name="Fill" type="TextureProgressBar" parent="HBoxContainer/Bars/HealthBar/Frame" unique_id=1193680562]
 layout_mode = 0
 offset_left = 1.0
 offset_top = 1.0
@@ -76,7 +75,7 @@ texture_under = SubResource("AtlasTexture_health")
 texture_progress = SubResource("AtlasTexture_health")
 tint_under = Color(0.12, 0.12, 0.12, 0.85)
 
-[node name="HealthLabel" type="Label" parent="HBoxContainer/Bars/HealthBar"]
+[node name="HealthLabel" type="Label" parent="HBoxContainer/Bars/HealthBar" unique_id=220352596]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -92,24 +91,23 @@ text = "100 / 100"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StaminaBar" type="Control" parent="HBoxContainer/Bars"]
+[node name="StaminaBar" type="Control" parent="HBoxContainer/Bars" unique_id=751624878]
 custom_minimum_size = Vector2(480, 24)
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Frame" type="NinePatchRect" parent="HBoxContainer/Bars/StaminaBar"]
+[node name="Frame" type="NinePatchRect" parent="HBoxContainer/Bars/StaminaBar" unique_id=1312338568]
 layout_mode = 0
 offset_right = 120.0
 offset_bottom = 6.0
 scale = Vector2(4, 4)
-mouse_filter = 2
 texture = SubResource("AtlasTexture_frame")
 patch_margin_left = 1
 patch_margin_top = 1
 patch_margin_right = 1
 patch_margin_bottom = 1
 
-[node name="Fill" type="TextureProgressBar" parent="HBoxContainer/Bars/StaminaBar/Frame"]
+[node name="Fill" type="TextureProgressBar" parent="HBoxContainer/Bars/StaminaBar/Frame" unique_id=1180505275]
 layout_mode = 0
 offset_left = 1.0
 offset_top = 1.0
@@ -122,7 +120,7 @@ texture_under = SubResource("AtlasTexture_stamina")
 texture_progress = SubResource("AtlasTexture_stamina")
 tint_under = Color(0.12, 0.12, 0.12, 0.85)
 
-[node name="StaminaLabel" type="Label" parent="HBoxContainer/Bars/StaminaBar"]
+[node name="StaminaLabel" type="Label" parent="HBoxContainer/Bars/StaminaBar" unique_id=1884529628]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -138,7 +136,7 @@ text = "100 / 100"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GoldIcon" type="TextureRect" parent="HBoxContainer"]
+[node name="GoldIcon" type="TextureRect" parent="HBoxContainer" unique_id=928863932]
 custom_minimum_size = Vector2(100, 85)
 layout_mode = 2
 size_flags_vertical = 4
@@ -147,52 +145,49 @@ texture = SubResource("AtlasTexture_gold")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="GoldLabel" type="Label" parent="HBoxContainer"]
+[node name="GoldLabel" type="Label" parent="HBoxContainer" unique_id=706745530]
 layout_mode = 2
-size_flags_vertical = 4
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 64
 text = "500"
 
-[node name="HungerIcon" type="TextureProgressBar" parent="HBoxContainer"]
+[node name="HungerIcon" type="TextureProgressBar" parent="HBoxContainer" unique_id=237580540]
 custom_minimum_size = Vector2(96, 96)
 layout_mode = 2
 size_flags_vertical = 4
 mouse_filter = 2
 value = 100.0
 fill_mode = 3
+nine_patch_stretch = true
 texture_under = ExtResource("4_hunger")
 texture_progress = ExtResource("4_hunger")
-nine_patch_stretch = true
 tint_under = Color(0, 0, 0, 1)
 
-[node name="ThirstIcon" type="TextureProgressBar" parent="HBoxContainer"]
+[node name="ThirstIcon" type="TextureProgressBar" parent="HBoxContainer" unique_id=1070100651]
 custom_minimum_size = Vector2(96, 96)
 layout_mode = 2
 size_flags_vertical = 4
 mouse_filter = 2
 value = 100.0
 fill_mode = 3
+nine_patch_stretch = true
 texture_under = ExtResource("5_thirst")
 texture_progress = ExtResource("5_thirst")
-nine_patch_stretch = true
 tint_under = Color(0, 0, 0, 1)
 
-[node name="Spacer" type="Control" parent="HBoxContainer"]
+[node name="Spacer" type="Control" parent="HBoxContainer" unique_id=254244330]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 
-[node name="DayLabel" type="Label" parent="HBoxContainer"]
+[node name="DayLabel" type="Label" parent="HBoxContainer" unique_id=1178229914]
 layout_mode = 2
-size_flags_vertical = 4
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 64
 text = "Day 0"
 
-[node name="TimeLabel" type="Label" parent="HBoxContainer"]
+[node name="TimeLabel" type="Label" parent="HBoxContainer" unique_id=1494210681]
 layout_mode = 2
-size_flags_vertical = 4
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 64
 text = "00:00"

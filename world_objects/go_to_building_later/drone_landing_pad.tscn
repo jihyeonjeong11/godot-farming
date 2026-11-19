@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://frts3oowtn1j"]
+
+[ext_resource type="PackedScene" uid="uid://cvle266g113el" path="res://world_objects/world_object.tscn" id="1_ke8t6"]
+[ext_resource type="Script" uid="uid://nub6hmyjxro" path="res://world_objects/go_to_building_later/drone_landing_pad.gd" id="2_wtjq1"]
+[ext_resource type="Resource" uid="uid://cd72mbio16oow" path="res://world_objects/tres/later_go_to_building/drone_landing_pad.tres" id="3_jom40"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pad"]
+size = Vector2(88, 88)
+
+[node name="DroneLandingPad" unique_id=412109625 instance=ExtResource("1_ke8t6")]
+script = ExtResource("2_wtjq1")
+data = ExtResource("3_jom40")
+
+[node name="Sprite2D" parent="." index="0" unique_id=999308787]
+offset = Vector2(-48, -136)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(0, -46)
+shape = SubResource("RectangleShape2D_pad")

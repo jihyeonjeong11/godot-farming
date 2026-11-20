@@ -1,4 +1,4 @@
-class_name ShopUI
+class_name ShopMenu
 extends CanvasLayer
 
 const SLOT := preload("res://ui/reusables/bases/base_inventory_slot.tscn")
@@ -6,8 +6,8 @@ const COLUMNS := 5
 const COLOR_OK := Color(0.95, 0.78, 0.35)
 const COLOR_BAD := Color(0.9, 0.35, 0.3)
 
-@export var sell_slot_count: int = 5
-@export var buy_slot_count: int = 5
+@export var sell_slots_count: int = 10
+@export var buy_slot_count: int = 10
 
 @onready var inventory_panel: PanelContainer = %InventoryPanel
 @onready var sell_grid: GridContainer = %SellGrid
@@ -29,13 +29,18 @@ var _shop_cells: Array[BaseInventorySlot] = []
 func _ready() -> void:
 	SignalBus.pause_game()
 	inventory_panel.inventory_grid.columns = COLUMNS
+	# TODO: 날짜 바뀔떄 리필추가
+	# 사운드 추가
+	
 	InventoryManager.held_changed.connect(refresh)
 	InventoryManager.updated_inventory.connect(refresh)
 	confirm_button.pressed.connect(on_confirm)
 	cancel_button.pressed.connect(on_cancel)
 
-	sell_slots.resize(sell_slot_count)
+	sell_slots.resize(sell_slots_count)
 	buy_slots.resize(buy_slot_count)
+	for item in ItemDB.get_barter_items():
+		shop_slots.append(ItemStack.new(item, 1))
 
 	_sell_cells = _build_cells(sell_grid, sell_slots.size(), _on_sell_clicked)
 	_buy_cells = _build_cells(buy_grid, buy_slots.size(), _on_buy_clicked)

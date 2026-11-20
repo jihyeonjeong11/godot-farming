@@ -5,6 +5,14 @@ const ITEM_ROOTS: Array[String] = ["res://items", "res://scripts/resources/item"
 var _by_id: Dictionary[StringName, Item] = {}
 
 
+func get_barter_items() -> Array[Item]:
+	var items: Array[Item] = []
+	for id in [&"bandage", &"rope", &"machine_parts", &"jar_of_pickles", &"bottled_water"]:
+		var item := get_item(id)
+		if item != null:
+			items.append(item)
+	return items
+
 func _ready() -> void:
 	for root in ITEM_ROOTS:
 		_scan(root)

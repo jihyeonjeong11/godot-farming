@@ -7,7 +7,7 @@ extends CanvasLayer
 
 var ingame_menu: CanvasLayer
 var container_ui: ContainerInventoryUI
-var shop_ui: ShopUI
+var shop_menu: ShopMenu
 
 func _ready() -> void:
 	SignalBus.container_opened.connect(show_container)
@@ -48,10 +48,10 @@ func show_container(slots: Array) -> void:
 	container_ui.setup(slots)
 
 func show_shop(_slots: Array) -> void:
-	if is_instance_valid(shop_ui):
+	if is_instance_valid(shop_menu):
 		return
-	shop_ui = shop_scene.instantiate()
-	add_child(shop_ui)
+	shop_menu = shop_scene.instantiate()
+	add_child(shop_menu)
 
 func show_settings() -> void:
 	var settings_menu: SettingsMenu = settings_scene.instantiate()

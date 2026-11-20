@@ -95,6 +95,7 @@ func play_shake() -> void:
 	shake_tween.tween_property(shake_material, "shader_parameter/shake_intensity", 0.0, SHAKE_DURATION).set_ease(Tween.EASE_OUT)
 
 func on_hit(tool: DataTypes.Tools, damage: int) -> void:
+	SoundManager.pl
 	if damage >= state["health"]:
 		destroy()
 	else:

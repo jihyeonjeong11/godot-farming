@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://guy53armbhsd"]
+
+[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://items/item.gd" id="1_sua2h"]
+[ext_resource type="Texture2D" uid="uid://vx5tjdr8rr5g" path="res://assets/temp/tools.png" id="2_tools"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_machine_parts"]
+atlas = ExtResource("2_tools")
+region = Rect2(72, 74, 16, 14)
+
+[resource]
+script = ExtResource("1_sua2h")
+item_id = "machine_parts"
+item_type = 6
+item_name = "Machine Parts"
+item_texture = SubResource("AtlasTexture_machine_parts")
+description = "A pile of everything."
+value = 250
+metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

@@ -46,6 +46,7 @@ func _ready() -> void :
 	dev_give_chest()
 	dev_give_sword()
 	dev_give_stone()
+	dev_give_new_items()
 	dev_shuffle_outfit()
 	dev_build_grid()
 	dev_build_snapshot_view()
@@ -173,6 +174,11 @@ func dev_give_sword() -> void:
 
 func dev_give_stone() -> void:
 	InventoryActions.obtain(ItemStack.new(ItemDB.get_item(&"stone"), 10))
+
+
+func dev_give_new_items() -> void:
+	for id in [&"bandage", &"rope", &"machine_parts", &"jar_of_pickles", &"bottled_water"]:
+		InventoryActions.obtain(ItemStack.new(ItemDB.get_item(id), 3))
 
 
 func dev_give_wearables() -> void:

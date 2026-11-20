@@ -1,0 +1,161 @@
+[gd_scene format=3 uid="uid://cdnvo7ichp0x8"]
+
+[ext_resource type="Script" uid="uid://dtnd5vb7sp0tr" path="res://ui/shop_inventory_menu/shop_menu.gd" id="1_i6dgo"]
+[ext_resource type="PackedScene" uid="uid://d2860kg1t6hp2" path="res://ui/reusables/inventory_panel/inventory_panel.tscn" id="2_heab3"]
+[ext_resource type="Texture2D" uid="uid://ct3d5abkpag8t" path="res://assets/UI/nine_slice_panel.png" id="3_srvq6"]
+[ext_resource type="FontFile" uid="uid://croxjd7q24c1o" path="res://assets/fonts/DS-DIGI.TTF" id="4_empi5"]
+[ext_resource type="Script" uid="uid://j4fpthd3r5ed" path="res://ui/ingame_menu/held_icon.gd" id="5_os5gr"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_panel"]
+texture = ExtResource("3_srvq6")
+texture_margin_left = 50.0
+texture_margin_top = 50.0
+texture_margin_right = 50.0
+texture_margin_bottom = 50.0
+
+[node name="ShopUI" type="CanvasLayer" unique_id=413956924]
+process_mode = 3
+layer = 2
+script = ExtResource("1_i6dgo")
+buy_slot_count = 15
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=33304563]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.35)
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect" unique_id=498053065]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Columns" type="HBoxContainer" parent="ColorRect/CenterContainer" unique_id=464733329]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="InventoryPanel" parent="ColorRect/CenterContainer/Columns" unique_id=78764353 instance=ExtResource("2_heab3")]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"MenuContainer"
+theme_override_styles/panel = SubResource("StyleBoxTexture_panel")
+
+[node name="BarterPanel" type="PanelContainer" parent="ColorRect/CenterContainer/Columns" unique_id=2070690678]
+layout_mode = 2
+theme_type_variation = &"MenuContainer"
+theme_override_styles/panel = SubResource("StyleBoxTexture_panel")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CenterContainer/Columns/BarterPanel" unique_id=776227569]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="SellLabel" type="Label" parent="ColorRect/CenterContainer/Columns/BarterPanel/VBoxContainer" unique_id=1194610979]
+layout_mode = 2
+text = "판매"
+
+[node name="SellGrid" type="GridContainer" parent="ColorRect/CenterContainer/Columns/BarterPanel/VBoxContainer" unique_id=1572686490]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 5
+
+[node name="BuyLabel" type="Label" parent="ColorRect/CenterContainer/Columns/BarterPanel/VBoxContainer" unique_id=51997277]
+layout_mode = 2
+text = "구매"
+
+[node name="BuyGrid" type="GridContainer" parent="ColorRect/CenterContainer/Columns/BarterPanel/VBoxContainer" unique_id=484834687]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 5
+
+[node name="Spacer" type="Control" parent="ColorRect/CenterContainer/Columns/BarterPanel/VBoxContainer" unique_id=155952795]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Settle" type="HBoxContainer" parent="ColorRect/CenterContainer/Columns/BarterPanel/VBoxContainer" unique_id=1730528414]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="GoldLabel" type="Label" parent="ColorRect/CenterContainer/Columns/BarterPanel/VBoxContainer/Settle" unique_id=767476209]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_empi5")
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 2
+
+[node name="ConfirmButton" type="Button" parent="ColorRect/CenterContainer/Columns/BarterPanel/VBoxContainer/Settle" unique_id=1828290062]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Confirm"
+
+[node name="CancelButton" type="Button" parent="ColorRect/CenterContainer/Columns/BarterPanel/VBoxContainer/Settle" unique_id=1346964080]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Cancel"
+
+[node name="ShopPanel" type="PanelContainer" parent="ColorRect/CenterContainer/Columns" unique_id=1481962401]
+layout_mode = 2
+theme_type_variation = &"MenuContainer"
+theme_override_styles/panel = SubResource("StyleBoxTexture_panel")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CenterContainer/Columns/ShopPanel" unique_id=59768026]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TitleLabel" type="Label" parent="ColorRect/CenterContainer/Columns/ShopPanel/VBoxContainer" unique_id=1017231229]
+layout_mode = 2
+text = "상점"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ColorRect/CenterContainer/Columns/ShopPanel/VBoxContainer" unique_id=1515972868]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="ShopGrid" type="GridContainer" parent="ColorRect/CenterContainer/Columns/ShopPanel/VBoxContainer/ScrollContainer" unique_id=323600673]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(472, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 5
+
+[node name="HeldIcon" type="TextureRect" parent="." unique_id=1735212232]
+visible = false
+custom_minimum_size = Vector2(88, 88)
+offset_right = 88.0
+offset_bottom = 88.0
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("5_os5gr")
+
+[node name="AmountLabel" type="Label" parent="HeldIcon" unique_id=1303777698]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = -6.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 2
+vertical_alignment = 2

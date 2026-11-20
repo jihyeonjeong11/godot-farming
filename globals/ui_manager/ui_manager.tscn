@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" uid="uid://cdqeocvn0vj7l" path="res://globals/ui_manager/ui_manager.gd" id="1_gomet"]
 [ext_resource type="PackedScene" uid="uid://do2sg8f6khxdl" path="res://ui/ingame_menu/ingame_menu.tscn" id="2_6ekmg"]
-[ext_resource type="PackedScene" path="res://ui/hud/stats/player_stats_menu_new.tscn" id="3_ks7wv"]
+[ext_resource type="PackedScene" uid="uid://cof8fqlawo8w" path="res://ui/hud/stats/player_stats_menu_new.tscn" id="3_ks7wv"]
 [ext_resource type="PackedScene" uid="uid://d3yrr8n8xlaxj" path="res://ui/hud/quick_bar/quick_bar.tscn" id="4_ks7wv"]
 [ext_resource type="PackedScene" uid="uid://l0h71pkmjuk" path="res://ui/settings/settings_menu.tscn" id="5_settings"]
 [ext_resource type="PackedScene" uid="uid://857mx4r1yr3x" path="res://ui/hud/toast/toast.tscn" id="6_toast"]
 [ext_resource type="PackedScene" path="res://ui/container_inventory_menu/container_inventory_ui.tscn" id="7_container"]
-[ext_resource type="PackedScene" uid="uid://cdnvo7ichp0x8" path="res://ui/shop_inventory_menu/shop_ui.tscn" id="8_shop"]
+[ext_resource type="PackedScene" uid="uid://cdnvo7ichp0x8" path="res://ui/shop_inventory_menu/shop_menu.tscn" id="8_shop"]
 
 [node name="UiManager" type="CanvasLayer" unique_id=1924915199]
 script = ExtResource("1_gomet")
@@ -16,7 +16,7 @@ settings_scene = ExtResource("5_settings")
 container_scene = ExtResource("7_container")
 shop_scene = ExtResource("8_shop")
 
-[node name="PlayerStats" parent="." instance=ExtResource("3_ks7wv")]
+[node name="PlayerStats" parent="." unique_id=1124276300 instance=ExtResource("3_ks7wv")]
 
 [node name="QuickBar" parent="." unique_id=273744350 instance=ExtResource("4_ks7wv")]
 

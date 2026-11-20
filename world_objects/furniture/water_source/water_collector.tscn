@@ -41,6 +41,6 @@ max_value = 30.0
 value = 30.0
 show_percentage = false
 
-[node name="Sounds" type="AudioStreamPlayer2D" parent="." unique_id=1468203579]
+[node name="Sounds" type="AudioStreamPlayer2D" parent="." index="4" unique_id=1468203579]
 max_distance = 300.0
 bus = &"SFX"

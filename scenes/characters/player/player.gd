@@ -56,12 +56,16 @@ func _ready() -> void:
 	_equip_selected()
 	#stamina_regen_timer.timeout.connect(_regen_stamina)
 	hurt_component.hurt.connect(on_hurt)
-	SignalBus.player_died_by_rad.connect(_on_died_by_rad)
+	stats.health_depleted.connect(_die.bind(&"die"))
+	stats.rad_exceeded.connect(_die.bind(&"die_rad"))
 	is_freeze = TransitionManager.is_transitioning
 	TransitionManager.transition_started.connect(func(): is_freeze = true)
 	TransitionManager.transition_finished.connect(func(): is_freeze = false)
 
-func _on_died_by_rad() -> void:
+func _die(animation: StringName) -> void:
+	if state_machine.current_node_state_name == "dead":
+		return
+	$StateMachine/Dead.animation = animation
 	state_machine.transition_to("dead")
 	
 

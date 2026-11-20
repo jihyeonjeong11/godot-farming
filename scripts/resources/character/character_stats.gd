@@ -26,6 +26,7 @@ const STAT_CURVES: Dictionary[Buffables, Curve] = {
 }
 
 signal health_depleted
+signal rad_exceeded
 signal health_changed(cur_health: int, max_health: int)
 signal stamina_changed(cur_stamina: int, max_stamina: int)
 signal hunger_changed(cur_hunger: int, max_hunger: int)
@@ -198,7 +199,7 @@ func _on_gold_set(new_value: int) -> void:
 func _on_radiation_set(new_value: int) -> void:
 	radiation = clampi(new_value, 0, 1000)
 	if radiation >= 1000:
-		SignalBus.player_died_by_rad.emit()
+		rad_exceeded.emit()
 
 
 func _on_experience_set(new_value: int) -> void:

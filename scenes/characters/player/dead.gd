@@ -28,4 +28,5 @@ func _revive() -> void:
 	stats.thirst = stats.current_max_thirst
 	stats.stamina = stats.current_max_stamina
 	stats.gold -= 500
+	await TimeManager.advance_day()
 	SessionState.cursor_freeze = false

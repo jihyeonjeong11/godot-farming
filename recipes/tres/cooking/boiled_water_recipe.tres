@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CraftRecipe" format=3 uid="uid://csenhcjt8tmqw"]
+
+[ext_resource type="Script" uid="uid://c7xk2mvbqjy4n" path="res://recipes/craft_recipe.gd" id="1_recipe"]
+
+[resource]
+script = ExtResource("1_recipe")
+id = &"bottled_water_clean_recipe"
+recipe_type = 1
+result_id = &"bottled_water_clean"
+ingredients = Dictionary[StringName, int]({
+&"bottled_water_dirty": 1
+})
+recipe_name = "물 끓이기"
+metadata/_custom_type_script = "uid://c7xk2mvbqjy4n"

@@ -42,6 +42,9 @@ func global_collision_rect() -> Rect2:
 func accepts_tool(tool: DataTypes.Tools) -> bool:
 	return tool in accepted_tools
 
+func is_deleting() -> bool:
+	return is_queued_for_deletion()
+
 func on_interact() -> void:
 	var player = get_tree().get_first_node_in_group(&"player")
 	player.stats.stamina += 30

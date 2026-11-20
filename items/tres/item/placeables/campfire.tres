@@ -5,7 +5,7 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_campfire"]
 atlas = ExtResource("2_tex")
-region = Rect2(32, 135, 32, 25)
+region = Rect2(32, 167, 32, 25)
 
 [resource]
 script = ExtResource("1_items")

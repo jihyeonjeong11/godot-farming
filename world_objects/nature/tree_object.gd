@@ -60,6 +60,10 @@ func on_day_passed(_day: int) -> void:
 	_setup_shake()
 
 
+func is_deleting() -> bool:
+	return is_falling
+
+
 func on_hit(tool: DataTypes.Tools, damage: int) -> void:
 	if is_falling:
 		return

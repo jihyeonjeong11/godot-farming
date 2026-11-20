@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CraftRecipe" format=3 uid="uid://2cs0p0yivlk1"]
+
+[ext_resource type="Script" uid="uid://c7xk2mvbqjy4n" path="res://recipes/craft_recipe.gd" id="1_recipe"]
+
+[resource]
+script = ExtResource("1_recipe")
+id = &"grilled_corn_recipe"
+recipe_type = 1
+result_id = &"grilled_corn"
+ingredients = Dictionary[StringName, int]({
+&"corn": 1
+})
+recipe_name = "구운 옥수수"
+metadata/_custom_type_script = "uid://c7xk2mvbqjy4n"

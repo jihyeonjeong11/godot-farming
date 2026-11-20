@@ -79,6 +79,11 @@ enum ObjectType {
 	Spanwer,
 }
 
+enum RecipeType {
+	General,
+	Cooking,
+}
+
 enum WeatherType {
 	Sunny,
 	Raining,

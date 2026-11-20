@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://5rhtgp680lxv"]
+
+[ext_resource type="Texture2D" uid="uid://vx5tjdr8rr5g" path="res://assets/temp/tools.png" id="1_3cfkp"]
+[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://items/item.gd" id="1_ob3jl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3cfkp"]
+atlas = ExtResource("1_3cfkp")
+region = Rect2(6, 97, 19, 28)
+
+[resource]
+script = ExtResource("1_ob3jl")
+item_id = "grilled_corn"
+item_type = 2
+item_name = "Grilled Corn"
+item_texture = SubResource("AtlasTexture_3cfkp")
+heal = 20
+hunger = 20
+description = "A grilled corn cob."
+metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

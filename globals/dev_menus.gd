@@ -48,6 +48,7 @@ func _ready() -> void :
 	dev_give_sword()
 	dev_give_stone()
 	dev_give_new_items()
+	dev_give_cooking()
 	dev_shuffle_outfit()
 	#dev_start_late()
 	dev_build_grid()
@@ -186,6 +187,14 @@ func dev_give_stone() -> void:
 func dev_give_new_items() -> void:
 	for id in [&"bandage", &"rope", &"machine_parts", &"jar_of_pickles", &"glass_shards"]:
 		InventoryActions.obtain(ItemStack.new(ItemDB.get_item(id), 3))
+
+
+func dev_give_cooking() -> void:
+	InventoryActions.obtain(ItemStack.new(ItemDB.get_item(&"campfire"), 1))
+	InventoryActions.obtain(ItemStack.new(ItemDB.get_item(&"log"), 3))
+	for recipe in RecipeDB.of_type(DataTypes.RecipeType.Cooking):
+		for id in recipe.ingredients:
+			InventoryActions.obtain(ItemStack.new(ItemDB.get_item(id), recipe.ingredients[id] * 3))
 
 
 func dev_give_wearables() -> void:

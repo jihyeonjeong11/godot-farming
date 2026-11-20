@@ -4,13 +4,16 @@ extends CanvasLayer
 @export var settings_scene: PackedScene
 @export var container_scene: PackedScene
 @export var shop_scene: PackedScene
+@export var crafting_scene: PackedScene
 
 var ingame_menu: CanvasLayer
 var container_ui: ContainerInventoryUI
 var shop_menu: ShopMenu
+var crafting_menu: CraftingMenu
 
 func _ready() -> void:
 	SignalBus.container_opened.connect(show_container)
+	SignalBus.crafting_opened.connect(show_crafting)
 	SignalBus.barter_opened.connect(show_shop)
 	SignalBus.dialogue_requested.connect(_on_dialogue_requested)
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
@@ -46,6 +49,13 @@ func show_container(slots: Array) -> void:
 	container_ui = container_scene.instantiate()
 	add_child(container_ui)
 	container_ui.setup(slots)
+
+func show_crafting(recipe_type: DataTypes.RecipeType) -> void:
+	if is_instance_valid(crafting_menu):
+		return
+	crafting_menu = crafting_scene.instantiate()
+	add_child(crafting_menu)
+	crafting_menu.setup(recipe_type)
 
 func show_shop(_slots: Array) -> void:
 	if is_instance_valid(shop_menu):

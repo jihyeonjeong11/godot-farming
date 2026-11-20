@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://b5jk1bg6vvfsa"]
+
+[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://items/item.gd" id="1_4jlm7"]
+[ext_resource type="Texture2D" uid="uid://vx5tjdr8rr5g" path="res://assets/temp/tools.png" id="1_n610n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3cfkp"]
+atlas = ExtResource("1_n610n")
+region = Rect2(34, 99, 25, 25)
+
+[resource]
+script = ExtResource("1_4jlm7")
+item_id = "grilled_potato"
+item_type = 2
+item_name = "Grilled Potato"
+item_texture = SubResource("AtlasTexture_3cfkp")
+hunger = 20
+description = "A grilled potato."
+metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://857mx4r1yr3x" path="res://ui/hud/toast/toast.tscn" id="6_toast"]
 [ext_resource type="PackedScene" path="res://ui/container_inventory_menu/container_inventory_ui.tscn" id="7_container"]
 [ext_resource type="PackedScene" uid="uid://cdnvo7ichp0x8" path="res://ui/shop_inventory_menu/shop_menu.tscn" id="8_shop"]
+[ext_resource type="PackedScene" path="res://ui/crafting_menu/crafting_menu.tscn" id="9_crafting"]
 
 [node name="UiManager" type="CanvasLayer" unique_id=1924915199]
 script = ExtResource("1_gomet")
@@ -15,6 +16,7 @@ ingame_menu_scene = ExtResource("2_6ekmg")
 settings_scene = ExtResource("5_settings")
 container_scene = ExtResource("7_container")
 shop_scene = ExtResource("8_shop")
+crafting_scene = ExtResource("9_crafting")
 
 [node name="PlayerStats" parent="." unique_id=1124276300 instance=ExtResource("3_ks7wv")]
 

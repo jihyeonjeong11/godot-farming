@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Item" format=3]
+
+[ext_resource type="Texture2D" uid="uid://dog4l2sx7u7cn" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crops_Mining.png" id="1_crops"]
+[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://items/item.gd" id="2_item"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_corn"]
+atlas = ExtResource("1_crops")
+region = Rect2(1096, 34, 18, 30)
+
+[resource]
+script = ExtResource("2_item")
+item_id = "corn"
+item_type = 2
+item_name = "Corn"
+item_texture = SubResource("AtlasTexture_corn")
+heal = 2
+description = "Harvested from a mature corn plant. 우클릭으로 먹는다."
+value = 40
+metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

@@ -62,6 +62,7 @@ func advance_day() -> void:
 	current_time["minute"] = 0
 	_elapsed = 0.0
 	SnapshotActions.collect_water()
+	SnapshotActions.extinguish_fires()
 	SnapshotActions.spread()
 	SnapshotActions.grow_objects()
 	SnapshotActions.spawn_nature(false)
@@ -112,6 +113,9 @@ func _advance_minutes(minutes: int) -> void:
 	while current_time["minute"] >= MINUTES_PER_HOUR:
 		current_time["minute"] -= MINUTES_PER_HOUR
 		current_time["hour"] += 1
+		GameState.player_stat.hunger -= 100
+		GameState.player_stat.thirst -= 100
+
 	if current_time["hour"] >= HOURS_PER_DAY:
 		current_time["hour"] -= HOURS_PER_DAY
 		current_time["day"] += 1

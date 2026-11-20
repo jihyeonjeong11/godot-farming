@@ -15,6 +15,14 @@ func all() -> Array[CraftRecipe]:
 	return _recipes.duplicate()
 
 
+func of_type(recipe_type: DataTypes.RecipeType) -> Array[CraftRecipe]:
+	var found: Array[CraftRecipe] = []
+	for recipe in _recipes:
+		if recipe.recipe_type == recipe_type:
+			found.append(recipe)
+	return found
+
+
 func for_result(id: StringName) -> Array[CraftRecipe]:
 	var found: Array[CraftRecipe] = []
 	for recipe in _recipes:

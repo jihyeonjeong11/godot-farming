@@ -23,6 +23,8 @@ signal container_opened(slots: Array)
 
 signal container_closed(slots: Array)
 
+signal crafting_opened(recipe_type: DataTypes.RecipeType)
+
 signal toast_requested(icon: Texture2D, text: String)
 
 ## 어느 슬롯으로 시작하는가. 메뉴의 슬롯 화면이 고른 번호를 싣는다.

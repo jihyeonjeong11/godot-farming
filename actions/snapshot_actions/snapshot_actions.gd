@@ -16,6 +16,13 @@ static func collect_water() -> void:
 		var state: Dictionary = slot["state"]
 		state["water_deposit"] = mini(int(state.get("water_deposit", 0)) + WATER_PER_DAY, MAX_WATER)
 
+static func extinguish_fires() -> void:
+	for cell: Vector2i in cells_with(OBJECT):
+		var slot := get_slot(cell, OBJECT)
+		if slot.get("id", &"") != &"bonfire" or not slot.has("state"):
+			continue
+		slot["state"]["is_on"] = false
+
 static func populate(obj: WorldObject, state: Dictionary) -> Dictionary:
 	var level_id := level_id_of(obj)
 	if level_id.is_empty():

@@ -310,8 +310,12 @@ static func target_accepts(tool: DataTypes.Tools) -> bool:
 	var t := SessionState.target_dict
 	if t["pos"] == null:
 		return false
-	var object := t["object"] as WorldObject
-	return is_instance_valid(object) and object.accepts_tool(tool)
+	if not is_instance_valid(t["object"]):
+		return false
+	var object = t["object"] as WorldObject
+	if object == null or object.is_deleting():
+		return false
+	return object.accepts_tool(tool)
 	
 static func update_farm_tilemap() -> void:
 	

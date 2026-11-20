@@ -23,7 +23,8 @@ func _ready() -> void:
 # 스택 이동
 
 
-func get_stacks() -> void:
+func get_stacks(id: StringName) -> void:
+	
 	pass
 	
 func is_inventory_full() -> void:

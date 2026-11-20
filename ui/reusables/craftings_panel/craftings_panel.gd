@@ -1,7 +1,8 @@
 extends PanelContainer
 
-@onready var recipe_grid: GridContainer = %InventoryGrid
+@export var recipe_type: DataTypes.RecipeType = DataTypes.RecipeType.General
 
+@onready var recipe_grid: GridContainer = %InventoryGrid
 
 func _ready() -> void:
 	for i in recipe_grid.get_child_count():
@@ -13,7 +14,7 @@ func _ready() -> void:
 
 
 func refresh_recipes() -> void:
-	var recipes := RecipeDB.all()
+	var recipes := RecipeDB.of_type(recipe_type)
 	for i in recipe_grid.get_child_count():
 		var slot: CraftingSlot = recipe_grid.get_child(i)
 		slot.set_recipe(recipes[i] if i < recipes.size() else null)

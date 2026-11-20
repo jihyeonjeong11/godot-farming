@@ -1,6 +1,43 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://cugahjuohx640"]
 
 [ext_resource type="Texture2D" uid="uid://dsaemqt68ld4b" path="res://assets/temp/rpgm_character_px/body_naked.png" id="1_body"]
+[ext_resource type="Texture2D" uid="uid://couow3a88sgtd" path="res://assets/temp/rpgm_character_px/gooified.png" id="2_goo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_goo0"]
+atlas = ExtResource("2_goo")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_goo1"]
+atlas = ExtResource("2_goo")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_goo2"]
+atlas = ExtResource("2_goo")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_goo3"]
+atlas = ExtResource("2_goo")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_goo4"]
+atlas = ExtResource("2_goo")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_goo5"]
+atlas = ExtResource("2_goo")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_goo6"]
+atlas = ExtResource("2_goo")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_goo7"]
+atlas = ExtResource("2_goo")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_goo8"]
+atlas = ExtResource("2_goo")
+region = Rect2(512, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r1c0"]
 atlas = ExtResource("1_body")
@@ -268,6 +305,38 @@ region = Rect2(384, 128, 64, 64)
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_goo0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_goo1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_goo2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_goo3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_goo4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_goo5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_goo6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_goo7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_goo8")
+}],
+"loop": 0,
+"name": &"die_rad",
+"speed": 7.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_r1c0")

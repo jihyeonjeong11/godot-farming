@@ -22,6 +22,8 @@ static func consume(index: int) -> bool:
 			stats.health += stack.item.heal
 			stats.hunger += stack.item.hunger
 			stats.thirst += stack.item.thirst
+			stats.stamina += stack.item.stamina
+			stats.radiation += stack.item.radiation
 		if stack.amount > 1:
 			stack.amount -= 1
 		else:

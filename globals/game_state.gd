@@ -2,6 +2,8 @@
 extends AbstractGameState
 
 signal lighting_changed()
+const PLAYER_STAT_BASE = preload("res://scenes/characters/player/player_stat.tres")
+
 
 enum BaseLighting{
 	None, 
@@ -93,7 +95,7 @@ func _ensure_equipment_slots() -> void:
 func _ensure_player_stat() -> void:
 	if player_stat != null:
 		return
-	player_stat = SessionState.PLAYER_STAT_BASE.duplicate()
+	player_stat = PLAYER_STAT_BASE.duplicate()
 	player_stat.setup_stats()
 
 

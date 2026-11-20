@@ -23,6 +23,7 @@ const OUTFIT_PARTS := ["Hair", "Shirt", "Pants", "Shoes"]
 @onready var fx_layer: Sprite2D = $Body/Fx
 @onready var stamina_regen_timer: Timer = $StaminaRegenTimer
 @onready var hurt_component: HurtComponent = $HurtComponent
+@onready var state_machine: NodeStateMachine = $StateMachine
 
 @export var stamina_regen_amount: int = 1
 
@@ -55,9 +56,15 @@ func _ready() -> void:
 	_equip_selected()
 	#stamina_regen_timer.timeout.connect(_regen_stamina)
 	hurt_component.hurt.connect(on_hurt)
+	SignalBus.player_died_by_rad.connect(_on_died_by_rad)
 	is_freeze = TransitionManager.is_transitioning
 	TransitionManager.transition_started.connect(func(): is_freeze = true)
 	TransitionManager.transition_finished.connect(func(): is_freeze = false)
+
+func _on_died_by_rad() -> void:
+	state_machine.transition_to("dead")
+	
+
 
 func on_hurt(hit_damage: int) -> void:
 	stats.health -= hit_damage

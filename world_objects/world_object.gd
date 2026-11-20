@@ -10,6 +10,7 @@ class_name WorldObject extends Node2D
 @export var persistent := true
 
 @onready var sprite: Sprite2D = $Sprite2D
+@onready var light: PointLight2D = $PointLight2D
 
 var state: Dictionary = {}
 
@@ -55,3 +56,4 @@ func _apply_data() -> void:
 	if not is_node_ready():
 		return
 	sprite.texture = data.texture if data else null
+	

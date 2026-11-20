@@ -125,6 +125,7 @@ func _on_animation_finished() -> void:
 
 func _on_exit() -> void:
 	SessionState.cursor_freeze = false
+	is_playing = false
 	_stop_footstep()
 	if _meleeing:
 		_meleeing = false

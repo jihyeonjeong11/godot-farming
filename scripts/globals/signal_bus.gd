@@ -40,6 +40,8 @@ signal scene_change_requested(scene_path: String, spawn_id: StringName)
 
 signal player_died()
 
+signal player_died_by_rad()
+
 signal quest_progressed(quest_id: String)
 
 signal quest_completed(quest_id: String)

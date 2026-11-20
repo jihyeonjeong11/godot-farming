@@ -24,6 +24,8 @@ const STAT_COLOR_NEGATIVE := Color(0.75, 0.3, 0.3)
 @export var hunger = 0
 ## 먹었을 때 채워주는 갈증. 0이면 갈증에는 영향이 없다.
 @export var thirst = 0
+@export var stamina = 0
+@export var radiation = 0 
 ## todo: i18n
 @export var description = ""
 

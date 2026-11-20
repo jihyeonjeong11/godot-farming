@@ -8,6 +8,7 @@ var activation_code_so_far: String = ""
 
 var is_active: bool = true
 var show_target_info: bool = false
+var dev_start_hour: int = 21
 
 const GRID_TOGGLE_KEY := KEY_F9
 const SNAPSHOT_KEY := KEY_F2
@@ -42,12 +43,13 @@ func _ready() -> void :
 	dev_give_tools()
 	dev_give_seed()
 	#dev_give_recipe_materials(&"campfire")
-	#dev_give_recipe_materials(&"water_collector")
+	dev_give_recipe_materials(&"water_collector")
 	dev_give_chest()
 	dev_give_sword()
 	dev_give_stone()
 	dev_give_new_items()
 	dev_shuffle_outfit()
+	dev_start_late()
 	dev_build_grid()
 	dev_build_snapshot_view()
 
@@ -136,6 +138,11 @@ func dev_shuffle_outfit() -> void:
 		GameState.player_vanity[part] = randi_range(0, VANITY_VARIANTS[part] - 1)
 
 
+func dev_start_late() -> void:
+	GameState.current_time["hour"] = dev_start_hour
+	SignalBus.new_game_requested.connect(func(_slot: int) -> void: TimeManager.skip_to(0, dev_start_hour))
+
+
 func dev_fill_inventory() -> void:
 	var ids := ItemDB.all_ids()
 	ids.shuffle()
@@ -177,7 +184,7 @@ func dev_give_stone() -> void:
 
 
 func dev_give_new_items() -> void:
-	for id in [&"bandage", &"rope", &"machine_parts", &"jar_of_pickles", &"bottled_water"]:
+	for id in [&"bandage", &"rope", &"machine_parts", &"jar_of_pickles"]:
 		InventoryActions.obtain(ItemStack.new(ItemDB.get_item(id), 3))
 
 

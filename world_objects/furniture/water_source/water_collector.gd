@@ -1,6 +1,7 @@
 extends WorldObject
 
 const MAX_WATER = SnapshotActions.MAX_WATER
+const BOTTLE_WATER := 10
 
 const DRINKING_SOUND = preload("uid://bl3e32fyj134f")
 const THIRST = preload("uid://mewgpqlifgrg")
@@ -8,6 +9,7 @@ const FILL_SOUND = preload("res://assets/sounds/interactions/watering_can.mp3")
 
 
 @onready var water_bar: ProgressBar = $WaterBar
+@onready var sounds: AudioStreamPlayer2D = $Sounds
 
 func default_state() -> Dictionary:
 	return {"water_deposit": MAX_WATER}
@@ -26,7 +28,7 @@ func on_interact() -> void:
 	if stack != null and stack.item != null and stack.item.tool_type == DataTypes.Tools.WaterCrops:
 		fill_can(stack)
 	else:
-		drink()
+		fill_bottle()
 
 func fill_can(stack: ItemStack) -> void:
 	if state["water_deposit"] <= 0:
@@ -35,11 +37,25 @@ func fill_can(stack: ItemStack) -> void:
 	var amount := mini(stack.item.max_ammo - stack.current_ammo, state["water_deposit"])
 	if amount <= 0:
 		return
-	SoundManager.play_sound(FILL_SOUND)
+	_play_fill_sound()
 	state["water_deposit"] -= amount
 	stack.current_ammo += amount
 	InventoryManager.updated_inventory.emit()
 	_update_bar()
+
+func fill_bottle() -> void:
+	if state["water_deposit"] < BOTTLE_WATER:
+		SignalBus.toast_requested.emit(THIRST, "No water")
+		return
+	if not InventoryActions.obtain(ItemStack.new(ItemDB.get_item(&"bottled_water_dirty"), 1)):
+		return
+	_play_fill_sound()
+	state["water_deposit"] -= BOTTLE_WATER
+	_update_bar()
+
+func _play_fill_sound() -> void:
+	sounds.stream = FILL_SOUND
+	sounds.play()
 
 func _on_advance_day(_day: int) -> void:
 	_update_bar()

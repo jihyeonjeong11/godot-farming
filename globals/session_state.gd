@@ -1,6 +1,5 @@
 extends Node
 
-const PLAYER_STAT_BASE = preload("res://scenes/characters/player/player_stat.tres")
 
 const INTRO = preload("uid://brefvirbtelnj")
 const BASE_INTERACTION_RANGE = 48
@@ -143,7 +142,7 @@ func disable_all_interactables() -> void:
 		#Camera.get_current().base_trauma = 0
 
 func new_game() -> void :
-	var stats: BaseCharacterStats = PLAYER_STAT_BASE.duplicate()
+	var stats: BaseCharacterStats = GameState.PLAYER_STAT_BASE.duplicate()
 	stats.setup_stats()
 	GameState.player_stat = stats
 	SaveManager.save_current_game()

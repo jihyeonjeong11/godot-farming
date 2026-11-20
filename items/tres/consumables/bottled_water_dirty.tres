@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://mywnxel0jp0h"]
+
+[ext_resource type="Texture2D" uid="uid://vx5tjdr8rr5g" path="res://assets/temp/tools.png" id="1_bgaqo"]
+[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://items/item.gd" id="2_66kgt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bottled_water"]
+atlas = ExtResource("1_bgaqo")
+region = Rect2(170, 67, 12, 28)
+
+[resource]
+script = ExtResource("2_66kgt")
+item_id = "bottled_water_dirty"
+item_type = 2
+item_name = "Bottled Dirty Water "
+item_texture = SubResource("AtlasTexture_bottled_water")
+item_effect = "A bottle of clean water."
+thirst = 25
+stamina = 25
+radiation = 500
+value = 50
+metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

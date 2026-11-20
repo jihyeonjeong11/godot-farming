@@ -62,6 +62,7 @@ var health: int = 0: set = _on_health_set
 var stamina: int = 0: set = _on_stamina_set
 var hunger: int = 0: set = _on_hunger_set
 var thirst: int = 0: set = _on_thirst_set
+var radiation: int = 0: set = _on_radiation_set
 var gold: int = 0: set = _on_gold_set
 
 
@@ -84,6 +85,7 @@ func to_dict() -> Dictionary:
 		"max_stamina": current_max_stamina,
 		"max_hunger": current_max_hunger,
 		"max_thirst": current_max_thirst,
+		"radiation": radiation
 	}
 
 
@@ -192,6 +194,11 @@ func _on_thirst_set(new_value: int) -> void:
 func _on_gold_set(new_value: int) -> void:
 	gold = maxi(new_value, 0)
 	gold_changed.emit(gold)
+	
+func _on_radiation_set(new_value: int) -> void:
+	radiation = clampi(new_value, 0, 1000)
+	if radiation >= 1000:
+		SignalBus.player_died_by_rad.emit()
 
 
 func _on_experience_set(new_value: int) -> void:

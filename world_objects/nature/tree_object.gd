@@ -10,11 +10,13 @@ const SHAKE_DURATION := 0.3
 const FALL_ANGLE := PI / 2.0
 const FALL_DURATION := 0.7
 const FADE_DURATION := 0.25
+const AXE = preload("uid://dclgtskcouocj")
 
 var shake_tween: Tween
 var is_falling := false
 
 @onready var collision_shape_2d: CollisionShape2D = $StaticBody2D/CollisionShape2D
+@onready var sounds: AudioStreamPlayer2D = $Sounds
 
 func default_state() -> Dictionary:
 	return {
@@ -61,6 +63,8 @@ func on_day_passed(_day: int) -> void:
 func on_hit(tool: DataTypes.Tools, damage: int) -> void:
 	if is_falling:
 		return
+	sounds.stream = AXE
+	sounds.play()
 	if damage >= state["health"]:
 		destroy()
 	else:

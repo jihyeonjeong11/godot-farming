@@ -2,8 +2,26 @@
 
 [ext_resource type="Script" uid="uid://d1qantb03c4e2" path="res://world_objects/world_object.gd" id="1_16ptj"]
 
+[sub_resource type="Gradient" id="Gradient_glow"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_glow"]
+gradient = SubResource("Gradient_glow")
+width = 256
+height = 256
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
 [node name="WorldObject" type="Node2D" unique_id=412109625]
 script = ExtResource("1_16ptj")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=999308787]
 centered = false
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1730482216]
+enabled = false
+color = Color(1, 0.75, 0.45, 1)
+energy = 0.9
+texture = SubResource("GradientTexture2D_glow")

@@ -9,9 +9,9 @@ region = Rect2(138, 68, 12, 28)
 
 [resource]
 script = ExtResource("1_28wik")
-item_id = "bottled_water"
+item_id = "bottled_water_clean"
 item_type = 2
-item_name = "Bottled Water"
+item_name = "Bottled Clean Water"
 item_texture = SubResource("AtlasTexture_bottled_water")
 item_effect = "A bottle of clean water."
 thirst = 25

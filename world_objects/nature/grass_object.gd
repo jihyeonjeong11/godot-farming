@@ -6,6 +6,7 @@ const SHAKE_INTENSITY := 2.0
 const SHAKE_SPEED := 22.0
 const SHAKE_DURATION := 0.3
 const FOOTSTEP_VEGETATION = preload("uid://ca2x0yqyi8ltc")
+const HIT_SOUND = preload("uid://d2ytgjedd650g")
 const CLUMPS := [
 	Rect2(5, 32, 32, 30),
 	Rect2(37, 34, 32, 26),
@@ -23,6 +24,9 @@ const BLADE_JITTER := 3
 
 var shake_tween: Tween
 var blades: Array[Sprite2D] = []
+var is_cut := false
+
+@onready var sounds: AudioStreamPlayer2D = $Sounds
 
 func default_state() -> Dictionary:
 	return {"health": data.max_health, "variant": -1}
@@ -94,18 +98,35 @@ func play_shake() -> void:
 	shake_tween = create_tween()
 	shake_tween.tween_property(shake_material, "shader_parameter/shake_intensity", 0.0, SHAKE_DURATION).set_ease(Tween.EASE_OUT)
 
+func is_deleting() -> bool:
+	return is_cut
+
+
 func on_hit(tool: DataTypes.Tools, damage: int) -> void:
-	SoundManager.pl
+	if is_cut:
+		return
+	sounds.stream = HIT_SOUND
+	sounds.play()
 	if damage >= state["health"]:
 		destroy()
 	else:
 		state["health"] -= damage
-	
+		play_shake()
+
+
 func destroy() -> void:
+	is_cut = true
 	LootActions.drop_loot(data.loot_pool, global_position)
 	SnapshotActions.remove(self)
+	remove_from_group(&"object")
+	$InteractArea.set_deferred("monitoring", false)
+	SoundManager.stop_ambient_sound(FOOTSTEP_VEGETATION)
+	sprite.hide()
+	for blade in blades:
+		blade.hide()
+	await sounds.finished
 	queue_free()
-	
+
 
 
 func _on_body_entered(_body: Node2D) -> void:

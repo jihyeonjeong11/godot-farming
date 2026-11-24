@@ -109,6 +109,8 @@ func _process(delta: float) -> void:
 
 
 func _advance_minutes(minutes: int) -> void:
+	if current_time["hour"] > 24:
+		return
 	current_time["minute"] += minutes
 	while current_time["minute"] >= MINUTES_PER_HOUR:
 		current_time["minute"] -= MINUTES_PER_HOUR

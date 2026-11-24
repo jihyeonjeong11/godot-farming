@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://dlds5srqabx4y"]
+
+[ext_resource type="Texture2D" uid="uid://c66k0xr86xtls" path="res://assets/temp/naturals.png" id="1_3cxyh"]
+[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://items/item.gd" id="2_drmxj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xnuv"]
+atlas = ExtResource("1_3cxyh")
+region = Rect2(65, 1, 30, 33)
+
+[resource]
+script = ExtResource("2_drmxj")
+item_id = "sunflower_2"
+item_type = 2
+item_name = "Sunflower"
+item_texture = SubResource("AtlasTexture_4xnuv")
+hunger = 12
+thirst = 1
+radiation = 20
+description = "Something is off with this sunflower."
+value = 15
+metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

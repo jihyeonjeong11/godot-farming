@@ -141,6 +141,14 @@ static func roll_nature(table: Dictionary, mature: bool) -> Dictionary:
 			return nature_entry(table["grass"])
 		2:
 			return nature_entry(table["rock"])
+		3:
+			return nature_entry(table["flower"])
+		4:
+			return nature_entry(table["blueberry"])
+		5:
+			return nature_entry(table["morel"])
+		6:
+			return nature_entry(table["chanterelle"])
 	return {}
 
 

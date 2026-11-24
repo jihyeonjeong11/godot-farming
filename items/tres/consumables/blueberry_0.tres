@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://dqk5v8n3wpyt2"]
+
+[ext_resource type="Texture2D" uid="uid://c66k0xr86xtls" path="res://assets/temp/naturals.png" id="1_87fap"]
+[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://items/item.gd" id="2_swptj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apple"]
+atlas = ExtResource("1_87fap")
+region = Rect2(37, 99, 20, 26)
+
+[resource]
+script = ExtResource("2_swptj")
+item_id = "blueberry_0"
+item_type = 2
+item_name = "Blueberry"
+item_texture = SubResource("AtlasTexture_apple")
+hunger = 8
+thirst = 10
+description = "Has many healthy benefits."
+value = 30
+world_scene_path = "uid://cb65olukse4yu"
+metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

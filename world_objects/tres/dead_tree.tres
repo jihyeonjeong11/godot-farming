@@ -17,7 +17,6 @@ script = ExtResource("5_stage_loot")
 loot = Array[ExtResource("2_loot")]([SubResource("Loot_log")])
 
 [resource]
-resource_local_to_scene = true
 script = ExtResource("1_tree")
 health_per_growth_stage = Array[int]([8])
 loot_per_growth_stage = Array[ExtResource("5_stage_loot")]([SubResource("StageLoot_0")])

@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://c5k2w8mhq4tyn"]
+
+[ext_resource type="PackedScene" uid="uid://cvle266g113el" path="res://world_objects/world_object.tscn" id="1_base"]
+[ext_resource type="Script" path="res://world_objects/nature/mushroom_object.gd" id="2_script"]
+[ext_resource type="Resource" uid="uid://bd7r3x1vn6gpa" path="res://world_objects/tres/morel.tres" id="3_data"]
+[ext_resource type="Texture2D" uid="uid://c66k0xr86xtls" path="res://assets/temp/naturals.png" id="4_sheet"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mushroom"]
+atlas = ExtResource("4_sheet")
+region = Rect2(32, 34, 32, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_base"]
+size = Vector2(32, 32)
+
+[node name="MorelObject" instance=ExtResource("1_base")]
+script = ExtResource("2_script")
+data = ExtResource("3_data")
+accepted_tools = Array[int]([1, 2, 3])
+
+[node name="Sprite2D" parent="." index="0"]
+texture = SubResource("AtlasTexture_mushroom")
+offset = Vector2(-16, -26)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="1"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_base")
+
+[node name="InteractArea" type="Area2D" parent="." index="2"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea" index="0"]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_base")
+
+[node name="Sounds" type="AudioStreamPlayer2D" parent="." index="3"]

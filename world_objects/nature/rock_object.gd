@@ -1,6 +1,8 @@
 @tool
 class_name RockObject extends WorldObject
 
+const PICKAXE = preload("uid://boqllg37niafw")
+
 const VARIANTS := [
 	Rect2(5, 5, 28, 26),
 	Rect2(39, 5, 26, 24),
@@ -10,11 +12,23 @@ const VARIANTS := [
 	Rect2(69, 33, 30, 28),
 ]
 
+var is_broken := false
+
+@onready var sounds: AudioStreamPlayer2D = $Sounds
+
 func default_state() -> Dictionary:
 	return {"health": data.max_health, "variant": -1}
 
 
+func is_deleting() -> bool:
+	return is_broken
+
+
 func on_hit(tool: DataTypes.Tools, damage: int) -> void:
+	if is_broken:
+		return
+	sounds.stream = PICKAXE
+	sounds.play()
 	if damage >= state["health"]:
 		destroy()
 	else:
@@ -22,8 +36,13 @@ func on_hit(tool: DataTypes.Tools, damage: int) -> void:
 
 
 func destroy() -> void:
+	is_broken = true
 	LootActions.drop_loot(data.loot_pool, global_position)
 	SnapshotActions.remove(self)
+	remove_from_group(&"object")
+	$StaticBody2D/CollisionShape2D.set_deferred("disabled", true)
+	sprite.hide()
+	await sounds.finished
 	queue_free()
 
 

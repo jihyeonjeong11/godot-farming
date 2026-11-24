@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://cm4t8y2hk5wqe"]
+
+[ext_resource type="Texture2D" uid="uid://c66k0xr86xtls" path="res://assets/temp/naturals.png" id="1_87fap"]
+[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://items/item.gd" id="2_swptj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_icon"]
+atlas = ExtResource("1_87fap")
+region = Rect2(9, 34, 14, 24)
+
+[resource]
+script = ExtResource("2_swptj")
+item_id = "morel_0"
+item_type = 2
+item_name = "Morel"
+item_texture = SubResource("AtlasTexture_icon")
+hunger = 8
+thirst = 1
+value = 10
+world_scene_path = "uid://cb65olukse4yu"
+metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

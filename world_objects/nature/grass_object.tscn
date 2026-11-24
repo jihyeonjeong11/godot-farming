@@ -52,7 +52,7 @@ metadata/_custom_type_script = "uid://df33bawivqev2"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y6p61"]
 atlas = ExtResource("3_o8lfi")
-region = Rect2(836, 672, 24, 26)
+region = Rect2(832, 640, 32, 30)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4kxuq"]
 size = Vector2(32, 32)
@@ -66,7 +66,7 @@ accepted_tools = Array[int]([1, 2, 3])
 [node name="Sprite2D" parent="." index="0" unique_id=999308787]
 position = Vector2(-9, -2)
 texture = SubResource("AtlasTexture_y6p61")
-offset = Vector2(-12, -26)
+offset = Vector2(-16, -30)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." index="1" unique_id=784759747]
 collision_layer = 0
@@ -83,3 +83,5 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea" index="0" unique_id=1482095118]
 position = Vector2(0, -12)
 shape = SubResource("RectangleShape2D_4kxuq")
+
+[node name="Sounds" type="AudioStreamPlayer2D" parent="." index="3"]

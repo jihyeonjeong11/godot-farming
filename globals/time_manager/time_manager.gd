@@ -109,14 +109,14 @@ func _process(delta: float) -> void:
 
 
 func _advance_minutes(minutes: int) -> void:
-	if current_time["hour"] > 24:
+	if current_time["hour"] < WAKE_HOUR:
 		return
 	current_time["minute"] += minutes
 	while current_time["minute"] >= MINUTES_PER_HOUR:
 		current_time["minute"] -= MINUTES_PER_HOUR
 		current_time["hour"] += 1
-		GameState.player_stat.hunger -= 100
-		GameState.player_stat.thirst -= 100
+		hour_passed.emit()
+
 
 	if current_time["hour"] >= HOURS_PER_DAY:
 		current_time["hour"] -= HOURS_PER_DAY

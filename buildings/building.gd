@@ -26,7 +26,9 @@ func _draw() -> void:
 	var size := texture.get_size()
 	draw_texture(texture, Vector2(-size.x * 0.5, -size.y))
 	
-
+func on_interact() -> void:
+	print('interact')
+	pass
 
 func global_footprint_rect() -> Rect2:
 	return _global_shape_rect(footprint_shape)

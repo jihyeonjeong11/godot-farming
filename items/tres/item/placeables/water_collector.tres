@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Item" format=3]
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://ctel1yhb3u6jj"]
 
 [ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://items/item.gd" id="1_items"]
 [ext_resource type="Texture2D" uid="uid://p8iogtdktgfx" path="res://assets/furniture/water_collector.png" id="2_tex"]

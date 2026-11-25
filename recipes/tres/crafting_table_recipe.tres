@@ -7,8 +7,8 @@ script = ExtResource("1_recipe")
 result_id = &"crafting_table"
 result_amount = 1
 ingredients = Dictionary[StringName, int]({
-&"log": 8,
-&"stone": 4
+&"Scrap_Metal": 100,
+&"log": 500
 })
 recipe_name = "제작대"
 metadata/_custom_type_script = "uid://c7xk2mvbqjy4n"

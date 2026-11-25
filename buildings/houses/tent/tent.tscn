@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://buv2b6w1dp2gs"]
+
+[ext_resource type="Script" uid="uid://dhned6b0xqltr" path="res://buildings/houses/tent/tent.gd" id="1_sd10u"]
+[ext_resource type="PackedScene" uid="uid://cq4txmwljasry" path="res://levels/farm/inside/farmhouse_inside.tscn" id="2_jdcq5"]
+[ext_resource type="Texture2D" uid="uid://b3fax0nemrmbb" path="res://assets/camp/Camp_Graves.png" id="3_qt6vx"]
+[ext_resource type="PackedScene" uid="uid://dk62jl7qt5jod" path="res://world_objects/furniture/crafting/building_desk.tscn" id="4_jdcq5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xblu6"]
+atlas = ExtResource("3_qt6vx")
+region = Rect2(0, 372, 128, 94)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kxuq"]
+size = Vector2(120, 74)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sd10u"]
+size = Vector2(119, 73.5)
+
+[node name="Tent" type="Node2D" unique_id=844149854 node_paths=PackedStringArray("footprint_shape", "door_shape")]
+texture_filter = 1
+script = ExtResource("1_sd10u")
+has_inside = true
+inside_scene = ExtResource("2_jdcq5")
+texture = SubResource("AtlasTexture_xblu6")
+footprint_shape = NodePath("CollisionBody/CollisionShape2D")
+door_shape = NodePath("CollisionBody/CollisionShape2D/DoorArea/DoorShape")
+
+[node name="CollisionBody" type="StaticBody2D" parent="." unique_id=862649150]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionBody" unique_id=520792217]
+position = Vector2(3, -46)
+shape = SubResource("RectangleShape2D_4kxuq")
+
+[node name="DoorArea" type="Area2D" parent="CollisionBody/CollisionShape2D" unique_id=1687337429]
+
+[node name="DoorShape" type="CollisionShape2D" parent="CollisionBody/CollisionShape2D/DoorArea" unique_id=82844167]
+position = Vector2(0.5, 0.75)
+shape = SubResource("RectangleShape2D_sd10u")
+debug_color = Color(0.6322795, 0.52693933, 0.12770575, 0.41960785)
+
+[node name="BuildingDesk" parent="." unique_id=412109625 instance=ExtResource("4_jdcq5")]
+position = Vector2(-53, 5)

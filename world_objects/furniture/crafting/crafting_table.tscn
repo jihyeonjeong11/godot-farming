@@ -1,0 +1,27 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" uid="uid://cvle266g113el" path="res://world_objects/world_object.tscn" id="1_base"]
+[ext_resource type="Script" path="res://world_objects/furniture/crafting/crafting_table.gd" id="2_script"]
+[ext_resource type="Resource" path="res://world_objects/tres/crafting_table/crafting_table.tres" id="3_data"]
+[ext_resource type="Texture2D" uid="uid://mloe6l4aphpg" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crafting.png" id="4_tex"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_table"]
+atlas = ExtResource("4_tex")
+region = Rect2(0, 47, 63, 53)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_table"]
+size = Vector2(60, 28)
+
+[node name="CraftingTable" instance=ExtResource("1_base")]
+script = ExtResource("2_script")
+data = ExtResource("3_data")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = SubResource("AtlasTexture_table")
+offset = Vector2(-32, -50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(0, -15)
+shape = SubResource("RectangleShape2D_table")

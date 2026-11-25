@@ -38,6 +38,8 @@ func _ready() -> void :
 		prints("Disabling OPs in non-debug build.")
 		process_mode = ProcessMode.PROCESS_MODE_DISABLED
 		return
+	dev_give_building_table()
+	dev_give_crafting_table()
 	#dev_fill_inventory()
 	#dev_give_wearables()
 	dev_give_tools()
@@ -170,6 +172,14 @@ func dev_give_recipe_materials(result_id: StringName) -> void:
 	for recipe in RecipeDB.for_result(result_id):
 		for id in recipe.ingredients:
 			InventoryActions.obtain(ItemStack.new(ItemDB.get_item(id), recipe.ingredients[id]))
+
+
+func dev_give_building_table() -> void:
+	InventoryActions.obtain(ItemStack.new(ItemDB.get_item(&"farm_building_table"), 1))
+
+
+func dev_give_crafting_table() -> void:
+	InventoryActions.obtain(ItemStack.new(ItemDB.get_item(&"crafting_table"), 1))
 
 
 func dev_give_chest() -> void:

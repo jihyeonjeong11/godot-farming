@@ -1,5 +1,7 @@
 class_name NatureSpawner extends WorldObject
 
+const HARVESTABLE_SPAWN_CHANGE = 0.05
+
 @export var trees: Array[WorldObjectData] = [
 	preload("res://world_objects/tres/dead_tree.tres")
 ]
@@ -12,10 +14,10 @@ class_name NatureSpawner extends WorldObject
 @export var tree_weight := 1.0
 @export var grass_weight := 3.0
 @export var rock_weight := 1.0
-@export var flower_weight := 0.1
-@export var blueberry_weight := 0.1
-@export var morel_weight := 0.1
-@export var chanterelle_weight := 0.1
+@export var flower_weight := HARVESTABLE_SPAWN_CHANGE
+@export var blueberry_weight := HARVESTABLE_SPAWN_CHANGE
+@export var morel_weight := HARVESTABLE_SPAWN_CHANGE
+@export var chanterelle_weight := HARVESTABLE_SPAWN_CHANGE
 @export var empty_weight := 1.0
 
 

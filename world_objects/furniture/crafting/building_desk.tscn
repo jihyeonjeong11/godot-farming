@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dk62jl7qt5jod"]
+
+[ext_resource type="PackedScene" uid="uid://cvle266g113el" path="res://world_objects/world_object.tscn" id="1_tvacx"]
+[ext_resource type="Resource" uid="uid://cg0p1yortunmt" path="res://world_objects/tres/building_desk/building_desk.tres" id="2_klfdu"]
+[ext_resource type="Script" uid="uid://dg2et614ryhpg" path="res://world_objects/furniture/crafting/building_desk.gd" id="2_pd4m1"]
+[ext_resource type="Texture2D" uid="uid://mloe6l4aphpg" path="res://assets/craftland/Craftland Terrain/32x32/CL_Crafting.png" id="3_pd4m1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2qoa"]
+atlas = ExtResource("3_pd4m1")
+region = Rect2(0, 47, 63, 53)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_klfdu"]
+size = Vector2(62, 48)
+
+[node name="BuildingDesk" unique_id=412109625 instance=ExtResource("1_tvacx")]
+script = ExtResource("2_pd4m1")
+data = ExtResource("2_klfdu")
+
+[node name="Sprite2D" parent="." index="0" unique_id=999308787]
+texture = SubResource("AtlasTexture_d2qoa")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="2" unique_id=751283223]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0" unique_id=945701422]
+position = Vector2(31, 24)
+shape = SubResource("RectangleShape2D_klfdu")

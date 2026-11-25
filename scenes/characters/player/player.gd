@@ -61,6 +61,13 @@ func _ready() -> void:
 	is_freeze = TransitionManager.is_transitioning
 	TransitionManager.transition_started.connect(func(): is_freeze = true)
 	TransitionManager.transition_finished.connect(func(): is_freeze = false)
+	TimeManager.hour_passed.connect(_on_hour_passed)
+	TimeManager.day_passed.connect(_on_hour_passed.unbind(1))
+	
+func _on_hour_passed() -> void:
+	GameState.player_stat.hunger -= 10
+	GameState.player_stat.thirst -= 15
+
 
 func _die(animation: StringName) -> void:
 	if state_machine.current_node_state_name == "dead":

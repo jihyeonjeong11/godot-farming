@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="WorldObjectData" format=3 uid="uid://cg0p1yortunmt"]
+
+[ext_resource type="Script" uid="uid://cu6u0yvr4eaxi" path="res://items/loot/loot.gd" id="1_fml6w"]
+[ext_resource type="Script" uid="uid://df33bawivqev2" path="res://world_objects/world_object_data.gd" id="2_8ho2x"]
+[ext_resource type="Texture2D" uid="uid://vx5tjdr8rr5g" path="res://assets/temp/tools.png" id="3_8ho2x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2qoa"]
+atlas = ExtResource("3_8ho2x")
+region = Rect2(64, 203, 63, 53)
+
+[resource]
+script = ExtResource("2_8ho2x")
+id = &"house_planning_desk"
+name = &"House Planning Desk"
+description = "House Planning Desk"
+texture = SubResource("AtlasTexture_d2qoa")
+max_health = -1
+metadata/_custom_type_script = "uid://df33bawivqev2"

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://dcfa5txauq3mo"]
+
+[ext_resource type="Texture2D" uid="uid://vx5tjdr8rr5g" path="res://assets/temp/tools.png" id="1_7mydh"]
+[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://items/item.gd" id="1_wbt48"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mydh"]
+atlas = ExtResource("1_7mydh")
+region = Rect2(66, 206, 60, 46)
+
+[resource]
+script = ExtResource("1_wbt48")
+item_id = "farm_building_table"
+item_type = 7
+item_name = "Farm Building Table"
+item_texture = SubResource("AtlasTexture_7mydh")
+item_effect = "Enables to acces building menu to improve your farm."
+world_object_id = &"house_planning_desk"
+metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

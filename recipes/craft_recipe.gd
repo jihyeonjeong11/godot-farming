@@ -6,7 +6,6 @@ class_name CraftRecipe extends Resource
 @export var result_id: StringName = &""
 @export var result_amount: int = 1
 @export var ingredients: Dictionary[StringName, int] = {}
-@export var process_minutes: int = 0
 
 @export var recipe_name: String = ""
 

@@ -14,7 +14,6 @@
 [ext_resource type="Texture2D" path="res://assets/apo/safe_open.png" id="s1"]
 [ext_resource type="Texture2D" path="res://assets/temp/coal_rock.png" id="s2"]
 [ext_resource type="Texture2D" path="res://assets/temp/corpse_soldier.png" id="s3"]
-[ext_resource type="Texture2D" path="res://assets/temp/furnace.png" id="s4"]
 [ext_resource type="Texture2D" path="res://assets/temp/helipad.png" id="s5"]
 [ext_resource type="Texture2D" path="res://assets/temp/radioactive_barrel.png" id="s6"]
 [ext_resource type="Texture2D" path="res://assets/temp/requisition_point.png" id="s7"]
@@ -14715,22 +14714,6 @@ offset_right = 316.0
 offset_bottom = 15940.0
 theme_override_font_sizes/font_size = 10
 text = "one3"
-
-[node name="one4" type="Sprite2D" parent="."]
-position = Vector2(564, 15924)
-texture = ExtResource("s4")
-centered = false
-offset = Vector2(-224, -80)
-region_enabled = true
-region_rect = Rect2(0, 0, 448, 80)
-
-[node name="L_one4" type="Label" parent="."]
-offset_left = 340.0
-offset_top = 15926.0
-offset_right = 788.0
-offset_bottom = 15940.0
-theme_override_font_sizes/font_size = 10
-text = "one4"
 
 [node name="one5" type="Sprite2D" parent="."]
 position = Vector2(860, 15924)

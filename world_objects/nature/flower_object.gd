@@ -7,13 +7,8 @@ const VARIANTS := [
 	Rect2(64, 0, 32, 32),
 ]
 
-func on_interact() -> void:
-	var item := ItemDB.get_item("%s_%d" % [data.id, state["variant"]])
-	if item == null:
-		return
-	if InventoryActions.obtain(ItemStack.new(item, 1)):
-		SnapshotActions.remove(self)
-		queue_free()
+func get_drop_item_id() -> StringName:
+	return StringName("%s_%d" % [data.id, state["variant"]])
 
 
 func _apply_data() -> void:

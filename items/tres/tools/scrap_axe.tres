@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://ljd405swslij"]
+
+[ext_resource type="Texture2D" uid="uid://vx5tjdr8rr5g" path="res://assets/temp/tools.png" id="1_ukj47"]
+[ext_resource type="Script" uid="uid://dmr7h44k3q6t2" path="res://items/item.gd" id="1_yxwiu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukj47"]
+atlas = ExtResource("1_ukj47")
+region = Rect2(68, 1, 27, 31)
+
+[resource]
+script = ExtResource("1_yxwiu")
+item_id = "scrap_axe"
+item_type = 5
+tool_type = 1
+item_name = "Scrap Axe"
+item_texture = SubResource("AtlasTexture_ukj47")
+description = "Not too reliable, but this will work some time."
+melee_damage = 1
+max_stack = -1
+current_ammo = -1
+metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

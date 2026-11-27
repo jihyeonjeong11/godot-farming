@@ -11,6 +11,6 @@ accepted_tools = Array[int]([1])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0" unique_id=1040619772]
 
-[node name="Sounds" type="AudioStreamPlayer2D" parent="." unique_id=1592846307]
+[node name="Sounds" type="AudioStreamPlayer2D" parent="." index="3" unique_id=1592846307]
 max_distance = 300.0
 bus = &"SFX"

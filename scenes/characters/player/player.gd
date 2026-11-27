@@ -62,11 +62,17 @@ func _ready() -> void:
 	TransitionManager.transition_started.connect(func(): is_freeze = true)
 	TransitionManager.transition_finished.connect(func(): is_freeze = false)
 	TimeManager.hour_passed.connect(_on_hour_passed)
-	TimeManager.day_passed.connect(_on_hour_passed.unbind(1))
+	TimeManager.day_passed.connect(_on_day_passed)
+	
+func _on_day_passed(day: int) -> void:
+	GameState.player_stat.hunger -= 10
+	GameState.player_stat.stamina = GameState.player_stat.current_max_stamina
+
 	
 func _on_hour_passed() -> void:
-	GameState.player_stat.hunger -= 10
-	GameState.player_stat.thirst -= 15
+	# 18 hours * 3 = 54
+	# 2 days to deplete approx.
+	GameState.player_stat.hunger -= 3
 
 
 func _die(animation: StringName) -> void:

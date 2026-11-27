@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="WorldObjectData" format=3]
+[gd_resource type="Resource" script_class="WorldObjectData" format=3 uid="uid://ihe4jtua36wq"]
 
 [ext_resource type="Script" uid="uid://df33bawivqev2" path="res://world_objects/world_object_data.gd" id="1_data"]
+[ext_resource type="Script" uid="uid://cu6u0yvr4eaxi" path="res://items/loot/loot.gd" id="1_mtv0i"]
 [ext_resource type="Texture2D" uid="uid://vx5tjdr8rr5g" path="res://assets/temp/tools.png" id="2_tex"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_table"]

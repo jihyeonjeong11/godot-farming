@@ -5,7 +5,6 @@
 [resource]
 script = ExtResource("1_recipe")
 result_id = &"crafting_table"
-result_amount = 1
 ingredients = Dictionary[StringName, int]({
 &"Scrap_Metal": 100,
 &"log": 500

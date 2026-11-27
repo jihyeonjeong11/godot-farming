@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://df6dscu6ujv8k"]
+
+[ext_resource type="Script" uid="uid://h7wfyfwpc8y5" path="res://items/dropped_item/dropped_item.gd" id="1_055k3"]
+[ext_resource type="PackedScene" uid="uid://ctp4naj2hxw80" path="res://scenes/components/collectable_component.tscn" id="2_coll"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_drop"]
+radius = 40.0
+
+[node name="DroppedItem" type="Sprite2D" unique_id=1637289125]
+script = ExtResource("1_055k3")
+
+[node name="CollectableComponent" parent="." unique_id=425904564 instance=ExtResource("2_coll")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent" unique_id=901977725]
+shape = SubResource("CircleShape2D_drop")

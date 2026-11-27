@@ -8,9 +8,10 @@ const SHAKE_INTENSITY := 2.0
 const SHAKE_SPEED := 22.0
 const SHAKE_DURATION := 0.3
 const FALL_ANGLE := PI / 2.0
-const FALL_DURATION := 0.7
+const FALL_DURATION := 2
 const FADE_DURATION := 0.25
 const AXE = preload("uid://dclgtskcouocj")
+const FALLING = preload("uid://clcu8s6iv48xq")
 
 var shake_tween: Tween
 var is_falling := false
@@ -77,11 +78,13 @@ func on_hit(tool: DataTypes.Tools, damage: int) -> void:
 
 
 func destroy() -> void:
+	sounds.stream = FALLING
+	sounds.play()
+	await play_fall()
 	LootActions.drop_loot(tree_data().loot_at(int(state["growth_stage"])), global_position)
 	SnapshotActions.remove(self)
 	remove_from_group(&"object")
 	collision_shape_2d.set_deferred("disabled", true)
-	play_fall()
 
 
 func play_shake() -> void:
@@ -109,6 +112,7 @@ func play_fall() -> void:
 	tween.tween_property(fall_material, "shader_parameter/fall_angle", FALL_ANGLE * direction, FALL_DURATION).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
 	tween.tween_property(sprite, "modulate:a", 0.0, FADE_DURATION)
 	tween.tween_callback(queue_free)
+	await tween.finished
 
 
 func _setup_shake() -> void:

@@ -21,6 +21,8 @@ const CLUMPS := [
 const WIDE_CLUMPS := [0, 4, 6, 7]
 const BLADE_SLOTS := [Vector2(-7, -3), Vector2(7, -3), Vector2(-7, 10), Vector2(7, 10)]
 const BLADE_JITTER := 3
+const BURST_AMOUNT := 6
+const BURST_LIFETIME := 0.6
 
 var shake_tween: Tween
 var blades: Array[Sprite2D] = []
@@ -29,7 +31,7 @@ var is_cut := false
 @onready var sounds: AudioStreamPlayer2D = $Sounds
 
 func default_state() -> Dictionary:
-	return {"health": data.max_health, "variant": -1}
+	return {"health": BLADE_SLOTS.size(), "variant": -1}
 
 func _ready() -> void:
 	super()
@@ -38,6 +40,7 @@ func _ready() -> void:
 	_setup_shake()
 	$InteractArea.body_entered.connect(_on_body_entered)
 	$InteractArea.body_exited.connect(_on_body_exited)
+	$InteractArea.area_entered.connect(_on_area_entered)
 
 
 func _apply_data() -> void:
@@ -55,7 +58,7 @@ func _apply_data() -> void:
 	var rng := RandomNumberGenerator.new()
 	rng.seed = hash(Vector2i(global_position.round()))
 	for i in BLADE_SLOTS.size():
-		var blade := sprite if i == 0 else blades[i - 1]
+		var blade := _blade_at(i)
 		var variant := int(state["variant"]) if i == 0 else int(WIDE_CLUMPS[rng.randi() % WIDE_CLUMPS.size()])
 		var rect: Rect2 = CLUMPS[variant]
 		var clump := AtlasTexture.new()
@@ -65,6 +68,17 @@ func _apply_data() -> void:
 		blade.offset = Vector2(floorf(-clump.get_width() / 2.0), -clump.get_height())
 		blade.flip_h = rng.randf() < 0.5
 		blade.position = BLADE_SLOTS[i] + Vector2(rng.randi_range(-BLADE_JITTER, BLADE_JITTER), rng.randi_range(-BLADE_JITTER, BLADE_JITTER))
+	_apply_blade_visibility()
+
+
+func _blade_at(i: int) -> Sprite2D:
+	return sprite if i == 0 else blades[i - 1]
+
+
+func _apply_blade_visibility() -> void:
+	var remaining := int(state.get("health", BLADE_SLOTS.size()))
+	for i in BLADE_SLOTS.size():
+		_blade_at(i).visible = i < remaining
 
 
 func _ensure_blades() -> void:
@@ -107,11 +121,46 @@ func on_hit(tool: DataTypes.Tools, damage: int) -> void:
 		return
 	sounds.stream = HIT_SOUND
 	sounds.play()
-	if damage >= state["health"]:
+	var before := int(state["health"])
+	var after := maxi(before - damage, 0)
+	state["health"] = after
+	for i in range(after, before):
+		_burst(_blade_at(i))
+	if after == 0:
 		destroy()
 	else:
-		state["health"] -= damage
+		_apply_blade_visibility()
 		play_shake()
+
+
+func _burst(blade: Sprite2D) -> void:
+	var clump := blade.texture as AtlasTexture
+	if clump == null or not blade.visible:
+		return
+	var piece := AtlasTexture.new()
+	piece.atlas = clump.atlas
+	piece.region = Rect2(clump.region.position + (clump.region.size * 0.5).floor() - Vector2.ONE, Vector2(3, 3))
+	var fade := Gradient.new()
+	fade.colors = PackedColorArray([Color.WHITE, Color(1, 1, 1, 0)])
+	var burst := CPUParticles2D.new()
+	burst.texture = piece
+	burst.one_shot = true
+	burst.explosiveness = 1.0
+	burst.amount = BURST_AMOUNT
+	burst.lifetime = BURST_LIFETIME
+	burst.direction = Vector2.UP
+	burst.spread = 70.0
+	burst.initial_velocity_min = 40.0
+	burst.initial_velocity_max = 80.0
+	burst.gravity = Vector2(0, 240)
+	burst.angular_velocity_min = -360.0
+	burst.angular_velocity_max = 360.0
+	burst.color_ramp = fade
+	burst.z_index = 1
+	get_parent().add_child(burst)
+	burst.global_position = blade.global_position + Vector2(0, -clump.get_height() * 0.5)
+	burst.finished.connect(burst.queue_free)
+	burst.emitting = true
 
 
 func destroy() -> void:
@@ -136,3 +185,10 @@ func _on_body_entered(_body: Node2D) -> void:
 
 func _on_body_exited(_body: Node2D) -> void:
 	SoundManager.stop_ambient_sound(FOOTSTEP_VEGETATION)
+
+
+func _on_area_entered(area: Area2D) -> void:
+	var hit := area as HitComponent
+	if hit == null or not accepts_tool(hit.current_tool):
+		return
+	on_hit(hit.current_tool, maxi(hit.hit_damage, 1))

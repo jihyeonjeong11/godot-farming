@@ -1,6 +1,7 @@
 @tool
 class_name WorldObject extends Node2D
 
+
 @export var data: WorldObjectData:
 	set(value):
 		data = value
@@ -45,9 +46,30 @@ func accepts_tool(tool: DataTypes.Tools) -> bool:
 func is_deleting() -> bool:
 	return is_queued_for_deletion()
 
+func get_drop_item_id() -> StringName:
+	return data.item_id if data != null else &""
+
+
 func on_interact() -> void:
-	pass
-	
+	var item_id := get_drop_item_id()
+	if item_id.is_empty():
+		return
+	var item := ItemDB.get_item(item_id)
+	if item == null:
+		return
+	drop_item(item, 1)
+	SnapshotActions.remove(self)
+	queue_free()
+
+
+func drop_item(item: Item, amount: int) -> Node2D:
+	var dropped = load("res://items/dropped_item/dropped_item.tscn").instantiate()
+	dropped.item = item
+	get_parent().add_child(dropped)
+	dropped.global_position = global_position
+	return dropped
+
+
 func on_hit(tool: DataTypes.Tools, damage: int) -> void:
 	SnapshotActions.remove(self)
 	queue_free()

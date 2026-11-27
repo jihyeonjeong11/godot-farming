@@ -6,6 +6,7 @@ const PISTOL := preload("res://assets/Objects/items/pistol.png")
 
 const DEFS := {
 	"axe": {y = 144, h = 32, act = "swing"},
+	"scrap_axe": {y = 144, h = 32, act = "swing"},
 	"pickaxe": {y = 80, h = 32, act = "swing"},
 	"hoe": {y = 16, h = 32, act = "swing"},
 	"watering_can": {y = 224, h = 16, act = "water"},

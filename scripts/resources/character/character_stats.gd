@@ -182,9 +182,13 @@ func _on_stamina_set(new_value: int) -> void:
 	stamina_changed.emit(stamina, current_max_stamina)
 
 
+
 func _on_hunger_set(new_value: int) -> void:
 	hunger = clampi(new_value, 0, current_max_hunger)
 	hunger_changed.emit(hunger, current_max_hunger)
+	if hunger <= 90:
+		SoundManager.play_sound(preload("uid://b5rrsby1pu8pw"))
+		#DialogueManager
 
 
 func _on_thirst_set(new_value: int) -> void:

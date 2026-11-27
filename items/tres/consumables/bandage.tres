@@ -13,5 +13,6 @@ item_id = "bandage"
 item_type = 2
 item_name = "Bandage"
 item_texture = SubResource("AtlasTexture_bandage")
+heal = 30
 value = 150
 metadata/_custom_type_script = "uid://dmr7h44k3q6t2"

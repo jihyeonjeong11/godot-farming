@@ -38,19 +38,20 @@ func _ready() -> void :
 		prints("Disabling OPs in non-debug build.")
 		process_mode = ProcessMode.PROCESS_MODE_DISABLED
 		return
-	dev_give_building_table()
-	dev_give_crafting_table()
-	#dev_fill_inventory()
-	#dev_give_wearables()
+	#dev_give_building_table()
+	#dev_give_crafting_table()
+	##dev_fill_inventory()
+	##dev_give_wearables()
 	dev_give_tools()
-	dev_give_seed()
-	#dev_give_recipe_materials(&"campfire")
-	dev_give_recipe_materials(&"water_collector")
-	dev_give_chest()
-	dev_give_sword()
-	dev_give_stone()
-	dev_give_new_items()
-	dev_give_cooking()
+	#dev_give_seed()
+	##dev_give_recipe_materials(&"campfire")
+	#dev_give_recipe_materials(&"water_collector")
+	#dev_give_chest()
+	#dev_give_sword()
+	#dev_give_stone()
+	#dev_give_coal()
+	#dev_give_new_items()
+	#dev_give_cooking()
 	dev_shuffle_outfit()
 	#dev_start_late()
 	dev_build_grid()
@@ -159,8 +160,7 @@ func dev_fill_inventory() -> void:
 const DEV_WEARABLES := [&"gas_mask", &"bulletproof_vest", &"military_boots"]
 
 func dev_give_tools() -> void:
-	for item in ItemDB.of_type(DataTypes.ItemType.Tool):
-		InventoryActions.obtain(ItemStack.new(item, 1))
+		InventoryActions.obtain(ItemStack.new(ItemDB.get_item("scrap_axe"), 1))
 
 
 func dev_give_seed() -> void:
@@ -192,6 +192,10 @@ func dev_give_sword() -> void:
 
 func dev_give_stone() -> void:
 	InventoryActions.obtain(ItemStack.new(ItemDB.get_item(&"stone"), 10))
+
+
+func dev_give_coal() -> void:
+	InventoryActions.obtain(ItemStack.new(ItemDB.get_item(&"coal"), 5))
 
 
 func dev_give_new_items() -> void:
